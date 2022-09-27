@@ -150,6 +150,7 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %changelog
 * Tue Sep 27 2022 Evgeni Golov - 3.4.1-2
 - Drop requires on psutil, runner doesn't need it anymore
+- Add dependency on ansible-runner
 
 * Mon Sep 05 2022 Leos Stejskal <lstejska@redhat.com> 3.4.1-1
 - Update to 3.4.1
