@@ -20,7 +20,7 @@ BuildRequires: gcc
 # end specfile generated dependencies
 
 %description
-Protocol Buffers are Google's data interchange format.
+Protocol Buffers are Google data interchange format.
 
 
 %package doc
