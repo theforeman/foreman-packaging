@@ -2,7 +2,7 @@
 
 Name:           %{pypi_name}
 Version:        2.2.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A tool and python library to interface with Ansible
 
 License:        ASL 2.0
@@ -16,6 +16,8 @@ BuildRequires: python%{python3_pkgversion}-setuptools
 BuildRequires: python%{python3_pkgversion}-pbr
 BuildRequires: python%{python3_pkgversion}-rpm-macros
 Requires:      python%{python3_pkgversion}-%{pypi_name} = %{version}-%{release}
+Obsoletes:     python3-%{pypi_name} < %{version}
+Obsoletes:     python38-%{pypi_name} < %{version}
 
 %description
 Ansible Runner is a tool and python library that helps when interfacing with
@@ -25,7 +27,6 @@ standalone tool, or imported into a python project.
 %package -n     python%{python3_pkgversion}-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python%{python3_pkgversion}-%{pypi_name}}
-Obsoletes:      python38-%{pypi_name} < %{version}
 
 Requires:       python%{python3_pkgversion}-pyyaml
 Requires:       python%{python3_pkgversion}-setuptools
@@ -57,15 +58,19 @@ ln -s %{_bindir}/ansible-runner-%{python3_version} %{buildroot}/%{_bindir}/ansib
 
 %files
 %defattr(-,root,root)
-
-%files -n python%{python3_pkgversion}-%{pypi_name}
-%{python3_sitelib}/*
 %{_bindir}/ansible-runner
 %{_bindir}/ansible-runner-3
 %{_bindir}/ansible-runner-%{python3_version}
 %{_datadir}/ansible-runner/*
 
+%files -n python%{python3_pkgversion}-%{pypi_name}
+%{python3_sitelib}/*
+
 %changelog
+* Tue Sep 27 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-3
+- Add obsolete on python3-ansible-runner
+- Move ansible-runner binary to ansible-runner package
+
 * Thu Sep 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-2
 - Add requires for python-packaging
 
