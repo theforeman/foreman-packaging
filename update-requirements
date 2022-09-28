@@ -24,7 +24,10 @@ def get_requirement(version):
 
     if version.startswith('^') or version.startswith('~'):
         modifier = version[0]
-        parsed = semver.parse(version[1:])
+        split_version = version[1:].split('.', 2)
+        while(len(split_version) < 3):
+            split_version.append('0')
+        parsed = semver.parse('.'.join(split_version))
 
         min_version = '{}.{}.{}'.format(parsed['major'], parsed['minor'], parsed['patch'])
         if modifier == '^':
