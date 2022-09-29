@@ -124,7 +124,6 @@ if [[ -z $PYPI_NAME ]]; then
   exit 1
 fi
 
-ensure_program crudini
 ensure_program pyp2rpm
 ensure_program spec2scl
 
