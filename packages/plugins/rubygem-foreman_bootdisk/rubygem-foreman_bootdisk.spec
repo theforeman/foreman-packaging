@@ -5,7 +5,7 @@
 
 %global gem_name foreman_bootdisk
 %global plugin_name bootdisk
-%global foreman_min_version 3.1
+%global foreman_min_version 3.4
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 21.0.0
