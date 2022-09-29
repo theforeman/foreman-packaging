@@ -110,7 +110,6 @@ if [[ -z $NPM_MODULE_NAME ]]; then
   exit 1
 fi
 
-ensure_program crudini
 ensure_program npm2rpm
 ensure_program spectool
 
