@@ -194,7 +194,6 @@ foreman_core_packages:
     rubygem-google-apis-sqladmin_v1beta4: {}
     rubygem-google-apis-storage_v1: {}
     rubygem-google-cloud-env: {}
-    rubygem-google-protobuf: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
@@ -675,6 +674,7 @@ foreman_plugin_packages:
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
     rubygem-git: {}
+    rubygem-google-protobuf: {}
     rubygem-graphite-api: {}
     rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
