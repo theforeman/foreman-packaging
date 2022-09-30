@@ -675,6 +675,7 @@ foreman_plugin_packages:
     rubygem-foreman_wreckingball: {}
     rubygem-gapic-common: {}
     rubygem-git: {}
+    rubygem-google-cloud-errors: {}
     rubygem-google-protobuf: {}
     rubygem-googleapis-common-protos: {}
     rubygem-googleapis-common-protos-types: {}
