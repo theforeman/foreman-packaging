@@ -675,6 +675,7 @@ foreman_plugin_packages:
     rubygem-foreman_wreckingball: {}
     rubygem-git: {}
     rubygem-google-protobuf: {}
+    rubygem-googleapis-common-protos: {}
     rubygem-googleapis-common-protos-types: {}
     rubygem-graphite-api: {}
     rubygem-hammer_cli_foreman_admin: {}
