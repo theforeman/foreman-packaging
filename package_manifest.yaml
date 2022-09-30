@@ -677,6 +677,7 @@ foreman_plugin_packages:
     rubygem-git: {}
     rubygem-google-cloud-common: {}
     rubygem-google-cloud-compute-v1: {}
+    rubygem-google-cloud-core: {}
     rubygem-google-cloud-errors: {}
     rubygem-google-protobuf: {}
     rubygem-googleapis-common-protos: {}
