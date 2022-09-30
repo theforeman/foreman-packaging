@@ -120,6 +120,7 @@
       <packagereq type="default">rubygem-googleapis-common-protos</packagereq>
       <packagereq type="default">rubygem-googleapis-common-protos-types</packagereq>
       <packagereq type="default">rubygem-graphite-api</packagereq>
+      <packagereq type="default">rubygem-grpc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_admin</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ansible</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_azure_rm</packagereq>
@@ -296,6 +297,7 @@
       <packagereq type="default">rubygem-google-cloud-errors-doc</packagereq>
       <packagereq type="default">rubygem-google-protobuf-doc</packagereq>
       <packagereq type="default">rubygem-graphite-api-doc</packagereq>
+      <packagereq type="default">rubygem-grpc-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_admin-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ansible-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_azure_rm-doc</packagereq>
