@@ -676,6 +676,7 @@ foreman_plugin_packages:
     rubygem-gapic-common: {}
     rubygem-git: {}
     rubygem-google-cloud-common: {}
+    rubygem-google-cloud-compute: {}
     rubygem-google-cloud-compute-v1: {}
     rubygem-google-cloud-core: {}
     rubygem-google-cloud-errors: {}
