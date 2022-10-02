@@ -17,7 +17,7 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.1
+Version: 0.8.2
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -28,18 +28,10 @@ Requires: %{?scl_prefix}rubygem(logging)
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.6
-Requires: %{?scl_prefix}rubygem(dynflow) < 2
-Requires: %{?scl_prefix}rubygem(rest-client)
-Requires: %{?scl_prefix}rubygem(sqlite3)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -117,6 +109,9 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Sun Oct 02 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.8.2-1
+- Update to 0.8.2
+
 * Tue Mar 29 2022 Adam Ruzicka <aruzicka@redhat.com> 0.8.1-1
 - Update to 0.8.1
 
