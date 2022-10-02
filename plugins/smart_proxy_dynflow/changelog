@@ -1,3 +1,9 @@
+ruby-smart-proxy-dynflow (0.8.2-1) stable; urgency=low
+
+  * 0.8.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 02 Oct 2022 04:38:58 +0000
+
 ruby-smart-proxy-dynflow (0.8.1-1) stable; urgency=low
 
   * 0.8.1 released
