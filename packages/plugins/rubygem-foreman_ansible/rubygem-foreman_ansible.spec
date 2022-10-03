@@ -5,7 +5,7 @@
 
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 3.4.0
+%global foreman_min_version 3.5.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 10.0.1
