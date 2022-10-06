@@ -2,7 +2,7 @@
 %global gem_name pulp_file_client
 
 Name: rubygem-%{gem_name}
-Version: 1.10.5
+Version: 1.11.1
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Oct 06 2022 Samir Jha <sjha4@ncsu.edu> 1.11.1-1
+- Update to 1.11.1
+
 * Thu Aug 25 2022 Samir Jha <sjha4@ncsu.edu> 1.10.5-1
 - Update to 1.10.5
 
