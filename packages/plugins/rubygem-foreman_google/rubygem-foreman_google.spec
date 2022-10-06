@@ -29,15 +29,15 @@ BuildRequires: rubygem(google-cloud-compute) < 1
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 10.0.0
-BuildRequires: npm(@theforeman/builder) < 11.0.0
+# BuildRequires: npm(@babel/core) >= 7.7.0
+# BuildRequires: npm(@babel/core) < 8.0.0
+# BuildRequires: npm(@theforeman/builder) >= 10.0.0
+# BuildRequires: npm(@theforeman/builder) < 11.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(react-intl) >= 2.8.0
-BuildRequires: npm(react-intl) < 3.0.0
+# BuildRequires: npm(react-intl) >= 2.8.0
+# BuildRequires: npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -83,8 +83,10 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_webpack_plugin}
-%{foreman_webpack_foreman}
+%{foreman_assets_plugin}
+%{foreman_assets_foreman}
+# %{foreman_webpack_plugin}
+# %{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
