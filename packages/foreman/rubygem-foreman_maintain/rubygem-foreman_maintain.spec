@@ -10,8 +10,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.3
-Release: 2%{?dist}
+Version: 1.1.8
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -138,6 +138,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Oct 06 2022 Eric D. Helms <ericdhelms@gmail.com> - 1:1.1.8-1
+- Release rubygem-foreman_maintain 1.1.8
+
 * Mon Aug 15 2022 Evgeni Golov - 1:1.1.3-2
 - Fixes #35366 - make foreman-protector work as non-root
 
