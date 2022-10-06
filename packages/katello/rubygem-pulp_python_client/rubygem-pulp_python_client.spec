@@ -2,7 +2,7 @@
 %global gem_name pulp_python_client
 
 Name: rubygem-%{gem_name}
-Version: 3.6.1
+Version: 3.7.2
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Oct 06 2022 Samir Jha <sjha4@ncsu.edu> 3.7.2-1
+- Update to 3.7.2
+
 * Thu Aug 25 2022 Samir Jha <sjha4@ncsu.edu> 3.6.1-1
 - Update to 3.6.1
 
