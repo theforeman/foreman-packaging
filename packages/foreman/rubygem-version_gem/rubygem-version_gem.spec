@@ -6,7 +6,7 @@ Version: 1.1.1
 Release: 1%{?dist}
 Summary: Enhance your VERSION! Sugar for Version modules
 License: MIT
-URL: https://github.com/pboling/version_gem
+URL: https://gitlab.com/oauth-xx/version_gem
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -50,7 +50,6 @@ cp -a .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/SECURITY.md
 %{gem_libdir}
-%{gem_instdir}/sig
 %exclude %{gem_cache}
 %{gem_spec}
 
