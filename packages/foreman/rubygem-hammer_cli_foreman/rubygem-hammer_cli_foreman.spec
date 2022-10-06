@@ -5,7 +5,7 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -90,6 +90,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %exclude %{gem_cache}
 %{gem_spec}
 %config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
+%exclude %{gem_instdir}/lib/minitest
 
 %files doc
 %doc %{gem_docdir}
@@ -99,6 +100,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Oct 06 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.2.pre.develop
+- Exclude minitest code
+
 * Wed Aug 10 2022 Patrick Creech <pcreech@redhat.com> - 3.5.0-0.1.pre.develop
 - Bump version to 3.5-develop
 
