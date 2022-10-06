@@ -81,6 +81,7 @@
       <packagereq type="default">rubygem-foreman_expire_hosts</packagereq>
       <packagereq type="default">rubygem-foreman_fog_proxmox</packagereq>
       <packagereq type="default">rubygem-foreman_git_templates</packagereq>
+      <packagereq type="default">rubygem-foreman_google</packagereq>
       <packagereq type="default">rubygem-foreman_graphite</packagereq>
       <packagereq type="default">rubygem-foreman_hooks</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator</packagereq>
@@ -258,6 +259,7 @@
       <packagereq type="default">rubygem-foreman_expire_hosts-doc</packagereq>
       <packagereq type="default">rubygem-foreman_fog_proxmox-doc</packagereq>
       <packagereq type="default">rubygem-foreman_git_templates-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_google-doc</packagereq>
       <packagereq type="default">rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator-doc</packagereq>
