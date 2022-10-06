@@ -9,10 +9,10 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 1
 
 Name:    foreman
-Version: 3.3.0
+Version: 3.3.1
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1049,6 +1049,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Oct 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.3.1-1
+- Release foreman 3.3.1
+
 * Wed Aug 31 2022 Evgeni Golov - 3.3.0-2
 - Fixes #35461 - Require /usr/sbin/sendmail to be available
 
