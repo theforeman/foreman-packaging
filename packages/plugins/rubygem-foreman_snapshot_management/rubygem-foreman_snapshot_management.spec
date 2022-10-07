@@ -7,7 +7,7 @@
 %global foreman_min_version 2.0.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.1
+Version: 2.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
@@ -17,29 +17,25 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: ruby >= 2.5
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 4.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
-BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
+BuildRequires: npm(react-intl) >= 2.8.0
+BuildRequires: npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -101,6 +97,7 @@ cp -pa .%{gem_dir}/* \
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
@@ -111,6 +108,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct 07 2022 Bernhard Suttner <suttner@atix.de> 2.0.2-1
+- Update to 2.0.2
+
+* Wed Aug 24 2022 Evgeni Golov - 2.0.1-2
+- Refs #35409 - Include sprockets assets
+
 * Thu Jul 15 2021 Markus Bucher <bucher@atix.de> 2.0.1-1
 - Update to 2.0.1
 
