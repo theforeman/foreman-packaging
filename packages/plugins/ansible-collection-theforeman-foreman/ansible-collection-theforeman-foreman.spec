@@ -4,7 +4,7 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    3.5.0
@@ -28,8 +28,10 @@ Requires: PyYAML
 Requires: (ansible >= 2.9 or ansible-core)
 Requires: (python3-requests if ansible)
 Requires: (python3-pyyaml if ansible)
-Requires: (python38-requests if ansible-core)
-Requires: (python38-pyyaml if ansible-core)
+Requires: (python38-requests if ansible-core < 2.13)
+Requires: (python38-pyyaml if ansible-core < 2.13)
+Requires: (python39-requests if ansible-core >= 2.13)
+Requires: (python39-pyyaml if ansible-core >= 2.13)
 %endif
 
 %description
@@ -55,6 +57,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Mon Nov 21 2022 Evgeni Golov - 3.5.0-2
+- Use python39 packages with ansible-core 2.13+
+
 * Thu Aug 25 2022 Evgeni Golov - 3.5.0-1
 - Release ansible-collection-theforeman-foreman 3.5.0
 
