@@ -1,3 +1,9 @@
+ruby-foreman-google (0.0.2-1) stable; urgency=low
+
+  * 0.0.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 09 Oct 2022 04:34:18 +0000
+
 ruby-foreman-google (0.0.1-1) UNRELEASED; urgency=medium
 
   * Initial release
