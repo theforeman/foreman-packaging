@@ -5,6 +5,8 @@
 %global repo_orgname theforeman
 %global repo_name foreman_ygg_worker
 %global yggdrasil_libexecdir %{_libexecdir}/yggdrasil
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+%global yggdrasil_worker_conf_dir %{_root_sysconfdir}/yggdrasil/workers
 
 %global goipath         github.com/%{repo_orgname}/%{repo_name}
 
@@ -20,7 +22,7 @@
 Name: foreman_ygg_worker
 Version: 0.1.1
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
@@ -53,13 +55,24 @@ popd
 
 %install
 install -D -m 755 _gopath/src/%{name}-%{version}/%{name}-%{version} %{buildroot}%{yggdrasil_libexecdir}/%{name}
+install -D -d -m 755 %{buildroot}%{yggdrasil_worker_conf_dir}
+
+cat <<EOF >%{buildroot}%{yggdrasil_worker_conf_dir}/foreman.toml
+exec = "%{yggdrasil_libexecdir}/%{name}"
+protocol = "grpc"
+env = []
+EOF
 
 %files
 %{yggdrasil_libexecdir}/%{name}
+%{yggdrasil_worker_conf_dir}/foreman.toml
 %license LICENSE
 %doc README.md
 
 %changelog
+* Mon Oct 10 2022 Adam Ruzicka <aruzicka@redhat.com> - 0.1.1-2
+- Bump version to 0.1.1
+
 * Tue Sep 13 2022 Adam Ruzicka <aruzicka@redhat.com> - 0.1.1-1
 - Bump version to 0.1.1
 
