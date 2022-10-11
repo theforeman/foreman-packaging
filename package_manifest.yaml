@@ -456,6 +456,7 @@ foreman_proxy_packages:
     rubygem-redfish_client: {}
     rubygem-rsec: {}
     rubygem-server_sent_events: {}
+    rubygem-webrick: {}
 
 foreman_client_packages:
   vars:
