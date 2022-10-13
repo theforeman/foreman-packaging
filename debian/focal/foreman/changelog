@@ -1,3 +1,9 @@
+foreman (3.5.0-3) stable; urgency=low
+
+  * clean up ruby and git dependencies
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 13 Oct 2022 09:30:37 +0200
+
 foreman (3.5.0-2) stable; urgency=low
 
   * explicitly vendor sinatra
