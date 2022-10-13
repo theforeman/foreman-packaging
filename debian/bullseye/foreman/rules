@@ -8,7 +8,7 @@
 DEB_BUILD_OPTIONS=noautodbgsym
 
 RUBY_VERSION := $(shell ruby -e 'print RbConfig::CONFIG["RUBY_API_VERSION"]')
-BUNDLE := $(firstword $(wildcard /usr/bin/bundle$(RUBY_VERSION) /usr/bin/bundle))
+BUNDLE := /usr/bin/bundle$(RUBY_VERSION)
 
 export BUNDLE_BUILD__SASSC=--disable-march-tune-native
 export BUNDLE_RETRY=5
