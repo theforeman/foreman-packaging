@@ -1,79 +1,52 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: foreman_plugin
 %global gem_name puppetdb_foreman
+%global plugin_name puppetdb_foreman
+%global foreman_min_version 3.1
 
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
+Name: rubygem-%{gem_name}
+Version: 6.0.0
+Release: 1%{?foremandist}%{?dist}
+Summary: This is a Foreman plugin to interact with PuppetDB
+License: GPLv3
+URL: https://www.github.com/theforeman/puppetdb_foreman
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Summary:    Foreman plugin to interact with PuppetDB
-Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.0
-Release:    4%{?foremandist}%{?dist}
-Group:      Applications/System
-License:    GPLv3
-URL:        https://github.com/theforeman/puppetdb_foreman
-Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Requires:   foreman >= 1.17.0
-
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}rubygems
-
-BuildRequires: foreman-plugin >= 1.17.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-
+# start specfile generated dependencies
+Requires: foreman >= %{foreman_min_version}
+Requires: ruby
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-puppetdb
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Provides: foreman-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
-This is a foreman plugin to interact with PuppetDB through callbacks
-and proxy the performance dashboard to Foreman.
+Disable hosts on PuppetDB after they are deleted or built in Foreman. Follow
+https://github.com/theforeman/puppetdb_foreman and raise an issue/submit a
+pull request if you need extra functionality. You can also find some help via
+the Foreman support pages (https://theforeman.org/support.html).
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -99,7 +72,13 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Fri Oct 14 2022 Dirk Goetz <dirk.goetz@netways.de> 6.0.0-1
+- Update to 6.0.0
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-4
 - Stop generaing apipie cache
 
