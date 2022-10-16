@@ -2,7 +2,7 @@
 %global gem_name gettext_i18n_rails
 
 Name: rubygem-%{gem_name}
-Version: 1.8.1
+Version: 1.9.0
 Release: 1%{?dist}
 Summary: Simple FastGettext Rails integration
 License: MIT
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Sun Oct 16 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.9.0-1
+- Update to 1.9.0
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.8.1-1
 - Update to 1.8.1
 
