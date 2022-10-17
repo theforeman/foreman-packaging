@@ -9,4 +9,4 @@ PLUGIN_HAS_ASSETS = true
 PLUGIN_HAS_WEBPACK = true
 PLUGIN_HAS_PACKAGE_JSON = true
 
-include /usr/share/foreman/foreman-plugin.mk
+include ./debian/foreman-plugin.mk

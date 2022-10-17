@@ -1,3 +1,9 @@
+ruby-foreman-webhooks (3.0.5-2) stable; urgency=low
+
+  * adjust foreman-plugin.mk to build the plugin as a user
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 17 Oct 2022 09:43:01 +0200
+
 ruby-foreman-webhooks (3.0.5-1) stable; urgency=low
 
   * 3.0.5 released
