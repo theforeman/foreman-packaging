@@ -13,6 +13,5 @@ PLUGIN = foreman_rescue
 PLUGIN_HAS_ASSETS = false
 PLUGIN_HAS_WEBPACK = false
 PLUGIN_HAS_PACKAGE_JSON = false
-PLUGIN_HAS_API = true
 
 include /usr/share/foreman/foreman-plugin.mk
