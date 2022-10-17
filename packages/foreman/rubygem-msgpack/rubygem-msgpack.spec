@@ -76,6 +76,7 @@ rm -rf gem_ext_test
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/appveyor.yml
 %{gem_instdir}/bench
+%exclude %{gem_instdir}/bin/console
 %{gem_libdir}
 %{gem_instdir}/msgpack.org.md
 %exclude %{gem_cache}
