@@ -12,7 +12,7 @@
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
 
-Version: %{mainver}
+Version: 4.4.2.2
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group:   Applications/Systems
 License: GPLv2
@@ -28,13 +28,14 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby < 3
-Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rails)
 Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 7.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.6.1
 Requires: %{?scl_prefix}rubygem(activerecord-import)
@@ -48,6 +49,7 @@ Requires: %{?scl_prefix}rubygem(pg)
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
+Requires: %{?scl_prefix}rubygem(faraday) < 1.9
 Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.16.0
 Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.17.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
@@ -76,6 +78,7 @@ BuildRequires: %{?scl_prefix}rubygem(oauth)
 BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.6.1
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
@@ -89,6 +92,7 @@ BuildRequires: %{?scl_prefix}rubygem(pg)
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
+BuildRequires: %{?scl_prefix}rubygem(faraday) < 1.9
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.16.0
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.17.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
@@ -112,7 +116,7 @@ BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}ruby < 3
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -242,6 +246,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Oct 18 2022 ianballou <ianballou67@gmail.com> 4.4.2.2-1
+- Update to 4.4.2.2
+
 * Tue Oct 04 2022 Odilon Sousa <osousa@redhat.com> - 4.4.2.1-1
 - Release rubygem-katello 4.4.2.1
 
