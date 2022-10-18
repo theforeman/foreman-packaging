@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.5.0-2) stable; urgency=low
+
+  * Add dependency on ruby-gssapi
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 18 Oct 2022 11:09:30 +0200
+
 ruby-apipie-bindings (0.5.0-1) stable; urgency=low
 
   * 0.5.0 released
