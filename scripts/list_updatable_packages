@@ -4,7 +4,7 @@ import json
 import os
 from collections import namedtuple
 from pathlib import Path
-from typing import Generator, Iterable
+from typing import Generator, Iterable, Tuple
 
 from debian.changelog import Changelog  # type: ignore
 from debian.debian_support import NativeVersion  # type: ignore
@@ -17,14 +17,33 @@ SESSION = requests.Session()
 Package = namedtuple('Package', ['package_name', 'version', 'gem_name', 'directory'])
 
 
-def find_packages() -> Generator[Package, None, None]:
+def find_package_directories() -> Generator[Tuple, None, None]:
     for plugin_rb in Path('plugins/').glob('**/*.rb'):
         gem_name = plugin_rb.read_text().strip().split()[1].strip("',\"")
-        package_changelog = next(plugin_rb.parent.glob('**/changelog'))
+        directory = plugin_rb.parent
+        package_changelog = next(directory.glob('**/changelog'))
+        yield (gem_name, directory, package_changelog)
+
+    for dependency in Path('dependencies/bullseye/').glob('*'):
+        gem_name = dependency.name
+        directory = dependency
+        package_changelog = directory / 'changelog'
+        build_vars_file = directory / 'build_vars.sh'
+        if build_vars_file.is_file():
+            build_vars = dict([line.split('=', 1) for line in build_vars_file.read_text().strip().splitlines()])
+        else:
+            build_vars = {}
+        build_type = build_vars.get('BUILD_TYPE', 'gem')
+        if build_type == 'gem':
+            yield (gem_name, directory, package_changelog)
+
+
+def find_packages() -> Generator[Package, None, None]:
+    for gem_name, directory, package_changelog in find_package_directories():
         with package_changelog.open() as debchangelog:
             changelog = Changelog(debchangelog)
             version = NativeVersion(changelog.version).upstream_version
-            yield Package(str(changelog.package), version, gem_name, plugin_rb.parent.as_posix())
+            yield Package(str(changelog.package), version, gem_name, directory.as_posix())
 
 
 def latest_version(spec: Package) -> str:
