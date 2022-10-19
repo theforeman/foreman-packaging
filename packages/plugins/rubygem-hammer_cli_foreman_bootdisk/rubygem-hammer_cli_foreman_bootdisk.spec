@@ -1,79 +1,74 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
+# template: hammer_plugin
 %global gem_name hammer_cli_foreman_bootdisk
-%global confdir hammer
+%global plugin_name foreman_bootdisk
 
-Summary: Foreman boot disk commands for Hammer CLI
-Name: %{?scl_prefix}rubygem-%{gem_name}
+%global hammer_confdir %{_sysconfdir}/hammer
+
+Name: rubygem-%{gem_name}
 Version: 0.3.0
-Release: 2%{?dist}
-Group: Applications/System
-License: GPLv3
+Release: 3%{?foremandist}%{?dist}
+Summary: Foreman boot disk commands for Hammer
+License: GPLv3+
 URL: https://github.com/theforeman/hammer_cli_foreman_bootdisk
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.2
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-%if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name} < 0.1.3-2
-%endif
+# end specfile generated dependencies
 
 %description
-This Hammer CLI plugin contains set of commands for foreman_bootdisk, a plugin
-to Foreman for ISO/USB booting support.
+Foreman boot disk commands for Hammer CLI.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
-%if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name}-doc < 0.1.3-2
-%endif
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
+
+%build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
-mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 .%{gem_instdir}/config/foreman_bootdisk.yml \
-               %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_bootdisk.yml
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
+install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
+                %{buildroot}%{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%license %{gem_instdir}/LICENSE
+%{gem_libdir}
 %{gem_instdir}/locale
-%doc %{gem_instdir}/LICENSE
-%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_bootdisk.yml
 %exclude %{gem_cache}
 %{gem_spec}
+%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/config
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/config
 
 %changelog
+* Wed Oct 19 2022 Evgeni Golov 0.3.0-3
+- Regenerate spec based on latest template
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.0-2
 - Rebuild plugins for Ruby 2.7
 
