@@ -1,70 +1,74 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
+# template: hammer_plugin
 %global gem_name hammer_cli_foreman_openscap
-%global confdir hammer
+%global plugin_name foreman_openscap
 
-Summary: Foreman OpenSCAP commands for Hammer CLI
-Name: %{?scl_prefix}rubygem-%{gem_name}
+%global hammer_confdir %{_sysconfdir}/hammer
+
+Name: rubygem-%{gem_name}
 Version: 0.1.13
-Release: 1%{?foremandist}%{?dist}
-Group: Applications/System
+Release: 2%{?foremandist}%{?dist}
+Summary: Foreman OpenSCAP commands for Hammer
 License: GPLv3
-URL: https://github.com/theforeman/hammer_cli_foreman_openscap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.6.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 4.0.0
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-This Hammer CLI plugin contains set of commands for foreman_openscap
+Foreman OpenSCAP commands for Hammer.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
+
+%build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
-mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
-cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_openscap.yml
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
+install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
+                %{buildroot}%{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/test
-%{gem_instdir}/config
-%{gem_instdir}/lib
+%license %{gem_instdir}/LICENSE
+%{gem_libdir}
 %{gem_instdir}/locale
-%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_openscap.yml
-%doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
+%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/config
+%{gem_instdir}/test
 
 %changelog
+* Wed Oct 19 2022 Evgeni Golov 0.1.13-2
+- Regenerate spec based on latest template
+
 * Fri Jul 23 2021 Ondrej Prazak <oprazak@redhat.com> 0.1.13-1
 - Update to 0.1.13
 
