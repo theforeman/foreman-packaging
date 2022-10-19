@@ -113,7 +113,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 <% end -%>
 %exclude %{gem_cache}
 %{gem_spec}
-%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
+%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 <% if doc_subpackage -%>
 %files doc
