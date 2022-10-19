@@ -1,91 +1,69 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-# Generated from net-ssh-multi-1.1.gem by gem2rpm -*- rpm-spec -*-
+# template: default
 %global gem_name net-ssh-multi
 
-%global enable_check 0
-
+Name: rubygem-%{gem_name}
+Version: 1.2.1
+Release: 1%{?dist}
 Summary: Control multiple Net::SSH connections via a single interface
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.0
-Release: 10%{?dist}
-Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-ssh-multi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Patch0: rubygem-net-ssh-multi-1.2.0-minitest.patch
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(net-ssh) >= 2.6.5
-Requires: %{?scl_prefix}rubygem(net-ssh-gateway) >= 1.2.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%if 0%{?enable_check}
-BuildRequires: %{?scl_prefix}rubygem(net-ssh)
-BuildRequires: %{?scl_prefix}rubygem(net-ssh-gateway)
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(mocha)
-%endif
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 Control multiple Net::SSH connections via a single interface.
 
+
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
-
-pushd .%{gem_instdir}
-%patch0 -p1
-popd
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%check
-%if 0%{?enable_check}
-pushd %{buildroot}%{gem_instdir}
-%{?scl:scl enable %{scl} - << \EOF}
-ruby -Ilib:test test/test_all.rb
-%{?scl:EOF}
-popd
-%endif
-
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/CHANGES.txt
+%license %{gem_instdir}/LICENSE.txt
 %{gem_libdir}
-%{gem_spec}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/net-ssh-multi.gemspec
+%{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/CHANGES.txt
-%doc %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/gem-public_cert.pem
 %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/net-ssh-multi.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Wed Oct 19 2022 Evgeni Golov 1.2.1-1
+- Update to 1.2.1-1
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.2.0-10
 - Rebuild for Ruby 2.7
 
