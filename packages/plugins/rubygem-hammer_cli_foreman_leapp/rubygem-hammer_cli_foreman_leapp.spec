@@ -1,32 +1,22 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-%global hammer_confdir %{_root_sysconfdir}/hammer
-
+# template: hammer_plugin
 %global gem_name hammer_cli_foreman_leapp
 %global plugin_name foreman_leapp
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+%global hammer_confdir %{_sysconfdir}/hammer
+
+Name: rubygem-%{gem_name}
 Version: 0.1.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Leapp plugin for Hammer CLI
-Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/stejskalleos/hammer-cli-foreman-leapp
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 2.0.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 4.0.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -34,36 +24,23 @@ Foreman Leapp plugin for Hammer CLI.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -77,17 +54,20 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/config
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
+%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/config
 
 %changelog
+* Wed Oct 19 2022 Evgeni Golov 0.1.1-2
+- Regenerate spec based on latest template
+
 * Fri Jul 23 2021 Adam Ruzicka <aruzicka@redhat.com> 0.1.1-1
 - Update to 0.1.1
 
