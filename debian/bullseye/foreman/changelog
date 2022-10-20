@@ -1,3 +1,9 @@
+foreman (3.5.0-5) stable; urgency=low
+
+  * Update the bundler version in Gemfile.lock on package update
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 20 Oct 2022 11:33:51 +0200
+
 foreman (3.5.0-4) stable; urgency=low
 
   * adjust foreman-plugin.mk to build the plugin as a user
