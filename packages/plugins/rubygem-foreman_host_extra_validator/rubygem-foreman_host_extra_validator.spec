@@ -74,6 +74,7 @@ cp -pa .%{gem_dir}/* \
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
+%{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
