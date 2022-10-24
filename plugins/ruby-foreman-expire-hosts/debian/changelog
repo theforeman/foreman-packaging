@@ -1,3 +1,9 @@
+ruby-foreman-expire-hosts (8.0.0-1) stable; urgency=low
+
+  * Update 8.0.0
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 24 Oct 2022 20:58:19 +0200
+
 ruby-foreman-expire-hosts (7.0.4-3) stable; urgency=low
 
   * Use foreman-plugin.mk
