@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.13.8
+Version: 1.13.9
 Release: 1%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 # MIT: see LICENSE.md
@@ -186,6 +186,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/gumbo-parser/src/README.md
 
 %changelog
+* Sun Oct 23 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.13.9-1
+- Update to 1.13.9
+
 * Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.13.8-1
 - Update to 1.13.8
 - Include improvements from Fedora spec file
