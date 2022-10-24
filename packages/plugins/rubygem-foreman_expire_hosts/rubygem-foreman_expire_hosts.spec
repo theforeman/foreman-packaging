@@ -8,8 +8,8 @@
 %global foreman_min_version 1.24
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 7.0.4
-Release: 4%{?foremandist}%{?dist}
+Version: 8.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 Group: Applications/Systems
 License: GPLv3
@@ -19,17 +19,12 @@ Source1: %{gem_name}.cron.d
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(deface)
+Requires: ruby
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -101,6 +96,9 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 %{foreman_plugin_log}
 
 %changelog
+* Mon Oct 24 2022 Marek Hulan <mhulan@redhat.com> 8.0.0-1
+- Update to 8.0.0
+
 * Mon May 09 2022 Evgeni Golov - 7.0.4-4
 - log plugin installation in posttrans
 
