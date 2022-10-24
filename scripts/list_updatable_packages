@@ -56,8 +56,9 @@ def main() -> None:
 
     if 'GITHUB_ACTION' in os.environ:
         directories = [entry['directory'] for entry in matrix]
-        print(f'::set-output name=directories::{json.dumps(directories)}')
-        print(f'::set-output name=matrix::{json.dumps(matrix)}')
+        with open(os.environ['GITHUB_OUTPUT'], 'a') as github_output:
+            print(f'directories={json.dumps(directories)}', file=github_output)
+            print(f'matrix={json.dumps(matrix)}', file=github_output)
     for entry in matrix:
         print(entry['directory'], entry['new_version'])
 
