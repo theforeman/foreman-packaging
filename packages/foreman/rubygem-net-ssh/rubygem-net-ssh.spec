@@ -51,7 +51,10 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.dockerignore
+%exclude %{gem_instdir}/Dockerfile*
+%exclude %{gem_instdir}/docker-compose.yml
 %doc %{gem_instdir}/CHANGES.txt
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 %license %{gem_instdir}/LICENSE.txt
