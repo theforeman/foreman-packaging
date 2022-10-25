@@ -8,8 +8,8 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.10
-Release: 3%{?foremandist}%{?dist}
+Version: 0.1.11
+Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 Group: Applications/Systems
 License: GPLv3
@@ -18,32 +18,27 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.2
-Requires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.2
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(foreman_remote_execution) >= 3.2
+BuildRequires: rubygem(foreman_ansible) >= 5.0
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.3.3
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 8.3.3
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(react-ellipsis-with-tooltip) >= 1.0.8
-BuildRequires: %{?scl_prefix}npm(react-ellipsis-with-tooltip) < 2.0.0
+BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
+BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -118,6 +113,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Oct 24 2022 Leos Stejskal <lstejska@redhat.com> 0.1.11-1
+- Update to 0.1.11
+
 * Wed Aug 24 2022 Evgeni Golov - 0.1.10-3
 - Refs #35409 - Include sprockets assets
 
