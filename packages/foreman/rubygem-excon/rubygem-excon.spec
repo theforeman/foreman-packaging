@@ -2,7 +2,7 @@
 %global gem_name excon
 
 Name: rubygem-%{gem_name}
-Version: 0.92.4
+Version: 0.93.1
 Release: 1%{?dist}
 Summary: speed, persistence, http(s)
 License: MIT
@@ -66,6 +66,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %exclude %{gem_instdir}/excon.gemspec
 
 %changelog
+* Tue Oct 25 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.93.1-1
+- Update to 0.93.1
+
 * Sun Jul 31 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.92.4-1
 - Update to 0.92.4
 
