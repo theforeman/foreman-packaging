@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 14
+%global release 15
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -117,7 +117,7 @@ Requires: rubygem(get_process_mem)
 Requires: rubygem(rack-cors) >= 1.1
 Requires: rubygem(rack-cors) < 2.0
 Requires: rubygem(jwt) >= 2.2.2
-Requires: rubygem(jwt) < 2.3.0
+Requires: rubygem(jwt) < 3.0
 Requires: rubygem(graphql) >= 1.13.0
 Requires: rubygem(graphql) < 1.14.0
 Requires: rubygem(graphql-batch)
@@ -217,7 +217,7 @@ BuildRequires: rubygem(get_process_mem)
 BuildRequires: rubygem(rack-cors) >= 1.1
 BuildRequires: rubygem(rack-cors) < 2.0
 BuildRequires: rubygem(jwt) >= 2.2.2
-BuildRequires: rubygem(jwt) < 2.3.0
+BuildRequires: rubygem(jwt) < 3.0
 BuildRequires: rubygem(graphql) >= 1.13.0
 BuildRequires: rubygem(graphql) < 1.14.0
 BuildRequires: rubygem(graphql-batch)
@@ -1005,6 +1005,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Oct 25 2022 Evgeni Golov - 3.5.0-0.15.develop
+- Update GEM dependencies
+
 * Mon Oct 17 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.14.develop
 - Obsolete foreman_docker (#35538)
 
