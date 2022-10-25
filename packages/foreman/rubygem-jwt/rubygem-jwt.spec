@@ -47,8 +47,10 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.codeclimate.yml
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.reek.yml
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.sourcelevel.yml
@@ -63,6 +65,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/AUTHORS
 %doc %{gem_instdir}/CHANGELOG.md
+%exclude %{gem_instdir}/CODE_OF_CONDUCT.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
