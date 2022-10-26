@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.7.0
-%global release 5
+%global release 6
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -55,21 +55,21 @@ BuildRequires: rubygem(pg)
 BuildRequires: rubygem(runcible) >= 2.13.0
 BuildRequires: rubygem(runcible) < 3.0.0
 BuildRequires: rubygem(anemone)
-BuildRequires: rubygem(pulpcore_client) >= 3.18.0
-BuildRequires: rubygem(pulpcore_client) < 3.19.0
-BuildRequires: rubygem(pulp_file_client) >= 1.10.0
-BuildRequires: rubygem(pulp_file_client) < 1.11.0
-BuildRequires: rubygem(pulp_ansible_client) >= 0.13.1
-BuildRequires: rubygem(pulp_ansible_client) < 0.14
-BuildRequires: rubygem(pulp_container_client) >= 2.10.0
-BuildRequires: rubygem(pulp_container_client) < 2.11.0
-BuildRequires: rubygem(pulp_deb_client) >= 2.18.0
-BuildRequires: rubygem(pulp_deb_client) < 2.19.0
-BuildRequires: rubygem(pulp_rpm_client) >= 3.17.0
-BuildRequires: rubygem(pulp_rpm_client) < 3.18.0
+BuildRequires: rubygem(pulpcore_client) >= 3.21.0
+BuildRequires: rubygem(pulpcore_client) < 3.22.0
+BuildRequires: rubygem(pulp_file_client) >= 1.11.0
+BuildRequires: rubygem(pulp_file_client) < 1.12
+BuildRequires: rubygem(pulp_ansible_client) >= 0.15.0
+BuildRequires: rubygem(pulp_ansible_client) < 0.16
+BuildRequires: rubygem(pulp_container_client) >= 2.14.0
+BuildRequires: rubygem(pulp_container_client) < 2.15.0
+BuildRequires: rubygem(pulp_deb_client) >= 2.20.0
+BuildRequires: rubygem(pulp_deb_client) < 2.21
+BuildRequires: rubygem(pulp_rpm_client) >= 3.18.0
+BuildRequires: rubygem(pulp_rpm_client) < 3.19.0
 BuildRequires: rubygem(pulp_certguard_client) < 2.0
-BuildRequires: rubygem(pulp_python_client) >= 3.7.1
-BuildRequires: rubygem(pulp_python_client) < 3.8.0
+BuildRequires: rubygem(pulp_python_client) >= 3.7.2
+BuildRequires: rubygem(pulp_python_client) < 3.8
 BuildRequires: rubygem(pulp_ostree_client)
 BuildRequires: rubygem(deface) >= 1.0.2
 BuildRequires: rubygem(deface) < 2.0.0
@@ -207,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Oct 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.6.pre.master
+- Update Gem and NPM dependencies
+
 * Mon Oct 3 2022 Ian Ballou <ianballou67@gmail.com> 4.7.0-0.5.pre.master
 - Bump pulp_python_client requirement to be higher than 3.7.1 but lower then 3.8.0
 
