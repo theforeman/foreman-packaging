@@ -18,7 +18,7 @@ jobs:
       matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout RPM
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: rpm/develop
     - name: Set the list
@@ -44,7 +44,7 @@ jobs:
         echo 'echo "$GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"' | sudo tee /usr/local/bin/rpmdev-packager
         sudo chmod +x /usr/local/bin/spectool /usr/local/bin/rpmdev-packager
     - name: Checkout RPM
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: rpm/develop
     - name: Initialize git annex
@@ -54,7 +54,7 @@ jobs:
       env:
         SKIP_GIT_COMMIT: 1
     - name: Open a PR
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v4
       with:
         commit-message: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         branch: "bump_rpm/${{ matrix.package_name }}"
@@ -70,7 +70,7 @@ jobs:
       matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout deb
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: deb/develop
     - name: Set the list
@@ -88,13 +88,13 @@ jobs:
         include: ${{ fromJson(needs.deb_list.outputs.matrix) }}
     steps:
     - name: Checkout DEB
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: deb/develop
     - name: Update package
       run: ./scripts/update_package.rb --name "$(basename ${{ matrix.directory }})" --version "${{ matrix.new_version }}"
     - name: Open a PR
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v4
       with:
         commit-message: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         branch: "bump_deb/${{ matrix.package_name }}"
