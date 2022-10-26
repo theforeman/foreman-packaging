@@ -1,3 +1,9 @@
+ruby-kafo-wizards (0.0.2-1) stable; urgency=low
+
+  * 0.0.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Oct 2022 14:37:04 +0000
+
 ruby-kafo-wizards (0.0.1-1) stable; urgency=medium
 
   * Initial release for Ubuntu/bionic
