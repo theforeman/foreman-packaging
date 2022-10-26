@@ -2,7 +2,7 @@
 %global gem_name pulpcore_client
 
 Name: rubygem-%{gem_name}
-Version: 3.21.0
+Version: 3.21.2
 Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 1:3.21.2-1
+- Update to 3.21.2
+
 * Wed Oct 19 2022 Samir Jha <sjha4@ncsu.edu> 1:3.21.0-1
 - Update to 3.21.0
 
