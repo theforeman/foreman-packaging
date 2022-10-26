@@ -1,3 +1,9 @@
+ruby-journald-logger (3.1.0-1) stable; urgency=low
+
+  * 3.1.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Oct 2022 14:37:03 +0000
+
 ruby-journald-logger (3.0.1-1) stable; urgency=low
 
   * 3.0.1 released
