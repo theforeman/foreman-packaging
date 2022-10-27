@@ -13,13 +13,13 @@ foreman_plugin_install() {
   cd /usr/share/foreman
   if [ ! -z "${DEBUG}" ]; then
     if [ -n "${PREVIOUS_VERSION}" ] ; then
-      $BUNDLE update $PLUGIN --local --bundler
+      $BUNDLE update $PLUGIN --local
     else
       $BUNDLE install --local --no-prune
     fi
   else
     if [ -n "${PREVIOUS_VERSION}" ] ; then
-      $BUNDLE update $PLUGIN --local --bundler 2>&1 >> $LOGFILE
+      $BUNDLE update $PLUGIN --local 2>&1 >> $LOGFILE
     else
       $BUNDLE install --local --no-prune 2>&1 >> $LOGFILE
     fi
