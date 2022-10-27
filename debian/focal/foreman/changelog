@@ -1,3 +1,9 @@
+foreman (3.5.0-6) stable; urgency=low
+
+  * Update the bundler version in Gemfile.lock on package update
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 27 Oct 2022 10:37:28 +0200
+
 foreman (3.5.0-5) stable; urgency=low
 
   * Update the bundler version in Gemfile.lock on package update
