@@ -1,3 +1,9 @@
+puppet-agent-puppet-strings (3.0.1-1) stable; urgency=low
+
+  * 3.0.1 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Wed, 26 Oct 2022 14:37:03 +0000
+
 puppet-agent-puppet-strings (1.2.1-1) stable; urgency=low
 
   * Update puppet-agent-puppet-strings to 1.2.1
