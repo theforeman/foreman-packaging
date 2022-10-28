@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 15
+%global release 16
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -661,6 +661,8 @@ Group:  Applications/System
 # start specfile service Requires
 Requires: rubygem(puma) >= 5.1
 Requires: rubygem(puma) < 6.0
+Requires: rubygem(sd_notify) >= 0.1.0
+Requires: rubygem(sd_notify) < 0.2.0
 # end specfile service Requires
 Requires: rubygem(puma-status)
 Requires: %{name} = %{version}-%{release}
@@ -1005,6 +1007,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Oct 28 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.16.develop
+- Require sd_notify for Puma systemd support
+
 * Tue Oct 25 2022 Evgeni Golov - 3.5.0-0.15.develop
 - Update GEM dependencies
 
