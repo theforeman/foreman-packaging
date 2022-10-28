@@ -1,3 +1,9 @@
+puppet-agent-puppet-strings (3.0.1-2) stable; urgency=low
+
+  * Update depends to require rgen ~> 0.9.0
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 28 Oct 2022 07:24:27 +0200
+
 puppet-agent-puppet-strings (3.0.1-1) stable; urgency=low
 
   * 3.0.1 released
