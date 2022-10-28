@@ -14,7 +14,7 @@ fi
 # hang if daemons have been started
 trap db_stop EXIT
 
-/opt/puppetlabs/puppet/bin/gem uninstall -x -v 0.8.2 rgen >/dev/null
+/opt/puppetlabs/puppet/bin/gem uninstall -x -v 0.9.0 rgen >/dev/null
 
 #DEBHELPER#
 
