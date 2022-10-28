@@ -14,7 +14,7 @@ fi
 # hang if daemons have been started
 trap db_stop EXIT
 
-/opt/puppetlabs/puppet/bin/gem install --local /usr/share/foreman-installer/gems/rgen-0.8.2.gem >/dev/null
+/opt/puppetlabs/puppet/bin/gem install --local /usr/share/foreman-installer/gems/rgen-0.9.0.gem >/dev/null
 
 #DEBHELPER#
 
