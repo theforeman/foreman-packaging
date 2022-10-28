@@ -58,7 +58,7 @@ foreman_packages:
         - el8-appstream
         - el8-extras
         - el8-powertools
-        - el8-puppet-6
+        - el8-puppet-7
         - "el8-katello-candlepin-{{ katello_version }}"
   children:
     foreman_core_packages: {}
@@ -81,7 +81,7 @@ plugin_packages:
         - el8-powertools
         - el8-configmanagement-salt
         - el8-extras
-        - el8-puppet-6
+        - el8-puppet-7
         - "el8-foreman-{{ foreman_version }}"
   children:
     foreman_plugin_packages: {}
@@ -483,13 +483,13 @@ foreman_client_packages:
         - el8-powertools
         - el8-epel
         - el8-extras
-        - el8-puppet-6
+        - el8-puppet-7
       rhel7:
         - el7-base
         - el7-updates
         - el7-epel
         - el7-extras
-        - el7-puppet-6
+        - el7-puppet-7
   hosts:
     foreman_ygg_worker: {}
     gofer: {}
@@ -515,7 +515,7 @@ katello_packages:
         - el8-powertools
         - el8-epel
         - el8-extras
-        - el8-puppet-6
+        - el8-puppet-7
         - "el8-foreman-{{ foreman_version }}"
         - "el8-foreman-plugins-{{ foreman_version }}"
         - "el8-katello-candlepin-{{ katello_version }}"
@@ -790,7 +790,7 @@ repoclosures:
           - el8-appstream
           - el8-powertools
           - el8-extras
-          - el8-puppet-6
+          - el8-puppet-7
           - "el8-katello-candlepin-{{ katello_version }}"
     plugins-repoclosure-el8:
       repoclosure_target_repos:
@@ -804,7 +804,7 @@ repoclosures:
           - el8-powertools
           - el8-configmanagement-salt
           - el8-extras
-          - el8-puppet-6
+          - el8-puppet-7
           - "el8-foreman-{{ foreman_version }}"
     katello-repoclosure-el8:
       repoclosure_target_repos:
@@ -817,7 +817,7 @@ repoclosures:
           - el8-appstream
           - el8-powertools
           - el8-extras
-          - el8-puppet-6
+          - el8-puppet-7
           - "el8-foreman-{{ foreman_version }}"
           - "el8-foreman-plugins-{{ foreman_version }}"
           - "el8-katello-candlepin-{{ katello_version }}"
@@ -843,7 +843,7 @@ repoclosures:
           - el8-powertools
           - el8-epel
           - el8-extras
-          - el8-puppet-6
+          - el8-puppet-7
     foreman-client-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
@@ -855,7 +855,7 @@ repoclosures:
           - el7-updates
           - el7-epel
           - el7-extras
-          - el7-puppet-6
+          - el7-puppet-7
 
 foreman_release_packages:
   vars:
@@ -882,12 +882,12 @@ foreman_release_packages:
         - el8-appstream
         - el8-powertools
         - el8-extras
-        - el8-puppet-6
+        - el8-puppet-7
       rhel7:
         - el7-base
         - el7-updates
         - el7-epel
         - el7-extras
-        - el7-puppet-6
+        - el7-puppet-7
   hosts:
     foreman-release: {}
