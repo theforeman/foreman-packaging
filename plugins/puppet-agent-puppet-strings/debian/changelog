@@ -1,3 +1,9 @@
+puppet-agent-puppet-strings (3.0.1-1) stable; urgency=low
+
+  * 3.0.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 30 Oct 2022 04:26:31 +0000
+
 puppet-agent-puppet-strings (3.0.1-2) stable; urgency=low
 
   * Update depends to require rgen ~> 0.9.0
