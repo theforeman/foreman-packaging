@@ -23,26 +23,10 @@ end.parse!
 raise "missing --name" if options[:name].nil?
 raise "missing --version" if options[:version].nil?
 
-# Try and find operating directories, prefer an exact match
+# Try and find operating directories
 def find_directories(name)
-  dirs = if File.exist?("plugins/#{name}")
-           Dir["plugins/#{name}"]
-         else
-           Dir["plugins/*#{name}*"]
-         end
-
-  if dirs.size > 1
-    raise "Ambiguous name given, multiple packages match: #{dirs.inspect}"
-  elsif dirs.empty?
-    # dependencies will have multiple directories, one per OS
-    dirs = Dir["dependencies/*/#{name}"]
-    if dirs.empty?
-      dirs = Dir["dependencies/*/*#{name}*"]
-      if dirs.empty?
-        raise "Cannot find a package with the name #{name}"
-      end
-    end
-  end
+  dirs = Dir["plugins/#{name}"] + Dir["dependencies/*/#{name}"]
+  raise "Cannot find a package with the name #{name}" if dirs.empty?
 
   dirs
 end
