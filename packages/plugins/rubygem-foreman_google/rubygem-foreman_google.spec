@@ -6,11 +6,14 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Google Compute Engine plugin for the Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_google
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# Foreman 3.5 dropped the gce compute provider and this is the replacement
+Obsoletes: foreman-gce < 3.5.0-1
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -99,6 +102,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Oct 31 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.0.2-2
+- Mark as a replacement for foreman-gce
+
 * Thu Oct 06 2022 Leos Stejskal <lstejska@redhat.com> 0.0.2-1
 - Update to 0.0.2
 
