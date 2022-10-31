@@ -1,3 +1,9 @@
+foreman (3.5.0-5) stable; urgency=low
+
+  * Replace foreman-gce with ruby-foreman-google
+
+ -- Leos Stejskal <lstejska@redhat.com>  Tue, 01 Nov 2022 10:05:58 +0100
+
 foreman (3.5.0-4) stable; urgency=low
 
   * adjust foreman-plugin.mk to build the plugin as a user

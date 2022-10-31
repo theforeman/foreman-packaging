@@ -1,3 +1,9 @@
+ruby-foreman-google (0.0.2-2) stable; urgency=low
+
+  * Add provides for foreman-gce
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 03 Nov 2022 14:44:19 +0100
+
 ruby-foreman-google (0.0.2-1) stable; urgency=low
 
   * 0.0.2 released
