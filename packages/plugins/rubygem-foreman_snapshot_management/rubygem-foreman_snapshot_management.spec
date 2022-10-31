@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
 License: GPLv3
@@ -80,7 +80,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -94,8 +94,6 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 %{foreman_assets_foreman}
 %{foreman_webpack_plugin}
@@ -108,6 +106,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Oct 31 2022 Markus Bucher <bucher@atix.de> - 2.0.2-2
+- Drop apipie:cache generation during build
+
 * Fri Oct 07 2022 Bernhard Suttner <suttner@atix.de> 2.0.2-1
 - Update to 2.0.2
 
