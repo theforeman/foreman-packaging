@@ -241,6 +241,7 @@ foreman_core_packages:
     rubygem-nio4r: {}
     rubygem-nokogiri: {}
     rubygem-oauth: {}
+    rubygem-oauth-tty: {}
     rubygem-optimist: {}
     rubygem-os: {}
     rubygem-ovirt-engine-sdk: {}

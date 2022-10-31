@@ -260,6 +260,7 @@
       <packagereq type="default">rubygem-nio4r</packagereq>
       <packagereq type="default">rubygem-nokogiri</packagereq>
       <packagereq type="default">rubygem-oauth</packagereq>
+      <packagereq type="default">rubygem-oauth-tty</packagereq>
       <packagereq type="default">rubygem-optimist</packagereq>
       <packagereq type="default">rubygem-os</packagereq>
       <packagereq type="default">rubygem-ovirt-engine-sdk</packagereq>
@@ -486,6 +487,7 @@
       <packagereq type="default">rubygem-nio4r-doc</packagereq>
       <packagereq type="default">rubygem-nokogiri-doc</packagereq>
       <packagereq type="default">rubygem-oauth-doc</packagereq>
+      <packagereq type="default">rubygem-oauth-tty-doc</packagereq>
       <packagereq type="default">rubygem-optimist-doc</packagereq>
       <packagereq type="default">rubygem-os-doc</packagereq>
       <packagereq type="default">rubygem-ovirt-engine-sdk-doc</packagereq>
