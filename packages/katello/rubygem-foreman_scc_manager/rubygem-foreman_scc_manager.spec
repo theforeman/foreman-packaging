@@ -4,11 +4,11 @@
 
 %global gem_name foreman_scc_manager
 %global plugin_name scc_manager
-%global foreman_min_version 1.18
-%global katello_min_version 3.7.0
+%global foreman_min_version 3.4
+%global katello_min_version 3.16.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.20
+Version: 2.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -20,22 +20,28 @@ Requires: %{?scl_prefix}rubygem(katello) >= %{katello_min_version}
 BuildRequires: %{?scl_prefix}rubygem(katello) >= %{katello_min_version}
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-Requires: %{?scl_prefix}rubygem(rails) >= 5.1
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-BuildRequires: %{?scl_prefix}rubygem(rails) >= 5.1
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(foreman-tasks) >= 0.10
+BuildRequires: rubygem(rails) >= 5.1
 # end specfile generated dependencies
+
+# start package.json devDependencies BuildRequires
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 4.0.0
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+BuildRequires: npm(react-intl) >= 2.8.0
+BuildRequires: npm(react-intl) < 3.0.0
+# end package.json dependencies BuildRequires
 
 %description
 Foreman plugin to sync SUSE Customer Center products and repositories into
@@ -90,10 +96,15 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -102,6 +113,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Oct 31 2022 Markus Bucher <bucher@atix.de> 2.0.0-1
+- Update to 2.0.0
+- Introducing new SCC product selection page
+
 * Thu Jun 02 2022 Nadja Heitmann <nadjah@atix.de> 1.8.20-1
 - Update to 1.8.20
 - Support upstream_authentication_token for Katello > 4.3
