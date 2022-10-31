@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 16
+%global release 17
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -412,22 +412,6 @@ Meta package to install requirements for VMware compute resource support.
 
 %files vmware
 %{_datadir}/%{name}/bundler.d/vmware.rb
-
-%package gce
-Summary: Foreman Google Compute Engine (GCE) support
-Group:  Applications/System
-# start specfile gce Requires
-Requires: rubygem(fog-google) >= 1.14
-Requires: rubygem(fog-google) < 2.0
-Requires: rubygem(faraday) < 2
-# end specfile gce Requires
-Requires: %{name} = %{version}-%{release}
-
-%description gce
-Meta package to install requirements for Google Compute Engine (GCE) support
-
-%files gce
-%{_datadir}/%{name}/bundler.d/gce.rb
 
 %package assets
 Summary: Foreman asset pipeline support
@@ -1007,6 +991,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Oct 31 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.17.develop
+- Remove gce subpackage
+
 * Fri Oct 28 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.16.develop
 - Require sd_notify for Puma systemd support
 
