@@ -291,6 +291,7 @@ foreman_core_packages:
     rubygem-sidekiq: {}
     rubygem-signet: {}
     rubygem-sinatra: {}
+    rubygem-snaky_hash: {}
     rubygem-sprockets: {}
     rubygem-sprockets-rails: {}
     rubygem-sshkey: {}
