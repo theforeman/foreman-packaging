@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import re
 import requests
 import subprocess
 from collections import defaultdict
@@ -25,7 +26,7 @@ def get_repo_packages(dist, release='nightly', arch='amd64', staging=False):
     remote_packages = requests.get(repo_url)
     for pkg in Packages.iter_paragraphs(remote_packages.text, use_apt_pkg=False):
         source = pkg.get('Source', pkg['Package'])
-        version = pkg['Version']
+        version = re.sub(r'\+(debian|ubuntu).*', '', pkg['Version'])
         if version.startswith('9999-') and release == 'nightly' and source in NIGHTLY_PACKAGES:
             continue
         if NativeVersion(packages[source]) < NativeVersion(version):
