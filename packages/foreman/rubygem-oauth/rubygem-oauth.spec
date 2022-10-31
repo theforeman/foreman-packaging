@@ -2,7 +2,7 @@
 %global gem_name oauth
 
 Name: rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.1.0
 Release: 1%{?dist}
 Summary: OAuth Core Ruby implementation
 License: MIT
@@ -44,19 +44,11 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_bindir}
-cp -a .%{_bindir}/* \
-        %{buildroot}%{_bindir}/
-
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
-
 %files
 %dir %{gem_instdir}
-%{_bindir}/oauth
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/TODO
-%{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -69,6 +61,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Mon Oct 31 2022 Eric D. Helms <ericdhelms@gmail.com> 1.1.0-1
+- Update to 1.1.0-1
+
 * Thu Aug 25 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
 - Update to 1.0.0
 
