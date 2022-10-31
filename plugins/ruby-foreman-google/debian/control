@@ -8,6 +8,9 @@ Homepage: https://github.com/theforeman/foreman_google
 
 Package: ruby-foreman-google
 Architecture: all
+Breaks: foreman-gce (<<3.5.0)
+Replaces: foreman-gce (<<3.5.0)
+Provides: foreman-gce
 Depends: ${misc:Depends}, bundler, foreman (>= 3.3.0~rc1)
 Description: Google Compute Engine plugin for the Foreman
  Google Compute Engine plugin for the Foreman

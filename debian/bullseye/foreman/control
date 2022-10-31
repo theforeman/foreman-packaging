@@ -155,14 +155,11 @@ Description: metapackage providing hammer CLI for Foreman
 
 Package: foreman-gce
 Architecture: all
-Section: web
+Section: oldlibs
 Priority: extra
-Depends: foreman (= ${binary:Version}), ${misc:Depends}
-Description: metapackage providing GCE dependencies for Foreman
- This package provides Google Compute Engine dependencies for Foreman,
- a flexible systems management web application.
- .
- The foreman package should be installed along with this package.
+Depends: ruby-foreman-google
+Description: transitional package for ruby-foreman-google
+  This is a transitional package. It can safely be removed.
 
 Package: foreman-debug
 Architecture: all
