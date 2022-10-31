@@ -317,6 +317,7 @@
       <packagereq type="default">rubygem-sidekiq</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-sinatra</packagereq>
+      <packagereq type="default">rubygem-snaky_hash</packagereq>
       <packagereq type="default">rubygem-sprockets</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-sqlite3</packagereq>
@@ -542,6 +543,7 @@
       <packagereq type="default">rubygem-sidekiq-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-sinatra-doc</packagereq>
+      <packagereq type="default">rubygem-snaky_hash-doc</packagereq>
       <packagereq type="default">rubygem-sprockets-doc</packagereq>
       <packagereq type="default">rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">rubygem-sqlite3-doc</packagereq>
