@@ -14,7 +14,7 @@ from debian.debian_support import NativeVersion
 
 DISTS = [path.name for path in Path('debian/').glob('*')]
 PLUGINS = ['plugins']
-NIGHTLY_PACKAGES = ['foreman', 'foreman-installer', 'foreman-proxy']
+NIGHTLY_PACKAGES = ['foreman', 'foreman-installer', 'foreman-proxy', 'foreman-release']
 
 
 def get_repo_packages(dist, release='nightly', arch='amd64', staging=False):
