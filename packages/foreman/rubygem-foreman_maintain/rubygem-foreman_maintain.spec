@@ -1,16 +1,12 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name foreman_maintain
+
 %global directory_name foreman-maintain
-%global yumplugindir %{_prefix}/lib%{nil}/yum-plugins
 %global dnfplugindir %{python3_sitelib}/dnf-plugins
 
-%{!?_root_bindir:%global _root_bindir %{_bindir}}
-
 Summary: The Foreman/Satellite maintenance tool
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.8
+Name: rubygem-%{gem_name}
+Version: 1.2.0
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -19,29 +15,18 @@ URL: https://github.com/theforeman/foreman_maintain
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1: %{gem_name}.logrotate
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
-Requires: %{?scl_prefix}rubygem(highline)
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
+BuildArch: noarch
+# end specfile generated dependencies
+
 Requires: yum-utils
-%if 0%{?rhel} == 7
-Requires: rh-postgresql12-postgresql-syspaths
-%else
 Requires: /usr/bin/psql
 Requires: nftables
-%endif
-%if 0%{?rhel} < 8
-BuildRequires: python2-devel
-%else
 BuildRequires: python3-devel
-%endif
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: %{gem_name} = %{version}
+
 Provides: foreman-maintain = %{version}
 
 %description
@@ -54,28 +39,31 @@ version.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
+Requires: %{name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
 Documentation for %{pkg_name}
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-sed -i '1s@/.*ruby.*@/usr/bin/%{?scl_prefix}ruby@' .%{_bindir}/*
-mkdir -p %{buildroot}%{_root_bindir}
-cp -pa .%{_bindir}/* \
-        %{buildroot}%{_root_bindir}/
+
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
@@ -89,39 +77,24 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 
 install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
-%if 0%{?rhel} > 7
 install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/dnf/foreman-protector.py %{buildroot}%{dnfplugindir}/foreman-protector.py
-%else
-install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/yum/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
-%endif
 install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 
-%if 0%{?rhel} > 7
 %py_byte_compile %{__python3} %{buildroot}%{dnfplugindir}/foreman-protector.py
-%else
-%py_byte_compile %{__python2} %{buildroot}%{yumplugindir}/foreman-protector.py
-%endif
 
 %files
 %dir %{gem_instdir}
-%{_root_bindir}/foreman-maintain
-%{_root_bindir}/foreman-maintain-complete
-%{_root_bindir}/foreman-maintain-rotate-tar
+%{_bindir}/foreman-maintain
+%{_bindir}/foreman-maintain-complete
+%{_bindir}/foreman-maintain-rotate-tar
 %{_sysconfdir}/bash_completion.d/%{gem_name}
 %{gem_instdir}/bin
 %{gem_instdir}/definitions
 %{gem_instdir}/lib
 %{gem_instdir}/config
 %{gem_instdir}/extras
-%if 0%{?rhel} > 7
 %{dnfplugindir}/foreman-protector.py*
-%else
-%{yumplugindir}/foreman-protector.py*
-%endif
-
-%if 0%{?rhel} > 7
 %{dnfplugindir}/__pycache__/foreman-protector.cpython*
-%endif
 
 %config(noreplace) %{_sysconfdir}/%{directory_name}
 %config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
@@ -138,6 +111,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 01 2022 Eric D. Helms <ericdhelms@gmail.com> - 1:1.2.0-1
+- Release 1.2.0
+
 * Thu Oct 06 2022 Eric D. Helms <ericdhelms@gmail.com> - 1:1.1.8-1
 - Release rubygem-foreman_maintain 1.1.8
 
