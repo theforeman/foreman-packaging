@@ -8,8 +8,8 @@
 %global foreman_min_version 3.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 19.0.5
-Release: 2%{?foremandist}%{?dist}
+Version: 19.0.7
+Release: 1%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -118,6 +118,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 02 2022 Ron Lavi <1ronlavi@gmail.com> 19.0.7-1
+- Update to 19.0.7
+
 * Mon May 09 2022 Evgeni Golov - 19.0.5-2
 - log plugin installation in posttrans
 
