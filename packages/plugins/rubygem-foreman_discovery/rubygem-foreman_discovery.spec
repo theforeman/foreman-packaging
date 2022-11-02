@@ -8,8 +8,8 @@
 
 Summary:    MaaS Discovery Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    21.0.1
-Release:    2%{?foremandist}%{?dist}
+Version:    21.0.4
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_discovery
@@ -110,6 +110,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 02 2022 Ron Lavi <1ronlavi@gmail.com> 21.0.4-1
+- Update to 21.0.4
+
 * Mon May 09 2022 Evgeni Golov - 21.0.1-2
 - log plugin installation in posttrans
 
