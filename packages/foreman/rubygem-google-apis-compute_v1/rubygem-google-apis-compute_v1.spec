@@ -2,7 +2,7 @@
 %global gem_name google-apis-compute_v1
 
 Name: rubygem-%{gem_name}
-Version: 0.53.0
+Version: 0.54.0
 Release: 1%{?dist}
 Summary: Simple REST client for Compute Engine API V1
 License: Apache-2.0
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Thu Nov 03 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.54.0-1
+- Update to 0.54.0
+
 * Sun Oct 30 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.53.0-1
 - Update to 0.53.0
 
