@@ -176,7 +176,6 @@
       <packagereq type="default">rubygem-smart-proxy-probing</packagereq>
       <packagereq type="default">rubygem-smart_proxy_acd</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_container_gateway</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42</packagereq>
@@ -352,7 +351,6 @@
       <packagereq type="default">rubygem-sentry-raven-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_acd-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_container_gateway-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42-doc</packagereq>
