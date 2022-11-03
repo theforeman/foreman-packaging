@@ -1,2 +1,0 @@
-debian/chef.rb usr/share/foreman-proxy/bundler.d
-settings.d/chef.yml etc/foreman-proxy/settings.d
