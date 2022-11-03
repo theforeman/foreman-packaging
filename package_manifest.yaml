@@ -742,7 +742,6 @@ foreman_plugin_packages:
 
 foreman_proxy_plugin_packages:
   hosts:
-    rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
     rubygem-infoblox: {}
     rubygem-logify: {}
