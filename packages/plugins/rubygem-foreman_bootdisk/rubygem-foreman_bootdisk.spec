@@ -8,7 +8,7 @@
 %global foreman_min_version 3.4
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 21.0.0
+Version: 21.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 Group: Applications/Systems
@@ -116,6 +116,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Nov 03 2022 Leos Stejskal <lstejska@redhat.com> 21.0.2-1
+- Update to 21.0.2
+
 * Mon Sep 26 2022 Leos Stejskal <lstejska@redhat.com> 21.0.0-1
 - Update to 21.0.0
 
