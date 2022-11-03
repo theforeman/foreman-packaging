@@ -1,3 +1,9 @@
+ruby-chef-api (0.10.10-1) stable; urgency=low
+
+  * 0.10.10 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 03 Nov 2022 09:47:44 +0000
+
 ruby-chef-api (0.6.0-1) unstable; urgency=low
 
   * Initial release for Ubuntu/bionic
