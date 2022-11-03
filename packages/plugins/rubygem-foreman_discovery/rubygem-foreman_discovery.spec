@@ -8,7 +8,7 @@
 
 Summary:    MaaS Discovery Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    21.0.3
+Version:    22.0.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -108,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Nov 03 2022 Foreman Packaging Automation <packaging@theforeman.org> 22.0.2-1
+- Update to 22.0.2
+
 * Sun Sep 18 2022 Foreman Packaging Automation <packaging@theforeman.org> 21.0.3-1
 - Update to 21.0.3
 
