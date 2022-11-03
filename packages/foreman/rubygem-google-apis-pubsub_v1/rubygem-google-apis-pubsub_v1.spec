@@ -2,7 +2,7 @@
 %global gem_name google-apis-pubsub_v1
 
 Name: rubygem-%{gem_name}
-Version: 0.30.0
+Version: 0.31.0
 Release: 1%{?dist}
 Summary: Simple REST client for Cloud Pub/Sub API V1
 License: Apache-2.0
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Thu Nov 03 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.31.0-1
+- Update to 0.31.0
+
 * Sun Oct 30 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.30.0-1
 - Update to 0.30.0
 
