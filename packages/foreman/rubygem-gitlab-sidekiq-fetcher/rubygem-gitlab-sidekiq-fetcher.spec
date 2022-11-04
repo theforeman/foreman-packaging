@@ -58,6 +58,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rspec
 %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/Gemfile.lock
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/RELEASE-GITLAB.md
 %exclude %{gem_instdir}/gitlab-sidekiq-fetcher.gemspec
