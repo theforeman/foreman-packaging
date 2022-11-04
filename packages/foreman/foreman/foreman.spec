@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -506,7 +506,6 @@ Meta package to install asset pipeline support.
 Summary: Foreman plugin support
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
-Requires: %{name}-build = %{version}-%{release}
 Requires: rubygem(activerecord-nulldb-adapter)
 
 %description plugin
@@ -992,6 +991,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Nov 23 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.6.0-0.4.develop
+- Drop requirement on foreman-build from foreman-plugin
+
 * Mon Nov 21 2022 Quirin Pamp <pamp@atix.de> - 3.6.0-0.3.develop
 - Ensure tmp directory exists in foreman_precompile_plugin
 
