@@ -8,7 +8,7 @@
 
 Summary:    This plugin adds extra validations to a host
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.2.0
+Version:    0.2.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -91,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Nov 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.2.1-1
+- Update to 0.2.1
+
 * Mon Oct 24 2022 Marek Hulan <mhulan@redhat.com> 0.2.0-1
 - Update to 0.2.0
 
