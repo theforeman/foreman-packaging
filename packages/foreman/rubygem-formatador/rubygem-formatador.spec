@@ -2,7 +2,7 @@
 %global gem_name formatador
 
 Name: rubygem-%{gem_name}
-Version: 0.3.0
+Version: 1.1.0
 Release: 1%{?dist}
 Summary: Ruby STDOUT text formatting
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Sun Nov 06 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.1.0-1
+- Update to 1.1.0
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.3.0-1
 - Update to 0.3.0
 
