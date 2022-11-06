@@ -2,7 +2,7 @@
 %global gem_name fog-core
 
 Name: rubygem-%{gem_name}
-Version: 2.2.4
+Version: 2.3.0
 Release: 1%{?dist}
 Summary: Shared classes and tests for fog providers and services
 License: MIT
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Nov 06 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.3.0-1
+- Update to 2.3.0
+
 * Wed Jul 13 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.4-1
 - Update to 2.2.4
 
