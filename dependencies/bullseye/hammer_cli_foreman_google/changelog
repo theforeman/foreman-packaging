@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-google (1.0.0-1) stable; urgency=low
+
+  * 1.0.0 released
+
+ -- Leos Stejskal <lstejska@redhat.com>  Mon, 07 Nov 2022 10:24:12 +0100
+
 ruby-hammer-cli-foreman-google (0.0.1-1) UNRELEASED; urgency=medium
 
   * Initial release
