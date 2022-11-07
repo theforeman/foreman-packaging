@@ -1,3 +1,9 @@
+ruby-foreman-discovery (21.0.4-1) stable; urgency=low
+
+  * 21.0.4 released
+
+ -- Leos Stejskal <lstejska@redhat.com>  Mon, 07 Nov 2022 10:40:09 +0100
+
 ruby-foreman-discovery (21.0.1-2) stable; urgency=low
 
   * Use foreman-plugin.mk
