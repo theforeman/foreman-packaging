@@ -26,6 +26,10 @@ build:
 	# foreman pulls in rack-protection via sidekiq, f-tasks needs sinatra
 	# let foreman.deb provide both gems in the cache, so that they always match
 	echo 'gem "sinatra"' >> bundler.d/debian.rb
+	# foreman_google and foreman_azure_rm both require faraday
+	# let foreman.deb provide both gems in the cache, so that the plugins always
+	# get compatible versions
+	echo 'gem "faraday", "<2"' >> bundler.d/debian.rb
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	$(BUNDLE) install
