@@ -1,3 +1,9 @@
+ruby-foreman-google (1.0.0-1) stable; urgency=low
+
+  * 1.0.0 released
+
+ -- Leos Stejskal <lstejska@redhat.com>  Mon, 07 Nov 2022 10:16:56 +0100
+
 ruby-foreman-google (0.0.2-3) stable; urgency=low
 
   * Add replaces for foreman before 3.5
