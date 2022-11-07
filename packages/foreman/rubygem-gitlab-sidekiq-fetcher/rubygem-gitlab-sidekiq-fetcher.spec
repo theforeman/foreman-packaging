@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Reliable fetch extension for Sidekiq
 License: LGPL-3.0
 URL: https://gitlab.com/gitlab-org/sidekiq-reliable-fetch/
@@ -30,6 +30,9 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+# 0.9.0 added a dep on >= 2.5 to get Ruby 3.0 support, which we don't need yet
+%gemspec_remove_dep -g json ">= 2.5"
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -66,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Mon Nov 07 2022 Evgeni Golov - 0.9.0-2
+- Remove json >= 2.5 dependency
+
 * Fri Nov 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.9.0-1
 - Update to 0.9.0
 
