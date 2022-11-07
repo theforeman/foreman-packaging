@@ -1,3 +1,9 @@
+ruby-foreman-google (0.0.2-3) stable; urgency=low
+
+  * Add replaces for foreman before 3.5
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 07 Nov 2022 09:46:50 +0100
+
 ruby-foreman-google (0.0.2-2) stable; urgency=low
 
   * Add provides for foreman-gce
