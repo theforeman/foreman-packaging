@@ -5,9 +5,7 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -100,6 +98,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 08 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-1
+- Update to 3.5.0
+
 * Thu Oct 06 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.2.pre.develop
 - Exclude minitest code
 
