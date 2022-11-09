@@ -8,7 +8,7 @@
 %global foreman_min_version 3.5.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 10.0.1
+Version: 10.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -29,8 +29,10 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: rubygem(acts_as_list) >= 1.0.3
 BuildRequires: rubygem(acts_as_list) < 1.1
 BuildRequires: rubygem(deface) < 2.0
-BuildRequires: rubygem(foreman_remote_execution) >= 8.0.0
-BuildRequires: rubygem(foreman-tasks) >= 7.0.0
+BuildRequires: rubygem(foreman_remote_execution) >= 8.0
+BuildRequires: rubygem(foreman_remote_execution) < 9
+BuildRequires: rubygem(foreman-tasks) >= 7.0
+BuildRequires: rubygem(foreman-tasks) < 8
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
@@ -117,6 +119,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 09 2022 nofaralfasi <nalfassi@redhat.com> 10.1.0-1
+- Update to 10.1.0
+
 * Mon Oct 03 2022 Leos Stejskal <lstejska@redhat.com> 10.0.1-1
 - Update to 10.0.1
 
