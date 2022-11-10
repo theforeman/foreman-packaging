@@ -1,3 +1,9 @@
+ruby-foreman-tasks (7.1.0-1) stable; urgency=low
+
+  * 7.1.0 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 10 Nov 2022 12:08:09 +0000
+
 ruby-foreman-tasks (7.0.0-2) stable; urgency=low
 
   * Use foreman-plugin.mk
