@@ -2,14 +2,14 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global foreman_min_version 3.5
-%global foreman_max_version 3.6
+%global foreman_min_version 3.6
+%global foreman_max_version 3.7
 %global plugin_name katello
 %global gem_name katello
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.7.0
-%global release 6
+%global mainver 4.8.0
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -207,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Nov 10 2022 Evgeni Golov - 4.8.0-0.1.pre.master
+- Bump version to 4.8.0
+
 * Wed Oct 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.6.pre.master
 - Update Gem and NPM dependencies
 
