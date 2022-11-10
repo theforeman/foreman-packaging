@@ -16,8 +16,8 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.4.1
-Release: 2%{?foremandist}%{?dist}
+Version: 3.5.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
@@ -35,19 +35,10 @@ Requires: ansible-collection-theforeman-foreman
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(net-ssh)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.8
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
-Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) >= 0.4
-Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) < 1
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -126,6 +117,9 @@ done
 
 ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}/.ansible.cfg
 
+mkdir -p %{buildroot}%{_libexecdir}/foreman-proxy
+ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdir}/foreman-proxy/ansible-runner-environment
+
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/ansible.yml
@@ -142,12 +136,16 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible_galaxy
 %ghost %attr(0640,root,foreman-proxy) %config(noreplace) %{_root_sysconfdir}/foreman-proxy/ansible.cfg
+%{_libexecdir}/foreman-proxy/ansible-runner-environment
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Nov 10 2022 Adam Ruzicka <aruzicka@redhat.com> 3.5.0-1
+- Update to 3.5.0
+
 * Tue Sep 27 2022 Evgeni Golov - 3.4.1-2
 - Drop requires on psutil, runner doesn't need it anymore
 - Add dependency on ansible-runner
