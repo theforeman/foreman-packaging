@@ -9,8 +9,8 @@
 %global foreman_min_version 3.3.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 7.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 7.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -20,40 +20,33 @@ Source1: %{gem_name}.logrotate
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.6.0
-Requires: %{?scl_prefix}rubygem(get_process_mem)
-Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
-Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2
-Requires: %{?scl_prefix}rubygem(sinatra)
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.6.0
-BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
-BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
-BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2
-BuildRequires: %{?scl_prefix}rubygem(sinatra)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(dynflow) >= 1.6.0
+BuildRequires: rubygem(get_process_mem)
+BuildRequires: rubygem(parse-cron) >= 0.1.4
+BuildRequires: rubygem(parse-cron) < 0.2
+BuildRequires: rubygem(sinatra)
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
-BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
+BuildRequires: npm(c3) >= 0.4.11
+BuildRequires: npm(c3) < 1.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -178,6 +171,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Thu Nov 10 2022 Adam Ruzicka <aruzicka@redhat.com> 7.1.0-1
+- Update to 7.1.0
+
 * Wed Aug 24 2022 Evgeni Golov - 7.0.0-2
 - Refs #35409 - Include sprockets assets
 
