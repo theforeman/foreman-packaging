@@ -12,5 +12,5 @@ PLUGIN_HAS_PACKAGE_JSON = true
 include /usr/share/foreman/foreman-plugin.mk
 
 override_dh_auto_install:
-	cp -r /usr/share/foreman/vendor/ruby/*/gems/foreman-tasks-*/extra ./
+	cp -r ./usr/share/foreman/vendor/ruby/*/gems/foreman-tasks-*/extra ./
 	dh_auto_install
