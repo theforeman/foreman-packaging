@@ -2,7 +2,7 @@
 %global gem_name rails-i18n
 
 Name: rubygem-%{gem_name}
-Version: 7.0.5
+Version: 7.0.6
 Release: 1%{?dist}
 Summary: Common locale data and translations for Rails i18n
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Nov 10 2022 Foreman Packaging Automation <packaging@theforeman.org> 7.0.6-1
+- Update to 7.0.6
+
 * Fri Aug 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 7.0.5-1
 - Update to 7.0.5
 
