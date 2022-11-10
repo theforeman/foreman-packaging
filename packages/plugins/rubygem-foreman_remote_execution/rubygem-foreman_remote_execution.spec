@@ -10,8 +10,8 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    8.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    8.1.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -32,7 +32,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: rubygem(deface)
 BuildRequires: rubygem(dynflow) >= 1.0.2
 BuildRequires: rubygem(dynflow) < 2.0.0
-BuildRequires: rubygem(foreman-tasks) >= 5.1.0
+BuildRequires: rubygem(foreman-tasks) >= 7.1.0
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
@@ -159,6 +159,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Thu Nov 10 2022 Adam Ruzicka <aruzicka@redhat.com> 8.1.0-1
+- Update to 8.1.0
+
 * Fri Sep 09 2022 Adam Ruzicka <aruzicka@redhat.com> 8.0.0-2
 - Bump dependency on Foreman to >=3.4.0
 
