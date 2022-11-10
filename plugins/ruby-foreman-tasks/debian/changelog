@@ -1,3 +1,9 @@
+ruby-foreman-tasks (7.0.0-3) stable; urgency=low
+
+  * rebuild
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 10 Nov 2022 13:37:36 +0100
+
 ruby-foreman-tasks (7.0.0-2) stable; urgency=low
 
   * Use foreman-plugin.mk
