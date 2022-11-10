@@ -6,7 +6,7 @@
 %global foreman_max_version 3.6
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.7.0
 %global release 6
@@ -207,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Nov 10 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.6.rc1
+- Release rubygem-katello 4.7.0rc1
+
 * Wed Oct 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.6.pre.master
 - Update Gem and NPM dependencies
 
