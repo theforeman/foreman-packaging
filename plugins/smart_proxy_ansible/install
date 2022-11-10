@@ -1,2 +1,3 @@
 debian/ansible.rb usr/share/foreman-proxy/bundler.d
 settings.d/ansible.yml etc/foreman-proxy/settings.d
+bin/ansible-runner-environment usr/libexec/foreman-proxy
