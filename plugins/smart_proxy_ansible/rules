@@ -13,6 +13,7 @@
 
 build:
 	cp settings.d/ansible.yml.example settings.d/ansible.yml
+	mv bin/ansible-runner-environment.sh bin/ansible-runner-environment
 
 %:
 	dh $@ --buildsystem=ruby --with ruby
@@ -20,3 +21,4 @@ build:
 override_dh_auto_install:
 	dh_auto_install
 	$(RM) $(CURDIR)/debian/ruby-smart-proxy-ansible/usr/bin/json_inventory.sh
+	$(RM) $(CURDIR)/debian/ruby-smart-proxy-ansible/usr/bin/ansible-runner-environment
