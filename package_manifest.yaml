@@ -168,7 +168,6 @@ foreman_core_packages:
     rubygem-ffi: {}
     rubygem-fog-aws: {}
     rubygem-fog-core: {}
-    rubygem-fog-google: {}
     rubygem-fog-json: {}
     rubygem-fog-libvirt: {}
     rubygem-fog-openstack: {}
