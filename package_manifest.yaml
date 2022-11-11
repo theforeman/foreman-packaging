@@ -95,6 +95,7 @@ foreman_core_packages:
     dynflow-utils: {}
     foreman: {}
     foreman-bootloaders-redhat: {}
+    foreman-obsolete-packages: {}
     keycloak-httpd-client-install: {}
     pcp-mmvstatsd: {}
     rubygem-activerecord-nulldb-adapter: {}
