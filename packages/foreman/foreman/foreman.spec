@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -850,6 +850,7 @@ mv db/schema.rb.nulldb db/schema.rb \\
 ln -s %{nodejs_sitelib} node_modules \\
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`ruby -e "print Gem.path.join(':')"\`} \\
 unlink tmp \\
+mkdir tmp \\
 \\
 rm \`pwd\`/config/initializers/encryption_key.rb \\
 rm \`pwd\`/config/database.yml \\
@@ -991,6 +992,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Nov 21 2022 Quirin Pamp <pamp@atix.de> - 3.6.0-0.3.develop
+- Ensure tmp directory exists in foreman_precompile_plugin
+
 * Fri Nov 18 2022 Evgeni Golov - 3.6.0-0.2.develop
 - Update GEM dependencies
 
