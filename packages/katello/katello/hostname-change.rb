@@ -598,7 +598,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       # always disable system checks to avoid unnecessary errors. The installer should have
       # already ran since this is to be run on an existing system and installer checks would
       # have already been skipped
-      "#{@options[:program]}-installer --scenario #{@options[:scenario]} -v --disable-system-checks"
+      "#{@options[:program]}-installer --scenario #{@options[:scenario]} -v"
     end
   end
 end
