@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.6.0
@@ -130,6 +130,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Nov 15 2022 Evgeni Golov - 4.6.0-2
+- Fixes #35756 - do not use --disable-system-checks as it is gone
+
 * Mon Sep 19 2022 Patrick Creech <pcreech@redhat.com> - 4.6.0-1
 - Release katello 4.6.0
 
