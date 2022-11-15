@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.4.7
+Version: 6.0.6
 Release: 1%{?dist}
 Summary: Job framework with pluggable queues
 Group: Development/Languages
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 15 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.6-1
+- Release rubygem-activejob 6.0.6
+
 * Fri Mar 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.4.7-1
 - Release rubygem-activejob 6.0.4.7
 
