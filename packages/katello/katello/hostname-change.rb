@@ -595,7 +595,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     end
 
     def default_installer
-      "#{@options[:program]}-installer --scenario #{@options[:scenario]} -v"
+      "#{@options[:program]}-installer --scenario #{@options[:scenario]}"
     end
   end
 end
