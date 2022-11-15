@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.1.6.1
+Version: 6.1.7
 Release: 1%{?dist}
 Summary: Inbound email handling framework
 Group: Development/Languages
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 15 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.1.7-1
+- Release rubygem-actionmailbox 6.1.7
+
 * Thu Jul 14 2022 Evgeni Golov - 6.1.6.1-1
 - Release rubygem-actionmailbox 6.1.6.1
 
