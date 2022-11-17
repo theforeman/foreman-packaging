@@ -667,7 +667,6 @@ foreman_plugin_packages:
     rubygem-foreman_salt: {}
     rubygem-foreman_setup: {}
     rubygem-foreman_snapshot_management: {}
-    rubygem-foreman_spacewalk: {}
     rubygem-foreman_statistics: {}
     rubygem-foreman_supervisory_authority: {}
     rubygem-foreman_templates: {}
@@ -774,7 +773,6 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_remote_execution_ssh: {}
     rubygem-smart_proxy_salt: {}
     rubygem-smart_proxy_shellhooks: {}
-    rubygem-smart_proxy_spacewalk: {}
 
 repoclosures:
   hosts:
