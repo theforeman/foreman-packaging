@@ -100,7 +100,6 @@
       <packagereq type="default">rubygem-foreman_salt</packagereq>
       <packagereq type="default">rubygem-foreman_setup</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot_management</packagereq>
-      <packagereq type="default">rubygem-foreman_spacewalk</packagereq>
       <packagereq type="default">rubygem-foreman_statistics</packagereq>
       <packagereq type="default">rubygem-foreman_supervisory_authority</packagereq>
       <packagereq type="default">rubygem-foreman_templates</packagereq>
@@ -198,7 +197,6 @@
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_shellhooks</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_spacewalk</packagereq>
       <packagereq type="default">rubygem-timeliness</packagereq>
       <packagereq type="default">rubygem-ttfunk</packagereq>
       <packagereq type="default">rubygem-vault</packagereq>
@@ -275,7 +273,6 @@
       <packagereq type="default">rubygem-foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot_management-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_spacewalk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_statistics-doc</packagereq>
       <packagereq type="default">rubygem-foreman_supervisory_authority-doc</packagereq>
       <packagereq type="default">rubygem-foreman-tasks-doc</packagereq>
@@ -374,7 +371,6 @@
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_shellhooks-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_spacewalk-doc</packagereq>
       <packagereq type="default">rubygem-timeliness-doc</packagereq>
       <packagereq type="default">rubygem-ttfunk-doc</packagereq>
       <packagereq type="default">rubygem-vault-doc</packagereq>
