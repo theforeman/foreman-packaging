@@ -6,7 +6,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: rubygem-%{gem_name}
-Version: 1.2.0
+Version: 1.2.1
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -111,6 +111,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Nov 18 2022 Evgeni Golov 1:1.2.1-1
+- Update to 1.2.1
+
 * Tue Nov 01 2022 Eric D. Helms <ericdhelms@gmail.com> - 1:1.2.0-1
 - Release 1.2.0
 
