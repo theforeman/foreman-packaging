@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -44,8 +44,8 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile default Requires
-Requires: rubygem(rails) >= 6.1.6.1
-Requires: rubygem(rails) < 6.1.7.0
+Requires: rubygem(rails) >= 6.1.6
+Requires: rubygem(rails) < 6.2.0
 Requires: rubygem(rest-client) >= 2.0.0
 Requires: rubygem(rest-client) < 3
 Requires: rubygem(audited) >= 5.0
@@ -144,8 +144,8 @@ BuildRequires: rubygem(rake) >= 0.8.3
 BuildRequires: rubygem(bundler_ext)
 
 # start specfile default BuildRequires
-BuildRequires: rubygem(rails) >= 6.1.6.1
-BuildRequires: rubygem(rails) < 6.1.7.0
+BuildRequires: rubygem(rails) >= 6.1.6
+BuildRequires: rubygem(rails) < 6.2.0
 BuildRequires: rubygem(rest-client) >= 2.0.0
 BuildRequires: rubygem(rest-client) < 3
 BuildRequires: rubygem(audited) >= 5.0
@@ -991,6 +991,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Nov 18 2022 Evgeni Golov - 3.6.0-0.2.develop
+- Update GEM dependencies
+
 * Tue Nov 08 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.1.develop
 - Bump version to 3.6-develop
 
