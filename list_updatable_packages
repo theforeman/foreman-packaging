@@ -12,6 +12,7 @@ import requests
 import tempfile
 
 SUPPORTED_TEMPLATES = ('foreman_plugin', 'hammer_plugin', 'smart_proxy_plugin')
+EXTRA_SUPPORTED_GEMS = ('foreman_maintain',)
 # pulp_ostree_client: only prereleases exist and our tooling can't handle that
 EXCLUDED_GEMS = ('pulp_ostree_client',)
 SESSION = requests.Session()
@@ -69,6 +70,10 @@ class Spec:
         return not self.is_nightly and not self.is_excluded
 
     @property
+    def is_supported(self) -> bool:
+        return self.template in SUPPORTED_TEMPLATES or self.gem_name in EXTRA_SUPPORTED_GEMS
+
+    @property
     def gem_name(self) -> Optional[str]:
         return self.globals.get('gem_name')
 
@@ -102,10 +107,10 @@ def find_gemfile_lock_specs(ci_job: str, subdir: str) -> Generator[Tuple[Spec, s
 
 
 def find_packaged_specs() -> Generator[Tuple[Spec, None], None, None]:
-    if DEBUG: print('Finding plugin specs')
+    if DEBUG: print('Finding supported leaf specs')
     for path in Path('packages').glob('*/*/*.spec'):
         spec = Spec(path)
-        if spec.template in SUPPORTED_TEMPLATES and spec.is_updateable:
+        if spec.is_supported and spec.is_updateable:
             yield spec, None
 
 
