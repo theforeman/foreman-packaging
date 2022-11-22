@@ -2,7 +2,7 @@
 %global gem_name roadie
 
 Name: rubygem-%{gem_name}
-Version: 5.0.1
+Version: 5.1.0
 Release: 1%{?dist}
 Summary: Making HTML emails comfortable for the Ruby rockstars
 License: MIT
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Nov 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 5.1.0-1
+- Update to 5.1.0
+
 * Mon Aug 29 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.0.1-1
 - Update to 5.0.1
 
