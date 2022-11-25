@@ -36,8 +36,8 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.0
-Release: 4%{?foremandist}%{?dist}
+Version: 5.0.1
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -52,7 +52,6 @@ BuildRequires: python2-rpm-macros
 Requires: python3
 BuildRequires: python3-rpm-macros
 %endif
-Requires: /etc/cron.d
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
@@ -117,8 +116,6 @@ gem build %{gem_name}.gemspec
 %{?scl:EOF}
 
 %install
-mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d
-
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
@@ -163,7 +160,6 @@ cp -pa .%{_bindir}/salt_python_wrapper %{buildroot}%{_root_bindir}/salt_python_w
 
 mkdir -p %{buildroot}%{_root_sbindir}
 mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
-mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
 
 %files
 %dir %{gem_instdir}
@@ -174,7 +170,6 @@ mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.yml
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
-%{gem_instdir}/cron
 %{gem_instdir}/salt
 %{gem_instdir}/lib
 %{gem_instdir}/bundler.d
@@ -183,9 +178,7 @@ mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/
 %exclude %{gem_cache}
 %{gem_spec}
 %config(noreplace) %{salt_config_dir}/foreman.yaml
-%config %{_root_sysconfdir}/cron.d/%{gem_name}
 %exclude %{gem_instdir}/etc
-%exclude %{gem_instdir}/cron
 %{salt_proxy_runners_dir}
 %{salt_proxy_reactors_dir}
 %dir %attr(-,foreman-proxy,foreman-proxy) %{salt_state_grains_dir}
@@ -203,6 +196,10 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Fri Nov 25 2022 Bastian Schmidt <schmidt@atix.de> 5.0.1-1
+- Update to 5.0.1
+- Drop cron job
+
 * Thu Aug 18 2022 Bastian Schmidt <schmidt@atix.de> 5.0.0-4
 - Add automatic report upload via reactor
 
