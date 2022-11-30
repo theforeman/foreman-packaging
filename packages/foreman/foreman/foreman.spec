@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 17
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -44,8 +44,8 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile default Requires
-Requires: rubygem(rails) >= 6.1.6.1
-Requires: rubygem(rails) < 6.1.7.0
+Requires: rubygem(rails) >= 6.1.6
+Requires: rubygem(rails) < 6.2.0
 Requires: rubygem(rest-client) >= 2.0.0
 Requires: rubygem(rest-client) < 3
 Requires: rubygem(audited) >= 5.0
@@ -144,8 +144,8 @@ BuildRequires: rubygem(rake) >= 0.8.3
 BuildRequires: rubygem(bundler_ext)
 
 # start specfile default BuildRequires
-BuildRequires: rubygem(rails) >= 6.1.6.1
-BuildRequires: rubygem(rails) < 6.1.7.0
+BuildRequires: rubygem(rails) >= 6.1.6
+BuildRequires: rubygem(rails) < 6.2.0
 BuildRequires: rubygem(rest-client) >= 2.0.0
 BuildRequires: rubygem(rest-client) < 3
 BuildRequires: rubygem(audited) >= 5.0
@@ -991,6 +991,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Nov 30 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.17.rc2
+- Release foreman 3.5.0-rc2
+
 * Tue Nov 08 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.17.rc1
 - Release foreman 3.5.0rc1
 
