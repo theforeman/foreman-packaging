@@ -1,21 +1,30 @@
-# template: default
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_container_gateway
+%global plugin_name container_gateway
+
+%global foreman_proxy_min_version 1.24
+%global foreman_proxy_dir %{_datadir}/foreman-proxy
+%global foreman_proxy_statedir %{_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
+%global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
 Version: 1.0.7
-Release: 1%{?dist}
+Release: 1%{?foremandist}%{?dist}
 Summary: Pulp 3 container registry support for Foreman/Katello Smart-Proxy
 License: GPLv3
 URL: https://github.com/ianballou/smart_proxy_container_gateway
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby >= 2.5
 Requires: ruby < 3
 BuildRequires: ruby >= 2.5
 BuildRequires: ruby < 3
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -46,12 +55,24 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# bundler file
+mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
+   %{buildroot}%{foreman_proxy_bundlerd_dir}
+
+# sample config
+mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
+mv %{buildroot}%{gem_instdir}/settings.d/container_gateway.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/container_gateway.yml
+
 %files
 %dir %{gem_instdir}
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/container_gateway.yml
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/bundler.d
+%exclude %{gem_instdir}/bundler.d
 %{gem_libdir}
-%{gem_instdir}/settings.d
+%exclude %{gem_instdir}/settings.d
+%{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
 
