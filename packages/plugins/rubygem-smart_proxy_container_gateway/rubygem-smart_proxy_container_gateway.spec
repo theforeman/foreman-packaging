@@ -4,7 +4,7 @@
 
 %global foreman_proxy_min_version 1.24
 %global foreman_proxy_dir %{_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_statedir %{_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
