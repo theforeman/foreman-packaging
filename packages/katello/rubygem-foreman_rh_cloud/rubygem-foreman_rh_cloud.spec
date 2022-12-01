@@ -4,12 +4,12 @@
 %global foreman_min_version 3.3
 
 Name: rubygem-%{gem_name}
-Version: 6.0.43
+Version: 6.0.44
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
-Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: %{gem_name}-%{version}.gem
 
 Autoreq: 0
 
@@ -104,6 +104,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Dec 01 2022 Shimon Shtein <sshtein@redhat.com> 6.0.44-1
+- Update to 6.0.44-1 
+
 * Thu Sep 15 2022 Shimon Shtein <sshtein@redhat.com> 6.0.43-1
 - Update to 6.0.43-1
 
