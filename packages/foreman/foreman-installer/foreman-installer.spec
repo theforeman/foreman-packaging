@@ -88,6 +88,13 @@ Requires: foreman-installer-katello-common = %{epoch}:%{version}-%{release}
 %description scenario-foreman-proxy-content
 A content proxy for Katello.
 
+%package scenario-pulp
+Summary: Pulp scenario
+Requires: foreman-installer-common = %{epoch}:%{version}-%{release}
+
+%description scenario-pulp
+Installer scenario for Pulp
+
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
@@ -176,6 +183,13 @@ done
 %config(noreplace) %attr(600, root, root) %{scenariodir}/foreman-proxy-content-answers.yaml
 %config(noreplace) %{scenariodir}/foreman-proxy-content-migrations-applied
 %{parser_cache}/foreman-proxy-content.yaml
+
+%files scenario-pulp
+%{configdir}/pulp.migrations
+%config(noreplace) %attr(600, root, root) %{scenariodir}/pulp.yaml
+%config(noreplace) %attr(600, root, root) %{scenariodir}/pulp-answers.yaml
+%config(noreplace) %{scenariodir}/pulp-migrations-applied
+%{parser_cache}/pulp.yaml
 
 %changelog
 * Tue May 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.8.0-0.1.develop
