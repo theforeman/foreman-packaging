@@ -10,7 +10,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    8.1.0
+Version:    8.1.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -159,6 +159,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 8.1.1-1
+- Update to 8.1.1
+
 * Thu Nov 10 2022 Adam Ruzicka <aruzicka@redhat.com> 8.1.0-1
 - Update to 8.1.0
 
