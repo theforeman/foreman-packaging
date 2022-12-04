@@ -1,3 +1,9 @@
+ruby-foreman-azure-rm (2.2.8-1) stable; urgency=low
+
+  * 2.2.8 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 04 Dec 2022 04:09:08 +0000
+
 ruby-foreman-azure-rm (2.2.7-1) stable; urgency=low
 
   * 2.2.7 released
