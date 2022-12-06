@@ -37,7 +37,7 @@ BuildRequires: rubygem(foreman-tasks)
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 7.8.0
-BuildRequires: npm(@theforeman/builder) >= 8.16.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.1
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
