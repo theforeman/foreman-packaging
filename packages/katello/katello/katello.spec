@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.8.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Dec 06 2022 Evgeni Golov - 4.8.0-0.2.master
+- Fixes #35756 - do not use --disable-system-checks as it is gone
+
 * Thu Nov 10 2022 Evgeni Golov - 4.8.0-0.1.master
 - Bump version to 4.8.0
 
