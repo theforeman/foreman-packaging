@@ -18,14 +18,13 @@
 
 %define selinux_variants targeted
 %define selinux_modules katello
-%global selinux_policy_ver %(rpm --qf "%%{version}-%%{release}" -q selinux-policy)
 
 %define moduletype apps
 
 
 Name:           katello-selinux
 Version:        4.0.2
-Release:        2%{?dotalphatag}%{?dist}
+Release:        3%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -42,7 +41,7 @@ BuildArch:      noarch
 
 Requires:           foreman-selinux
 Requires:           candlepin-selinux >= 3.1.10
-Requires:           selinux-policy >= %{selinux_policy_ver}
+Requires:           selinux-policy >= %{_selinux_policy_version}
 Requires(post):     /usr/sbin/semodule
 Requires(post):     /sbin/restorecon
 Requires(post):     /usr/sbin/setsebool
@@ -130,6 +129,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Wed Dec 07 2022 Evgeni Golov - 4.0.2-3
+- Use _selinux_policy_version macro from selinux-policy package
+
 * Tue Jul 12 2022 Evgeni Golov - 4.0.2-2
 - Fixes #35198 - always load SELinux definitions
 
