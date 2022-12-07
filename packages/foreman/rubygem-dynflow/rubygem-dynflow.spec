@@ -16,6 +16,10 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+# Optional dependency that we always pull in
+Requires: %{?scl_prefix}rubygem(statsd-instrument)
+Requires: dynflow-utils
+
 %description
 Ruby workflow/orchestration engine.
 
