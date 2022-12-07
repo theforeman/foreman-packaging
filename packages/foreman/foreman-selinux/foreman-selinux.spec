@@ -18,11 +18,10 @@
 
 %define selinux_variants targeted
 %define selinux_modules foreman foreman-proxy
-%global selinux_policy_ver %(rpm --qf "%%{version}-%%{release}" -q selinux-policy)
 
 %define moduletype apps
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -44,7 +43,7 @@ BuildRequires:  /usr/bin/pod2man
 BuildRequires:  systemd
 BuildArch:      noarch
 
-Requires:           selinux-policy >= %{selinux_policy_ver}
+Requires:           selinux-policy >= %{_selinux_policy_version}
 Requires(post):     /usr/sbin/semodule
 Requires(post):     /sbin/restorecon
 Requires(post):     /usr/sbin/setsebool
@@ -136,7 +135,7 @@ fi
 Summary: SELinux policy module for Foreman Proxy
 Group:   System Environment/Base
 
-Requires:           selinux-policy >= %{selinux_policy_ver}
+Requires:           selinux-policy >= %{_selinux_policy_version}
 Requires(post):     /usr/sbin/semodule
 Requires(post):     /sbin/restorecon
 Requires(post):     /usr/sbin/setsebool
@@ -190,6 +189,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Dec 07 2022 Evgeni Golov - 3.6.0-0.2.develop
+- Use _selinux_policy_version macro from selinux-policy package
+
 * Tue Nov 08 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.1.develop
 - Bump version to 3.6-develop
 
