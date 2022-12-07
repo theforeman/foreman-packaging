@@ -50,11 +50,11 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%{gem_instdir}/Dockerfile
+%exclude %{gem_instdir}/Dockerfile
 %license %{gem_instdir}/MIT-LICENSE
-%{gem_instdir}/extras
+%exclude %{gem_instdir}/extras/expand
 %{gem_libdir}
-%exclude %{gem_instdir}/web
+%{gem_instdir}/web
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -64,7 +64,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/doc
-%doc %{gem_instdir}/docker-compose.yml
+%doc %{gem_instdir}/extras
+%exclude %{gem_instdir}/docker-compose.yml
 %exclude %{gem_instdir}/dynflow.gemspec
 %{gem_instdir}/examples
 %{gem_instdir}/test
