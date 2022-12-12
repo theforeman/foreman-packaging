@@ -1,3 +1,9 @@
+foreman-proxy (3.6.0-2) stable; urgency=low
+
+  * Add genisoimage dependency
+
+ -- Bastian Schmidt <schmidt@atix.de>  Mon, 12 Dec 2022 13:20:30 +0100
+
 foreman-proxy (3.6.0-1) stable; urgency=low
 
   * Bump changelog to 3.6.0 to match VERSION
