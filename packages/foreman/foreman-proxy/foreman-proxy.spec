@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Tue Dec 13 2022 Adam Ruzicka <aruzicka@redhat.com> - 3.6.0-0.2.develop
+- Notify only the main process on logrotate
+
 * Tue Nov 08 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.1.develop
 - Bump version to 3.6-develop
 
