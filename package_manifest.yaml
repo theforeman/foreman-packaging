@@ -629,6 +629,7 @@ foreman_plugin_packages:
     rubygem-down: {}
     rubygem-faraday-cookie_jar: {}
     rubygem-faraday-detailed_logger: {}
+    rubygem-ffi-compiler: {}
     rubygem-fog-kubevirt: {}
     rubygem-fog-proxmox: {}
     rubygem-foreman-tasks: {}
