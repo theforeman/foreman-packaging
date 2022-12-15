@@ -709,6 +709,7 @@ foreman_plugin_packages:
     rubygem-interactor: {}
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
+    rubygem-jsonpath: {}
     rubygem-kubeclient: {}
     rubygem-mqtt: {}
     rubygem-multi_xml: {}

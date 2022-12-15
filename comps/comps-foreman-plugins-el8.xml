@@ -144,6 +144,7 @@
       <packagereq type="default">rubygem-interactor</packagereq>
       <packagereq type="default">rubygem-jgrep</packagereq>
       <packagereq type="default">rubygem-jquery-matchheight-rails</packagereq>
+      <packagereq type="default">rubygem-jsonpath</packagereq>
       <packagereq type="default">rubygem-kubeclient</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-mqtt</packagereq>
@@ -320,6 +321,7 @@
       <packagereq type="default">rubygem-interactor-doc</packagereq>
       <packagereq type="default">rubygem-jgrep-doc</packagereq>
       <packagereq type="default">rubygem-jquery-matchheight-rails-doc</packagereq>
+      <packagereq type="default">rubygem-jsonpath-doc</packagereq>
       <packagereq type="default">rubygem-kubeclient-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-mqtt-doc</packagereq>
