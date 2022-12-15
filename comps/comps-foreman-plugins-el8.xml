@@ -62,6 +62,7 @@
       <packagereq type="default">rubygem-faraday-cookie_jar</packagereq>
       <packagereq type="default">rubygem-faraday-detailed_logger</packagereq>
       <packagereq type="default">rubygem-faraday_middleware</packagereq>
+      <packagereq type="default">rubygem-ffi-compiler</packagereq>
       <packagereq type="default">rubygem-fog-kubevirt</packagereq>
       <packagereq type="default">rubygem-fog-proxmox</packagereq>
       <packagereq type="default">rubygem-foreman-tasks</packagereq>
@@ -239,6 +240,7 @@
       <packagereq type="default">rubygem-faraday-cookie_jar-doc</packagereq>
       <packagereq type="default">rubygem-faraday-detailed_logger-doc</packagereq>
       <packagereq type="default">rubygem-faraday_middleware-doc</packagereq>
+      <packagereq type="default">rubygem-ffi-compiler-doc</packagereq>
       <packagereq type="default">rubygem-fog-kubevirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">rubygem-foreman_acd-doc</packagereq>
