@@ -9,7 +9,7 @@
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.1
+Version: 4.1.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -114,6 +114,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 25 2022 Ron Lavi <1ronlavi@gmail.com> 4.1.0-1
+- Update to 4.1.0
+
 * Fri Jun 03 2022 Nadja Heitmann <nadjah@atix.de> 4.0.1-1
 - Update to 4.0.1
 - Add ENC preview tab for Host details
