@@ -4,10 +4,10 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 2
+%global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    3.7.0
+Version:    3.8.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -57,6 +57,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Thu Dec 29 2022 Maximilian Kolb - 3.8.0-1
+- Release ansible-collection-theforeman-foreman 3.8.0
+
 * Fri Oct 07 2022 Evgeni Golov - 3.7.0-2
 - Use python39 packages with ansible-core 2.13+
 
