@@ -9,7 +9,7 @@
 %global foreman_min_version 3.3.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 7.1.1
+Version: 7.2.0
 Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -175,11 +175,11 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
-* Wed Jan 25 2023 Evgeni Golov - 7.1.1-2
+* Wed Jan 25 2023 Evgeni Golov - 7.2.0-2
 - Symlink foreman_tasks sprockets assets too
 
-* Wed Jan 18 2023 Adam Ruzicka <aruzicka@redhat.com> 7.1.1-1
-- Update to 7.1.1
+* Sun Jan 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.2.0-1
+- Update to 7.2.0
 
 * Thu Nov 10 2022 Adam Ruzicka <aruzicka@redhat.com> 7.1.0-1
 - Update to 7.1.0
