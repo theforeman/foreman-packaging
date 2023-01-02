@@ -6,7 +6,7 @@
 %global gem_name foreman_puppet
 %global plugin_name puppet
 %global foreman_min_version 3.0
-%global release 2
+%global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.0
@@ -117,6 +117,7 @@ cp -a .%{gem_dir}/* \
 %changelog
 * Sun Dec 25 2022 Ron Lavi <1ronlavi@gmail.com> 4.1.0-1
 - Update to 4.1.0
+
 * Wed Aug 24 2022 Evgeni Golov - 4.0.2-2
 - Refs #35409 - Include sprockets assets
 
