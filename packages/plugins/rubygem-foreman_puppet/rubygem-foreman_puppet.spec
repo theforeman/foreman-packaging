@@ -9,7 +9,7 @@
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.1
+Version: 4.1.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -101,6 +101,7 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
@@ -114,6 +115,15 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 25 2022 Ron Lavi <1ronlavi@gmail.com> 4.1.0-1
+- Update to 4.1.0
+
+* Wed Aug 24 2022 Evgeni Golov - 4.0.2-2
+- Refs #35409 - Include sprockets assets
+
+* Tue Aug 16 2022 Foreman Packaging Automation <packaging@theforeman.org> 4.0.2-1
+- Update to 4.0.2
+
 * Fri Jun 03 2022 Nadja Heitmann <nadjah@atix.de> 4.0.1-1
 - Update to 4.0.1
 - Add ENC preview tab for Host details
