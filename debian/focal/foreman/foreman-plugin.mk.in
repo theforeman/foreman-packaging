@@ -1,4 +1,5 @@
 BUNDLE = @BUNDLE@
+PLUGIN_REQUIRES_FOREMAN=$(shell grep --recursive --no-filename requires_foreman ./usr/share/foreman/vendor/ruby/*/gems/$(PLUGIN)-*/lib |sed -E 's/[^0-9.]//g')
 
 build:
 	# prepare a local foreman installation based on packages
@@ -35,6 +36,9 @@ build:
 
 	# mark the build step as complete
 	touch $@
+
+override_dh_gencontrol:
+	dh_gencontrol -- -Vforeman:Depends="foreman (>= $(PLUGIN_REQUIRES_FOREMAN)~)"
 
 %:
 	dh $@
