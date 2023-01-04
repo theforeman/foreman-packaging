@@ -2,7 +2,7 @@
 %global gem_name public_suffix
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
+Version: 5.0.1
 Release: 1%{?dist}
 Summary: Domain name parser based on the Public Suffix List
 License: MIT
@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 04 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.0.1-1
+- Update to 5.0.1
+
 * Wed Oct 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 5.0.0-1
 - Update to 5.0.0
 
