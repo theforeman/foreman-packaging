@@ -59,7 +59,6 @@ cp -a .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/TODO
 %{gem_libdir}
-%{gem_instdir}/site
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -70,8 +69,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%{gem_instdir}/site
 %doc %{gem_instdir}/doc
-%{gem_instdir}/examples
+%doc %{gem_instdir}/examples
 %exclude %{gem_instdir}/highline.gemspec
 
 %changelog
