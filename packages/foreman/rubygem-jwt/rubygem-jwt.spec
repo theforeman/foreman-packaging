@@ -47,14 +47,6 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.codeclimate.yml
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.reek.yml
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.rubocop_todo.yml
-%exclude %{gem_instdir}/.sourcelevel.yml
-%exclude %{gem_instdir}/Appraisals
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
