@@ -54,14 +54,11 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/AUTHORS
 %doc %{gem_instdir}/CHANGELOG.md
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
 %doc %{gem_instdir}/CONTRIBUTING.md
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/ruby-jwt.gemspec
 
 %changelog
