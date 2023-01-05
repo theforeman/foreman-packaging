@@ -1,3 +1,9 @@
+ruby-foreman-puppet (4.1.0-1) stable; urgency=low
+
+  * 4.1.0 released
+
+ -- Manisha15 <singhal@atix.de>  Thu, 05 Jan 2023 10:48:16 +0100
+
 ruby-foreman-puppet (4.0.1-2) stable; urgency=low
 
   * Use foreman-plugin.mk
