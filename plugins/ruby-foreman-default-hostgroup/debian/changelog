@@ -1,3 +1,9 @@
+ruby-foreman-default-hostgroup (7.0.0-1) stable; urgency=low
+
+  * 7.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Tue, 10 Jan 2023 08:32:42 +0000
+
 ruby-foreman-default-hostgroup (6.0.0-2) stable; urgency=low
 
   * Use Foreman postinst library
