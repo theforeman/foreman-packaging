@@ -4,12 +4,12 @@
 
 %global gem_name foreman_default_hostgroup
 %global plugin_name default_hostgroup
-%global foreman_min_version 1.17.0
+%global foreman_min_version 3.0
 
 Summary:    Default Hostgroup Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    7.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_default_hostgroup
@@ -17,18 +17,14 @@ Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: ruby
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Adds the option to specify a default hostgroup for new hosts created from
@@ -78,7 +74,7 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/app
+%{gem_instdir}/db
 %doc %{gem_instdir}/default_hostgroup.yaml.example
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -94,6 +90,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jan 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.0.0-1
+- Update to 7.0.0
+
 * Mon May 09 2022 Evgeni Golov - 6.0.0-2
 - log plugin installation in posttrans
 
