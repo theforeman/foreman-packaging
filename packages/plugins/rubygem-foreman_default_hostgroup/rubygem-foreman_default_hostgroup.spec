@@ -25,7 +25,6 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Adds the option to specify a default hostgroup for new hosts created from
@@ -75,7 +74,7 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/app
+%{gem_instdir}/db
 %doc %{gem_instdir}/default_hostgroup.yaml.example
 %{gem_libdir}
 %exclude %{gem_cache}
