@@ -8,7 +8,7 @@
 %global katello_min_version 3.16.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
+Version: 2.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -28,8 +28,7 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(foreman-tasks) >= 0.10
-BuildRequires: rubygem(rails) >= 5.1
+BuildRequires: rubygem(katello) >= 3.16
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
@@ -113,6 +112,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 11 2023 Nadja Heitmann <nadjah@atix.de> 2.2.0-1
+- Update to 2.2.0
+- Fix permission issue for new installations
+
 * Mon Nov 14 2022 Bernhard Suttner <suttner@atix.de> 2.1.0-1
 - Update to 2.1.0
 
