@@ -15,6 +15,7 @@
       <packagereq type="default">ansiblerole-satellite-receptor-installer</packagereq>
       <packagereq type="default">cjson</packagereq>
       <packagereq type="default">cjson-devel</packagereq>
+      <packagereq type="default">foreman-discovery-image</packagereq>
       <packagereq type="default">foreman-discovery-image-service</packagereq>
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">mosquitto</packagereq>

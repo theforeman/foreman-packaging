@@ -582,6 +582,7 @@ foreman_plugin_packages:
     ansiblerole-satellite-receptor-installer: {}
     ansible-collection-theforeman-foreman: {}
     cjson: {}
+    foreman-discovery-image: {}
     foreman-discovery-image-service: {}
     mosquitto: {}
     nodejs-babel-plugin-module-resolver:
