@@ -3,10 +3,10 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global release 2
+%global release 1
 
 Name:       katello
-Version:    4.6.0
+Version:    4.6.2.1
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -130,6 +130,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Jan 19 2023 Patrick Creech <pcreech@redhat.com> - 4.6.2.1-1
+- Release katello 4.6.2.1
+
 * Tue Nov 15 2022 Evgeni Golov - 4.6.0-2
 - Fixes #35756 - do not use --disable-system-checks as it is gone
 
