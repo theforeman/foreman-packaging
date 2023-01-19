@@ -3,7 +3,7 @@ Summary:   Katello SSL Key/Cert Tool
 Group:     Applications/Internet
 License:   GPLv2
 Version:   2.9.0
-Release:   1%{?dist}
+Release:   2%{?dist}
 URL:       https://github.com/katello/katello-certs-tools
 Source0:   https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 BuildArch: noarch
@@ -12,14 +12,8 @@ Requires: openssl
 Requires: rpm-build
 
 BuildRequires: docbook-utils
-%if 0%{?rhel} == 7
-BuildRequires: python-devel >= 2.6
-BuildRequires: python-setuptools
-Requires: python-setuptools
-%else
 BuildRequires: python3-devel
 BuildRequires: python3-setuptools
-%endif
 
 %description
 This package contains tools to generate the SSL certificates required by
@@ -30,30 +24,17 @@ Katello.
 
 %build
 /usr/bin/docbook2man katello-ssl-tool.sgml
-%if 0%{?rhel} == 7
-%{py2_build}
-%else
 %{py3_build}
-%endif
 
 %install
-%if 0%{?rhel} == 7
-%{__python2} setup.py install --skip-build --root $RPM_BUILD_ROOT
-%else
-%{__python3} setup.py install --skip-build --root $RPM_BUILD_ROOT
-%endif
+%{py3_install}
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/certs
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 
 %files
-%if 0%{?rhel} == 7
-%{python2_sitelib}/katello_certs_tools
-%{python2_sitelib}/*.egg-info
-%else
 %{python3_sitelib}/katello_certs_tools
 %{python3_sitelib}/*.egg-info
-%endif
 %dir %{_sysconfdir}/pki/%{name}
 %dir %{_sysconfdir}/pki/%{name}/certs
 %dir %{_sysconfdir}/pki/%{name}/private
@@ -64,6 +45,9 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 %license LICENSE
 
 %changelog
+* Thu Jan 19 2023 Evgeni Golov - 2.9.0-2
+- Drop Python2 support
+
 * Mon Mar 14 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.9.0-1
 - Release katello-certs-tools 2.9.0
 
