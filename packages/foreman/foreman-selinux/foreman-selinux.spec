@@ -21,7 +21,7 @@
 
 %define moduletype apps
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -54,11 +54,7 @@ Requires(postun):   /usr/sbin/semodule
 Requires(postun):   /sbin/restorecon
 %{?systemd_requires}
 
-%if 0%{?rhel} == 7
-Requires(post):     policycoreutils-python
-%else
 Requires(post):     policycoreutils-python-utils
-%endif
 
 %description
 SELinux policy module for Foreman
@@ -68,12 +64,7 @@ SELinux policy module for Foreman
 
 %build
 # determine distribution name and version
-%if 0%{?rhel} >= 6
 %define distver rhel%{rhel}
-%endif
-%if 0%{?fedora} >= 18
-%define distver fedora%{fedora}
-%endif
 
 # build policy
 for selinuxvariant in %{selinux_variants}; do
@@ -145,11 +136,7 @@ Requires(post):     selinux-policy-targeted
 Requires(postun):   /usr/sbin/semodule
 Requires(postun):   /sbin/restorecon
 
-%if 0%{?rhel} == 7
-Requires(post):     policycoreutils-python
-%else
 Requires(post):     policycoreutils-python-utils
-%endif
 
 %description -n foreman-proxy-selinux
 SELinux policy module for Foreman Proxy
@@ -189,6 +176,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Mar 01 2023 Evgeni Golov - 3.7.0-0.2.develop
+- Drop RHEL7 dependencies and Fedora support
+
 * Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.1.develop
 - Bump version to 3.7-develop
 
