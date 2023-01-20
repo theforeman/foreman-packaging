@@ -1,11 +1,13 @@
 Name: foreman-obsolete-packages
-Version: 1.0
+Version: 1.1
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
 URL: https://github.com/theforeman/foreman-packaging
+BuildArch: noarch
 
 Obsoletes: rubygem-fog-google < 1.19.0-2
+Obsoletes: rubygem-google-api-client < 0.33.2-3
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -20,5 +22,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Fri Jan 20 2023 Evgeni Golov - 1.1-1
+- Obsolete rubygem-google-api-client < 0.33.2-3
+- Mark the package as noarch
+
 * Fri Nov 11 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0-1
 - Initial package
