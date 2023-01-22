@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.13.10
+Version: 1.14.0
 Release: 1%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 # MIT: see LICENSE.md
@@ -20,8 +20,8 @@ Patch0:	%{name}-1.11.0.rc4-shutdown-libxml2-warning.patch
 Provides:	bundled(gumbo-parser) = 0.10.1
 
 # start specfile generated dependencies
-Requires: ruby >= 2.6.0
-BuildRequires: ruby-devel >= 2.6.0
+Requires: ruby >= 2.7.0
+BuildRequires: ruby-devel >= 2.7.0
 BuildRequires: rubygems-devel
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
@@ -186,6 +186,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/gumbo-parser/src/README.md
 
 %changelog
+* Sun Jan 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.14.0-1
+- Update to 1.14.0
+
 * Sun Jan 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.13.10-1
 - Update to 1.13.10
 
