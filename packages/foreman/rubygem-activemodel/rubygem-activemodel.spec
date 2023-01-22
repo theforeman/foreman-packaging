@@ -2,7 +2,7 @@
 %global gem_name activemodel
 
 Name: rubygem-%{gem_name}
-Version: 6.1.7
+Version: 6.1.7.1
 Release: 1%{?dist}
 Summary: A toolkit for building modeling frameworks (part of Rails)
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Sun Jan 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.7.1-1
+- Update to 6.1.7.1
+
 * Sun Nov 20 2022 Foreman Packaging Automation <packaging@theforeman.org> 6.1.7-1
 - Update to 6.1.7
 
