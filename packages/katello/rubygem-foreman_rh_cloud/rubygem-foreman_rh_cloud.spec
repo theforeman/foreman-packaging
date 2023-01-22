@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 3.3
+%global foreman_min_version 3.4
 
 Name: rubygem-%{gem_name}
-Version: 6.0.44
+Version: 7.0.45
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -104,6 +104,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jan 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.0.45-1
+- Update to 7.0.45
+
 * Sun Dec 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 6.0.44-1
 - Update to 6.0.44
 
