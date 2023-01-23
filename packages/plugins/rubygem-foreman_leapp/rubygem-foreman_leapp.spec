@@ -5,10 +5,10 @@
 
 %global gem_name foreman_leapp
 %global plugin_name leapp
-%global foreman_min_version 2.1
+%global foreman_min_version 3.2
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.11
+Version: 0.1.12
 Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 Group: Applications/Systems
@@ -26,7 +26,7 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(foreman_remote_execution) >= 3.2
+BuildRequires: rubygem(foreman_remote_execution) >= 8.1.1
 BuildRequires: rubygem(foreman_ansible) >= 5.0
 # end specfile generated dependencies
 
@@ -113,6 +113,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jan 23 2023 Leos Stejskal <lstejska@redhat.com> 0.1.12-1
+- Update to 0.1.12
+
 * Mon Oct 24 2022 Leos Stejskal <lstejska@redhat.com> 0.1.11-1
 - Update to 0.1.11
 
