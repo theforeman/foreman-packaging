@@ -115,7 +115,7 @@ jobs:
       with:
         server_address: community.theforeman.org
         server_port: 25
-        subject: "foreman-packaging update packages Github Action failed"
+        subject: "foreman-packaging update packages Github Action ${{ github.run_id }} failed"
         to: ci@community.theforeman.org
         from: Foreman Github Actions <github@theforeman.org>
         body: |
