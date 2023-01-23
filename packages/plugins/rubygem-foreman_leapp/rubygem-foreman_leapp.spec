@@ -34,7 +34,6 @@ BuildRequires: rubygem(foreman_ansible) >= 5.0
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
 BuildRequires: npm(@theforeman/builder) >= 8.3.3
-BuildRequires: npm(@theforeman/builder) < 9.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
