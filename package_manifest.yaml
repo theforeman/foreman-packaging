@@ -366,7 +366,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-optimize-css-assets-webpack-plugin: {}
     nodejs-performance-now: {}
-    nodejs-popper.js: {}
     nodejs-raf: {}
     nodejs-react-bootstrap:
       strategy: bundle
