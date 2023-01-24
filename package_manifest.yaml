@@ -371,7 +371,6 @@ foreman_nodejs_packages:
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-intl:
       strategy: bundle
-    nodejs-redux-thunk: {}
     nodejs-regenerator-runtime: {}
     nodejs-reselect: {}
     nodejs-sass-loader:
