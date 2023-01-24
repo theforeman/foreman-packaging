@@ -331,8 +331,6 @@ foreman_nodejs_packages:
     nodejs-babel-plugin-syntax-object-rest-spread: {}
     nodejs-babel-plugin-transform-class-properties:
       strategy: bundle
-    nodejs-babel-polyfill:
-      strategy: bundle
     nodejs-babel-preset-env:
       strategy: bundle
     nodejs-babel-preset-react:
