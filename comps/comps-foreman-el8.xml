@@ -72,7 +72,6 @@
       <packagereq type="default">nodejs-optimize-css-assets-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
-      <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
       <packagereq type="default">nodejs-react-is</packagereq>
