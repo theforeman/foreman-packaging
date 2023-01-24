@@ -74,7 +74,6 @@
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
-      <packagereq type="default">nodejs-react-lifecycles-compat</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
       <packagereq type="default">nodejs-redhat-cloud-services-frontend-components</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
