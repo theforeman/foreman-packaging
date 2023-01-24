@@ -356,7 +356,6 @@ foreman_nodejs_packages:
     nodejs-harmony-reflect: {}
     nodejs-identity-obj-proxy: {}
     nodejs-intl: {}
-    nodejs-invariant: {}
     nodejs-jed: {}
     nodejs-jquery: {}
     nodejs-js-tokens: {}
