@@ -331,7 +331,6 @@ foreman_nodejs_packages:
     nodejs-babel-plugin-syntax-object-rest-spread: {}
     nodejs-babel-plugin-transform-class-properties:
       strategy: bundle
-    nodejs-babel-plugin-transform-object-assign: {}
     nodejs-babel-plugin-transform-object-rest-spread: {}
     nodejs-babel-polyfill:
       strategy: bundle
