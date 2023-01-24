@@ -390,7 +390,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
-    nodejs-warning: {}
     nodejs-webpack-stats-plugin: {}
     nodejs-webpack:
       strategy: bundle
