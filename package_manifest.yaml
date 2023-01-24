@@ -377,8 +377,6 @@ foreman_nodejs_packages:
     nodejs-react-lifecycles-compat: {}
     nodejs-react-redux:
       strategy: bundle
-    nodejs-react:
-      strategy: bundle
     nodejs-redhat-cloud-services-frontend-components: {}
     nodejs-redux-thunk: {}
     nodejs-redux: {}
