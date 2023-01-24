@@ -354,7 +354,6 @@ foreman_nodejs_packages:
     nodejs-graphql: {}
     nodejs-graphql-tag: {}
     nodejs-harmony-reflect: {}
-    nodejs-humanize-duration: {}
     nodejs-identity-obj-proxy: {}
     nodejs-intl: {}
     nodejs-invariant: {}
