@@ -71,7 +71,6 @@
       <packagereq type="default">nodejs-node-sass</packagereq>
       <packagereq type="default">nodejs-optimize-css-assets-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
-      <packagereq type="default">nodejs-popper.js</packagereq>
       <packagereq type="default">nodejs-raf</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
