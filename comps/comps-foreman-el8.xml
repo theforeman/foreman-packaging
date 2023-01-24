@@ -76,7 +76,6 @@
       <packagereq type="default">nodejs-react-intl</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>
       <packagereq type="default">nodejs-sass-loader</packagereq>
-      <packagereq type="default">nodejs-seamless-immutable</packagereq>
       <packagereq type="default">nodejs-sortabular</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-symbol-observable</packagereq>

@@ -374,7 +374,6 @@ foreman_nodejs_packages:
     nodejs-regenerator-runtime: {}
     nodejs-sass-loader:
       strategy: bundle
-    nodejs-seamless-immutable: {}
     nodejs-sortabular: {}
     nodejs-style-loader:
       strategy: bundle
