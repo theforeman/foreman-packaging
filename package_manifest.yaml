@@ -372,7 +372,6 @@ foreman_nodejs_packages:
     nodejs-react-intl:
       strategy: bundle
     nodejs-redux-thunk: {}
-    nodejs-redux: {}
     nodejs-regenerator-runtime: {}
     nodejs-reselect: {}
     nodejs-sass-loader:
