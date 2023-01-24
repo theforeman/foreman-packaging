@@ -386,7 +386,6 @@ foreman_nodejs_packages:
       name: "@theforeman/vendor"
     nodejs-uglifyjs-webpack-plugin:
       strategy: bundle
-    nodejs-urijs: {}
     nodejs-url-loader:
       strategy: bundle
     nodejs-use-deep-compare-effect: {}
