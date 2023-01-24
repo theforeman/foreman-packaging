@@ -368,8 +368,6 @@ foreman_nodejs_packages:
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
       strategy: bundle
-    nodejs-react-dom:
-      strategy: bundle
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-intl:
       strategy: bundle
