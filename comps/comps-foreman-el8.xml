@@ -44,7 +44,6 @@
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-plugin-syntax-object-rest-spread</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-class-properties</packagereq>
-      <packagereq type="default">nodejs-babel-plugin-transform-object-assign</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-object-rest-spread</packagereq>
       <packagereq type="default">nodejs-babel-polyfill</packagereq>
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
