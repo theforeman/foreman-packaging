@@ -384,7 +384,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-theforeman-vendor:
       name: "@theforeman/vendor"
-    nodejs-typed-styles: {}
     nodejs-uglifyjs-webpack-plugin:
       strategy: bundle
     nodejs-urijs: {}
