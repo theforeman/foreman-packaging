@@ -371,8 +371,6 @@ foreman_nodejs_packages:
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-intl:
       strategy: bundle
-    nodejs-react-redux:
-      strategy: bundle
     nodejs-redhat-cloud-services-frontend-components: {}
     nodejs-redux-thunk: {}
     nodejs-redux: {}
