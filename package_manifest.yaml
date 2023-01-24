@@ -335,8 +335,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-babel-preset-react:
       strategy: bundle
-    nodejs-babel-register:
-      strategy: bundle
     nodejs-babel-runtime: {}
     nodejs-c3: {}
     nodejs-compression-webpack-plugin:
