@@ -324,8 +324,6 @@ foreman_nodejs_packages:
   hosts:
     gyp: {}
     nodejs-argv-parse: {}
-    nodejs-babel-cli:
-      strategy: bundle
     nodejs-babel-core:
       strategy: bundle
     nodejs-babel-loader:
