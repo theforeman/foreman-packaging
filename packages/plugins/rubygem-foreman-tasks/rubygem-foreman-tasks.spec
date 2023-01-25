@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 7.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -100,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
 
+# the gem_name is foreman-tasks, but the assets are actually in both foreman-tasks and foreman_tasks
+ln -s %{gem_instdir}/public/assets/foreman_tasks  %{buildroot}%{foreman_dir}/public/assets/foreman_tasks
+
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
   %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml
@@ -156,6 +159,7 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_assets_plugin}
 %{foreman_assets_foreman}
 %{gem_instdir}/public/assets/foreman_tasks/
+%{foreman_dir}/public/assets/foreman_tasks
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
@@ -171,6 +175,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jan 25 2023 Evgeni Golov - 7.2.0-2
+- Symlink foreman_tasks sprockets assets too
+
 * Sun Jan 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.2.0-1
 - Update to 7.2.0
 
