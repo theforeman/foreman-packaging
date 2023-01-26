@@ -1,3 +1,9 @@
+ruby-smart-proxy-dhcp-infoblox (0.0.17-2) stable; urgency=low
+
+  * Allow infoblox-gem package with version 3
+
+ -- timdeluxe <5765175+timdeluxe@users.noreply.github.com>  Wed, 01 Feb 2023 12:46:00 +0100
+
 ruby-smart-proxy-dhcp-infoblox (0.0.17-1) stable; urgency=low
 
   * 0.0.17 released
