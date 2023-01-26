@@ -2,7 +2,7 @@
 %global gem_name actionmailer
 
 Name: rubygem-%{gem_name}
-Version: 6.1.7.1
+Version: 6.1.7.2
 Release: 1%{?dist}
 Summary: Email composition and delivery framework (part of Rails)
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Thu Jan 26 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.7.2-1
+- Update to 6.1.7.2
+
 * Sun Jan 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.7.1-1
 - Update to 6.1.7.1
 
