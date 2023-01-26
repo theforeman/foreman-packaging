@@ -2,7 +2,7 @@
 %global gem_name audited
 
 Name: rubygem-%{gem_name}
-Version: 5.0.2
+Version: 5.2.0
 Release: 1%{?dist}
 Summary: Log all changes to your models
 License: MIT
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jan 26 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.2.0-1
+- Update to 5.2.0
+
 * Wed Aug 24 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.0.2-1
 - Update to 5.0.2
 
