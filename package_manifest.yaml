@@ -267,7 +267,6 @@ foreman_core_packages:
     rubygem-rails-html-sanitizer: {}
     rubygem-rails-i18n: {}
     rubygem-rake-compiler: {}
-    rubygem-rbvmomi: {}
     rubygem-rbvmomi2: {}
     rubygem-redis: {}
     rubygem-representable: {}
