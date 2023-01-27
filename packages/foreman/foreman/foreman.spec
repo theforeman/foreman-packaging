@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -399,10 +399,8 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: rubygem(fog-vsphere) >= 3.5.0
+Requires: rubygem(fog-vsphere) >= 3.6.0
 Requires: rubygem(fog-vsphere) < 4.0
-Requires: rubygem(rbvmomi) >= 2.0
-Requires: rubygem(rbvmomi) < 3.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 Requires: /usr/bin/websockify
@@ -991,6 +989,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Jan 27 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.6.0-0.5.develop
+- Update GEM dependencies
+
 * Wed Nov 23 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.6.0-0.4.develop
 - Drop requirement on foreman-build from foreman-plugin
 
