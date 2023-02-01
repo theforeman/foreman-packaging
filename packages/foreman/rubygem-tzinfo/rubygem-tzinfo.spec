@@ -2,7 +2,7 @@
 %global gem_name tzinfo
 
 Name: rubygem-%{gem_name}
-Version: 2.0.5
+Version: 2.0.6
 Release: 1%{?dist}
 Summary: Time Zone Library
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Feb 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.0.6-1
+- Update to 2.0.6
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.0.5-1
 - Update to 2.0.5
 
