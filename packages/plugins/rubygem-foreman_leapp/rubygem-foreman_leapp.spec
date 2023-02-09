@@ -8,7 +8,7 @@
 %global foreman_min_version 3.2
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.12
+Version: 0.1.13
 Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 Group: Applications/Systems
@@ -113,6 +113,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Feb 09 2023 Leos Stejskal <lstejska@redhat.com> 0.1.13-1
+- Update to 0.1.13
+
 * Mon Jan 23 2023 Leos Stejskal <lstejska@redhat.com> 0.1.12-1
 - Update to 0.1.12
 
