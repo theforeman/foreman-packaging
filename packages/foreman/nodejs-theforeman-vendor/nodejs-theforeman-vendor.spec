@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 10.1.7
+Version: 12.0.1
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Thu Feb 09 2023 MariaAga <mariaaga@redhat.com> 12.0.1-1
+- Update to 12.0.1
+
 * Tue Sep 06 2022 Ron Lavi <1ronlavi@gmail.com> 10.1.7-1
 - Update to 10.1.7
 
