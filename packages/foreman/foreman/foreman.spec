@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -233,8 +233,8 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 10.1.0
-BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
+BuildRequires: npm(@theforeman/builder) < 13.0.0
 BuildRequires: npm(argv-parse) >= 1.0.1
 BuildRequires: npm(argv-parse) < 2.0.0
 BuildRequires: npm(babel-loader) >= 8.0.0
@@ -274,8 +274,8 @@ BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 10.1.0
-BuildRequires: npm(@theforeman/vendor) < 11.0.0
+BuildRequires: npm(@theforeman/vendor) >= 12.0.1
+BuildRequires: npm(@theforeman/vendor) < 13.0.0
 BuildRequires: npm(graphql-tag) >= 2.11.0
 BuildRequires: npm(graphql-tag) < 3.0.0
 BuildRequires: npm(intl) >= 1.2.5
@@ -420,8 +420,8 @@ Requires: nodejs >= 14
 # start package.json devDependencies Requires
 Requires: npm(@babel/core) >= 7.7.0
 Requires: npm(@babel/core) < 8.0.0
-Requires: npm(@theforeman/builder) >= 10.1.0
-Requires: npm(@theforeman/builder) < 11.0.0
+Requires: npm(@theforeman/builder) >= 12.0.1
+Requires: npm(@theforeman/builder) < 13.0.0
 Requires: npm(argv-parse) >= 1.0.1
 Requires: npm(argv-parse) < 2.0.0
 Requires: npm(babel-loader) >= 8.0.0
@@ -461,8 +461,8 @@ Requires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 10.1.0
-Requires: npm(@theforeman/vendor) < 11.0.0
+Requires: npm(@theforeman/vendor) >= 12.0.1
+Requires: npm(@theforeman/vendor) < 13.0.0
 Requires: npm(graphql-tag) >= 2.11.0
 Requires: npm(graphql-tag) < 3.0.0
 Requires: npm(intl) >= 1.2.5
@@ -989,6 +989,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Feb 10 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.6.develop
+- Update theforeman-vendor and friends to version 12
+
 * Fri Jan 27 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.6.0-0.5.develop
 - Update GEM dependencies
 
