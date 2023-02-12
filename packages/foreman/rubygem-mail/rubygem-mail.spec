@@ -2,7 +2,7 @@
 %global gem_name mail
 
 Name: rubygem-%{gem_name}
-Version: 2.8.0.1
+Version: 2.8.1
 Release: 1%{?dist}
 Summary: Mail provides a nice Ruby DSL for making, sending and reading emails
 License: MIT
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Feb 12 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.8.1-1
+- Update to 2.8.1
+
 * Sun Jan 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.8.0.1-1
 - Update to 2.8.0.1
 
