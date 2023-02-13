@@ -678,6 +678,7 @@ foreman_plugin_packages:
     rubygem-jquery-matchheight-rails: {}
     rubygem-jsonpath: {}
     rubygem-kubeclient: {}
+    rubygem-llhttp-ffi: {}
     rubygem-mqtt: {}
     rubygem-multi_xml: {}
     rubygem-ms_rest: {}
