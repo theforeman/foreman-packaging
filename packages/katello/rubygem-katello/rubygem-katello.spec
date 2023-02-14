@@ -6,7 +6,7 @@
 %global foreman_max_version 3.6
 %global plugin_name katello
 %global gem_name katello
-%global mainver 4.7.1
+%global mainver 4.7.2
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -205,6 +205,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Feb 14 2023 Odilon Sousa <osousa@redhat.com> - 4.7.2-1
+- Release rubygem-katello 4.7.2
+
 * Tue Jan 31 2023 Odilon Sousa <osousa@redhat.com> - 4.7.1-1
 - Release rubygem-katello 4.7.1
 
