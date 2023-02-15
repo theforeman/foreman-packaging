@@ -4,7 +4,7 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    3.9.0
@@ -30,8 +30,10 @@ Requires: (python3-requests if ansible)
 Requires: (python3-pyyaml if ansible)
 Requires: (python38-requests if ansible-core < 2.13)
 Requires: (python38-pyyaml if ansible-core < 2.13)
-Requires: (python39-requests if ansible-core >= 2.13)
-Requires: (python39-pyyaml if ansible-core >= 2.13)
+Requires: (python39-requests if (ansible-core >= 2.13 and ansible-core < 2.14.2-3))
+Requires: (python39-pyyaml if (ansible-core >= 2.13 and ansible-core < 2.14.2-3))
+Requires: (python3.11-requests if ansible-core >= 2.14.2-3)
+Requires: (python3.11-pyyaml if ansible-core >= 2.14.2-3)
 %endif
 
 %description
@@ -57,6 +59,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Fri Mar 03 2023 Evgeni Golov - 3.9.0-2
+- Use Python 3.11 for Ansible in EL8.8
+
 * Mon Feb 20 2023 Evgeni Golov - 3.9.0-1
 - Release ansible-collection-theforeman-foreman 3.9.0
 
