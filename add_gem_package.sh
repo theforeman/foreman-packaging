@@ -22,6 +22,17 @@ generate_gem_package() {
 
 	VERSION=$(rpmspec --srpm -q --queryformat="%{version}-%{release}" --undefine=dist $SPEC_FILE)
 
+	if [[ $TEMPLATE_NAME == foreman_plugin ]]; then
+		UNPACKED_GEM_DIR=$(mktemp -d)
+		gem unpack --target "$UNPACKED_GEM_DIR" *.gem
+		PLUGIN_LIB="${UNPACKED_GEM_DIR}"/${GEM_NAME}-*/lib
+		REQUIRES_FOREMAN=$(grep --recursive --no-filename requires_foreman $PLUGIN_LIB | sed -E 's/[^0-9.]//g')
+		if [[ -n $REQUIRES_FOREMAN ]]; then
+			sed -i "/%global foreman_min_version/ s/foreman_min_version.*/foreman_min_version $REQUIRES_FOREMAN/" "$SPEC_FILE"
+		fi
+		rm -rf "$UNPACKED_GEM_DIR"
+	fi
+
 	if [[ $UPDATE == true ]]; then
 		cat $CHANGELOG >> $SPEC_FILE
 		sed -i '/^%changelog/,/^%changelog/{0,//!d}' $SPEC_FILE
