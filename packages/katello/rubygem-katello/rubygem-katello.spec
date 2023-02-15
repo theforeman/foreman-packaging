@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.8.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -55,21 +55,21 @@ BuildRequires: rubygem(pg)
 BuildRequires: rubygem(runcible) >= 2.13.0
 BuildRequires: rubygem(runcible) < 3.0.0
 BuildRequires: rubygem(anemone)
-BuildRequires: rubygem(pulpcore_client) >= 3.21.0
-BuildRequires: rubygem(pulpcore_client) < 3.22.0
-BuildRequires: rubygem(pulp_file_client) >= 1.11.0
-BuildRequires: rubygem(pulp_file_client) < 1.12
-BuildRequires: rubygem(pulp_ansible_client) >= 0.15.0
-BuildRequires: rubygem(pulp_ansible_client) < 0.16
+BuildRequires: rubygem(pulpcore_client) >= 3.22.0
+BuildRequires: rubygem(pulpcore_client) < 3.23.0
+BuildRequires: rubygem(pulp_file_client) >= 1.12.0
+BuildRequires: rubygem(pulp_file_client) < 1.13
+BuildRequires: rubygem(pulp_ansible_client) >= 0.16.0
+BuildRequires: rubygem(pulp_ansible_client) < 0.17
 BuildRequires: rubygem(pulp_container_client) >= 2.14.0
 BuildRequires: rubygem(pulp_container_client) < 2.15.0
 BuildRequires: rubygem(pulp_deb_client) >= 2.20.0
 BuildRequires: rubygem(pulp_deb_client) < 2.21
-BuildRequires: rubygem(pulp_rpm_client) >= 3.18.0
-BuildRequires: rubygem(pulp_rpm_client) < 3.19.0
+BuildRequires: rubygem(pulp_rpm_client) >= 3.19.0
+BuildRequires: rubygem(pulp_rpm_client) < 3.20.0
 BuildRequires: rubygem(pulp_certguard_client) < 2.0
-BuildRequires: rubygem(pulp_python_client) >= 3.7.2
-BuildRequires: rubygem(pulp_python_client) < 3.8
+BuildRequires: rubygem(pulp_python_client) >= 3.8.0
+BuildRequires: rubygem(pulp_python_client) < 3.9
 BuildRequires: rubygem(pulp_ostree_client)
 BuildRequires: rubygem(deface) >= 1.0.2
 BuildRequires: rubygem(deface) < 2.0.0
@@ -207,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Feb 15 2023 Ian Ballou <ianballou67@gmail.com> - 4.8.0-0.2.pre.master
+- Update Pulp bindings for Pulpcore 3.22
+
 * Thu Nov 10 2022 Evgeni Golov - 4.8.0-0.1.pre.master
 - Bump version to 4.8.0
 
