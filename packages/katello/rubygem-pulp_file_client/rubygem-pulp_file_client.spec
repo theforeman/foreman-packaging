@@ -2,7 +2,7 @@
 %global gem_name pulp_file_client
 
 Name: rubygem-%{gem_name}
-Version: 1.12.0
+Version: 1.11.3
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Feb 19 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.11.3-1
+- Update to 1.11.3
+
 * Wed Feb 15 2023 ianballou <ianballou67@gmail.com> 1.12.0-1
 - Update to 1.12.0
 
