@@ -16,7 +16,7 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.5.0
+Version: 3.5.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
@@ -143,6 +143,9 @@ ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Feb 21 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.5.1-1
+- Update to 3.5.1
+
 * Thu Nov 10 2022 Adam Ruzicka <aruzicka@redhat.com> 3.5.0-1
 - Update to 3.5.0
 
