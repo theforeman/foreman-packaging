@@ -13,7 +13,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.0
+Version: 1.9.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -96,6 +96,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 21 2023 Lucy Fu - 1.9.0-0.1.pre.master
+- Bump version to 1.9.0
+
 * Thu Nov 10 2022 Evgeni Golov - 1.8.0-0.1.pre.master
 - Bump version to 1.8.0
 

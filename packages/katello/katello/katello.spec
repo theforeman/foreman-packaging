@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:       katello
-Version:    4.8.0
+Version:    4.9.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Feb 21 2023 Lucy Fu - 4.9.0-0.1.master
+- Bump version to 4.9.0
+
 * Tue Dec 06 2022 Evgeni Golov - 4.8.0-0.2.master
 - Fixes #35756 - do not use --disable-system-checks as it is gone
 

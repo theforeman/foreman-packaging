@@ -2,14 +2,14 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global foreman_min_version 3.6
-%global foreman_max_version 3.7
+%global foreman_min_version 3.7
+%global foreman_max_version 3.8
 %global plugin_name katello
 %global gem_name katello
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.8.0
-%global release 2
+%global mainver 4.9.0
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -207,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Feb 21 2023 Lucy Fu - 4.9.0-0.1.pre.master
+- Bump version to 4.9.0
+
 * Wed Feb 15 2023 Ian Ballou <ianballou67@gmail.com> - 4.8.0-0.2.pre.master
 - Update Pulp bindings for Pulpcore 3.22
 
