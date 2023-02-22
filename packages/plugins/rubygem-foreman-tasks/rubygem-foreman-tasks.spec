@@ -33,7 +33,6 @@ BuildRequires: rubygem(sinatra)
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
 BuildRequires: npm(@theforeman/builder) >= 10.1.0
-BuildRequires: npm(@theforeman/builder) < 11.0.0
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
