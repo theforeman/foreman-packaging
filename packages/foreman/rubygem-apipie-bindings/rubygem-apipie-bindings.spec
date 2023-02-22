@@ -1,78 +1,67 @@
-# template: scl
+# template: default
 %global gem_name apipie-bindings
 
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-Summary: The Ruby bindings for Apipie documented APIs
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.0
+Name: rubygem-%{gem_name}
+Version: 0.6.0
 Release: 1%{?dist}
-Group: Development/Libraries
+Summary: The Ruby bindings for Apipie documented APIs
 License: MIT
 URL: https://github.com/Apipie/apipie-bindings
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.2.1
-Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
-Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
-Requires: %{?scl_prefix}rubygem(oauth)
-Requires: %{?scl_prefix}rubygem(gssapi)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.0.0
+BuildRequires: ruby >= 2.0.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Bindings for API calls that are documented with Apipie. Bindings are generated on the fly.
+Bindings for API calls that are documented with Apipie. Bindings are generated
+on the fly.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for %{name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for %{name}.
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
-%doc %{gem_instdir}/LICENSE
-%{gem_instdir}/test
-
-
+%license %{gem_instdir}/LICENSE
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/doc
-
+%{gem_instdir}/test
 
 %changelog
+* Wed Feb 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.6.0-1
+- Update to 0.6.0
+
 * Wed May 11 2022 Evgeni Golov 0.5.0-1
 - Update to 0.5.0
 
