@@ -4,6 +4,7 @@ import json
 import os
 import subprocess
 import sys
+from packaging.version import Version
 from itertools import chain
 from pathlib import Path
 from typing import Dict, Generator, Iterable, Mapping, Optional, Tuple
@@ -171,6 +172,10 @@ def build_matrix(specs: Mapping[Spec, Optional[str]]) -> Generator[Mapping[str, 
         else:
             if not new_version:
                 new_version = latest_version(spec)
+
+            if new_version != 'CONFLICT' and Version(current_version) > Version(new_version):
+                print(f'Found downgrade for {spec.package_name}: {current_version} > {new_version}', file=sys.stderr)
+                new_version = 'DOWNGRADE'
 
             if current_version != new_version and spec.is_updateable:
                 entry = {
