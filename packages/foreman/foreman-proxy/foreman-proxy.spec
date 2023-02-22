@@ -6,12 +6,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        3.6.0
+Version:        3.7.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.1.develop
+- Bump version to 3.7-develop
+
 * Tue Dec 13 2022 Adam Ruzicka <aruzicka@redhat.com> - 3.6.0-0.2.develop
 - Notify only the main process on logrotate
 
