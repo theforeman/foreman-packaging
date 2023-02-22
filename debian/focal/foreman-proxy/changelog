@@ -1,3 +1,9 @@
+foreman-proxy (3.7.0-1) stable; urgency=low
+
+  * Bump changelog to 3.7.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Wed, 22 Feb 2023 21:12:34 +0100
+
 foreman-proxy (3.6.0-1) stable; urgency=low
 
   * Bump changelog to 3.6.0 to match VERSION
