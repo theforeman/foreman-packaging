@@ -2,7 +2,7 @@
 %global gem_name tilt
 
 Name: rubygem-%{gem_name}
-Version: 2.0.11
+Version: 2.1.0
 Release: 1%{?dist}
 Summary: Generic interface to multiple Ruby template engines
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/rtomayko/tilt/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.0
+BuildRequires: ruby >= 2.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -64,6 +64,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Wed Feb 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.1.0-1
+- Update to 2.1.0
+
 * Sun Jul 31 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.0.11-1
 - Update to 2.0.11
 
