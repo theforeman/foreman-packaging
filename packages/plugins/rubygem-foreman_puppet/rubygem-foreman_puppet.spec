@@ -5,11 +5,11 @@
 
 %global gem_name foreman_puppet
 %global plugin_name puppet
-%global foreman_min_version 3.0
+%global foreman_min_version 3.5.0
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.0
+Version: 5.1.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -35,7 +35,6 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
 BuildRequires: npm(@theforeman/builder) >= 10.1.0
-BuildRequires: npm(@theforeman/builder) < 11.0.0
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -112,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Feb 23 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.1.0-1
+- Update to 5.1.0
+
 * Tue Nov 22 2022 Ron Lavi <1ronlavi@gmail.com> 5.0.0-1
 - Update to 5.0.0
 
