@@ -1,3 +1,9 @@
+foreman (3.6.0~rc1-1) stable; urgency=low
+
+  * 3.6.0-rc1 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 23 Feb 2023 20:20:07 +0100
+
 foreman (3.6.0-2) stable; urgency=low
 
   * introduce a dynamic foreman:Depends instead of hard-coding versions
