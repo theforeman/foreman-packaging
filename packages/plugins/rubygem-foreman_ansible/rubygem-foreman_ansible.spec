@@ -8,7 +8,7 @@
 %global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 7.1.4
+Version: 7.1.5
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -24,15 +24,19 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
 Requires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.2.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 7.2.2
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 7.3
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 6.0.2
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 6.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
 BuildRequires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.2.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 7.2.2
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 7.3
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 6.0.2
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 6.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -124,6 +128,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Feb 23 2023 nofaralfasi <nalfassi@redhat.com> 7.1.5-1
+- Update to 7.1.5
+
 * Tue Sep 13 2022 Leos Stejskal <lstejska@redhat.com> 7.1.4-1
 - Update to 7.1.4
 
