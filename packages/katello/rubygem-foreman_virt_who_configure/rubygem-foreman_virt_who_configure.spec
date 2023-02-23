@@ -7,7 +7,7 @@
 %global foreman_min_version 1.24
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.12
+Version: 0.5.13
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 Group: Applications/Systems
@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 23 2023 Chris Roberts <chrobert@redhat.com> 0.5.13-1
+- Update to 0.5.13
+
 * Wed Jan 04 2023 Chris Roberts <chrobert@redhat.com> 0.5.12-1
 - Update to 0.5.12
 
