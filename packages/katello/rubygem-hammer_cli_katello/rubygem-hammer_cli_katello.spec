@@ -6,8 +6,6 @@
 %global plugin_name katello
 
 %global release 1
-%global prereleasesource pre.master
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -96,6 +94,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 23 2023 Chris Roberts - 1.8.0-1
+- Release 1.8.0
+
 * Thu Nov 10 2022 Evgeni Golov - 1.8.0-0.1.pre.master
 - Bump version to 1.8.0
 
