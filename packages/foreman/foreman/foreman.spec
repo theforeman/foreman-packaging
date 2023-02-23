@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 6
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -989,6 +989,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Feb 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.6.rc1
+- Release foreman 3.6.0rc1
+
 * Fri Feb 10 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.6.develop
 - Update theforeman-vendor and friends to version 12
 

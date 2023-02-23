@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Thu Feb 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.2.rc1
+- Release foreman-proxy 3.6.0rc1
+
 * Tue Dec 13 2022 Adam Ruzicka <aruzicka@redhat.com> - 3.6.0-0.2.develop
 - Notify only the main process on logrotate
 

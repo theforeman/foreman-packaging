@@ -22,7 +22,7 @@
 %define moduletype apps
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
@@ -189,6 +189,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Feb 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.2.rc1
+- Release foreman-selinux 3.6.0rc1
+
 * Wed Dec 07 2022 Evgeni Golov - 3.6.0-0.2.develop
 - Use _selinux_policy_version macro from selinux-policy package
 
