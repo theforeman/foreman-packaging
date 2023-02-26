@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.2
+Version: 0.2.3
 Release: 1%{?foremandist}%{?dist}
 Summary: CLI for the Foreman remote execution plugin
 Group: Development/Languages
@@ -18,18 +18,10 @@ URL: https://github.com/theforeman/hammer_cli_foreman_remote_execution
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.3
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 4.0.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.3
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) < 0.1
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -100,6 +92,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Sun Feb 26 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.2.3-1
+- Update to 0.2.3
+
 * Fri Jul 23 2021 Adam Ruzicka <aruzicka@redhat.com> 0.2.2-1
 - Update to 0.2.2
 
