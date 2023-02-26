@@ -9,7 +9,7 @@
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.1.0
+Version: 5.1.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -111,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Feb 26 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.1.1-1
+- Update to 5.1.1
+
 * Thu Feb 23 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.1.0-1
 - Update to 5.1.0
 
