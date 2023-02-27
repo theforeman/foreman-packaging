@@ -1,3 +1,9 @@
+ruby-foreman-ansible (10.4.1-1) stable; urgency=low
+
+  * 10.4.1 released
+
+ -- nofaralfasi <nalfassi@redhat.com>  Mon, 27 Feb 2023 13:07:47 +0200
+
 ruby-foreman-ansible (10.4.0-1) stable; urgency=low
 
   * 10.4.0 released
