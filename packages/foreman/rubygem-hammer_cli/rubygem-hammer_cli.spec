@@ -5,8 +5,6 @@
 %global gem_name hammer_cli
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -124,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Feb 27 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-1
+- Release 3.6.0
+
 * Tue Nov 08 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.1.pre.develop
 - Bump version to 3.6-develop
 
