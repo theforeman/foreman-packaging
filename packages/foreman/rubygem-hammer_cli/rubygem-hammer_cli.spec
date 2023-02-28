@@ -12,7 +12,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.5.0
+Version: 3.5.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 Group: Development/Languages
@@ -21,24 +21,10 @@ URL: https://github.com/theforeman/hammer-cli
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(clamp) >= 1.1
-Requires: %{?scl_prefix}rubygem(clamp) < 1.2.0
-Requires: %{?scl_prefix}rubygem(logging)
-Requires: %{?scl_prefix}rubygem(unicode-display_width)
-Requires: %{?scl_prefix}rubygem(unicode)
-Requires: %{?scl_prefix}rubygem(amazing_print)
-Requires: %{?scl_prefix}rubygem(highline)
-Requires: %{?scl_prefix}rubygem(fast_gettext)
-Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.2.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -122,6 +108,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 28 2023 Oleh Fedorenko <ofedoren@redhat.com> 3.5.1-1
+- Update to 3.5.1
+
 * Tue Nov 08 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-1
 - Update to 3.5.0
 
