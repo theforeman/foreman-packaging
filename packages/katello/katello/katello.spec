@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Feb 28 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-0.2.rc1
+- Release katello 4.8.0rc1
+
 * Tue Dec 06 2022 Evgeni Golov - 4.8.0-0.2.master
 - Fixes #35756 - do not use --disable-system-checks as it is gone
 
