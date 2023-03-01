@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.1
+Version: 1.2
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -8,6 +8,8 @@ BuildArch: noarch
 
 Obsoletes: rubygem-fog-google < 1.19.0-2
 Obsoletes: rubygem-google-api-client < 0.33.2-3
+Obsoletes: rubygem-dalli < 2.7.6-4
+Obsoletes: rubygem-foreman_memcache < 0.1.1-6
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -22,6 +24,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Wed Mar 01 2023 Evgeni Golov - 1.2-1
+- Obsolete foreman_memcache and dalli
+
 * Fri Jan 20 2023 Evgeni Golov - 1.1-1
 - Obsolete rubygem-google-api-client < 0.33.2-3
 - Mark the package as noarch
