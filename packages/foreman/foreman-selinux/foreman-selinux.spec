@@ -63,12 +63,9 @@ SELinux policy module for Foreman
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
-# determine distribution name and version
-%define distver rhel%{rhel}
-
 # build policy
 for selinuxvariant in %{selinux_variants}; do
-    make clean all NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
+    make clean all NAME=${selinuxvariant} VERSION=%{version} INSTPREFIX=%{buildroot}
     for selinuxmodule in %{selinux_modules}; do
         mv ${selinuxmodule}.pp.bz2 ${selinuxmodule}-${selinuxvariant}.pp.bz2
     done
@@ -85,7 +82,7 @@ for selinuxvariant in %{selinux_variants}; do
 done
 
 # install the rest
-make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
+make clean install-data NAME=${selinuxvariant} VERSION=%{version} INSTPREFIX=%{buildroot}
 
 %post
 # install and upgrade
