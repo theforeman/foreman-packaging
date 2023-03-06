@@ -1,1 +1,1 @@
-gem 'foreman_expire_hosts', '8.0.0'
+gem 'foreman_expire_hosts', '8.1.0'
