@@ -5,10 +5,10 @@
 
 %global gem_name foreman_expire_hosts
 %global plugin_name expire_hosts
-%global foreman_min_version 1.24
+%global foreman_min_version 3.0.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 8.0.0
+Version: 8.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 Group: Applications/Systems
@@ -96,6 +96,9 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 %{foreman_plugin_log}
 
 %changelog
+* Mon Mar 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 8.1.0-1
+- Update to 8.1.0
+
 * Mon Oct 24 2022 Marek Hulan <mhulan@redhat.com> 8.0.0-1
 - Update to 8.0.0
 
