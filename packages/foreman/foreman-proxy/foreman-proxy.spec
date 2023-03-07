@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -27,6 +27,9 @@ BuildRequires:  /usr/bin/rename
 BuildRequires:  asciidoc
 BuildRequires:  %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
+
+Requires:       %{?scl_prefix_ruby}rubygem(bigdecimal)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(bigdecimal)
 
 BuildRequires:  %{?scl_prefix_ruby}ruby(release) >= 2.5
 Requires:       %{?scl_prefix_ruby}ruby(release) >= 2.5
@@ -253,6 +256,9 @@ exit 0
 
 
 %changelog
+* Tue Mar 07 2023 Bernhard Suttner <suttner@atix.de> - 3.7.0-0.2.develop
+- rubygem-bigdecimal is required to start a foreman-proxy
+
 * Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.1.develop
 - Bump version to 3.7-develop
 
