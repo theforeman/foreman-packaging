@@ -94,6 +94,7 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/certs
 %{gem_libdir}
 %exclude %{gem_instdir}/misc
+%exclude %{gem_instdir}/translation
 %exclude %{gem_cache}
 %{gem_spec}
 
