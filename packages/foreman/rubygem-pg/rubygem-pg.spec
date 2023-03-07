@@ -101,11 +101,11 @@ rm -rf gem_ext_test
 %doc %{gem_docdir}
 %doc %{gem_instdir}/Contributors.rdoc
 %{gem_instdir}/Gemfile
-%doc %{gem_instdir}/History.rdoc
+%doc %{gem_instdir}/History.md
 %doc %{gem_instdir}/README-OS_X.rdoc
 %doc %{gem_instdir}/README-Windows.rdoc
-%doc %{gem_instdir}/README.ja.rdoc
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/README.ja.md
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/Rakefile.cross
 %{gem_instdir}/rakelib
