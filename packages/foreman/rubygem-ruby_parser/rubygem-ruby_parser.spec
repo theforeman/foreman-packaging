@@ -2,7 +2,7 @@
 %global gem_name ruby_parser
 
 Name: rubygem-%{gem_name}
-Version: 3.19.2
+Version: 3.20.0
 Release: 1%{?dist}
 Summary: A ruby parser written in pure ruby
 License: MIT
@@ -10,9 +10,9 @@ URL: https://github.com/seattlerb/ruby_parser
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.1
+Requires: ruby >= 2.6
 Requires: ruby < 4
-BuildRequires: ruby >= 2.1
+BuildRequires: ruby >= 2.6
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
@@ -78,6 +78,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 08 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.20.0-1
+- Update to 3.20.0
+
 * Sun Jan 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.19.2-1
 - Update to 3.19.2
 
