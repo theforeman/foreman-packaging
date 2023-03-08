@@ -70,15 +70,8 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/appveyor.yml
-%{gem_instdir}/bench
-%exclude %{gem_instdir}/bin/console
 %{gem_libdir}
-%{gem_instdir}/msgpack.org.md
 %exclude %{gem_cache}
 %{gem_spec}
 
