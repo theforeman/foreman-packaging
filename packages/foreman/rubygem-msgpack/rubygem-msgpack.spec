@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.6.0
+Version: 1.6.1
 Release: 1%{?dist}
 Summary: MessagePack, a binary-based efficient data interchange format
 License: Apache 2.0
@@ -70,29 +70,21 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/appveyor.yml
-%{gem_instdir}/bench
-%exclude %{gem_instdir}/bin/console
 %{gem_libdir}
-%{gem_instdir}/msgpack.org.md
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/ChangeLog
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%doc %{gem_instdir}/doclib
 %{gem_instdir}/msgpack.gemspec
-%{gem_instdir}/spec
 
 %changelog
+* Wed Mar 08 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.6.1-1
+- Update to 1.6.1
+
 * Sun Oct 16 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.6.0-1
 - Update to 1.6.0
 
