@@ -78,12 +78,8 @@ rm -rf gem_ext_test
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/ChangeLog
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%doc %{gem_instdir}/doclib
 %{gem_instdir}/msgpack.gemspec
-%{gem_instdir}/spec
 
 %changelog
 * Wed Mar 08 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.6.1-1
