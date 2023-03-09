@@ -9,6 +9,8 @@ License: MIT
 URL: https://github.com/ruby-git/ruby-git
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+Requires: git-core
+
 # start specfile generated dependencies
 Requires: ruby >= 2.3
 BuildRequires: ruby >= 2.3
