@@ -7,12 +7,14 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.11.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: An API to create, read, and manipulate Git repositories
 Group: Development/Languages
 License: MIT
 URL: http://github.com/ruby-git/ruby-git
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: git-core
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -97,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/git.gemspec
 
 %changelog
+* Thu Mar 09 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.11.0-2
+- Add dependency on git-core
+
 * Wed May 25 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.11.0-1
 - Release rubygem-git 1.11.0
 
