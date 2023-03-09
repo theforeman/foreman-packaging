@@ -684,7 +684,6 @@ foreman_plugin_packages:
     rubygem-net-ssh-multi: {}
     rubygem-netbox-client-ruby: {}
     rubygem-newt: {}
-    rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
     rubygem-pdf-core: {}
     rubygem-polyglot: {}
