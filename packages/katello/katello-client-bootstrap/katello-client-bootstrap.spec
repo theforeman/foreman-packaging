@@ -18,7 +18,7 @@
 
 Name:           katello-client-bootstrap
 Version:        1.7.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Client bootstrap utility for Foreman and Katello
 
 Group:          System Environment/Base
@@ -43,11 +43,13 @@ install -m644 -D bootstrap.py %{buildroot}%{_var}/www/html/pub/bootstrap.py
 %files
 %doc README.md
 %doc bootstrap.yml
-%defattr(-,apache,apache,-)
-%{_var}/www/html/pub
+%dir %{_var}/www/html/pub
 %{_var}/www/html/pub/bootstrap.py
 
 %changelog
+* Thu Mar 09 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.9-2
+- Make files owned by root
+
 * Wed Apr 20 2022 Evgeni Golov - 1.7.9-1
 - Release katello-client-bootstrap 1.7.9
 
