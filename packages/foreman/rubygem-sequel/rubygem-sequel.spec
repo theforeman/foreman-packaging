@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 5.66.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The Database Toolkit for Ruby
 License: MIT
 URL: https://sequel.jeremyevans.net
@@ -15,6 +15,9 @@ BuildRequires: ruby >= 1.9.2
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+
+# https://github.com/jeremyevans/sequel/pull/2003
+Requires: rubygem(bigdecimal)
 
 %description
 The Database Toolkit for Ruby.
@@ -66,6 +69,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Thu Mar 09 2023 Bernhard Suttner <suttner@atix.de> 5.66.0-2
+- bigdecimal is a requirement of sequel
+
 * Sun Mar 05 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.66.0-1
 - Update to 5.66.0
 
