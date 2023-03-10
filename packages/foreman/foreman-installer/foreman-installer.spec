@@ -2,7 +2,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 1
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -141,6 +141,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Mar 10 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.6.0-0.1.rc2
+- Release foreman-installer 3.6.0rc2
+
 * Thu Feb 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.6.0-0.1.rc1
 - Release foreman-installer 3.6.0rc1
 

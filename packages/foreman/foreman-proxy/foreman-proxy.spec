@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 2
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Fri Mar 10 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.2.rc2
+- Release foreman-proxy 3.6.0rc2
+
 * Thu Feb 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-0.2.rc1
 - Release foreman-proxy 3.6.0rc1
 
