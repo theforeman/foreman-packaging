@@ -4,11 +4,11 @@
 
 %global gem_name foreman_fog_proxmox
 %global plugin_name fog_proxmox
-%global foreman_min_version 1.22
+%global foreman_min_version 1.22.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.14.0
-Release: 4%{?foremandist}%{?dist}
+Version: 0.14.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
@@ -17,23 +17,17 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.14
-Requires: %{?scl_prefix}rubygem(fog-proxmox) < 1
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.14
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) < 1
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(deface)
+BuildRequires: rubygem(fog-proxmox) >= 0.15
+BuildRequires: rubygem(fog-proxmox) < 1
 # end specfile generated dependencies
 %if 0%{?fedora} >= 27 || 0%{?rhel} >= 8
 Requires(post):   policycoreutils-python-utils
@@ -120,6 +114,9 @@ fi
 %{foreman_plugin_log}
 
 %changelog
+* Fri Mar 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.14.2-1
+- Update to 0.14.2
+
 * Wed Aug 24 2022 Evgeni Golov - 0.14.0-4
 - Refs #35409 - Include sprockets assets
 
