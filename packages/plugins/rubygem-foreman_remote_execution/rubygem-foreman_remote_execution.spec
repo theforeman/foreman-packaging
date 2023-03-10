@@ -6,11 +6,11 @@
 
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 3.4.0
+%global foreman_min_version 3.6
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.0.1
+Version:    9.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -38,8 +38,8 @@ BuildRequires: rubygem(foreman-tasks) >= 7.1.0
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 10.1.0
-BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
+BuildRequires: npm(@theforeman/builder) < 13.0.0
 BuildRequires: npm(graphql) >= 15.5.0
 BuildRequires: npm(graphql) < 16.0.0
 BuildRequires: npm(graphql-tag) >= 2.11.0
@@ -159,6 +159,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Fri Mar 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 9.1.0-1
+- Update to 9.1.0
+
 * Sun Jan 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 9.0.1-1
 - Update to 9.0.1
 
