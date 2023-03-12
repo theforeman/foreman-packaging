@@ -4,11 +4,11 @@
 
 %global gem_name foreman_openscap
 %global plugin_name openscap
-%global foreman_min_version 1.24.0
+%global foreman_min_version 1.24
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.2
-Release: 3%{?foremandist}%{?dist}
+Version: 5.2.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
 License: GPLv3
@@ -18,25 +18,22 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: scap-security-guide
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 8.4.1
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
 
 Obsoletes: %{?scl_prefix}rubygem-scaptimony < 0.3.2-3
@@ -112,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Mar 09 2023 Ron Lavi <1ronlavi@gmail.com> 5.2.3-1
+- Update to 5.2.3
+
 * Wed Aug 24 2022 Evgeni Golov - 5.2.2-3
 - Refs #35409 - Include sprockets assets
 
