@@ -1,3 +1,9 @@
+ruby-foreman-discovery (22.0.4-1) stable; urgency=low
+
+  * 22.0.4 released
+
+ -- Ron Lavi <1ronlavi@gmail.com>  Sun, 12 Mar 2023 12:31:28 +0200
+
 ruby-foreman-discovery (22.0.2-1) stable; urgency=low
 
   * 22.0.2 released
