@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.6.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Ruby interface to the VMware vSphere API
 License: MIT
 URL: https://github.com/ManageIQ/rbvmomi2
@@ -16,6 +16,8 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: rubygem(optimist) >= 3.0
+Requires: rubygem(optimist) < 4.0
 Obsoletes: rubygem-rbvmomi < 2.4.1-2
 
 %description
@@ -67,6 +69,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 13 2023 Odilon Sousa <osousa@redhat.com> - 3.6.0-3
+- Add rubygem-optimist as requirement
+
 * Fri Jan 27 2023 Evgeni Golov - 3.6.0-2
 - Obsolete rubygem-rbvmomi
 
