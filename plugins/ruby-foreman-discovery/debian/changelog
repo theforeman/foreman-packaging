@@ -1,3 +1,9 @@
+ruby-foreman-discovery (22.0.4-1) stable; urgency=low
+
+  * 22.0.4 released
+
+ -- Leos Stejskal <lstejska@redhat.com>  Mon, 13 Mar 2023 11:57:58 +0100
+
 ruby-foreman-discovery (22.0.2-1) stable; urgency=low
 
   * 22.0.2 released
