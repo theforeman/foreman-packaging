@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 License: MIT
 URL: https://github.com/fog/fog-vsphere
@@ -15,6 +15,9 @@ BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+
+Requires: rubygem(rbvmomi2) >= 3.0
+Requires: rubygem(rbvmomi2) < 4.0
 
 %description
 This library can be used as a module for `fog` or as standalone provider to
@@ -68,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/fog-vsphere.gemspec
 
 %changelog
+* Mon Mar 13 2023 Odilon Sousa <osousa@redhat.com> - 3.6.0-2
+- Adds rbvmomi2 requirement to fog-vsphere
+
 * Wed Jan 04 2023 Chris Roberts <chrobert@redhat.com> 3.6.0-1
 - Update to 3.6.0
 
