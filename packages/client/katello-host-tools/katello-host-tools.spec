@@ -11,8 +11,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.5.7
-Release: 5%{?dist}
+Version: 4.2.3
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -170,8 +170,23 @@ rm -rf %{buildroot}
 %global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
 %endif
 
+pushd src
+%if %{dnf_install} || 0%{?suse_version} >= 1500
+%py3_install
+%else
+%if 0%{?rhel} == 6
+%{__python} setup.py install
+%else
+%py_build
+%endif
+%endif
+popd
+
 mkdir -p %{buildroot}%{katello_libdir}
 mkdir -p %{buildroot}%{plugins_dir}
+mkdir -p %{buildroot}%{_sbindir}
+
+mv %{buildroot}%{_bindir}/* %{buildroot}%{_sbindir}/
 
 cp src/katello/*.py %{buildroot}%{katello_libdir}/
 
@@ -232,7 +247,7 @@ sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/tracer_upload.py
 
 #clean up tracer if its not being built
 %if %{build_tracer}
-rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+# rm %{buildroot}%{katello_libdir}/apt_tracer.py*
 
 %if !0%{?suse_version}
 rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
@@ -240,7 +255,7 @@ rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
 
 %else
 rm %{buildroot}%{plugins_dir}/tracer_upload.py*
-rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+# rm %{buildroot}%{katello_libdir}/apt_tracer.py*
 rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
 rm %{buildroot}%{katello_libdir}/tracer.py*
 rm %{buildroot}%{_sbindir}/katello-tracer-upload
@@ -290,32 +305,8 @@ exit 0
 %files -n katello-agent
 %defattr(-,root,root,-)
 %config %{_sysconfdir}/gofer/plugins/katello.conf
-%{katello_libdir}/agent/__init__.py*
-%{katello_libdir}/agent/goferd/plugin.*
-%{katello_libdir}/agent/goferd/__init__.py*
+%{katello_libdir}/agent/
 
-%if %{legacy_agent}
-%else
-%{katello_libdir}/agent/pulp/__init__.py*
-%{katello_libdir}/agent/pulp/dispatcher.py*
-%{katello_libdir}/agent/pulp/handler.py*
-%{katello_libdir}/agent/pulp/libdnf.py*
-%{katello_libdir}/agent/pulp/libyum.py*
-%{katello_libdir}/agent/pulp/report.py*
-
-%if %{dnf_install}
-%{katello_libdir}/agent/goferd/__pycache__/__init__.*
-%{katello_libdir}/agent/goferd/__pycache__/plugin.*
-%{katello_libdir}/agent/__pycache__/__init__.*
-%{katello_libdir}/agent/pulp/__pycache__/__init__.*
-%{katello_libdir}/agent/pulp/__pycache__/dispatcher.*
-%{katello_libdir}/agent/pulp/__pycache__/handler.*
-%{katello_libdir}/agent/pulp/__pycache__/libdnf.*
-%{katello_libdir}/agent/pulp/__pycache__/libyum.*
-%{katello_libdir}/agent/pulp/__pycache__/report.*
-%endif
-
-%endif
 %endif
 
 %files
@@ -334,35 +325,22 @@ exit 0
 %endif
 
 %dir %{katello_libdir}/
-%{katello_libdir}/constants.py*
-%{katello_libdir}/enabled_report.py*
-%{katello_libdir}/packages.py*
-%{katello_libdir}/repos.py*
-%{katello_libdir}/uep.py*
-%{katello_libdir}/utils.py*
-%{katello_libdir}/__init__.py*
-
-%if %{dnf_install}
-%{katello_libdir}/__pycache__/constants.*
-%{katello_libdir}/__pycache__/enabled_report.*
-%{katello_libdir}/__pycache__/packages.*
-%{katello_libdir}/__pycache__/repos.*
-%{katello_libdir}/__pycache__/uep.*
-%{katello_libdir}/__pycache__/utils.*
-%{katello_libdir}/__pycache__/__init__.*
-%else
+%{katello_libdir}/
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
-
-%{plugins_dir}/enabled_repos_upload.py*
-%{plugins_dir}/package_upload.py*
-%endif
 
 %if %{zypper_install}
 %dir %{_usr}/lib/zypp/
 %dir %{_usr}/lib/zypp/plugins/
 %dir %{_usr}/lib/zypp/plugins/commit/
 %endif
+
+%{python3_sitelib}/apt_plugins
+%{python3_sitelib}/dnf_plugins
+
+%{python3_sitelib}/yum-plugins
+%{python3_sitelib}/zypper_plugins
+%{python3_sitelib}/katello_host_tools-%{version}-py%{python3_version}.egg-info
 
 %if %{build_tracer}
 %files tracer
@@ -381,6 +359,9 @@ exit 0
 
 
 %changelog
+* Fri Mar 17 2023 Patrick Creech <pcreech@redhat.com> - 4.2.3-1
+- Release 4.2.3
+
 * Tue May 24 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.7-5
 - Stop building katello-host-tools-fact-plugin
 
