@@ -2,7 +2,7 @@
 %global gem_name ancestry
 
 Name: rubygem-%{gem_name}
-Version: 4.2.0
+Version: 4.3.0
 Release: 1%{?dist}
 Summary: Organize ActiveRecord model into a tree structure
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Mar 19 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.3.0-1
+- Update to 4.3.0
+
 * Wed Aug 24 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.2.0-1
 - Update to 4.2.0
 
