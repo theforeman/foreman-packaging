@@ -4,11 +4,11 @@
 
 %global gem_name foreman_webhooks
 %global plugin_name webhooks
-%global foreman_min_version 2.3
+%global foreman_min_version 3.3
 
 Summary:    Plugin for Foreman that allows to configure Webhooks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.5
+Version:    3.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -109,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Mar 21 2023 Oleh Fedorenko <ofedoren@redhat.com> 3.1.0-1
+- Update to 3.1.0
+
 * Sun Sep 11 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.0.5-1
 - Update to 3.0.5
 
