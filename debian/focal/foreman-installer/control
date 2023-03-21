@@ -15,7 +15,7 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-kafo (>= 6.5.0), ruby-kafo (<< 7.0.0),
-         puppet-agent (>= 6.15.0) | puppet (>= 6.15.0),
+         puppet-agent (>= 6.24.0) | puppet (>= 6.24.0),
          curl,
          lsb-release
 Description: Automated puppet-based installer for The Foreman
