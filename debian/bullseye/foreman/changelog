@@ -1,3 +1,9 @@
+foreman (3.6.0-1) stable; urgency=low
+
+  * 3.6.0 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 21 Mar 2023 16:27:02 +0100
+
 foreman (3.6.0~rc2-1) stable; urgency=low
 
   * 3.6.0-rc2 released
