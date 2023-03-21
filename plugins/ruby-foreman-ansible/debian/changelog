@@ -1,3 +1,9 @@
+ruby-foreman-ansible (11.1.2-1) stable; urgency=low
+
+  * 11.1.2 released
+
+ -- nofaralfasi <nalfassi@redhat.com>  Tue, 21 Mar 2023 21:13:03 +0200
+
 ruby-foreman-ansible (11.1.1-1) stable; urgency=low
 
   * 11.1.1 released
