@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -17,13 +17,13 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   hostname
-Requires:   puppet-agent >= 6.15.0
+Requires:   puppet-agent >= 6.24.0
 Requires:   %{?scl_prefix}rubygem(kafo) >= 6.5.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 7.0.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
-BuildRequires: puppet-agent >= 6.15.0
+BuildRequires: puppet-agent >= 6.24.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.5.0
 BuildRequires: %{?scl_prefix}rubygem(kafo) < 7.0.0
@@ -139,6 +139,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Mar 21 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.6.0-2
+- Correct Puppet version lower bound
+
 * Tue Mar 21 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.6.0-1
 - Release foreman-installer 3.6.0
 
