@@ -8,7 +8,7 @@
 %global foreman_min_version 3.6
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 11.1.1
+Version: 11.1.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -38,7 +38,7 @@ BuildRequires: rubygem(foreman-tasks) < 8
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 10.0.0
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -118,6 +118,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Mar 21 2023 nofaralfasi <nalfassi@redhat.com> 11.1.2-1
+- Update to 11.1.2
+
 * Tue Mar 07 2023 Leos Stejskal <lstejska@redhat.com> 11.1.1-1
 - Update to 11.1.1
 
