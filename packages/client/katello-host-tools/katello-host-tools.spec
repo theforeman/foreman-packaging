@@ -202,8 +202,8 @@ cp etc/gofer/plugins/katello.conf %{buildroot}%{_sysconfdir}/gofer/plugins
 mv %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py %{buildroot}%{katello_libdir}/agent/goferd/plugin.py
 rm -rf %{buildroot}%{katello_libdir}/agent/pulp
 %else
-rm -f %{buildroot}%{katello_libdir}/agent/pulp/test.py
-rm -f %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py
+rm %{buildroot}%{katello_libdir}/agent/pulp/test.py
+rm %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py
 %endif
 %endif
 
@@ -218,7 +218,7 @@ cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
 
 %if %{dnf_install}
 cp src/dnf_plugins/*.py %{buildroot}%{plugins_dir}/
-rm -f %{buildroot}%{plugins_dir}/__init__.py
+rm %{buildroot}%{plugins_dir}/__init__.py
 %endif
 
 %if %{yum_install}
@@ -227,14 +227,11 @@ cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
 
 %if %{zypper_install}
 cp src/zypper_plugins/*.py %{buildroot}%{plugins_dir}/
-rm -f %{buildroot}%{plugins_dir}/__init__.py
+rm %{buildroot}%{plugins_dir}/__init__.py
 %endif
 
 # executables
 mkdir -p %{buildroot}%{_sbindir}
-%if %{yum_install} || %{zypper_install}
-# cp bin/* %{buildroot}%{_sbindir}/
-%endif
 %if %{dnf_install}
 cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %endif
@@ -250,19 +247,19 @@ sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/tracer_upload.py
 
 #clean up tracer if its not being built
 %if %{build_tracer}
-# rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+rm %{buildroot}%{katello_libdir}/deb_tracer.py*
 
 %if !0%{?suse_version}
-rm -f %{buildroot}%{katello_libdir}/zypper_tracer.py*
+rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
 %endif
 
 %else
-rm -f %{buildroot}%{plugins_dir}/tracer_upload.py*
-# rm -f %{buildroot}%{katello_libdir}/apt_tracer.py*
-rm -f %{buildroot}%{katello_libdir}/zypper_tracer.py*
-rm -f %{buildroot}%{katello_libdir}/tracer.py*
-rm -f %{buildroot}%{_sbindir}/katello-tracer-upload
-rm -f %{buildroot}%{plugins_confdir}/tracer_upload.conf
+rm %{buildroot}%{plugins_dir}/tracer_upload.py*
+rm %{buildroot}%{katello_libdir}/deb_tracer.py*
+rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+rm %{buildroot}%{katello_libdir}/tracer.py*
+rm %{buildroot}%{_sbindir}/katello-tracer-upload
+rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
 %endif
 
 # cache directory
@@ -328,6 +325,7 @@ exit 0
 %endif
 
 %{katello_libdir}/
+%exclude %{katello_libdir}/agent/
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
 
@@ -359,6 +357,8 @@ exit 0
 %{python_libdir}/dnf_plugins
 %else
 %exclude %{python_libdir}/dnf_plugins
+%{plugins_dir}/enabled_repos_upload.py*
+%{plugins_dir}/package_upload.py*
 %endif
 
 %{python_libdir}/katello_host_tools-*.egg-info
