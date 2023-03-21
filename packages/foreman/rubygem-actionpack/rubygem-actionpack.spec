@@ -2,7 +2,7 @@
 %global gem_name actionpack
 
 Name: rubygem-%{gem_name}
-Version: 6.1.7.2
+Version: 6.1.7.3
 Release: 1%{?dist}
 Summary: Web-flow and rendering framework putting the VC in MVC (part of Rails)
 License: MIT
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Mar 21 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.7.3-1
+- Update to 6.1.7.3
+
 * Fri Jan 27 2023 Eric D. Helms <ericdhelms@gmail.com> - 6.1.7.2-1
 - Release rubygem-actionpack 6.1.7.2
 
