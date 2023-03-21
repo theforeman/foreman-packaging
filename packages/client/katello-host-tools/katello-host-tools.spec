@@ -3,7 +3,7 @@
 %global zypper_install (0%{?suse_version} > 0)
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
-%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || 0%{?rhel} > 0)
+%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 9))
 %global legacy_agent (0%{?rhel} == 6)
 
 %if 0%{?suse_version}
@@ -48,7 +48,7 @@ Requires: python3-zypp-plugin
 BuildRequires: python-devel >= 2.6
 Requires: python2-zypp-plugin
 %endif
-%else # not suse
+%else
 %if %{dnf_install}
 BuildRequires: python3-devel
 %else
@@ -191,20 +191,18 @@ mkdir -p %{buildroot}%{plugins_dir}
 mkdir -p %{buildroot}%{_sbindir}
 mv %{buildroot}%{_bindir}/* %{buildroot}%{_sbindir}/
 
-# cp src/katello/*.py %{buildroot}%{katello_libdir}/
-
 %if %{build_agent}
 mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
 cp etc/gofer/plugins/katello.conf %{buildroot}%{_sysconfdir}/gofer/plugins
-# cp -R src/katello/agent %{buildroot}%{katello_libdir}/
 
-%if %{legacy_agent}
+%endif
+
+%if %{build_agent} && %{legacy_agent}
 mv %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py %{buildroot}%{katello_libdir}/agent/goferd/plugin.py
 rm -rf %{buildroot}%{katello_libdir}/agent/pulp
 %else
 rm %{buildroot}%{katello_libdir}/agent/pulp/test.py
 rm %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py
-%endif
 %endif
 
 %if %{dnf_install} || %{yum_install} || %{zypper_install}
