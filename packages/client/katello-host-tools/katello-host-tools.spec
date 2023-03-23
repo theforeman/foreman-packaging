@@ -10,6 +10,31 @@
 %define dist suse%{?suse_version}
 %endif
 
+%if %{dnf_install}
+%global python_libdir %{python3_sitelib}
+%global plugins_dir %{python3_sitelib}/dnf_plugins
+%global plugins_confdir %{_sysconfdir}/dnf/plugins
+%endif
+
+%if %{yum_install}
+%if 0%{?rhel} == 6
+%global python_libdir %{python_sitelib}
+%else
+%global python_libdir %{python2_sitelib}
+%endif
+%global plugins_dir %{_usr}/lib/yum-plugins
+%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
+%endif
+
+%if %{zypper_install}
+%global python_libdir %{python_sitelib}
+%global plugins_dir %{_usr}/lib/zypp/plugins/commit/
+# Deploy yum plugin config to control reports
+%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
+%endif
+
+%global katello_libdir %{python_libdir}/katello
+
 Name: katello-host-tools
 Version: 4.2.3
 Release: 1%{?dist}
@@ -132,6 +157,47 @@ Adds Tracer functionality to a client managed by katello-host-tools
 %setup -q
 
 %build
+# Remove apt bits
+rm -r src/apt_plugins
+rm src/katello/deb_tracer.py
+
+%if !%{dnf_install}
+rm -r src/dnf_plugins
+%endif
+
+%if !%{yum_install}
+rm -r src/yum-plugins
+%endif
+
+%if !%{zypper_install}
+rm -r src/zypper_plugins
+rm src/katello/zypper_tracer.py
+%endif
+
+%if %{build_tracer}
+%if %{dnf_install}
+# On DNF installs a small shell wrapper for "dnf katello-tracer-upload" is used
+sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
+%endif
+%else
+rm src/katello/tracer.py
+sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
+rm etc/yum/pluginconf.d/tracer_upload.conf
+%endif
+
+%if %{build_agent}
+%if %{legacy_agent}
+mv src/katello/agent/goferd/legacy_plugin.py src/katello/agent/goferd/plugin.py
+rm -r src/katello/agent/pulp
+%else
+rm src/katello/agent/goferd/legacy_plugin.py
+# This should be in test/ instead of src/
+rm src/katello/agent/pulp/test.py
+%endif
+%else
+rm -r src/katello/agent
+%endif
+
 pushd src
 %if %{dnf_install} || 0%{?suse_version} >= 1500
 %py3_build
@@ -147,33 +213,6 @@ popd
 %install
 rm -rf %{buildroot}
 
-%if %{dnf_install}
-%global katello_libdir %{python3_sitelib}/katello
-%global python_libdir %{python3_sitelib}
-%global plugins_dir %{python3_sitelib}/dnf-plugins
-%global plugins_confdir %{_sysconfdir}/dnf/plugins
-%endif
-
-%if %{yum_install}
-%if 0%{?rhel} == 6
-%global katello_libdir %{python_sitelib}/katello
-%global python_libdir %{python_sitelib}
-%else
-%global katello_libdir %{python2_sitelib}/katello
-%global python_libdir %{python2_sitelib}
-%endif
-%global plugins_dir %{_usr}/lib/yum-plugins
-%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
-%endif
-
-%if %{zypper_install}
-%global katello_libdir %{python_sitelib}/katello
-%global python_libdir %{python_sitelib}
-%global plugins_dir %{_usr}/lib/zypp/plugins/commit/
-# Deploy yum plugin config to control reports
-%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
-%endif
-
 pushd src
 %if %{dnf_install} || 0%{?suse_version} >= 1500
 %py3_install
@@ -186,8 +225,6 @@ pushd src
 %endif
 popd
 
-mkdir -p %{buildroot}%{katello_libdir}
-mkdir -p %{buildroot}%{plugins_dir}
 mkdir -p %{buildroot}%{_sbindir}
 mv %{buildroot}%{_bindir}/* %{buildroot}%{_sbindir}/
 
@@ -195,14 +232,8 @@ mv %{buildroot}%{_bindir}/* %{buildroot}%{_sbindir}/
 mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
 cp etc/gofer/plugins/katello.conf %{buildroot}%{_sysconfdir}/gofer/plugins
 
-%endif
-
-%if %{build_agent} && %{legacy_agent}
-mv %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py %{buildroot}%{katello_libdir}/agent/goferd/plugin.py
-rm -rf %{buildroot}%{katello_libdir}/agent/pulp
-%else
-rm %{buildroot}%{katello_libdir}/agent/pulp/test.py
-rm %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py
+# cache directory
+mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
 %endif
 
 %if %{dnf_install} || %{yum_install} || %{zypper_install}
@@ -214,60 +245,24 @@ cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
 %endif
 %endif
 
-%if %{dnf_install}
-cp src/dnf_plugins/*.py %{buildroot}%{plugins_dir}/
-rm %{buildroot}%{plugins_dir}/__init__.py
-%endif
-
 %if %{yum_install}
+mkdir -p %{buildroot}%{plugins_dir}
 cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
 %endif
 
 %if %{zypper_install}
+mkdir -p %{buildroot}%{plugins_dir}
 cp src/zypper_plugins/*.py %{buildroot}%{plugins_dir}/
 rm %{buildroot}%{plugins_dir}/__init__.py
 %endif
 
+%if %{build_tracer}
 # executables
 mkdir -p %{buildroot}%{_sbindir}
 %if %{dnf_install}
 cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %endif
 
-%if 0%{?suse_version} >= 1500
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-enabled-repos-upload
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-package-upload
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-tracer-upload
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/enabled_repos_upload.py
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/package_upload.py
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/tracer_upload.py
-%endif
-
-#clean up tracer if its not being built
-%if %{build_tracer}
-rm %{buildroot}%{katello_libdir}/deb_tracer.py*
-rm -f %{buildroot}%{katello_libdir}/__pycache__/deb_tracer.*
-
-%if !0%{?suse_version}
-rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
-rm -f %{buildroot}%{katello_libdir}/__pycache__/zypper_tracer.*
-%endif
-
-%else
-rm %{buildroot}%{plugins_dir}/tracer_upload.py*
-rm %{buildroot}%{katello_libdir}/deb_tracer.py*
-rm -f %{buildroot}%{katello_libdir}/__pycache__/deb_tracer.*
-rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
-rm -f %{buildroot}%{katello_libdir}/__pycache__/zypper_tracer.*
-rm %{buildroot}%{katello_libdir}/tracer.py*
-rm %{buildroot}%{_sbindir}/katello-tracer-upload
-rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
-%endif
-
-# cache directory
-mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
-
-%if %{build_tracer}
 # crontab
 mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
 cp extra/katello-tracer-upload.cron %{buildroot}%{_sysconfdir}/cron.d/katello-tracer-upload
@@ -308,17 +303,55 @@ exit 0
 %defattr(-,root,root,-)
 %config %{_sysconfdir}/gofer/plugins/katello.conf
 %{katello_libdir}/agent/
-
+%dir %{_localstatedir}/cache/katello-agent/
 %endif
 
 %files
 %defattr(-,root,root,-)
+%if 0%{?rhel} == 6
 %doc LICENSE
-%dir %{_localstatedir}/cache/katello-agent/
+%else
+%license LICENSE
+%endif
+
+%{katello_libdir}
+%{python_libdir}/katello_host_tools-*.egg-info
+%exclude %{katello_libdir}/contrib
+
+%if %{build_agent}
+%exclude %{katello_libdir}/agent
+%endif
+
+%if %{build_tracer}
+# TODO pycached unavailable on SuSE - what to do with cache files?
+%if %{zypper_install}
+%exclude %{katello_libdir}/tracer.py
+%else
+%if %{yum_install}
+%exclude %{katello_libdir}/tracer.py*
+%else
+%pycached %exclude %{katello_libdir}/tracer.py
+%endif
+%endif
+
+%if %{dnf_install}
+%pycached %exclude %{plugins_dir}/__init__.py
+%else
+%exclude %{plugins_dir}
+%endif
+%endif
+
+%attr(750, root, root) %{_sbindir}/katello-package-upload
+%attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
 
 %if %{zypper_install}
 %dir %{_sysconfdir}/yum
 %dir %{plugins_confdir}
+%exclude %{python_libdir}/zypper_plugins
+%endif
+
+%if %{yum_install}
+%exclude %{python_libdir}/yum-plugins
 %endif
 
 %if %{yum_install} || %{zypper_install}
@@ -326,58 +359,26 @@ exit 0
 %config(noreplace) %{plugins_confdir}/enabled_repos_upload.conf
 %endif
 
-%{katello_libdir}/
-%exclude %{katello_libdir}/agent/
-%attr(750, root, root) %{_sbindir}/katello-package-upload
-%attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
-
-%if %{zypper_install}
-%dir %{_usr}/lib/zypp/
-%dir %{_usr}/lib/zypp/plugins/
-%dir %{_usr}/lib/zypp/plugins/commit/
-
-%{python_libdir}/zypper_plugins
-%else
-%exclude %{python_libdir}/zypper_plugins
-%endif
-
-%exclude %{python_libdir}/yum-plugins
-%exclude %{katello_libdir}/contrib
-
-%if %{yum_install}
-%{_usr}/lib/yum-plugins
-%else
-%exclude %{_usr}/lib/yum-plugins
-%endif
-
-%if 0%{?apt_install}
-%{python_libdir}/apt_plugins
-%else
-%exclude %{python_libdir}/apt_plugins
-%endif
-
-%if %{dnf_install}
-%{python_libdir}/dnf_plugins
-%else
-%exclude %{python_libdir}/dnf_plugins
-%{plugins_dir}/enabled_repos_upload.py*
-%{plugins_dir}/package_upload.py*
-%endif
-
-%{python_libdir}/katello_host_tools-*.egg-info
-
 %if %{build_tracer}
 %files tracer
 %defattr(-,root,root,-)
+%if %{zypper_install}
+%{katello_libdir}/tracer.py
+%dir %{_usr}/lib/zypp
+%dir %{_usr}/lib/zypp/plugins
+%dir %{plugins_dir}
+%{plugins_dir}/tracer_upload.py
+%else
+%if %{yum_install}
+%{katello_libdir}/tracer.py*
 %{plugins_dir}/tracer_upload.py*
-%{katello_libdir}/*tracer.py*
+%else
+%pycached %{katello_libdir}/tracer.py
+%pycached %{plugins_dir}/tracer_upload.py
+%endif
+%endif
 %{plugins_confdir}/tracer_upload.conf
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
-
-%if %{dnf_install}
-%{katello_libdir}/__pycache__/*tracer.*
-%{plugins_dir}/__pycache__/tracer_upload.*
-%endif
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif
 
