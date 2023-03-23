@@ -364,6 +364,9 @@ exit 0
 %{plugins_dir}/package_upload.py*
 %endif
 
+%exclude %{katello_libdir}/*tracer.py*
+%exclude %{katello_libdir}/__pycache__/*tracer*
+%exclude %{python_libdir}/dnf_plugins
 %{python_libdir}/katello_host_tools-*.egg-info
 
 %if %{build_tracer}
