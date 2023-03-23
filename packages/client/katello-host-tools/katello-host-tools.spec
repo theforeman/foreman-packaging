@@ -234,15 +234,6 @@ mkdir -p %{buildroot}%{_sbindir}
 cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %endif
 
-%if 0%{?suse_version} >= 1500
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-enabled-repos-upload
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-package-upload
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-tracer-upload
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/enabled_repos_upload.py
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/package_upload.py
-sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/tracer_upload.py
-%endif
-
 #clean up tracer if its not being built
 %if %{build_tracer}
 rm %{buildroot}%{katello_libdir}/deb_tracer.py*
