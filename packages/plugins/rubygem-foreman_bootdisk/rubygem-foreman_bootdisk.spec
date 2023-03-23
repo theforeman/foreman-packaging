@@ -9,14 +9,16 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 21.0.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# used in app/services/foreman_bootdisk/iso_generator.rb
 Requires:   dosfstools
+Requires:   grub2-efi-x64
 Requires:   ipxe-bootimgs
 Requires:   /usr/bin/isohybrid
 Requires:   /usr/bin/genisoimage
@@ -116,6 +118,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Mar 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 21.0.4-2
+- Depend on grub2-efi-x64
+
 * Tue Feb 21 2023 Foreman Packaging Automation <packaging@theforeman.org> 21.0.4-1
 - Update to 21.0.4
 
