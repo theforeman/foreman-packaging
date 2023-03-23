@@ -4,10 +4,10 @@
 
 %global gem_name foreman_openscap
 %global plugin_name openscap
-%global foreman_min_version 1.24
+%global foreman_min_version 3.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.3
+Version: 6.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
@@ -31,7 +31,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 8.4.1
+BuildRequires: npm(@theforeman/builder) >= 10.1.0
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -109,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Mar 23 2023 Ron Lavi <1ronlavi@gmail.com> 6.0.0-1
+- Update to 6.0.0
+
 * Thu Mar 09 2023 Ron Lavi <1ronlavi@gmail.com> 5.2.3-1
 - Update to 5.2.3
 
