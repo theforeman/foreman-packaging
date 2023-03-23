@@ -179,7 +179,7 @@ pushd src
 %py3_install
 %else
 %if 0%{?rhel} == 6
-%{__python} setup.py install
+%{__python} setup.py install --root %{buildroot}
 %else
 %py_install
 %endif
@@ -246,15 +246,19 @@ sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/tracer_upload.py
 #clean up tracer if its not being built
 %if %{build_tracer}
 rm %{buildroot}%{katello_libdir}/deb_tracer.py*
+rm -f %{buildroot}%{katello_libdir}/__pycache__/deb_tracer.*
 
 %if !0%{?suse_version}
 rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+rm -f %{buildroot}%{katello_libdir}/__pycache__/zypper_tracer.*
 %endif
 
 %else
 rm %{buildroot}%{plugins_dir}/tracer_upload.py*
 rm %{buildroot}%{katello_libdir}/deb_tracer.py*
+rm -f %{buildroot}%{katello_libdir}/__pycache__/deb_tracer.*
 rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+rm -f %{buildroot}%{katello_libdir}/__pycache__/zypper_tracer.*
 rm %{buildroot}%{katello_libdir}/tracer.py*
 rm %{buildroot}%{_sbindir}/katello-tracer-upload
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
@@ -337,11 +341,12 @@ exit 0
 %exclude %{python_libdir}/zypper_plugins
 %endif
 
+%exclude %{python_libdir}/yum-plugins
+%exclude %{katello_libdir}/contrib
+
 %if %{yum_install}
-%{python_libdir}/yum-plugins
 %{_usr}/lib/yum-plugins
 %else
-%exclude %{python_libdir}/yum-plugins
 %exclude %{_usr}/lib/yum-plugins
 %endif
 
