@@ -50,7 +50,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%{gem_instdir}/.standard.yml
+%exclude %{gem_instdir}/.standard.yml
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
