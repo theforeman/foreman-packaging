@@ -36,6 +36,7 @@ config.rules[:ignore] << '.autotest'
 config.rules[:ignore] << '.circleci'
 config.rules[:ignore] << '.simplecov'
 config.rules[:ignore] << '.codeclimate.yml'
+config.rules[:ignore] << '.standard.yml'
 -%>
 %global gem_name <%= spec.name %>
 <% unless spec.extensions.empty? -%>
