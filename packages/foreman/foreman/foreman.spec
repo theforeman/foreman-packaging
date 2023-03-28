@@ -7,7 +7,7 @@
 %global release 1
 
 Name:    foreman
-Version: 3.6.0
+Version: 3.6.1
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -987,6 +987,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Mar 28 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.1-1
+- Release foreman 3.6.1
+
 * Tue Mar 21 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-1
 - Release foreman 3.6.0
 
