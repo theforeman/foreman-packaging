@@ -9,7 +9,7 @@
 %global release 1
 
 Name:           foreman-proxy
-Version:        3.6.0
+Version:        3.6.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -251,6 +251,9 @@ exit 0
 
 
 %changelog
+* Tue Mar 28 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.1-1
+- Release foreman-proxy 3.6.1
+
 * Tue Mar 21 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-1
 - Release foreman-proxy 3.6.0
 
