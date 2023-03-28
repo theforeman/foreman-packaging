@@ -3,7 +3,7 @@
 %global zypper_install (0%{?suse_version} > 0)
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
-%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 9))
+%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 10))
 %global legacy_agent (0%{?rhel} == 6)
 
 %if 0%{?suse_version}
@@ -37,7 +37,7 @@
 
 Name: katello-host-tools
 Version: 4.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -351,6 +351,7 @@ exit 0
 %endif
 
 %if %{yum_install}
+%{plugins_dir}
 %exclude %{python_libdir}/yum-plugins
 %endif
 
@@ -384,6 +385,10 @@ exit 0
 
 
 %changelog
+* Tue Mar 28 2023 Patrick Creech <pcreech@redhat.com> - 4.2.3-2
+- Fix building on el6
+- Build agent for el9
+
 * Fri Mar 17 2023 Patrick Creech <pcreech@redhat.com> - 4.2.3-1
 - Release 4.2.3
 
