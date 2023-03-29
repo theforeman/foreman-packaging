@@ -479,6 +479,14 @@ foreman_client_packages:
     rubygem-foreman_scap_client: {}
     tracer: {}
 
+qpid_proton_packages:
+  vars:
+    koji_tags:
+      - "{{ all_tags['katello-el8'] }}"
+      - "{{ all_tags['foreman-client-el8'] }}"
+  hosts:
+    qpid-proton: {}
+
 katello_packages:
   vars:
     package_base_dir: 'packages/katello/'
@@ -498,6 +506,8 @@ katello_packages:
         - "el8-foreman-{{ foreman_version }}"
         - "el8-foreman-plugins-{{ foreman_version }}"
         - "el8-katello-candlepin-{{ katello_version }}"
+  children:
+    qpid_proton_packages: {}
   hosts:
     jsoncpp: {}
     katello: {}
@@ -515,7 +525,6 @@ katello_packages:
     python-qpid: {}
     qpid-cpp: {}
     qpid-dispatch: {}
-    qpid-proton: {}
     rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
