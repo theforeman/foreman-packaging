@@ -426,6 +426,16 @@ foreman_proxy_packages:
     rubygem-server_sent_events: {}
     rubygem-webrick: {}
 
+yggdrasil_client_packages:
+  vars:
+    koji_tags:
+      - "{{ all_tags['foreman-client-el9'] }}"
+      - "{{ all_tags['foreman-client-el8'] }}"
+      - "{{ all_tags['foreman-client-el7'] }}"
+      - "{{ all_tags['foreman-plugins-el8'] }}"
+  hosts:
+    yggdrasil: {}
+
 foreman_client_packages:
   vars:
     package_base_dir: 'packages/client/'
@@ -458,6 +468,8 @@ foreman_client_packages:
         - el7-epel
         - el7-extras
         - el7-puppet-7
+  children:
+    yggdrasil_client_packages: {}
   hosts:
     foreman_ygg_worker: {}
     gofer: {}
@@ -466,7 +478,6 @@ foreman_client_packages:
     python-psutil: {}
     rubygem-foreman_scap_client: {}
     tracer: {}
-    yggdrasil: {}
 
 katello_packages:
   vars:
