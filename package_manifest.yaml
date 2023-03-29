@@ -532,7 +532,6 @@ katello_packages:
     rubygem-pulp_file_client: {}
     rubygem-pulp_ostree_client: {}
     rubygem-pulp_rpm_client: {}
-    rubygem-qpid_proton: {}
     rubygem-robotex: {}
     rubygem-runcible: {}
     rubygem-stomp: {}
