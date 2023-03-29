@@ -551,8 +551,6 @@ foreman_plugin_packages:
     cjson: {}
     foreman-discovery-image-service: {}
     mosquitto: {}
-    nodejs-babel-plugin-module-resolver:
-      strategy: bundle
     nodejs-react-json-tree:
       strategy: bundle
     puppet-foreman_scap_client: {}
