@@ -19,7 +19,6 @@
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">mosquitto</packagereq>
       <packagereq type="default">nodejs-babel-plugin-module-resolver</packagereq>
-      <packagereq type="default">nodejs-patternfly-react-catalog-view-extension</packagereq>
       <packagereq type="default">nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>

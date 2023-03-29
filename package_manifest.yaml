@@ -553,8 +553,6 @@ foreman_plugin_packages:
     mosquitto: {}
     nodejs-babel-plugin-module-resolver:
       strategy: bundle
-    nodejs-patternfly-react-catalog-view-extension:
-      strategy: bundle
     nodejs-react-json-tree:
       strategy: bundle
     puppet-foreman_scap_client: {}
