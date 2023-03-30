@@ -11,7 +11,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.0
+Version: 1.8.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -20,16 +20,10 @@ URL: https://github.com/Katello/hammer-cli-katello
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 Obsoletes: %{?scl_prefix}rubygem-hammer_cli_foreman_docker < 0.0.7-2
@@ -94,6 +88,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 30 2023 Lucy Fu <lufu@redhat.com> 1.8.1-1
+- Update to 1.8.1
+
 * Thu Feb 23 2023 Chris Roberts - 1.8.0-1
 - Release 1.8.0
 
