@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -80,6 +80,7 @@ Requires: %{?scl_prefix}rubygem(xmlrpc) < 1.0
 
 Requires:       sudo
 Requires:       curl
+Requires:       genisoimage
 Requires(pre):  shadow-utils
 %{?systemd_requires}
 BuildRequires: systemd
@@ -131,6 +132,7 @@ install -d -m0755 %{buildroot}%{_datadir}/%{name}/config
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
 install -d -m0755 %{buildroot}%{_sharedstatedir}/%{name}
+install -d -m0755 %{buildroot}%{_sharedstatedir}/%{name}/tftp/system_images
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/spool/%{name}
 install -d -m0750 %{buildroot}%{_rundir}/%{name}
@@ -144,6 +146,7 @@ install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 mkdir -p %{buildroot}%{_libexecdir}/%{name}
 mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
+mkdir -p %{buildroot}%{_sharedstatedir}/%{name}/tftp/system_images
 install -m 0755 extra/puppet_sign.rb %{buildroot}%{_libexecdir}/%{name}/puppet_sign.rb
 
 mkdir -p %{buildroot}%{_sbindir}
@@ -182,6 +185,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/spool/%{name}
 %attr(-,%{name},%{name}) %{_sharedstatedir}/%{name}
+%attr(-,%{name},%{name}) %{_sharedstatedir}/%{name}/tftp/system_images
 %attr(-,%{name},%{name}) %{_rundir}/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
@@ -253,6 +257,9 @@ exit 0
 
 
 %changelog
+* Fri Mar 03 2023 Bastian Schmidt <schmidt@atix.de> - 3.7.0-0.2.develop
+- Add isoinfo dependency
+
 * Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.1.develop
 - Bump version to 3.7-develop
 
