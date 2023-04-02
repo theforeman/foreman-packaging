@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.6.1
+Version: 1.7.0
 Release: 1%{?dist}
 Summary: MessagePack, a binary-based efficient data interchange format
 License: Apache 2.0
@@ -11,8 +11,8 @@ URL: https://msgpack.org/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.4
-BuildRequires: ruby-devel >= 2.4
+Requires: ruby >= 2.5
+BuildRequires: ruby-devel >= 2.5
 BuildRequires: rubygems-devel
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
@@ -82,6 +82,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/msgpack.gemspec
 
 %changelog
+* Sun Apr 02 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.7.0-1
+- Update to 1.7.0
+
 * Wed Mar 08 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.6.1-1
 - Update to 1.6.1
 
