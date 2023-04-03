@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -568,7 +568,7 @@ Summary: Foreman telemetry support
 Group:  Applications/System
 # start specfile telemetry Requires
 Requires: rubygem(prometheus-client) >= 1.0
-Requires: rubygem(prometheus-client) < 2.0
+Requires: rubygem(prometheus-client) < 5
 Requires: rubygem(statsd-instrument) < 3
 # end specfile telemetry Requires
 Requires: %{name} = %{version}-%{release}
@@ -989,6 +989,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Apr 03 2023 Evgeni Golov - 3.7.0-0.2.develop
+- Update gem dependencies
+
 * Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.1.develop
 - Bump version to 3.7-develop
 
