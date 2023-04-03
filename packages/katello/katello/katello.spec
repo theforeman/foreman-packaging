@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Apr 03 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-0.2.rc2
+- Release katello 4.8.0rc2
+
 * Tue Feb 28 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-0.2.rc1
 - Release katello 4.8.0rc1
 
