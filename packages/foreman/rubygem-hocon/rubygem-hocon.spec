@@ -5,7 +5,7 @@ Name: rubygem-%{gem_name}
 Version: 1.4.0
 Release: 1%{?dist}
 Summary: HOCON Config Library
-License: Apache License, v2
+License: ASL 2.0
 URL: https://github.com/puppetlabs/ruby-hocon
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
