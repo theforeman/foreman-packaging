@@ -6,7 +6,7 @@
 %global foreman_max_version 3.7
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.8.0
 %global release 2
@@ -207,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Apr 03 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-0.2.rc2
+- Release rubygem-katello 4.8.0rc2
+
 * Tue Feb 28 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-0.2.rc1
 - Release rubygem-katello 4.8.0rc1
 
