@@ -256,7 +256,6 @@ foreman_core_packages:
     rubygem-public_suffix: {}
     rubygem-puma: {}
     rubygem-puma-status: {}
-    rubygem-quantile: {}
     rubygem-rabl: {}
     rubygem-rack: {}
     rubygem-rack-cors: {}
