@@ -106,6 +106,7 @@
       <packagereq type="default">rubygem-foreman_vmwareannotations</packagereq>
       <packagereq type="default">rubygem-foreman_webhooks</packagereq>
       <packagereq type="default">rubygem-foreman_wreckingball</packagereq>
+      <packagereq type="default">rubygem-fugit</packagereq>
       <packagereq type="default">rubygem-gapic-common</packagereq>
       <packagereq type="default">rubygem-git</packagereq>
       <packagereq type="default">rubygem-google-cloud-common</packagereq>
@@ -280,6 +281,7 @@
       <packagereq type="default">rubygem-foreman_vmwareannotations-doc</packagereq>
       <packagereq type="default">rubygem-foreman_webhooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_wreckingball-doc</packagereq>
+      <packagereq type="default">rubygem-fugit-doc</packagereq>
       <packagereq type="default">rubygem-gapic-common-doc</packagereq>
       <packagereq type="default">rubygem-git-doc</packagereq>
       <packagereq type="default">rubygem-googleapis-common-protos-doc</packagereq>
