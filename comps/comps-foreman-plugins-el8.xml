@@ -156,6 +156,7 @@
       <packagereq type="default">rubygem-polyglot</packagereq>
       <packagereq type="default">rubygem-prawn</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
+      <packagereq type="default">rubygem-raabro</packagereq>
       <packagereq type="default">rubygem-radcli</packagereq>
       <packagereq type="default">rubygem-rainbow</packagereq>
       <packagereq type="default">rubygem-rbnacl</packagereq>
@@ -326,6 +327,7 @@
       <packagereq type="default">rubygem-polyglot-doc</packagereq>
       <packagereq type="default">rubygem-prawn-doc</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman-doc</packagereq>
+      <packagereq type="default">rubygem-raabro-doc</packagereq>
       <packagereq type="default">rubygem-radcli-doc</packagereq>
       <packagereq type="default">rubygem-rainbow-doc</packagereq>
       <packagereq type="default">rubygem-rbnacl-doc</packagereq>

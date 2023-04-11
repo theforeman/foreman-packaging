@@ -701,6 +701,7 @@ foreman_plugin_packages:
     rubygem-polyglot: {}
     rubygem-prawn: {}
     rubygem-puppetdb_foreman: {}
+    rubygem-raabro: {}
     rubygem-rainbow: {}
     rubygem-rbnacl: {}
     rubygem-rchardet: {}
