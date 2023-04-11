@@ -73,6 +73,7 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/.rubocop.yml
 %{gem_libdir}
 %{gem_instdir}/logo.png
+%license %{gem_instdir}/license.md
 %exclude %{gem_cache}
 %{gem_spec}
 
