@@ -604,6 +604,7 @@ foreman_plugin_packages:
     rubygem-dry-validation: {}
     rubygem-ed25519: {}
     rubygem-elastic-apm: {}
+    rubygem-et-orbi: {}
     rubygem-deface: {}
     rubygem-diffy: {}
     rubygem-down: {}
