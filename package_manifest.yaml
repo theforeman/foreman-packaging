@@ -29,9 +29,59 @@ all:
         dist: '.el8'
         macros:
           foremandist: "{{ foremandist }}"
+    copr_project_user: "@theforeman"
   children:
     packages: {}
     repoclosures: {}
+    copr_projects: {}
+
+copr_projects:
+  vars:
+    core_modules:
+      - 'ruby:2.7'
+      - 'python39:3.9'
+      - 'nodejs:12'
+      - 'postgresql:12'
+    rhel_9_chroot: rhel-9-x86_64
+    rhel_8_chroot: rhel-8-x86_64
+    rhel_7_chroot: rhel-7-x86_64
+  hosts:
+    foreman-copr:
+      copr_project_name: "foreman-{{ foreman_version }}-staging"
+      copr_project_chroots:
+        - name: "{{ rhel_8_chroot }}"
+          modules: "{{ core_modules }}"
+          external_repos:
+            - https://yum.puppet.com/puppet7/el/8/x86_64/
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el8.xml"
+    plugins-copr:
+      copr_project_name: "foreman-plugins-{{ foreman_version }}-staging"
+      copr_project_chroots:
+        - name: "{{ rhel_8_chroot }}"
+          modules: "{{ core_modules }}"
+          external_repos:
+            - https://download.copr.fedorainfracloud.org/results/@theforeman/foreman-nightly-staging/rhel-8-x86_64/
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el8.xml"
+    katello-copr:
+      copr_project_name: "foreman-katello-{{ foreman_version }}-staging"
+      copr_project_chroots:
+        - name: "{{ rhel_8_chroot }}"
+          modules: "{{ core_modules }}"
+          external_repos:
+            - https://download.copr.fedorainfracloud.org/results/@theforeman/foreman-nightly-staging/rhel-8-x86_64/
+            - https://download.copr.fedorainfracloud.org/results/@theforeman/foreman-plugins-nightly-staging/rhel-8-x86_64/
+          comps_file: "{{ inventory_dir }}/comps/comps-katello-el8.xml"
+    client-copr:
+      copr_project_name: "foreman-client-{{ foreman_version }}-staging"
+      copr_project_chroots:
+        - name: "{{ rhel_9_chroot }}"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el9.xml"
+        - name: "{{ rhel_8_chroot }}"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el8.xml"
+        - name: "{{ rhel_7_chroot }}"
+          external_repos:
+            - https://dl.fedoraproject.org/pub/epel/7/x86_64/
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-rhel7.xml"
 
 packages:
   vars:
@@ -60,6 +110,13 @@ foreman_packages:
         - el8-powertools
         - el8-puppet-7
         - "el8-katello-candlepin-{{ katello_version }}"
+      rhel-8-x86_64:
+        - el8-baseos
+        - el8-appstream
+        - el8-extras
+        - el8-powertools
+        - el8-puppet-7
+        - "el8-katello-candlepin-{{ katello_version }}"
   children:
     foreman_core_packages: {}
     foreman_proxy_packages: {}
@@ -68,6 +125,8 @@ foreman_packages:
 
 plugin_packages:
   vars:
+    copr_projects:
+      - "{{ hostvars['plugins-copr'] }}"
     package_base_dir: 'packages/plugins/'
     koji_tags:
       - "{{ all_tags['foreman-plugins-el8'] }}"
@@ -88,6 +147,9 @@ plugin_packages:
     foreman_proxy_plugin_packages: {}
 
 rails_core_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
   hosts:
     rubygem-actioncable: {}
     rubygem-actionmailbox: {}
@@ -104,6 +166,9 @@ rails_core_packages:
     rubygem-railties: {}
 
 foreman_core_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
   children:
     rails_core_packages: {}
   hosts:
@@ -320,6 +385,9 @@ foreman_core_packages:
     rubygem-zeitwerk: {}
 
 foreman_nodejs_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
   hosts:
     gyp: {}
     nodejs-argv-parse: {}
@@ -391,6 +459,9 @@ foreman_nodejs_packages:
       strategy: bundle
 
 foreman_installer_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
   hosts:
     foreman-installer:
       source_location: https://ci.theforeman.org/job/foreman-installer-develop-source-release
@@ -409,6 +480,9 @@ foreman_installer_packages:
     rubygem-kafo_wizards: {}
 
 foreman_proxy_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
   hosts:
     foreman-proxy:
       source_location: https://ci.theforeman.org/job/smart-proxy-develop-source-release
@@ -435,6 +509,8 @@ yggdrasil_client_packages:
 
 foreman_client_packages:
   vars:
+    copr_projects:
+      - "{{ hostvars['client-copr'] }}"
     package_base_dir: 'packages/client/'
     koji_tags:
       - "{{ all_tags['foreman-client-el9'] }}"
@@ -486,6 +562,8 @@ qpid_proton_packages:
 
 katello_packages:
   vars:
+    copr_projects:
+      - "{{ hostvars['katello-copr'] }}"
     package_base_dir: 'packages/katello/'
     koji_tags:
       - "{{ all_tags['katello-el8'] }}"
@@ -833,6 +911,9 @@ repoclosures:
 
 foreman_release_packages:
   vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
+      - "{{ hostvars['client-copr'] }}"
     koji_tags:
       - "{{ all_tags['foreman-el8'] }}"
       - "{{ all_tags['foreman-client-el9'] }}"
