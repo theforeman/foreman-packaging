@@ -6,10 +6,8 @@
 %global foreman_max_version 3.7
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.8.0
-%global release 2
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -207,6 +205,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Apr 12 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-1
+- Release rubygem-katello 4.8.0
+
 * Mon Apr 03 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-0.2.rc2
 - Release rubygem-katello 4.8.0rc2
 
