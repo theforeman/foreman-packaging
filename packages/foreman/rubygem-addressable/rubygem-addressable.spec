@@ -62,6 +62,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/spec
+%exclude %{gem_instdir}/addressable.gemspec
 
 %changelog
 * Mon Apr 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.8.4-1
