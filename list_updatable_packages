@@ -14,8 +14,7 @@ import tempfile
 
 SUPPORTED_TEMPLATES = ('foreman_plugin', 'hammer_plugin', 'smart_proxy_plugin')
 EXTRA_SUPPORTED_GEMS = ('foreman_maintain',)
-# pulp_ostree_client: only prereleases exist and our tooling can't handle that
-EXCLUDED_GEMS = ('pulp_ostree_client',)
+EXCLUDED_GEMS = ()
 SESSION = requests.Session()
 DEBUG = (len(sys.argv) == 2 and sys.argv[1] == 'debug')
 
