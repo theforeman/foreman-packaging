@@ -48,7 +48,6 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE.txt
-%{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
