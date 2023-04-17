@@ -51,7 +51,6 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/Appraisals
-%doc %{gem_instdir}/CHANGES.md
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/gemfiles
 %{gem_libdir}
@@ -60,6 +59,7 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGES.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
