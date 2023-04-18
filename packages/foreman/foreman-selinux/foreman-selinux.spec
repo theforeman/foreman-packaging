@@ -25,7 +25,7 @@
 %global release 1
 
 Name:           foreman-selinux
-Version:        3.5.2
+Version:        3.5.3
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -188,6 +188,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Apr 18 2023 Odilon Sousa <osousa@redhat.com> - 3.5.3-1
+- Release foreman-selinux 3.5.3
+
 * Mon Mar 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.5.2-1
 - Release foreman-selinux 3.5.2
 
