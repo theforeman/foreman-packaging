@@ -37,6 +37,8 @@ config.rules[:ignore] << '.circleci'
 config.rules[:ignore] << '.simplecov'
 config.rules[:ignore] << '.codeclimate.yml'
 config.rules[:ignore] << '.standard.yml'
+config.rules[:ignore] << '.overcommit.yml'
+config.rules[:ignore] << 'renovate.json'
 -%>
 %global gem_name <%= spec.name %>
 <% unless spec.extensions.empty? -%>
