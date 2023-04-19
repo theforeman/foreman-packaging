@@ -247,6 +247,7 @@
       <packagereq type="default">rubygem-promise.rb</packagereq>
       <packagereq type="default">rubygem-public_suffix</packagereq>
       <packagereq type="default">rubygem-puma</packagereq>
+      <packagereq type="default">rubygem-puma-metrics</packagereq>
       <packagereq type="default">rubygem-puma-status</packagereq>
       <packagereq type="default">rubygem-rabl</packagereq>
       <packagereq type="default">rubygem-rack</packagereq>
@@ -472,6 +473,7 @@
       <packagereq type="default">rubygem-promise.rb-doc</packagereq>
       <packagereq type="default">rubygem-public_suffix-doc</packagereq>
       <packagereq type="default">rubygem-puma-doc</packagereq>
+      <packagereq type="default">rubygem-puma-metrics-doc</packagereq>
       <packagereq type="default">rubygem-puma-status-doc</packagereq>
       <packagereq type="default">rubygem-rabl-doc</packagereq>
       <packagereq type="default">rubygem-rack-cors-doc</packagereq>
