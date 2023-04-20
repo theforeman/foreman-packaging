@@ -12,7 +12,7 @@
 
 %if %{dnf_install}
 %global python_libdir %{python3_sitelib}
-%global plugins_dir %{python3_sitelib}/dnf_plugins
+%global plugins_dir %{python3_sitelib}/dnf-plugins
 %global plugins_confdir %{_sysconfdir}/dnf/plugins
 %endif
 
@@ -37,7 +37,7 @@
 
 Name: katello-host-tools
 Version: 4.2.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -163,6 +163,10 @@ rm src/katello/deb_tracer.py
 
 %if !%{dnf_install}
 rm -r src/dnf_plugins
+%else
+# 'Hack' for the fact that dnf recognizes plugins in 'dnf-plugins'
+# can be removed when we update to a release that contains https://github.com/Katello/katello-host-tools/pull/145
+mv src/dnf_plugins src/dnf-plugins
 %endif
 
 %if !%{yum_install}
@@ -385,6 +389,9 @@ exit 0
 
 
 %changelog
+* Thu Apr 20 2023 Patrick Creech <pcreech@redhat.com> - 4.2.3-3
+- Fix dnf-plugin location for tracer
+
 * Tue Mar 28 2023 Patrick Creech <pcreech@redhat.com> - 4.2.3-2
 - Fix building on el6
 - Build agent for el9
