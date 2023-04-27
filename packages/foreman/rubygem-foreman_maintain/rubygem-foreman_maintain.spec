@@ -6,7 +6,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: rubygem-%{gem_name}
-Version: 1.3.0
+Version: 1.3.1
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -111,6 +111,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 27 2023 Eric D. Helms <ericdhelms@gmail.com> - 1:1.3.1-1
+- Release rubygem-foreman_maintain 1.3.1
+
 * Tue Mar 28 2023 Eric D. Helms <ericdhelms@gmail.com> - 1:1.3.0-1
 - Release rubygem-foreman_maintain 1.3.0
 
