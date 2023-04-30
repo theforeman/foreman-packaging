@@ -2,7 +2,7 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 2.20.1
+Version: 2.20.2
 Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Apr 30 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.20.2-1
+- Update to 2.20.2
+
 * Sun Dec 11 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.20.1-1
 - Update to 2.20.1
 
