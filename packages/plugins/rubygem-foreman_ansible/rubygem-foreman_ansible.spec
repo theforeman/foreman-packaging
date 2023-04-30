@@ -8,7 +8,7 @@
 %global foreman_min_version 3.6
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 11.1.2
+Version: 11.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -118,6 +118,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Apr 30 2023 Foreman Packaging Automation <packaging@theforeman.org> 11.2.0-1
+- Update to 11.2.0
+
 * Tue Mar 21 2023 nofaralfasi <nalfassi@redhat.com> 11.1.2-1
 - Update to 11.1.2
 
