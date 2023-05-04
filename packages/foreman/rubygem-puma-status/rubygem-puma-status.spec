@@ -1,33 +1,19 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name puma-status
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3
+Name: rubygem-%{gem_name}
+Version: 1.6
 Release: 1%{?dist}
 Summary: Command-line tool for puma to display information about running request/process
-Group: Development/Languages
 License: MIT
 URL: https://github.com/ylecuyer/puma-status
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(colorize) >= 0.8
-Requires: %{?scl_prefix}rubygem(colorize) < 1
-Requires: %{?scl_prefix}rubygem(net_http_unix) >= 0.2
-Requires: %{?scl_prefix}rubygem(net_http_unix) < 1
-Requires: %{?scl_prefix}rubygem(parallel) >= 1
-Requires: %{?scl_prefix}rubygem(parallel) < 2
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -36,36 +22,23 @@ request/process.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -75,6 +48,7 @@ cp -a .%{gem_dir}/* \
 mkdir -p %{buildroot}%{_bindir}
 cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
+
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
@@ -91,6 +65,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Thu May 04 2023 Evgeni Golov 1.6-1
+- Update to 1.6-1
+
 * Tue Apr 27 2021 Evgeni Golov 1.3-1
 - Update to 1.3
 
