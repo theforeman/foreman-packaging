@@ -360,6 +360,8 @@ foreman_nodejs_packages:
     nodejs-lodash-es: {}
     nodejs-lodash: {}
     nodejs-loose-envify: {}
+    nodejs-node-gyp:
+      strategy: bundle
     nodejs-node-sass:
       strategy: bundle
     nodejs-optimize-css-assets-webpack-plugin: {}
