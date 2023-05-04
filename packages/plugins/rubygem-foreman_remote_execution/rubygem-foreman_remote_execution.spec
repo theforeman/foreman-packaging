@@ -1,23 +1,15 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-%{!?_root_sbindir:%global _root_sbindir %{_sbindir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
 %global foreman_min_version 3.6
 
-Summary:    Plugin that brings remote execution capabilities to Foreman
-Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.1.0
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/Systems
-License:    GPLv3
-URL:        https://github.com/theforeman/foreman_remote_execution
-Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-BuildRequires: systemd
+Name: rubygem-%{gem_name}
+Version: 9.1.0
+Release: 2%{?foremandist}%{?dist}
+Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
+License: GPLv3
+URL: https://github.com/theforeman/foreman_remote_execution
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -54,48 +46,35 @@ A plugin bringing remote execution to the Foreman, completing the config
 management functionality with remote management functionality.
 
 %package cockpit
-BuildArch:  noarch
+BuildArch: noarch
 Requires: cockpit
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 Requires(post): systemd-units
 Requires(preun): systemd-units
-Summary:    Cockpit integration using remote execution connection
+Summary: Cockpit integration using remote execution connection
 
 %description cockpit
 This package contains files related to Cockpit, mainly foreman-cockpit service
 and corresponding configuration files.
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -105,11 +84,11 @@ cp -a .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
 
-mkdir -p %{buildroot}%{_root_sbindir}
-ln -sv %{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_root_sbindir}/foreman-cockpit-session
+mkdir -p %{buildroot}%{_sbindir}
+ln -sv %{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_sbindir}/foreman-cockpit-session
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit.service %{buildroot}%{_unitdir}/foreman-cockpit.service
-install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/cockpit.conf.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/cockpit.conf
-install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
+install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/cockpit.conf.example %{buildroot}%{_sysconfdir}/foreman/cockpit/cockpit.conf
+install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example %{buildroot}%{_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
 
 %post cockpit
 %systemd_post foreman-cockpit.service
@@ -123,23 +102,23 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/jsconfig.json
-%exclude %{gem_instdir}/package.json
-%exclude %{gem_instdir}/webpack
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/extra
+%exclude %{gem_instdir}/jsconfig.json
 %{gem_libdir}
 %{gem_instdir}/locale
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
+%exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
 %{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
-%license %{gem_instdir}/LICENSE
-%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_docdir}
@@ -150,15 +129,18 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{gem_instdir}/test
 
 %files cockpit
-%{_root_sbindir}/foreman-cockpit-session
-%config(noreplace) %{_root_sysconfdir}/foreman/cockpit/cockpit.conf
-%config(noreplace) %{_root_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
+%{_sbindir}/foreman-cockpit-session
+%config(noreplace) %{_sysconfdir}/foreman/cockpit/cockpit.conf
+%config(noreplace) %{_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
 %{_unitdir}/foreman-cockpit.service
 
 %posttrans
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 04 2023 Evgeni Golov 9.1.0-2
+- regenerate RPM spec from latest template
+
 * Fri Mar 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 9.1.0-1
 - Update to 9.1.0
 
