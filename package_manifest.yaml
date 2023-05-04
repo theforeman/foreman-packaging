@@ -552,7 +552,6 @@ katello_packages:
     rubygem-pulp_ostree_client: {}
     rubygem-pulp_rpm_client: {}
     rubygem-robotex: {}
-    rubygem-runcible: {}
     rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}
