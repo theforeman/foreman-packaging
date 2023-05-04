@@ -1,7 +1,4 @@
-%{?scl:%global scl_prefix %{scl}-}
-%global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
-
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -19,18 +16,18 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   hostname
-Requires:   puppet-agent >= 6.24.0
-Requires:   %{?scl_prefix}rubygem(kafo) >= 6.5.0
-Requires:   %{?scl_prefix}rubygem(kafo) < 7.0.0
-Requires:   %{?scl_prefix_ruby}ruby(release)
+Requires:   puppet-agent >= 7.0.0
+Requires:   rubygem(kafo) >= 6.5.0
+Requires:   rubygem(kafo) < 7.0.0
+Requires:   ruby(release)
 
 BuildRequires: asciidoc
-BuildRequires: puppet-agent >= 6.24.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.5.0
-BuildRequires: %{?scl_prefix}rubygem(kafo) < 7.0.0
+BuildRequires: puppet-agent >= 7.0.0
+BuildRequires: rubygem(rake)
+BuildRequires: rubygem(kafo) >= 6.5.0
+BuildRequires: rubygem(kafo) < 7.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
-BuildRequires: puppet-agent-puppet-strings < 3
+BuildRequires: puppet-agent-puppet-strings < 4
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
@@ -53,12 +50,7 @@ Various scenarios and tools for the Katello ecosystem
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
-#replace shebangs for SCL
-%if 0%{?scl:1}
-  sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X/usr/bin/%{?scl:%{scl_prefix}}rubyX' bin/foreman-installer bin/foreman-proxy-certs-generate bin/katello-certs-check
-%endif
-
-%{scl_rake} build \
+rake build \
   VERSION=%{version} \
   LOCALSTATEDIR=%{_localstatedir} \
   PREFIX=%{_prefix} \
@@ -67,7 +59,7 @@ Various scenarios and tools for the Katello ecosystem
   --trace
 
 %install
-%{scl_rake} install \
+rake install \
   PREFIX=%{buildroot}%{_prefix} \
   LOCALSTATEDIR=%{buildroot}%{_localstatedir} \
   SBINDIR=%{buildroot}%{_sbindir} \
@@ -141,6 +133,10 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu May 04 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.7.0-0.3.develop
+- Drop SCL macros
+- Bump Puppet minimum version to 7.0.0
+
 * Tue Mar 21 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.7.0-0.2.develop
 - Correct Puppet version lower bound
 
