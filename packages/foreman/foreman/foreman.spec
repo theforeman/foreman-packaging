@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -641,7 +641,7 @@ Summary: Foreman systemd service support
 Group:  Applications/System
 # start specfile service Requires
 Requires: rubygem(puma) >= 5.1
-Requires: rubygem(puma) < 6.0
+Requires: rubygem(puma) < 7
 Requires: rubygem(sd_notify) >= 0.1.0
 Requires: rubygem(sd_notify) < 0.2.0
 # end specfile service Requires
@@ -989,6 +989,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu May 04 2023 Evgeni Golov - 3.7.0-0.3.develop
+- Update gem dependencies
+
 * Mon Apr 03 2023 Evgeni Golov - 3.7.0-0.2.develop
 - Update gem dependencies
 
