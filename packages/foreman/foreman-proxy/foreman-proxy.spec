@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -232,7 +232,7 @@ if [ $1 == 2 ]; then
     )
 
     # from monolithic to split config files
-    egrep -q '^:settings_directory' %{_sysconfdir}/%{name}/settings.yml || \
+    grep -q -E '^:settings_directory' %{_sysconfdir}/%{name}/settings.yml || \
       sed -i '/^---/ a #replace default location of "settings.d"\n:settings_directory: %{_sysconfdir}/%{name}/settings.d\n' \
         %{_sysconfdir}/%{name}/settings.yml
   fi
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Thu May 04 2023 Evgeni Golov - 3.7.0-0.2.develop
+- use grep -E instead of egrep in post script
+
 * Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.1.develop
 - Bump version to 3.7-develop
 
