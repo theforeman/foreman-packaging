@@ -4,35 +4,39 @@
 %global npm_name react-bootstrap
 
 Name: %{?scl_prefix}nodejs-react-bootstrap
-Version: 0.32.1
-Release: 4%{?dist}
+Version: 0.33.1
+Release: 1%{?dist}
 Summary: Bootstrap 3 components built with React
 License: MIT
 Group: Development/Libraries
 URL: https://react-bootstrap.github.io/
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.6.2.tgz
-Source1: https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz
-Source2: https://registry.npmjs.org/classnames/-/classnames-2.2.6.tgz
-Source3: https://registry.npmjs.org/core-js/-/core-js-2.6.9.tgz
-Source4: https://registry.npmjs.org/dom-helpers/-/dom-helpers-3.4.0.tgz
-Source5: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
-Source6: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
-Source7: https://registry.npmjs.org/keycode/-/keycode-2.2.0.tgz
-Source8: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
-Source9: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
-Source10: https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz
-Source11: https://registry.npmjs.org/prop-types-extra/-/prop-types-extra-1.1.0.tgz
-Source12: https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.32.1.tgz
-Source13: https://registry.npmjs.org/react-is/-/react-is-16.10.2.tgz
-Source14: https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz
-Source15: https://registry.npmjs.org/react-overlays/-/react-overlays-0.8.3.tgz
-Source16: https://registry.npmjs.org/react-prop-types/-/react-prop-types-0.4.0.tgz
-Source17: https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.9.0.tgz
-Source18: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz
-Source19: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz
-Source20: https://registry.npmjs.org/uncontrollable/-/uncontrollable-4.1.0.tgz
-Source21: https://registry.npmjs.org/warning/-/warning-3.0.0.tgz
-Source22: nodejs-react-bootstrap-%{version}-registry.npmjs.org.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.21.5.tgz
+Source1: https://registry.npmjs.org/@babel/runtime-corejs2/-/runtime-corejs2-7.21.5.tgz
+Source2: https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz
+Source3: https://registry.npmjs.org/@types/react/-/react-18.2.5.tgz
+Source4: https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.3.tgz
+Source5: https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz
+Source6: https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz
+Source7: https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz
+Source8: https://registry.npmjs.org/dom-helpers/-/dom-helpers-3.4.0.tgz
+Source9: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
+Source10: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
+Source11: https://registry.npmjs.org/keycode/-/keycode-2.2.1.tgz
+Source12: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
+Source13: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
+Source14: https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz
+Source15: https://registry.npmjs.org/prop-types-extra/-/prop-types-extra-1.1.1.tgz
+Source16: https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.33.1.tgz
+Source17: https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz
+Source18: https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz
+Source19: https://registry.npmjs.org/react-overlays/-/react-overlays-0.9.3.tgz
+Source20: https://registry.npmjs.org/react-prop-types/-/react-prop-types-0.4.0.tgz
+Source21: https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.9.0.tgz
+Source22: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz
+Source23: https://registry.npmjs.org/uncontrollable/-/uncontrollable-7.2.1.tgz
+Source24: https://registry.npmjs.org/warning/-/warning-3.0.0.tgz
+Source25: https://registry.npmjs.org/warning/-/warning-4.0.3.tgz
+Source26: nodejs-react-bootstrap-%{version}-registry.npmjs.org.tgz
 %if 0%{?scl:1}
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
@@ -43,28 +47,32 @@ BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.6.2
-Provides: bundled(npm(babel-runtime)) = 6.26.0
-Provides: bundled(npm(classnames)) = 2.2.6
-Provides: bundled(npm(core-js)) = 2.6.9
+Provides: bundled(npm(@babel/runtime)) = 7.21.5
+Provides: bundled(npm(@babel/runtime-corejs2)) = 7.21.5
+Provides: bundled(npm(@types/prop-types)) = 15.7.5
+Provides: bundled(npm(@types/react)) = 18.2.5
+Provides: bundled(npm(@types/scheduler)) = 0.16.3
+Provides: bundled(npm(classnames)) = 2.3.2
+Provides: bundled(npm(core-js)) = 2.6.12
+Provides: bundled(npm(csstype)) = 3.1.2
 Provides: bundled(npm(dom-helpers)) = 3.4.0
 Provides: bundled(npm(invariant)) = 2.2.4
 Provides: bundled(npm(js-tokens)) = 4.0.0
-Provides: bundled(npm(keycode)) = 2.2.0
+Provides: bundled(npm(keycode)) = 2.2.1
 Provides: bundled(npm(loose-envify)) = 1.4.0
 Provides: bundled(npm(object-assign)) = 4.1.1
-Provides: bundled(npm(prop-types)) = 15.7.2
-Provides: bundled(npm(prop-types-extra)) = 1.1.0
-Provides: bundled(npm(react-bootstrap)) = 0.32.1
-Provides: bundled(npm(react-is)) = 16.10.2
+Provides: bundled(npm(prop-types)) = 15.8.1
+Provides: bundled(npm(prop-types-extra)) = 1.1.1
+Provides: bundled(npm(react-bootstrap)) = 0.33.1
+Provides: bundled(npm(react-is)) = 16.13.1
 Provides: bundled(npm(react-lifecycles-compat)) = 3.0.4
-Provides: bundled(npm(react-overlays)) = 0.8.3
+Provides: bundled(npm(react-overlays)) = 0.9.3
 Provides: bundled(npm(react-prop-types)) = 0.4.0
 Provides: bundled(npm(react-transition-group)) = 2.9.0
-Provides: bundled(npm(regenerator-runtime)) = 0.11.1
-Provides: bundled(npm(regenerator-runtime)) = 0.13.3
-Provides: bundled(npm(uncontrollable)) = 4.1.0
+Provides: bundled(npm(regenerator-runtime)) = 0.13.11
+Provides: bundled(npm(uncontrollable)) = 7.2.1
 Provides: bundled(npm(warning)) = 3.0.0
+Provides: bundled(npm(warning)) = 4.0.3
 AutoReq: no
 AutoProv: no
 
@@ -85,7 +93,7 @@ for tgz in %{sources}; do
 done
 %{?scl:end_of_scl}
 
-%setup -T -q -a 22 -D -n %{npm_cache_dir}
+%setup -T -q -a 26 -D -n %{npm_cache_dir}
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
@@ -110,6 +118,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu May 04 2023 Eric D. Helms <ericdhelms@gmail.com> 0.33.1-1
+- Update to 0.33.1
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.32.1-4
 - Bump packages to build for el8
 
