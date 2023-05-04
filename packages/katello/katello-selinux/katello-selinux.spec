@@ -23,8 +23,8 @@
 
 
 Name:           katello-selinux
-Version:        4.0.2
-Release:        3%{?dotalphatag}%{?dist}
+Version:        5.0.0
+Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -129,6 +129,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Wed May 03 2023 Eric D. Helms <ericdhelms@gmail.com> 5.0.0-1
+- Update to 5.0.0
+
 * Wed Dec 07 2022 Evgeni Golov - 4.0.2-3
 - Use _selinux_policy_version macro from selinux-policy package
 
