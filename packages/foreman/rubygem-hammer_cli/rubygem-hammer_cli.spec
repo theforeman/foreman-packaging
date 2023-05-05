@@ -1,46 +1,25 @@
 # template: hammer_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name hammer_cli
 
-%global release 1
+%global hammer_confdir %{_sysconfdir}/hammer
+
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
-%{!?_root_bindir:%global _root_bindir %{_bindir}}
-%{!?_root_mandir:%global _root_mandir %{_mandir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-%global hammer_confdir %{_root_sysconfdir}/hammer
-
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 3.7.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
-Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(clamp) >= 1.1
-Requires: %{?scl_prefix}rubygem(clamp) < 1.2.0
-Requires: %{?scl_prefix}rubygem(logging)
-Requires: %{?scl_prefix}rubygem(unicode-display_width)
-Requires: %{?scl_prefix}rubygem(unicode)
-Requires: %{?scl_prefix}rubygem(amazing_print)
-Requires: %{?scl_prefix}rubygem(highline)
-Requires: %{?scl_prefix}rubygem(fast_gettext)
-Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.2.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -48,53 +27,39 @@ Hammer cli provides universal extendable CLI interface for ruby apps.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}%{?prerelease}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}%{?prerelease}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-sed -i '1s@/.*@/usr/bin/%{?scl_prefix}ruby@' .%{_bindir}/*
-mkdir -p %{buildroot}%{_root_bindir}
+mkdir -p %{buildroot}%{_bindir}
 cp -a .%{_bindir}/* \
-        %{buildroot}%{_root_bindir}/
+        %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
-mkdir -p %{buildroot}%{_root_sysconfdir}/bash_completion.d
-mv %{buildroot}%{gem_instdir}/config/hammer.completion %{buildroot}%{_root_sysconfdir}/bash_completion.d/%{gem_name}
+mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
+mv %{buildroot}%{gem_instdir}/config/hammer.completion %{buildroot}%{_sysconfdir}/bash_completion.d/%{gem_name}
 
-mkdir -p %{buildroot}%{_root_mandir}/man1
-mv %{buildroot}%{gem_instdir}/man/hammer.1.gz %{buildroot}%{_root_mandir}/man1/
+mkdir -p %{buildroot}%{_mandir}/man1
+mv %{buildroot}%{gem_instdir}/man/hammer.1.gz %{buildroot}%{_mandir}/man1/
 rm -f %{buildroot}%{gem_instdir}/man/*.asciidoc
 
 mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
@@ -103,10 +68,10 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 
 %files
 %dir %{gem_instdir}
-%{_root_bindir}/hammer
-%{_root_bindir}/hammer-complete
-%doc %{_root_mandir}/man1/hammer.1.gz
-%{_root_sysconfdir}/bash_completion.d/%{gem_name}
+%{_bindir}/hammer
+%{_bindir}/hammer-complete
+%doc %{_mandir}/man1/hammer.1.gz
+%{_sysconfdir}/bash_completion.d/%{gem_name}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
@@ -124,6 +89,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 05 2023 Evgeni Golov 3.7.0-0.2.pre.develop
+- Regenerate RPM spec based on latest template
+
 * Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.1.pre.develop
 - Bump version to 3.7-develop
 
