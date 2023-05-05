@@ -1,4 +1,4 @@
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -18,16 +18,16 @@ Requires:   curl
 Requires:   hostname
 Requires:   puppet-agent >= 7.0.0
 Requires:   rubygem(kafo) >= 6.5.0
-Requires:   rubygem(kafo) < 7.0.0
+Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 7.0.0
 BuildRequires: rubygem(rake)
 BuildRequires: rubygem(kafo) >= 6.5.0
-BuildRequires: rubygem(kafo) < 7.0.0
+BuildRequires: rubygem(kafo) < 8.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
-BuildRequires: puppet-agent-puppet-strings < 4
+BuildRequires: puppet-agent-puppet-strings < 5
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
@@ -133,6 +133,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri May 05 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.7.0-0.4.develop
+- Widen allowed dependencies
+
 * Thu May 04 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.7.0-0.3.develop
 - Drop SCL macros
 - Bump Puppet minimum version to 7.0.0
