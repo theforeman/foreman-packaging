@@ -14,7 +14,7 @@ Package: foreman-installer
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-kafo (>= 6.5.0), ruby-kafo (<< 7.0.0),
+         ruby-kafo (>= 6.5.0), ruby-kafo (<< 8.0.0),
          puppet-agent (>= 7.0.0) | puppet (>= 7.0.0),
          curl,
          lsb-release

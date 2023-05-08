@@ -1,3 +1,9 @@
+foreman-installer (3.7.0-4) stable; urgency=low
+
+  * Widen allowed installer dependencies
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 08 May 2023 08:11:40 +0200
+
 foreman-installer (3.7.0-3) stable; urgency=low
 
   * Bump Puppet minimum version to 7.0.0
