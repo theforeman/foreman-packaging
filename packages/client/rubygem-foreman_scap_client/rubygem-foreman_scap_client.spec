@@ -1,46 +1,27 @@
+# template: default
 %global gem_name foreman_scap_client
-%global config_dir %{_sysconfdir}/%{gem_name}
-
-%define rubyabi 1.8
 
 Name: rubygem-%{gem_name}
-Version: 0.5.0
+Version: 0.5.1
 Release: 1%{?dist}
-Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
-Group: Development/Languages
+Summary: Client script that runs openscap scan and uploads the result to foreman proxy
 License: GPLv3
-URL: https://github.com/openscap/foreman_scap_client
+URL: https://github.com/theforeman/foreman_scap_client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: bzip2
-Requires: ruby(rubygems)
-%if 0%{?el6}
-Requires: ruby(abi)
-Requires: rubygem(json) >= 1.4
-Requires: rubygem(json) < 2.0
-%else
-Requires: ruby(release)
-%endif
-Requires: openscap-scanner
-%if 0%{?el6}
-BuildRequires: ruby(abi)
-%else
-BuildRequires: ruby(release)
-%endif
-BuildRequires: ruby(rubygems)
-BuildRequires: rubygems-devel
+# start specfile generated dependencies
+Requires: ruby
 BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
-
+# end specfile generated dependencies
 
 %description
-Client script that runs OpenSCAP scan and uploads the result to foreman proxy.
+Client script that runs openscap scan and uploads the result to foreman proxy.
 
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
@@ -48,15 +29,11 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-gem unpack %{SOURCE0}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-gem build %{gem_name}.gemspec
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
@@ -73,29 +50,24 @@ cp -a .%{_bindir}/* \
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
-# create config directory
-mkdir -p %{buildroot}%{config_dir}
-
 %files
 %dir %{gem_instdir}
 %{_bindir}/foreman_scap_client
-%{config_dir}
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
+%{gem_instdir}/config
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%if (0%{?rhel} >= 7) || (0%{?fedora} >= 27)
-%license %{gem_instdir}/LICENSE
-%else
-%doc %{gem_instdir}/LICENSE
-%endif
-%doc %{gem_instdir}/config
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue May 09 2023 Marek Hulan <mhulan@redhat.com> 0.5.1-1
+- Update to 0.5.1
+
 * Tue May 18 2021 Ondrej Prazak <oprazak@redhat.com> 0.5.0-1
 - Update to 0.5.0
 
