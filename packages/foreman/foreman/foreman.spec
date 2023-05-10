@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -59,7 +59,7 @@ Requires: rubygem(scoped_search) < 5
 Requires: rubygem(ldap_fluff) >= 0.5.0
 Requires: rubygem(ldap_fluff) < 1.0
 Requires: rubygem(apipie-rails) >= 0.8.0
-Requires: rubygem(apipie-rails) < 0.9.0
+Requires: rubygem(apipie-rails) < 2
 Requires: rubygem(apipie-dsl) >= 2.2.6
 Requires: rubygem(rdoc) < 6.4
 Requires: rubygem(rabl) >= 0.15.0
@@ -159,7 +159,7 @@ BuildRequires: rubygem(scoped_search) < 5
 BuildRequires: rubygem(ldap_fluff) >= 0.5.0
 BuildRequires: rubygem(ldap_fluff) < 1.0
 BuildRequires: rubygem(apipie-rails) >= 0.8.0
-BuildRequires: rubygem(apipie-rails) < 0.9.0
+BuildRequires: rubygem(apipie-rails) < 2
 BuildRequires: rubygem(apipie-dsl) >= 2.2.6
 BuildRequires: rubygem(rdoc) < 6.4
 BuildRequires: rubygem(rabl) >= 0.15.0
@@ -989,6 +989,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed May 10 2023 Evgeni Golov - 3.7.0-0.4.develop
+- Update GEM dependencies
+
 * Thu May 04 2023 Evgeni Golov - 3.7.0-0.3.develop
 - Update gem dependencies
 
