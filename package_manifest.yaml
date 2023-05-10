@@ -619,7 +619,6 @@ foreman_plugin_packages:
     rubygem-foreman_ansible: {}
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
-    rubygem-foreman_column_view: {}
     rubygem-foreman_concrete: {}
     rubygem-foreman_datacenter: {}
     rubygem-foreman_default_hostgroup: {}
