@@ -1,38 +1,35 @@
-%global pkgname websockify
+# Created by pyp2rpm-3.3.8
+%global pypi_name websockify
 %global summary WSGI based adapter for the Websockets protocol
-Name:           python-%{pkgname}
+
+Name:           python-%{pypi_name}
 Version:        0.10.0
-Release:        3%{?dist}
+Release:        1%{?dist}
 Summary:        %{summary}
 
 License:        LGPLv3
 URL:            https://github.com/novnc/websockify
-Source0:        %{url}/archive/v%{version}/websockify-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/w/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
+BuildRequires:  python%{python3_pkgversion}-devel
+BuildRequires:  python%{python3_pkgversion}-setuptools
+
 %description
-Python WSGI based adapter for the Websockets protocol
+%{summary}
 
-%package -n python3-%{pkgname}
-Summary:        %{summary} - Python 3 version
-BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
+%package -n     python%{python3_pkgversion}-%{pypi_name}
+Summary:        %{summary}
+%{?python_provide:%python_provide python%{python3_pkgversion}-%{pypi_name}}
+Requires:       python%{python3_pkgversion}-setuptools
 
-Requires:       python3-setuptools
-
-%{?python_provide:%python_provide python3-%{pkgname}}
-
-%description -n python3-%{pkgname}
-Python WSGI based adapter for the Websockets protocol - Python 3 version
-
-%package doc
-Summary:        %{summary} - documentation
-
-%description doc
-Python WSGI based adapter for the Websockets protocol - documentation
+%description -n python%{python3_pkgversion}-%{pypi_name}
+%{summary}
 
 %prep
-%autosetup -n %{pkgname}-%{version}
+%autosetup -n %{pypi_name}-%{version}
+# Remove bundled egg-info
+rm -rf %{pypi_name}.egg-info
 
 # TODO: Have the following handle multi line entries
 # numpy is listed as install_requires in setup.py however it is optional
@@ -44,22 +41,16 @@ sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 %install
 %py3_install
 
-rm -Rf %{buildroot}/usr/share/websockify
-mkdir -p %{buildroot}%{_mandir}/man1/
-install -m 444 docs/websockify.1 %{buildroot}%{_mandir}/man1/
-
-%files -n python3-%{pkgname}
+%files -n python%{python3_pkgversion}-%{pypi_name}
 %license COPYING
-%{_mandir}/man1/websockify.1*
-%{python3_sitelib}/websockify/
-%{python3_sitelib}/websockify-%{version}-py%{python3_version}.egg-info
+%{python3_sitelib}/%{pypi_name}
+%{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 %{_bindir}/websockify
 
-%files doc
-%license COPYING
-%doc docs
-
 %changelog
+* Thu Sep 01 2022 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-4
+- Update to build against Python 3.9
+
 * Fri Jul 22 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
