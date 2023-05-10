@@ -4,8 +4,8 @@
 %global foreman_min_version 3.6
 
 Name: rubygem-%{gem_name}
-Version: 11.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 11.2.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
 URL: https://github.com/theforeman/foreman_ansible
@@ -100,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 10 2023 nofaralfasi <nalfassi@redhat.com> 11.2.1-1
+- Update to 11.2.1
+
 * Thu May 04 2023 Evgeni Golov 11.2.0-2
 - Regenerate RPM spec from latest template
 
