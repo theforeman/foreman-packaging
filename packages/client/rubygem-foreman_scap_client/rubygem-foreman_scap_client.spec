@@ -4,12 +4,12 @@
 %define rubyabi 1.8
 
 Name: rubygem-%{gem_name}
-Version: 0.5.0
+Version: 0.5.1
 Release: 1%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
-URL: https://github.com/openscap/foreman_scap_client
+URL: https://github.com/theforeman/foreman_scap_client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: bzip2
@@ -96,6 +96,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 10 2023 Evgeni Golov - 0.5.1-1
+- Release rubygem-foreman_scap_client 0.5.1
+
 * Tue May 18 2021 Ondrej Prazak <oprazak@redhat.com> 0.5.0-1
 - Update to 0.5.0
 
