@@ -1,12 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-# explicitly define, as we build on top of an scl, not inside with scl_package
-%{?scl:%global scl_prefix %{scl}-}
-%global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
-%global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
-
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -25,57 +20,57 @@ Source2:        logrotate.conf
 BuildArch:      noarch
 BuildRequires:  /usr/bin/rename
 BuildRequires:  asciidoc
-BuildRequires:  %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
-Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
+BuildRequires:  rubygem(rake) >= 0.8.3
+Requires:       rubygem(rake) >= 0.8.3
 
-BuildRequires:  %{?scl_prefix_ruby}ruby(release) >= 2.5
-Requires:       %{?scl_prefix_ruby}ruby(release) >= 2.5
-Requires:       %{?scl_prefix_ruby}rubygems
-Requires:       %{?scl_prefix}rubygem(bundler_ext)
+BuildRequires:  ruby(release) >= 2.5
+Requires:       ruby(release) >= 2.5
+Requires:       rubygems
+Requires:       rubygem(bundler_ext)
 
 Requires:       foreman-debug
 
 # These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
-Requires:       %{?scl_prefix_ruby}rubygem(json)
-Requires:       %{?scl_prefix}rubygem(rack) >= 1.3.0
-Requires:       %{?scl_prefix}rubygem(sd_notify) >= 0.1
-Requires:       %{?scl_prefix}rubygem(sd_notify) < 0.2
-Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
-Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
-Requires:       %{?scl_prefix}rubygem(sinatra)
+Requires:       rubygem(json)
+Requires:       rubygem(rack) >= 1.3.0
+Requires:       rubygem(sd_notify) >= 0.1
+Requires:       rubygem(sd_notify) < 0.2
+Requires:       rubygem(logging) >= 1.8.0
+Requires:       rubygem(logging) < 3.0.0
+Requires:       rubygem(sinatra)
 
 # start specfile default Requires
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
+Requires: rubygem(concurrent-ruby) >= 1.0
+Requires: rubygem(concurrent-ruby) < 2.0
 # end specfile default Requires
 
 # start specfile bmc Requires
-Requires: %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
-Requires: %{?scl_prefix}rubygem(redfish_client) >= 0.5.1
+Requires: rubygem(rubyipmi) >= 0.10.0
+Requires: rubygem(redfish_client) >= 0.5.1
 # end specfile bmc Requires
 
 # This is a group within bundler.d/dhcp_isc.rb
 # start specfile dhcp_isc_inotify Requires
-Requires: %{?scl_prefix}rubygem(rsec) < 1
-Requires: %{?scl_prefix}rubygem(rb-inotify)
+Requires: rubygem(rsec) < 1
+Requires: rubygem(rb-inotify)
 # end specfile dhcp_isc_inotify Requires
 
 # start specfile krb5 Requires
-Requires: %{?scl_prefix}rubygem(rkerberos) >= 0.1.1
-Requires: %{?scl_prefix}rubygem(gssapi)
+Requires: rubygem(rkerberos) >= 0.1.1
+Requires: rubygem(gssapi)
 # end specfile krb5 Requires
 
 # start specfile libvirt Requires
-Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.6.0
+Requires: rubygem(ruby-libvirt) >= 0.6.0
 # end specfile libvirt Requires
 
 # start specfile puppetca_token_whitelisting Requires
-Requires: %{?scl_prefix}rubygem(jwt)
+Requires: rubygem(jwt)
 # end specfile puppetca_token_whitelisting Requires
 
 # start specfile realm_freeipa Requires
-Requires: %{?scl_prefix}rubygem(xmlrpc) >= 0.2
-Requires: %{?scl_prefix}rubygem(xmlrpc) < 1.0
+Requires: rubygem(xmlrpc) >= 0.2
+Requires: rubygem(xmlrpc) < 1.0
 # end specfile realm_freeipa Requires
 
 Requires:       sudo
@@ -93,18 +88,11 @@ Mainly used by the foreman project (https://theforeman.org)
 
 %build
 #build man pages
-%{scl_rake} -f Rakefile.dist build \
+/usr/bin/rake -f Rakefile.dist build \
 PREFIX=%{_prefix} \
 SBINDIR=%{_sbindir} \
 SYSCONFDIR=%{_sysconfdir} \
 --trace
-
-#replace shebangs for SCL
-%if 0%{?scl:1}
-  for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb; do
-    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
-  done
-%endif
 
 #replace default location of 'settings.d'
 sed -i '/^---/ a #replace default location of "settings.d"\n:settings_directory: %{_sysconfdir}/%{name}/settings.d\n' \
@@ -116,12 +104,12 @@ mv Gemfile Gemfile.in
 %install
 rm -rf %{buildroot}
 #install man pages
-%{scl_rake} -f Rakefile.dist install \
+/usr/bin/rake -f Rakefile.dist install \
 PREFIX=%{buildroot}%{_prefix} \
 SBINDIR=%{buildroot}%{_sbindir} \
 SYSCONFDIR=%{buildroot}%{_sysconfdir} \
 --trace
-%{scl_rake} -f Rakefile.dist clean
+/usr/bin/rake -f Rakefile.dist clean
 
 # install foreman-devel script
 install -Dp -m0755 extra/foreman-debug-proxy %{buildroot}%{_datadir}/foreman/script/foreman-debug.d/75-foreman-proxy
@@ -198,8 +186,8 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 Summary:  Foreman Proxy journald logging dependencies
 Group:    Applications/System
 # start specfile journald Requires
-Requires: %{?scl_prefix}rubygem(logging-journald) >= 2.0
-Requires: %{?scl_prefix}rubygem(logging-journald) < 3.0
+Requires: rubygem(logging-journald) >= 2.0
+Requires: rubygem(logging-journald) < 3.0
 # end specfile journald Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -224,7 +212,7 @@ if [ $1 == 2 ]; then
   trap "rm -rf $TEMP" EXIT
   pushd $TEMP >/dev/null
 
-  if %{scl_ruby_bin} %{homedir}/extra/migrate_settings.rb -t . > %{_localstatedir}/log/%{name}/migrate_settings.log 2>&1; then
+  if /usr/bin/ruby %{homedir}/extra/migrate_settings.rb -t . > %{_localstatedir}/log/%{name}/migrate_settings.log 2>&1; then
     (
       cd result && for f in migration_state settings.yml settings.d/*.yml; do
         [ -e "$f" ] && cat $f > %{_sysconfdir}/%{name}/$f
@@ -253,6 +241,9 @@ exit 0
 
 
 %changelog
+* Thu May 11 2023 Evgeni Golov - 3.7.0-0.3.develop
+- drop SCL bits from spec file
+
 * Thu May 04 2023 Evgeni Golov - 3.7.0-0.2.develop
 - use grep -E instead of egrep in post script
 
