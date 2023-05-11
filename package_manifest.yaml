@@ -269,6 +269,7 @@ foreman_core_packages:
     rubygem-rbvmomi2: {}
     rubygem-redis: {}
     rubygem-representable: {}
+    rubygem-request_store: {}
     rubygem-responders: {}
     rubygem-rest-client: {}
     rubygem-retriable: {}
