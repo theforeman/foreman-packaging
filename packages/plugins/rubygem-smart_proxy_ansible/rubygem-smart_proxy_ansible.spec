@@ -1,34 +1,22 @@
 # template: smart_proxy_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name smart_proxy_ansible
 %global plugin_name ansible
 
-%{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global foreman_proxy_min_version 1.25
-%global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_dir %{_datadir}/foreman-proxy
+%global foreman_proxy_statedir %{_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
-%global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
+%global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 3.5.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
-Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?rhel} == 7
-Requires: ansible
-%else
-Requires: (ansible or ansible-core)
-%endif
+Requires: ansible-core
 Requires: ansible-runner >= 2
 
 Requires: ansible-collection-theforeman-foreman
@@ -42,45 +30,28 @@ BuildArch: noarch
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
-
 %description
 Smart-Proxy ansible plugin.
 
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
-
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %pre
 for i in ansible ansible_galaxy; do
@@ -90,7 +61,7 @@ for i in ansible ansible_galaxy; do
 done
 
 if [ -f %{foreman_proxy_dir}/.ansible.cfg ] && [ ! -L %{foreman_proxy_dir}/.ansible.cfg ]; then
-  mv %{foreman_proxy_dir}/.ansible.cfg %{_root_sysconfdir}/foreman-proxy/ansible.cfg
+  mv %{foreman_proxy_dir}/.ansible.cfg %{_sysconfdir}/foreman-proxy/ansible.cfg
 fi
 
 %install
@@ -115,7 +86,7 @@ for i in ansible ansible_galaxy; do
   ln -sv %{foreman_proxy_statedir}/$i %{buildroot}%{foreman_proxy_dir}/.$i
 done
 
-ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}/.ansible.cfg
+ln -sv %{_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}/.ansible.cfg
 
 mkdir -p %{buildroot}%{_libexecdir}/foreman-proxy
 ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdir}/foreman-proxy/ansible-runner-environment
@@ -126,7 +97,7 @@ ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdi
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
-%{gem_instdir}/settings.d
+%exclude %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
@@ -135,7 +106,7 @@ ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdi
 %{foreman_proxy_dir}/.ansible.cfg
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible_galaxy
-%ghost %attr(0640,root,foreman-proxy) %config(noreplace) %{_root_sysconfdir}/foreman-proxy/ansible.cfg
+%ghost %attr(0640,root,foreman-proxy) %config(noreplace) %{_sysconfdir}/foreman-proxy/ansible.cfg
 %{_libexecdir}/foreman-proxy/ansible-runner-environment
 
 %files doc
@@ -143,6 +114,9 @@ ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu May 11 2023 Evgeni Golov 3.5.4-2
+- Regenerate RPM spec based on latest template
+
 * Tue Mar 21 2023 nofaralfasi <nalfassi@redhat.com> 3.5.4-1
 - Update to 3.5.4
 
