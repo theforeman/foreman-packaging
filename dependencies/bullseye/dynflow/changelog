@@ -1,3 +1,9 @@
+ruby-dynflow (1.7.0-1) stable; urgency=low
+
+  * 1.7.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 11 May 2023 19:55:25 +0000
+
 ruby-dynflow (1.6.11-1) stable; urgency=low
 
   * 1.6.11 released
