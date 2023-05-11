@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 3.3.0
+%global foreman_min_version 3.7.0
 
 Name: rubygem-%{gem_name}
-Version: 7.2.1
-Release: 2%{?foremandist}%{?dist}
+Version: 8.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
@@ -23,9 +23,9 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: rubygem(dynflow) >= 1.6.0
+BuildRequires: rubygem(fugit) >= 1.8
+BuildRequires: rubygem(fugit) < 2
 BuildRequires: rubygem(get_process_mem)
-BuildRequires: rubygem(parse-cron) >= 0.1.4
-BuildRequires: rubygem(parse-cron) < 0.2
 BuildRequires: rubygem(sinatra)
 # end specfile generated dependencies
 
@@ -155,6 +155,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 8.0.1-1
+- Update to 8.0.1
+
 * Tue Feb 21 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7.2.1-2
 - Remove EL7 compatibility
 
