@@ -23,7 +23,7 @@
 
 
 Name:           katello-selinux
-Version:        5.0.1
+Version:        5.0.2
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
@@ -129,6 +129,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Fri May 12 2023 Eric D. Helms <ericdhelms@gmail.com> 5.0.2-1
+- Update to 5.0.2
+
 * Thu May 11 2023 Eric D. Helms <ericdhelms@gmail.com> 5.0.1-1
 - Update to 5.0.1
 
