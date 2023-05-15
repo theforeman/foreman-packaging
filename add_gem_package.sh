@@ -26,7 +26,7 @@ generate_gem_package() {
 		UNPACKED_GEM_DIR=$(mktemp -d)
 		gem unpack --target "$UNPACKED_GEM_DIR" *.gem
 		PLUGIN_LIB="${UNPACKED_GEM_DIR}"/${GEM_NAME}-*/lib
-		REQUIRES_FOREMAN=$(grep --recursive --no-filename requires_foreman $PLUGIN_LIB | sed -E 's/[^0-9.]//g')
+		REQUIRES_FOREMAN=$(grep --extended-regexp --recursive --no-filename 'requires_foreman\s' $PLUGIN_LIB | sed -E 's/[^0-9.]//g')
 		if [[ -n $REQUIRES_FOREMAN ]]; then
 			sed -i "/%global foreman_min_version/ s/foreman_min_version.*/foreman_min_version $REQUIRES_FOREMAN/" "$SPEC_FILE"
 		fi
