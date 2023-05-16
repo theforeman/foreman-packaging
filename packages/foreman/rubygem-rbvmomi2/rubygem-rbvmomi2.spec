@@ -2,8 +2,8 @@
 %global gem_name rbvmomi2
 
 Name: rubygem-%{gem_name}
-Version: 3.6.0
-Release: 2%{?dist}
+Version: 3.6.1
+Release: 1%{?dist}
 Summary: Ruby interface to the VMware vSphere API
 License: MIT
 URL: https://github.com/ManageIQ/rbvmomi2
@@ -67,6 +67,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue May 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.6.1-1
+- Update to 3.6.1
+
 * Fri Jan 27 2023 Evgeni Golov - 3.6.0-2
 - Obsolete rubygem-rbvmomi
 
