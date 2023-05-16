@@ -4,7 +4,7 @@
 %global foreman_min_version 3.1
 
 Name: rubygem-%{gem_name}
-Version: 6.0.1
+Version: 6.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: This is a Foreman plugin to interact with PuppetDB
 License: GPLv3
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.0.2-1
+- Update to 6.0.2
+
 * Thu Nov 03 2022 Foreman Packaging Automation <packaging@theforeman.org> 6.0.1-1
 - Update to 6.0.1
 
