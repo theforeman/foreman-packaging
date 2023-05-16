@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 3.6
+%global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 11.2.1
+Version: 12.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -27,7 +27,7 @@ BuildRequires: rubygem(deface) < 2.0
 BuildRequires: rubygem(foreman_remote_execution) >= 9.0
 BuildRequires: rubygem(foreman_remote_execution) < 10
 BuildRequires: rubygem(foreman-tasks) >= 7.0
-BuildRequires: rubygem(foreman-tasks) < 8
+BuildRequires: rubygem(foreman-tasks) < 9
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
@@ -100,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 16 2023 nofaralfasi <nalfassi@redhat.com> 12.0.0-1
+- Update to 12.0.0
+
 * Wed May 10 2023 nofaralfasi <nalfassi@redhat.com> 11.2.1-1
 - Update to 11.2.1
 
