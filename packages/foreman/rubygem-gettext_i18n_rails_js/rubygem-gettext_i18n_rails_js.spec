@@ -59,7 +59,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/spec
+%exclude %{gem_instdir}/spec
 
 %changelog
 * Wed May 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.4.0-1
