@@ -1,3 +1,9 @@
+ruby-foreman-templates (9.3.0-3) stable; urgency=low
+
+  * 9.3.0-3 released
+
+ -- Konstantin Orekhov <korekhov@ebaysf.com>  Wed, 17 May 2023 13:29:03 -0700
+
 ruby-foreman-templates (9.3.0-2) stable; urgency=low
 
   * Use foreman-plugin.mk
