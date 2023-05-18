@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.5.5-1) stable; urgency=low
+
+  * 3.5.5 released
+
+ -- nofaralfasi <nalfassi@redhat.com>  Thu, 18 May 2023 15:04:24 +0300
+
 ruby-smart-proxy-ansible (3.5.4-1) stable; urgency=low
 
   * 3.5.4 released
