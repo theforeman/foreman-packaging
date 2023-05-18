@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -291,8 +291,10 @@ BuildRequires: rubygem(jquery-ui-rails) >= 6.0
 BuildRequires: rubygem(jquery-ui-rails) < 7.0
 BuildRequires: rubygem(patternfly-sass) >= 3.59.4
 BuildRequires: rubygem(patternfly-sass) < 3.60.0
-BuildRequires: rubygem(gettext_i18n_rails_js) >= 1.3.1
-BuildRequires: rubygem(gettext_i18n_rails_js) < 1.4.0
+BuildRequires: rubygem(gettext_i18n_rails_js) >= 1.4
+BuildRequires: rubygem(gettext_i18n_rails_js) < 2.0
+BuildRequires: rubygem(po_to_json) >= 1.1
+BuildRequires: rubygem(po_to_json) < 2.0
 BuildRequires: rubygem(execjs) >= 1.4.0
 BuildRequires: rubygem(execjs) < 3.0
 BuildRequires: rubygem(uglifier) >= 1.0.3
@@ -478,8 +480,10 @@ Requires: rubygem(jquery-ui-rails) >= 6.0
 Requires: rubygem(jquery-ui-rails) < 7.0
 Requires: rubygem(patternfly-sass) >= 3.59.4
 Requires: rubygem(patternfly-sass) < 3.60.0
-Requires: rubygem(gettext_i18n_rails_js) >= 1.3.1
-Requires: rubygem(gettext_i18n_rails_js) < 1.4.0
+Requires: rubygem(gettext_i18n_rails_js) >= 1.4
+Requires: rubygem(gettext_i18n_rails_js) < 2.0
+Requires: rubygem(po_to_json) >= 1.1
+Requires: rubygem(po_to_json) < 2.0
 Requires: rubygem(execjs) >= 1.4.0
 Requires: rubygem(execjs) < 3.0
 Requires: rubygem(uglifier) >= 1.0.3
@@ -989,6 +993,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu May 18 2023 Evgeni Golov - 3.7.0-0.5.develop
+- Update GEM dependencies
+
 * Wed May 10 2023 Evgeni Golov - 3.7.0-0.4.develop
 - Update GEM dependencies
 
