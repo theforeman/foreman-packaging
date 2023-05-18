@@ -1,51 +1,43 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name diffy
 
-Summary: Convenient diffing in ruby
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.1
-Release: 6%{?dist}
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 3.4.2
+Release: 1%{?dist}
+Summary: A convenient way to diff string in ruby
 License: MIT
 URL: https://github.com/samg/diffy
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-Need diffs in your ruby app? Diffy has you covered. It provides a convenient
-way to generate a diff from two strings or files. Instead of reimplementing the
-LCS diff algorithm Diffy uses battle tested Unix diff to generate diffs, and
-focuses on providing a convenient interface, and getting out of your way.
+Convenient diffing in ruby.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -54,26 +46,28 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/spec
-%exclude %{gem_instdir}/*.gemspec
 
 %files doc
 %doc %{gem_docdir}
+%exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG
 %doc %{gem_instdir}/CONTRIBUTORS
-%doc %{gem_instdir}/LICENSE
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/VERSION
+%{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/diffy.gemspec
+%{gem_instdir}/spec
 
 %changelog
+* Thu May 18 2023 Evgeni Golov 3.4.2-1
+- Update to 3.4.2
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-6
 - Rebuild for Ruby 2.7
 
