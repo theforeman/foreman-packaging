@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 3.6
+%global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 9.1.0
-Release: 2%{?foremandist}%{?dist}
+Version: 10.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -138,6 +138,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Mon May 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 10.0.1-1
+- Update to 10.0.1
+
 * Thu May 04 2023 Evgeni Golov 9.1.0-2
 - regenerate RPM spec from latest template
 
