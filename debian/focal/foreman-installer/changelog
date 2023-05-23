@@ -1,3 +1,9 @@
+foreman-installer (3.7.0-5) stable; urgency=low
+
+  * Correct allowed kafo versions
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 23 May 2023 13:37:50 +0200
+
 foreman-installer (3.7.0-4) stable; urgency=low
 
   * Widen allowed installer dependencies
