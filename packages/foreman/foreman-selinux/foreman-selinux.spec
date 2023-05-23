@@ -21,12 +21,12 @@
 
 %define moduletype apps
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
-Version:        3.7.0
+Version:        3.8.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue May 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-0.1.develop
+- Bump version to 3.8-develop
+
 * Wed Mar 01 2023 Evgeni Golov - 3.7.0-0.2.develop
 - Drop RHEL7 dependencies and Fedora support
 
