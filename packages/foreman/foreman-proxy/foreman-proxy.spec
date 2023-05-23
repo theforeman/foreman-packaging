@@ -1,12 +1,12 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 3
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        3.7.0
+Version:        3.8.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -241,6 +241,9 @@ exit 0
 
 
 %changelog
+* Tue May 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-0.1.develop
+- Bump version to 3.8-develop
+
 * Thu May 11 2023 Evgeni Golov - 3.7.0-0.3.develop
 - drop SCL bits from spec file
 

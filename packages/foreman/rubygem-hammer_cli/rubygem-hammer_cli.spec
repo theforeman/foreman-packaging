@@ -3,12 +3,12 @@
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
-%global release 2
+%global release 1
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 Name: rubygem-%{gem_name}
-Version: 3.7.0
+Version: 3.8.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 License: GPLv3
@@ -89,6 +89,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-0.1.pre.develop
+- Bump version to 3.8-develop
+
 * Fri May 05 2023 Evgeni Golov 3.7.0-0.2.pre.develop
 - Regenerate RPM spec based on latest template
 
