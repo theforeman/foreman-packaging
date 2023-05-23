@@ -1,3 +1,9 @@
+foreman-installer (3.8.0-1) stable; urgency=low
+
+  * Bump changelog to 3.8.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 23 May 2023 17:49:59 +0200
+
 foreman-installer (3.7.0-5) stable; urgency=low
 
   * Correct allowed kafo versions
