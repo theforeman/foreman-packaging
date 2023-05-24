@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.7
-%global foreman_max_version 3.8
+%global foreman_min_version 3.8
+%global foreman_max_version 3.9
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.9.0
-%global release 2
+%global mainver 4.10.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -193,6 +193,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 24 2023 William Bradford Clark <wclark@redhat.com> - 4.10.0-0.1.pre.master
+- Bump version to 4.10.0
+
 * Thu May 04 2023 Evgeni Golov 4.9.0-0.2.pre.master
 - regenerate RPM spec from latest template
 
