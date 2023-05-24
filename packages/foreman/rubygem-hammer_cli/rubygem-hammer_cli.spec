@@ -3,9 +3,7 @@
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
-%global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: 3.7.0
@@ -89,6 +87,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 24 2023 Oleh Fedorenko <ofedoren@redhat.com> - 3.7.0-1
+- Release rubygem-hammer_cli 3.7.0
+
 * Fri May 05 2023 Evgeni Golov 3.7.0-0.2.pre.develop
 - Regenerate RPM spec based on latest template
 
