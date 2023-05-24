@@ -2,13 +2,13 @@ Source: ruby-foreman-templates
 Section: ruby
 Priority: extra
 Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
-Build-Depends: debhelper (>= 8.0.0), git | git-core, foreman (>= 1.24.0~rc1), foreman-nulldb (>= 1.24.0~rc1), foreman-assets, python-dev
+Build-Depends: debhelper (>= 9.20160709), git | git-core, foreman (>= 3.7.0~rc1), foreman-nulldb (>= 3.7.0~rc1), foreman-assets, python-dev
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_templates
 
 Package: ruby-foreman-templates
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1), git
+Depends: ${misc:Depends}, bundler, foreman (>= 3.7.0~rc1), git
 Description: Foreman Templates Plugin
  This plugin will sync the contents of the Foreman Community Templates
  repository (or a git repo of your choice) to your local Foreman instance.

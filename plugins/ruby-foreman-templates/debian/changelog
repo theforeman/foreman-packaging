@@ -1,3 +1,9 @@
+ruby-foreman-templates (9.4.0-1) stable; urgency=low
+
+  * 9.4.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Wed, 24 May 2023 13:51:55 +0000
+
 ruby-foreman-templates (9.3.0-3) stable; urgency=low
 
   * 9.3.0-3 update bundled dependencies for security fixes
