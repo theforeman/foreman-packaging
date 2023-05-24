@@ -1,5 +1,5 @@
 %global release 4
-%global prereleasesource develop
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -133,6 +133,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed May 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.7.0-0.4.rc2
+- Release foreman-installer 3.7.0rc2
+
 * Fri May 05 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.7.0-0.4.develop
 - Widen allowed dependencies
 

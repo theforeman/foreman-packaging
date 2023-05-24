@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 5
-%global prereleasesource develop
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -993,6 +993,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed May 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.5.rc2
+- Release foreman 3.7.0rc2
+
 * Wed May 17 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.5.develop
 - Update Gem and NPM dependencies
 

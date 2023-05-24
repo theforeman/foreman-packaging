@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -241,6 +241,9 @@ exit 0
 
 
 %changelog
+* Wed May 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.3.rc2
+- Release foreman-proxy 3.7.0rc2
+
 * Thu May 11 2023 Evgeni Golov - 3.7.0-0.3.develop
 - drop SCL bits from spec file
 
