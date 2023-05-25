@@ -180,7 +180,7 @@ rm src/katello/tracer/zypper.py
 sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
 %endif
 %else
-rm src/katello/tracer
+rm -r src/katello/tracer
 sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
 rm etc/yum/pluginconf.d/tracer_upload.conf
 %endif
@@ -323,16 +323,11 @@ exit 0
 %endif
 
 %if %{build_tracer}
-# TODO pycached unavailable on SuSE - what to do with cache files?
-%if %{zypper_install} || %{yum_install}
-%exclude %{katello_libdir}/tracer
-%else
-%pycached %exclude %{katello_libdir}/tracer
-%endif
-
 %if %{dnf_install}
+%pycached %exclude %{katello_libdir}/tracer
 %pycached %exclude %{plugins_dir}/__init__.py
 %else
+%exclude %{katello_libdir}/tracer
 %exclude %{plugins_dir}
 %endif
 %endif
@@ -360,20 +355,18 @@ exit 0
 %files tracer
 %defattr(-,root,root,-)
 %if %{zypper_install}
-%{katello_libdir}/tracer
 %dir %{_usr}/lib/zypp
 %dir %{_usr}/lib/zypp/plugins
 %dir %{plugins_dir}
 %{plugins_dir}/tracer_upload.py
 %else
 %if %{yum_install}
-%{katello_libdir}/tracer
 %{plugins_dir}/tracer_upload.py*
 %else
-%pycached %{katello_libdir}/tracer
 %pycached %{plugins_dir}/tracer_upload.py
 %endif
 %endif
+%{katello_libdir}/tracer
 %{plugins_confdir}/tracer_upload.conf
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
