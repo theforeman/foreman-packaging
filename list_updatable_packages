@@ -98,12 +98,13 @@ def find_gemfile_lock_specs(ci_job: str, subdir: str) -> Generator[Tuple[Spec, s
     base_path = Path('packages') / subdir
 
     for gem in parse_gemfile_lock(fetch_gemfile_lock(url)):
-        package_name = f'rubygem-{gem["name"]}'
-        path = base_path / package_name / f'{package_name}.spec'
-        if path.is_file():
-            spec = Spec(path)
-            if spec.is_updateable:
-                yield spec, gem['version']
+        for package_prefix in ['rubygem', 'puppet-agent']:
+            package_name = f'{package_prefix}-{gem["name"]}'
+            path = base_path / package_name / f'{package_name}.spec'
+            if path.is_file():
+                spec = Spec(path)
+                if spec.is_updateable:
+                    yield spec, gem['version']
 
 
 def find_packaged_specs() -> Generator[Tuple[Spec, None], None, None]:
@@ -191,6 +192,7 @@ def main() -> None:
     specs = chain(
         find_packaged_specs(),
         find_gemfile_lock_specs('foreman-develop-source-release', 'foreman'),
+        find_gemfile_lock_specs('foreman-installer-develop-source-release', 'foreman'),
         find_gemfile_lock_specs('smart-proxy-develop-source-release', 'foreman'),
         find_gemfile_lock_specs('katello-master-source-release', 'katello'),
         find_gemfile_lock_specs('hammer-cli-master-source-release', 'foreman'),
