@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.7
 %global foreman_max_version 3.8
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.9.0
 %global release 2
@@ -193,6 +193,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 26 2023 Odilon Sousa <osousa@redhat.com> - 4.9.0-0.2.rc1
+- Release rubygem-katello 4.9.0rc1
+
 * Thu May 04 2023 Evgeni Golov 4.9.0-0.2.pre.master
 - regenerate RPM spec from latest template
 
