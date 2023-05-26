@@ -74,6 +74,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
