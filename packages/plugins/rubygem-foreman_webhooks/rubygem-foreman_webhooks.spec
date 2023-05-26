@@ -1,19 +1,15 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name foreman_webhooks
 %global plugin_name webhooks
 %global foreman_min_version 3.3
 
-Summary:    Plugin for Foreman that allows to configure Webhooks
-Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.1.0
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/Systems
-License:    GPLv3
-URL:        https://github.com/theforeman/foreman_webhooks
-Source0:    https://rubygems.org/gems/%{gem_name}-%{version}%{?prever}.gem
+Name: rubygem-%{gem_name}
+Version: 3.1.0
+Release: 2%{?foremandist}%{?dist}
+Summary: Configure webhooks for Foreman
+License: GPLv3
+URL: https://github.com/theforeman/foreman_webhooks
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -27,56 +23,40 @@ BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-# start package.json devDependencies BuildRequires
+# start package.json dependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
 BuildRequires: npm(@theforeman/builder) >= 0
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
-# end package.json devDependencies BuildRequires
-
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end package.json dependencies BuildRequires
 
 %description
 Plugin for Foreman that allows to configure Webhooks.
 
 
 %package doc
-BuildArch:  noarch
-Group:      Documentation
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for %{pkg_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -89,10 +69,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_libdir}
-%exclude %{gem_cache}
 %exclude %{gem_instdir}/package.json
 %exclude %{gem_instdir}/webpack
-%exclude %{gem_instdir}/Rakefile
+%exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
@@ -103,12 +82,16 @@ cp -pa .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
 %posttrans
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 25 2023 Oleh Fedorenko <ofedoren@redhat.com> 3.1.0-2
+- Remove SCL macros
+
 * Tue Mar 21 2023 Oleh Fedorenko <ofedoren@redhat.com> 3.1.0-1
 - Update to 3.1.0
 
