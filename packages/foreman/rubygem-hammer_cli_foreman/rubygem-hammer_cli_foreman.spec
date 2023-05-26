@@ -1,18 +1,14 @@
 # template: hammer_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-%global hammer_confdir %{_root_sysconfdir}/hammer
+%global hammer_confdir %{_sysconfdir}/hammer
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 3.8.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
@@ -22,19 +18,16 @@ URL: https://github.com/theforeman/hammer-cli-foreman
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli) >= 2.1.0
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.3.0
-Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
-Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
-Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+Requires: ruby(rubygems)
+Requires: rubygem(hammer_cli) >= 3.7.0
+Requires: rubygem(apipie-bindings) >= 0.6.0
+Requires: rubygem(rest-client) >= 1.8.0
+Requires: rubygem(rest-client) < 3.0.0
+Requires: rubygem(jwt) >= 2.2.1
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -42,36 +35,23 @@ Foreman commands for Hammer CLI.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}%{?prerelease}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}%{?prerelease}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -100,6 +80,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 26 2023 Oleh Fedorenko <ofedoren@redhat.com> - 3.8.0-0.2.pre.develop
+- Remove SCL macros
+
 * Tue May 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-0.1.pre.develop
 - Bump version to 3.8-develop
 
