@@ -4,10 +4,10 @@
 
 %global gem_name foreman_azure_rm
 %global plugin_name azure_rm
-%global foreman_min_version 1.17
+%global foreman_min_version 3.7
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.9
+Version: 2.2.10
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
@@ -17,36 +17,24 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(azure_mgmt_resources) >= 0.18.1
-Requires: %{?scl_prefix}rubygem(azure_mgmt_resources) < 0.19
-Requires: %{?scl_prefix}rubygem(azure_mgmt_network) >= 0.26.1
-Requires: %{?scl_prefix}rubygem(azure_mgmt_network) < 0.27
-Requires: %{?scl_prefix}rubygem(azure_mgmt_storage) >= 0.23.0
-Requires: %{?scl_prefix}rubygem(azure_mgmt_storage) < 0.24
-Requires: %{?scl_prefix}rubygem(azure_mgmt_compute) >= 0.22.0
-Requires: %{?scl_prefix}rubygem(azure_mgmt_compute) < 0.23
-Requires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) >= 0.18.5
-Requires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) < 0.19
+Requires: ruby
+BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_resources) >= 0.18.1
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_resources) < 0.19
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_network) >= 0.26.1
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_network) < 0.27
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_storage) >= 0.23.0
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_storage) < 0.24
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_compute) >= 0.22.0
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_compute) < 0.23
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) >= 0.18.5
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) < 0.19
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(azure_mgmt_resources) >= 0.18.1
+BuildRequires: rubygem(azure_mgmt_resources) < 0.19
+BuildRequires: rubygem(azure_mgmt_network) >= 0.26.1
+BuildRequires: rubygem(azure_mgmt_network) < 0.27
+BuildRequires: rubygem(azure_mgmt_storage) >= 0.23.0
+BuildRequires: rubygem(azure_mgmt_storage) < 0.24
+BuildRequires: rubygem(azure_mgmt_compute) >= 0.22.0
+BuildRequires: rubygem(azure_mgmt_compute) < 0.23
+BuildRequires: rubygem(azure_mgmt_subscriptions) >= 0.18.5
+BuildRequires: rubygem(azure_mgmt_subscriptions) < 0.19
 # end specfile generated dependencies
 
 %description
@@ -114,6 +102,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jun 05 2023 Chris Roberts <chrobert@redhat.com> 2.2.10-1
+- Update to 2.2.10
+
 * Wed Jan 04 2023 Chris Roberts <chrobert@redhat.com> - 2.2.9-1
 - Release rubygem-foreman_azure_rm 2.2.9
 
