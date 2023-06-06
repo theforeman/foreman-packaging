@@ -89,7 +89,7 @@ class Spec:
         return hash(self.path)
 
 
-def find_gemfile_lock_specs(ci_job: str, subdir: str) -> Generator[Tuple[Spec, str], None, None]:
+def find_gemfile_lock_specs(ci_job: str, subdir: str, project: str) -> Generator[Tuple[Spec, str, str], None, None]:
     """
     Find all specs based on what's in the bundler lockfile. This Gemfile.lock is retrieved from
     the last successful build in CI.
@@ -103,15 +103,15 @@ def find_gemfile_lock_specs(ci_job: str, subdir: str) -> Generator[Tuple[Spec, s
         if path.is_file():
             spec = Spec(path)
             if spec.is_updateable:
-                yield spec, gem['version']
+                yield spec, gem['version'], project
 
 
-def find_packaged_specs() -> Generator[Tuple[Spec, None], None, None]:
+def find_packaged_specs() -> Generator[Tuple[Spec, None, None], None, None]:
     if DEBUG: print('Finding supported leaf specs')
     for path in Path('packages').glob('*/*/*.spec'):
         spec = Spec(path)
         if spec.is_supported and spec.is_updateable:
-            yield spec, None
+            yield spec, None, None
 
 
 def parse_gemfile_lock(gemfile_lock: str) -> Iterable[Mapping[str, str]]:
@@ -143,7 +143,7 @@ def latest_version(spec: Spec) -> str:
     raise ValueError('Unable to determine latest version', spec)
 
 
-def merge_specs(specs: Iterable[Tuple[Spec, Optional[str]]]) -> Mapping[Spec, Optional[str]]:
+def merge_specs(specs: Iterable[Tuple[Spec, Optional[str], Optional[str]]]) -> Mapping[Spec, Dict[Optional[str], Optional[str]]]:
     """
     Merge specs
 
@@ -151,19 +151,21 @@ def merge_specs(specs: Iterable[Tuple[Spec, Optional[str]]]) -> Mapping[Spec, Op
     version, it will take the more specific constraint. The last entry is used if a constraint was
     already given while a warning is printed.
     """
-    result: Dict[Spec, Optional[str]] = {}
-    for spec, new_version in specs:
-        if result.get(spec) not in (None, new_version):
+    result: Dict[Spec, Dict[Optional[str], Optional[str]]] = {}
+    for spec, new_version, project in specs:
+        existing_spec = result.get(spec)
+        if existing_spec and existing_spec['new_version'] != new_version:
             # TODO: GH annotation?
-            print(f'Found conflict for {spec.package_name}: {result[spec]} != {new_version}', file=sys.stderr)
-            result[spec] = 'CONFLICT'
+            print(f'Found conflict for {spec.package_name}: {result[spec]["new_version"]} ({result[spec]["project"]}) != {new_version} ({project})', file=sys.stderr)
+            result[spec] = {'new_version': 'CONFLICT', 'project': project}
         else:
-            result[spec] = new_version
+            result[spec] = {'new_version': new_version, 'project': project}
     return result
 
 
-def build_matrix(specs: Mapping[Spec, Optional[str]]) -> Generator[Mapping[str, Optional[str]], None, None]:
-    for spec, new_version in specs.items():
+def build_matrix(specs: Mapping[Spec, Dict[Optional[str], Optional[str]]]) -> Generator[Mapping[str, Optional[str]], None, None]:
+    for spec, metadata in specs.items():
+        new_version = metadata['new_version']
         try:
             current_version = spec.version
         except subprocess.CalledProcessError as e:  # pylint: disable=invalid-name
@@ -190,11 +192,11 @@ def build_matrix(specs: Mapping[Spec, Optional[str]]) -> Generator[Mapping[str, 
 def main() -> None:
     specs = chain(
         find_packaged_specs(),
-        find_gemfile_lock_specs('foreman-develop-source-release', 'foreman'),
-        find_gemfile_lock_specs('smart-proxy-develop-source-release', 'foreman'),
-        find_gemfile_lock_specs('katello-master-source-release', 'katello'),
-        find_gemfile_lock_specs('hammer-cli-master-source-release', 'foreman'),
-        find_gemfile_lock_specs('hammer-cli-foreman-master-source-release', 'foreman'),
+        find_gemfile_lock_specs('foreman-develop-source-release', 'foreman', 'foreman'),
+        find_gemfile_lock_specs('smart-proxy-develop-source-release', 'foreman', 'smart-proxy'),
+        find_gemfile_lock_specs('katello-master-source-release', 'katello', 'katello'),
+        find_gemfile_lock_specs('hammer-cli-master-source-release', 'foreman', 'hammer-cli'),
+        find_gemfile_lock_specs('hammer-cli-foreman-master-source-release', 'foreman', 'hammer-cli-foreman'),
     )
 
     matrix = list(build_matrix(merge_specs(specs)))
