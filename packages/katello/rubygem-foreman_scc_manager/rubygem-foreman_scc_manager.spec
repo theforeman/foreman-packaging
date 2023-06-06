@@ -8,7 +8,7 @@
 %global katello_min_version 3.16.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.3
+Version: 2.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -34,9 +34,7 @@ BuildRequires: rubygem(katello) >= 3.16
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 4.14.0
-BuildRequires: npm(babel-loader) >= 8.0.0
-BuildRequires: npm(babel-loader) < 9.0.0
+BuildRequires: npm(@theforeman/builder) >= 10.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -112,6 +110,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jun 06 2023 Nadja Heitmann <nadjah@atix.de> 2.3.0-1
+- Update to 2.3.0
+- Major bug fixes for product selection page
+
 * Tue May 16 2023 Nadja Heitmann <nadjah@atix.de> 2.2.3-1
 - Update to 2.2.3
 - Open up Foreman build dependencies
