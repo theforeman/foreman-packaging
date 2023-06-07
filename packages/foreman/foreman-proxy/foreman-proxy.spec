@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 3
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -241,6 +241,9 @@ exit 0
 
 
 %changelog
+* Wed Jun 07 2023 Odilon Sousa <osousa@redhat.com> - 3.7.0-0.3.rc3
+- Release foreman-proxy 3.7.0rc3
+
 * Wed May 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.3.rc2
 - Release foreman-proxy 3.7.0rc2
 
