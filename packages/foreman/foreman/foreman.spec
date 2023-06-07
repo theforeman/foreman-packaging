@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 5
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -993,6 +993,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jun 07 2023 Odilon Sousa <osousa@redhat.com> - 3.7.0-0.5.rc3
+- Release foreman 3.7.0rc3
+
 * Wed May 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.5.rc2
 - Release foreman 3.7.0rc2
 

@@ -1,5 +1,5 @@
 %global release 4
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -133,6 +133,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Jun 07 2023 Odilon Sousa <osousa@redhat.com> - 1:3.7.0-0.4.rc3
+- Release foreman-installer 3.7.0rc3
+
 * Wed May 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.7.0-0.4.rc2
 - Release foreman-installer 3.7.0rc2
 

@@ -22,7 +22,7 @@
 %define moduletype apps
 
 %global release 2
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Jun 07 2023 Odilon Sousa <osousa@redhat.com> - 3.7.0-0.2.rc3
+- Release foreman-selinux 3.7.0rc3
+
 * Wed May 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.7.0-0.2.rc2
 - Release foreman-selinux 3.7.0rc2
 
