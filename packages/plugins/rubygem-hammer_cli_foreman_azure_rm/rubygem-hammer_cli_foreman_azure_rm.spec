@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.3
+Version: 0.2.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman AzureRM commands for Hammer CLI
 Group: Development/Languages
@@ -18,15 +18,10 @@ URL: https://github.com/theforeman/hammer_cli_foreman_azure_rm
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.17.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -88,6 +83,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Tue Jun 13 2023 Chris Roberts <chrobert@redhat.com> 0.2.4-1
+- Update to 0.2.4
+
 * Wed Nov 30 2022 Chris Roberts <chrobert@redhat.com> 0.2.3-1
 - Update to 0.2.3
 
