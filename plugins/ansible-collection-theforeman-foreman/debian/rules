@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@
+	dh $@ --buildsystem=none
 
 override_dh_installchangelogs:
 	dh_installchangelogs CHANGELOG.rst
