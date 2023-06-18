@@ -4,7 +4,7 @@
 %global foreman_min_version 3.4
 
 Name: rubygem-%{gem_name}
-Version: 7.0.46
+Version: 8.0.46
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -38,6 +38,7 @@ BuildRequires: rubygem(foreman-tasks)
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 7.8.0
 BuildRequires: npm(@theforeman/builder) >= 10.1.1
+BuildRequires: npm(@theforeman/stories) >= 10.1.1
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
@@ -104,6 +105,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jun 18 2023 Foreman Packaging Automation <packaging@theforeman.org> 8.0.46-1
+- Update to 8.0.46
+
 * Sun Mar 19 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.0.46-1
 - Update to 7.0.46
 
