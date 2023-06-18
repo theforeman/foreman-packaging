@@ -2,7 +2,7 @@
 %global gem_name pulp_container_client
 
 Name: rubygem-%{gem_name}
-Version: 2.14.5
+Version: 2.14.6
 Release: 1%{?dist}
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
 License: GPLv2+
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Jun 18 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.14.6-1
+- Update to 2.14.6
+
 * Sun Apr 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.14.5-1
 - Update to 2.14.5
 
