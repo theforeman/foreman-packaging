@@ -4,12 +4,12 @@
 
 %global gem_name foreman_templates
 %global plugin_name templates
-%global foreman_min_version 1.24.0
+%global foreman_min_version 3.3
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.3.0
-Release:    2%{?foremandist}%{?dist}
+Version:    9.3.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
@@ -19,31 +19,28 @@ Requires: git
 BuildRequires: git
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(diffy)
-Requires: %{?scl_prefix}rubygem(git)
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(diffy)
-BuildRequires: %{?scl_prefix}rubygem(git)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(diffy)
+BuildRequires: rubygem(git)
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(@theforeman/stories) >= 10.1.0
+BuildRequires: npm(@theforeman/stories) < 11.0.0
+BuildRequires: npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -122,6 +119,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jun 19 2023 Oleh Fedorenko <ofedoren@redhat.com> 9.3.1-1
+- Update to 9.3.1
+
 * Wed Aug 24 2022 Evgeni Golov - 9.3.0-2
 - Refs #35409 - Include sprockets assets
 
