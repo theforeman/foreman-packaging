@@ -4,9 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 3.7.0
@@ -993,6 +991,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Jun 20 2023 Odilon Sousa <osousa@redhat.com> - 3.7.0-1
+- Release foreman 3.7.0
+
 * Wed Jun 07 2023 Odilon Sousa <osousa@redhat.com> - 3.7.0-0.5.rc3
 - Release foreman 3.7.0rc3
 
