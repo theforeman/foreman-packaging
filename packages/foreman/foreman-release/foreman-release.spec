@@ -14,8 +14,6 @@
 %endif
 
 %global release 1
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
 
 Name:     foreman-release
 Version:  3.7.0
@@ -90,6 +88,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Tue Jun 20 2023 Odilon Sousa <osousa@redhat.com> - 3.7.0-1
+- Release foreman-release 3.7.0
+
 * Wed Jun 07 2023 Odilon Sousa <osousa@redhat.com> - 3.7.0-0.1.rc3
 - Release foreman-release 3.7.0rc3
 
