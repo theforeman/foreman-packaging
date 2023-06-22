@@ -2,7 +2,7 @@
 %global gem_name pulp_ostree_client
 
 Name: rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.1.0
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPL-2.0+
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jun 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.1.0-1
+- Update to 2.1.0
+
 * Mon Apr 17 2023 Evgeni Golov 2.0.0-1
 - Update to 2.0.0
 
