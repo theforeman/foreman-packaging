@@ -1,19 +1,15 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name foreman_discovery
 %global plugin_name discovery
 %global foreman_min_version 3.3
 
-Summary:    MaaS Discovery Plugin for Foreman
-Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    22.0.4
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/Systems
-License:    GPLv3
-URL:        https://github.com/theforeman/foreman_discovery
-Source0:    https://rubygems.org/gems/%{gem_name}-%{version}%{?prever}.gem
+Name: rubygem-%{gem_name}
+Version: 22.0.4
+Release: 2%{?foremandist}%{?dist}
+Summary: MaaS Discovery Plugin for Foreman
+License: GPLv3
+URL: https://github.com/theforeman/foreman_discovery
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -33,48 +29,35 @@ BuildRequires: npm(@babel/core) < 8.0.0
 BuildRequires: npm(@theforeman/builder) >= 0
 # end package.json devDependencies BuildRequires
 
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# start package.json dependencies BuildRequires
+# end package.json dependencies BuildRequires
 
 %description
 MaaS Discovery Plugin engine for Foreman.
 
 
 %package doc
-BuildArch:  noarch
-Group:      Documentation
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for %{pkg_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -89,9 +72,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/extra
 %{gem_libdir}
 %{gem_instdir}/locale
-%exclude %{gem_cache}
 %exclude %{gem_instdir}/package.json
 %exclude %{gem_instdir}/webpack
+%exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
@@ -108,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jun 22 2023 Leos Stejskal <lstejska@redhat.com> 22.0.4-2
+- Regenerate spec file
+
 * Thu Mar 09 2023 Ron Lavi <1ronlavi@gmail.com> 22.0.4-1
 - Update to 22.0.4
 
