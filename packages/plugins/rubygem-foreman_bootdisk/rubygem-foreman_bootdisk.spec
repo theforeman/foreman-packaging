@@ -1,17 +1,12 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name foreman_bootdisk
 %global plugin_name bootdisk
 %global foreman_min_version 3.4
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 21.0.4
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
-Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -52,36 +47,23 @@ without the need for PXE infrastructure.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -118,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jun 22 2023 Leos Stejskal <lstejska@redhat.com> 21.0.4-3
+- Regenerate RPM spec from latest template
+
 * Thu Mar 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 21.0.4-2
 - Depend on grub2-efi-x64
 
