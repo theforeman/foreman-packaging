@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+PLUGIN = foreman_hdm
+PLUGIN_HAS_ASSETS = true
+PLUGIN_HAS_WEBPACK = true
+PLUGIN_HAS_PACKAGE_JSON = true
+
+include /usr/share/foreman/foreman-plugin.mk
