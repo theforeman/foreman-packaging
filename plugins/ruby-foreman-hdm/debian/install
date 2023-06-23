@@ -1,0 +1,4 @@
+foreman_hdm.rb           usr/share/foreman/bundler.d
+cache                        usr/share/foreman/vendor
+webpack/foreman_hdm      var/lib/foreman/public/webpack
+assets                       var/lib/foreman/public

@@ -1,0 +1,23 @@
+Source: ruby-foreman-hdm
+Section: ruby
+Priority: optional
+Maintainer: Tim <tim@bastelfreak.de>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb (>= 1),
+               rake,
+               foreman-assets (>= 3.4.0~rc1),
+               foreman-nulldb (>= 3.4.0~rc1)
+Standards-Version: 4.5.0
+Homepage: https://github.com/betadots/foreman_hdm
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-foreman-hdm
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends}, bundler, foreman (>= 3.4.0~rc1),
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: Display hiera data in Foreman using HDM
+ Get hiera data from HDM and display alongside hosts in Foreman
