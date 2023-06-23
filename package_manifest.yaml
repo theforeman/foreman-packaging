@@ -683,6 +683,7 @@ foreman_plugin_packages:
     rubygem-sentry-raven: {}
     rubygem-smart_proxy_container_gateway: {}
     rubygem-smart_proxy_acd: {}
+    rubygem-smart_proxy_hdm: {}
     rubygem-timeliness: {}
     rubygem-ttfunk: {}
     rubygem-vault: {}
