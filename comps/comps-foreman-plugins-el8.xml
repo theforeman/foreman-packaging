@@ -190,6 +190,7 @@
       <packagereq type="default">rubygem-smart_proxy_dns_route53</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">rubygem-smart_proxy_m2</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_hdm</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
@@ -363,7 +364,11 @@
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_route53-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
+<<<<<<< HEAD
       <packagereq type="default">rubygem-smart_proxy_m2-doc</packagereq>
+=======
+      <packagereq type="default">rubygem-smart_proxy_hdm-doc</packagereq>
+>>>>>>> 3210e4179 (Add rubygem-smart_proxy_hdm package)
       <packagereq type="default">rubygem-smart_proxy_monitoring-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
