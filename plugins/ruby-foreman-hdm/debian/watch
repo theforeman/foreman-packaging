@@ -1,0 +1,2 @@
+version=4
+https://gemwatch.debian.net/foreman_hdm .*/foreman_hdm-(.*).tar.gz
