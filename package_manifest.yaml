@@ -631,6 +631,7 @@ foreman_plugin_packages:
     rubygem-foreman_git_templates: {}
     rubygem-foreman_google: {}
     rubygem-foreman_graphite: {}
+    rubygem-foreman_hdm: {}
     rubygem-foreman_hooks: {}
     rubygem-foreman_host_extra_validator: {}
     rubygem-foreman_kubevirt: {}
