@@ -1,0 +1,2 @@
+config/hdm.yml etc/foreman-proxy/settings.d
+bundler.d/hdm.rb usr/share/foreman-proxy/bundler.d
