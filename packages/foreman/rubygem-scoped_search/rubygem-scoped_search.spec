@@ -1,115 +1,96 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name scoped_search
 
-Summary: Easily search your ActiveRecord models
-Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 4.1.10
+Name: rubygem-%{gem_name}
+Version: 4.1.11
 Release: 1%{?dist}
-Group: Development/Languages
+Summary: Easily search you ActiveRecord models with a simple query language using a named scope
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(activerecord) >= 4.2.0
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-# for check section
-%if 0%{?fedora} > 21
-BuildRequires: %{?scl_prefix}rubygem(rspec) >= 3.0
-BuildRequires: %{?scl_prefix}rubygem(rspec) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(activerecord) >= 4.2.0
-BuildRequires: %{?scl_prefix}rubygem(actionview) >= 4.2.0
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
-%endif
+# start specfile generated dependencies
+Requires: ruby >= 2.0.0
+BuildRequires: ruby >= 2.0.0
+BuildRequires: rubygems-devel
+BuildArch: noarch
+# end specfile generated dependencies
 
 %description
-Scoped search makes it easy to search your ActiveRecord-based models. It will
-create a named scope :search_for that can be called with a query string. It
-will build an SQL query using the provided query string and a definition that
-specifies on what fields to search. Because the functionality is built on
-named_scope, the result of the search_for call can be used like any other
-named_scope, so it can be chained with another scope or combined with
-will_paginate. Because it uses standard SQL, it does not require any setup,
-indexers or daemons. This makes scoped_search suitable to quickly add basic
-search functionality to your application with little hassle. On the other hand,
-it may not be the best choice if it is going to be used on very large data sets
+Scoped search makes it easy to search your ActiveRecord-based models.
+It will create a named scope :search_for that can be called with a query
+string. It will build an SQL query using
+the provided query string and a definition that specifies on what fields to
+search. Because the functionality is
+built on named_scope, the result of the search_for call can be used like any
+other named_scope, so it can be
+chained with another scope or combined with will_paginate.
+Because it uses standard SQL, it does not require any setup, indexers or
+daemons. This makes scoped_search
+suitable to quickly add basic search functionality to your application with
+little hassle. On the other hand,
+it may not be the best choice if it is going to be used on very large datasets
 or by a large user base.
 
+
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
-
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
-gem unpack %{SOURCE0}
-%{?scl:"}
-%setup -q -D -T -n  %{gem_name}-%{version}
-%{?scl:scl enable %{scl} "}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
-mkdir -p .%{gem_dir}
-
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} "}
-gem build %{gem_name}.gemspec
-%{?scl:"}
+gem build ../%{gem_name}-%{version}.gemspec
 
-%{?scl:scl enable %{scl} - <<EOF}
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-mv %{buildroot}%{gem_instdir}/{LICENSE,*.rdoc} ./
-
-%check
-pushd .%{gem_instdir}
-# Get rid of Bundler, not needed on Fedora.
-sed -i "/require 'bundler\/setup'/ d" spec/spec_helper.rb
-# tests require rspec 3, only on F22+
-%if 0%{?fedora} > 21
-%{?scl:scl enable %{scl} "}
-EXCLUDE_DATABASE=mysql,postgresql rspec spec
-%{?scl:"}
-%endif
-popd
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%doc LICENSE
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
-%{gem_spec}
+%{gem_libdir}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/.*
+%{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc CHANGELOG.rdoc CONTRIBUTING.rdoc README.rdoc
+%doc %{gem_instdir}/CHANGELOG.rdoc
+%doc %{gem_instdir}/CONTRIBUTING.rdoc
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Gemfile.activerecord42
+%{gem_instdir}/Gemfile.activerecord50
+%{gem_instdir}/Gemfile.activerecord51
+%{gem_instdir}/Gemfile.activerecord52
+%{gem_instdir}/Gemfile.activerecord52_with_activesupport52
+%{gem_instdir}/Gemfile.activerecord60
+%{gem_instdir}/Gemfile.activerecord60_with_activesupport60
+%{gem_instdir}/Gemfile.activerecord61
+%{gem_instdir}/Gemfile.activerecord61_with_activesupport61
+%doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
-%{gem_instdir}/Gemfile*
+%exclude %{gem_instdir}/scoped_search.gemspec
 %{gem_instdir}/spec
-%{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Sun Jun 25 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.1.11-1
+- Update to 4.1.11
+
 * Mon Nov 29 2021 Adam Ruzicka <aruzicka@redhat.com> 4.1.10-1
 - Update to 4.1.10
 
