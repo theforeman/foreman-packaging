@@ -63,6 +63,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/PROPOSAL_FOR_RESPONSE_DESCRIPTIONS.md
 %{gem_instdir}/app
 %{gem_instdir}/config
+%exclude %{gem_instdir}/gemfiles
 %exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/images
 %{gem_libdir}
