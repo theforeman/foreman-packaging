@@ -56,13 +56,14 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.vscode/
 %license %{gem_instdir}/APACHE-LICENSE-2.0
 %license %{gem_instdir}/MIT-LICENSE
 %license %{gem_instdir}/NOTICE
 %exclude %{gem_instdir}/PROPOSAL_FOR_RESPONSE_DESCRIPTIONS.md
 %{gem_instdir}/app
 %{gem_instdir}/config
-%exclude %{gem_instdir}/gemfiles
+%exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/images
 %{gem_libdir}
 %exclude %{gem_instdir}/rel-eng
