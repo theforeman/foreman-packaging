@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 License: GPLv3
 URL: https://github.com/theforeman/foreman_leapp
@@ -95,7 +95,7 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
-* Tue Jun 27 2023 Leos Stejskal <lstejska@redhat.com> 1.0.0-1
+* Tue Jun 27 2023 Leos Stejskal <lstejska@redhat.com> 1.0.0-2
 - Update to 1.0.0-1
 
 * Thu Jun 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.0.0-1
