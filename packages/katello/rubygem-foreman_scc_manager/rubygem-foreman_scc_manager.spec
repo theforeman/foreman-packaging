@@ -1,23 +1,16 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name foreman_scc_manager
 %global plugin_name scc_manager
-%global foreman_min_version 3.4
-%global katello_min_version 3.16.0
+%global foreman_min_version 2.1
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 2.3.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
-Group: Applications/Systems
 License: GPLv3
 URL: https://www.orcharhino.com/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix}rubygem(katello) >= %{katello_min_version}
-BuildRequires: %{?scl_prefix}rubygem(katello) >= %{katello_min_version}
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: ruby
@@ -46,36 +39,23 @@ Katello.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -109,7 +89,13 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Tue Jun 27 2023 Evgeni Golov 2.3.0-2
+- Regenerate RPM spec based on latest template
+
 * Tue Jun 06 2023 Nadja Heitmann <nadjah@atix.de> 2.3.0-1
 - Update to 2.3.0
 - Major bug fixes for product selection page
