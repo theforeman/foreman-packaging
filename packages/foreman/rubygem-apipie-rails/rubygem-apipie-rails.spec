@@ -2,7 +2,7 @@
 %global gem_name apipie-rails
 
 Name: rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.2.1
 Release: 1%{?dist}
 Summary: Rails REST API documentation tool
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
@@ -56,6 +56,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.vscode/
 %license %{gem_instdir}/APACHE-LICENSE-2.0
 %license %{gem_instdir}/MIT-LICENSE
 %license %{gem_instdir}/NOTICE
@@ -63,6 +64,7 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/app
 %{gem_instdir}/config
 %exclude %{gem_instdir}/gemfiles
+%exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/images
 %{gem_libdir}
 %exclude %{gem_instdir}/rel-eng
@@ -79,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Jun 25 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.1-1
+- Update to 1.2.1
+
 * Tue May 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.1.0-1
 - Update to 1.1.0
 
