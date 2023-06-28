@@ -96,7 +96,7 @@ cp -a .%{gem_dir}/* \
 
 %changelog
 * Tue Jun 27 2023 Leos Stejskal <lstejska@redhat.com> 1.0.0-2
-- Update to 1.0.0-1
+- Regenerate RPM spec based on latest template
 
 * Thu Jun 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.0.0-1
 - Update to 1.0.0
