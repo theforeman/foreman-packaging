@@ -70,7 +70,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/Rakefile
 %{gem_instdir}/cucumber.yml
 %{gem_instdir}/features
-%{gem_instdir}/spec
 
 %changelog
 * Thu Jun 29 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.3-1
