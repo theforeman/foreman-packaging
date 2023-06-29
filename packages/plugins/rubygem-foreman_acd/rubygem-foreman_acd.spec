@@ -1,41 +1,33 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
-
 %global gem_name foreman_acd
 %global plugin_name acd
 %global foreman_min_version 2.1
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 0.9.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
-Group: Applications/Systems
 License: GPLv3
 URL: https://www.orcharhino.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: git
-BuildRequires: git
-
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
+Requires: ruby >= 2.5
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: ruby
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(foreman_remote_execution) >= 7.0
-BuildRequires: rubygem(foreman-tasks) >= 7.0
+BuildRequires: rubygem(foreman_remote_execution) >= 3.3.0
+BuildRequires: rubygem(foreman-tasks) >= 0.10
 BuildRequires: rubygem(git)
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@theforeman/builder) >= 10.1.0
-BuildRequires: npm(@theforeman/builder) < 11.0.0
 BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
 BuildRequires: npm(babel-preset-env) >= 1.6.0
@@ -54,49 +46,38 @@ BuildRequires: npm(table-resolver) < 4.0.0
 # end package.json dependencies BuildRequires
 
 %description
-A plugin to bring an user self service portal and application centric deployment to Foreman.
+Foreman plugin to provide application centric deployment and self service
+portal.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
 
-mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks/
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks/
 
 %files
 %dir %{gem_instdir}
@@ -115,8 +96,8 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
-%attr(-,foreman,foreman) %{_root_localstatedir}/lib/foreman/%{gem_name}
-%attr(-,foreman,foreman) %{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks/
+%attr(-,foreman,foreman) %{_localstatedir}/lib/foreman/%{gem_name}
+%attr(-,foreman,foreman) %{_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks/
 
 %files doc
 %doc %{gem_docdir}
@@ -128,6 +109,9 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jun 29 2023 Nadja Heitmann <nadjah@atix.de> 0.9.4-2
+- Regenerate RPM spec based on latest template
+
 * Mon Jan 16 2023 Bernhard Suttner <suttner@atix.de> 0.9.4-1
 - Update to 0.9.4
 
