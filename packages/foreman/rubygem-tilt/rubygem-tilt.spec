@@ -6,7 +6,7 @@ Version: 2.2.0
 Release: 1%{?dist}
 Summary: Generic interface to multiple Ruby template engines
 License: MIT
-URL: https://github.com/rtomayko/tilt/
+URL: https://github.com/jeremyevans/tilt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
