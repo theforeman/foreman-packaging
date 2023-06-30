@@ -1,0 +1,17 @@
+Source: ruby-smart-proxy-hdm
+Section: ruby
+Priority: optional
+Maintainer: Tim <tim@bastelfreak.de>
+Build-Depends: debhelper-compat (= 13), gem2deb (>= 1), rake
+Standards-Version: 4.5.0
+Homepage: https://github.com/betadots/smart_proxy_hdm
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-smart-proxy-hdm
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${ruby:Depends}, ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.15.0~rc1)
+Description: An HDM Plugin for Foreman's smart proxy
+ Read hiera data via HDM to display alongside hosts in Foreman
