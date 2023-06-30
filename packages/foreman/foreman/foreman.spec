@@ -1,5 +1,4 @@
 %global homedir %{_datadir}/%{name}
-%global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
@@ -35,10 +34,11 @@ Requires: /etc/cron.d
 Requires: gawk
 Requires: /usr/sbin/sendmail
 
-Requires(pre):  shadow-utils
-Requires(post): systemd-sysv
-Requires(post): systemd-units
-Requires(preun): systemd-units
+BuildRequires:  systemd-rpm-macros
+%systemd_requires
+%if 0%{rhel} >= 9
+%{?sysusers_requires_compat}
+%end
 
 # Subpackages
 Requires: %{name}-debug
@@ -727,6 +727,7 @@ install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
+install -Dp -m0644 extras/systemd/%{name}.sysusers %{buildroot}%{_sysusersdir}/%{name}.conf
 
 # SELinux libexec wrappers
 cat > %{buildroot}%{_libexecdir}/%{name}/sidekiq-selinux <<EOF
@@ -939,12 +940,14 @@ rm -rf %{buildroot}
 %ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
+%{_sysusersdir}/%{name}.conf
 
 %pre
-# Add the "foreman" user and group
-getent group %{name} >/dev/null || groupadd -r %{name}
-getent passwd %{name} >/dev/null || \
-useradd -r -g %{name} -d %{homedir} -s /sbin/nologin -c "Foreman" %{name}
+%if 0%{rhel} < 9
+%sysusers_create_compat extras/systemd/%{name}.sysusers
+%else
+%sysusers_create_package %{name} extras/systemd/%{name}.sysusers
+%end
 
 if [ $1 == 2 ]; then
   systemctl --no-reload disable dynflowd.service > /dev/null 2>&1 || :
