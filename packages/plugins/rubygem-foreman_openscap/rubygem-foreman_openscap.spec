@@ -4,10 +4,10 @@
 
 %global gem_name foreman_openscap
 %global plugin_name openscap
-%global foreman_min_version 3.3
+%global foreman_min_version 3.7
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.0
+Version: 7.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
@@ -109,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jul 02 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.0.0-1
+- Update to 7.0.0
+
 * Thu Mar 23 2023 Ron Lavi <1ronlavi@gmail.com> 6.0.0-1
 - Update to 6.0.0
 
