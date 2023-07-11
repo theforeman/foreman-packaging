@@ -1,31 +1,21 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name safemode
-%global gem_require_name %{gem_name}
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.7
+Name: rubygem-%{gem_name}
+Version: 1.3.8
 Release: 1%{?dist}
 Summary: A library for safe evaluation of Ruby code based on ParseTree/RubyParser and Ruby2Ruby
-Group: Development/Languages
 License: MIT
 URL: https://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.4.0
-Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.10.1
-Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.10.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+Requires: ruby < 4
+BuildRequires: ruby >= 2.5
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -34,36 +24,23 @@ Provides Rails ActionView template handlers for ERB and Haml.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -73,7 +50,6 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/VERSION
 %{gem_instdir}/demo.rb
 %{gem_instdir}/init.rb
 %{gem_libdir}
@@ -85,10 +61,13 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.markdown
 %{gem_instdir}/Rakefile
-%{gem_instdir}/safemode.gemspec
+%exclude %{gem_instdir}/safemode.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 11 2023 Oleh Fedorenko <ofedoren@redhat.com> 1.3.8-1
+- Update to 1.3.8
+
 * Tue May 17 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.3.7-1
 - Release rubygem-safemode 1.3.7
 
