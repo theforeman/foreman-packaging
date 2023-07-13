@@ -7,8 +7,6 @@
 
 %global release 1
 
-%global prerelease a1
-%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
@@ -77,7 +75,6 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/git_push.sh
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -92,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jul 13 2023 Patrick Creech <pcreech@redhat.com> - 2.0.0-1
+- Release rubygem-pulp_ostree_client 2.0.0
+
 * Tue Oct 05 2021 Justin Sherrill <jsherril@redhat.com> 2.0.0-0.1.a1
 - initial build
 
