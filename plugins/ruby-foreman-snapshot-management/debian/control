@@ -1,0 +1,13 @@
+Source: ruby-foreman-snapshot-management
+Section: ruby
+Priority: optional
+Maintainer: ATIX AG <info@atix.de>
+Build-Depends: debhelper (>= 8.0.0), foreman (>= 2.3), foreman-nulldb (>= 2.3), foreman-assets (>= 2.3)
+Standards-Version: 4.5.0
+Homepage: https://github.com/ATIX-AG/foreman_snapshot_management
+
+Package: ruby-foreman-snapshot-management
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 2.3)
+Description: Snapshot Management for machines on virtualization-platforms
+ Foreman-plugin to manage snapshots in a virtual-hardware environments.
