@@ -1,0 +1,2 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/foreman_snapshot_management-2.0.3.gem"

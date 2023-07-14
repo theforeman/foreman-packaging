@@ -1,0 +1,7 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: foreman_snapshot_management
+Source: https://github.com/ATIX-AG/foreman_snapshot_management
+
+Files: *
+Copyright: 2023 ATIX AG <info@atix.de>
+License: GPLv3

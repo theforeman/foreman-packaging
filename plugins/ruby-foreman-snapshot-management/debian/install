@@ -1,0 +1,4 @@
+foreman_snapshot_management.rb           usr/share/foreman/bundler.d
+cache                                    usr/share/foreman/vendor
+webpack/foreman_snapshot_management      var/lib/foreman/public/webpack
+assets                                   var/lib/foreman/public
