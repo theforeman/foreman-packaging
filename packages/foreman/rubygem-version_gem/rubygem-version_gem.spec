@@ -2,7 +2,7 @@
 %global gem_name version_gem
 
 Name: rubygem-%{gem_name}
-Version: 1.1.2
+Version: 1.1.3
 Release: 1%{?dist}
 Summary: Enhance your VERSION! Sugar for Version modules
 License: MIT
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 19 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.1.3-1
+- Update to 1.1.3
+
 * Sun Mar 26 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.1.2-1
 - Update to 1.1.2
 
