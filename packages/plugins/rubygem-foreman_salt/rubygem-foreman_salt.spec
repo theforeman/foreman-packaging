@@ -4,8 +4,8 @@
 %global foreman_min_version 2.5
 
 Name: rubygem-%{gem_name}
-Version: 15.1.0
-Release: 5%{?foremandist}%{?dist}
+Version: 15.2.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for Salt
 License: GPLv3
 URL: https://github.com/theforeman/foreman_salt
@@ -22,8 +22,10 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: rubygem(deface) < 2.0
-BuildRequires: rubygem(foreman_remote_execution) >= 2.0.0
-BuildRequires: rubygem(foreman-tasks) >= 0.8
+BuildRequires: rubygem(foreman_remote_execution) >= 9.0
+BuildRequires: rubygem(foreman_remote_execution) < 11
+BuildRequires: rubygem(foreman-tasks) >= 7.0
+BuildRequires: rubygem(foreman-tasks) < 9
 # end specfile generated dependencies
 
 %description
@@ -81,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 03 2023 Nadja Heitmann <nadjah@atix.de> 15.2.1-1
+- Update to 15.2.1
+
 * Thu Jun 29 2023 Nadja Heitmann <nadjah@atix.de> 15.1.0-5
 - Regenerate RPM spec based on latest template
 
