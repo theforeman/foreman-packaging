@@ -10,3 +10,5 @@ downloaded_rpms
 
 SRPMs/
 mock_builds/
+tmp/
+copr_build_info/
