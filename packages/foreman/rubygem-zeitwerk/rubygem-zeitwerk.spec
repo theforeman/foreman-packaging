@@ -2,7 +2,7 @@
 %global gem_name zeitwerk
 
 Name: rubygem-%{gem_name}
-Version: 2.6.8
+Version: 2.6.9
 Release: 1%{?dist}
 Summary: Efficient and thread-safe constant autoloader
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jul 30 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.6.9-1
+- Update to 2.6.9
+
 * Fri May 05 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.6.8-1
 - Update to 2.6.8
 
