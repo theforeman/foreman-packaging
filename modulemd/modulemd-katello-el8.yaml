@@ -23,4 +23,3 @@ data:
       requires:
         foreman: ['el8']
         pki-core: []
-        maven: ['3.8']
