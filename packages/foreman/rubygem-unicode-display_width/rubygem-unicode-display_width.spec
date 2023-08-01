@@ -2,7 +2,7 @@
 %global gem_name unicode-display_width
 
 Name: rubygem-%{gem_name}
-Version: 1.8.0
+Version: 2.4.2
 Release: 1%{?dist}
 Summary: Determines the monospace display width of a string in Ruby
 License: MIT
@@ -10,14 +10,14 @@ URL: https://github.com/janlelis/unicode-display_width
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9.3
-BuildRequires: ruby >= 1.9.3
+Requires: ruby >= 2.4.0
+BuildRequires: ruby >= 2.4.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
 %description
-[Unicode 14.0.0] Determines the monospace display width of a string using
+[Unicode 15.0.0] Determines the monospace display width of a string using
 EastAsianWidth.txt, Unicode general category, and other data.
 
 
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 01 2023 Eric D. Helms <ericdhelms@gmail.com> 2.4.2-1
+- Update to 2.4.2-1
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.8.0-1
 - Update to 1.8.0
 
