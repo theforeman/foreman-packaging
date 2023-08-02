@@ -33,13 +33,10 @@ ensure_program rpmspec rpm-build
 
 SCRIPT_DIR=$(dirname $(readlink -f $BASH_SOURCE))
 
-cd $1
-
 ROOT=$(git rev-parse --show-toplevel)
 PACKAGE_NAME=$(basename $1)
 SPEC_FILE=*.spec
-GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
-CURRENT_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $SPEC_FILE)
+CURRENT_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $1/$SPEC_FILE)
 
 if [[ -z $2 ]] ; then
 	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
@@ -60,25 +57,28 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 
 	echo "${PACKAGE_NAME}: $CURRENT_VERSION != $NEW_VERSION ; bumping"
 
-	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git rm
-
-	sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
-
-	RELEASE=$(rpmspec --srpm -q --queryformat='%{release}' --undefine=dist $SPEC_FILE)
-	if [[ ${RELEASE} != 1 ]] ; then
-		echo "* Resetting release ($RELEASE) in $SPEC_FILE"
-		sed -i "s/^\(Release:\s\+\)${RELEASE}/\11/" $SPEC_FILE
-	fi
-
-	$SCRIPT_DIR/add_changelog.sh $SPEC_FILE <<-EOF
-	- Update to $NEW_VERSION
-	EOF
-
-	spectool --get-files $SPEC_FILE
-	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git annex add
-	git add $SPEC_FILE
-
 	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
+		cd $1
+		GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
+
+		spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git rm
+
+		sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
+
+		RELEASE=$(rpmspec --srpm -q --queryformat='%{release}' --undefine=dist $SPEC_FILE)
+		if [[ ${RELEASE} != 1 ]] ; then
+			echo "* Resetting release ($RELEASE) in $SPEC_FILE"
+			sed -i "s/^\(Release:\s\+\)${RELEASE}/\11/" $SPEC_FILE
+		fi
+
+		$SCRIPT_DIR/add_changelog.sh $SPEC_FILE <<-EOF
+		- Update to $NEW_VERSION
+		EOF
+
+		spectool --get-files $SPEC_FILE
+		spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git annex add
+		git add $SPEC_FILE
+
 		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
 		if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]]; then
 			CHANGELOG=$(mktemp)
@@ -102,22 +102,36 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 			fi
 			git add $SPEC_FILE
 		fi
+
+		if grep -q "# start package.json" $SPEC_FILE ; then
+			UNPACKED_GEM_DIR=$(mktemp -d)
+			gem unpack --target "$UNPACKED_GEM_DIR" *.gem
+			PACKAGE_JSON="${UNPACKED_GEM_DIR}/${GEM_NAME}-${NEW_VERSION}/package.json"
+			if [[ -f $PACKAGE_JSON ]] ; then
+				$ROOT/update-requirements npm $PACKAGE_JSON $SPEC_FILE
+				git add $SPEC_FILE
+			else
+				echo "Unable to find package.json in gem"
+			fi
+			rm -rf "$UNPACKED_GEM_DIR"
+		fi
+	elif [[ $PACKAGE_NAME == *nodejs-* ]]; then
+		NPM_NAME=$(awk '/^%global\s+npm_name/ { print $3 }' $1/$SPEC_FILE)
+
+		echo "Bumping NPM package"
+		SKIP_GIT_COMMIT=1
+		SOURCES=`spectool --list-files $1/$SPEC_FILE`
+
+		if [[ $SOURCES == *registry.npmjs.org.tgz* ]]; then
+			NPM_STRATEGY='bundle'
+		else
+			NPM_STRATEGY='single'
+		fi
+
+		$SCRIPT_DIR/add_npm_package.sh $NPM_NAME $NEW_VERSION $NPM_STRATEGY
 	else
 		echo "TODO:"
 		echo "* Verify the dependencies"
-	fi
-
-	if grep -q "# start package.json" $SPEC_FILE ; then
-		UNPACKED_GEM_DIR=$(mktemp -d)
-		gem unpack --target "$UNPACKED_GEM_DIR" *.gem
-		PACKAGE_JSON="${UNPACKED_GEM_DIR}/${GEM_NAME}-${NEW_VERSION}/package.json"
-		if [[ -f $PACKAGE_JSON ]] ; then
-			$ROOT/update-requirements npm $PACKAGE_JSON $SPEC_FILE
-			git add $SPEC_FILE
-		else
-			echo "Unable to find package.json in gem"
-		fi
-		rm -rf "$UNPACKED_GEM_DIR"
 	fi
 
 	if [[ "$SKIP_GIT_COMMIT" != "1" ]] ; then
