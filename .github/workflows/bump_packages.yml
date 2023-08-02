@@ -43,6 +43,14 @@ jobs:
         sudo curl --create-dirs -o /usr/local/bin/spectool https://pagure.io/rpmdevtools/raw/26a8abc746fba9c0b32eb899b96c92841a37855a/f/spectool.in
         echo 'echo "$GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"' | sudo tee /usr/local/bin/rpmdev-packager
         sudo chmod +x /usr/local/bin/spectool /usr/local/bin/rpmdev-packager
+    - name: Install dependencies for nodejs
+      if: ${{ matrix.npm_name != null }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install npm2rpm
+      if: ${{ matrix.npm_name != null }}
+      run: npm install npm2rpm
     - name: Checkout RPM
       uses: actions/checkout@v3
       with:
