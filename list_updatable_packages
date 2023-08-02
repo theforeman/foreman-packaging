@@ -78,6 +78,17 @@ class Spec:
         return self.globals.get('gem_name')
 
     @property
+    def npm_name(self) -> Optional[str]:
+        return self.globals.get('npm_name')
+
+    @property
+    def npm_strategy(self) -> Optional[str]:
+        if any('registry.npmjs.org.tgz' in file for file in os.listdir(self.path.parent)):
+            return 'bundle'
+        else:
+            return 'single'
+
+    @property
     def version(self) -> str:
         cmd = ['rpmspec', '--srpm', '--query', '--queryformat=%{version}', self.path.as_posix()]
         return subprocess.check_output(cmd, stderr=subprocess.DEVNULL, universal_newlines=True)
@@ -106,6 +117,24 @@ def find_gemfile_lock_specs(ci_job: str, subdir: str, project: str) -> Generator
                 yield spec, gem['version'], project
 
 
+def find_package_lock_specs(ci_job: str, subdir: str, project: str) -> Generator[Tuple[Spec, str, str], None, None]:
+    """
+    Find all specs based on what's in the NPM package-lock.json. This package-lock.json is retrieved from
+    the last successful build in CI.
+    """
+    url = f'https://ci.theforeman.org/job/{ci_job}/lastSuccessfulBuild/artifact/package-lock.json'
+    base_path = Path('packages') / subdir
+
+    for npm_module in parse_package_lock(fetch_package_lock(url)):
+        npm_name = npm_module['name'].replace('@', '').replace('/', '-')
+        package_name = f'nodejs-{npm_name}'
+        path = base_path / package_name / f'{package_name}.spec'
+        if path.is_file():
+            spec = Spec(path)
+            if spec.is_updateable:
+                yield spec, npm_module['version'], project
+
+
 def find_packaged_specs() -> Generator[Tuple[Spec, None, None], None, None]:
     if DEBUG: print('Finding supported leaf specs')
     for path in Path('packages').glob('*/*/*.spec'):
@@ -127,8 +156,25 @@ def parse_gemfile_lock(gemfile_lock: str) -> Iterable[Mapping[str, str]]:
         return json.loads(subprocess.check_output([script], universal_newlines=True, cwd=tmpdirname))
 
 
+def parse_package_lock(package_lock: str) -> Iterable[Mapping[str, str]]:
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        with open(f'{tmpdirname}/package-lock.json', 'w') as fp:
+            fp.write(package_lock)
+
+        if DEBUG: print('Parsing package-lock.json')
+        script = Path(__file__).absolute().parent / 'parse-package-lock'
+        return json.loads(subprocess.check_output([script], universal_newlines=True, cwd=tmpdirname))
+
+
 def fetch_gemfile_lock(url) -> str:
     if DEBUG: print(f'Fetching Gemfile.lock from {url}')
+    response = SESSION.get(url)
+    response.raise_for_status()
+    return response.text
+
+
+def fetch_package_lock(url) -> str:
+    if DEBUG: print(f'Fetching package-lock.json from {url}')
     response = SESSION.get(url)
     response.raise_for_status()
     return response.text
@@ -183,6 +229,8 @@ def build_matrix(specs: Mapping[Spec, Dict[Optional[str], Optional[str]]]) -> Ge
                     'directory': spec.directory,
                     'package_name': spec.package_name,
                     'gem_name': spec.gem_name,
+                    'npm_name': spec.npm_name,
+                    'npm_strategy': spec.npm_strategy,
                     'current_version': current_version,
                     'new_version': new_version,
                 }
@@ -197,6 +245,7 @@ def main() -> None:
         find_gemfile_lock_specs('katello-master-source-release', 'katello', 'katello'),
         find_gemfile_lock_specs('hammer-cli-master-source-release', 'foreman', 'hammer-cli'),
         find_gemfile_lock_specs('hammer-cli-foreman-master-source-release', 'foreman', 'hammer-cli-foreman'),
+        find_package_lock_specs('foreman-develop-source-release', 'foreman', 'foreman'),
     )
 
     matrix = list(build_matrix(merge_specs(specs)))
