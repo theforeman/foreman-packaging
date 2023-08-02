@@ -1,11 +1,8 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name node-gyp
 
-Name: %{?scl_prefix}nodejs-node-gyp
+Name: nodejs-node-gyp
 Version: 6.1.0
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: Node
 License: MIT
 Group: Development/Libraries
@@ -84,7 +81,7 @@ Source70: https://registry.npmjs.org/os-homedir/-/os-homedir-1.0.2.tgz
 Source71: https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz
 Source72: https://registry.npmjs.org/osenv/-/osenv-0.1.5.tgz
 Source73: https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz
-Source74: https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz 
+Source74: https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz
 Source75: https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz
 Source76: https://registry.npmjs.org/psl/-/psl-1.8.0.tgz
 Source77: https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz
@@ -117,36 +114,26 @@ Source103: https://registry.npmjs.org/wide-align/-/wide-align-1.1.3.tgz
 Source104: https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz
 Source105: https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz
 Source106: nodejs-node-gyp-%{version}-registry.npmjs.org.tgz
-Source107: addon-rpm.gypi
-Source108: addon-rpm-el8.gypi
+Source107: addon-rpm-el8.gypi
 
-Patch1: node-gyp-node-dirs-scl.patch
-Patch2: node-gyp-node-dirs.patch
+Patch1: node-gyp-node-dirs.patch
 
 Requires:   gyp
-Requires:   %{?scl_prefix_nodejs}nodejs-devel
+Requires:   nodejs-devel
 Requires:   libuv-devel
 Requires:   http-parser-devel
 Requires:   gcc-c++
-%if 0%{?rhel} >= 8
 Requires:   python3-devel
-%else
-Requires:   python-devel
-%endif
 Requires:   make
 
-BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+BuildRequires: nodejs-devel
 
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
 BuildRequires: nodejs-packaging
 BuildRequires: npm
-%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(abbrev)) = 1.1.1
 Provides: bundled(npm(ajv)) = 6.12.0
 Provides: bundled(npm(ansi-regex)) = 2.1.1
@@ -256,42 +243,28 @@ Provides: bundled(npm(yallist)) = 3.1.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
 %define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q -E "registry.npmjs.org|\.gypi" || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 %setup -T -q -a 106 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --cache-min Infinity --cache %{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 
 pushd node_modules/%{npm_name}
-%if 0%{?scl:1}
 %__patch -p1 < %PATCH1
-%else
-%__patch -p1 < %PATCH2
-%endif
 popd
 
 %install
-%if 0%{?fedora} || 0%{?rhel} >= 8
 grep -lr '#!/usr/bin/env python' node_modules/%{npm_name}/gyp | xargs sed -i 's/#!\/usr\/bin\/env python/#!\/usr\/bin\/env python3/g'
 grep -lr '#!/usr/bin/python' node_modules/%{npm_name}/gyp | xargs sed -i 's/#!\/usr\/bin\/python/#!\/usr\/bin\/python3/g'
-%endif
 
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -302,11 +275,7 @@ cp -pfr node_modules/%{npm_name}/lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/test %{buildroot}%{nodejs_sitelib}/%{npm_name}
-%if 0%{?rhel} >= 8
-cp -p %{SOURCE108} %{buildroot}%{nodejs_sitelib}/node-gyp/addon-rpm.gypi
-%else
 cp -p %{SOURCE107} %{buildroot}%{nodejs_sitelib}/node-gyp/addon-rpm.gypi
-%endif
 
 mkdir -p %{buildroot}%{_bindir}/
 chmod 0755 %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin/node-gyp.js
@@ -325,6 +294,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/macOS_Catalina.md
 
 %changelog
+* Wed Aug 02 2023 Eric D. Helms <ericdhelms@gmail.com> 6.1.0-10
+- Drop SCL from nodejs-node-gyp spec
+
 * Wed Apr 1 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.1.0-9
 - Update patch more
 
