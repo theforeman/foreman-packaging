@@ -357,7 +357,6 @@ foreman_nodejs_packages:
     nodejs-jquery: {}
     nodejs-js-tokens: {}
     nodejs-lodash: {}
-    nodejs-loose-envify: {}
     nodejs-node-gyp:
       strategy: bundle
     nodejs-node-sass:
