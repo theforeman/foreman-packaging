@@ -45,7 +45,6 @@
       <packagereq type="default">nodejs-babel-plugin-transform-class-properties</packagereq>
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
-      <packagereq type="default">nodejs-babel-runtime</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-core-js</packagereq>
