@@ -374,7 +374,6 @@ foreman_nodejs_packages:
     nodejs-sortabular: {}
     nodejs-style-loader:
       strategy: bundle
-    nodejs-symbol-observable: {}
     nodejs-table-resolver: {}
     nodejs-theforeman-builder:
       name: "@theforeman/builder"
