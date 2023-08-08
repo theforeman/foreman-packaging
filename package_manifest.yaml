@@ -327,7 +327,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-babel-loader:
       strategy: bundle
-    nodejs-babel-plugin-syntax-object-rest-spread: {}
     nodejs-babel-plugin-transform-class-properties:
       strategy: bundle
     nodejs-babel-preset-env:
