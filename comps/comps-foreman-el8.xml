@@ -64,7 +64,6 @@
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-js-tokens</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
-      <packagereq type="default">nodejs-lodash-es</packagereq>
       <packagereq type="default">nodejs-loose-envify</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
