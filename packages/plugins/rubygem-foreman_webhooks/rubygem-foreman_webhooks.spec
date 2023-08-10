@@ -4,8 +4,8 @@
 %global foreman_min_version 3.3
 
 Name: rubygem-%{gem_name}
-Version: 3.1.0
-Release: 2%{?foremandist}%{?dist}
+Version: 3.1.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_webhooks
@@ -23,13 +23,13 @@ BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-# start package.json dependencies BuildRequires
+# start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
 BuildRequires: npm(@theforeman/builder) >= 0
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
-# end package.json dependencies BuildRequires
+# end package.json devDependencies BuildRequires
 
 %description
 Plugin for Foreman that allows to configure Webhooks.
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 10 2023 Oleh Fedorenko <ofedoren@redhat.com> 3.1.1-1
+- Update to 3.1.1
+
 * Thu May 25 2023 Oleh Fedorenko <ofedoren@redhat.com> 3.1.0-2
 - Remove SCL macros
 
