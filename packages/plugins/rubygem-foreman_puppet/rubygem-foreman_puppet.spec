@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.0.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_puppet
@@ -26,7 +26,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 10 2023 Leos Stejskal <lstejska@redhat.com> 6.0.0-3
+- Require @theforeman/builder >= 12.0.1
+
 * Thu Jun 22 2023 Leos Stejskal <lstejska@redhat.com> 6.0.0-2
 - Update spec file from latest template
 
