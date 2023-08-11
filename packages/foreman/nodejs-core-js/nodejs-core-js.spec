@@ -4,18 +4,15 @@
 %global npm_name core-js
 
 Name: %{?scl_prefix}nodejs-core-js
-Version: 2.5.5
-Release: 4%{?dist}
+Version: 2.6.12
+Release: 1%{?dist}
 Summary: Standard library
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/zloirock/core-js#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/core-js/-/core-js-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -40,6 +37,7 @@ cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr library %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr postinstall.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr shim.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr stage %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr web %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -56,6 +54,9 @@ cp -pfr web %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.6.12-1
+- Update to 2.6.12
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.5.5-4
 - Bump packages to build for el8
 
