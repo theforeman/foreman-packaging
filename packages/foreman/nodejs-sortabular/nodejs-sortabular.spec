@@ -4,18 +4,15 @@
 %global npm_name sortabular
 
 Name: %{?scl_prefix}nodejs-sortabular
-Version: 1.5.1
-Release: 4%{?dist}
+Version: 1.6.0
+Release: 1%{?dist}
 Summary: Sort utilities
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/reactabular/sortabular#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/sortabular/-/sortabular-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -45,6 +42,9 @@ cp -pfr style.css %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.6.0-1
+- Update to 1.6.0
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.1-4
 - Bump packages to build for el8
 
