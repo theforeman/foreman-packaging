@@ -4,18 +4,15 @@
 %global npm_name harmony-reflect
 
 Name: %{?scl_prefix}nodejs-harmony-reflect
-Version: 1.5.1
-Release: 5%{?dist}
+Version: 1.6.2
+Release: 1%{?dist}
 Summary: ES5 shim for ES6 (ECMAScript 6) Reflect and Proxy objects
 License: (Apache-2.0 OR MPL-1.1)
 Group: Development/Libraries
 URL: https://github.com/tvcutsem/harmony-reflect
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/harmony-reflect/-/harmony-reflect-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -43,6 +40,9 @@ cp -pfr reflect.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.6.2-1
+- Update to 1.6.2
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.1-5
 - Bump packages to build for el8
 
