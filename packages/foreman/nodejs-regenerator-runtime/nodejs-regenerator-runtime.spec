@@ -4,18 +4,15 @@
 %global npm_name regenerator-runtime
 
 Name: %{?scl_prefix}nodejs-regenerator-runtime
-Version: 0.11.1
-Release: 4%{?dist}
+Version: 0.14.0
+Release: 1%{?dist}
 Summary: Runtime for Regenerator-compiled generator and async functions
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+URL: https://github.com/facebook/regenerator/tree/main/packages/runtime
+Source0: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -31,7 +28,6 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr path.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr runtime-module.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
@@ -41,9 +37,13 @@ cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
+%license LICENSE
 %doc README.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.14.0-1
+- Update to 0.14.0
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.1-4
 - Bump packages to build for el8
 
