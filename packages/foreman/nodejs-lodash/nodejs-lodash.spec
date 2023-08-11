@@ -4,18 +4,15 @@
 %global npm_name lodash
 
 Name: %{?scl_prefix}nodejs-lodash
-Version: 4.17.11
-Release: 4%{?dist}
+Version: 4.17.21
+Release: 1%{?dist}
 Summary: Lodash modular utilities
 License: MIT
 Group: Development/Libraries
 URL: https://lodash.com/
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/lodash/-/lodash-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -158,6 +155,7 @@ cp -pfr _baseTimes.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseToNumber.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseToPairs.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseToString.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr _baseTrim.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseUnary.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseUniq.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseUnset.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -321,6 +319,7 @@ cp -pfr _stringToArray.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _stringToPath.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _toKey.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _toSource.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr _trimmedEndIndex.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _unescapeHtmlChar.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _unicodeSize.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _unicodeToArray.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -402,6 +401,8 @@ cp -pfr findLast.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr findLastIndex.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr findLastKey.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr first.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr flake.lock %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr flake.nix %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMap.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMapDeep.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMapDepth.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -672,8 +673,12 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
 %doc README.md
+%doc release.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.17.21-1
+- Update to 4.17.21
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.17.11-4
 - Bump packages to build for el8
 
