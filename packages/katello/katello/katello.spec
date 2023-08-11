@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.10.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Aug 11 2023 Ian Ballou <ianballou67@gmail.com> - 4.10.0-0.2.master
+- Remove katello-agent references (qpid) from katello-debug
+
 * Wed May 24 2023 William Bradford Clark <wclark@redhat.com> - 4.10.0-0.1.master
 - Bump version to 4.10.0
 
