@@ -4,13 +4,13 @@
 %global npm_name react-intl
 
 Name: %{?scl_prefix}nodejs-react-intl
-Version: 2.8.0
-Release: 4%{?dist}
+Version: 2.9.0
+Release: 1%{?dist}
 Summary: Internationalize React apps
 License: BSD-3-Clause
 Group: Development/Libraries
 URL: https://github.com/yahoo/react-intl
-Source0: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz
+Source0: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz
 Source1: https://registry.npmjs.org/intl-format-cache/-/intl-format-cache-2.2.9.tgz
 Source2: https://registry.npmjs.org/intl-messageformat/-/intl-messageformat-2.2.0.tgz
 Source3: https://registry.npmjs.org/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz
@@ -18,19 +18,18 @@ Source4: https://registry.npmjs.org/intl-relativeformat/-/intl-relativeformat-2.
 Source5: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
 Source6: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
 Source7: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
-Source8: https://registry.npmjs.org/react-intl/-/react-intl-2.8.0.tgz
-Source9: nodejs-react-intl-%{version}-registry.npmjs.org.tgz
-%if 0%{?scl:1}
+Source8: https://registry.npmjs.org/react-intl/-/react-intl-2.9.0.tgz
+Source9: https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz
+Source10: nodejs-react-intl-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+%if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(hoist-non-react-statics)) = 2.5.5
+Provides: bundled(npm(hoist-non-react-statics)) = 3.3.2
 Provides: bundled(npm(intl-format-cache)) = 2.2.9
 Provides: bundled(npm(intl-messageformat)) = 2.2.0
 Provides: bundled(npm(intl-messageformat-parser)) = 1.4.0
@@ -38,7 +37,8 @@ Provides: bundled(npm(intl-relativeformat)) = 2.2.0
 Provides: bundled(npm(invariant)) = 2.2.4
 Provides: bundled(npm(js-tokens)) = 4.0.0
 Provides: bundled(npm(loose-envify)) = 1.4.0
-Provides: bundled(npm(react-intl)) = 2.8.0
+Provides: bundled(npm(react-intl)) = 2.9.0
+Provides: bundled(npm(react-is)) = 16.13.1
 AutoReq: no
 AutoProv: no
 
@@ -59,7 +59,7 @@ for tgz in %{sources}; do
 done
 %{?scl:end_of_scl}
 
-%setup -T -q -a 9 -D -n %{npm_cache_dir}
+%setup -T -q -a 10 -D -n %{npm_cache_dir}
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
@@ -85,6 +85,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.9.0-1
+- Update to 2.9.0
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.8.0-4
 - Bump packages to build for el8
 
