@@ -4,18 +4,15 @@
 %global npm_name uuid
 
 Name: %{?scl_prefix}nodejs-uuid
-Version: 3.3.2
-Release: 4%{?dist}
+Version: 3.4.0
+Release: 1%{?dist}
 Summary: RFC4122 (v1, v4, and v5) UUIDs
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/kelektiv/node-uuid#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+URL: https://github.com/uuidjs/uuid#readme
+Source0: https://registry.npmjs.org/uuid/-/uuid-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -54,9 +51,11 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 %doc AUTHORS
 %doc CHANGELOG.md
 %doc README.md
-%doc README_js.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.4.0-1
+- Update to 3.4.0
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.2-4
 - Bump packages to build for el8
 
