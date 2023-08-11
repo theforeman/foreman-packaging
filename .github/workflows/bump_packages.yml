@@ -50,7 +50,7 @@ jobs:
         node-version: 16
     - name: Install npm2rpm
       if: ${{ matrix.npm_name != null }}
-      run: npm install npm2rpm
+      run: npm install --global npm2rpm
     - name: Checkout RPM
       uses: actions/checkout@v3
       with:
