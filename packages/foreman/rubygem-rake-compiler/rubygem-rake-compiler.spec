@@ -2,7 +2,7 @@
 %global gem_name rake-compiler
 
 Name: rubygem-%{gem_name}
-Version: 1.2.3
+Version: 1.2.5
 Release: 1%{?dist}
 Summary: Rake-based Ruby Extension (C, Java) task generator
 License: MIT
@@ -72,6 +72,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/features
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.5-1
+- Update to 1.2.5
+
 * Thu Jun 29 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.3-1
 - Update to 1.2.3
 
