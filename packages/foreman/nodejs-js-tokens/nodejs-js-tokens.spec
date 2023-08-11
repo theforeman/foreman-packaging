@@ -4,18 +4,15 @@
 %global npm_name js-tokens
 
 Name: %{?scl_prefix}nodejs-js-tokens
-Version: 3.0.2
-Release: 4%{?dist}
+Version: 4.0.0
+Release: 1%{?dist}
 Summary: A regex that tokenizes JavaScript
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/lydell/js-tokens#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/js-tokens/-/js-tokens-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -44,6 +41,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.0.0-1
+- Update to 4.0.0
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.2-4
 - Bump packages to build for el8
 
