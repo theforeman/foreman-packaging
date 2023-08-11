@@ -1,3 +1,9 @@
+ruby-foreman-salt (15.2.1-1) stable; urgency=low
+
+  * 15.2.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 11 Aug 2023 13:19:46 +0000
+
 ruby-foreman-salt (15.1.0-3) stable; urgency=low
 
   * Use foreman-plugin.mk
