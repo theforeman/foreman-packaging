@@ -2,7 +2,7 @@
 %global gem_name rails-dom-testing
 
 Name: rubygem-%{gem_name}
-Version: 2.1.1
+Version: 2.2.0
 Release: 1%{?dist}
 Summary: Dom and Selector assertions for Rails applications
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/rails/rails-dom-testing
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.2.0-1
+- Update to 2.2.0
+
 * Sun Jul 09 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.1.1-1
 - Update to 2.1.1
 
