@@ -69,23 +69,6 @@ add_cmd "systemctl list-units -t service --full  | grep pulpcore" "pulpcore-serv
 add_cmd "systemctl cat pulpcore*" "pulpcore_service_files"
 add_cmd "sudo -u pulp PULP_SETTINGS='/etc/pulp/settings.py' DJANGO_SETTINGS_MODULE='pulpcore.app.settings' dynaconf list" "dynaconf_list"
 
-# Qpidd (*)
-if [ $NOGENERIC -eq 0 ]; then
-  add_files /etc/qpid/*
-  add_files /etc/qpid-dispatch/qdrouterd.conf
-fi
-
-if [ -f /etc/pki/katello/qpid_router_client.crt ]; then
-  if [ $OSVERSION -eq 8]; then
-    add_cmd "qpid-stat -q --ssl-certificate=/etc/pki/katello/qpid_router_client.crt --ssl-key=/etc/pki/katello/qpid_router_client.key --sasl-mechanism=EXTERNAL -b amqps://$HOSTNAME@localhost:5671" "qpid-stat-q"
-    add_cmd "qpid-stat -u --ssl-certificate=/etc/pki/katello/qpid_router_client.crt --ssl-key=/etc/pki/katello/qpid_router_client.key --sasl-mechanism=EXTERNAL -b amqps://$HOSTNAME@localhost:5671" "qpid-stat-u"
-    add_cmd "qpid-stat -c --ssl-certificate=/etc/pki/katello/qpid_router_client.crt --ssl-key=/etc/pki/katello/qpid_router_client.key --sasl-mechanism=EXTERNAL -b amqps://$HOSTNAME@localhost:5671" "qpid-stat-c"
-  else
-    add_cmd "qpid-stat -q --ssl-certificate=/etc/pki/katello/qpid_router_client.crt --ssl-key=/etc/pki/katello/qpid_router_client.key -b amqps://localhost:5671" "qpid-stat-q"
-    add_cmd "qpid-stat -u --ssl-certificate=/etc/pki/katello/qpid_router_client.crt --ssl-key=/etc/pki/katello/qpid_router_client.key -b amqps://localhost:5671" "qpid-stat-u"
-    add_cmd "qpid-stat -c --ssl-certificate=/etc/pki/katello/qpid_router_client.crt --ssl-key=/etc/pki/katello/qpid_router_client.key -b amqps://localhost:5671" "qpid-stat-c"
-  fi
-fi
 add_cmd "ps -awfux" "ps-awfux"
 add_cmd "ps -efLm" "ps-elfm"
 
@@ -102,7 +85,6 @@ fi
 # Disk Space Checks
 add_cmd "du -sh /var/lib/pgsql" "postgres_disk_space"
 add_cmd "df -h" "disk_space_output"
-add_cmd "du -sh /var/lib/qpid" "qpid_jrnl_disk_space"
 add_cmd "du -sh /var/lib/candlepin/hornetq" "hornetq_disk_space"
 
 # Proxy ENV Vars
