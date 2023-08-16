@@ -42,46 +42,59 @@ copr_projects:
       - 'python39:3.9'
       - 'nodejs:12'
       - 'postgresql:12'
-    rhel_9_chroot: rhel-9-x86_64
-    rhel_8_chroot: rhel-8-x86_64
-    rhel_7_chroot: rhel-7-x86_64
+    rhel_9: '9'
+    rhel_8: '8'
+    rhel_7: '7'
+    root_repo_url: https://download.copr.fedorainfracloud.org/results/@theforeman
+    foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
+    plugins_staging: "{{ root_repo_url }}/foreman-plugins-{{ foreman_version }}-staging"
+    katello_staging: "{{ root_repo_url }}/foreman-katello-{{ foreman_version }}-staging"
+    client_staging: "{{ root_repo_url }}/foreman-client-{{ foreman_version }}-staging"
   hosts:
     foreman-copr:
       copr_project_name: "foreman-{{ foreman_version }}-staging"
       copr_project_chroots:
-        - name: "{{ rhel_8_chroot }}"
+        - name: "rhel-{{ rhel_8 }}-x86_64"
           modules: "{{ core_modules }}"
           external_repos:
-            - https://yum.puppet.com/puppet7/el/8/x86_64/
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el8.xml"
+            - "https://yum.puppet.com/puppet7/el/{{ rhel_8 }}/x86_64/"
+            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
     plugins-copr:
       copr_project_name: "foreman-plugins-{{ foreman_version }}-staging"
       copr_project_chroots:
-        - name: "{{ rhel_8_chroot }}"
+        - name: "rhel-{{ rhel_8 }}-x86_64"
           modules: "{{ core_modules }}"
           external_repos:
-            - https://download.copr.fedorainfracloud.org/results/@theforeman/foreman-nightly-staging/rhel-8-x86_64/
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el8.xml"
+            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
+            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
     katello-copr:
       copr_project_name: "foreman-katello-{{ foreman_version }}-staging"
       copr_project_chroots:
-        - name: "{{ rhel_8_chroot }}"
+        - name: "rhel-{{ rhel_8 }}-x86_64"
           modules: "{{ core_modules }}"
           external_repos:
-            - https://download.copr.fedorainfracloud.org/results/@theforeman/foreman-nightly-staging/rhel-8-x86_64/
-            - https://download.copr.fedorainfracloud.org/results/@theforeman/foreman-plugins-nightly-staging/rhel-8-x86_64/
-          comps_file: "{{ inventory_dir }}/comps/comps-katello-el8.xml"
+            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
+            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
+            - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
     client-copr:
       copr_project_name: "foreman-client-{{ foreman_version }}-staging"
       copr_project_chroots:
-        - name: "{{ rhel_9_chroot }}"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el9.xml"
-        - name: "{{ rhel_8_chroot }}"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el8.xml"
-        - name: "{{ rhel_7_chroot }}"
+        - name: "rhel-{{ rhel_9 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_9 }}.xml"
           external_repos:
-            - https://dl.fedoraproject.org/pub/epel/7/x86_64/
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-rhel7.xml"
+            - "{{ root_repo_url }}/foreman-client-{{ foreman_version }}-staging/rhel-{{ rhel_9 }}-x86_64"
+        - name: "rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_8 }}.xml"
+          external_repos:
+            - "{{ root_repo_url }}/foreman-client-{{ foreman_version }}-staging/rhel-{{ rhel_8 }}-x86_64"
+        - name: "rhel-{{ rhel_7 }}-x86_64"
+          external_repos:
+            - "https://dl.fedoraproject.org/pub/epel/{{ rhel_7 }}/x86_64/"
+            - "{{ root_repo_url }}/foreman-client-{{ foreman_version }}-staging/rhel-{{ rhel_7 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-rhel{{ rhel_7 }}.xml"
 
 packages:
   vars:
