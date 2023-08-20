@@ -2,7 +2,7 @@
 %global gem_name xmlrpc
 
 Name: rubygem-%{gem_name}
-Version: 0.3.2
+Version: 0.3.3
 Release: 1%{?dist}
 Summary: XMLRPC is a lightweight protocol that enables remote procedure calls over HTTP
 License: Ruby and BSD-2-Clause
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/xmlrpc.gemspec
 
 %changelog
+* Sun Aug 20 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.3.3-1
+- Update to 0.3.3
+
 * Sun Oct 16 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.3.2-1
 - Update to 0.3.2
 
