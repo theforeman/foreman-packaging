@@ -1,6 +1,6 @@
 # template: default
 %global gem_name websocket-driver
-%global gem_require_name %{gem_name}
+%global gem_require_name websocket/driver
 
 Name: rubygem-%{gem_name}
 Version: 0.7.6
@@ -48,9 +48,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
-cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
@@ -68,6 +67,7 @@ rm -rf gem_ext_test
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
 %license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
