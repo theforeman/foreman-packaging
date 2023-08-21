@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+%global configdir %{_datadir}/%{name}/config
+%global parser_cache %{_datadir}/%{name}/parser_cache
+%global scenariodir %{_sysconfdir}/%{name}/scenarios.d
+
+>>>>>>> 95b6583a2 (Split the installer into multiple subpackages)
 %global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
@@ -7,22 +14,16 @@ Epoch:      1
 Version:    3.8.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
-Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
 URL:        https://theforeman.org
 Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 
 BuildArch:  noarch
 
-Requires:   curl
-Requires:   hostname
-Requires:   puppet-agent >= 7.0.0
-Requires:   rubygem(kafo) >= 6.5.0
-Requires:   rubygem(kafo) < 8.0.0
-Requires:   ruby(release)
+Requires: %{name}-scenario-foreman = %{epoch}:%{version}-%{release}
 
 BuildRequires: asciidoc
-BuildRequires: puppet-agent >= 7.0.0
+BuildRequires: puppet-agent >= 6.15.0
 BuildRequires: rubygem(rake)
 BuildRequires: rubygem(kafo) >= 6.5.0
 BuildRequires: rubygem(kafo) < 8.0.0
@@ -32,19 +33,67 @@ BuildRequires: puppet-agent-puppet-strings < 5
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
 
-%package katello
-Summary: Katello installer bits
-Group: Applications/System
-Provides: katello-installer-base < 3.11.0-1
-Obsoletes: katello-installer-base < 3.11.0-1
+%package common
+Summary: Common installer bits
 
-Requires: %{name} = %{epoch}:%{version}-%{release}
+Requires: curl
+Requires: hostname
+Requires: puppet-agent >= 6.15.0
+Requires: rubygem(kafo) >= 6.5.0
+Requires: rubygem(kafo) < 8.0.0
+Requires: ruby(release)
+
+%description common
+The common parts to all installer scenarios.
+
+%package katello-common
+Summary: Common Katello installer bits
+
+Requires: %{name}-common = %{epoch}:%{version}-%{release}
 Requires: openssl
 Requires: katello-certs-tools
 Requires: which
 
+%description katello-common
+All the parts needed for both both the Katello and Foreman Proxy Content
+scenarios.
+
+%package katello
+Summary: Deprecated package that installs both Katello scenarios
+
+Requires: foreman-installer-scenario-katello = %{epoch}:%{version}-%{release}
+Requires: foreman-installer-scenario-foreman-proxy-content = %{epoch}:%{version}-%{release}
+
 %description katello
-Various scenarios and tools for the Katello ecosystem
+Transitional meta package
+
+%package scenario-foreman
+Summary: Foreman scenario
+Requires: foreman-installer-common = %{epoch}:%{version}-%{release}
+
+%description scenario-foreman
+Foreman
+
+%package scenario-katello
+Summary: Foreman and Katello scenario
+Requires: foreman-installer-katello-common = %{epoch}:%{version}-%{release}
+
+%description scenario-katello
+Foreman with Katello.
+
+%package scenario-foreman-proxy-content
+Summary: Foreman Proxy Content scenario
+Requires: foreman-installer-katello-common = %{epoch}:%{version}-%{release}
+
+%description scenario-foreman-proxy-content
+A content proxy for Katello.
+
+%package scenario-pulp
+Summary: Pulp scenario
+Requires: foreman-installer-common = %{epoch}:%{version}-%{release}
+
+%description scenario-pulp
+Installer scenario for Pulp
 
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
@@ -77,60 +126,70 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 # RPM can't change a directory into a symlink
 # https://bugzilla.redhat.com/show_bug.cgi?id=447156
 for scenario in foreman-proxy-content katello ; do
-	MIGRATIONS=%{_sysconfdir}/%{name}/scenarios.d/$scenario.migrations
+	MIGRATIONS=%{scenariodir}/$scenario.migrations
 	if [ -d $MIGRATIONS ] && [ ! -L $MIGRATIONS ] ; then
-		mv $MIGRATIONS/.applied %{_sysconfdir}/%{name}/scenarios.d/$scenario-migrations-applied
+		mv $MIGRATIONS/.applied %{scenariodir}/$scenario-migrations-applied
 		rm -rf $MIGRATIONS
 	fi
 done
 
-%files
+%files common
 %defattr(-,root,root,-)
 %doc README.*
 %license LICENSE
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/custom-hiera.yaml
-%dir %{_sysconfdir}/%{name}/scenarios.d
-%{_sysconfdir}/%{name}/scenarios.d/foreman.migrations
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman-answers.yaml
-%config(noreplace) %{_sysconfdir}/%{name}/scenarios.d/foreman-migrations-applied
+%dir %{scenariodir}
 %{_sbindir}/%{name}
-%{_datadir}/%{name}
-%{_mandir}/man8
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/checks
+%dir %{_datadir}/%{name}/config
+%{_datadir}/%{name}/config/config_header.txt
+%{_datadir}/%{name}/config/foreman-hiera.yaml
+%{_datadir}/%{name}/config/foreman.hiera
+%{_datadir}/%{name}/hooks
+%{_datadir}/%{name}/modules
+%{_datadir}/%{name}/VERSION
+%dir %{parser_cache}
+%{_mandir}/man8/%{name}.8*
 
-# katello files
-%exclude %{_datadir}/%{name}/config/foreman-proxy-content*
-%exclude %{_datadir}/%{name}/config/katello*
-%exclude %{_datadir}/%{name}/katello-certs
-%exclude %{_datadir}/%{name}/parser_cache/foreman-proxy-certs.yaml
-%exclude %{_datadir}/%{name}/parser_cache/foreman-proxy-content.yaml
-%exclude %{_datadir}/%{name}/parser_cache/katello.yaml
-
-%files katello
-# common
+%files katello-common
+%{_datadir}/%{name}/katello-certs
+%{parser_cache}/foreman-proxy-certs.yaml
 %{_sbindir}/katello-certs-check
 
-# foreman-proxy-content scenario
-%{_datadir}/%{name}/config/foreman-proxy-content*
-%{_datadir}/%{name}/parser_cache/foreman-proxy-content.yaml
-%{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content.migrations
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content-answers.yaml
-%config(noreplace) %{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content-migrations-applied
+%files scenario-foreman
+%{configdir}/foreman.migrations
+%config(noreplace) %attr(600, root, root) %{scenariodir}/foreman.yaml
+%config(noreplace) %attr(600, root, root) %{scenariodir}/foreman-answers.yaml
+%config(noreplace) %{scenariodir}/foreman-migrations-applied
+%{parser_cache}/foreman.yaml
 
-# katello scenario
-%{_datadir}/%{name}/config/katello*
-%{_datadir}/%{name}/parser_cache/katello.yaml
-%{_sysconfdir}/%{name}/scenarios.d/katello.migrations
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/katello.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/katello-answers.yaml
-%config(noreplace) %{_sysconfdir}/%{name}/scenarios.d/katello-migrations-applied
+%files scenario-katello
+%{configdir}/katello.migrations
+%config(noreplace) %attr(600, root, root) %{scenariodir}/katello.yaml
+%config(noreplace) %attr(600, root, root) %{scenariodir}/katello-answers.yaml
+%config(noreplace) %{scenariodir}/katello-migrations-applied
+%{parser_cache}/katello.yaml
 
 # foreman-proxy-certs-generate
 %{_datadir}/%{name}/katello-certs
-%{_datadir}/%{name}/parser_cache/foreman-proxy-certs.yaml
+%{parser_cache}/foreman-proxy-certs.yaml
 %{_sbindir}/foreman-proxy-certs-generate
+
+%files scenario-foreman-proxy-content
+%{configdir}/foreman-proxy-content.migrations
+%config(noreplace) %attr(600, root, root) %{scenariodir}/foreman-proxy-content.yaml
+%config(noreplace) %attr(600, root, root) %{scenariodir}/foreman-proxy-content-answers.yaml
+%config(noreplace) %{scenariodir}/foreman-proxy-content-migrations-applied
+%{parser_cache}/foreman-proxy-content.yaml
+
+%files scenario-pulp
+%{configdir}/pulp.migrations
+%config(noreplace) %attr(600, root, root) %{scenariodir}/pulp.yaml
+%config(noreplace) %attr(600, root, root) %{scenariodir}/pulp-answers.yaml
+%config(noreplace) %{scenariodir}/pulp-migrations-applied
+%{parser_cache}/pulp.yaml
 
 %changelog
 * Tue May 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.8.0-0.1.develop
