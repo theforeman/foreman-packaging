@@ -70,6 +70,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %{gem_instdir}/Gemfile.noed25519
+%{gem_instdir}/Gemfile.norbnacl
+%doc %{gem_instdir}/DEVELOPMENT.md
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/SECURITY.md
