@@ -1,3 +1,9 @@
+foreman-proxy (3.6.2-1) stable; urgency=low
+
+  * 3.6.2 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Mon, 21 Aug 2023 16:37:20 +0200
+
 foreman-proxy (3.6.1-1) stable; urgency=low
 
   * 3.6.1 released
