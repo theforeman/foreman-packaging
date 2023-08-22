@@ -2,16 +2,16 @@
 %global gem_name netbox-client-ruby
 
 Name: rubygem-%{gem_name}
-Version: 0.5.6
-Release: 3%{?dist}
+Version: 0.6.0
+Release: 1%{?dist}
 Summary: A read/write client for Netbox v2
 License: MIT
 URL: https://github.com/ninech/netbox-client-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.6.0
+BuildRequires: ruby >= 2.6.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/netbox-client-ruby.gemspec
 
 %changelog
+* Tue Aug 22 2023 Dirk Goetz <dirk.goetz@netways.de> 0.6.0-1
+- Update to 0.6.0
+
 * Thu Jul 14 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.5.6-3
 - Regenerate spec
 - Correctly allow faraday 1.x
