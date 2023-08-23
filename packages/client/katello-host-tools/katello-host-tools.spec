@@ -36,8 +36,8 @@
 %global katello_libdir %{python_libdir}/katello
 
 Name: katello-host-tools
-Version: 4.2.3
-Release: 3%{?dist}
+Version: 4.3.0
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -159,14 +159,10 @@ Adds Tracer functionality to a client managed by katello-host-tools
 %build
 # Remove apt bits
 rm -r src/apt_plugins
-rm src/katello/deb_tracer.py
+rm src/katello/tracer/deb.py
 
 %if !%{dnf_install}
-rm -r src/dnf_plugins
-%else
-# 'Hack' for the fact that dnf recognizes plugins in 'dnf-plugins'
-# can be removed when we update to a release that contains https://github.com/Katello/katello-host-tools/pull/145
-mv src/dnf_plugins src/dnf-plugins
+rm -r src/dnf-plugins
 %endif
 
 %if !%{yum_install}
@@ -175,7 +171,7 @@ rm -r src/yum-plugins
 
 %if !%{zypper_install}
 rm -r src/zypper_plugins
-rm src/katello/zypper_tracer.py
+rm src/katello/tracer/zypper.py
 %endif
 
 %if %{build_tracer}
@@ -184,7 +180,7 @@ rm src/katello/zypper_tracer.py
 sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
 %endif
 %else
-rm src/katello/tracer.py
+rm -r src/katello/tracer
 sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
 rm etc/yum/pluginconf.d/tracer_upload.conf
 %endif
@@ -327,20 +323,11 @@ exit 0
 %endif
 
 %if %{build_tracer}
-# TODO pycached unavailable on SuSE - what to do with cache files?
-%if %{zypper_install}
-%exclude %{katello_libdir}/tracer.py
-%else
-%if %{yum_install}
-%exclude %{katello_libdir}/tracer.py*
-%else
-%pycached %exclude %{katello_libdir}/tracer.py
-%endif
-%endif
-
 %if %{dnf_install}
+%pycached %exclude %{katello_libdir}/tracer
 %pycached %exclude %{plugins_dir}/__init__.py
 %else
+%exclude %{katello_libdir}/tracer
 %exclude %{plugins_dir}
 %endif
 %endif
@@ -368,20 +355,18 @@ exit 0
 %files tracer
 %defattr(-,root,root,-)
 %if %{zypper_install}
-%{katello_libdir}/tracer.py
 %dir %{_usr}/lib/zypp
 %dir %{_usr}/lib/zypp/plugins
 %dir %{plugins_dir}
 %{plugins_dir}/tracer_upload.py
 %else
 %if %{yum_install}
-%{katello_libdir}/tracer.py*
 %{plugins_dir}/tracer_upload.py*
 %else
-%pycached %{katello_libdir}/tracer.py
 %pycached %{plugins_dir}/tracer_upload.py
 %endif
 %endif
+%{katello_libdir}/tracer
 %{plugins_confdir}/tracer_upload.conf
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
@@ -389,6 +374,9 @@ exit 0
 
 
 %changelog
+* Wed May 24 2023 William Bradford Clark <wclark@redhat.com> 4.3.0-1
+- Update to 4.3.0
+
 * Thu Apr 20 2023 Patrick Creech <pcreech@redhat.com> - 4.2.3-3
 - Fix dnf-plugin location for tracer
 
