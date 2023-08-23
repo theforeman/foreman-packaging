@@ -2,14 +2,14 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 2
+%global release 1
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 3.8.0
+Version: 3.9.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
 Group: Development/Languages
@@ -80,6 +80,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Aug 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.1.pre.develop
+- Bump version to 3.9-develop
+
 * Fri May 26 2023 Oleh Fedorenko <ofedoren@redhat.com> - 3.8.0-0.2.pre.develop
 - Remove SCL macros
 
