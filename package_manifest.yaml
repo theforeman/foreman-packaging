@@ -186,9 +186,7 @@ foreman_core_packages:
     rails_core_packages: {}
   hosts:
     dynflow-utils: {}
-    foreman:
-      source_location: https://ci.theforeman.org/job/foreman-develop-source-release
-      source_system: jenkins
+    foreman: {}
     foreman-bootloaders-redhat: {}
     foreman-obsolete-packages: {}
     keycloak-httpd-client-install: {}
@@ -275,12 +273,8 @@ foreman_core_packages:
     rubygem-googleauth: {}
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
-    rubygem-hammer_cli:
-      source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
-      source_system: jenkins
-    rubygem-hammer_cli_foreman:
-      source_location: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release
-      source_system: jenkins
+    rubygem-hammer_cli: {}
+    rubygem-hammer_cli_foreman: {}
     rubygem-hashie: {}
     rubygem-highline: {}
     rubygem-hocon: {}
@@ -476,12 +470,8 @@ foreman_installer_packages:
     copr_projects:
       - "{{ hostvars['foreman-copr'] }}"
   hosts:
-    foreman-installer:
-      source_location: https://ci.theforeman.org/job/foreman-installer-develop-source-release
-      source_system: jenkins
-    foreman-selinux:
-      source_location: https://ci.theforeman.org/job/foreman-selinux-develop-source-release
-      source_system: jenkins
+    foreman-installer: {}
+    foreman-selinux: {}
     katello-certs-tools: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
@@ -497,9 +487,7 @@ foreman_proxy_packages:
     copr_projects:
       - "{{ hostvars['foreman-copr'] }}"
   hosts:
-    foreman-proxy:
-      source_location: https://ci.theforeman.org/job/smart-proxy-develop-source-release
-      source_system: jenkins
+    foreman-proxy: {}
     rubygem-concurrent-ruby: {}
     rubygem-gssapi: {}
     rubygem-rake-compiler: {}
@@ -625,12 +613,8 @@ katello_packages:
     rubygem-hammer_cli_foreman_rh_cloud: {}
     rubygem-hammer_cli_foreman_scc_manager: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello:
-      source_location: https://ci.theforeman.org/job/hammer-cli-katello-master-source-release
-      source_system: jenkins
-    rubygem-katello:
-      source_location: https://ci.theforeman.org/job/katello-master-source-release
-      source_system: jenkins
+    rubygem-hammer_cli_katello: {}
+    rubygem-katello: {}
     rubygem-pulp_python_client: {}
     rubygem-pulpcore_client: {}
     rubygem-pulp_ansible_client: {}
