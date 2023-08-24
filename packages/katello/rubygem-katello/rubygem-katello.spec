@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.10.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -169,8 +169,11 @@ done
 %{gem_instdir}/engines
 %{gem_libdir}
 %{gem_instdir}/locale
+%directory %{gem_instdir}/public
+%directory %{gem_instdir}/public/assets
 %{gem_instdir}/public/assets/bastion
 %{gem_instdir}/public/assets/bastion_katello
+%directory %{gem_instdir}/public/webpack
 %exclude %{gem_instdir}/vendor
 %exclude %{gem_cache}
 %{gem_spec}
@@ -194,6 +197,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.10.0-0.3.pre.master
+- Own public/{assets,webpack} for proper cleanup on removal
+
 * Fri Aug 04 2023 Ian Ballou <ianballou67@gmail.com> - 4.10.0-0.2.pre.master
 - Bump Pulpcore client requirements for 3.28
 
