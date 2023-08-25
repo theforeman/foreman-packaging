@@ -2,9 +2,7 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
@@ -80,6 +78,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Aug 25 2023 Oleh Fedorenko <ofedoren@redhat.com> - 3.8.0-1
+- Release rubygem-hammer_cli_foreman 3.8.0
+
 * Fri May 26 2023 Oleh Fedorenko <ofedoren@redhat.com> - 3.8.0-0.2.pre.develop
 - Remove SCL macros
 
