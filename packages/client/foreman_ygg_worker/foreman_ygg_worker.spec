@@ -15,14 +15,18 @@
         go build -buildmode pie -compiler gc -tags="rpm_crashtraceback libtrust_openssl ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -compressdwarf=false -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '%__global_ldflags'" -a -v %{?**};
 %else
 %if ! 0%{?gobuild:1}
+%if 0%{?suse_version}
+%define gobuild(o:) go build -buildmode pie -compiler gc -tags="rpm_crashtraceback ${BUILDTAGS:-}" -a -v %{?**};
+%else
 %define gobuild(o:) GO111MODULE=off go build -buildmode pie -compiler gc -tags="rpm_crashtraceback ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '-Wl,-z,relro -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld '" -a -v %{?**};
+%endif
 %endif
 %endif
 
 Name: foreman_ygg_worker
 Version: 0.2.2
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
@@ -34,7 +38,12 @@ Url: https://github.com/%{repo_orgname}/%{repo_name}/
 %endif
 ExclusiveArch: %{go_arches}
 
+%if 0%{?suse_version}
+BuildRequires: go
+%else
 BuildRequires: golang
+BuildRequires: redhat-rpm-config
+%endif
 Requires: yggdrasil
 
 %description
@@ -70,6 +79,9 @@ EOF
 %doc README.md
 
 %changelog
+* Fri Oct 27 2023 Maximilian Kolb <kolb@atix.de> - 0.2.2-2
+- Require go and disable hardened go linker on SLES
+
 * Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 0.2.2-1
 - Release 0.2.2
 
