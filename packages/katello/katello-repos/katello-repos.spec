@@ -5,10 +5,10 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
-Version:        4.10
+Version:        4.11
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Fri Aug 25 2023 David Moore <damoore@redhat.com> - 4.10-0.2.nightly
+- Bump version to 4.11.0
+
 * Tue Aug 15 2023 Ian Ballou <ianballou67@gmail.com> - 4.10-0.2.nightly
 - Bump version to 4.10.0
 
