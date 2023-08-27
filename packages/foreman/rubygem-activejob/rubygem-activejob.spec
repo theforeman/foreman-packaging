@@ -2,7 +2,7 @@
 %global gem_name activejob
 
 Name: rubygem-%{gem_name}
-Version: 6.1.7.4
+Version: 6.1.7.6
 Release: 1%{?dist}
 Summary: Job framework with pluggable queues
 License: MIT
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Aug 27 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.7.6-1
+- Update to 6.1.7.6
+
 * Sun Jul 02 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.7.4-1
 - Update to 6.1.7.4
 
