@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7.0
 
 Name: rubygem-%{gem_name}
-Version: 8.1.2
+Version: 8.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
@@ -22,7 +22,7 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(dynflow) >= 1.6.0
+BuildRequires: rubygem(dynflow) >= 1.8.0
 BuildRequires: rubygem(fugit) >= 1.8
 BuildRequires: rubygem(fugit) < 2
 BuildRequires: rubygem(get_process_mem)
@@ -32,7 +32,7 @@ BuildRequires: rubygem(sinatra)
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) >= 12.1.1
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -155,6 +155,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Mon Aug 28 2023 Adam Ruzicka <aruzicka@redhat.com> 8.2.0-1
+- Update to 8.2.0
+
 * Sun Jul 30 2023 Foreman Packaging Automation <packaging@theforeman.org> 8.1.2-1
 - Update to 8.1.2
 
