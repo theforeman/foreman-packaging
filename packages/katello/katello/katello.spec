@@ -8,7 +8,7 @@
 %global release 1
 
 Name:       katello
-Version:    4.10.0
+Version:    4.11.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -132,8 +132,8 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
-* Fri Aug 25 2023 David Moore <damoore@redhat.com> - 4.10.0-0.2.master
-- Global release set to 1, version previously bumped to 4.10.0
+* Mon Aug 28 2023 David Moore <damoore@redhat.com> - 4.11.0-0.1.master
+- Bump version to 4.11.0
 
 * Fri Aug 11 2023 Ian Ballou <ianballou67@gmail.com> - 4.10.0-0.2.master
 - Remove katello-agent references (qpid) from katello-debug

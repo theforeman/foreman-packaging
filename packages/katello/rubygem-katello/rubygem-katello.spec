@@ -194,8 +194,8 @@ done
 %{foreman_plugin_log}
 
 %changelog
-* Fri Aug 25 2023 David Moore <damoore@redhat.com> 4.10.0-0.2.pre.master
-- Bumped to 4.11.0
+* Mon Aug 28 2023 David Moore <damoore@redhat.com> 4.11.0-0.1.pre.master
+- Bump version to 4.11.0
 
 * Fri Aug 04 2023 Ian Ballou <ianballou67@gmail.com> - 4.10.0-0.2.pre.master
 - Bump Pulpcore client requirements for 3.28

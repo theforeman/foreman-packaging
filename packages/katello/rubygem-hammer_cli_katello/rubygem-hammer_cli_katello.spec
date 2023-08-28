@@ -96,7 +96,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
-* Fri Aug 25 2023 David Moore <damoore@redhat.com> - 1.11.0-0.1.master
+* Mon Aug 28 2023 David Moore <damoore@redhat.com> - 1.11.0-0.1.pre.master
 - Bump version to 1.11.0
 
 * Thu May 25 2023 William Bradford Clark - 1.10.0-0.1.pre.master
