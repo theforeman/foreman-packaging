@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 3.7
+%global foreman_min_version 3.8
 
 Name: rubygem-%{gem_name}
-Version: 10.0.6
+Version: 11.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
@@ -24,7 +24,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: rubygem(deface)
 BuildRequires: rubygem(dynflow) >= 1.0.2
 BuildRequires: rubygem(dynflow) < 2.0.0
-BuildRequires: rubygem(foreman-tasks) >= 7.1.0
+BuildRequires: rubygem(foreman-tasks) >= 8.2.0
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
@@ -138,6 +138,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Tue Aug 29 2023 Adam Ruzicka <aruzicka@redhat.com> 11.0.0-1
+- Update to 11.0.0
+
 * Wed Aug 16 2023 Adam Ruzicka <aruzicka@redhat.com> 10.0.6-1
 - Update to 10.0.6
 
