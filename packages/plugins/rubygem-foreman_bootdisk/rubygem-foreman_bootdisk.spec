@@ -4,8 +4,8 @@
 %global foreman_min_version 3.4
 
 Name: rubygem-%{gem_name}
-Version: 21.0.4
-Release: 3%{?foremandist}%{?dist}
+Version: 21.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
@@ -100,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Aug 29 2023 Leos Stejskal <lstejska@redhat.com> 21.1.0-1
+- Update to 21.1.0
+
 * Thu Jun 22 2023 Leos Stejskal <lstejska@redhat.com> 21.0.4-3
 - Regenerate RPM spec from latest template
 
