@@ -2,7 +2,7 @@
 %global gem_name kafo
 
 Name: rubygem-%{gem_name}
-Version: 7.0.0
+Version: 7.1.0
 Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 License: GPLv3+
@@ -71,6 +71,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Thu Aug 31 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.1.0-1
+- Update to 7.1.0
+
 * Fri May 05 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.0.0-1
 - Update to 7.0.0
 
