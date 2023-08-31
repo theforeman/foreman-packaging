@@ -42,6 +42,7 @@ if [[ -z $2 ]] ; then
 	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
 		ensure_program curl
 		ensure_program jq
+		GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
 		NEW_VERSION=$(curl -s https://rubygems.org/api/v1/versions/${GEM_NAME}/latest.json | jq -r .version)
 	else
 		echo "Unknown package type for $1; a version must be specified"
