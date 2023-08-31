@@ -1,3 +1,9 @@
+ruby-kafo (7.1.0-1) stable; urgency=low
+
+  * 7.1.0 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 31 Aug 2023 12:51:03 +0200
+
 ruby-kafo (7.0.0-1) stable; urgency=low
 
   * 7.0.0 released
