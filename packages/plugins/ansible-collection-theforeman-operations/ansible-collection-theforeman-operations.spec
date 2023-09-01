@@ -7,7 +7,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    1.3.0
+Version:    2.1.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible operations collection
 
@@ -43,6 +43,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 %changelog
+* Fri Sep 01 2023 Evgeni Golov - 2.1.0-1
+- Release ansible-collection-theforeman-operations 2.1.0
+
 * Thu Jan 05 2023 Evgeni Golov - 1.3.0-1
 - Release ansible-collection-theforeman-operations 1.3.0
 
