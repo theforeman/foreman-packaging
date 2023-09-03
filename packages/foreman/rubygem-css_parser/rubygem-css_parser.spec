@@ -2,7 +2,7 @@
 %global gem_name css_parser
 
 Name: rubygem-%{gem_name}
-Version: 1.14.0
+Version: 1.16.0
 Release: 1%{?dist}
 Summary: Ruby CSS parser
 License: MIT
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Sun Sep 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.16.0-1
+- Update to 1.16.0
+
 * Sun Jan 15 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.14.0-1
 - Update to 1.14.0
 
