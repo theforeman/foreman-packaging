@@ -18,7 +18,7 @@ jobs:
       matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout RPM
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: rpm/develop
     - name: Set the list
@@ -52,7 +52,7 @@ jobs:
       if: ${{ matrix.npm_name != null }}
       run: npm install --global npm2rpm
     - name: Checkout RPM
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: rpm/develop
     - name: Initialize git annex
@@ -78,7 +78,7 @@ jobs:
       matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout deb
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: deb/develop
     - name: Set the list
@@ -96,7 +96,7 @@ jobs:
         include: ${{ fromJson(needs.deb_list.outputs.matrix) }}
     steps:
     - name: Checkout DEB
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: deb/develop
     - name: Update package
