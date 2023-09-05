@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -241,6 +241,9 @@ exit 0
 
 
 %changelog
+* Tue Sep 05 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-0.1.rc1
+- Release foreman-proxy 3.8.0rc1
+
 * Tue May 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-0.1.develop
 - Bump version to 3.8-develop
 
