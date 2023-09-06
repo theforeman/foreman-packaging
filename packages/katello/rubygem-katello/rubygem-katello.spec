@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.11.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -57,8 +57,8 @@ BuildRequires: rubygem(pulp_ansible_client) >= 0.18.0
 BuildRequires: rubygem(pulp_ansible_client) < 0.19.0
 BuildRequires: rubygem(pulp_container_client) >= 2.15.0
 BuildRequires: rubygem(pulp_container_client) < 2.16.0
-BuildRequires: rubygem(pulp_deb_client) >= 2.21.0
-BuildRequires: rubygem(pulp_deb_client) < 2.22.0
+BuildRequires: rubygem(pulp_deb_client) >= 3.0.0
+BuildRequires: rubygem(pulp_deb_client) < 3.1.0
 BuildRequires: rubygem(pulp_rpm_client) >= 3.22.0
 BuildRequires: rubygem(pulp_rpm_client) < 3.23.0
 BuildRequires: rubygem(pulp_certguard_client) < 2.0.0
@@ -194,6 +194,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Sep 06 2023 Quirin Pamp <pamp@atix.de> - 4.11.0-0.2.pre.master
+- Update pulp_deb_client requirement to 3.0.0
+
 * Mon Aug 28 2023 David Moore <damoore@redhat.com> 4.11.0-0.1.pre.master
 - Bump version to 4.11.0
 
