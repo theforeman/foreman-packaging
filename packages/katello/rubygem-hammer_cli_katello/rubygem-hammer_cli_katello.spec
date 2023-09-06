@@ -11,7 +11,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.9.0
+Version: 1.9.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -94,6 +94,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 06 2023 Evgeni Golov - 1.9.1-1
+- Release rubygem-hammer_cli_katello 1.9.1
+
 * Tue May 30 2023 Odilon Sousa <osousa@redhat.com> - 1.9.0-1
 - Release rubygem-hammer_cli_katello 1.9.0
 
