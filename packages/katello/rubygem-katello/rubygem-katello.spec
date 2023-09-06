@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.8
 %global foreman_max_version 3.9
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.10.0
 %global release 2
@@ -194,6 +194,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Sep 06 2023 Odilon Sousa <osousa@redhat.com> - 4.10.0-0.2.rc1
+- Release rubygem-katello 4.10.0rc1
+
 * Fri Aug 04 2023 Ian Ballou <ianballou67@gmail.com> - 4.10.0-0.2.pre.master
 - Bump Pulpcore client requirements for 3.28
 
