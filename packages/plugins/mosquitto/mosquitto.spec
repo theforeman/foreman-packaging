@@ -2,7 +2,7 @@
 %bcond_with websockets
 
 Name:           mosquitto
-Version:        2.0.14
+Version:        2.0.17
 Release:        1%{?dist}
 Summary:        Open Source MQTT v5/v3.1.x Broker
 
@@ -120,6 +120,9 @@ exit 0
 %{_mandir}/man3/libmosquitto.3.*
 
 %changelog
+* Thu Sep 07 2023 Eric D. Helms <ericdhelms@gmail.com> - 2.0.17-1
+- Release 2.0.17
+
 * Mon Nov 22 2021 Peter Robinson <pbrobinson@fedoraproject.org> - 2.0.14-1
 - Update to 2.0.14
 
