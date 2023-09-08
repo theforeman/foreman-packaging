@@ -1,12 +1,8 @@
 <!--
 If your package needs to be released within one or more release streams, and/or distributions, please open PRs to each of those branches respectively. The easiest way to do this is to make the initial commit for the mainline branch (e.g. rpm/develop or deb/develop) and then cherry pick the commit hash onto each subsequent branch.
 
-Supported Versions:
-
- * Nightly
- * 2.0
- * 1.24
- * 1.23
+The Foreman Community supports the `develop` branch for active development and the latest two releases.
+You can view the currently supported versions on [theforeman.org](https://theforeman.org/).
  
 RPM Example:
 
