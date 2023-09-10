@@ -4,21 +4,18 @@
 %global npm_name react-ellipsis-with-tooltip
 
 Name: %{?scl_prefix}nodejs-react-ellipsis-with-tooltip
-Version: 1.0.8
-Release: 4%{?dist}
-Summary: truncates (with ellipsis) overflowing text elements and adds a tooltip
+Version: 1.1.1
+Release: 1%{?dist}
+Summary: truncates (with ellipsis) overflowing text elements and adds a tooltip https://amirfefer
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/amirfefer/react-ellipsis-with-tooltip
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+URL: https://github.com/amirfefer/react-ellipsis-with-tooltip#readme
+Source0: https://registry.npmjs.org/react-ellipsis-with-tooltip/-/react-ellipsis-with-tooltip-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
-Requires: %{?scl_prefix}npm(uuid) >= 3.1.0
-Requires: %{?scl_prefix}npm(uuid) < 4.0.0
+Requires: npm(uuid) >= 3.1.0
+Requires: npm(uuid) < 4.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -33,8 +30,6 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr stories %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -44,9 +39,12 @@ cp -pfr stories %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %files
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
-%doc README.md
+%doc readme.md
 
 %changelog
+* Sun Sep 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.1.1-1
+- Update to 1.1.1
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.8-4
 - Bump packages to build for el8
 
