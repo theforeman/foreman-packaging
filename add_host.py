@@ -20,6 +20,7 @@ def main():
     yaml.default_flow_style = False
     yaml.explicit_start = True
     yaml.preserve_quotes = True
+    yaml.width = 1024
     yaml.indent(sequence=4, offset=2)
 
     try:
