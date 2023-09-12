@@ -467,6 +467,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-theforeman-vendor:
       name: "@theforeman/vendor"
+    nodejs-tslib: {}
     nodejs-uglifyjs-webpack-plugin:
       strategy: bundle
     nodejs-url-loader:
