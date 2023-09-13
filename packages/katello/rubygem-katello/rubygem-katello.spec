@@ -6,7 +6,7 @@
 %global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.10.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -57,8 +57,8 @@ BuildRequires: rubygem(pulp_ansible_client) >= 0.18.0
 BuildRequires: rubygem(pulp_ansible_client) < 0.19.0
 BuildRequires: rubygem(pulp_container_client) >= 2.15.0
 BuildRequires: rubygem(pulp_container_client) < 2.16.0
-BuildRequires: rubygem(pulp_deb_client) >= 2.21.0
-BuildRequires: rubygem(pulp_deb_client) < 2.22.0
+BuildRequires: rubygem(pulp_deb_client) >= 3.0.0
+BuildRequires: rubygem(pulp_deb_client) < 3.1.0
 BuildRequires: rubygem(pulp_rpm_client) >= 3.22.0
 BuildRequires: rubygem(pulp_rpm_client) < 3.23.0
 BuildRequires: rubygem(pulp_certguard_client) < 2.0.0
@@ -194,6 +194,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Sep 13 2023 Quirin Pamp <pamp@atix.de> - 4.10.0-0.3.rc2
+- Update pulp_deb_client requirement to 3.0.0
+
 * Tue Sep 12 2023 Odilon Sousa <osousa@redhat.com> - 4.10.0-0.2.rc2
 - Release rubygem-katello 4.10.0rc2
 
