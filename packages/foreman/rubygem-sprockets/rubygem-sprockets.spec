@@ -2,7 +2,7 @@
 %global gem_name sprockets
 
 Name: rubygem-%{gem_name}
-Version: 4.2.0
+Version: 4.2.1
 Release: 1%{?dist}
 Summary: Rack-based asset packaging system
 License: MIT
@@ -66,6 +66,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 13 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.2.1-1
+- Update to 4.2.1
+
 * Sun Jan 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.2.0-1
 - Update to 4.2.0
 
