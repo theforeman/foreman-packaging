@@ -3,8 +3,8 @@
 %global zypper_install (0%{?suse_version} > 0)
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
-%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 10))
-%global legacy_agent (0%{?rhel} == 6)
+%global build_agent 0
+%global legacy_agent 0
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
@@ -37,7 +37,7 @@
 
 Name: katello-host-tools
 Version: 4.2.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -389,6 +389,9 @@ exit 0
 
 
 %changelog
+* Wed Sep 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.2.3-4
+- Stop building katello-agent
+
 * Thu Apr 20 2023 Patrick Creech <pcreech@redhat.com> - 4.2.3-3
 - Fix dnf-plugin location for tracer
 
