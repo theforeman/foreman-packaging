@@ -2,7 +2,7 @@
 %global gem_name autoprefixer-rails
 
 Name: rubygem-%{gem_name}
-Version: 10.4.13.0
+Version: 10.4.15.0
 Release: 1%{?dist}
 Summary: Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 13 2023 Foreman Packaging Automation <packaging@theforeman.org> 10.4.15.0-1
+- Update to 10.4.15.0
+
 * Mon Mar 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 10.4.13.0-1
 - Update to 10.4.13.0
 
