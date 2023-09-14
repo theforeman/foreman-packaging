@@ -9,7 +9,7 @@
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.1.2
+Version: 5.1.3
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -111,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Sep 14 2023 Leos Stejskal <lstejska@redhat.com> 5.1.3-1
+- Update to 5.1.3
+
 * Tue May 16 2023 Nadja Heitmann <nadjah@atix.de> 5.1.2-1
 - Update to 5.1.2
 
