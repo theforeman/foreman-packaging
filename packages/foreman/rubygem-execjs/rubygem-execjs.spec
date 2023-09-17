@@ -2,7 +2,7 @@
 %global gem_name execjs
 
 Name: rubygem-%{gem_name}
-Version: 2.8.1
+Version: 2.9.0
 Release: 1%{?dist}
 Summary: Run JavaScript code from Ruby
 License: MIT
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Sep 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.9.0-1
+- Update to 2.9.0
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.8.1-1
 - Update to 2.8.1
 
