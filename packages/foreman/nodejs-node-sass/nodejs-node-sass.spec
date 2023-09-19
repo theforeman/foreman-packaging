@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}nodejs-node-sass
 Version: 4.14.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Wrapper around libsass
 License: MIT
 Group: Development/Libraries
@@ -459,6 +459,7 @@ cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{np
 cp -pfr node_modules/%{npm_name}/scripts %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/test %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr node_modules/%{npm_name}/vendor %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 mkdir -p %{buildroot}%{_bindir}/
 chmod 0755 %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin/node-sass
@@ -475,6 +476,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Sep 19 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.14.1-2
+- nInclude vendor directory
+
 * Wed Sep 13 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.14.1-1
 - Update to 4.14.1
 
