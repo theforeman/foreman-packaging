@@ -2,7 +2,7 @@
 %global gem_name execjs
 
 Name: rubygem-%{gem_name}
-Version: 2.9.0
+Version: 2.9.1
 Release: 1%{?dist}
 Summary: Run JavaScript code from Ruby
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/rails/execjs
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9.3
-BuildRequires: ruby >= 1.9.3
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Sep 24 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.9.1-1
+- Update to 2.9.1
+
 * Sun Sep 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.9.0-1
 - Update to 2.9.0
 
