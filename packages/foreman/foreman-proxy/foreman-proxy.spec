@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -36,15 +36,12 @@ Requires:       foreman-debug
 # These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
 Requires:       rubygem(json)
 Requires:       rubygem(rack) >= 1.3.0
-Requires:       rubygem(sd_notify) >= 0.1
-Requires:       rubygem(sd_notify) < 0.2
-Requires:       rubygem(logging) >= 1.8.0
-Requires:       rubygem(logging) < 3.0.0
+Requires:       (rubygem(sd_notify) >= 0.1 with rubygem(sd_notify) < 0.2)
+Requires:       (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
 Requires:       rubygem(sinatra)
 
 # start specfile default Requires
-Requires: rubygem(concurrent-ruby) >= 1.0
-Requires: rubygem(concurrent-ruby) < 2.0
+Requires: (rubygem(concurrent-ruby) >= 1.0 with rubygem(concurrent-ruby) < 2.0)
 # end specfile default Requires
 
 # start specfile bmc Requires
@@ -72,8 +69,7 @@ Requires: rubygem(jwt)
 # end specfile puppetca_token_whitelisting Requires
 
 # start specfile realm_freeipa Requires
-Requires: rubygem(xmlrpc) >= 0.2
-Requires: rubygem(xmlrpc) < 1.0
+Requires: (rubygem(xmlrpc) >= 0.2 with rubygem(xmlrpc) < 1.0)
 # end specfile realm_freeipa Requires
 
 Requires:       sudo
@@ -189,8 +185,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 Summary:  Foreman Proxy journald logging dependencies
 Group:    Applications/System
 # start specfile journald Requires
-Requires: rubygem(logging-journald) >= 2.0
-Requires: rubygem(logging-journald) < 3.0
+Requires: (rubygem(logging-journald) >= 2.0 with rubygem(logging-journald) < 3.0)
 # end specfile journald Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -244,6 +239,9 @@ exit 0
 
 
 %changelog
+* Fri Nov 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.3.develop
+- Update Gem dependencies
+
 * Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.2.develop
 - Require fapolicyd rules package if fapolicyd is present
 
