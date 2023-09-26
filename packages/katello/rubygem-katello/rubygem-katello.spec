@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.11.0
-%global release 4
+%global release 5
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -22,17 +22,13 @@ Requires: (katello-selinux if selinux-policy-targeted)
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby >= 2.5
-Requires: ruby < 3
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.5
 Requires: ruby < 3
 BuildRequires: ruby >= 2.5
 BuildRequires: ruby < 3
-BuildRequires: rubygems-devel
-BuildArch: noarch
-Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygems-devel > 1.3.1
 BuildRequires: rubygem(rails)
 BuildRequires: rubygem(json)
 BuildRequires: rubygem(oauth)
@@ -49,27 +45,19 @@ BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
 BuildRequires: rubygem(anemone)
-BuildRequires: rubygem(pulpcore_client) >= 3.28.0
-BuildRequires: rubygem(pulpcore_client) < 3.29.0
-BuildRequires: rubygem(pulp_file_client) >= 1.14.0
-BuildRequires: rubygem(pulp_file_client) < 1.15.0
-BuildRequires: rubygem(pulp_ansible_client) >= 0.18.0
-BuildRequires: rubygem(pulp_ansible_client) < 0.19.0
-BuildRequires: rubygem(pulp_container_client) >= 2.15.0
-BuildRequires: rubygem(pulp_container_client) < 2.16.0
-BuildRequires: rubygem(pulp_deb_client) >= 3.0.0
-BuildRequires: rubygem(pulp_deb_client) < 3.1.0
-BuildRequires: rubygem(pulp_rpm_client) >= 3.22.0
-BuildRequires: rubygem(pulp_rpm_client) < 3.23.0
+BuildRequires: (rubygem(pulpcore_client) >= 3.39.0 with rubygem(pulpcore_client) < 3.40.0)
+BuildRequires: (rubygem(pulp_file_client) >= 1.15.0 with rubygem(pulp_file_client) < 1.16.0)
+BuildRequires: (rubygem(pulp_ansible_client) >= 0.20.0 with rubygem(pulp_ansible_client) < 0.21.0)
+BuildRequires: (rubygem(pulp_container_client) >= 2.16.0 with rubygem(pulp_container_client) < 2.17.0)
+BuildRequires: (rubygem(pulp_deb_client) >= 3.0.0 with rubygem(pulp_deb_client) < 3.1.0)
+BuildRequires: (rubygem(pulp_rpm_client) >= 3.23.0 with rubygem(pulp_rpm_client) < 3.24.0)
 BuildRequires: rubygem(pulp_certguard_client) < 2.0.0
-BuildRequires: rubygem(pulp_python_client) >= 3.10.0
-BuildRequires: rubygem(pulp_python_client) < 3.11.0
-BuildRequires: rubygem(pulp_ostree_client) >= 2.1.0
-BuildRequires: rubygem(pulp_ostree_client) < 2.2.0
-BuildRequires: rubygem(deface) >= 1.0.2
-BuildRequires: rubygem(deface) < 2.0.0
-BuildRequires: rubygem(angular-rails-templates) >= 1.1.0
-BuildRequires: rubygem(angular-rails-templates) < 1.2
+BuildRequires: (rubygem(pulp_python_client) >= 3.10.0 with rubygem(pulp_python_client) < 3.11.0)
+BuildRequires: (rubygem(pulp_ostree_client) >= 2.1.0 with rubygem(pulp_ostree_client) < 2.2.0)
+BuildRequires: (rubygem(deface) >= 1.0.2 with rubygem(deface) < 2.0.0)
+BuildRequires: (rubygem(angular-rails-templates) >= 1.1.0 with rubygem(angular-rails-templates) < 1.2)
+BuildArch: noarch
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 Obsoletes: %{?scl_prefix}rubygem-%{gem_name}_ostree
@@ -83,16 +71,11 @@ BuildRequires: npm(@theforeman/builder) >= 6.0.0
 # start package.json dependencies BuildRequires
 BuildRequires: npm(angular) = 1.8.2
 BuildRequires: npm(bootstrap-select) = 1.13.18
-BuildRequires: npm(downshift) >= 5.4.2
-BuildRequires: npm(downshift) < 6.0.0
-BuildRequires: npm(ngreact) >= 0.5.0
-BuildRequires: npm(ngreact) < 1.0.0
-BuildRequires: npm(query-string) >= 6.1.0
-BuildRequires: npm(query-string) < 7.0.0
-BuildRequires: npm(react-bootstrap) >= 0.32.1
-BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(use-deep-compare-effect) >= 1.6.1
-BuildRequires: npm(use-deep-compare-effect) < 2.0.0
+BuildRequires: (npm(downshift) >= 5.4.2 with npm(downshift) < 6.0.0)
+BuildRequires: (npm(ngreact) >= 0.5.0 with npm(ngreact) < 1.0.0)
+BuildRequires: (npm(query-string) >= 6.1.0 with npm(query-string) < 7.0.0)
+BuildRequires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0)
+BuildRequires: (npm(use-deep-compare-effect) >= 1.6.1 with npm(use-deep-compare-effect) < 2.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -120,16 +103,11 @@ Requires: npm(@theforeman/builder) >= 6.0.0
 # start package.json dependencies Requires
 Requires: npm(angular) = 1.8.2
 Requires: npm(bootstrap-select) = 1.13.18
-Requires: npm(downshift) >= 5.4.2
-Requires: npm(downshift) < 6.0.0
-Requires: npm(ngreact) >= 0.5.0
-Requires: npm(ngreact) < 1.0.0
-Requires: npm(query-string) >= 6.1.0
-Requires: npm(query-string) < 7.0.0
-Requires: npm(react-bootstrap) >= 0.32.1
-Requires: npm(react-bootstrap) < 1.0.0
-Requires: npm(use-deep-compare-effect) >= 1.6.1
-Requires: npm(use-deep-compare-effect) < 2.0.0
+Requires: (npm(downshift) >= 5.4.2 with npm(downshift) < 6.0.0)
+Requires: (npm(ngreact) >= 0.5.0 with npm(ngreact) < 1.0.0)
+Requires: (npm(query-string) >= 6.1.0 with npm(query-string) < 7.0.0)
+Requires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0)
+Requires: (npm(use-deep-compare-effect) >= 1.6.1 with npm(use-deep-compare-effect) < 2.0.0)
 # end package.json dependencies Requires
 
 %description assets
@@ -194,6 +172,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri Nov 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.11.0-0.5.pre.master
+- Update Gem and NPM dependencies
+
 * Thu Oct 26 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.11.0-0.4.pre.master
 - Automatically depend on selinux package if needed
 
