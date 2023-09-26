@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -49,82 +49,48 @@ Requires: (%{name}-fapolicyd if fapolicyd)
 Requires: %{name}-debug
 
 # start specfile default Requires
-Requires: rubygem(rails) >= 6.1.6
-Requires: rubygem(rails) < 6.2.0
-Requires: rubygem(rest-client) >= 2.0.0
-Requires: rubygem(rest-client) < 3
-Requires: rubygem(audited) >= 5.0
-Requires: rubygem(audited) < 6.0
-Requires: rubygem(will_paginate) >= 3.3
-Requires: rubygem(will_paginate) < 4.0
-Requires: rubygem(ancestry) >= 4.0
-Requires: rubygem(ancestry) < 5.0
-Requires: rubygem(scoped_search) >= 4.1.10
-Requires: rubygem(scoped_search) < 5
-Requires: rubygem(ldap_fluff) >= 0.5.0
-Requires: rubygem(ldap_fluff) < 1.0
-Requires: rubygem(apipie-rails) >= 0.8.0
-Requires: rubygem(apipie-rails) < 2
-Requires: rubygem(apipie-dsl) >= 2.2.6
+Requires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
+Requires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
+Requires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
+Requires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
+Requires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
+Requires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
+Requires: (rubygem(ldap_fluff) >= 0.5.0 with rubygem(ldap_fluff) < 1.0)
+Requires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
+Requires: rubygem(apipie-dsl) >= 2.6.1
 Requires: rubygem(rdoc) < 6.4
-Requires: rubygem(rabl) >= 0.15.0
-Requires: rubygem(rabl) < 1
-Requires: rubygem(oauth) >= 1.0
-Requires: rubygem(oauth) < 2.0
-Requires: rubygem(deep_cloneable) >= 3
-Requires: rubygem(deep_cloneable) < 4
-Requires: rubygem(validates_lengths_from_database) >= 0.5
-Requires: rubygem(validates_lengths_from_database) < 1.0
-Requires: rubygem(friendly_id) >= 5.4.2
-Requires: rubygem(friendly_id) < 6
-Requires: rubygem(secure_headers) >= 6.3
-Requires: rubygem(secure_headers) < 7.0
-Requires: rubygem(safemode) >= 1.3.5
-Requires: rubygem(safemode) < 2
-Requires: rubygem(fast_gettext) >= 1.4
-Requires: rubygem(fast_gettext) < 2.0
-Requires: rubygem(gettext_i18n_rails) >= 1.8
-Requires: rubygem(gettext_i18n_rails) < 2.0
-Requires: rubygem(rails-i18n) >= 7.0
-Requires: rubygem(rails-i18n) < 8.0
-Requires: rubygem(logging) >= 1.8.0
-Requires: rubygem(logging) < 3.0.0
-Requires: rubygem(fog-core) >= 2.1
-Requires: rubygem(fog-core) < 3.0
+Requires: (rubygem(rabl) >= 0.15.0 with rubygem(rabl) < 1)
+Requires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
+Requires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
+Requires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
+Requires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
+Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
+Requires: (rubygem(safemode) >= 1.3.5 with rubygem(safemode) < 2)
+Requires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
+Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
+Requires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
+Requires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
+Requires: (rubygem(fog-core) >= 2.1 with rubygem(fog-core) < 3.0)
 Requires: rubygem(net-scp)
 Requires: rubygem(net-ssh)
 Requires: rubygem(net-ldap) >= 0.16.0
 Requires: rubygem(net-ping)
-Requires: rubygem(activerecord-session_store) >= 2.0.0
-Requires: rubygem(activerecord-session_store) < 3
-Requires: rubygem(sprockets) >= 4.0
-Requires: rubygem(sprockets) < 5.0
-Requires: rubygem(sprockets-rails) >= 3.0
-Requires: rubygem(sprockets-rails) < 4.0
-Requires: rubygem(responders) >= 3.0
-Requires: rubygem(responders) < 4.0
-Requires: rubygem(roadie-rails) >= 3.0
-Requires: rubygem(roadie-rails) < 4.0
-Requires: rubygem(deacon) >= 1.0
-Requires: rubygem(deacon) < 2.0
-Requires: rubygem(webpack-rails) >= 0.9.8
-Requires: rubygem(webpack-rails) < 0.10.0
-Requires: rubygem(mail) >= 2.7
-Requires: rubygem(mail) < 3.0
-Requires: rubygem(sshkey) >= 2.0
-Requires: rubygem(sshkey) < 3.0
-Requires: rubygem(dynflow) >= 1.6.5
-Requires: rubygem(dynflow) < 2.0.0
+Requires: (rubygem(activerecord-session_store) >= 2.0.0 with rubygem(activerecord-session_store) < 3)
+Requires: (rubygem(sprockets) >= 4.0 with rubygem(sprockets) < 5.0)
+Requires: (rubygem(sprockets-rails) >= 3.0 with rubygem(sprockets-rails) < 4.0)
+Requires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
+Requires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
+Requires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
+Requires: (rubygem(webpack-rails) >= 0.9.8 with rubygem(webpack-rails) < 0.10.0)
+Requires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
+Requires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
+Requires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
 Requires: rubygem(daemons)
-Requires: rubygem(bcrypt) >= 3.1
-Requires: rubygem(bcrypt) < 4.0
+Requires: (rubygem(bcrypt) >= 3.1 with rubygem(bcrypt) < 4.0)
 Requires: rubygem(get_process_mem)
-Requires: rubygem(rack-cors) >= 1.1
-Requires: rubygem(rack-cors) < 2.0
-Requires: rubygem(jwt) >= 2.2.2
-Requires: rubygem(jwt) < 3.0
-Requires: rubygem(graphql) >= 1.13.0
-Requires: rubygem(graphql) < 1.14.0
+Requires: (rubygem(rack-cors) >= 1.1 with rubygem(rack-cors) < 2.0)
+Requires: (rubygem(jwt) >= 2.2.2 with rubygem(jwt) < 3.0)
+Requires: (rubygem(graphql) >= 1.13.0 with rubygem(graphql) < 1.14.0)
 Requires: rubygem(graphql-batch)
 # end specfile default Requires
 
@@ -149,82 +115,48 @@ BuildRequires: rubygem(rake) >= 0.8.3
 BuildRequires: rubygem(bundler_ext)
 
 # start specfile default BuildRequires
-BuildRequires: rubygem(rails) >= 6.1.6
-BuildRequires: rubygem(rails) < 6.2.0
-BuildRequires: rubygem(rest-client) >= 2.0.0
-BuildRequires: rubygem(rest-client) < 3
-BuildRequires: rubygem(audited) >= 5.0
-BuildRequires: rubygem(audited) < 6.0
-BuildRequires: rubygem(will_paginate) >= 3.3
-BuildRequires: rubygem(will_paginate) < 4.0
-BuildRequires: rubygem(ancestry) >= 4.0
-BuildRequires: rubygem(ancestry) < 5.0
-BuildRequires: rubygem(scoped_search) >= 4.1.10
-BuildRequires: rubygem(scoped_search) < 5
-BuildRequires: rubygem(ldap_fluff) >= 0.5.0
-BuildRequires: rubygem(ldap_fluff) < 1.0
-BuildRequires: rubygem(apipie-rails) >= 0.8.0
-BuildRequires: rubygem(apipie-rails) < 2
-BuildRequires: rubygem(apipie-dsl) >= 2.2.6
+BuildRequires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
+BuildRequires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
+BuildRequires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
+BuildRequires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
+BuildRequires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
+BuildRequires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
+BuildRequires: (rubygem(ldap_fluff) >= 0.5.0 with rubygem(ldap_fluff) < 1.0)
+BuildRequires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
+BuildRequires: rubygem(apipie-dsl) >= 2.6.1
 BuildRequires: rubygem(rdoc) < 6.4
-BuildRequires: rubygem(rabl) >= 0.15.0
-BuildRequires: rubygem(rabl) < 1
-BuildRequires: rubygem(oauth) >= 1.0
-BuildRequires: rubygem(oauth) < 2.0
-BuildRequires: rubygem(deep_cloneable) >= 3
-BuildRequires: rubygem(deep_cloneable) < 4
-BuildRequires: rubygem(validates_lengths_from_database) >= 0.5
-BuildRequires: rubygem(validates_lengths_from_database) < 1.0
-BuildRequires: rubygem(friendly_id) >= 5.4.2
-BuildRequires: rubygem(friendly_id) < 6
-BuildRequires: rubygem(secure_headers) >= 6.3
-BuildRequires: rubygem(secure_headers) < 7.0
-BuildRequires: rubygem(safemode) >= 1.3.5
-BuildRequires: rubygem(safemode) < 2
-BuildRequires: rubygem(fast_gettext) >= 1.4
-BuildRequires: rubygem(fast_gettext) < 2.0
-BuildRequires: rubygem(gettext_i18n_rails) >= 1.8
-BuildRequires: rubygem(gettext_i18n_rails) < 2.0
-BuildRequires: rubygem(rails-i18n) >= 7.0
-BuildRequires: rubygem(rails-i18n) < 8.0
-BuildRequires: rubygem(logging) >= 1.8.0
-BuildRequires: rubygem(logging) < 3.0.0
-BuildRequires: rubygem(fog-core) >= 2.1
-BuildRequires: rubygem(fog-core) < 3.0
+BuildRequires: (rubygem(rabl) >= 0.15.0 with rubygem(rabl) < 1)
+BuildRequires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
+BuildRequires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
+BuildRequires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
+BuildRequires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
+BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
+BuildRequires: (rubygem(safemode) >= 1.3.5 with rubygem(safemode) < 2)
+BuildRequires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
+BuildRequires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
+BuildRequires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
+BuildRequires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
+BuildRequires: (rubygem(fog-core) >= 2.1 with rubygem(fog-core) < 3.0)
 BuildRequires: rubygem(net-scp)
 BuildRequires: rubygem(net-ssh)
 BuildRequires: rubygem(net-ldap) >= 0.16.0
 BuildRequires: rubygem(net-ping)
-BuildRequires: rubygem(activerecord-session_store) >= 2.0.0
-BuildRequires: rubygem(activerecord-session_store) < 3
-BuildRequires: rubygem(sprockets) >= 4.0
-BuildRequires: rubygem(sprockets) < 5.0
-BuildRequires: rubygem(sprockets-rails) >= 3.0
-BuildRequires: rubygem(sprockets-rails) < 4.0
-BuildRequires: rubygem(responders) >= 3.0
-BuildRequires: rubygem(responders) < 4.0
-BuildRequires: rubygem(roadie-rails) >= 3.0
-BuildRequires: rubygem(roadie-rails) < 4.0
-BuildRequires: rubygem(deacon) >= 1.0
-BuildRequires: rubygem(deacon) < 2.0
-BuildRequires: rubygem(webpack-rails) >= 0.9.8
-BuildRequires: rubygem(webpack-rails) < 0.10.0
-BuildRequires: rubygem(mail) >= 2.7
-BuildRequires: rubygem(mail) < 3.0
-BuildRequires: rubygem(sshkey) >= 2.0
-BuildRequires: rubygem(sshkey) < 3.0
-BuildRequires: rubygem(dynflow) >= 1.6.5
-BuildRequires: rubygem(dynflow) < 2.0.0
+BuildRequires: (rubygem(activerecord-session_store) >= 2.0.0 with rubygem(activerecord-session_store) < 3)
+BuildRequires: (rubygem(sprockets) >= 4.0 with rubygem(sprockets) < 5.0)
+BuildRequires: (rubygem(sprockets-rails) >= 3.0 with rubygem(sprockets-rails) < 4.0)
+BuildRequires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
+BuildRequires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
+BuildRequires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
+BuildRequires: (rubygem(webpack-rails) >= 0.9.8 with rubygem(webpack-rails) < 0.10.0)
+BuildRequires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
+BuildRequires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
+BuildRequires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
 BuildRequires: rubygem(daemons)
-BuildRequires: rubygem(bcrypt) >= 3.1
-BuildRequires: rubygem(bcrypt) < 4.0
+BuildRequires: (rubygem(bcrypt) >= 3.1 with rubygem(bcrypt) < 4.0)
 BuildRequires: rubygem(get_process_mem)
-BuildRequires: rubygem(rack-cors) >= 1.1
-BuildRequires: rubygem(rack-cors) < 2.0
-BuildRequires: rubygem(jwt) >= 2.2.2
-BuildRequires: rubygem(jwt) < 3.0
-BuildRequires: rubygem(graphql) >= 1.13.0
-BuildRequires: rubygem(graphql) < 1.14.0
+BuildRequires: (rubygem(rack-cors) >= 1.1 with rubygem(rack-cors) < 2.0)
+BuildRequires: (rubygem(jwt) >= 2.2.2 with rubygem(jwt) < 3.0)
+BuildRequires: (rubygem(graphql) >= 1.13.0 with rubygem(graphql) < 1.14.0)
 BuildRequires: rubygem(graphql-batch)
 BuildRequires: rubygem(activerecord-nulldb-adapter)
 # end specfile default BuildRequires
@@ -236,77 +168,45 @@ BuildRequires: http-parser
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 12.0.1
-BuildRequires: npm(@theforeman/builder) < 13.0.0
-BuildRequires: npm(argv-parse) >= 1.0.1
-BuildRequires: npm(argv-parse) < 2.0.0
-BuildRequires: npm(babel-loader) >= 8.0.0
-BuildRequires: npm(babel-loader) < 9.0.0
-BuildRequires: npm(compression-webpack-plugin) >= 1.1.11
-BuildRequires: npm(compression-webpack-plugin) < 1.2.0
-BuildRequires: npm(css-loader) >= 0.23.1
-BuildRequires: npm(css-loader) < 1.0.0
-BuildRequires: npm(cssnano) >= 4.1.10
-BuildRequires: npm(cssnano) < 5.0.0
-BuildRequires: npm(dotenv) >= 5.0.0
-BuildRequires: npm(dotenv) < 6.0.0
-BuildRequires: npm(expose-loader) >= 0.6.0
-BuildRequires: npm(expose-loader) < 0.7.0
-BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
-BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
-BuildRequires: npm(file-loader) >= 0.9.0
-BuildRequires: npm(file-loader) < 1.0.0
-BuildRequires: npm(graphql) >= 15.5.0
-BuildRequires: npm(graphql) < 16.0.0
-BuildRequires: npm(node-sass) >= 4.5.0
-BuildRequires: npm(node-sass) < 5.0.0
-BuildRequires: npm(optimize-css-assets-webpack-plugin) >= 3.2.0
-BuildRequires: npm(optimize-css-assets-webpack-plugin) < 4.0.0
-BuildRequires: npm(sass-loader) >= 6.0.6
-BuildRequires: npm(sass-loader) < 6.1.0
-BuildRequires: npm(style-loader) >= 0.13.1
-BuildRequires: npm(style-loader) < 1.0.0
-BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
-BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
-BuildRequires: npm(url-loader) >= 1.0.1
-BuildRequires: npm(url-loader) < 2.0.0
-BuildRequires: npm(webpack) >= 3.4.1
-BuildRequires: npm(webpack) < 4.0.0
-BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
-BuildRequires: npm(webpack-stats-plugin) < 1.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
+BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
+BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
+BuildRequires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
+BuildRequires: (npm(css-loader) >= 0.23.1 with npm(css-loader) < 1.0.0)
+BuildRequires: (npm(cssnano) >= 4.1.10 with npm(cssnano) < 5.0.0)
+BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
+BuildRequires: (npm(expose-loader) >= 0.6.0 with npm(expose-loader) < 0.7.0)
+BuildRequires: (npm(extract-text-webpack-plugin) >= 3.0.0 with npm(extract-text-webpack-plugin) < 4.0.0)
+BuildRequires: (npm(file-loader) >= 0.9.0 with npm(file-loader) < 1.0.0)
+BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
+BuildRequires: (npm(node-sass) >= 4.5.0 with npm(node-sass) < 5.0.0)
+BuildRequires: (npm(optimize-css-assets-webpack-plugin) >= 3.2.0 with npm(optimize-css-assets-webpack-plugin) < 4.0.0)
+BuildRequires: (npm(sass-loader) >= 6.0.6 with npm(sass-loader) < 6.1.0)
+BuildRequires: (npm(style-loader) >= 0.13.1 with npm(style-loader) < 1.0.0)
+BuildRequires: (npm(uglifyjs-webpack-plugin) >= 1.2.2 with npm(uglifyjs-webpack-plugin) < 2.0.0)
+BuildRequires: (npm(url-loader) >= 1.0.1 with npm(url-loader) < 2.0.0)
+BuildRequires: (npm(webpack) >= 3.4.1 with npm(webpack) < 4.0.0)
+BuildRequires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin) < 1.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 12.0.1
-BuildRequires: npm(@theforeman/vendor) < 13.0.0
-BuildRequires: npm(graphql-tag) >= 2.11.0
-BuildRequires: npm(graphql-tag) < 3.0.0
-BuildRequires: npm(intl) >= 1.2.5
-BuildRequires: npm(intl) < 1.3.0
-BuildRequires: npm(jed) >= 1.1.1
-BuildRequires: npm(jed) < 2.0.0
-BuildRequires: npm(react-intl) >= 2.8.0
-BuildRequires: npm(react-intl) < 3.0.0
+BuildRequires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
+BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
+BuildRequires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
+BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
-BuildRequires: rubygem(jquery-ui-rails) >= 6.0
-BuildRequires: rubygem(jquery-ui-rails) < 7.0
-BuildRequires: rubygem(patternfly-sass) >= 3.59.4
-BuildRequires: rubygem(patternfly-sass) < 3.60.0
-BuildRequires: rubygem(gettext_i18n_rails_js) >= 1.4
-BuildRequires: rubygem(gettext_i18n_rails_js) < 2.0
-BuildRequires: rubygem(po_to_json) >= 1.1
-BuildRequires: rubygem(po_to_json) < 2.0
-BuildRequires: rubygem(execjs) >= 1.4.0
-BuildRequires: rubygem(execjs) < 3.0
+BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
+BuildRequires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
+BuildRequires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
+BuildRequires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
+BuildRequires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
 BuildRequires: rubygem(uglifier) >= 1.0.3
-BuildRequires: rubygem(sass-rails) >= 6.0
-BuildRequires: rubygem(sass-rails) < 7.0
-BuildRequires: rubygem(coffee-rails) >= 5.0.0
-BuildRequires: rubygem(coffee-rails) < 5.1.0
+BuildRequires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
+BuildRequires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets BuildRequires
 
 # start specfile facter BuildRequires
@@ -341,8 +241,7 @@ Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
 Requires: rubygem(fog-libvirt) >= 0.9.0
-Requires: rubygem(ruby-libvirt) >= 0.5
-Requires: rubygem(ruby-libvirt) < 1.0
+Requires: (rubygem(ruby-libvirt) >= 0.5 with rubygem(ruby-libvirt) < 1.0)
 # end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
 Requires: genisoimage
@@ -360,8 +259,7 @@ Meta package to install requirements for libvirt compute resource support.
 Summary: Foreman OpenStack support
 Group:  Applications/System
 # start specfile openstack Requires
-Requires: rubygem(fog-openstack) >= 1.0.8
-Requires: rubygem(fog-openstack) < 2.0.0
+Requires: (rubygem(fog-openstack) >= 1.0.8 with rubygem(fog-openstack) < 2.0.0)
 # end specfile openstack Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -375,8 +273,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: rubygem(fog-ovirt) >= 2.0.1
-Requires: rubygem(fog-ovirt) < 3
+Requires: (rubygem(fog-ovirt) >= 2.0.1 with rubygem(fog-ovirt) < 3)
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
 Requires: /usr/bin/websockify
@@ -391,8 +288,7 @@ Meta package to install requirements for oVirt compute resource support.
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
 # start specfile ec2 Requires
-Requires: rubygem(fog-aws) >= 3.6.2
-Requires: rubygem(fog-aws) < 4
+Requires: (rubygem(fog-aws) >= 3.6.2 with rubygem(fog-aws) < 4)
 # end specfile ec2 Requires
 Requires:  %{name} = %{version}-%{release}
 
@@ -406,8 +302,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: rubygem(fog-vsphere) >= 3.6.2
-Requires: rubygem(fog-vsphere) < 4.0
+Requires: (rubygem(fog-vsphere) >= 3.6.2 with rubygem(fog-vsphere) < 4.0)
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 Requires: /usr/bin/websockify
@@ -425,77 +320,45 @@ Requires: %{name} = %{version}-%{release}
 Requires: nodejs >= 14
 
 # start package.json devDependencies Requires
-Requires: npm(@babel/core) >= 7.7.0
-Requires: npm(@babel/core) < 8.0.0
-Requires: npm(@theforeman/builder) >= 12.0.1
-Requires: npm(@theforeman/builder) < 13.0.0
-Requires: npm(argv-parse) >= 1.0.1
-Requires: npm(argv-parse) < 2.0.0
-Requires: npm(babel-loader) >= 8.0.0
-Requires: npm(babel-loader) < 9.0.0
-Requires: npm(compression-webpack-plugin) >= 1.1.11
-Requires: npm(compression-webpack-plugin) < 1.2.0
-Requires: npm(css-loader) >= 0.23.1
-Requires: npm(css-loader) < 1.0.0
-Requires: npm(cssnano) >= 4.1.10
-Requires: npm(cssnano) < 5.0.0
-Requires: npm(dotenv) >= 5.0.0
-Requires: npm(dotenv) < 6.0.0
-Requires: npm(expose-loader) >= 0.6.0
-Requires: npm(expose-loader) < 0.7.0
-Requires: npm(extract-text-webpack-plugin) >= 3.0.0
-Requires: npm(extract-text-webpack-plugin) < 4.0.0
-Requires: npm(file-loader) >= 0.9.0
-Requires: npm(file-loader) < 1.0.0
-Requires: npm(graphql) >= 15.5.0
-Requires: npm(graphql) < 16.0.0
-Requires: npm(node-sass) >= 4.5.0
-Requires: npm(node-sass) < 5.0.0
-Requires: npm(optimize-css-assets-webpack-plugin) >= 3.2.0
-Requires: npm(optimize-css-assets-webpack-plugin) < 4.0.0
-Requires: npm(sass-loader) >= 6.0.6
-Requires: npm(sass-loader) < 6.1.0
-Requires: npm(style-loader) >= 0.13.1
-Requires: npm(style-loader) < 1.0.0
-Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
-Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
-Requires: npm(url-loader) >= 1.0.1
-Requires: npm(url-loader) < 2.0.0
-Requires: npm(webpack) >= 3.4.1
-Requires: npm(webpack) < 4.0.0
-Requires: npm(webpack-stats-plugin) >= 0.1.5
-Requires: npm(webpack-stats-plugin) < 1.0.0
+Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
+Requires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
+Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
+Requires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
+Requires: (npm(css-loader) >= 0.23.1 with npm(css-loader) < 1.0.0)
+Requires: (npm(cssnano) >= 4.1.10 with npm(cssnano) < 5.0.0)
+Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
+Requires: (npm(expose-loader) >= 0.6.0 with npm(expose-loader) < 0.7.0)
+Requires: (npm(extract-text-webpack-plugin) >= 3.0.0 with npm(extract-text-webpack-plugin) < 4.0.0)
+Requires: (npm(file-loader) >= 0.9.0 with npm(file-loader) < 1.0.0)
+Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
+Requires: (npm(node-sass) >= 4.5.0 with npm(node-sass) < 5.0.0)
+Requires: (npm(optimize-css-assets-webpack-plugin) >= 3.2.0 with npm(optimize-css-assets-webpack-plugin) < 4.0.0)
+Requires: (npm(sass-loader) >= 6.0.6 with npm(sass-loader) < 6.1.0)
+Requires: (npm(style-loader) >= 0.13.1 with npm(style-loader) < 1.0.0)
+Requires: (npm(uglifyjs-webpack-plugin) >= 1.2.2 with npm(uglifyjs-webpack-plugin) < 2.0.0)
+Requires: (npm(url-loader) >= 1.0.1 with npm(url-loader) < 2.0.0)
+Requires: (npm(webpack) >= 3.4.1 with npm(webpack) < 4.0.0)
+Requires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin) < 1.0.0)
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 12.0.1
-Requires: npm(@theforeman/vendor) < 13.0.0
-Requires: npm(graphql-tag) >= 2.11.0
-Requires: npm(graphql-tag) < 3.0.0
-Requires: npm(intl) >= 1.2.5
-Requires: npm(intl) < 1.3.0
-Requires: npm(jed) >= 1.1.1
-Requires: npm(jed) < 2.0.0
-Requires: npm(react-intl) >= 2.8.0
-Requires: npm(react-intl) < 3.0.0
+Requires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
+Requires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
+Requires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
+Requires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies Requires
 
 # start specfile assets Requires
-Requires: rubygem(jquery-ui-rails) >= 6.0
-Requires: rubygem(jquery-ui-rails) < 7.0
-Requires: rubygem(patternfly-sass) >= 3.59.4
-Requires: rubygem(patternfly-sass) < 3.60.0
-Requires: rubygem(gettext_i18n_rails_js) >= 1.4
-Requires: rubygem(gettext_i18n_rails_js) < 2.0
-Requires: rubygem(po_to_json) >= 1.1
-Requires: rubygem(po_to_json) < 2.0
-Requires: rubygem(execjs) >= 1.4.0
-Requires: rubygem(execjs) < 3.0
+Requires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
+Requires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
+Requires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
+Requires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
+Requires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
 Requires: rubygem(uglifier) >= 1.0.3
-Requires: rubygem(sass-rails) >= 6.0
-Requires: rubygem(sass-rails) < 7.0
-Requires: rubygem(coffee-rails) >= 5.0.0
-Requires: rubygem(coffee-rails) < 5.1.0
+Requires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
+Requires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets Requires
 
 %description assets
@@ -537,10 +400,8 @@ Meta package with support for building RPMs in the Foreman release cycle.
 Summary: Foreman console support
 Group:  Applications/System
 # start specfile console Requires
-Requires: rubygem(wirb) >= 1.0
-Requires: rubygem(wirb) < 3.0
-Requires: rubygem(amazing_print) >= 1.1
-Requires: rubygem(amazing_print) < 2.0
+Requires: (rubygem(wirb) >= 1.0 with rubygem(wirb) < 3.0)
+Requires: (rubygem(amazing_print) >= 1.1 with rubygem(amazing_print) < 2.0)
 # end specfile console Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -554,8 +415,7 @@ Meta Package to install requirements for console support
 Summary: Foreman Postgresql support
 Group:  Applications/System
 # start specfile postgresql Requires
-Requires: rubygem(pg) >= 0.18
-Requires: rubygem(pg) < 2.0
+Requires: (rubygem(pg) >= 0.18 with rubygem(pg) < 2.0)
 # end specfile postgresql Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -576,8 +436,7 @@ Meta Package to install requirements for postgresql support
 Summary: Foreman telemetry support
 Group:  Applications/System
 # start specfile telemetry Requires
-Requires: rubygem(prometheus-client) >= 1.0
-Requires: rubygem(prometheus-client) < 5
+Requires: (rubygem(prometheus-client) >= 1.0 with rubygem(prometheus-client) < 5)
 Requires: rubygem(statsd-instrument) < 3
 # end specfile telemetry Requires
 Requires: %{name} = %{version}-%{release}
@@ -592,8 +451,7 @@ Meta Package to install requirements for telemetry support
 Summary: Foreman journald logging support
 Group:  Applications/System
 # start specfile journald Requires
-Requires: rubygem(logging-journald) >= 2.0
-Requires: rubygem(logging-journald) < 3.0
+Requires: (rubygem(logging-journald) >= 2.0 with rubygem(logging-journald) < 3.0)
 # end specfile journald Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -607,8 +465,7 @@ Meta Package to install requirements for journald logging support
 Summary: Foreman Redis caching support
 Group:  Applications/System
 # start specfile redis Requires
-Requires: rubygem(redis) >= 4.5.0
-Requires: rubygem(redis) < 4.6.0
+Requires: (rubygem(redis) >= 4.5.0 with rubygem(redis) < 4.6.0)
 # end specfile redis Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -622,8 +479,7 @@ Meta Package to install requirements for Redis caching support
 Summary: Foreman Dynflow's Sidekiq executor
 Group:  Applications/System
 # start specfile dynflow_sidekiq Requires
-Requires: rubygem(sidekiq) >= 6.5
-Requires: rubygem(sidekiq) < 7.0
+Requires: (rubygem(sidekiq) >= 6.5 with rubygem(sidekiq) < 7.0)
 Requires: rubygem(gitlab-sidekiq-fetcher)
 # end specfile dynflow_sidekiq Requires
 Requires: %{name} = %{version}-%{release}
@@ -649,10 +505,8 @@ Meta Package to install dynflow sidekiq executor support
 Summary: Foreman systemd service support
 Group:  Applications/System
 # start specfile service Requires
-Requires: rubygem(puma) >= 5.1
-Requires: rubygem(puma) < 7
-Requires: rubygem(sd_notify) >= 0.1.0
-Requires: rubygem(sd_notify) < 0.2.0
+Requires: (rubygem(puma) >= 5.1 with rubygem(puma) < 7)
+Requires: (rubygem(sd_notify) >= 0.1.0 with rubygem(sd_notify) < 0.2.0)
 # end specfile service Requires
 Requires: rubygem(puma-status)
 Requires: %{name} = %{version}-%{release}
@@ -1012,6 +866,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Nov 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.6.develop
+- Update Gem and NPM dependencies
+
 * Thu Oct 26 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.5.develop
 - Automatically depend on selinux package if needed
 
