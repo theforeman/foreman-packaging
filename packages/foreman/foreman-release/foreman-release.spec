@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -29,7 +29,6 @@ Source0:  foreman.repo
 Source1:  foreman-plugins.repo
 Source2:  foreman.gpg
 Source5:  foreman-client.repo
-Source6:  qpid-copr.repo
 
 BuildArch: noarch
 
@@ -51,10 +50,6 @@ Defines yum repositories for Foreman clients.
 %config %{repo_dir}/foreman-client.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-client
 
-%if 0%{?rhel} == 7
-%config %{repo_dir}/qpid-copr.repo
-%endif
-
 %if 0%{?suse_version}
 %dir /etc/pki
 %dir /etc/pki/rpm-gpg
@@ -66,10 +61,6 @@ Defines yum repositories for Foreman clients.
 install -Dpm0644 %{SOURCE0} %{buildroot}%{repo_dir}/foreman.repo
 install -Dpm0644 %{SOURCE1} %{buildroot}%{repo_dir}/foreman-plugins.repo
 install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
-
-%if 0%{?rhel} == 7
-install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
-%endif
 
 trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
 sed "s/\$DIST/${trimmed_dist}/g" -i %{buildroot}%{repo_dir}/*.repo
@@ -90,6 +81,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Fri Sep 29 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.2.develop
+- Drop qpid repo
+
 * Wed Aug 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.1.develop
 - Bump version to 3.9-develop
 

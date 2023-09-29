@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.11.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -41,7 +41,6 @@ BuildRequires: rubygem(foreman-tasks) >= 5.0
 BuildRequires: rubygem(foreman_remote_execution) >= 7.1.0
 BuildRequires: rubygem(dynflow) >= 1.6.1
 BuildRequires: rubygem(activerecord-import)
-BuildRequires: rubygem(qpid_proton)
 BuildRequires: rubygem(stomp)
 BuildRequires: rubygem(scoped_search) >= 4.1.9
 BuildRequires: rubygem(gettext_i18n_rails)
@@ -194,6 +193,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri Sep 29 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.11.0-0.3.pre.master
+- Drop rubygem-qpid_proton
+
 * Wed Sep 06 2023 Quirin Pamp <pamp@atix.de> - 4.11.0-0.2.pre.master
 - Update pulp_deb_client requirement to 3.0.0
 

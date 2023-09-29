@@ -12,15 +12,11 @@
     <packagelist>
       <packagereq type="default">foreman-client-release</packagereq>
       <packagereq type="default">foreman_ygg_worker</packagereq>
-      <packagereq type="default">gofer</packagereq>
       <packagereq type="default">katello-host-tools</packagereq>
       <packagereq type="default">katello-host-tools-tracer</packagereq>
       <packagereq type="default">katello-pull-transport-migrate</packagereq>
-      <packagereq type="default">python-gofer</packagereq>
-      <packagereq type="default">python-gofer-proton</packagereq>
       <packagereq type="default">python2-psutil</packagereq>
       <packagereq type="default">python2-tracer</packagereq>
-      <packagereq type="default">qpid-proton-c</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">tracer-common</packagereq>
       <packagereq type="default">yggdrasil</packagereq>

@@ -560,20 +560,11 @@ foreman_client_packages:
     yggdrasil_client_packages: {}
   hosts:
     foreman_ygg_worker: {}
-    gofer: {}
     katello-host-tools: {}
     katello-pull-transport-migrate: {}
     python-psutil: {}
     rubygem-foreman_scap_client: {}
     tracer: {}
-
-qpid_proton_packages:
-  vars:
-    koji_tags:
-      - "{{ all_tags['katello-el8'] }}"
-      - "{{ all_tags['foreman-client-el8'] }}"
-  hosts:
-    qpid-proton: {}
 
 katello_packages:
   vars:
@@ -596,15 +587,11 @@ katello_packages:
         - "el8-foreman-{{ foreman_version }}"
         - "el8-foreman-plugins-{{ foreman_version }}"
         - "el8-katello-candlepin-{{ katello_version }}"
-  children:
-    qpid_proton_packages: {}
   hosts:
-    jsoncpp: {}
     katello: {}
     katello-client-bootstrap: {}
     katello-repos: {}
     katello-selinux: {}
-    libwebsockets: {}
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
@@ -612,9 +599,6 @@ katello_packages:
     nodejs-ngreact: {}
     nodejs-query-string: {}
     nodejs-strict-uri-encode: {}
-    python-qpid: {}
-    qpid-cpp: {}
-    qpid-dispatch: {}
     rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
@@ -646,7 +630,6 @@ katello_packages:
     rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}
-    saslwrapper: {}
 
 foreman_plugin_packages:
   hosts:
