@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.11.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Sep 29 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.11.0-0.2.master
+- Remove cert RPMs from change hostname
+
 * Mon Aug 28 2023 David Moore <damoore@redhat.com> - 4.11.0-0.1.master
 - Bump version to 4.11.0
 

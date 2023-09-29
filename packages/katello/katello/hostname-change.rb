@@ -464,22 +464,6 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       public_dir = "/var/www/html/pub"
       public_backup_dir = "#{public_dir}/#{@old_hostname}-#{self.timestamp}.backup"
 
-      STDOUT.puts "removing old cert rpms"
-      cert_packages = [
-        "apache",
-        "foreman-client",
-        "foreman-proxy",
-        "foreman-proxy-client",
-        "puppet-client",
-        "qpid-broker",
-        "qpid-client-cert",
-        "qpid-router-client",
-        "qpid-router-server",
-        "tomcat"
-      ]
-      cert_rpms = cert_packages.map { |pkg| "#{@old_hostname}-#{pkg}*" }.join(' ')
-      self.run_cmd("yum remove -y #{cert_rpms}")
-
       STDOUT.puts "deleting old certs"
       self.run_cmd("rm -rf /etc/pki/katello-certs-tools{,.bak}")
       self.run_cmd("rm -rf #{@scenario_answers["foreman_proxy"]["ssl_cert"]}")
