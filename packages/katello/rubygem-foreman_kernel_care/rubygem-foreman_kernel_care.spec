@@ -8,7 +8,7 @@
 %global foreman_min_version 1.19.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.1
+Version: 1.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin for KernelCare
 Group: Applications/Systems
@@ -18,19 +18,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.5.6
-Requires: %{?scl_prefix}rubygem(katello) >= 3.8.0
+Requires: ruby >= 2.5.0
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.5.6
-BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.8.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -94,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Sun Oct 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.0-1
+- Update to 1.2.0
+
 * Fri Apr 01 2022 maccelf <maxmol27@gmail.com> 1.1.1-1
 - Update to 1.1.1
 
