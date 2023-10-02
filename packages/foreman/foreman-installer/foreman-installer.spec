@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -15,14 +15,14 @@ BuildArch:  noarch
 Requires:   curl
 Requires:   hostname
 Requires:   puppet-agent >= 7.0.0
-Requires:   rubygem(kafo) >= 6.5.0
+Requires:   rubygem(kafo) >= 7.2.0
 Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 7.0.0
 BuildRequires: rubygem(rake)
-BuildRequires: rubygem(kafo) >= 6.5.0
+BuildRequires: rubygem(kafo) >= 7.2.0
 BuildRequires: rubygem(kafo) < 8.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 5
@@ -131,6 +131,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Oct 12 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.8.0-2
+- Require at least Kafo 7.2 to show failed resources
+
 * Wed Oct 11 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.8.0-1
 - Release foreman-installer 3.8.0
 
