@@ -5,7 +5,7 @@ Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
 Build-Depends: debhelper (>= 7.0.50~), asciidoc, rake, libxml2-utils,
                xsltproc, docbook-xsl, git, ca-certificates, ruby-dev,
                puppet-agent-puppet-strings (>= 1.2.0),
-               ruby-kafo (>= 6.5.0), ruby-kafo (<< 8.0.0)
+               ruby-kafo (>= 7.2.0), ruby-kafo (<< 8.0.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman-installer
 XS-Ruby-Versions: all
@@ -14,7 +14,7 @@ Package: foreman-installer
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-kafo (>= 6.5.0), ruby-kafo (<< 8.0.0),
+         ruby-kafo (>= 7.2.0), ruby-kafo (<< 8.0.0),
          puppet-agent (>= 7.0.0) | puppet (>= 7.0.0),
          curl,
          lsb-release
