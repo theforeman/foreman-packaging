@@ -1,3 +1,9 @@
+foreman-installer (3.9.0-2) stable; urgency=low
+
+  * Require at least Kafo 7.2 to show failed resources
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Mon, 02 Oct 2023 11:21:21 +0200
+
 foreman-installer (3.9.0-1) stable; urgency=low
 
   * Bump changelog to 3.9.0 to match VERSION
