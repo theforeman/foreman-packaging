@@ -483,6 +483,7 @@ foreman_installer_packages:
     copr_projects:
       - "{{ hostvars['foreman-copr'] }}"
   hosts:
+    foreman-fapolicyd: {}
     foreman-installer:
       source_location: https://ci.theforeman.org/job/foreman-installer-develop-source-release
       source_system: jenkins
