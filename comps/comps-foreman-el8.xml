@@ -19,6 +19,7 @@
       <packagereq type="default">foreman-debug</packagereq>
       <packagereq type="default">foreman-dynflow-sidekiq</packagereq>
       <packagereq type="default">foreman-ec2</packagereq>
+      <packagereq type="default">foreman-fapolicyd</packagereq>
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">foreman-journald</packagereq>
@@ -30,6 +31,7 @@
       <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
+      <packagereq type="default">foreman-proxy-fapolicyd</packagereq>
       <packagereq type="default">foreman-proxy-journald</packagereq>
       <packagereq type="default">foreman-redis</packagereq>
       <packagereq type="default">foreman-release</packagereq>
