@@ -15,7 +15,11 @@ Summary: Foreman commands for Hammer
 Group: Development/Languages
 License: GPLv3+
 URL: https://github.com/theforeman/hammer-cli-foreman
+%if "%{prereleasesource}" == "pre.develop"
+Source0: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release/lastSuccessfulBuild/artifact/pkg/%{gem_name}-%{version}%{?prerelease}.gem
+%else
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
+%endif
 
 # start specfile generated dependencies
 Requires: ruby

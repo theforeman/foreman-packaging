@@ -33,7 +33,11 @@ Summary:        SELinux policy module for Foreman
 Group:          System Environment/Base
 License:        GPLv3+
 URL:            https://theforeman.org
+%if "%{prereleasesource}" == "develop"
+Source0:        https://ci.theforeman.org/job/%{name}-%{prereleasesource}-source-release/lastSuccessfulBuild/artifact/pkg/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+%else
 Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+%endif
 
 BuildRequires:  checkpolicy
 BuildRequires:  selinux-policy-devel
