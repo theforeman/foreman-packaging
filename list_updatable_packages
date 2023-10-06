@@ -246,6 +246,7 @@ def main() -> None:
         find_gemfile_lock_specs('hammer-cli-master-source-release', 'foreman', 'hammer-cli'),
         find_gemfile_lock_specs('hammer-cli-foreman-master-source-release', 'foreman', 'hammer-cli-foreman'),
         find_package_lock_specs('foreman-develop-source-release', 'foreman', 'foreman'),
+        find_package_lock_specs('katello-master-source-release', 'katello', 'katello'),
     )
 
     matrix = list(build_matrix(merge_specs(specs)))
