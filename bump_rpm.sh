@@ -129,7 +129,7 @@ if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
 			NPM_STRATEGY='single'
 		fi
 
-		"$SCRIPT_DIR"/add_npm_package.sh "$NPM_NAME" "$NEW_VERSION" "$NPM_STRATEGY"
+		UPDATE=true "$SCRIPT_DIR"/add_npm_package.sh "$NPM_NAME" "$NEW_VERSION" "$NPM_STRATEGY"
 	else
 		echo "TODO:"
 		echo "* Verify the dependencies"
