@@ -2,8 +2,8 @@
 %global gem_name sidekiq
 
 Name: rubygem-%{gem_name}
-Version: 6.3.1
-Release: 2%{?dist}
+Version: 6.5.11
+Release: 1%{?dist}
 Summary: Simple, efficient background processing for Ruby
 License: LGPL-3.0
 URL: https://sidekiq.org
@@ -68,6 +68,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/sidekiq.gemspec
 
 %changelog
+* Tue Oct 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.5.11-1
+- Update to 6.5.11
+
 * Fri Sep 23 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.3.1-2
 - Include web directory
 
