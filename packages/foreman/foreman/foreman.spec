@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -401,7 +401,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: rubygem(fog-vsphere) >= 3.6.0
+Requires: rubygem(fog-vsphere) >= 3.6.2
 Requires: rubygem(fog-vsphere) < 4.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
@@ -617,8 +617,8 @@ Meta Package to install requirements for Redis caching support
 Summary: Foreman Dynflow's Sidekiq executor
 Group:  Applications/System
 # start specfile dynflow_sidekiq Requires
-Requires: rubygem(sidekiq) >= 6.3.0
-Requires: rubygem(sidekiq) < 6.4.0
+Requires: rubygem(sidekiq) >= 6.5
+Requires: rubygem(sidekiq) < 7.0
 Requires: rubygem(gitlab-sidekiq-fetcher)
 # end specfile dynflow_sidekiq Requires
 Requires: %{name} = %{version}-%{release}
@@ -993,6 +993,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Oct 10 2023 Evgeni Golov - 3.9.0-0.2.develop
+- Update GEM dependencies
+
 * Wed Aug 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.1.develop
 - Bump version to 3.9-develop
 
