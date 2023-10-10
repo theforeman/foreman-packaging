@@ -3,10 +3,8 @@
 %global plugin_name katello
 %global foreman_min_version 3.8
 %global foreman_max_version 3.9
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.10.0
-%global release 2
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -41,7 +39,6 @@ BuildRequires: rubygem(foreman-tasks) >= 5.0
 BuildRequires: rubygem(foreman_remote_execution) >= 7.1.0
 BuildRequires: rubygem(dynflow) >= 1.6.1
 BuildRequires: rubygem(activerecord-import)
-BuildRequires: rubygem(qpid_proton)
 BuildRequires: rubygem(stomp)
 BuildRequires: rubygem(scoped_search) >= 4.1.9
 BuildRequires: rubygem(gettext_i18n_rails)
@@ -57,8 +54,8 @@ BuildRequires: rubygem(pulp_ansible_client) >= 0.18.0
 BuildRequires: rubygem(pulp_ansible_client) < 0.19.0
 BuildRequires: rubygem(pulp_container_client) >= 2.15.0
 BuildRequires: rubygem(pulp_container_client) < 2.16.0
-BuildRequires: rubygem(pulp_deb_client) >= 2.21.0
-BuildRequires: rubygem(pulp_deb_client) < 2.22.0
+BuildRequires: rubygem(pulp_deb_client) >= 3.0.0
+BuildRequires: rubygem(pulp_deb_client) < 3.1.0
 BuildRequires: rubygem(pulp_rpm_client) >= 3.22.0
 BuildRequires: rubygem(pulp_rpm_client) < 3.23.0
 BuildRequires: rubygem(pulp_certguard_client) < 2.0.0
@@ -194,6 +191,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Oct 10 2023 Patrick Creech <pcreech@redhat.com> - 4.10.0-1
+- Release rubygem-katello 4.10.0
+
 * Tue Sep 12 2023 Odilon Sousa <osousa@redhat.com> - 4.10.0-0.2.rc2
 - Release rubygem-katello 4.10.0rc2
 
