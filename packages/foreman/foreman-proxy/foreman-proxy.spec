@@ -2,8 +2,6 @@
 %global confdir config
 
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
 Version:        3.8.0
@@ -241,6 +239,9 @@ exit 0
 
 
 %changelog
+* Wed Oct 11 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-1
+- Release foreman-proxy 3.8.0
+
 * Tue Sep 19 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.8.0-0.1.rc2
 - Release foreman-proxy 3.8.0rc2
 
