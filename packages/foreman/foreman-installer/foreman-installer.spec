@@ -1,6 +1,4 @@
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
 Epoch:      1
@@ -133,6 +131,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Oct 11 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.8.0-1
+- Release foreman-installer 3.8.0
+
 * Tue Sep 19 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.8.0-0.1.rc2
 - Release foreman-installer 3.8.0rc2
 
