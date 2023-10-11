@@ -18,6 +18,7 @@ else
   PACKAGE_NAME=nodejs-${PACKAGE_MODULE}
 fi
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
+SPEC_FILE="${PACKAGE_DIR}/${PACKAGE_NAME}.spec"
 
 ROOT=$(git rev-parse --show-toplevel)
 
@@ -138,7 +139,7 @@ if [[ -z $STRATEGY ]] ; then
   echo "Found $DEPENDENCIES dependencies - using $STRATEGY strategy"
 fi
 
-if [ -f "$PACKAGE_DIR"/*.spec ]; then
+if [[ -f "${SPEC_FILE}" ]]; then
   echo -n "Detected update..."
   UPDATE=true
 else
@@ -146,7 +147,7 @@ else
 fi
 
 if [[ $UPDATE == true ]] ; then
-  EXISTING_VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' $PACKAGE_DIR/*.spec)
+  EXISTING_VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' "$SPEC_FILE")
   if [[ $REWRITE_ON_SAME_VERSION == true ]] || [[ $VERSION != $EXISTING_VERSION ]]; then
     generate_npm_package
     git commit -m "Bump $PACKAGE_NAME to $VERSION"
