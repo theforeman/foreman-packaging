@@ -377,6 +377,7 @@ foreman_core_packages:
     rubygem-sshkey: {}
     rubygem-statsd-instrument: {}
     rubygem-sqlite3: {}
+    rubygem-terser: {}
     rubygem-text: {}
     rubygem-tilt: {}
     rubygem-thor: {}
