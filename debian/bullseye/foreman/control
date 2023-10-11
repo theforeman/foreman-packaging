@@ -224,3 +224,12 @@ Description: package providing dynflow sidekiq services for Foreman
  a flexible systems management web application.
  .
  The foreman package should be installed along with this package.
+
+Package: foreman-pcp
+Architecture: all
+Section: web
+Priority: extra
+Depends: ${misc:Depends}, pcp
+Description: package providing PCP integration for Foreman
+ This package provides PCP configuration for Foreman,
+ a flexible systems management web application.
