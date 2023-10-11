@@ -26,6 +26,7 @@
       <packagereq type="default">foreman-obsolete-packages</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>
       <packagereq type="default">foreman-ovirt</packagereq>
+      <packagereq type="default">foreman-pcp</packagereq>
       <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
