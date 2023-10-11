@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -661,6 +661,17 @@ Meta Package to install requirements for Foreman service
 %{_datadir}/%{name}/bundler.d/service.rb
 %{_sbindir}/%{name}-puma-status
 
+%package pcp
+Summary: Foreman PCP integration
+Requires: pcp
+
+%description pcp
+Configuration files for the Performance Co-Pilot integration
+
+%files pcp
+%{_sysconfdir}/pcp/proc/%{name}-hotproc.conf
+%{_sharedstatedir}/pcp/config/pmlogconf/%{name}-hotproc
+
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
 Foreman is based on Ruby on Rails, and this package bundles Rails and all
@@ -727,6 +738,9 @@ install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
+# PCP integration
+install -Dp -m0644 extras/pcp/%{name}-hotproc.conf %{buildroot}%{_sysconfdir}/pcp/proc/%{name}-hotproc.conf
+install -Dp -m0644 extras/pcp/%{name}-hotproc.summary %{buildroot}%{_sharedstatedir}/pcp/config/pmlogconf/%{name}-hotproc/summary
 
 # SELinux libexec wrappers
 cat > %{buildroot}%{_libexecdir}/%{name}/sidekiq-selinux <<EOF
@@ -993,6 +1007,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Oct 11 2023 Evgeni Golov - 3.9.0-0.3.develop
+- Add PCP subpackage
+
 * Tue Oct 10 2023 Evgeni Golov - 3.9.0-0.2.develop
 - Update GEM dependencies
 
