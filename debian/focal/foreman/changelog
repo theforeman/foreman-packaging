@@ -1,3 +1,9 @@
+foreman (3.9.0-2) stable; urgency=low
+
+  * add PCP subpackage
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 11 Oct 2023 08:49:09 +0200
+
 foreman (3.9.0-1) stable; urgency=low
 
   * Bump changelog to 3.9.0 to match VERSION
