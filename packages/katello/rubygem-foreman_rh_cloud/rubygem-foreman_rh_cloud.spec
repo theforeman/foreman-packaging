@@ -4,7 +4,7 @@
 %global foreman_min_version 3.4
 
 Name: rubygem-%{gem_name}
-Version: 8.0.48
+Version: 9.0.51
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -36,10 +36,8 @@ BuildRequires: rubygem(foreman-tasks)
 
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 7.8.0
 BuildRequires: npm(@theforeman/builder) >= 10.1.1
 BuildRequires: npm(jed) >= 1.1.1
-BuildRequires: npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -89,10 +87,10 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_webpack_plugin}
-%{foreman_webpack_foreman}
 %{foreman_assets_plugin}
 %{foreman_assets_foreman}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -104,6 +102,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Oct 12 2023 Shimon Shtein <sshtein@redhat.com> 9.0.51-1
+- Update to 9.0.51-1
+
 * Wed Aug 02 2023 Shimon Shtein <sshtein@redhat.com> 8.0.48-1
 - Update to 8.0.48
 
