@@ -1,3 +1,9 @@
+ruby-foreman-tasks (8.3.0-1) stable; urgency=low
+
+  * 8.3.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 12 Oct 2023 15:00:56 +0000
+
 ruby-foreman-tasks (8.2.0-1) stable; urgency=low
 
   * 8.2.0 released
