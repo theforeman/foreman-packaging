@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -39,6 +39,9 @@ Requires(pre):  shadow-utils
 Requires(post): systemd-sysv
 Requires(post): systemd-units
 Requires(preun): systemd-units
+
+# Require fapolicyd package if fapolicyd is present
+Requires: (%{name}-fapolicyd if fapolicyd)
 
 # Subpackages
 Requires: %{name}-debug
@@ -1007,6 +1010,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.4.develop
+- Require fapolicyd rules package if fapolicyd is present
+
 * Wed Oct 11 2023 Evgeni Golov - 3.9.0-0.3.develop
 - Add PCP subpackage
 
