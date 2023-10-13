@@ -54,6 +54,7 @@ copr_projects:
   hosts:
     foreman-copr:
       copr_project_name: "foreman-{{ foreman_version }}-staging"
+      copr_project_fork_from: "{{ 'foreman-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
         - name: "rhel-{{ rhel_8 }}-x86_64"
           modules: "{{ core_modules }}"
@@ -63,6 +64,7 @@ copr_projects:
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
     plugins-copr:
       copr_project_name: "plugins-{{ foreman_version }}-staging"
+      copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
         - name: "rhel-{{ rhel_8 }}-x86_64"
           modules: "{{ core_modules }}"
@@ -72,6 +74,7 @@ copr_projects:
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
     katello-copr:
       copr_project_name: "katello-{{ foreman_version }}-staging"
+      copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
         - name: "rhel-{{ rhel_8 }}-x86_64"
           modules: "{{ core_modules }}"
@@ -82,6 +85,7 @@ copr_projects:
           comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
     client-copr:
       copr_project_name: "client-{{ foreman_version }}-staging"
+      copr_project_fork_from: "{{ 'client-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
         - name: "rhel-{{ rhel_9 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_9 }}.xml"
