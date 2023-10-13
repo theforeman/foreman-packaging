@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -27,6 +27,9 @@ BuildRequires:  ruby(release) >= 2.5
 Requires:       ruby(release) >= 2.5
 Requires:       rubygems
 Requires:       rubygem(bundler_ext)
+
+# Require fapolicyd package if fapolicyd is present
+Requires: (%{name}-fapolicyd if fapolicyd)
 
 Requires:       foreman-debug
 
@@ -241,6 +244,9 @@ exit 0
 
 
 %changelog
+* Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.2.develop
+- Require fapolicyd rules package if fapolicyd is present
+
 * Wed Aug 23 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.1.develop
 - Bump version to 3.9-develop
 
