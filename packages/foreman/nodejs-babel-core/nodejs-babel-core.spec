@@ -4,7 +4,7 @@
 %global npm_name @babel/core
 
 Name: %{?scl_prefix}nodejs-babel-core
-Version: 7.23.0
+Version: 7.23.2
 Release: 1%{?dist}
 Summary: Babel compiler core
 License: MIT
@@ -12,8 +12,8 @@ Group: Development/Libraries
 URL: https://babel.dev/docs/en/next/babel-core
 Source0: https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.2.1.tgz
 Source1: https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.22.13.tgz
-Source2: https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.22.20.tgz
-Source3: https://registry.npmjs.org/@babel/core/-/core-7.23.0.tgz
+Source2: https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.23.2.tgz
+Source3: https://registry.npmjs.org/@babel/core/-/core-7.23.2.tgz
 Source4: https://registry.npmjs.org/@babel/generator/-/generator-7.23.0.tgz
 Source5: https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.22.15.tgz
 Source6: https://registry.npmjs.org/@babel/helper-environment-visitor/-/helper-environment-visitor-7.22.20.tgz
@@ -26,11 +26,11 @@ Source12: https://registry.npmjs.org/@babel/helper-split-export-declaration/-/he
 Source13: https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.22.5.tgz
 Source14: https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.20.tgz
 Source15: https://registry.npmjs.org/@babel/helper-validator-option/-/helper-validator-option-7.22.15.tgz
-Source16: https://registry.npmjs.org/@babel/helpers/-/helpers-7.23.1.tgz
+Source16: https://registry.npmjs.org/@babel/helpers/-/helpers-7.23.2.tgz
 Source17: https://registry.npmjs.org/@babel/highlight/-/highlight-7.22.20.tgz
 Source18: https://registry.npmjs.org/@babel/parser/-/parser-7.23.0.tgz
 Source19: https://registry.npmjs.org/@babel/template/-/template-7.22.15.tgz
-Source20: https://registry.npmjs.org/@babel/traverse/-/traverse-7.23.0.tgz
+Source20: https://registry.npmjs.org/@babel/traverse/-/traverse-7.23.2.tgz
 Source21: https://registry.npmjs.org/@babel/types/-/types-7.23.0.tgz
 Source22: https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz
 Source23: https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.1.tgz
@@ -39,13 +39,13 @@ Source25: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-cod
 Source26: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.19.tgz
 Source27: https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz
 Source28: https://registry.npmjs.org/browserslist/-/browserslist-4.22.1.tgz
-Source29: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001546.tgz
+Source29: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001549.tgz
 Source30: https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz
 Source31: https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz
 Source32: https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz
 Source33: https://registry.npmjs.org/convert-source-map/-/convert-source-map-2.0.0.tgz
 Source34: https://registry.npmjs.org/debug/-/debug-4.3.4.tgz
-Source35: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.545.tgz
+Source35: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.554.tgz
 Source36: https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz
 Source37: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz
 Source38: https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz
@@ -74,8 +74,8 @@ ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@ampproject/remapping)) = 2.2.1
 Provides: bundled(npm(@babel/code-frame)) = 7.22.13
-Provides: bundled(npm(@babel/compat-data)) = 7.22.20
-Provides: bundled(npm(@babel/core)) = 7.23.0
+Provides: bundled(npm(@babel/compat-data)) = 7.23.2
+Provides: bundled(npm(@babel/core)) = 7.23.2
 Provides: bundled(npm(@babel/generator)) = 7.23.0
 Provides: bundled(npm(@babel/helper-compilation-targets)) = 7.22.15
 Provides: bundled(npm(@babel/helper-environment-visitor)) = 7.22.20
@@ -88,11 +88,11 @@ Provides: bundled(npm(@babel/helper-split-export-declaration)) = 7.22.6
 Provides: bundled(npm(@babel/helper-string-parser)) = 7.22.5
 Provides: bundled(npm(@babel/helper-validator-identifier)) = 7.22.20
 Provides: bundled(npm(@babel/helper-validator-option)) = 7.22.15
-Provides: bundled(npm(@babel/helpers)) = 7.23.1
+Provides: bundled(npm(@babel/helpers)) = 7.23.2
 Provides: bundled(npm(@babel/highlight)) = 7.22.20
 Provides: bundled(npm(@babel/parser)) = 7.23.0
 Provides: bundled(npm(@babel/template)) = 7.22.15
-Provides: bundled(npm(@babel/traverse)) = 7.23.0
+Provides: bundled(npm(@babel/traverse)) = 7.23.2
 Provides: bundled(npm(@babel/types)) = 7.23.0
 Provides: bundled(npm(@jridgewell/gen-mapping)) = 0.3.3
 Provides: bundled(npm(@jridgewell/resolve-uri)) = 3.1.1
@@ -101,13 +101,13 @@ Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.4.15
 Provides: bundled(npm(@jridgewell/trace-mapping)) = 0.3.19
 Provides: bundled(npm(ansi-styles)) = 3.2.1
 Provides: bundled(npm(browserslist)) = 4.22.1
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001546
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001549
 Provides: bundled(npm(chalk)) = 2.4.2
 Provides: bundled(npm(color-convert)) = 1.9.3
 Provides: bundled(npm(color-name)) = 1.1.3
 Provides: bundled(npm(convert-source-map)) = 2.0.0
 Provides: bundled(npm(debug)) = 4.3.4
-Provides: bundled(npm(electron-to-chromium)) = 1.4.545
+Provides: bundled(npm(electron-to-chromium)) = 1.4.554
 Provides: bundled(npm(escalade)) = 3.1.1
 Provides: bundled(npm(escape-string-regexp)) = 1.0.5
 Provides: bundled(npm(gensync)) = 1.0.0-beta.2
@@ -169,6 +169,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sun Oct 15 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.23.2-1
+- Update to 7.23.2
+
 * Mon Oct 09 2023 Foreman Packaging Automation <packaging@theforeman.org> 7.23.0-1
 - Update to 7.23.0
 
