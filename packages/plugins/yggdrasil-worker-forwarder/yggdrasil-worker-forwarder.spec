@@ -6,13 +6,13 @@
 %endif
 
 Name: yggdrasil-worker-forwarder
-Version: 0.0.1
+Version: 0.0.3
 Summary: Worker service for Yggdrasil that can forward requests to an API endpoint
 Release: 1%{?dist}
 License: GPLv3
 
-Source0: https://github.com/ShimShtein/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
-Url: https://github.com/ShimShtein/%{name}/
+Source0: https://github.com/theforeman/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
+Url: https://github.com/theforeman/%{name}/
 
 # EL7 doesn't define go_arche (it is available in go-srpm-macros which is EL8+)s
 %if ! 0%{?go_arches:1}
@@ -53,6 +53,9 @@ mkdir -p %{buildroot}%{_libexecdir}
 %doc README.md
 
 %changelog
+* Mon Oct 16 2023 Eric D. Helms <ericdhelms@gmail.com> - 0.0.3-1
+- Release 0.0.3
+
 * Tue Apr 05 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.0.1-1
 - Release 0.0.1
 
