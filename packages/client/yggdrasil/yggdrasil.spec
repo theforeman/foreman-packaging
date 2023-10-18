@@ -1,8 +1,8 @@
 %define debug_package %{nil}
 
 Name:    yggdrasil
-Version: 0.2.0
-Release: 3%{?dist}
+Version: 0.2.2
+Release: 1%{?dist}
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
@@ -11,7 +11,7 @@ Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/
 
 Patch0:  Use-gzip-c-instead-of-k.patch
 Patch1:  build-Remove-the-Makefile-preamble.patch
-Patch2:  Propagate-FOREMAN_REX_WORKDIR-to-workers.patch
+# Patch2:  Propagate-FOREMAN_REX_WORKDIR-to-workers.patch
 
 # EL7 doesn't define go_arches
 %if ! 0%{?go_arches:1}
@@ -72,6 +72,9 @@ make PREFIX=%{_prefix} \
 %{_libexecdir}/%{name}
 
 %changelog
+* Wed Oct 18 2023 Adam Ruzicka <aruzicka@redhat.com> - 0.2.2-1
+- Bump version to 0.2.2
+
 * Tue Sep 19 2023 Adam Ruzicka <aruzicka@redhat.com> - 0.2.0-3
 - Pass FOREMAN_REX_WORKDIR env var to the workers
 
