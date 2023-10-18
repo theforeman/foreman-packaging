@@ -1,8 +1,8 @@
 %define debug_package %{nil}
 
 Name:    yggdrasil
-Version: 0.2.0
-Release: 3%{?dist}
+Version: 0.2.3
+Release: 1%{?dist}
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
@@ -72,6 +72,9 @@ make PREFIX=%{_prefix} \
 %{_libexecdir}/%{name}
 
 %changelog
+* Wed Oct 18 2023 Adam Ruzicka <aruzicka@redhat.com> - 0.2.3-1
+- Bump version to 0.2.3
+
 * Tue Sep 19 2023 Adam Ruzicka <aruzicka@redhat.com> - 0.2.0-3
 - Pass FOREMAN_REX_WORKDIR env var to the workers
 
