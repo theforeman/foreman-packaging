@@ -1,4 +1,4 @@
-From fe405ffb868264cd171164731ba70b284bc5fc8e Mon Sep 17 00:00:00 2001
+From b8e4bbd37ef3ab902adfca3f0b9fbc8059f4b0fa Mon Sep 17 00:00:00 2001
 From: Adam Ruzicka <aruzicka@redhat.com>
 Date: Tue, 19 Sep 2023 16:17:07 +0200
 Subject: [PATCH] Propagate FOREMAN_REX_WORKDIR to workers
@@ -8,10 +8,10 @@ Subject: [PATCH] Propagate FOREMAN_REX_WORKDIR to workers
  1 file changed, 4 insertions(+)
 
 diff --git a/cmd/yggd/main.go b/cmd/yggd/main.go
-index 5f0a931..add5031 100644
+index 5c8aebc..721ed16 100644
 --- a/cmd/yggd/main.go
 +++ b/cmd/yggd/main.go
-@@ -320,6 +320,10 @@ func main() {
+@@ -377,6 +377,10 @@ func main() {
  			"YGG_SOCKET_ADDR=unix:" + c.String("socket-addr"),
  			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
  		}
@@ -21,7 +21,7 @@ index 5f0a931..add5031 100644
 +		}
  		for _, info := range fileInfos {
  			if strings.HasSuffix(info.Name(), "worker") {
- 				log.Debugf("starting worker: %v", info.Name())
+ 				if ExcludeWorkers[info.Name()] {
 -- 
 2.39.3
 
