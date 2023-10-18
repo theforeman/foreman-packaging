@@ -597,6 +597,8 @@ katello_packages:
         - "el8-foreman-{{ foreman_version }}"
         - "el8-foreman-plugins-{{ foreman_version }}"
         - "el8-katello-candlepin-{{ katello_version }}"
+  children:
+    satellite_packages: {}
   hosts:
     katello: {}
     katello-client-bootstrap: {}
@@ -1031,3 +1033,9 @@ foreman_release_packages:
         - el7-puppet-7
   hosts:
     foreman-release: {}
+
+satellite_packages:
+  vars:
+    package_base_dir: 'packages/satellite/'
+  hosts:
+    rubygem-foreman_theme_satellite: {}
