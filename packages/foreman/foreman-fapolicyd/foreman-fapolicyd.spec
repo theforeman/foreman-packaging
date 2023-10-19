@@ -1,6 +1,6 @@
 Name:     foreman-fapolicyd
 Version:  1.0.1
-Release:  1%{?dist}
+Release:  2%{?dist}
 Summary:  Foreman fapolicyd rules
 
 Group:    System Environment/Base
@@ -11,7 +11,6 @@ Source0:  https://codeload.github.com/theforeman/%{name}/tar.gz/v%{version}#/%{n
 BuildArch: noarch
 
 Requires: fapolicyd
-Requires: foreman-proxy-fapolicyd
 
 %description
 Foreman fapolicyd rules
@@ -59,5 +58,8 @@ Foreman Proxy fapolicyd rules
 %attr(0644,root,fapolicyd) %{_sysconfdir}/fapolicyd/rules.d/61-foreman-proxy.rules
 
 %changelog
+* Thu Oct 19 2023 Evgeni Golov - 1.0.1-2
+- Drop the requires from foreman-policyd to foreman-proxy-policyd
+
 * Thu Oct 05 2023 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-1
 - Initial release
