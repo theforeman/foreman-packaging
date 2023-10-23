@@ -45,7 +45,7 @@ jobs:
         sudo chmod +x /usr/local/bin/spectool /usr/local/bin/rpmdev-packager
     - name: Install dependencies for nodejs
       if: ${{ matrix.npm_name != null }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 12
     - name: Install npm2rpm
