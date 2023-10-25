@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}nodejs-node-sass
 Version: 4.14.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Wrapper around libsass
 License: MIT
 Group: Development/Libraries
@@ -476,6 +476,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Oct 25 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.14.1-3
+- Rebuild against NodeJS 14
+
 * Tue Sep 19 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.14.1-2
 - nInclude vendor directory
 
