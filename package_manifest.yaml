@@ -41,7 +41,7 @@ copr_projects:
     core_modules:
       - 'ruby:2.7'
       - 'python39:3.9'
-      - 'nodejs:12'
+      - 'nodejs:14'
       - 'postgresql:12'
     rhel_9: '9'
     rhel_8: '8'

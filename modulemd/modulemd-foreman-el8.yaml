@@ -19,7 +19,7 @@ data:
   dependencies:
     - buildrequires:
         platform: ['el8']
-        nodejs: ['12']
+        nodejs: ['14']
         ruby: ['2.7']
         postgresql: ['12']
       requires:
