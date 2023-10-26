@@ -4,8 +4,8 @@
 %global foreman_min_version 1.19.0
 
 Name: rubygem-%{gem_name}
-Version: 1.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.2.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Plugin for KernelCare
 License: GPLv3
 URL: https://github.com/maccelf/foreman_kernel_care
@@ -13,7 +13,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby >= 2.5.0
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.5.0
 BuildRequires: ruby >= 2.5.0
@@ -73,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Oct 26 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.1-1
+- Update to 1.2.1
+
 * Sun Oct 01 2023 Nadja Heitmann <nadjah@atix.de> 1.2.0-2
 - Update packaging
 
