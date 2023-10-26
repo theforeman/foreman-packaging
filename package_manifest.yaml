@@ -43,6 +43,8 @@ copr_projects:
       - 'python39:3.9'
       - 'nodejs:12'
       - 'postgresql:12'
+    core_buildroot_packages:
+      - 'foreman-build'
     rhel_9: '9'
     rhel_8: '8'
     rhel_7: '7'
@@ -62,6 +64,7 @@ copr_projects:
             - "https://yum.puppet.com/puppet7/el/{{ rhel_8 }}/x86_64/"
             - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
     plugins-copr:
       copr_project_name: "plugins-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
@@ -72,6 +75,7 @@ copr_projects:
             - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
             - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
     katello-copr:
       copr_project_name: "katello-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
@@ -83,6 +87,7 @@ copr_projects:
             - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
             - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
     client-copr:
       copr_project_name: "client-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'client-nightly-staging' if foreman_version != 'nightly' else False }}"
