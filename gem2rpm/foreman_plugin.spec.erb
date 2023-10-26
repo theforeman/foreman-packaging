@@ -43,9 +43,6 @@ Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-<% for req in spec.required_ruby_version -%>
-Requires: ruby<%= " #{req}" unless req.empty? %>
-<% end -%>
 <% if has_assets || has_webpack -%>
 BuildRequires: foreman-assets >= %{foreman_min_version}
 <% end -%>
