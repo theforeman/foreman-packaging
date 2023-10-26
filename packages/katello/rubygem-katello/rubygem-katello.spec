@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.11.0
-%global release 3
+%global release 4
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -18,6 +18,7 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}
+Requires: (katello-selinux if selinux-policy-targeted)
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -193,6 +194,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Oct 26 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.11.0-0.4.pre.master
+- Automatically depend on selinux package if needed
+
 * Fri Sep 29 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.11.0-0.3.pre.master
 - Drop rubygem-qpid_proton
 

@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -24,6 +24,8 @@ BuildArch:  noarch
 
 # Plugin was removed in Foreman 3.3, 3.5 includes DB cleanup
 Obsoletes: rubygem-foreman_docker < 5.0.0-4
+
+Requires: (%{name}-selinux if selinux-policy-targeted)
 
 Requires: ruby(release)
 Requires: rubygems
@@ -1010,6 +1012,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Oct 26 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.5.develop
+- Automatically depend on selinux package if needed
+
 * Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.4.develop
 - Require fapolicyd rules package if fapolicyd is present
 
