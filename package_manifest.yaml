@@ -647,7 +647,6 @@ foreman_plugin_packages:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     ansible-runner: {}
-    ansiblerole-satellite-receptor-installer: {}
     ansible-collection-theforeman-foreman: {}
     cjson: {}
     foreman-discovery-image-service: {}

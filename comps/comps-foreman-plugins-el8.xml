@@ -12,7 +12,6 @@
       <packagereq type="default">ansible-runner</packagereq>
       <packagereq type="default">ansiblerole-foreman_scap_client</packagereq>
       <packagereq type="default">ansiblerole-insights-client</packagereq>
-      <packagereq type="default">ansiblerole-satellite-receptor-installer</packagereq>
       <packagereq type="default">cjson</packagereq>
       <packagereq type="default">cjson-devel</packagereq>
       <packagereq type="default">foreman-discovery-image-service</packagereq>
