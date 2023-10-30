@@ -3,13 +3,20 @@
 %global plugin_name theme_satellite
 %global foreman_min_version 3.7.0
 
+%global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat")
+
 Name: rubygem-%{gem_name}
 Version: 13.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
 URL: https://github.com/RedHatSatellite/foreman_theme_satellite
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+%if %{downstream_build}
+BuildRequires: foreman_theme_satellite_assets
+Requires: satellite-lifecycle
+%endif
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -47,6 +54,11 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%if %{downstream_build}
+  rm -rf app/assets/images/%{gem_name}
+  cp -a /usr/share/foreman_theme_satellite_assets/%{gem_name} app/assets/images/
+%endif
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -90,6 +102,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Nov 14 2023 Evgeni Golov 13.2.0-2
+- Patch package when building downstream
+
 * Fri Nov 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 13.2.0-1
 - Update to 13.2.0
 
