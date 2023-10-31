@@ -26,3 +26,24 @@ data:
         platform: ['el8']
         ruby: ['2.7']
         postgresql: ['12']
+...
+---
+document: modulemd
+version: 2
+data:
+  name: foreman-devel
+  stream: el8
+  version: 0
+  arch: x86_64
+  summary: Foreman development module
+  description: >-
+    A module to make Foreman easier to develop.
+  license:
+    module:
+      - GPLv3
+  dependencies:
+    - requires:
+        platform: ['el8']
+        foreman: ['el8']
+        nodejs: ['14']
+...
