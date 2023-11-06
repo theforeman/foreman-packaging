@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.15.5
+Version: 1.16.3
 Release: 1%{?dist}
 Summary: Ruby FFI
 License: BSD-3-Clause
@@ -11,8 +11,8 @@ URL: https://github.com/ffi/ffi/wiki
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.3
-BuildRequires: ruby-devel >= 2.3
+Requires: ruby >= 2.5
+BuildRequires: ruby-devel >= 2.5
 BuildRequires: rubygems-devel
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
@@ -85,6 +85,9 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/ffi.gemspec
 
 %changelog
+* Mon Nov 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.16.3-1
+- Update to 1.16.3
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.15.5-1
 - Update to 1.15.5
 
