@@ -2,7 +2,7 @@
 %global gem_name apipie-dsl
 
 Name: rubygem-%{gem_name}
-Version: 2.6.0
+Version: 2.6.1
 Release: 1%{?dist}
 Summary: Ruby DSL documentation tool
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Nov 08 2023 Oleh Fedorenko <ofedoren@redhat.com> 2.6.1-1
+- Update to 2.6.1
+
 * Fri Oct 13 2023 Oleh Fedorenko <ofedoren@redhat.com> 2.6.0-1
 - Update to 2.6.0
 
