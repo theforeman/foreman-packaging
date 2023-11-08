@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.11.0
-%global release 4
+%global release 5
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -49,18 +49,18 @@ BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
 BuildRequires: rubygem(anemone)
-BuildRequires: rubygem(pulpcore_client) >= 3.28.0
-BuildRequires: rubygem(pulpcore_client) < 3.29.0
-BuildRequires: rubygem(pulp_file_client) >= 1.14.0
-BuildRequires: rubygem(pulp_file_client) < 1.15.0
-BuildRequires: rubygem(pulp_ansible_client) >= 0.18.0
-BuildRequires: rubygem(pulp_ansible_client) < 0.19.0
-BuildRequires: rubygem(pulp_container_client) >= 2.15.0
-BuildRequires: rubygem(pulp_container_client) < 2.16.0
+BuildRequires: rubygem(pulpcore_client) >= 3.39.0
+BuildRequires: rubygem(pulpcore_client) < 3.40.0
+BuildRequires: rubygem(pulp_file_client) >= 1.15.0
+BuildRequires: rubygem(pulp_file_client) < 1.16.0
+BuildRequires: rubygem(pulp_ansible_client) >= 0.20.0
+BuildRequires: rubygem(pulp_ansible_client) < 0.21.0
+BuildRequires: rubygem(pulp_container_client) >= 2.16.0
+BuildRequires: rubygem(pulp_container_client) < 2.17.0
 BuildRequires: rubygem(pulp_deb_client) >= 3.0.0
 BuildRequires: rubygem(pulp_deb_client) < 3.1.0
-BuildRequires: rubygem(pulp_rpm_client) >= 3.22.0
-BuildRequires: rubygem(pulp_rpm_client) < 3.23.0
+BuildRequires: rubygem(pulp_rpm_client) >= 3.23.0
+BuildRequires: rubygem(pulp_rpm_client) < 3.24.0
 BuildRequires: rubygem(pulp_certguard_client) < 2.0.0
 BuildRequires: rubygem(pulp_python_client) >= 3.10.0
 BuildRequires: rubygem(pulp_python_client) < 3.11.0
@@ -194,6 +194,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 08 2023 Ian Ballou <ianballou67@gmail.com> - 4.11.0-0.5.pre.master
+- Bump Pulpcore client requirements for 3.39
+
 * Thu Oct 26 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.11.0-0.4.pre.master
 - Automatically depend on selinux package if needed
 
