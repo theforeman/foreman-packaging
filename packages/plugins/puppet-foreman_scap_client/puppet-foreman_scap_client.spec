@@ -4,7 +4,7 @@
 
 Name:       puppet-%{puppet_module}
 Version:    1.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Puppet module to configure foreman_scap_client
 License:    GPLv2
 URL:        https://github.com/theforeman/%{name}
@@ -29,8 +29,9 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 
 %files
 %doc NEWS README.md REFERENCE.md
+%license COPYING
 %dir %{puppet_foreman_scap_client_dir}
-%license %{puppet_foreman_scap_client_dir}/COPYING
+%exclude %{puppet_foreman_scap_client_dir}/COPYING
 %exclude %{puppet_foreman_scap_client_dir}/NEWS
 %exclude %{puppet_foreman_scap_client_dir}/README.md
 %exclude %{puppet_foreman_scap_client_dir}/REFERENCE.md
@@ -40,6 +41,9 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 %{puppet_foreman_scap_client_dir}/templates
 
 %changelog
+* Wed Nov 08 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-2
+- Correctly identify license file
+
 * Wed Nov 08 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-1
 - Update to 1.0.0
 
