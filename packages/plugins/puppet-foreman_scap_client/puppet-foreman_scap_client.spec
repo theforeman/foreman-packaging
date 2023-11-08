@@ -1,19 +1,17 @@
 %global puppet_module foreman_scap_client
 %global puppet_full_name theforeman-%{puppet_module}
-
-%global puppet_modules_dir %{_datadir}/puppet/modules
-%global puppet_foreman_scap_client_dir %{puppet_modules_dir}/%{puppet_module}
+%global puppet_foreman_scap_client_dir %{_datadir}/puppet/modules/%{puppet_module}
 
 Name:       puppet-%{puppet_module}
-Version:    0.4.0
+Version:    1.0.0
 Release:    1%{?dist}
 Summary:    Puppet module to configure foreman_scap_client
 License:    GPLv2
 URL:        https://github.com/theforeman/%{name}
 Source0:    https://forgeapi.puppetlabs.com/v3/files/%{puppet_full_name}-%{version}.tar.gz
 BuildArch:  noarch
-Requires:   puppet >= 2.7.0
-Requires:   puppetlabs-stdlib >= 4.2.0
+Requires:   (puppet-agent >= 7 or puppet >= 7)
+Requires:   puppetlabs-stdlib >= 4.25.0
 
 %description
 Foreman SCAP client Puppet Module configures the client of the same name
@@ -30,24 +28,21 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 
 
 %files
-%doc NEWS COPYING README.md
-%dir %{puppet_modules_dir}/%{puppet_module}
-%{puppet_foreman_scap_client_dir}/COPYING
-%{puppet_foreman_scap_client_dir}/README.md
-%{puppet_foreman_scap_client_dir}/NEWS
+%doc NEWS README.md REFERENCE.md
+%dir %{puppet_foreman_scap_client_dir}
+%license %{puppet_foreman_scap_client_dir}/COPYING
+%exclude %{puppet_foreman_scap_client_dir}/NEWS
+%exclude %{puppet_foreman_scap_client_dir}/README.md
+%exclude %{puppet_foreman_scap_client_dir}/REFERENCE.md
 %{puppet_foreman_scap_client_dir}/metadata.json
-%{puppet_foreman_scap_client_dir}/Gemfile
-%{puppet_foreman_scap_client_dir}/Rakefile
 %{puppet_foreman_scap_client_dir}/lib
 %{puppet_foreman_scap_client_dir}/manifests
 %{puppet_foreman_scap_client_dir}/templates
-%exclude %{puppet_foreman_scap_client_dir}/spec
-%exclude %{puppet_foreman_scap_client_dir}/.travis.yml
-%exclude %{puppet_foreman_scap_client_dir}/.fixtures.yml
-%exclude %{puppet_foreman_scap_client_dir}/.git
-%exclude %{puppet_foreman_scap_client_dir}/.gitignore
 
 %changelog
+* Wed Nov 08 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-1
+- Update to 1.0.0
+
 * Mon Mar 02 2020 Ondrej Prazak <oprazak@redhat.com> 0.4.0-1
 - Update to 0.4.0
 
