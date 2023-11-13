@@ -1,13 +1,12 @@
 Name:		puppetlabs-stdlib
-Version:	5.2.0
+Version:	9.4.1
 Release:	1%{?dist}
 Summary:	Puppet Labs Standard Library
 License:	ASL 2.0
 URL:		https://github.com/puppetlabs/puppetlabs-stdlib
 Source0:	https://forge.puppet.com/v3/files/%{name}-%{version}.tar.gz
 BuildArch:	noarch
-Requires:	puppet >= 5.5.10
-Requires:	puppet < 7.0.0
+Requires:	((puppet-agent >= 7 with puppet-agent < 9) or (puppet >= 7 with puppet < 9))
 
 %description
 Puppet Labs Standard Library module.
@@ -19,16 +18,19 @@ Puppet Labs Standard Library module.
 
 %install
 mkdir -p %{buildroot}%{_datadir}/puppet/modules/stdlib
-cp -rp lib/ manifests/ types/ locales/ metadata.json %{buildroot}%{_datadir}/puppet/modules/stdlib/
+cp -rp functions/ lib/ manifests/ types/ metadata.json %{buildroot}%{_datadir}/puppet/modules/stdlib/
 
 
 %files
-%doc CHANGELOG.md 
-%doc README.md 
+%doc CHANGELOG.md
+%doc README.md
 %license LICENSE
 %{_datadir}/puppet/modules/stdlib
 
 %changelog
+* Mon Nov 13 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 9.4.1-1
+- Update to 9.4.1
+
 * Mon May 11 2020 <zhunting@redhat.com> - 5.2.0-1
 - Update Puppetlabs-stdlib to 5.2.0
 
