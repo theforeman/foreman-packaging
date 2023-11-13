@@ -4,7 +4,7 @@
 %global foreman_min_version 3.4
 
 Name: rubygem-%{gem_name}
-Version: 9.0.51
+Version: 9.0.52
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -21,7 +21,6 @@ Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
@@ -102,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Nov 13 2023 Chris Roberts <chrobert@redhat.com> 9.0.52-1
+- Update to 9.0.52
+
 * Thu Oct 12 2023 Shimon Shtein <sshtein@redhat.com> 9.0.51-1
 - Update to 9.0.51-1
 
