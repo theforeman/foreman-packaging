@@ -1,3 +1,9 @@
+ruby-foreman-statistics (2.1.0-1) stable; urgency=low
+
+  * 2.1.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Tue, 14 Nov 2023 11:46:04 +0000
+
 ruby-foreman-statistics (2.0.1-3) stable; urgency=low
 
   * Use foreman-plugin.mk
