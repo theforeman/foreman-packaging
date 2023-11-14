@@ -4,8 +4,8 @@
 %global foreman_min_version 3.1.0
 
 Name: rubygem-%{gem_name}
-Version: 2.0.1
-Release: 5%{?foremandist}%{?dist}
+Version: 2.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Add Statistics and Trends
 License: GPLv3
 URL: https://theforeman.org
@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Nov 14 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.1.0-1
+- Update to 2.1.0
+
 * Tue Nov 14 2023 Evgeni Golov 2.0.1-5
 - Regenerate RPM spec based on latest template
 
