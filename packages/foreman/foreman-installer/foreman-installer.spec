@@ -1,4 +1,4 @@
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -17,14 +17,14 @@ BuildArch:  noarch
 Requires:   curl
 Requires:   hostname
 Requires:   puppet-agent >= 7.0.0
-Requires:   rubygem(kafo) >= 7.2.0
+Requires:   rubygem(kafo) >= 7.3.0
 Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 7.0.0
 BuildRequires: rubygem(rake)
-BuildRequires: rubygem(kafo) >= 7.2.0
+BuildRequires: rubygem(kafo) >= 7.3.0
 BuildRequires: rubygem(kafo) < 8.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 5
@@ -133,6 +133,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Nov 15 2023 Evgeni Golov - 1:3.9.0-0.3.develop
+- Require kafo >= 7.3.0
+
 * Mon Oct 02 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.9.0-0.2.develop
 - Require at least Kafo 7.2 to show failed resources
 
