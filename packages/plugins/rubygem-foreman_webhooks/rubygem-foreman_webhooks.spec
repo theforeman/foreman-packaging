@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 3.2.1
+Version: 3.2.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
@@ -13,7 +13,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby >= 2.5.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.5.0
@@ -93,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 15 2023 Adam Ruzicka <aruzicka@redhat.com> 3.2.2-1
+- Update to 3.2.2
+
 * Wed Aug 09 2023 Oleh Fedorenko <ofedoren@redhat.com> 3.2.1-1
 - Update to 3.2.1
 
