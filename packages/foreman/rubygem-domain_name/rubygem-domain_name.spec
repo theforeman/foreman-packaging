@@ -49,7 +49,7 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.github
 %license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/data
 %{gem_libdir}
