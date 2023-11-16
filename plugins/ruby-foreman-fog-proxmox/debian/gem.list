@@ -1,5 +1,5 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_fog_proxmox-0.14.3.gem"
+GEMS="https://rubygems.org/downloads/foreman_fog_proxmox-0.15.0.gem"
 GEMS="$GEMS https://rubygems.org/downloads/fog-proxmox-0.15.0.gem"
 # shouldn't be needed, but is currently specified in the gemspec
 # https://github.com/fog/fog-proxmox/pull/71
