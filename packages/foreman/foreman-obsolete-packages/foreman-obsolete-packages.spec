@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.5
+Version: 1.6
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -13,6 +13,8 @@ Obsoletes: rubygem-foreman_memcache < 0.1.1-6
 Obsoletes: rubygem-quantile < 0.2.0-6
 Obsoletes: rubygem-runcible < 2.13.1-3
 Obsoletes: rubygem-foreman_column_view < 0.4.0-7
+Obsoletes: rubygem-unf < 0.1.4-2
+Obsoletes: rubygem-unf_ext < 0.0.8.2-2
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -27,6 +29,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Thu Nov 16 2023 Evgeni Golov - 1.6-1
+- Obsolete rubygem-unf and rubygem-unf_ext
+
 * Wed May 10 2023 Dirk Goetz <dirk.goetz@netways.de> - 1.5-1
 - Obsolete rubygem-foreman_column_view
 
