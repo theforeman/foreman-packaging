@@ -393,8 +393,6 @@ foreman_core_packages:
     rubygem-tzinfo: {}
     rubygem-uber: {}
     rubygem-uglifier: {}
-    rubygem-unf: {}
-    rubygem-unf_ext: {}
     rubygem-unicode: {}
     rubygem-unicode-display_width: {}
     rubygem-validates_lengths_from_database: {}
