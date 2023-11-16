@@ -179,8 +179,9 @@ depend on each other, `mockchain` can be very helpful. To do this use Obal `mock
 ## HOWTO: removing a package
 
 1. `./remove_package rubygem-example`
-1. On merge, untag all builds from nightly Koji tags (`untag-build --all`) and
-   block the package (`block-pkg`)
+1. On merge, delete the package from Copr:
+
+    copr-cli delete-package --name rubygem-example @theforeman/$PROJECT-nightly-staging
 
 ## How does this repo work?
 
