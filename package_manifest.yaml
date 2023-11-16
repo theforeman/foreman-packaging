@@ -65,6 +65,12 @@ copr_projects:
             - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
+        - name: "rhel-{{ rhel_9 }}-x86_64"
+          external_repos:
+            - "https://yum.puppet.com/puppet7/el/{{ rhel_9 }}/x86_64/"
+            #- "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_9 }}.xml"
+          #buildroot_packages: "{{ core_buildroot_packages }}"
     plugins-copr:
       copr_project_name: "plugins-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
