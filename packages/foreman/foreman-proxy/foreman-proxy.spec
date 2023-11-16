@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -244,6 +244,9 @@ exit 0
 
 
 %changelog
+* Thu Nov 16 2023 Evgeni Golov - 3.9.0-0.3.develop
+- yolo el9
+
 * Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.2.develop
 - Require fapolicyd rules package if fapolicyd is present
 
