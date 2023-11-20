@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.4.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Gettext is a pure Ruby libary and tools to localize messages
 License: Ruby and LGPLv3+
 URL: https://ruby-gettext.github.io/
@@ -16,11 +16,12 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
-# CI runs rpmlint on EL7
-%if 0%{?rhel} >= 8
 # prime is a default gem in Ruby < 3.1, bundled in >= 3.1
 Requires: (rubygem(prime) or ruby-default-gems < 3.1)
-%endif
+
+# Prefer to consume racc as a default gem. ruby-default-gems provides the gemspec, ruby-libs the files
+Requires: ruby-default-gems
+Requires: bundled(rubygem-racc)
 
 %description
 Gettext is a GNU gettext-like program for Ruby.
@@ -41,6 +42,10 @@ Documentation for %{name}.
 
 # prime is a default gem in Ruby < 3.1, bundled in >= 3.1
 %gemspec_remove_dep -g prime
+
+# On EL8 rubygem-racc is bundled into ruby-libs + ruby-default-libs and
+# auto-generated dependencies will break dependency resolution
+%gemspec_remove_dep -g racc
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -87,6 +92,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 20 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.9-2
+- Fix dependency on rubygem-racc
+
 * Sun Nov 19 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.4.9-1
 - Update to 3.4.9
 
