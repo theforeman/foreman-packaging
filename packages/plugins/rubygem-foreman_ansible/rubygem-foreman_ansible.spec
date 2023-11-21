@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 3.7
+%global foreman_min_version 3.8.1
 
 Name: rubygem-%{gem_name}
-Version: 12.0.7
+Version: 13.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -13,7 +13,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
@@ -100,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Nov 21 2023 nofaralfasi <nalfassi@redhat.com> 13.0.0-1
+- Update to 13.0.0
+
 * Wed Sep 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 12.0.7-1
 - Update to 12.0.7
 
