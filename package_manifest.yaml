@@ -194,6 +194,7 @@ foreman_core_packages:
       - "{{ hostvars['foreman-copr'] }}"
   children:
     rails_core_packages: {}
+    ruby_core_packages: {}
   hosts:
     dynflow-utils: {}
     foreman:
@@ -204,6 +205,18 @@ foreman_core_packages:
     keycloak-httpd-client-install: {}
     pcp-mmvstatsd: {}
     python-websockify: {}
+    rubygem-hammer_cli:
+      source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
+      source_system: jenkins
+    rubygem-hammer_cli_foreman:
+      source_location: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release
+      source_system: jenkins
+
+ruby_core_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
+  hosts:
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
@@ -285,12 +298,6 @@ foreman_core_packages:
     rubygem-googleauth: {}
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
-    rubygem-hammer_cli:
-      source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
-      source_system: jenkins
-    rubygem-hammer_cli_foreman:
-      source_location: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release
-      source_system: jenkins
     rubygem-hashie: {}
     rubygem-highline: {}
     rubygem-hocon: {}
