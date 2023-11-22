@@ -649,6 +649,8 @@ katello_packages:
     rubygem-zest: {}
 
 foreman_plugin_packages:
+  children:
+    ruby_plugin_packages: {}
   hosts:
     ansible-collection-theforeman-operations: {}
     ansiblerole-foreman_scap_client: {}
@@ -671,38 +673,6 @@ foreman_plugin_packages:
     python-pexpect: {}
     python-ptyprocess: {}
     python-pyparsing: {}
-    rubygem-acts_as_list: {}
-    rubygem-angular-rails-templates: {}
-    rubygem-aws-eventstream: {}
-    rubygem-aws-sigv4: {}
-    rubygem-azure_mgmt_compute: {}
-    rubygem-azure_mgmt_network: {}
-    rubygem-azure_mgmt_resources: {}
-    rubygem-azure_mgmt_storage: {}
-    rubygem-azure_mgmt_subscriptions: {}
-    rubygem-bcrypt_pbkdf: {}
-    rubygem-chunky_png: {}
-    rubygem-dry-configurable: {}
-    rubygem-dry-container: {}
-    rubygem-dry-core: {}
-    rubygem-dry-equalizer: {}
-    rubygem-dry-inflector: {}
-    rubygem-dry-initializer: {}
-    rubygem-dry-logic: {}
-    rubygem-dry-types: {}
-    rubygem-dry-schema: {}
-    rubygem-dry-validation: {}
-    rubygem-ed25519: {}
-    rubygem-elastic-apm: {}
-    rubygem-et-orbi: {}
-    rubygem-deface: {}
-    rubygem-diffy: {}
-    rubygem-down: {}
-    rubygem-faraday-cookie_jar: {}
-    rubygem-faraday-detailed_logger: {}
-    rubygem-ffi-compiler: {}
-    rubygem-fog-kubevirt: {}
-    rubygem-fog-proxmox: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
@@ -742,19 +712,6 @@ foreman_plugin_packages:
     rubygem-foreman_webhooks: {}
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
-    rubygem-fugit: {}
-    rubygem-gapic-common: {}
-    rubygem-git: {}
-    rubygem-google-cloud-common: {}
-    rubygem-google-cloud-compute: {}
-    rubygem-google-cloud-compute-v1: {}
-    rubygem-google-cloud-core: {}
-    rubygem-google-cloud-errors: {}
-    rubygem-google-protobuf: {}
-    rubygem-googleapis-common-protos: {}
-    rubygem-googleapis-common-protos-types: {}
-    rubygem-graphite-api: {}
-    rubygem-grpc: {}
     rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
     rubygem-hammer_cli_foreman_azure_rm: {}
@@ -771,6 +728,55 @@ foreman_plugin_packages:
     rubygem-hammer_cli_foreman_tasks: {}
     rubygem-hammer_cli_foreman_templates: {}
     rubygem-hammer_cli_foreman_webhooks: {}
+    yggdrasil-worker-forwarder: {}
+
+ruby_plugin_packages:
+  hosts:
+    rubygem-acts_as_list: {}
+    rubygem-angular-rails-templates: {}
+    rubygem-aws-eventstream: {}
+    rubygem-aws-sigv4: {}
+    rubygem-azure_mgmt_compute: {}
+    rubygem-azure_mgmt_network: {}
+    rubygem-azure_mgmt_resources: {}
+    rubygem-azure_mgmt_storage: {}
+    rubygem-azure_mgmt_subscriptions: {}
+    rubygem-bcrypt_pbkdf: {}
+    rubygem-chunky_png: {}
+    rubygem-dry-configurable: {}
+    rubygem-dry-container: {}
+    rubygem-dry-core: {}
+    rubygem-dry-equalizer: {}
+    rubygem-dry-inflector: {}
+    rubygem-dry-initializer: {}
+    rubygem-dry-logic: {}
+    rubygem-dry-types: {}
+    rubygem-dry-schema: {}
+    rubygem-dry-validation: {}
+    rubygem-ed25519: {}
+    rubygem-elastic-apm: {}
+    rubygem-et-orbi: {}
+    rubygem-deface: {}
+    rubygem-diffy: {}
+    rubygem-down: {}
+    rubygem-faraday-cookie_jar: {}
+    rubygem-faraday-detailed_logger: {}
+    rubygem-ffi-compiler: {}
+    rubygem-fog-kubevirt: {}
+    rubygem-fog-proxmox: {}
+    rubygem-fugit: {}
+    rubygem-gapic-common: {}
+    rubygem-git: {}
+    rubygem-google-cloud-common: {}
+    rubygem-google-cloud-compute: {}
+    rubygem-google-cloud-compute-v1: {}
+    rubygem-google-cloud-core: {}
+    rubygem-google-cloud-errors: {}
+    rubygem-google-protobuf: {}
+    rubygem-googleapis-common-protos: {}
+    rubygem-googleapis-common-protos-types: {}
+    rubygem-graphite-api: {}
+    rubygem-grpc: {}
     rubygem-http: {}
     rubygem-http-form_data: {}
     rubygem-http_parser.rb: {}
@@ -800,14 +806,10 @@ foreman_plugin_packages:
     rubygem-recursive-open-struct: {}
     rubygem-rqrcode: {}
     rubygem-sentry-raven: {}
-    rubygem-smart_proxy_container_gateway: {}
-    rubygem-smart_proxy_acd: {}
-    rubygem-smart_proxy_hdm: {}
     rubygem-timeliness: {}
     rubygem-ttfunk: {}
     rubygem-vault: {}
     rubygem-zscheduler: {}
-    yggdrasil-worker-forwarder: {}
 
 foreman_proxy_plugin_packages:
   hosts:
@@ -821,12 +823,14 @@ foreman_proxy_plugin_packages:
     rubygem-rprogram: {}
     rubygem-ruby-hmac: {}
     rubygem-ruby-nmap: {}
+    rubygem-smart_proxy_acd: {}
     rubygem-smart_proxy_ansible: {}
+    rubygem-smart_proxy_container_gateway: {}
+    rubygem-smart_proxy_dhcp_bluecat: {}
+    rubygem-smart_proxy_dhcp_device42: {}
     rubygem-smart_proxy_dhcp_dnsmasq: {}
     rubygem-smart_proxy_dhcp_infoblox: {}
     rubygem-smart_proxy_dhcp_remote_isc: {}
-    rubygem-smart_proxy_dhcp_device42: {}
-    rubygem-smart_proxy_dhcp_bluecat: {}
     rubygem-smart_proxy_discovery: {}
     rubygem-smart_proxy_discovery_image: {}
     rubygem-smart_proxy_dns_dnsmasq: {}
@@ -834,6 +838,7 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
+    rubygem-smart_proxy_hdm: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
     rubygem-smart_proxy_openscap: {}
