@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 3.7.0
+%global foreman_min_version 3.9
 
 Name: rubygem-%{gem_name}
-Version: 8.3.2
+Version: 9.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
@@ -14,7 +14,6 @@ Source1: %{gem_name}.logrotate
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
@@ -155,6 +154,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Thu Nov 23 2023 Adam Ruzicka <aruzicka@redhat.com> 9.0.0-1
+- Update to 9.0.0
+
 * Wed Oct 25 2023 Foreman Packaging Automation <packaging@theforeman.org> 8.3.2-1
 - Update to 8.3.2
 
