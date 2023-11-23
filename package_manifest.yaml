@@ -351,6 +351,7 @@ ruby_core_packages:
     rubygem-promise.rb: {}
     rubygem-public_suffix: {}
     rubygem-puma: {}
+    rubygem-puma-metrics: {}
     rubygem-puma-status: {}
     rubygem-rabl: {}
     rubygem-rack: {}
