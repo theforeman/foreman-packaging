@@ -320,6 +320,7 @@ ruby_core_packages:
     rubygem-mail: {}
     rubygem-marcel: {}
     rubygem-memoist: {}
+    rubygem-memory_profiler: {}
     rubygem-method_source: {}
     rubygem-mime-types: {}
     rubygem-mime-types-data: {}
@@ -356,6 +357,7 @@ ruby_core_packages:
     rubygem-rack: {}
     rubygem-rack-cors: {}
     rubygem-rack-jsonp: {}
+    rubygem-rack-mini-profiler: {}
     rubygem-rack-protection: {}
     rubygem-rack-test: {}
     rubygem-rails-dom-testing: {}
@@ -392,6 +394,7 @@ ruby_core_packages:
     rubygem-sprockets: {}
     rubygem-sprockets-rails: {}
     rubygem-sshkey: {}
+    rubygem-stackprof: {}
     rubygem-statsd-instrument: {}
     rubygem-sqlite3: {}
     rubygem-text: {}
