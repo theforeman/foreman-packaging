@@ -66,6 +66,23 @@ copr_projects:
             - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
+    foreman-copr-with-el9:
+      copr_project_name: "foreman-{{ foreman_version }}-staging"
+      copr_project_fork_from: "{{ 'foreman-nightly-staging' if foreman_version != 'nightly' else False }}"
+      copr_project_chroots:
+        - name: "rhel-{{ rhel_8 }}-x86_64"
+          modules: "{{ core_modules }}"
+          external_repos:
+            - "{{ puppet_baseurl }}/el/{{ rhel_8 }}/x86_64/"
+            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
+        - name: "rhel-{{ rhel_9 }}-x86_64"
+          external_repos:
+            - "{{ puppet_baseurl }}/el/{{ rhel_9 }}/x86_64/"
+            - "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_9 }}.xml"
+          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
     plugins-copr:
       copr_project_name: "plugins-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
@@ -173,7 +190,7 @@ plugin_packages:
 rails_core_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['foreman-copr'] }}"
+      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     rubygem-actioncable: {}
     rubygem-actionmailbox: {}
