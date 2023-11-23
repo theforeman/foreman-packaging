@@ -48,6 +48,7 @@ copr_projects:
     rhel_9: '9'
     rhel_8: '8'
     rhel_7: '7'
+    puppet_baseurl: https://yum.puppet.com/puppet7
     root_repo_url: https://download.copr.fedorainfracloud.org/results/@theforeman
     foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
     plugins_staging: "{{ root_repo_url }}/plugins-{{ foreman_version }}-staging"
@@ -61,7 +62,7 @@ copr_projects:
         - name: "rhel-{{ rhel_8 }}-x86_64"
           modules: "{{ core_modules }}"
           external_repos:
-            - "https://yum.puppet.com/puppet7/el/{{ rhel_8 }}/x86_64/"
+            - "{{ puppet_baseurl }}/el/{{ rhel_8 }}/x86_64/"
             - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
