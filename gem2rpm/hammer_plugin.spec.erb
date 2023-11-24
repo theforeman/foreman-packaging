@@ -32,9 +32,8 @@ BuildRequires: <%= requirement 'rubygems-devel', req %>
 <% end -%>
 <% unless spec.extensions.empty? -%>
 <% for dep in runtime_dependencies.virtualize -%>
-<% for req in dep.requirement -%>
-BuildRequires: <%= requirement(dep.name, req) %>
-<% end -%>
+<% build_requires = dep.requirement.map { |req| requirement(dep.name, req) } -%>
+BuildRequires: <%= build_requires.size > 1 ? "(#{build_requires.join(' with ')})" : build_requires.first %>
 <% end -%>
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires

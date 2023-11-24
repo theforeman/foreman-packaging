@@ -56,27 +56,20 @@ BuildRequires: <%= requirement "ruby#{'-devel' unless spec.extensions.empty?}", 
 <% for req in spec.required_rubygems_version -%>
 BuildRequires: <%= requirement 'rubygems-devel', req %>
 <% end -%>
-<% unless spec.extensions.empty? -%>
+<% if !spec.extensions.empty? || has_assets || has_webpack -%>
 <% for dep in runtime_dependencies.virtualize -%>
-<% for req in dep.requirement -%>
-BuildRequires: <%= requirement(dep.name, req) %>
+<% build_requires = dep.requirement.map { |req| requirement(dep.name, req) } -%>
+BuildRequires: <%= build_requires.size > 1 ? "(#{build_requires.join(' with ')})" : build_requires.first %>
 <% end -%>
 <% end -%>
+<% if spec.extensions.empty? -%>
+BuildArch: noarch
+<% else -%>
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
 <% end -%>
-<% if spec.extensions.empty? -%>
-BuildArch: noarch
-<% end -%>
 Provides: foreman-plugin-%{plugin_name} = %{version}
-<% if has_assets || has_webpack -%>
-<% for d in spec.runtime_dependencies -%>
-<% for req in d.requirement -%>
-BuildRequires: rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
-<% end -%>
-<% end -%>
-<% end -%>
 # end specfile generated dependencies
 <% if has_package_json -%>
 
