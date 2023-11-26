@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (21.2.0-1) stable; urgency=low
+
+  * 21.2.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 26 Nov 2023 04:09:08 +0000
+
 ruby-foreman-bootdisk (21.1.0-1) stable; urgency=low
 
   * 21.1.0 released
