@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.11.0
-%global release 5
+%global release 6
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -19,6 +19,8 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}
 Requires: (katello-selinux if selinux-policy-targeted)
+
+BuildRequires: gettext
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -117,6 +119,10 @@ This package can be used to rebuild the assets for %{name}.
 %setup -q -n  %{gem_name}-%{version}%{?prerelease}
 
 %build
+# Build .mo files
+# TODO: make it part of foreman_precompile_plugin?
+make -C locale all-mo
+
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}%{?prerelease}.gemspec
 
@@ -172,6 +178,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Nov 27 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.11.0-0.6.pre.master
+- Build mo files for gettext
+
 * Fri Nov 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.11.0-0.5.pre.master
 - Update Gem and NPM dependencies
 
