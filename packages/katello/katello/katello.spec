@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:       katello
-Version:    4.11.0
+Version:    4.12.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Nov 27 2023 Ian Ballou <ianballou67@gmail.com> - 4.12.0-0.1.master
+- Bump version to 4.12.0
+
 * Fri Sep 29 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.11.0-0.2.master
 - Remove cert RPMs from change hostname
 
