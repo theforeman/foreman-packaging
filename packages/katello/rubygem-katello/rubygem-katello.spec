@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.9
-%global foreman_max_version 3.10
+%global foreman_min_version 3.10
+%global foreman_max_version 3.11
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.11.0
-%global release 5
+%global mainver 4.12.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -172,6 +172,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Nov 27 2023 Ian Ballou <ianballou67@gmail.com> - 4.12.0-0.1.pre.master
+- Bump version to 4.12.0
+
 * Fri Nov 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.11.0-0.5.pre.master
 - Update Gem and NPM dependencies
 

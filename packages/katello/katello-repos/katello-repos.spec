@@ -5,10 +5,10 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        4.11
+Version:        4.12
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Nov 27 2023 Ian Ballou <ianballou67@gmail.com> - 4.12-0.1.nightly
+- Bump version to 4.12.0
+
 * Wed Nov 15 2023 Ian Ballou <ianballou67@gmail.com> - 4.11-0.2.nightly
 - Bump Pulpcore version to 3.39
 
