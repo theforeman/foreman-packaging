@@ -2,8 +2,8 @@
 all:
   vars:
     foremandist: .fm3_9
-    foreman_version: 'nightly'
-    katello_version: 'nightly'
+    foreman_version: '3.9'
+    katello_version: '4.11'
     all_tags:
       foreman-el8:
         name: "foreman-{{ foreman_version }}-el8"
