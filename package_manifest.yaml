@@ -78,7 +78,7 @@ copr_projects:
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
     katello-copr:
-      copr_project_name: "katello-{{ foreman_version }}-staging"
+      copr_project_name: "katello-{{ katello_version }}-staging"
       copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
         - name: "rhel-{{ rhel_8 }}-x86_64"
