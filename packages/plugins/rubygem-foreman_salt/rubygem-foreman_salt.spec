@@ -4,7 +4,7 @@
 %global foreman_min_version 1.24
 
 Name: rubygem-%{gem_name}
-Version: 15.2.2
+Version: 15.2.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for Salt
 License: GPLv3
@@ -16,7 +16,6 @@ Requires: foreman >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
@@ -25,7 +24,7 @@ BuildRequires: rubygem(deface) < 2.0
 BuildRequires: rubygem(foreman_remote_execution) >= 9.0
 BuildRequires: rubygem(foreman_remote_execution) < 12
 BuildRequires: rubygem(foreman-tasks) >= 7.0
-BuildRequires: rubygem(foreman-tasks) < 9
+BuildRequires: rubygem(foreman-tasks) < 10
 # end specfile generated dependencies
 
 %description
@@ -83,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Nov 28 2023 Bernhard Suttner <suttner@atix.de> 15.2.3-1
+- Update to 15.2.3
+
 * Thu Sep 07 2023 Foreman Packaging Automation <packaging@theforeman.org> 15.2.2-1
 - Update to 15.2.2
 
