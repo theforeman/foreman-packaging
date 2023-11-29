@@ -52,7 +52,7 @@ copr_projects:
     root_repo_url: https://download.copr.fedorainfracloud.org/results/@theforeman
     foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
     plugins_staging: "{{ root_repo_url }}/plugins-{{ foreman_version }}-staging"
-    katello_staging: "{{ root_repo_url }}/katello-{{ foreman_version }}-staging"
+    katello_staging: "{{ root_repo_url }}/katello-{{ katello_version }}-staging"
     client_staging: "{{ root_repo_url }}/client-{{ foreman_version }}-staging"
   hosts:
     foreman-copr:
