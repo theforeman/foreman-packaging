@@ -1,5 +1,5 @@
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -133,6 +133,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Nov 29 2023 Patrick Creech <pcreech@redhat.com> - 1:3.9.0-0.3.rc2
+- Release foreman-installer 3.9.0rc2
+
 * Wed Nov 15 2023 Evgeni Golov - 1:3.9.0-0.3.develop
 - Require kafo >= 7.3.0
 

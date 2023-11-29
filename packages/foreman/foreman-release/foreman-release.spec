@@ -14,7 +14,7 @@
 %endif
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
@@ -81,6 +81,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed Nov 29 2023 Patrick Creech <pcreech@redhat.com> - 3.9.0-0.2.rc2
+- Release foreman-release 3.9.0rc2
+
 * Fri Sep 29 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.2.develop
 - Drop qpid repo
 
