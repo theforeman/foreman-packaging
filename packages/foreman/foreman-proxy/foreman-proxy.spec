@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -239,6 +239,9 @@ exit 0
 
 
 %changelog
+* Wed Nov 29 2023 Patrick Creech <pcreech@redhat.com> - 3.9.0-0.3.rc2
+- Release foreman-proxy 3.9.0rc2
+
 * Fri Nov 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.3.develop
 - Update Gem dependencies
 

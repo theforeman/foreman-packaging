@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 6
-%global prereleasesource develop
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -866,6 +866,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Nov 29 2023 Patrick Creech <pcreech@redhat.com> - 3.9.0-0.6.rc2
+- Release foreman 3.9.0rc2
+
 * Fri Nov 24 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-0.6.develop
 - Update Gem and NPM dependencies
 
