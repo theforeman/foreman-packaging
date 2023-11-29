@@ -1,3 +1,9 @@
+foreman (3.10.0-1) stable; urgency=low
+
+  * Bump changelog to 3.10.0 to match VERSION
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Wed, 29 Nov 2023 09:47:35 -0500
+
 foreman (3.9.0-2) stable; urgency=low
 
   * add PCP subpackage
