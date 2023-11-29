@@ -4,7 +4,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    3.9.0
+Version:    3.10.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -133,6 +133,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Nov 29 2023 Zach Huntington-Meath <zhunting@redhat.com> - 1:3.10.0-0.3.develop
+- Bump version to 3.10-develop
+
 * Wed Nov 15 2023 Evgeni Golov - 1:3.9.0-0.3.develop
 - Require kafo >= 7.3.0
 
