@@ -1,3 +1,9 @@
+foreman (3.9.0~rc2-1) stable; urgency=low
+
+  * 3.9.0-rc2 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Thu, 30 Nov 2023 13:11:22 -0500
+
 foreman (3.9.0-2) stable; urgency=low
 
   * add PCP subpackage
