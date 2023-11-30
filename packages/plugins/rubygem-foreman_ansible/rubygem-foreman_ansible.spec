@@ -4,7 +4,7 @@
 %global foreman_min_version 3.8.1
 
 Name: rubygem-%{gem_name}
-Version: 13.0.0
+Version: 13.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -18,26 +18,21 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
+BuildRequires: (rubygem(acts_as_list) >= 1.0.3 with rubygem(acts_as_list) < 1.1)
+BuildRequires: rubygem(deface) < 2.0
+BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 12)
+BuildRequires: (rubygem(foreman-tasks) >= 7.0 with rubygem(foreman-tasks) < 10)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(acts_as_list) >= 1.0.3
-BuildRequires: rubygem(acts_as_list) < 1.1
-BuildRequires: rubygem(deface) < 2.0
-BuildRequires: rubygem(foreman_remote_execution) >= 9.0
-BuildRequires: rubygem(foreman_remote_execution) < 12
-BuildRequires: rubygem(foreman-tasks) >= 7.0
-BuildRequires: rubygem(foreman-tasks) < 9
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 12.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(react-json-tree) >= 0.11.0
-BuildRequires: npm(react-json-tree) < 1.0.0
+BuildRequires: (npm(react-json-tree) >= 0.11.0 with npm(react-json-tree) < 1.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -99,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Nov 30 2023 nofaralfasi <nalfassi@redhat.com> 13.0.1-1
+- Update to 13.0.1
+
 * Tue Nov 21 2023 nofaralfasi <nalfassi@redhat.com> 13.0.0-1
 - Update to 13.0.0
 
