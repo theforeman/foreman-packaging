@@ -1,11 +1,12 @@
 %global pulpcore_version 3.39
+%global candlepin_version 4.3
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.12
@@ -16,6 +17,7 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
+Source1:        candlepin.gpg
 
 BuildArch:      noarch
 
@@ -38,6 +40,7 @@ install -d -m 0755 %{buildroot}%{repo_dir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/pki/rpm-gpg/
 
 install -m 644 %{SOURCE0} %{buildroot}%{repo_dir}/
+install -Dpm0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 if [[ '%{release}' == *"nightly"* ]];then
     REPO_VERSION='nightly'
@@ -58,6 +61,7 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
     sed -i "s/@REPO_GPGCHECK@/${REPO_GPGCHECK}/" $repofile
     sed -i "s/@PULPCORE_VERSION@/%pulpcore_version/" $repofile
+    sed -i "s/@CANDLEPIN_VERSION@/%candlepin_version/" $repofile
 done
 
 %clean
@@ -66,8 +70,12 @@ rm -rf %{buildroot}
 %files
 %defattr(-, root, root)
 %config %{repo_dir}/*.repo
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Fri Dec 01 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.12-0.2.nightly
+- Use dedicated Candlepin release repository
+
 * Mon Nov 27 2023 Ian Ballou <ianballou67@gmail.com> - 4.12-0.1.nightly
 - Bump version to 4.12.0
 
