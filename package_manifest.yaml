@@ -509,7 +509,7 @@ foreman_nodejs_packages:
 foreman_installer_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['foreman-copr'] }}"
+      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     foreman-fapolicyd: {}
     foreman-installer:
