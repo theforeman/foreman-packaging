@@ -4,6 +4,7 @@ all:
     foremandist: .fm3_9
     foreman_version: '3.9'
     katello_version: '4.11'
+    candlepin_version: '4.3'
     all_tags:
       foreman-el8:
         name: "foreman-{{ foreman_version }}-el8"
@@ -133,14 +134,14 @@ foreman_packages:
         - el8-extras
         - el8-powertools
         - el8-puppet-7
-        - "el8-katello-candlepin-{{ katello_version }}"
+        - "el8-katello-candlepin-{{ candlepin_version }}"
       rhel-8-x86_64:
         - el8-baseos
         - el8-appstream
         - el8-extras
         - el8-powertools
         - el8-puppet-7
-        - "el8-katello-candlepin-{{ katello_version }}"
+        - "el8-katello-candlepin-{{ candlepin_version }}"
   children:
     foreman_core_packages: {}
     foreman_proxy_packages: {}
@@ -602,7 +603,7 @@ katello_packages:
         - el8-puppet-7
         - "el8-foreman-{{ foreman_version }}"
         - "el8-foreman-plugins-{{ foreman_version }}"
-        - "el8-katello-candlepin-{{ katello_version }}"
+        - "el8-katello-candlepin-{{ candlepin_version }}"
   children:
     satellite_packages: {}
   hosts:
@@ -864,7 +865,7 @@ repoclosures:
           - el8-powertools
           - el8-extras
           - el8-puppet-7
-          - "el8-katello-candlepin-{{ katello_version }}"
+          - "el8-katello-candlepin-{{ candlepin_version }}"
     plugins-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -893,7 +894,7 @@ repoclosures:
           - el8-puppet-7
           - "el8-foreman-{{ foreman_version }}"
           - "el8-foreman-plugins-{{ foreman_version }}"
-          - "el8-katello-candlepin-{{ katello_version }}"
+          - "el8-katello-candlepin-{{ candlepin_version }}"
     foreman-client-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -941,7 +942,7 @@ repoclosures:
           - el8-powertools
           - el8-extras
           - el8-puppet-7
-          - "el8-katello-candlepin-{{ katello_version }}-staging"
+          - "el8-katello-candlepin-{{ candlepin_version }}-staging"
     plugins-staging-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -970,7 +971,7 @@ repoclosures:
           - el8-puppet-7
           - "el8-foreman-{{ foreman_version }}-staging"
           - "el8-foreman-plugins-{{ foreman_version }}-staging"
-          - "el8-katello-candlepin-{{ katello_version }}-staging"
+          - "el8-katello-candlepin-{{ candlepin_version }}-staging"
     foreman-client-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
