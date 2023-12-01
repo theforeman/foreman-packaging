@@ -10,10 +10,10 @@ gpgcheck=@REPO_GPGCHECK@
 # Candlepin RPMs as supported by Katello - This is a coordinated
 # copy of Candlepin's packages in order to ensure compatibility
 
-[katello-candlepin]
+[candlepin]
 name=Candlepin: an open source entitlement management system.
-baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/candlepin/@DIST@/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+baseurl=https://yum.theforeman.org/candlepin/@CANDLEPIN_VERSION@/@DIST@/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
 
@@ -33,10 +33,10 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
 
-[katello-candlepin-source]
+[candlepin-source]
 name=Katello Candlepin source
-baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/candlepin/@DIST@/source/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+baseurl=https://yum.theforeman.org/candlepin/@REPO_VERSION@/@DIST@/source/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
 
