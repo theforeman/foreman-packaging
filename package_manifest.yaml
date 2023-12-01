@@ -40,11 +40,12 @@ copr_projects:
   vars:
     core_modules:
       - 'ruby:2.7'
-      - 'python39:3.9'
       - 'nodejs:14'
       - 'postgresql:12'
     core_buildroot_packages:
       - 'foreman-build'
+      - python3.11-rpm-macros
+      - python3.11
     rhel_9: '9'
     rhel_8: '8'
     rhel_7: '7'
