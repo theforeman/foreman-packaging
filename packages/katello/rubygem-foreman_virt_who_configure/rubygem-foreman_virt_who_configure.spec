@@ -7,7 +7,7 @@
 %global foreman_min_version 3.7
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.18
+Version: 0.5.19
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 Group: Applications/Systems
@@ -17,15 +17,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
+BuildRequires: rubygem(katello)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(katello)
 # end specfile generated dependencies
 
 %description
@@ -93,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.5.19-1
+- Update to 0.5.19
+
 * Wed Sep 27 2023 Chris Roberts <chrobert@redhat.com> 0.5.18-1
 - Update to 0.5.18
 
