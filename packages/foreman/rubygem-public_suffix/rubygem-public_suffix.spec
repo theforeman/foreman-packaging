@@ -47,7 +47,6 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/data
@@ -60,11 +59,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/2.0-Upgrade.md
 %doc %{gem_instdir}/SECURITY.md
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/public_suffix.gemspec
-%{gem_instdir}/test
 
 %changelog
 * Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.0.4-1
