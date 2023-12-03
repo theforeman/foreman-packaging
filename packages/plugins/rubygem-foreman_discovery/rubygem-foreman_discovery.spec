@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_discovery
 %global plugin_name discovery
-%global foreman_min_version 3.3
+%global foreman_min_version 3.8
 
 Name: rubygem-%{gem_name}
-Version: 22.0.4
-Release: 2%{?foremandist}%{?dist}
+Version: 23.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: MaaS Discovery Plugin for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_discovery
@@ -13,7 +13,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
@@ -24,8 +23,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 0
 # end package.json devDependencies BuildRequires
 
@@ -91,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 23.0.0-1
+- Update to 23.0.0
+
 * Thu Jun 22 2023 Leos Stejskal <lstejska@redhat.com> 22.0.4-2
 - Regenerate spec file
 
