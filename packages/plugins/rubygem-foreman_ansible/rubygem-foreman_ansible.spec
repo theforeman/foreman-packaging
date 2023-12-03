@@ -4,7 +4,7 @@
 %global foreman_min_version 3.8.1
 
 Name: rubygem-%{gem_name}
-Version: 13.0.1
+Version: 13.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -20,7 +20,7 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(acts_as_list) >= 1.0.3 with rubygem(acts_as_list) < 1.1)
 BuildRequires: rubygem(deface) < 2.0
-BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 12)
+BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 13)
 BuildRequires: (rubygem(foreman-tasks) >= 7.0 with rubygem(foreman-tasks) < 10)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 03 2023 nofaralfasi <nalfassi@redhat.com> 13.0.2-1
+- Update to 13.0.2
+
 * Thu Nov 30 2023 nofaralfasi <nalfassi@redhat.com> 13.0.1-1
 - Update to 13.0.1
 
