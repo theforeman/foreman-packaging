@@ -47,13 +47,9 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.rubocop_opinionated.yml
+
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE.txt
-%{gem_instdir}/bin
 %{gem_instdir}/data
 %{gem_libdir}
 %exclude %{gem_cache}
