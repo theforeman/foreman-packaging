@@ -51,6 +51,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %{gem_instdir}/Brewfile
+%exclude %{gem_instdir}/Dockerfile
+%exclude %{gem_instdir}/docker-compose.yml
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/benchmarks
 %exclude %{gem_instdir}/gemfiles
