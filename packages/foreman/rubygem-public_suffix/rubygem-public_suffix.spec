@@ -2,7 +2,7 @@
 %global gem_name public_suffix
 
 Name: rubygem-%{gem_name}
-Version: 5.0.3
+Version: 5.0.4
 Release: 1%{?dist}
 Summary: Domain name parser based on the Public Suffix List
 License: MIT
@@ -47,13 +47,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.rubocop_opinionated.yml
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE.txt
-%{gem_instdir}/bin
 %{gem_instdir}/data
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -64,13 +59,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/2.0-Upgrade.md
 %doc %{gem_instdir}/SECURITY.md
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/public_suffix.gemspec
-%{gem_instdir}/test
 
 %changelog
+* Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.0.4-1
+- Update to 5.0.4
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.0.3-1
 - Update to 5.0.3
 
