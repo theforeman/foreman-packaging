@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 3.1.19
+Version: 3.1.20
 Release: 1%{?dist}
 Summary: OpenBSD's bcrypt() password hashing algorithm
 License: MIT
@@ -89,6 +89,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.1.20-1
+- Update to 3.1.20
+
 * Sun Jul 02 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.1.19-1
 - Update to 3.1.19
 
