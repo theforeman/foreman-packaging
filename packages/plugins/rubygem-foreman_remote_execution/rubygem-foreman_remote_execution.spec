@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 3.8
+%global foreman_min_version 3.9
 
 Name: rubygem-%{gem_name}
-Version: 11.1.1
+Version: 12.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
@@ -15,26 +15,23 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
+BuildRequires: rubygem(deface)
+BuildRequires: (rubygem(dynflow) >= 1.0.2 with rubygem(dynflow) < 2.0.0)
+BuildRequires: rubygem(foreman-tasks) >= 8.3.0
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(deface)
-BuildRequires: rubygem(dynflow) >= 1.0.2
-BuildRequires: rubygem(dynflow) < 2.0.0
-BuildRequires: rubygem(foreman-tasks) >= 8.2.0
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
-BuildRequires: npm(@theforeman/builder) >= 12.0.1
-BuildRequires: npm(@theforeman/builder) < 13.0.0
-BuildRequires: npm(graphql) >= 15.5.0
-BuildRequires: npm(graphql) < 16.0.0
-BuildRequires: npm(graphql-tag) >= 2.11.0
-BuildRequires: npm(graphql-tag) < 3.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
+BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
+BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -137,6 +134,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 12.0.0-1
+- Update to 12.0.0
+
 * Tue Nov 14 2023 Adam Ruzicka <aruzicka@redhat.com> 11.1.1-1
 - Update to 11.1.1
 
