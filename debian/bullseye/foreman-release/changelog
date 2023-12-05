@@ -1,3 +1,9 @@
+foreman-release (3.9.0~rc3-1) stable; urgency=low
+
+  * 3.9.0-rc3 released
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Tue, 05 Dec 2023 16:56:57 -0500
+
 foreman-release (3.9.0~rc2-1) stable; urgency=low
 
   * 3.9.0-rc2 released
