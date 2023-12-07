@@ -4,7 +4,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 3
 
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Thu Dec 07 2023 Odilon Sousa <osousa@redhat.com> - 4.11.0-0.3.rc2
+- Release katello-repos 4.11.0rc2
+
 * Fri Dec 01 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.11.0-0.3.rc1
 - Use dedicated Candlepin release repository
 
