@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_salt
 %global plugin_name salt
-%global foreman_min_version 1.24
+%global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 15.2.3
+Version: 16.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for Salt
 License: GPLv3
@@ -13,18 +13,16 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
+Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
+BuildRequires: rubygem(deface) < 2.0
+BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 13)
+BuildRequires: (rubygem(foreman-tasks) >= 7.0 with rubygem(foreman-tasks) < 10)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(deface) < 2.0
-BuildRequires: rubygem(foreman_remote_execution) >= 9.0
-BuildRequires: rubygem(foreman_remote_execution) < 12
-BuildRequires: rubygem(foreman-tasks) >= 7.0
-BuildRequires: rubygem(foreman-tasks) < 10
 # end specfile generated dependencies
 
 %description
@@ -82,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Dec 07 2023 Foreman Packaging Automation <packaging@theforeman.org> 16.0.0-1
+- Update to 16.0.0
+
 * Tue Nov 28 2023 Bernhard Suttner <suttner@atix.de> 15.2.3-1
 - Update to 15.2.3
 
