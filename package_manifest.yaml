@@ -4,6 +4,7 @@ all:
     foremandist: .fm3_10
     foreman_version: 'nightly'
     katello_version: 'nightly'
+    candlepin_version: '4.3'
     all_tags:
       foreman-el8:
         name: "foreman-{{ foreman_version }}-el8"
@@ -958,7 +959,7 @@ repoclosures:
           - el8-powertools
           - el8-extras
           - el8-puppet-7
-          - "el8-katello-candlepin-{{ katello_version }}-staging"
+          - "el8-candlepin-{{ candlepin_version }}-staging"
     plugins-staging-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -987,7 +988,7 @@ repoclosures:
           - el8-puppet-7
           - "el8-foreman-{{ foreman_version }}-staging"
           - "el8-foreman-plugins-{{ foreman_version }}-staging"
-          - "el8-katello-candlepin-{{ katello_version }}-staging"
+          - "el8-candlepin-{{ candlepin_version }}-staging"
     foreman-client-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
