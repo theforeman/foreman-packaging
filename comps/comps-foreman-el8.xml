@@ -79,7 +79,6 @@
       <packagereq type="default">nodejs-theforeman-builder</packagereq>
       <packagereq type="default">nodejs-theforeman-vendor</packagereq>
       <packagereq type="default">nodejs-tslib</packagereq>
-      <packagereq type="default">nodejs-uglifyjs-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-use-deep-compare-effect</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
