@@ -486,7 +486,6 @@ ruby_core_packages_tier1:
     rubygem-unicode-display_width: {}
     rubygem-validates_lengths_from_database: {}
     rubygem-version_gem: {}
-    rubygem-webpack-rails: {}
     rubygem-websocket-extensions: {}
     rubygem-will_paginate: {}
     rubygem-wirb: {}

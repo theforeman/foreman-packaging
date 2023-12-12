@@ -309,7 +309,6 @@
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">rubygem-version_gem</packagereq>
-      <packagereq type="default">rubygem-webpack-rails</packagereq>
       <packagereq type="default">rubygem-webrick</packagereq>
       <packagereq type="default">rubygem-websocket-driver</packagereq>
       <packagereq type="default">rubygem-websocket-extensions</packagereq>
@@ -533,7 +532,6 @@
       <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">rubygem-version_gem-doc</packagereq>
-      <packagereq type="default">rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">rubygem-webrick-doc</packagereq>
       <packagereq type="default">rubygem-websocket-driver-doc</packagereq>
       <packagereq type="default">rubygem-websocket-extensions-doc</packagereq>
