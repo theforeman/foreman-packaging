@@ -56,7 +56,6 @@
       <packagereq type="default">nodejs-cssnano</packagereq>
       <packagereq type="default">nodejs-d3</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
-      <packagereq type="default">nodejs-file-loader</packagereq>
       <packagereq type="default">nodejs-graphql</packagereq>
       <packagereq type="default">nodejs-graphql-tag</packagereq>
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
