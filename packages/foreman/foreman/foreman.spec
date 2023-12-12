@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -78,7 +78,6 @@ Requires: (rubygem(sprockets-rails) >= 3.0 with rubygem(sprockets-rails) < 4.0)
 Requires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
 Requires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
 Requires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
-Requires: (rubygem(webpack-rails) >= 0.9.8 with rubygem(webpack-rails) < 0.10.0)
 Requires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
 Requires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
 Requires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
@@ -144,7 +143,6 @@ BuildRequires: (rubygem(sprockets-rails) >= 3.0 with rubygem(sprockets-rails) < 
 BuildRequires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
 BuildRequires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
 BuildRequires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
-BuildRequires: (rubygem(webpack-rails) >= 0.9.8 with rubygem(webpack-rails) < 0.10.0)
 BuildRequires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
 BuildRequires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
 BuildRequires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
@@ -169,29 +167,27 @@ BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
 BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
-BuildRequires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
-BuildRequires: (npm(css-loader) >= 0.23.1 with npm(css-loader) < 1.0.0)
-BuildRequires: (npm(cssnano) >= 4.1.10 with npm(cssnano) < 5.0.0)
+BuildRequires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
+BuildRequires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimizer-webpack-plugin) < 5.0.0)
+BuildRequires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
 BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
-BuildRequires: (npm(expose-loader) >= 0.6.0 with npm(expose-loader) < 0.7.0)
-BuildRequires: (npm(extract-text-webpack-plugin) >= 3.0.0 with npm(extract-text-webpack-plugin) < 4.0.0)
-BuildRequires: (npm(file-loader) >= 0.9.0 with npm(file-loader) < 1.0.0)
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-BuildRequires: (npm(node-sass) >= 4.5.0 with npm(node-sass) < 5.0.0)
-BuildRequires: (npm(optimize-css-assets-webpack-plugin) >= 3.2.0 with npm(optimize-css-assets-webpack-plugin) < 4.0.0)
-BuildRequires: (npm(sass-loader) >= 6.0.6 with npm(sass-loader) < 6.1.0)
-BuildRequires: (npm(style-loader) >= 0.13.1 with npm(style-loader) < 1.0.0)
-BuildRequires: (npm(uglifyjs-webpack-plugin) >= 1.2.2 with npm(uglifyjs-webpack-plugin) < 2.0.0)
-BuildRequires: (npm(url-loader) >= 1.0.1 with npm(url-loader) < 2.0.0)
-BuildRequires: (npm(webpack) >= 3.4.1 with npm(webpack) < 4.0.0)
-BuildRequires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin) < 1.0.0)
+BuildRequires: (npm(node-sass) >= 8.0.0 with npm(node-sass) < 9.0.0)
+BuildRequires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
+BuildRequires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
+BuildRequires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
+BuildRequires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
+BuildRequires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
+BuildRequires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
+BuildRequires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
 BuildRequires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
 BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 BuildRequires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+BuildRequires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
@@ -315,35 +311,34 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 Requires: nodejs >= 14
+Requires: /usr/bin/npx
 
 # start package.json devDependencies Requires
 Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 Requires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
-Requires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
-Requires: (npm(css-loader) >= 0.23.1 with npm(css-loader) < 1.0.0)
-Requires: (npm(cssnano) >= 4.1.10 with npm(cssnano) < 5.0.0)
+Requires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
+Requires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimizer-webpack-plugin) < 5.0.0)
+Requires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
 Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
-Requires: (npm(expose-loader) >= 0.6.0 with npm(expose-loader) < 0.7.0)
-Requires: (npm(extract-text-webpack-plugin) >= 3.0.0 with npm(extract-text-webpack-plugin) < 4.0.0)
-Requires: (npm(file-loader) >= 0.9.0 with npm(file-loader) < 1.0.0)
 Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-Requires: (npm(node-sass) >= 4.5.0 with npm(node-sass) < 5.0.0)
-Requires: (npm(optimize-css-assets-webpack-plugin) >= 3.2.0 with npm(optimize-css-assets-webpack-plugin) < 4.0.0)
-Requires: (npm(sass-loader) >= 6.0.6 with npm(sass-loader) < 6.1.0)
-Requires: (npm(style-loader) >= 0.13.1 with npm(style-loader) < 1.0.0)
-Requires: (npm(uglifyjs-webpack-plugin) >= 1.2.2 with npm(uglifyjs-webpack-plugin) < 2.0.0)
-Requires: (npm(url-loader) >= 1.0.1 with npm(url-loader) < 2.0.0)
-Requires: (npm(webpack) >= 3.4.1 with npm(webpack) < 4.0.0)
-Requires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin) < 1.0.0)
+Requires: (npm(node-sass) >= 8.0.0 with npm(node-sass) < 9.0.0)
+Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
+Requires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
+Requires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
+Requires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
+Requires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
+Requires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
+Requires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
 Requires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
 Requires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 Requires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 Requires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies Requires
 
@@ -864,6 +859,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Jan 26 2024 Evgeni Golov - 3.10.0-0.5.develop
+- Update deps for webpack5
+
 * Sat Jan 13 2024 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.4.develop
 - Exclude docker-compose.yml from foreman
 
