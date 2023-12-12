@@ -67,7 +67,6 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
-      <packagereq type="default">nodejs-optimize-css-assets-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
