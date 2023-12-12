@@ -10,10 +10,13 @@
 
 %else
 %define repo_dir %{_sysconfdir}/yum.repos.d
-%define repo_dist %{dist}
+
+%if 0%{?rhel}
+%define repo_dist el%{rhel}
+%endif
 %endif
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -81,6 +84,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Tue Dec 12 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.2.develop
+- Hardcode EL7 dist to 7
+
 * Wed Nov 29 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.10.0-0.1.develop
 - Bump version to 3.10-develop
 
