@@ -524,8 +524,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-d3: {}
     nodejs-dotenv: {}
-    nodejs-extract-text-webpack-plugin:
-      strategy: bundle
     nodejs-file-loader:
       strategy: bundle
     nodejs-graphql: {}
