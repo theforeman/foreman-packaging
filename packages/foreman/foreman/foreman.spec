@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -204,7 +204,7 @@ BuildRequires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass)
 BuildRequires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 BuildRequires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
 BuildRequires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
-BuildRequires: rubygem(uglifier) >= 1.0.3
+BuildRequires: (rubygem(terser) >= 1.1 with rubygem(terser) < 2.0)
 BuildRequires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
 BuildRequires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets BuildRequires
@@ -356,7 +356,7 @@ Requires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.
 Requires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 Requires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
 Requires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
-Requires: rubygem(uglifier) >= 1.0.3
+Requires: (rubygem(terser) >= 1.1 with rubygem(terser) < 2.0)
 Requires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
 Requires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets Requires
@@ -866,6 +866,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Dec 12 2023 Evgeni Golov - 3.10.0-0.2.develop
+- Update GEM dependencies
+
 * Wed Nov 29 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.10.0-0.1.develop
 - Bump version to 3.10-develop
 
