@@ -62,6 +62,9 @@ generate_gem_package() {
 
 add_gem_to_all_comps() {
 	add_gem_to_comps $KOJI_TAG
+	if [[ $KOJI_TAG == "foreman-nightly-el8" ]] ; then
+		add_gem_to_comps foreman-nightly-el9
+	fi
 	if [[ $KOJI_TAG == "foreman-client-nightly-el8" ]] ; then
 		add_gem_to_comps foreman-client-nightly-el9
 		add_gem_to_comps foreman-client-nightly-rhel7
