@@ -68,6 +68,7 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
+      <packagereq type="default">nodejs-os-browserify</packagereq>
       <packagereq type="default">nodejs-path-browserify</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
