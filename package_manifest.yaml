@@ -538,6 +538,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-node-sass:
       strategy: bundle
+    nodejs-path-browserify: {}
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
       strategy: bundle
