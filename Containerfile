@@ -15,7 +15,7 @@ RUN dnf -y install nodejs vim git rpmdevtools git-annex-standalone wget python3 
 
 RUN npm install npm2rpm --global
 
-RUN pip3 install packaging requests
+RUN pip3 install packaging requests ruamel-yaml
 
 RUN mkdir -p /opt/foreman-packaging
 WORKDIR /opt/foreman-packaging
