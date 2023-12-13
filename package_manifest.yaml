@@ -561,6 +561,7 @@ foreman_nodejs_packages:
     nodejs-tslib: {}
     nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
+    nodejs-webpack-cli: {}
     nodejs-webpack-stats-plugin: {}
     nodejs-webpack:
       strategy: bundle
