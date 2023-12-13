@@ -66,6 +66,7 @@
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-js-tokens</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
+      <packagereq type="default">nodejs-module-federation-utilities</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
       <packagereq type="default">nodejs-os-browserify</packagereq>
