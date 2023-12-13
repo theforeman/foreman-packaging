@@ -4,18 +4,15 @@
 %global npm_name webpack-stats-plugin
 
 Name: %{?scl_prefix}nodejs-webpack-stats-plugin
-Version: 0.1.5
-Release: 4%{?dist}
+Version: 1.1.3
+Release: 1%{?dist}
 Summary: Webpack stats plugin
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/FormidableLabs/webpack-stats-plugin#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/webpack-stats-plugin/-/webpack-stats-plugin-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -41,10 +38,12 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %files
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE.txt
-%doc HISTORY.md
 %doc README.md
 
 %changelog
+* Wed Dec 13 2023 Evgeni Golov 1.1.3-1
+- Update to 1.1.3
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.5-4
 - Bump packages to build for el8
 
