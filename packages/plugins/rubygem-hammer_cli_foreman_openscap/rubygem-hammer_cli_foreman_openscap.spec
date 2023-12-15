@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.1.13
-Release: 2%{?foremandist}%{?dist}
+Version: 0.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman OpenSCAP commands for Hammer
 License: GPLv3
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -66,6 +66,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Dec 15 2023 Oleh Fedorenko <ofedoren@redhat.com> 0.2.0-1
+- Update to 0.2.0
+
 * Wed Oct 19 2022 Evgeni Golov 0.1.13-2
 - Regenerate spec based on latest template
 
