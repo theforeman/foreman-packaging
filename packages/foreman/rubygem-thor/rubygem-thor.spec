@@ -2,7 +2,7 @@
 %global gem_name thor
 
 Name: rubygem-%{gem_name}
-Version: 1.2.2
+Version: 1.3.0
 Release: 1%{?dist}
 Summary: Thor is a toolkit for building powerful command-line interfaces
 License: MIT
@@ -10,8 +10,8 @@ URL: https://whatisthor.com/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.0.0
-BuildRequires: ruby >= 2.0.0
+Requires: ruby >= 2.6.0
+BuildRequires: ruby >= 2.6.0
 BuildRequires: rubygems-devel >= 1.3.5
 BuildArch: noarch
 # end specfile generated dependencies
@@ -67,6 +67,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/thor.gemspec
 
 %changelog
+* Sun Dec 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.3.0-1
+- Update to 1.3.0
+
 * Wed May 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.2-1
 - Update to 1.2.2
 
