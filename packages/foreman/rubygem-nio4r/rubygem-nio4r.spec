@@ -3,7 +3,7 @@
 %global gem_require_name nio
 
 Name: rubygem-%{gem_name}
-Version: 2.5.9
+Version: 2.7.0
 Release: 1%{?dist}
 Summary: New IO for Ruby
 License: MIT
@@ -90,6 +90,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Sun Dec 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.7.0-1
+- Update to 2.7.0
+
 * Sun Apr 09 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.5.9-1
 - Update to 2.5.9
 
