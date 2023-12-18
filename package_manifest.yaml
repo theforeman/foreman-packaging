@@ -234,7 +234,7 @@ foreman_core_packages:
 ruby_core_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['foreman-copr'] }}"
+      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
