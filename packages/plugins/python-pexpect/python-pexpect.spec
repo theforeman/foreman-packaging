@@ -1,3 +1,5 @@
+%global python3_pkgversion 3.11
+%global __python3 /usr/bin/python3.11
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -6,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        4.8.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Pexpect allows easy control of interactive console applications
 
 License:        ISC license
@@ -26,7 +28,6 @@ BuildArch:      noarch
 Summary:        %{summary}
 %{?python_provide:%python_provide python%{python3_pkgversion}-%{pypi_name}}
 Requires:       python%{python3_pkgversion}-ptyprocess
-
 
 %description -n python%{python3_pkgversion}-%{pypi_name}
 %{summary}
@@ -63,6 +64,9 @@ set -ex
 
 
 %changelog
+* Sat Nov 11 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-3
+- Build against python 3.11
+
 * Thu Sep 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.8.0-2
 - Add requires on python-ptyprocess
 
