@@ -145,6 +145,10 @@ foreman_packages:
       el8:
         - "el8-foreman-{{ foreman_version }}"
     repoclosure_lookaside_repos:
+      el9:
+        - el9-baseos
+        - el9-appstream
+        - el9-puppet-7
       el8:
         - el8-baseos
         - el8-appstream
