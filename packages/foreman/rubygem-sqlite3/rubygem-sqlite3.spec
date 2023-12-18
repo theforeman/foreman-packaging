@@ -1,31 +1,24 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name sqlite3
 %global gem_require_name %{gem_name}
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.2
+Name: rubygem-%{gem_name}
+Version: 1.4.4
 Release: 1%{?dist}
 Summary: This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org)
-Group: Development/Languages
-License: BSD-3
+License: BSD-3-Clause
 URL: https://github.com/sparklemotion/sqlite3-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
-Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.5
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.8.7
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Requires: ruby >= 1.8.7
+BuildRequires: ruby-devel >= 1.8.7
+BuildRequires: rubygems-devel >= 1.3.5
+# Compiler is required for build of gem binary extension.
+# https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
+BuildRequires: gcc
 # end specfile generated dependencies
 BuildRequires: sqlite-devel
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.3.13
 
 %description
 This module allows Ruby programs to interface with the SQLite3
@@ -35,36 +28,23 @@ Note that this module is only compatible with SQLite 3.6.16 or newer.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -73,13 +53,12 @@ cp -a .%{gem_dir}/* \
 
 mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
 cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}/
+cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %check
-%{?scl:scl enable %{scl} - << \EOF}
 # Ideally, this would be something like this:
 # GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 # But that fails to find native extensions on EL8, so we fake the structure that ruby expects
@@ -89,21 +68,18 @@ mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig 
 cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
 GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 rm -rf gem_ext_test
-%{?scl:EOF}
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.gemtest
-%exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/appveyor.yml
-%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
+%exclude %{gem_instdir}/.gemtest
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/Manifest.txt
+%exclude %{gem_instdir}/Manifest.txt
+%exclude %{gem_instdir}/appveyor.yml
 %{gem_instdir}/faq
 %{gem_libdir}
-%{gem_instdir}/setup.rb
 %{gem_instdir}/rakelib
+%{gem_instdir}/setup.rb
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -118,6 +94,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Mon Dec 18 2023 Evgeni Golov 1.4.4-1
+- Update to 1.4.4
+
 * Thu May 05 2022 Evgeni Golov 1.4.2-1
 - Update to 1.4.2
 
