@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby/EventMachine library
 License: Ruby and GPL-2.0
 URL: https://rubyeventmachine.com
@@ -18,6 +18,7 @@ BuildRequires: rubygems-devel
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
 # end specfile generated dependencies
+BuildRequires: gcc-c++
 BuildRequires: openssl-devel
 
 %description
@@ -94,6 +95,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/tests
 
 %changelog
+* Mon Dec 18 2023 Evgeni Golov - 1.2.7-2
+- Explicitly BuildRequire gcc-c++
+
 * Wed Jul 20 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.7-1
 - Update to 1.2.7
 
