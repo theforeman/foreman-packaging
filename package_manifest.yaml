@@ -420,7 +420,6 @@ ruby_core_packages:
     rubygem-tzinfo: {}
     rubygem-uber: {}
     rubygem-uglifier: {}
-    rubygem-unicode: {}
     rubygem-unicode-display_width: {}
     rubygem-validates_lengths_from_database: {}
     rubygem-version_gem: {}
