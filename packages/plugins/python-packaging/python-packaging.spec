@@ -1,3 +1,5 @@
+%global python3_pkgversion 3.11
+%global __python3 /usr/bin/python3.11
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -6,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        21.3
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        Core utilities for Python packages
 
 License:        BSD-2-Clause or Apache-2.0
@@ -25,9 +27,8 @@ BuildRequires:  python%{python3_pkgversion}-setuptools
 %package -n     python%{python3_pkgversion}-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python%{python3_pkgversion}-%{pypi_name}}
-Requires:       python%{python3_pkgversion}-pyparsing < 3
+Conflicts:      python%{python3_pkgversion}-pyparsing = 3.0.5
 Requires:       python%{python3_pkgversion}-pyparsing >= 2.0.2
-
 
 %description -n python%{python3_pkgversion}-%{pypi_name}
 %{summary}
@@ -64,6 +65,12 @@ set -ex
 
 
 %changelog
+* Wed Nov 15 2023 Patrick Creech <pcreech@redhat.com> - 21.3-3
+- Conflict with pyparsing 3.0.5 instead 
+
+* Sat Nov 11 2023 Odilon Sousa <osousa@redhat.com> - 21.3-2
+- Build against python 3.11
+
 * Thu Jun 30 2022 Ian Ballou <ianballou67@gmail.com> - 21.3-1
 - Bump up to 21.3 for pulp-python
 
