@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 20%{?dist}
+Release: 21%{?dist}
 Summary: A Ruby interface for the the Kerberos library
 Group: Development/Languages
 License: Artistic 2.0
@@ -24,6 +24,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(rake-compiler)
 BuildRequires: krb5-devel
+BuildRequires: gcc
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
@@ -111,6 +112,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Mon Dec 18 2023 Evgeni Golov - 0.1.5-21
+- Explicitly BuildRequire gcc
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-20
 - Rebuild against rh-ruby27
 
