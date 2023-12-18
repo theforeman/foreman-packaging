@@ -1,8 +1,10 @@
+%global python3_pkgversion 3.11
+%global __python3 /usr/bin/python3.11
 %global pypi_name ansible-runner
 
 Name:           %{pypi_name}
 Version:        2.2.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A tool and python library to interface with Ansible
 
 License:        ASL 2.0
@@ -67,6 +69,9 @@ ln -s %{_bindir}/ansible-runner-%{python3_version} %{buildroot}/%{_bindir}/ansib
 %{python3_sitelib}/*
 
 %changelog
+* Fri Dec 01 2023 Odilon Sousa <osousa@redhat.com> - 2.2.1-4
+- Rebuild ansible-runner against python 3.11
+
 * Tue Sep 27 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-3
 - Add obsolete on python3-ansible-runner
 - Move ansible-runner binary to ansible-runner package
