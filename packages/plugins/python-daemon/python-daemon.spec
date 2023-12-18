@@ -1,5 +1,7 @@
 %{?scl:%scl_package python-%{srcname}}
 %{!?scl:%global pkg_name %{name}}
+%global python3_pkgversion 3.11
+%global __python3 /usr/bin/python3.11
 
 # Created by pyp2rpm-3.3.8
 %global pypi_name python-daemon
@@ -7,7 +9,7 @@
 
 Name:           %{?scl_prefix}python-%{srcname}
 Version:        2.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Library to implement a well-behaved Unix daemon process
 
 License:        Apache-2
@@ -66,5 +68,8 @@ set -ex
 
 
 %changelog
+* Mon Dec 18 2023 Odilon Sousa <osousa@redhat.com> - 2.3.1-2
+- Rebuild against python 3.11
+
 * Wed Aug 31 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.3.1-1
 - Initial package.
