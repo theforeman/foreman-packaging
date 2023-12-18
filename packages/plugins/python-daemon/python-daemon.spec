@@ -9,7 +9,7 @@
 
 Name:           %{?scl_prefix}python-%{srcname}
 Version:        2.3.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Library to implement a well-behaved Unix daemon process
 
 License:        Apache-2
@@ -33,6 +33,9 @@ Summary:        %{summary}
 Requires:       %{?scl_prefix}python%{python3_pkgversion}-docutils
 Requires:       %{?scl_prefix}python%{python3_pkgversion}-lockfile >= 0.10
 
+%if 0%{?rhel} == 8
+Obsoletes:      python39-%{srcname} < %{version}-%{release}
+%endif
 
 %description -n %{?scl_prefix}python%{python3_pkgversion}-%{srcname}
 %{summary}
@@ -68,6 +71,9 @@ set -ex
 
 
 %changelog
+* Mon Dec 18 2023 Evgeni Golov - 2.3.1-3
+- Obsolete Python 3.9 package to smoothen upgrade path
+
 * Mon Dec 18 2023 Odilon Sousa <osousa@redhat.com> - 2.3.1-2
 - Rebuild against python 3.11
 
