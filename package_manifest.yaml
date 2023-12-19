@@ -246,6 +246,7 @@ ruby_core_packages:
 
 ruby_core_packages_tier1:
   hosts:
+    libsass: {}
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
