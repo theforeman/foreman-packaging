@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Use libsass with Ruby!
 License: MIT
 URL: https://github.com/sass/sassc-ruby
@@ -19,8 +19,10 @@ BuildRequires: rubygem(ffi) >= 1.9
 BuildRequires: rubygem(ffi) < 2
 # end specfile generated dependencies
 
-BuildRequires: libsass
-Requires: libsass
+BuildRequires: (libsass.so.1()(64bit) if libc.so.6()(64bit))
+BuildRequires: (libsass.so.1 if libc.so.6)
+Requires: (libsass.so.1()(64bit) if libc.so.6()(64bit))
+Requires: (libsass.so.1 if libc.so.6)
 
 %description
 Use libsass with Ruby!
@@ -41,8 +43,8 @@ Documentation for %{name}.
 sed -i "/s\.extensions/d" ../%{gem_name}-%{version}.gemspec
 
 %build
-# use libsass.so.0 from host
-sed -i "s/libsass\.\#{dl_ext}/libsass\.\#{dl_ext}\.0/" lib/sassc/native.rb
+# use libsass.so.1 from host
+sed -i "s/libsass\.\#{dl_ext}/libsass\.\#{dl_ext}\.1/" lib/sassc/native.rb
 sed -i "s!__dir__!\"%{_libdir}\"!" lib/sassc/native.rb
 
 # Create the gem as gem install only works on a gem file
@@ -82,6 +84,9 @@ ruby -I "%{buildroot}%{gem_libdir}" -e "require '%{gem_require_name}'"
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 19 2023 Evgeni Golov - 2.4.0-2
+- Update libsass.so ABI to 1 for libsass >= 3.5
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.4.0-1
 - Update to 2.4.0
 
