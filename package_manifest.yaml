@@ -212,6 +212,7 @@ foreman_core_packages:
   children:
     rails_core_packages: {}
     ruby_core_packages: {}
+    hammer_core_packages: {}
   hosts:
     dynflow-utils: {}
     foreman:
@@ -222,6 +223,12 @@ foreman_core_packages:
     keycloak-httpd-client-install: {}
     pcp-mmvstatsd: {}
     python-websockify: {}
+
+hammer_core_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['foreman-copr-with-el9'] }}"
+  hosts:
     rubygem-hammer_cli:
       source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
       source_system: jenkins
