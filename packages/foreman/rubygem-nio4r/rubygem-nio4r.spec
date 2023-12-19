@@ -81,8 +81,8 @@ rm -rf gem_ext_test
 %doc %{gem_docdir}
 %exclude %{gem_instdir}/.rspec
 %{gem_instdir}/Gemfile
-%doc %{gem_instdir}/CHANGES.md
-%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/changes.md
+%doc %{gem_instdir}/readme.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/rakelib
 %{gem_instdir}/examples
