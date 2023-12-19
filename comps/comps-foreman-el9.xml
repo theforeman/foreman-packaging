@@ -42,6 +42,8 @@
       <packagereq type="default">gyp</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
+      <packagereq type="default">libsass</packagereq>
+      <packagereq type="default">libsass-devel</packagereq>
       <packagereq type="default">nodejs-argv-parse</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
