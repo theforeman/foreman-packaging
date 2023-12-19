@@ -553,7 +553,7 @@ foreman_client_packages:
         - "el9-foreman-client-{{ foreman_version }}"
       el8:
         - "el8-foreman-client-{{ foreman_version }}"
-      rhel7:
+      el7:
         - "el7-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el9:
@@ -567,7 +567,7 @@ foreman_client_packages:
         - el8-epel
         - el8-extras
         - el8-puppet-7
-      rhel7:
+      el7:
         - el7-base
         - el7-updates
         - el7-epel
@@ -920,11 +920,11 @@ repoclosures:
           - el8-puppet-7
     foreman-client-repoclosure-el7:
       repoclosure_target_repos:
-        rhel7:
+        el7:
           - "el7-foreman-client-{{ foreman_version }}"
-      repoclosure_target_dist: rhel7
+      repoclosure_target_dist: el7
       repoclosure_lookaside_repos:
-        rhel7:
+        el7:
           - el7-base
           - el7-updates
           - el7-epel
@@ -997,11 +997,11 @@ repoclosures:
           - el8-puppet-7
     foreman-client-staging-repoclosure-el7:
       repoclosure_target_repos:
-        rhel7:
+        el7:
           - "el7-foreman-client-{{ foreman_version }}-staging"
-      repoclosure_target_dist: rhel7
+      repoclosure_target_dist: el7
       repoclosure_lookaside_repos:
-        rhel7:
+        el7:
           - el7-base
           - el7-updates
           - el7-epel
@@ -1024,7 +1024,7 @@ foreman_release_packages:
         - "el9-foreman-client-{{ foreman_version }}"
       el8:
         - "el8-foreman-client-{{ foreman_version }}"
-      rhel7:
+      el7:
         - "el7-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el9:
@@ -1037,7 +1037,7 @@ foreman_release_packages:
         - el8-powertools
         - el8-extras
         - el8-puppet-7
-      rhel7:
+      el7:
         - el7-base
         - el7-updates
         - el7-epel
