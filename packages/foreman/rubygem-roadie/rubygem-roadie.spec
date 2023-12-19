@@ -47,11 +47,11 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.autotest
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.solargraph.yml
+%exclude %{gem_instdir}/.standard.yml
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
