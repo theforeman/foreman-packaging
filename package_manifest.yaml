@@ -233,6 +233,11 @@ ruby_core_packages:
   vars:
     copr_projects:
       - "{{ hostvars['foreman-copr-with-el9'] }}"
+  children:
+    ruby_core_packages_tier1: {}
+    ruby_core_packages_tier2: {}
+
+ruby_core_packages_tier1:
   hosts:
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
@@ -366,7 +371,6 @@ ruby_core_packages:
     rubygem-prometheus-client: {}
     rubygem-promise.rb: {}
     rubygem-public_suffix: {}
-    rubygem-puma: {}
     rubygem-puma-status: {}
     rubygem-rabl: {}
     rubygem-rack: {}
@@ -385,7 +389,6 @@ ruby_core_packages:
     rubygem-responders: {}
     rubygem-rest-client: {}
     rubygem-retriable: {}
-    rubygem-rkerberos: {}
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
     rubygem-ruby-libvirt: {}
@@ -394,7 +397,6 @@ ruby_core_packages:
     rubygem-ruby_parser: {}
     rubygem-safemode: {}
     rubygem-sass-rails: {}
-    rubygem-sassc: {}
     rubygem-sassc-rails: {}
     rubygem-scoped_search: {}
     rubygem-sd_notify: {}
@@ -422,12 +424,18 @@ ruby_core_packages:
     rubygem-validates_lengths_from_database: {}
     rubygem-version_gem: {}
     rubygem-webpack-rails: {}
-    rubygem-websocket-driver: {}
     rubygem-websocket-extensions: {}
     rubygem-will_paginate: {}
     rubygem-wirb: {}
     rubygem-xmlrpc: {}
     rubygem-zeitwerk: {}
+
+ruby_core_packages_tier2:
+  hosts:
+    rubygem-puma: {}
+    rubygem-rkerberos: {}
+    rubygem-sassc: {}
+    rubygem-websocket-driver: {}
 
 foreman_nodejs_packages:
   vars:
