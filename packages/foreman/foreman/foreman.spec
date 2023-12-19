@@ -4,9 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 6
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 3.9.0
@@ -866,6 +864,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Dec 19 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-1
+- Release foreman 3.9.0
+
 * Tue Dec 05 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-0.6.rc3
 - Release foreman 3.9.0rc3
 

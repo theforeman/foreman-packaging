@@ -22,8 +22,6 @@
 %define moduletype apps
 
 %global release 1
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
 Version:        3.9.0
@@ -173,6 +171,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Dec 19 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-1
+- Release foreman-selinux 3.9.0
+
 * Tue Dec 05 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-0.1.rc3
 - Release foreman-selinux 3.9.0rc3
 
