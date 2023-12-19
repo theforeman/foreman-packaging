@@ -16,9 +16,7 @@
 %endif
 %endif
 
-%global release 3
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:     foreman-release
 Version:  3.9.0
@@ -84,6 +82,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Tue Dec 19 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-1
+- Release foreman-release 3.9.0
+
 * Tue Dec 12 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.3.rc3
 - Hardcode EL7 dist to 7
 

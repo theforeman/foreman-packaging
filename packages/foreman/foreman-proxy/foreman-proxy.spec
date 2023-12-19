@@ -1,9 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 3
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:           foreman-proxy
 Version:        3.9.0
@@ -239,6 +237,9 @@ exit 0
 
 
 %changelog
+* Tue Dec 19 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-1
+- Release foreman-proxy 3.9.0
+
 * Tue Dec 05 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-0.3.rc3
 - Release foreman-proxy 3.9.0rc3
 
