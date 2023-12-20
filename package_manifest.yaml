@@ -5,31 +5,6 @@ all:
     foreman_version: 'nightly'
     katello_version: 'nightly'
     candlepin_version: '4.3'
-    all_tags:
-      foreman-el8:
-        name: "foreman-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-      foreman-plugins-el8:
-        name: "foreman-plugins-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-      foreman-client-el9:
-        name: "foreman-client-{{ foreman_version }}-el9"
-        dist: '.el9'
-      foreman-client-el8:
-        name: "foreman-client-{{ foreman_version }}-el8"
-        dist: '.el8'
-      foreman-client-el7:
-        name: "foreman-client-{{ foreman_version }}-rhel7"
-        dist: '.el7'
-      katello-el8:
-        name: "katello-{{ katello_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
     copr_project_user: "@theforeman"
     build_package_build_system: copr
   children:
@@ -168,7 +143,6 @@ copr_projects:
 packages:
   vars:
     rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
-    build_package_use_koji_build: true
   children:
     foreman_packages: {}
     plugin_packages: {}
@@ -179,8 +153,6 @@ packages:
 foreman_packages:
   vars:
     package_base_dir: 'packages/foreman/'
-    koji_tags:
-      - "{{ all_tags['foreman-el8'] }}"
     repoclosure_target_repos:
       el8:
         - "el8-foreman-{{ foreman_version }}-staging"
@@ -209,8 +181,6 @@ plugin_packages:
     copr_projects:
       - "{{ hostvars['plugins-copr'] }}"
     package_base_dir: 'packages/plugins/'
-    koji_tags:
-      - "{{ all_tags['foreman-plugins-el8'] }}"
     repoclosure_target_repos:
       el8:
         - "el8-foreman-plugins-{{ foreman_version }}-staging"
@@ -604,12 +574,6 @@ foreman_proxy_packages:
     rubygem-webrick: {}
 
 yggdrasil_client_packages:
-  vars:
-    koji_tags:
-      - "{{ all_tags['foreman-client-el9'] }}"
-      - "{{ all_tags['foreman-client-el8'] }}"
-      - "{{ all_tags['foreman-client-el7'] }}"
-      - "{{ all_tags['foreman-plugins-el8'] }}"
   hosts:
     yggdrasil: {}
 
@@ -618,10 +582,6 @@ foreman_client_packages:
     copr_projects:
       - "{{ hostvars['client-copr'] }}"
     package_base_dir: 'packages/client/'
-    koji_tags:
-      - "{{ all_tags['foreman-client-el9'] }}"
-      - "{{ all_tags['foreman-client-el8'] }}"
-      - "{{ all_tags['foreman-client-el7'] }}"
     repoclosure_target_repos:
       el9:
         - "el9-foreman-client-{{ foreman_version }}-staging"
@@ -662,8 +622,6 @@ katello_packages:
     copr_projects:
       - "{{ hostvars['katello-copr'] }}"
     package_base_dir: 'packages/katello/'
-    koji_tags:
-      - "{{ all_tags['katello-el8'] }}"
     repoclosure_target_repos:
       el8:
         - "el8-katello-{{ katello_version }}-staging"
@@ -1105,11 +1063,6 @@ foreman_release_packages:
     copr_projects:
       - "{{ hostvars['foreman-copr-with-el9'] }}"
       - "{{ hostvars['client-copr'] }}"
-    koji_tags:
-      - "{{ all_tags['foreman-el8'] }}"
-      - "{{ all_tags['foreman-client-el9'] }}"
-      - "{{ all_tags['foreman-client-el8'] }}"
-      - "{{ all_tags['foreman-client-el7'] }}"
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
       el9:

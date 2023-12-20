@@ -22,7 +22,7 @@ If you're submitting a patch which adds/updates npm modules (nodejs- packages) y
 To build locally or release RPMs from this repo, you also require:
 
 * [obal](https://github.com/theforeman/obal) 0.10.0 or higher
-* [mock](http://fedoraproject.org/wiki/Projects/Mock) or koji client and an account (certificate) on koji.katello.org
+* [mock](http://fedoraproject.org/wiki/Projects/Mock) or Copr client and a Fedora account
 
 ## HOWTO: checkout
 
@@ -58,13 +58,11 @@ than mock (above).
 
 ### Adding gem packages
 
-1. When building to non-SCL, check if it's available in EPEL
-1. When building to SCL, check if it's not in an existing SCL. See `scl_prefixes.json`.
 1. Ensure you're on a fresh git branch because the tooling will create a commit.
 1. Choose a template from gem2rpm that's suitable for the type of package and
    run:
-  `./add_gem_package.sh GEM_NAME TEMPLATE KOJI_TAG`
-   Running without arguments will list the templates and koji tags.
+  `./add_gem_package.sh GEM_NAME TEMPLATE REPO`
+   Running without arguments will list the templates and repos.
 1. Improve the spec file to a reasonable standard, tidying up any gem2rpm
    weirdness.  In particular, look for:
    * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
@@ -197,7 +195,7 @@ with URLs to all of our source files available on the web.
 Obal's custom git-annex support will automatically (lazily) fetch
 files and cache them in your local git checkout as and when you build packages.
 
-Obal lets you build a SRPM and submit to koji, which builds the binary package
+Obal lets you build a SRPM and submit to Copr, which builds the binary package
 (whereupon it gets pulled into our yum repositories).
 
 This repository is branched like Foreman itself, with rpm/1.x branches
@@ -206,36 +204,6 @@ for major releases.
 To build a new release package for foreman project for example, do this:
 
     $ obal release foreman
-
-## Releasing Katello client packages for SUSE
-
-For SLES client builds, they must be manually done for now by submitting the jobs to [OBS](https://build.opensuse.org/).  You can use the OSC client tools.  All Katello packages are hosted in the [systemsmanagement:katello](https://build.opensuse.org/project/show/systemsmanagement:katello) project.
-
-After installing OSC, you can check out the particular package you're interested in.  The first time OSC runs, it will prompt for and save your credentials.
-
-
-```
-osc checkout systemsmanagement:katello katello-repos
-```
-
-Update any files as needed. If you're syncing from the foreman-packaging repo, be aware you need to adjust the `Release` line to the following format.  Other than that, RPM's should build on both Koji and OBS.
-
-```
-Release:        <CI_CNT>.<B_CNT>.%{?dist}
-```
-
-Add and commit the changes. OBS packages will be built automatically, and once complete, you can download them and import into koji. You need to include the SRPM when importing to Koji.
-
-```
-koji import /tmp/packages/*.*rpm
-```
-
-Once the packages are in Koji, tag them appropriately:
-
-```
-koji tag-build foreman-client-nightly-sles12 katello-repos-3.7.0-18.1.nightly.suse131
-koji tag-build foreman-client-nightly-sles11 katello-repos-3.7.0-18.1.nightly.suse1110
-```
 
 ## License
 
