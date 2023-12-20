@@ -135,7 +135,7 @@ foreman_packages:
         - el8-extras
         - el8-powertools
         - el8-puppet-7
-        - "el8-katello-candlepin-{{ katello_version }}-staging"
+        - "el8-katello-candlepin-{{ candlepin_version }}-staging"
   children:
     foreman_core_packages: {}
     foreman_proxy_packages: {}
@@ -597,7 +597,7 @@ katello_packages:
         - el8-puppet-7
         - "el8-foreman-{{ foreman_version }}-staging"
         - "el8-foreman-plugins-{{ foreman_version }}-staging"
-        - "el8-katello-candlepin-{{ katello_version }}-staging"
+        - "el8-katello-candlepin-{{ candlepin_version }}-staging"
   children:
     satellite_packages: {}
   hosts:
