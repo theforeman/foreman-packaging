@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import gzip
 import bz2
 import json
 import lzma
@@ -26,14 +27,7 @@ EXCLUDE_PACKAGES = [
 def get_repo_packages(component, release='nightly', dist='el8', arch='x86_64', staging=False):
     packages = defaultdict(lambda: '0')
     if staging:
-        if component == 'plugins':
-            component = 'foreman-plugins'
-        elif component == 'client':
-            component = 'foreman-client'
-        if component == 'katello':
-            repo_url = f'http://koji.katello.org/releases/yum/{component}-{release}/{component}/{dist}/{arch}/'
-        else:
-            repo_url = f'http://koji.katello.org/releases/yum/{component}-{release}/{dist}/{arch}/'
+        repo_url = f'https://download.copr.fedorainfracloud.org/results/@theforeman/{component}-{release}-staging/rhel-8-{arch}/'
     else:
         if component == 'foreman':
             component = 'releases'
@@ -44,35 +38,35 @@ def get_repo_packages(component, release='nightly', dist='el8', arch='x86_64', s
     r = requests.get(f'{repo_url}/repodata/repomd.xml')
     repomd = ET.fromstring(r.content)
 
-    sqlite_location = repomd.find('.//*[@type="primary_db"]/{http://linux.duke.edu/metadata/repo}location').get('href')
-    sqlite_url = f'{repo_url}/{sqlite_location}'
-    if sqlite_url.endswith('.xz'):
+    primary_location = repomd.find('.//*[@type="primary"]/{http://linux.duke.edu/metadata/repo}location').get('href')
+    primary_url = f'{repo_url}/{primary_location}'
+    if primary_url.endswith('.xz'):
         decompress = lzma.decompress
-    elif sqlite_url.endswith('.bz2'):
+    elif primary_url.endswith('.bz2'):
         decompress = bz2.decompress
+    elif primary_url.endswith('.gz'):
+        decompress = gzip.decompress
     else:
-        raise ValueError(sqlite_url)
+        raise ValueError(primary_url)
 
-    s = requests.get(sqlite_url)
+    s = requests.get(primary_url)
 
-    with tempfile.NamedTemporaryFile() as sqlitefile:
-        sqlitefile.write(decompress(s.content))
-        sqlitefile.flush()
-        primarydb = sqlite3.connect(sqlitefile.name)
-        primarydb.row_factory = sqlite3.Row
-        cur = primarydb.cursor()
-        cur.execute("select distinct rpm_sourcerpm,version from packages;")
-        for row in cur:
-            source = row['rpm_sourcerpm'].replace(f'.{dist}.src.rpm', '')
-            (package, _version, _release) = source.rsplit('-', 2)
-            version = row['version']
-            if release == 'nightly' and package in NIGHTLY_PACKAGES:
-                continue
-            if package in EXCLUDE_PACKAGES:
-                continue
-            if Version(packages[package]) < Version(version):
-                packages[package] = version
-        primarydb.close()
+    primary = ET.fromstring(decompress(s.content))
+
+    for pkg in primary.iter('{http://linux.duke.edu/metadata/common}package'):
+        name = pkg.find('{http://linux.duke.edu/metadata/common}name').text
+        version = pkg.find('{http://linux.duke.edu/metadata/common}version').get('ver')
+        source = pkg.find('{http://linux.duke.edu/metadata/common}format').find('{http://linux.duke.edu/metadata/rpm}sourcerpm').text
+        if source is None:
+            package = name
+        else:
+            (package, _, _) = source.replace(f'.{dist}.src.rpm', '').rsplit('-', 2)
+        if release == 'nightly' and package in NIGHTLY_PACKAGES:
+            continue
+        if package in EXCLUDE_PACKAGES:
+            continue
+        if Version(packages[package]) < Version(version):
+            packages[package] = version
 
     return set(packages.items())
 
