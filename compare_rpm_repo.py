@@ -23,9 +23,22 @@ EXCLUDE_PACKAGES = [
     'jsoncpp',  # build-time only dependency according to https://github.com/theforeman/foreman-packaging/pull/6229
 ]
 
+FOREMAN_KATELLO_MAP = {
+    '3.9': '4.11',
+}
+
+def map_foreman_to_katello(release):
+    try:
+        return FOREMAN_KATELLO_MAP[release]
+    except KeyError:
+        return release
+
 
 def get_repo_packages(component, release='nightly', dist='el8', arch='x86_64', staging=False):
     packages = defaultdict(lambda: '0')
+    if component == 'katello':
+        release = map_foreman_to_katello(release)
+
     if staging:
         repo_url = f'https://download.copr.fedorainfracloud.org/results/@theforeman/{component}-{release}-staging/rhel-8-{arch}/'
     else:
