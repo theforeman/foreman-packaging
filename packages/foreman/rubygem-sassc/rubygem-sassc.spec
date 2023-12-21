@@ -1,11 +1,10 @@
 # template: default
 %global gem_name sassc
 %global gem_require_name %{gem_name}
-%define debug_package %{nil}
 
 Name: rubygem-%{gem_name}
 Version: 2.4.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Use libsass with Ruby!
 License: MIT
 URL: https://github.com/sass/sassc-ruby
@@ -15,9 +14,11 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby >= 2.0.0
 BuildRequires: ruby-devel >= 2.0.0
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(ffi) >= 1.9
-BuildRequires: rubygem(ffi) < 2
+BuildRequires: (rubygem(ffi) >= 1.9 with rubygem(ffi) < 2)
 # end specfile generated dependencies
+# the upstream source builds an embedded libsass
+# but we use the system one, which makes this package noarch
+BuildArch: noarch
 
 BuildRequires: (libsass.so.1()(64bit) if libc.so.6()(64bit))
 BuildRequires: (libsass.so.1 if libc.so.6)
@@ -84,6 +85,9 @@ ruby -I "%{buildroot}%{gem_libdir}" -e "require '%{gem_require_name}'"
 %{gem_instdir}/test
 
 %changelog
+* Thu Dec 21 2023 Evgeni Golov - 2.4.0-3
+- Make the package noarch
+
 * Tue Dec 19 2023 Evgeni Golov - 2.4.0-2
 - Update libsass.so ABI to 1 for libsass >= 3.5
 
