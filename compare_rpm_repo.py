@@ -17,7 +17,7 @@ from packaging.version import Version
 from list_updatable_packages import Spec
 
 DISTS = ['el8']
-COMPONENTS = [path.name for path in Path('packages/').glob('*')]
+COMPONENTS = [path.name for path in Path('packages/').glob('*') if path.name not in ['satellite']]
 NIGHTLY_PACKAGES = ['foreman', 'foreman-installer', 'foreman-proxy', 'foreman-release', 'foreman-selinux', 'rubygem-hammer_cli', 'rubygem-hammer_cli_foreman', 'rubygem-katello', 'katello-repos', 'rubygem-hammer_cli_katello', 'katello']
 EXCLUDE_PACKAGES = [
     'jsoncpp',  # build-time only dependency according to https://github.com/theforeman/foreman-packaging/pull/6229
