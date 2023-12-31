@@ -2,10 +2,10 @@
 
 %global gem_name foreman_google
 %global plugin_name google
-%global foreman_min_version 3.5.0
+%global foreman_min_version 3.7.0
 
 Name: rubygem-%{gem_name}
-Version: 1.0.4
+Version: 2.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Google Compute Engine plugin for the Foreman
 License: GPLv3
@@ -17,29 +17,24 @@ Obsoletes: foreman-gce < 3.5.0-1
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby >= 2.5
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.5
 BuildRequires: ruby >= 2.5
 BuildRequires: rubygems-devel
+BuildRequires: (rubygem(google-apis-compute_v1) >= 0.14 with rubygem(google-apis-compute_v1) < 1)
+BuildRequires: (rubygem(google-cloud-compute) >= 0.2 with rubygem(google-cloud-compute) < 1)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(google-apis-compute_v1) >= 0.14
-BuildRequires: rubygem(google-apis-compute_v1) < 1
-BuildRequires: rubygem(google-cloud-compute) >= 0.2
-BuildRequires: rubygem(google-cloud-compute) < 1
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 12.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(react-intl) >= 2.8.0
-BuildRequires: npm(react-intl) < 3.0.0
+BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -101,6 +96,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 31 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.0.0-1
+- Update to 2.0.0
+
 * Wed May 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.0.4-1
 - Update to 1.0.4
 
