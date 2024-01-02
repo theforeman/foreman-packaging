@@ -21,9 +21,7 @@ BuildRequires: (rubygem(ffi) >= 1.9 with rubygem(ffi) < 2)
 BuildArch: noarch
 
 BuildRequires: (libsass.so.1()(64bit) if libc.so.6()(64bit))
-BuildRequires: (libsass.so.1 if libc.so.6)
 Requires: (libsass.so.1()(64bit) if libc.so.6()(64bit))
-Requires: (libsass.so.1 if libc.so.6)
 
 %description
 Use libsass with Ruby!
@@ -87,6 +85,7 @@ ruby -I "%{buildroot}%{gem_libdir}" -e "require '%{gem_require_name}'"
 %changelog
 * Thu Dec 21 2023 Evgeni Golov - 2.4.0-3
 - Make the package noarch
+- Drop the 32-bit Requires, we do not ship libsass in 32 bit and it confuses repoclosure
 
 * Tue Dec 19 2023 Evgeni Golov - 2.4.0-2
 - Update libsass.so ABI to 1 for libsass >= 3.5
