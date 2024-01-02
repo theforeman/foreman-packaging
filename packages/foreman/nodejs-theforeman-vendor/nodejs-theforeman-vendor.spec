@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 12.2.0
+Version: 12.2.3
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Jan 02 2024 Foreman Packaging Automation <packaging@theforeman.org> 12.2.3-1
+- Update to 12.2.3
+
 * Wed Sep 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 12.2.0-1
 - Update to 12.2.0
 
