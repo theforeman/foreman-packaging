@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.8.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Mail provides a nice Ruby DSL for making, sending and reading emails
 License: MIT
 URL: https://github.com/mikel/mail
@@ -16,8 +16,10 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
-# Prefer to consume net-smtp/net-imap/net-pop as a default gem
-Requires: ruby-default-gems < 3
+# Allow to consume net-smtp/net-imap/net-pop as a default gem
+Requires: (rubygem(net-imap) or ruby-default-gems < 3.1)
+Requires: (rubygem(net-pop) or ruby-default-gems < 3.1)
+Requires: (rubygem(net-smtp) or ruby-default-gems < 3.1)
 
 %description
 A really Ruby Mail handler.
@@ -65,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 03 2024 Evgeni Golov - 2.8.1-2
+- Correct deps for Ruby 3.0 bundled gems
+
 * Sun Feb 12 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.8.1-1
 - Update to 2.8.1
 
