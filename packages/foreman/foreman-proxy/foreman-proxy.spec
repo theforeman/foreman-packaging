@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -30,8 +30,6 @@ Requires:       rubygem(bundler_ext)
 
 # Require fapolicyd package if fapolicyd is present
 Requires: (%{name}-fapolicyd if fapolicyd)
-
-Requires:       foreman-debug
 
 # These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
 Requires:       rubygem(json)
@@ -239,6 +237,9 @@ exit 0
 
 
 %changelog
+* Wed Jan 03 2024 Evgeni Golov - 3.10.0-0.2.develop
+- Drop requirement on foreman-debug
+
 * Wed Nov 29 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.10.0-0.1.develop
 - Bump version to 3.10-develop
 
