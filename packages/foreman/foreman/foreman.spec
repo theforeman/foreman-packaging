@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -44,9 +44,6 @@ Requires(preun): systemd-units
 
 # Require fapolicyd package if fapolicyd is present
 Requires: (%{name}-fapolicyd if fapolicyd)
-
-# Subpackages
-Requires: %{name}-debug
 
 # start specfile default Requires
 Requires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
@@ -866,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jan 03 2024 Evgeni Golov - 3.10.0-0.3.develop
+- Drop requirement on foreman-debug
+
 * Tue Dec 12 2023 Evgeni Golov - 3.10.0-0.2.develop
 - Update GEM dependencies
 
