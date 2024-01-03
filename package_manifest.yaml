@@ -903,6 +903,16 @@ repoclosures:
           - el8-extras
           - el8-puppet-7
           - "el8-candlepin-{{ candlepin_version }}-staging"
+    foreman-staging-repoclosure-el9:
+      repoclosure_target_repos:
+        el9:
+          - "el9-foreman-{{ foreman_version }}-staging"
+      repoclosure_target_dist: el9
+      repoclosure_lookaside_repos:
+        el9:
+          - el9-baseos
+          - el9-appstream
+          - el9-puppet-7
     plugins-staging-repoclosure-el8:
       repoclosure_target_repos:
         el8:
