@@ -7,7 +7,7 @@
 %global release 1
 
 Name:    foreman
-Version: 3.9.0
+Version: 3.9.1
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -864,6 +864,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jan 03 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.1-1
+- Release foreman 3.9.1
+
 * Tue Dec 19 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.0-1
 - Release foreman 3.9.0
 
