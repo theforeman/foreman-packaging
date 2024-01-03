@@ -17,8 +17,12 @@ generate() {
   grub2-mkimage -d /usr/lib/grub/$1/ -O $1 -o /var/lib/tftpboot/$2 -p "grub2" $MODULES $MODULES_EFI
 }
 
+has_pkg() {
+  rpm -q "$1" &>/dev/null
+}
+
 check_pkg() {
-  rpm -q "$1" &>/dev/null || ( echo "Please install: yum -y install $1" >/dev/stderr && exit 1 )
+  has_pkg "$1" || ( echo "Please install: yum -y install $1" >/dev/stderr && exit 1 )
 }
 
 if [[ "$ARCH" == "aa64" ]]; then
@@ -42,8 +46,11 @@ elif [[ "$ARCH" == "ppc64le" ]]; then
 else
   check_pkg grub2-pc-modules
   generate i386-pc grub2/grubia32.0
-  check_pkg grub2-efi-ia32-modules
-  generate i386-efi grub2/grubia32.efi
+
+  if has_pkg grub2-efi-ia32-modules ; then
+    generate i386-efi grub2/grubia32.efi
+  fi
+
   check_pkg grub2-efi-x64-modules
   generate x86_64-efi grub2/grubx64.efi
 fi
