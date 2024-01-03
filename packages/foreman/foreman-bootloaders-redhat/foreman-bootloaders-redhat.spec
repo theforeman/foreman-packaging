@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
 Version: 202102220000
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -11,7 +11,9 @@ BuildArch: noarch
 Source0: foreman-generate-bootloaders
 
 Requires: grub2-tools-extra
+%if 0%{?rhel} == 0
 Requires: grub2-efi-ia32-modules
+%endif
 Requires: grub2-efi-x64-modules
 Requires: grub2-pc-modules
 Requires: shim-ia32
@@ -69,6 +71,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Wed Jan 03 2024 Evgeni Golov - 202102220000-2
+- Drop requirement on grub2-efi-ia32-modules on EL9+
+
 * Fri Feb 19 2021 Oliver Freyermuth <o.freyermuth@googlemail.com> 202102220000-1
 - Add efinet module only on *-efi platforms.
 
