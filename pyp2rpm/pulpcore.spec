@@ -1,3 +1,6 @@
+%global python3_pkgversion 3.11
+%global __python3 /usr/bin/python3.11
+
 {{ data.credit_line }}
 {% from 'macros.spec' import dependencies, for_python_versions, underscored_or_pypi, macroed_url -%}
 %global pypi_name {{ data.name }}
