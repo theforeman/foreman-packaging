@@ -29,6 +29,19 @@ ensure_program() {
 	fi
 }
 
+bump_spec() {
+	SPEC_FILE=$1
+	NEW_VERSION=$2
+
+	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git rm
+
+	rpmdev-bumpspec --comment "- Update to ${NEW_VERSION}" --new "${NEW_VERSION}" $SPEC_FILE
+	git add $SPEC_FILE
+
+	spectool --get-files $SPEC_FILE
+	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git annex add
+}
+
 ensure_program rpmspec rpm-build
 
 SCRIPT_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
@@ -62,23 +75,7 @@ if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
 		cd "$1"
 		GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
 
-		spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git rm
-
-		sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
-
-		RELEASE=$(rpmspec --srpm -q --queryformat='%{release}' --undefine=dist $SPEC_FILE)
-		if [[ ${RELEASE} != 1 ]] ; then
-			echo "* Resetting release ($RELEASE) in $SPEC_FILE"
-			sed -i "s/^\(Release:\s\+\)${RELEASE}/\11/" $SPEC_FILE
-		fi
-
-		"$SCRIPT_DIR"/add_changelog.sh $SPEC_FILE <<-EOF
-		- Update to $NEW_VERSION
-		EOF
-
-		spectool --get-files $SPEC_FILE
-		spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git annex add
-		git add $SPEC_FILE
+		bump_spec $SPEC_FILE "${NEW_VERSION}"
 
 		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
 		if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]]; then
@@ -131,6 +128,8 @@ if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
 
 		"$SCRIPT_DIR"/add_npm_package.sh "$NPM_NAME" "$NEW_VERSION" "$NPM_STRATEGY"
 	else
+		cd "$1"
+		bump_spec $SPEC_FILE "$NEW_VERSION"
 		echo "TODO:"
 		echo "* Verify the dependencies"
 	fi
