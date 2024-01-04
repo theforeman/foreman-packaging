@@ -981,7 +981,7 @@ repoclosures:
 foreman_release_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['foreman-copr'] }}"
+      - "{{ hostvars['foreman-copr-with-el9'] }}"
       - "{{ hostvars['client-copr'] }}"
     koji_tags:
       - "{{ all_tags['foreman-el8'] }}"
