@@ -45,6 +45,8 @@ copr_projects:
       - 'postgresql:12'
     core_buildroot_packages:
       - 'foreman-build'
+    plugins_buildroot_packages:
+      - 'foreman-build'
       - python3.11-rpm-macros
       - python3.11
     rhel_9: '9'
@@ -95,7 +97,7 @@ copr_projects:
             - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
             - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
+          buildroot_packages: "{{ plugins_buildroot_packages }}"
     katello-copr:
       copr_project_name: "katello-{{ katello_version }}-staging"
       copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
