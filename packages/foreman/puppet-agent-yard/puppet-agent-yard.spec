@@ -3,8 +3,8 @@
 
 Summary: Documentation generation tool for Ruby
 Name: puppet-agent-%{gem_name}
-Version: 0.9.5
-Release: 2%{?dist}
+Version: 0.9.34
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://yardoc.org/
@@ -46,6 +46,9 @@ else  # upgrade
 fi
 
 %changelog
+* Thu Jan 04 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.9.34-1
+- Update to 0.9.34
+
 * Wed Apr 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.9.5-2
 - Build for EL8
 
