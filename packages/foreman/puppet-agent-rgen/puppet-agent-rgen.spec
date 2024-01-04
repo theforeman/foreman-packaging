@@ -3,8 +3,8 @@
 
 Summary: OAuth Core Ruby implementation for Puppet Agent
 Name: puppet-agent-%{gem_name}
-Version: 0.8.2
-Release: 2%{?dist}
+Version: 0.9.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/rgen
@@ -50,6 +50,9 @@ if ! /opt/puppetlabs/puppet/bin/gem list %{gem_name} | grep %{gem_name} | grep -
 fi
 
 %changelog
+* Thu Jan 04 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.9.0-1
+- Update to 0.9.0
+
 * Wed Apr 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.8.2-2
 - Build for EL8
 
