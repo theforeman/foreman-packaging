@@ -98,6 +98,23 @@ copr_projects:
             - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ plugins_buildroot_packages }}"
+    plugins-copr-with-el9:
+      copr_project_name: "plugins-{{ foreman_version }}-staging"
+      copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
+      copr_project_chroots:
+        - name: "rhel-{{ rhel_8 }}-x86_64"
+          modules: "{{ core_modules }}"
+          external_repos:
+            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
+            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
+          buildroot_packages: "{{ plugins_buildroot_packages }}"
+        - name: "rhel-{{ rhel_9 }}-x86_64"
+          external_repos:
+            - "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
+            - "{{ plugins_staging }}/rhel-{{ rhel_9 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_9 }}.xml"
+          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
     katello-copr:
       copr_project_name: "katello-{{ katello_version }}-staging"
       copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
