@@ -1,3 +1,9 @@
+ruby-foreman-puppet (6.1.1-2) stable; urgency=low
+
+  * Rebuild against new foreman-js
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 04 Jan 2024 07:33:30 +0100
+
 ruby-foreman-puppet (6.1.1-1) stable; urgency=low
 
   * 6.1.1 released
