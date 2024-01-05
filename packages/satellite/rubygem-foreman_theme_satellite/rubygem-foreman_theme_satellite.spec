@@ -6,8 +6,8 @@
 %global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat")
 
 Name: rubygem-%{gem_name}
-Version: 13.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 13.2.1
+Release: 1%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
 URL: https://github.com/RedHatSatellite/foreman_theme_satellite
@@ -25,15 +25,14 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.7
 BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
-BuildArch: noarch
-Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: rubygem(activesupport)
 BuildRequires: rubygem(deface)
+BuildArch: noarch
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 4.12.0
 # end package.json devDependencies BuildRequires
 
@@ -102,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jan 05 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.1-1
+- Update to 13.2.1
+
 * Tue Nov 14 2023 Evgeni Golov 13.2.0-2
 - Patch package when building downstream
 
