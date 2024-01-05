@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_scc_manager
 %global plugin_name scc_manager
-%global foreman_min_version 2.1
+%global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 2.3.0
-Release: 2%{?foremandist}%{?dist}
+Version: 3.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 License: GPLv3
 URL: https://www.orcharhino.com/
@@ -13,20 +13,18 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
+BuildRequires: rubygem(katello) >= 3.16
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(katello) >= 3.16
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 10.0
 # end package.json devDependencies BuildRequires
 
@@ -93,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jan 05 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
+- Update to 3.0.0
+
 * Tue Jun 27 2023 Evgeni Golov 2.3.0-2
 - Regenerate RPM spec based on latest template
 
