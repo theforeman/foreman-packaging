@@ -43,7 +43,7 @@ jobs:
         sudo curl --create-dirs -o /usr/local/bin/spectool https://pagure.io/rpmdevtools/raw/26a8abc746fba9c0b32eb899b96c92841a37855a/f/spectool.in
         sudo curl --create-dirs -o /usr/local/bin/rpmdev-bumpspec https://pagure.io/rpmdevtools/raw/6f387c1deaa5cbed770310e288abde04b17421dc/f/rpmdev-bumpspec
         echo 'echo "$GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"' | sudo tee /usr/local/bin/rpmdev-packager
-        sudo chmod +x /usr/local/bin/spectool /usr/local/bin/rpmdev-packager
+        sudo chmod +x /usr/local/bin/*
     - name: Install dependencies for nodejs
       if: ${{ matrix.npm_name != null }}
       uses: actions/setup-node@v4
