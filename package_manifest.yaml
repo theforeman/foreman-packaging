@@ -164,6 +164,8 @@ foreman_packages:
     repoclosure_target_repos:
       el8:
         - "el8-foreman-{{ foreman_version }}-staging"
+      el9:
+        - "el9-foreman-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
       el9:
         - el9-baseos
@@ -192,6 +194,8 @@ plugin_packages:
     repoclosure_target_repos:
       el8:
         - "el8-foreman-plugins-{{ foreman_version }}-staging"
+      el9:
+        - "el9-foreman-plugins-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
       el8:
         - el8-appstream
