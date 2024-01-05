@@ -205,6 +205,12 @@ plugin_packages:
         - el8-extras
         - el8-puppet-7
         - "el8-foreman-{{ foreman_version }}-staging"
+      el9:
+        - el9-baseos
+        - el9-appstream
+        - el9-configmanagement-salt
+        - el9-puppet-7
+        - "el9-foreman-{{ foreman_version }}-staging"
   children:
     foreman_plugin_packages: {}
     foreman_proxy_plugin_packages: {}
