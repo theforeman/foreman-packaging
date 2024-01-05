@@ -838,14 +838,11 @@ ruby_plugin_packages:
     rubygem-http: {}
     rubygem-http-form_data: {}
     rubygem-http_parser.rb: {}
-    rubygem-httparty: {}
     rubygem-interactor: {}
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
     rubygem-jsonpath: {}
     rubygem-kubeclient: {}
-    rubygem-mqtt: {}
-    rubygem-multi_xml: {}
     rubygem-ms_rest: {}
     rubygem-ms_rest_azure: {}
     rubygem-net-ssh-gateway: {}
@@ -875,8 +872,11 @@ foreman_proxy_plugin_packages:
       - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-faraday_middleware: {}
+    rubygem-httparty: {}
     rubygem-infoblox: {}
     rubygem-logify: {}
+    rubygem-mqtt: {}
+    rubygem-multi_xml: {}
     rubygem-openscap: {}
     rubygem-openscap_parser: {}
     rubygem-radcli: {}
