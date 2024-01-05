@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: A Ruby interface for the adcli library
 Group: Development/Languages
 License: Artistic-2.0
@@ -27,6 +27,9 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# Compiler is required for build of gem binary extension.
+# https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
+BuildRequires: gcc
 # end specfile generated dependencies
 
 %description
@@ -113,6 +116,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 05 2024 Evgeni Golov - 1.0.0-6
+- Explicitly BuildRequire gcc
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-5
 - Rebuild for Ruby 2.7
 
