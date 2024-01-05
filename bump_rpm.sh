@@ -32,10 +32,14 @@ ensure_program() {
 bump_spec() {
 	SPEC_FILE=$1
 	NEW_VERSION=$2
+	NEW_VR=$NEW_VERSION
+	if grep -q -E '^Release:.+foremandist' $SPEC_FILE ; then
+		NEW_VR="${NEW_VERSION}-1%{?foremandist}%{?dist}"
+	fi
 
 	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git rm
 
-	rpmdev-bumpspec --comment "- Update to ${NEW_VERSION}" --new "${NEW_VERSION}" $SPEC_FILE
+	rpmdev-bumpspec --comment "- Update to ${NEW_VERSION}" --new "${NEW_VR}" $SPEC_FILE
 	git add $SPEC_FILE
 
 	spectool --get-files $SPEC_FILE
