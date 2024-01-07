@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.6
+Version: 0.0.7
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Puppet plugin for Hammer CLI
 Group: Development/Languages
@@ -18,16 +18,12 @@ URL: https://github.com/theforeman/hammer-cli-foreman-puppet
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) > 2.6.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 4.0.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -79,6 +75,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
+%{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
@@ -90,6 +87,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Sun Jan 07 2024 Oleh Fedorenko <ofedoren@redhat.com> - 0.0.7-1
+- Update to 0.0.7
+
 * Fri May 13 2022 Nadja Heitmann <nadjah@atix.de> 0.0.6-1
 - Update to 0.0.6
 - Remove deprecated options from host/hostgroup
