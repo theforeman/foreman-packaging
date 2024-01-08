@@ -721,18 +721,10 @@ foreman_plugin_packages:
   children:
     ruby_plugin_packages: {}
   hosts:
-    ansible-collection-theforeman-operations: {}
-    ansiblerole-foreman_scap_client: {}
-    ansiblerole-insights-client: {}
     ansible-runner: {}
-    ansible-collection-theforeman-foreman: {}
-    cjson: {}
     foreman-discovery-image-service: {}
-    mosquitto: {}
     nodejs-react-json-tree:
       strategy: bundle
-    puppet-foreman_scap_client: {}
-    puppetlabs-stdlib: {}
     python-daemon: {}
     python-docutils: {}
     python-lockfile: {}
@@ -880,6 +872,9 @@ foreman_proxy_plugin_packages:
   vars:
     copr_projects:
       - "{{ hostvars['plugins-copr-with-el9'] }}"
+  children:
+    foreman_proxy_other_plugin_packages: {}
+    foreman_proxy_other_plugin_packages_tier2: {}
   hosts:
     rubygem-faraday_middleware: {}
     rubygem-httparty: {}
@@ -919,6 +914,20 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_remote_execution_ssh: {}
     rubygem-smart_proxy_salt: {}
     rubygem-smart_proxy_shellhooks: {}
+
+foreman_proxy_other_plugin_packages:
+  hosts:
+    ansible-collection-theforeman-foreman: {}
+    ansible-collection-theforeman-operations: {}
+    ansiblerole-foreman_scap_client: {}
+    ansiblerole-insights-client: {}
+    cjson: {}
+    puppet-foreman_scap_client: {}
+    puppetlabs-stdlib: {}
+
+foreman_proxy_other_plugin_packages_tier2:
+  hosts:
+    mosquitto: {}
 
 repoclosures:
   hosts:
