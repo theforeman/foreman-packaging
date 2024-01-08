@@ -7,8 +7,8 @@
 %global foreman_min_version 3.7
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.10
-Release: 2%{?foremandist}%{?dist}
+Version: 2.2.11
+Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -17,24 +17,18 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
+BuildRequires: (rubygem(azure_mgmt_resources) >= 0.18.1 with rubygem(azure_mgmt_resources) < 0.19)
+BuildRequires: (rubygem(azure_mgmt_network) >= 0.26.1 with rubygem(azure_mgmt_network) < 0.27)
+BuildRequires: (rubygem(azure_mgmt_storage) >= 0.23.0 with rubygem(azure_mgmt_storage) < 0.24)
+BuildRequires: (rubygem(azure_mgmt_compute) >= 0.22.0 with rubygem(azure_mgmt_compute) < 0.23)
+BuildRequires: (rubygem(azure_mgmt_subscriptions) >= 0.18.5 with rubygem(azure_mgmt_subscriptions) < 0.19)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(azure_mgmt_resources) >= 0.18.1
-BuildRequires: rubygem(azure_mgmt_resources) < 0.19
-BuildRequires: rubygem(azure_mgmt_network) >= 0.26.1
-BuildRequires: rubygem(azure_mgmt_network) < 0.27
-BuildRequires: rubygem(azure_mgmt_storage) >= 0.23.0
-BuildRequires: rubygem(azure_mgmt_storage) < 0.24
-BuildRequires: rubygem(azure_mgmt_compute) >= 0.22.0
-BuildRequires: rubygem(azure_mgmt_compute) < 0.23
-BuildRequires: rubygem(azure_mgmt_subscriptions) >= 0.18.5
-BuildRequires: rubygem(azure_mgmt_subscriptions) < 0.19
 # end specfile generated dependencies
 
 %description
@@ -105,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jan 08 2024 Leos Stejskal <lstejska@redhat.com> - 2.2.11-1
+- Update to 2.2.11
+
 * Tue Aug 08 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.10-2
 - Precompile assets
 
