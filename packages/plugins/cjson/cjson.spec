@@ -1,6 +1,6 @@
 Name:           cjson
 Version:        1.7.14
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Ultralightweight JSON parser in ANSI C
 
 License:        MIT and ASL 2.0
@@ -28,17 +28,15 @@ developing applications that use cJSON.
 
 %build
 %cmake
-make %{?_smp_mflags}
+%cmake_build
 
 %install
-%make_install
+%cmake_install
 rm -f %{buildroot}%{_libdir}/*.{la,a}
 rm -f %{buildroot}%{_libdir}/cmake/cJSON/*.cmake
 
 %check
-%if 0%{?rhel} > 7
 %ctest
-%endif
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -55,6 +53,9 @@ rm -f %{buildroot}%{_libdir}/cmake/cJSON/*.cmake
 %{_includedir}/cjson/
 
 %changelog
+* Mon Jan 08 2024 Evgeni Golov - 1.7.14-6
+- Use correct cmake macros for EL9 builds
+
 * Wed Jan 19 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.7.14-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
