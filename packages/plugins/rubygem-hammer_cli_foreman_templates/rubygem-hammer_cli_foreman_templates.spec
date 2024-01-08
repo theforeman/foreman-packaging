@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.2.0
-Release: 3%{?foremandist}%{?dist}
+Version: 0.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Hammer commands for exporting and importing templates
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-templates
@@ -66,6 +66,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.3.0-1
+- Update to 0.3.0
+
 * Wed Oct 19 2022 Evgeni Golov 0.2.0-3
 - Regenerate spec based on latest template
 
