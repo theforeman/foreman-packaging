@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman CLI plugin for managing discovery hosts in foreman
 Group: Development/Languages
@@ -18,15 +18,10 @@ URL: https://github.com/theforeman/hammer-cli-foreman-discovery
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.2
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -90,6 +85,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.0-1
+- Update to 1.2.0
+
 * Wed Mar 16 2022 Oleh Fedorenko <ofedoren@redhat.com> 1.1.0-1
 - Update to 1.1.0
 
