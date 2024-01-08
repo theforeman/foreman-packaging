@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-discovery (1.2.0-1) stable; urgency=low
+
+  * 1.2.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 08 Jan 2024 13:05:41 +0000
+
 ruby-hammer-cli-foreman-discovery (1.1.0-1) stable; urgency=low
 
   * 1.1.0 released
