@@ -2,7 +2,7 @@
 %global gem_name net-ldap
 
 Name: rubygem-%{gem_name}
-Version: 0.18.0
+Version: 0.19.0
 Release: 1%{?dist}
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 License: MIT
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.19.0-1
+- Update to 0.19.0
+
 * Sun Apr 09 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.18.0-1
 - Update to 0.18.0
 
