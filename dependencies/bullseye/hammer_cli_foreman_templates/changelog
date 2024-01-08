@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-templates (0.3.0-1) stable; urgency=low
+
+  * 0.3.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 08 Jan 2024 13:29:37 +0000
+
 ruby-hammer-cli-foreman-templates (0.2.0-2) stable; urgency=low
 
   * 0.2.0-2 released
