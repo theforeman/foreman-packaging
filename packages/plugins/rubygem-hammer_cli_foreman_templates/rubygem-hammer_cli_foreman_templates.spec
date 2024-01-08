@@ -55,6 +55,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
+%{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
