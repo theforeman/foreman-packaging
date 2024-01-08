@@ -2,7 +2,7 @@
 %global gem_name fog-core
 
 Name: rubygem-%{gem_name}
-Version: 2.3.0
+Version: 2.4.0
 Release: 1%{?dist}
 Summary: Shared classes and tests for fog providers and services
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/fog/fog-core
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.0.0
-BuildRequires: ruby >= 2.0.0
+Requires: ruby >= 2.0
+BuildRequires: ruby >= 2.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -49,6 +49,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
 %license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -66,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.4.0-1
+- Update to 2.4.0
+
 * Sun Nov 06 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.3.0-1
 - Update to 2.3.0
 
