@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.0.9
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Plugin for configuring Virt Who
 License: GPLv3+
 URL: https://github.com/theforeman/hammer-cli-foreman-virt-who-configure
@@ -67,6 +67,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 09 2024 Oleh Fedorenko <ofedoren@redhat.com> - 0.1.0-1
+- Update to 0.1.0
+
 * Wed Oct 19 2022 Evgeni Golov 0.0.9-2
 - Regenerate spec based on latest template
 
