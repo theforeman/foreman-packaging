@@ -1,6 +1,6 @@
 Name:           cjson
-Version:        1.7.14
-Release:        6%{?dist}
+Version:        1.7.15
+Release:        1%{?dist}
 Summary:        Ultralightweight JSON parser in ANSI C
 
 License:        MIT and ASL 2.0
@@ -18,6 +18,7 @@ done with. It's a single file of C, and a single header file.
 Summary:        Development files for cJSON
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       pkgconfig
+Requires:       cmake-filesystem
 
 %description devel
 The %{name}-devel package contains libraries and header files for
@@ -27,13 +28,12 @@ developing applications that use cJSON.
 %autosetup -n cJSON-%{version}
 
 %build
-%cmake
+%cmake -DENABLE_CJSON_TEST=ON -DENABLE_TARGET_EXPORT=ON
 %cmake_build
 
 %install
 %cmake_install
 rm -f %{buildroot}%{_libdir}/*.{la,a}
-rm -f %{buildroot}%{_libdir}/cmake/cJSON/*.cmake
 
 %check
 %ctest
@@ -50,11 +50,19 @@ rm -f %{buildroot}%{_libdir}/cmake/cJSON/*.cmake
 %doc CHANGELOG.md CONTRIBUTORS.md
 %{_libdir}/libcjson.so
 %{_libdir}/pkgconfig/libcjson.pc
+%{_libdir}/cmake/cJSON/
 %{_includedir}/cjson/
 
 %changelog
-* Mon Jan 08 2024 Evgeni Golov - 1.7.14-6
-- Use correct cmake macros for EL9 builds
+* Wed Mar 01 2023 Petr Menšík <pemensik@redhat.com> - 1.7.15-1
+- Update to 1.7.15
+- Export also CMake module
+
+* Wed Jan 18 2023 Fedora Release Engineering <releng@fedoraproject.org> - 1.7.14-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
+
+* Wed Jul 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.7.14-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
 * Wed Jan 19 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.7.14-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
