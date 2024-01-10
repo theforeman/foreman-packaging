@@ -721,18 +721,9 @@ foreman_plugin_packages:
   children:
     ruby_plugin_packages: {}
   hosts:
-    ansible-runner: {}
     foreman-discovery-image-service: {}
     nodejs-react-json-tree:
       strategy: bundle
-    python-daemon: {}
-    python-docutils: {}
-    python-lockfile: {}
-    python-packaging: {}
-    python-pbr: {}
-    python-pexpect: {}
-    python-ptyprocess: {}
-    python-pyparsing: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
@@ -922,12 +913,21 @@ foreman_proxy_other_plugin_packages:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     cjson: {}
+    python-daemon: {}
+    python-docutils: {}
+    python-packaging: {}
+    python-pbr: {}
+    python-pexpect: {}
+    python-ptyprocess: {}
+    python-pyparsing: {}
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
 
 foreman_proxy_other_plugin_packages_tier2:
   hosts:
     mosquitto: {}
+    ansible-runner: {}
+    python-lockfile: {}
 
 repoclosures:
   hosts:
