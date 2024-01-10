@@ -692,11 +692,8 @@ katello_packages:
         - "el8-candlepin-{{ candlepin_version }}-staging"
   children:
     satellite_packages: {}
+    katello_common_packages: {}
   hosts:
-    katello: {}
-    katello-client-bootstrap: {}
-    katello-repos: {}
-    katello-selinux: {}
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
@@ -704,7 +701,6 @@ katello_packages:
     nodejs-ngreact: {}
     nodejs-query-string: {}
     nodejs-strict-uri-encode: {}
-    rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
     rubygem-ethon: {}
@@ -735,6 +731,17 @@ katello_packages:
     rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}
+
+katello_common_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['katello-copr-with-el9'] }}"
+  hosts:
+    katello: {}
+    katello-client-bootstrap: {}
+    katello-repos: {}
+    katello-selinux: {}
+    rhel8-kickstart-setup: {}
 
 foreman_plugin_packages:
   children:
