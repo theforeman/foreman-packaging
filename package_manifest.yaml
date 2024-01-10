@@ -127,6 +127,25 @@ copr_projects:
             - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
+    katello-copr-with-el9:
+      copr_project_name: "katello-{{ katello_version }}-staging"
+      copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
+      copr_project_chroots:
+        - name: "rhel-{{ rhel_8 }}-x86_64"
+          modules: "{{ core_modules }}"
+          external_repos:
+            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
+            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
+            - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
+        - name: "rhel-{{ rhel_9 }}-x86_64"
+          external_repos:
+            - "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
+            - "{{ plugins_staging }}/rhel-{{ rhel_9 }}-x86_64"
+            - "{{ katello_staging }}/rhel-{{ rhel_9 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_9 }}.xml"
+          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
     client-copr:
       copr_project_name: "client-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'client-nightly-staging' if foreman_version != 'nightly' else False }}"
