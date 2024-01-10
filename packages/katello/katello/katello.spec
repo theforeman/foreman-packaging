@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.12.0
@@ -88,7 +88,6 @@ BuildArch:  noarch
 Summary:    Common runtime components of %{name}
 
 Requires: rubygem-highline
-Requires: %{name}-debug
 
 %description common
 Common runtime components of %{name}
@@ -104,7 +103,6 @@ Common runtime components of %{name}
 Summary: Katello Debug utilities
 Group: Applications/System
 Requires: bash
-Requires: mktemp
 Requires: foreman-debug
 Requires: findutils
 Requires: coreutils
@@ -132,6 +130,10 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Jan 10 2024 Evgeni Golov - 4.12.0-0.2.master
+- Don't require katello-debug
+- Drop katello-debug -> mktemp requirement, it's part of coreutils
+
 * Mon Nov 27 2023 Ian Ballou <ianballou67@gmail.com> - 4.12.0-0.1.master
 - Bump version to 4.12.0
 
