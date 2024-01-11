@@ -12,12 +12,11 @@
     <packagelist>
       <!-- katello core packages -->
       <packagereq type="default">foreman-proxy-content</packagereq>
-      <packagereq type="default">katello</packagereq>
+      <!-- temp removal due to unresolved dependencies <packagereq type="default">katello</packagereq> -->
       <packagereq type="default">katello-client-bootstrap</packagereq>
       <packagereq type="default">katello-common</packagereq>
-      <packagereq type="default">katello-debug</packagereq>
       <packagereq type="default">katello-repos</packagereq>
-      <packagereq type="default">katello-selinux</packagereq>
+      <!-- temp removal due to unresolved dependencies <packagereq type="default">katello-selinux</packagereq> -->
       <packagereq type="default">rubygem-activerecord-import</packagereq>
       <packagereq type="default">rubygem-ethon</packagereq>
       <packagereq type="default">rubygem-foreman_virt_who_configure</packagereq>
