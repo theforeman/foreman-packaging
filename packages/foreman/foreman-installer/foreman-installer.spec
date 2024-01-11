@@ -1,4 +1,4 @@
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -73,17 +73,6 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 foreman-installer --scenario foreman-proxy-content --migrations-only > /dev/null
 foreman-installer --scenario katello --migrations-only > /dev/null
 
-%pretrans katello
-# RPM can't change a directory into a symlink
-# https://bugzilla.redhat.com/show_bug.cgi?id=447156
-for scenario in foreman-proxy-content katello ; do
-	MIGRATIONS=%{_sysconfdir}/%{name}/scenarios.d/$scenario.migrations
-	if [ -d $MIGRATIONS ] && [ ! -L $MIGRATIONS ] ; then
-		mv $MIGRATIONS/.applied %{_sysconfdir}/%{name}/scenarios.d/$scenario-migrations-applied
-		rm -rf $MIGRATIONS
-	fi
-done
-
 %files
 %defattr(-,root,root,-)
 %doc README.*
@@ -133,6 +122,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Jan 11 2024 Patrick Creech <pcreech@redhat.com> - 1:3.10.0-0.4.develop
+- Remove pretrans segment
+
 * Wed Nov 29 2023 Zach Huntington-Meath <zhunting@redhat.com> - 1:3.10.0-0.3.develop
 - Bump version to 3.10-develop
 
