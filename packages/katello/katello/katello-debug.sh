@@ -13,8 +13,6 @@ then
   exit 1
 fi
 
-TEMP_DIR=$(mktemp -d) # no trap - foreman-debug cleans automatically
-
 # foreman-debug will truncate any file beyond fixed size limit,
 # for larger files we need to copy the entire file.
 
