@@ -4,10 +4,10 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 2
+%global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    3.14.0
+Version:    4.0.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -60,6 +60,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Fri Jan 12 2024 Evgeni Golov - 4.0.0-1
+- Release ansible-collection-theforeman-foreman 4.0.0
+
 * Mon Jan 08 2024 Evgeni Golov - 3.14.0-2
 - Adjust requiements for Ansible on EL9
 
