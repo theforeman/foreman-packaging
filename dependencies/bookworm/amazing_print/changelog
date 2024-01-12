@@ -1,0 +1,17 @@
+ruby-amazing-print (1.5.0-1) stable; urgency=low
+
+  * 1.5.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 22 Jun 2023 19:42:39 +0000
+
+ruby-amazing-print (1.4.0-1) stable; urgency=low
+
+  * 1.4.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Oct 2022 14:37:03 +0000
+
+ruby-amazing-print (1.1.0-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Fri, 29 May 2020 17:28:37 +0200
