@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -809,6 +809,7 @@ rm -rf %{buildroot}
 %ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
+%exclude %{_datadir}/%{name}/docker-compose.yml
 
 %pre
 # Add the "foreman" user and group
@@ -863,6 +864,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Sat Jan 13 2024 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.4.develop
+- Exclude docker-compose.yml from foreman
+
 * Wed Jan 03 2024 Evgeni Golov - 3.10.0-0.3.develop
 - Drop requirement on foreman-debug
 
