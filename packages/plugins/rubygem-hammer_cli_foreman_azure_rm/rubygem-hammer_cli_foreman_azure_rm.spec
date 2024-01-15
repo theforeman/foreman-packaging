@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.4
+Version: 0.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman AzureRM commands for Hammer CLI
 Group: Development/Languages
@@ -83,6 +83,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon Jan 15 2024 Leos Stejskal <lstejska@redhat.com> - 0.3.0-1
+- Update to 0.3.0
+
 * Tue Jun 13 2023 Chris Roberts <chrobert@redhat.com> 0.2.4-1
 - Update to 0.2.4
 
