@@ -754,6 +754,7 @@ katello_common_packages:
 foreman_plugin_packages:
   children:
     ruby_plugin_packages: {}
+    hammer_plugin_packages: {}
   hosts:
     foreman-discovery-image-service: {}
     nodejs-react-json-tree:
@@ -797,6 +798,13 @@ foreman_plugin_packages:
     rubygem-foreman_webhooks: {}
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
+    yggdrasil-worker-forwarder: {}
+
+hammer_plugin_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['katello-copr-with-el9'] }}"
+  hosts:
     rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
     rubygem-hammer_cli_foreman_azure_rm: {}
@@ -813,7 +821,6 @@ foreman_plugin_packages:
     rubygem-hammer_cli_foreman_tasks: {}
     rubygem-hammer_cli_foreman_templates: {}
     rubygem-hammer_cli_foreman_webhooks: {}
-    yggdrasil-worker-forwarder: {}
 
 ruby_plugin_packages:
   hosts:
