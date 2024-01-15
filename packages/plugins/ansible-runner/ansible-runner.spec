@@ -4,7 +4,7 @@
 
 Name:           %{pypi_name}
 Version:        2.2.1
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        A tool and python library to interface with Ansible
 
 License:        ASL 2.0
@@ -65,11 +65,16 @@ ln -s %{_bindir}/ansible-runner-%{python3_version} %{buildroot}/%{_bindir}/ansib
 %{_bindir}/ansible-runner-3
 %{_bindir}/ansible-runner-%{python3_version}
 %{_datadir}/ansible-runner/*
+%exclude %{_datadir}/packaging
+%exclude %{_datadir}/utils
 
 %files -n python%{python3_pkgversion}-%{pypi_name}
 %{python3_sitelib}/*
 
 %changelog
+* Mon Jan 15 2024 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-6
+- Exclude packaging directory
+
 * Mon Dec 18 2023 Evgeni Golov - 2.2.1-5
 - Obsolete Python 3.9 package to smoothen upgrade path
 
