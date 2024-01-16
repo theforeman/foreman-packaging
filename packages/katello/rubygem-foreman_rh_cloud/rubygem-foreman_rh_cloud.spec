@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 9.0.54
+Version: 9.0.55
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jan 16 2024 Chris Roberts <chrobert@redhat.com> - 9.0.55-1
+- Update to 9.0.55
+
 * Tue Dec 19 2023 Chris Roberts <chrobert@redhat.com> 9.0.54-1
 - Update to 9.0.54
 
