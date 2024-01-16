@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.58.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: GRPC system in Ruby
 License: Apache-2.0
 URL: https://github.com/google/grpc/tree/master/src/ruby
@@ -24,6 +24,7 @@ BuildRequires: rubygem(googleapis-common-protos-types) < 2
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
 # end specfile generated dependencies
+BuildRequires: gcc-c++
 
 BuildRequires: libstdc++-static
 
@@ -87,6 +88,9 @@ rm -rf gem_ext_test
 
 
 %changelog
+* Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
+- Explicitly BuildRequire gcc-c++
+
 * Thu Sep 21 2023 Eric D. Helms <ericdhelms@gmail.com> 1.58.0-1
 - Update to 1.58.0
 
