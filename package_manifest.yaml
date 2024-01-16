@@ -754,6 +754,7 @@ katello_common_packages:
 foreman_plugin_packages:
   children:
     ruby_plugin_packages: {}
+    ruby_plugin_packages_tier2: {}
     hammer_plugin_packages: {}
     fdi_plugin_packages: {}
   hosts:
@@ -879,7 +880,6 @@ ruby_plugin_packages:
     rubygem-googleapis-common-protos: {}
     rubygem-googleapis-common-protos-types: {}
     rubygem-graphite-api: {}
-    rubygem-grpc: {}
     rubygem-http: {}
     rubygem-http-form_data: {}
     rubygem-http_parser.rb: {}
@@ -906,6 +906,10 @@ ruby_plugin_packages:
     rubygem-ttfunk: {}
     rubygem-vault: {}
     rubygem-zscheduler: {}
+
+ruby_plugin_packages_tier2:
+  hosts:
+    rubygem-grpc: {}
 
 foreman_proxy_plugin_packages:
   vars:
