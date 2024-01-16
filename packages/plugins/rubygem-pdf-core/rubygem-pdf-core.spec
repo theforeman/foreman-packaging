@@ -1,64 +1,47 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name pdf-core
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.0
-Release: 3%{?dist}
+Name: rubygem-%{gem_name}
+Version: 0.9.0
+Release: 1%{?dist}
 Summary: PDF::Core is used by Prawn to render PDF documents
-Group: Development/Languages
 License: GPLv2 or GPLv3 or Ruby
-URL: http://prawn.majesticseacreature.com
+URL: https://prawnpdf.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
-Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.6
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.6
+
+# start specfile generated dependencies
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
+BuildRequires: rubygems-devel >= 1.3.6
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 PDF::Core is used by Prawn to render PDF documents.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
@@ -68,7 +51,6 @@ cp -pa .%{gem_dir}/* \
 %license %{gem_instdir}/GPLv3
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
-%exclude %{gem_instdir}/pdf-core.gemspec
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -76,8 +58,12 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/pdf-core.gemspec
 
 %changelog
+* Tue Jan 16 2024 Evgeni Golov - 0.9.0-1
+- Update to 0.9.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-3
 - Rebuild for Ruby 2.7
 
