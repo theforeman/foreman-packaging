@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Simple callback-based HTTP request/response parser
 Group: Development/Languages
 License: MIT
@@ -23,6 +23,9 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# Compiler is required for build of gem binary extension.
+# https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
+BuildRequires: gcc
 # end specfile generated dependencies
 
 %description
@@ -108,6 +111,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 16 2024 Evgeni Golov - 0.6.0-4
+- Explicitly BuildRequire gcc
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-3
 - Rebuild for Ruby 2.7
 
