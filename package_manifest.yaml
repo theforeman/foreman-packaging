@@ -822,6 +822,8 @@ hammer_plugin_packages:
     rubygem-hammer_cli_foreman_tasks: {}
     rubygem-hammer_cli_foreman_templates: {}
     rubygem-hammer_cli_foreman_webhooks: {}
+    rubygem-net-ssh-gateway: {}
+    rubygem-net-ssh-multi: {}
 
 ruby_plugin_packages:
   vars:
@@ -883,8 +885,6 @@ ruby_plugin_packages:
     rubygem-kubeclient: {}
     rubygem-ms_rest: {}
     rubygem-ms_rest_azure: {}
-    rubygem-net-ssh-gateway: {}
-    rubygem-net-ssh-multi: {}
     rubygem-netbox-client-ruby: {}
     rubygem-newt: {}
     rubygem-parse-cron: {}
