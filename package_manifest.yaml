@@ -823,6 +823,9 @@ hammer_plugin_packages:
     rubygem-hammer_cli_foreman_webhooks: {}
 
 ruby_plugin_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
