@@ -915,6 +915,9 @@ ruby_plugin_packages:
     rubygem-zscheduler: {}
 
 ruby_plugin_packages_tier2:
+  vars:
+    copr_projects:
+      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-grpc: {}
 
