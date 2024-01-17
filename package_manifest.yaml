@@ -757,6 +757,7 @@ foreman_plugin_packages:
     ruby_plugin_packages_tier2: {}
     hammer_plugin_packages: {}
     fdi_plugin_packages: {}
+    other_plugin_packages: {}
   hosts:
     nodejs-react-json-tree:
       strategy: bundle
@@ -800,12 +801,18 @@ foreman_plugin_packages:
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
     rubygem-puppetdb_foreman: {}
-    yggdrasil-worker-forwarder: {}
 
 fdi_plugin_packages:
   hosts:
     foreman-discovery-image-service: {}
     rubygem-newt: {}
+
+other_plugin_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['plugins-copr-with-el9'] }}"
+  hosts:
+    yggdrasil-worker-forwarder: {}
 
 hammer_plugin_packages:
   vars:
