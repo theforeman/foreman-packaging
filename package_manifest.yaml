@@ -701,6 +701,7 @@ katello_packages:
   children:
     satellite_packages: {}
     katello_common_packages: {}
+    katello_ruby_packages: {}
   hosts:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
@@ -709,14 +710,10 @@ katello_packages:
     nodejs-ngreact: {}
     nodejs-query-string: {}
     nodejs-strict-uri-encode: {}
-    rubygem-activerecord-import: {}
-    rubygem-anemone: {}
-    rubygem-ethon: {}
     rubygem-foreman_kernel_care: {}
     rubygem-foreman_rh_cloud: {}
     rubygem-foreman_scc_manager: {}
     rubygem-foreman_virt_who_configure: {}
-    rubygem-fx: {}
     rubygem-hammer_cli_foreman_rh_cloud: {}
     rubygem-hammer_cli_foreman_scc_manager: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
@@ -726,15 +723,25 @@ katello_packages:
     rubygem-katello:
       source_location: https://ci.theforeman.org/job/katello-master-source-release
       source_system: jenkins
-    rubygem-pulp_python_client: {}
-    rubygem-pulpcore_client: {}
+
+katello_ruby_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['katello-copr-with-el9'] }}"
+  hosts:
+    rubygem-activerecord-import: {}
+    rubygem-anemone: {}
+    rubygem-ethon: {}
+    rubygem-fx: {}
     rubygem-pulp_ansible_client: {}
     rubygem-pulp_certguard_client: {}
     rubygem-pulp_container_client: {}
     rubygem-pulp_deb_client: {}
     rubygem-pulp_file_client: {}
     rubygem-pulp_ostree_client: {}
+    rubygem-pulp_python_client: {}
     rubygem-pulp_rpm_client: {}
+    rubygem-pulpcore_client: {}
     rubygem-robotex: {}
     rubygem-stomp: {}
     rubygem-typhoeus: {}
