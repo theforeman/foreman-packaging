@@ -37,7 +37,7 @@
 
 Name: katello-host-tools
 Version: 4.2.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -293,10 +293,12 @@ touch /tmp/katello-agent-restart
 exit 0
 %endif
 
+%if %{yum_install} || %{zypper_install}
 %posttrans
 katello-package-upload 2> /dev/null
 katello-enabled-repos-upload 2> /dev/null
 exit 0
+%endif
 
 %if %{build_agent}
 %postun -n katello-agent
@@ -345,8 +347,13 @@ exit 0
 %endif
 %endif
 
+%if %{yum_install} || %{zypper_install}
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
+%else
+%exclude %{_sbindir}/katello-package-upload
+%exclude %{_sbindir}/katello-enabled-repos-upload
+%endif
 
 %if %{zypper_install}
 %dir %{_sysconfdir}/yum
@@ -389,6 +396,9 @@ exit 0
 
 
 %changelog
+* Thu Jan 18 2024 Evgeni Golov - 4.2.3-5
+- Don't install package and repository upload on DNF installs
+
 * Wed Sep 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.2.3-4
 - Stop building katello-agent
 
