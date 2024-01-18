@@ -6,7 +6,7 @@
 %global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat")
 
 Name: rubygem-%{gem_name}
-Version: 13.2.1
+Version: 13.2.2
 Release: 1%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jan 18 2024 Evgeni Golov - 13.2.2-1
+- Update to 13.2.2
+
 * Fri Jan 05 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.1-1
 - Update to 13.2.1
 
