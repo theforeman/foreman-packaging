@@ -18,6 +18,12 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+# Prefer to consume racc as a default gem
+Requires: ruby-default-gems < 3.3
+BuildRequires: ruby-default-gems < 3.3
+Requires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
+BuildRequires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
+
 %description
 ruby_parser (RP) is a ruby parser written in pure ruby (utilizing
 racc - which does by default use a C extension). It outputs
@@ -35,6 +41,10 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+# rubygem-racc is bundled into ruby-libs package and
+# auto-generated dependencies will break dependency resolution
+%gemspec_remove_dep -g racc "~> 1.5"
 
 %build
 # Create the gem as gem install only works on a gem file
