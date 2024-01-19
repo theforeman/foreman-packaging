@@ -4,7 +4,7 @@
 %global foreman_min_version 3.8.1
 
 Name: rubygem-%{gem_name}
-Version: 13.0.2
+Version: 13.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jan 19 2024 nofaralfasi <nalfassi@redhat.com> - 13.0.3-1
+- Update to 13.0.3
+
 * Sun Dec 03 2023 nofaralfasi <nalfassi@redhat.com> 13.0.2-1
 - Update to 13.0.2
 
