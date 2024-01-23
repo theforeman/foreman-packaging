@@ -4,7 +4,7 @@
 %global foreman_min_version 3.9
 
 Name: rubygem-%{gem_name}
-Version: 12.0.4
+Version: 12.0.5
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
@@ -134,6 +134,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jan 23 2024 Adam Ruzicka <aruzicka@redhat.com> - 12.0.5-1
+- Update to 12.0.5
+
 * Thu Jan 18 2024 Adam Ruzicka <aruzicka@redhat.com> - 12.0.4-1
 - Update to 12.0.4
 
