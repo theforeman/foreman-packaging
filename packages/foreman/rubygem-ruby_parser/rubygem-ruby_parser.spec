@@ -2,7 +2,7 @@
 %global gem_name ruby_parser
 
 Name: rubygem-%{gem_name}
-Version: 3.20.3
+Version: 3.21.0
 Release: 1%{?dist}
 Summary: A ruby parser written in pure ruby
 License: MIT
@@ -78,6 +78,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.21.0-1
+- Update to 3.21.0
+
 * Wed Jul 19 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.20.3-1
 - Update to 3.20.3
 
