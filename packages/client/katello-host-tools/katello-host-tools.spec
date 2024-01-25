@@ -37,7 +37,7 @@
 
 Name: katello-host-tools
 Version: 4.2.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -79,6 +79,10 @@ BuildRequires: python3-devel
 %else
 BuildRequires: python2-devel
 %endif
+%endif
+
+%if %{yum_install}
+Requires: python-setuptools
 %endif
 
 %if %{dnf_install} || 0%{?suse_version} >= 1500
@@ -389,6 +393,9 @@ exit 0
 
 
 %changelog
+* Thu Jan 25 2024 Ian Ballou <ianballou67@gmail.com> - 4.2.3-5
+- Add missing EL6/7 python-setuptools dependency
+
 * Wed Sep 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 4.2.3-4
 - Stop building katello-agent
 
