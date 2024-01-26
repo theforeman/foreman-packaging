@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 12.0.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -134,6 +134,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jan 26 2024 Evgeni Golov - 12.0.5-2
+- Rebuild for Webpack 5
+
 * Tue Jan 23 2024 Adam Ruzicka <aruzicka@redhat.com> - 12.0.5-1
 - Update to 12.0.5
 
