@@ -2,7 +2,7 @@
 %global gem_name ruby_parser
 
 Name: rubygem-%{gem_name}
-Version: 3.20.3
+Version: 3.21.0
 Release: 1%{?dist}
 Summary: A ruby parser written in pure ruby
 License: MIT
@@ -17,6 +17,12 @@ BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+
+# Prefer to consume racc as a default gem
+Requires: ruby-default-gems < 3.3
+BuildRequires: ruby-default-gems < 3.3
+Requires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
+BuildRequires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
 
 %description
 ruby_parser (RP) is a ruby parser written in pure ruby (utilizing
@@ -35,6 +41,10 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+# rubygem-racc is bundled into ruby-libs package and
+# auto-generated dependencies will break dependency resolution
+%gemspec_remove_dep -g racc "~> 1.5"
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -78,6 +88,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.21.0-1
+- Update to 3.21.0
+
 * Wed Jul 19 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.20.3-1
 - Update to 3.20.3
 
