@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.1.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_puppet
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jan 26 2024 Evgeni Golov - 6.1.1-2
+- Rebuild for Webpack 5
+
 * Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.1-1
 - Update to 6.1.1
 
