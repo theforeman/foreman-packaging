@@ -2,7 +2,7 @@
 %global gem_name graphql
 
 Name: rubygem-%{gem_name}
-Version: 1.13.20
+Version: 1.13.21
 Release: 1%{?dist}
 Summary: A GraphQL language and runtime for Ruby
 License: MIT
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.21-1
+- Update to 1.13.21
+
 * Wed Oct 25 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.13.20-1
 - Update to 1.13.20
 
