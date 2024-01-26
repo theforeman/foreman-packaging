@@ -4,14 +4,14 @@
 %global npm_name sass-loader
 
 Name: %{?scl_prefix}nodejs-sass-loader
-Version: 13.3.2
+Version: 13.3.3
 Release: 1%{?dist}
 Summary: Sass loader for webpack
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/webpack-contrib/sass-loader
 Source0: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz
-Source1: https://registry.npmjs.org/sass-loader/-/sass-loader-13.3.2.tgz
+Source1: https://registry.npmjs.org/sass-loader/-/sass-loader-13.3.3.tgz
 Source2: nodejs-sass-loader-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %if 0%{!?scl:1}
@@ -22,7 +22,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled(npm(neo-async)) = 2.6.2
-Provides: bundled(npm(sass-loader)) = 13.3.2
+Provides: bundled(npm(sass-loader)) = 13.3.3
 AutoReq: no
 AutoProv: no
 
@@ -65,6 +65,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> 13.3.3-1
+- Update to 13.3.3
+
 * Wed Dec 13 2023 Evgeni Golov 13.3.2-1
 - Update to 13.3.2
 
