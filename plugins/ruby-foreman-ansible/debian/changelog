@@ -1,3 +1,9 @@
+ruby-foreman-ansible (13.0.3-2) stable; urgency=low
+
+  * Rebuild for Webpack 5
+
+ -- Evgeni Golov <evgeni@debian.org>  Sat, 27 Jan 2024 09:10:39 +0100
+
 ruby-foreman-ansible (13.0.3-1) stable; urgency=low
 
   * 13.0.3 released
