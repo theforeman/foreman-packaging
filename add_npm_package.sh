@@ -18,11 +18,11 @@ else
   PACKAGE_NAME=nodejs-${PACKAGE_MODULE}
 fi
 
-SPEC_FILE=$(compgen -G "packages/*/${PACKAGE_NAME}/${PACKAGE_NAME}.spec")
-if [[ -z "${SPEC_FILE}" ]]; then
+PACKAGE_DIR=$(compgen -G "packages/*/${PACKAGE_NAME}/")
+if [[ -z "${PACKAGE_DIR}" ]]; then
   PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
-  SPEC_FILE="${PACKAGE_DIR}/${PACKAGE_NAME}.spec"
 fi
+SPEC_FILE="${PACKAGE_DIR}/${PACKAGE_NAME}.spec"
 
 ROOT=$(git rev-parse --show-toplevel)
 
