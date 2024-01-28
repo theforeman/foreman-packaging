@@ -17,8 +17,12 @@ if [[ $NPM_MODULE_NAME == */* ]]; then
 else
   PACKAGE_NAME=nodejs-${PACKAGE_MODULE}
 fi
-PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
-SPEC_FILE="${PACKAGE_DIR}/${PACKAGE_NAME}.spec"
+
+SPEC_FILE=$(compgen -G "packages/*/${PACKAGE_NAME}/${PACKAGE_NAME}.spec")
+if [[ -z "${SPEC_FILE}" ]]; then
+  PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
+  SPEC_FILE="${PACKAGE_DIR}/${PACKAGE_NAME}.spec"
+fi
 
 ROOT=$(git rev-parse --show-toplevel)
 
