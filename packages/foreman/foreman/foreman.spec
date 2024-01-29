@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -109,6 +109,7 @@ BuildRequires: /usr/bin/ruby
 BuildRequires: rubygems
 BuildRequires: rubygem(rake) >= 0.8.3
 BuildRequires: rubygem(bundler_ext)
+BuildRequires: /usr/bin/npx
 
 # start specfile default BuildRequires
 BuildRequires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
@@ -550,10 +551,8 @@ mv Gemfile Gemfile.in
 cp db/schema.rb.nulldb db/schema.rb
 export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{nodejs_sitelib} node_modules
-# Calls webpack manually since webpack:compile uses the config which uses
-# node_modules/.bin/webpack and that doesn't exist in our setup
 export NODE_ENV=production
-webpack --bail --config config/webpack.config.js
+%{rake} webpack:compile DATABASE_URL=nulldb://nohost
 %{rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
 rm db/schema.rb
 
@@ -859,6 +858,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Jan 29 2024 Evgeni Golov - 3.10.0-0.6.develop
+- Use webpack:compile
+
 * Fri Jan 26 2024 Evgeni Golov - 3.10.0-0.5.develop
 - Update deps for webpack5
 
