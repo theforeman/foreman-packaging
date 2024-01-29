@@ -516,6 +516,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-babel-preset-react:
       strategy: bundle
+    nodejs-buffer: {}
     nodejs-c3: {}
     nodejs-core-js: {}
     nodejs-css-loader:
