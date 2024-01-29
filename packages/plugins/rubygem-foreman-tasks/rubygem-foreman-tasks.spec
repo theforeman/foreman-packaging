@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 9.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
@@ -77,6 +77,8 @@ cp -a .%{gem_dir}/* \
 
 # the gem_name is foreman-tasks, but the assets are actually in both foreman-tasks and foreman_tasks
 ln -s %{gem_instdir}/public/assets/foreman_tasks  %{buildroot}%{foreman_dir}/public/assets/foreman_tasks
+mkdir -p %{buildroot}%{foreman_dir}/public/webpack
+ln -s %{gem_instdir}/public/webpack/foreman_tasks %{buildroot}%{foreman_dir}/public/webpack/foreman_tasks
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
@@ -135,8 +137,8 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_assets_foreman}
 %{gem_instdir}/public/assets/foreman_tasks/
 %{foreman_dir}/public/assets/foreman_tasks
-%{foreman_webpack_plugin}
-%{foreman_webpack_foreman}
+%{gem_instdir}/public/webpack/foreman_tasks/
+%{foreman_dir}/public/webpack/foreman_tasks
 
 %files doc
 %doc %{gem_docdir}
@@ -150,6 +152,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jan 29 2024 Evgeni Golov - 9.0.2-2
+- Update for Webpack 5
+
 * Wed Jan 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 9.0.2-1
 - Update to 9.0.2
 
