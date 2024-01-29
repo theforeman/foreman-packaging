@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 6
+%global release 7
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -168,6 +168,7 @@ BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
 BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
+BuildRequires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
 BuildRequires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 BuildRequires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimizer-webpack-plugin) < 5.0.0)
 BuildRequires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
@@ -319,6 +320,7 @@ Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 Requires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
+Requires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
 Requires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 Requires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimizer-webpack-plugin) < 5.0.0)
 Requires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
@@ -858,6 +860,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Jan 29 2024 Evgeni Golov - 3.10.0-0.7.develop
+- Update NPM deps
+
 * Mon Jan 29 2024 Evgeni Golov - 3.10.0-0.6.develop
 - Use webpack:compile
 
