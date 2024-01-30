@@ -54,7 +54,7 @@ copr_projects:
     rhel_8: '8'
     rhel_7: '7'
     puppet_baseurl: https://yum.puppet.com/puppet7
-    root_repo_url: https://download.copr.fedorainfracloud.org/results/@theforeman
+    root_repo_url: "https://download.copr.fedorainfracloud.org/results/{{ copr_project_user }}"
     foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
     plugins_staging: "{{ root_repo_url }}/plugins-{{ foreman_version }}-staging"
     katello_staging: "{{ root_repo_url }}/katello-{{ katello_version }}-staging"
