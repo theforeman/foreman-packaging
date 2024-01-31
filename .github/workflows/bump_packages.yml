@@ -63,7 +63,7 @@ jobs:
       env:
         SKIP_GIT_COMMIT: 1
     - name: Open a PR
-      uses: peter-evans/create-pull-request@v5
+      uses: peter-evans/create-pull-request@v6
       with:
         commit-message: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         branch: "bump_rpm/${{ matrix.package_name }}"
@@ -103,7 +103,7 @@ jobs:
     - name: Update package
       run: ./scripts/update_package.rb --name "$(basename ${{ matrix.directory }})" --version "${{ matrix.new_version }}"
     - name: Open a PR
-      uses: peter-evans/create-pull-request@v5
+      uses: peter-evans/create-pull-request@v6
       with:
         commit-message: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         branch: "bump_deb/${{ matrix.package_name }}"
