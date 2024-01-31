@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 8
+%global release 9
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -62,7 +62,7 @@ Requires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
 Requires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
 Requires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
 Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
-Requires: (rubygem(safemode) >= 1.3.5 with rubygem(safemode) < 2)
+Requires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
 Requires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
 Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
 Requires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
@@ -128,7 +128,7 @@ BuildRequires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
 BuildRequires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
 BuildRequires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
 BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
-BuildRequires: (rubygem(safemode) >= 1.3.5 with rubygem(safemode) < 2)
+BuildRequires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
 BuildRequires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
 BuildRequires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
 BuildRequires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
@@ -170,8 +170,6 @@ BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 BuildRequires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
 BuildRequires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
-BuildRequires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimizer-webpack-plugin) < 5.0.0)
-BuildRequires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
 BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
 BuildRequires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
@@ -322,8 +320,6 @@ Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 Requires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
 Requires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
-Requires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimizer-webpack-plugin) < 5.0.0)
-Requires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
 Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
 Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
@@ -860,6 +856,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jan 31 2024 Evgeni Golov - 3.10.0-0.9.develop
+- Update Gem and NPM dependencies
+
 * Wed Jan 31 2024 Evgeni Golov - 3.10.0-0.8.develop
 - Use sass not node-sass
 
