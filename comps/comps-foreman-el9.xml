@@ -54,8 +54,6 @@
       <packagereq type="default">nodejs-c3</packagereq>
       <packagereq type="default">nodejs-core-js</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>
-      <packagereq type="default">nodejs-css-minimizer-webpack-plugin</packagereq>
-      <packagereq type="default">nodejs-cssnano</packagereq>
       <packagereq type="default">nodejs-d3</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
       <packagereq type="default">nodejs-graphql</packagereq>
