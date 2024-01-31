@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 9.4.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Template-syncing engine for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_templates
@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jan 31 2024 Evgeni Golov - 9.4.0-2
+- Rebuild for Webpack 5
+
 * Thu May 25 2023 Oleh Fedorenko <ofedoren@redhat.com> 9.4.0-1
 - Update to 9.4.0-1
 
