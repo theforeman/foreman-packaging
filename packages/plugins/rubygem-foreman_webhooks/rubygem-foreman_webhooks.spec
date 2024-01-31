@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.2.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_webhooks
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jan 31 2024 Evgeni Golov - 3.2.2-2
+- Rebuild for Webpack 5
+
 * Wed Nov 15 2023 Adam Ruzicka <aruzicka@redhat.com> 3.2.2-1
 - Update to 3.2.2
 
