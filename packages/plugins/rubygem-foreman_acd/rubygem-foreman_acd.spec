@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.4
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 License: GPLv3
 URL: https://www.orcharhino.com
@@ -109,6 +109,9 @@ mkdir -p %{buildroot}%{_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jan 31 2024 Evgeni Golov - 0.9.4-3
+- Rebuild for Webpack 5
+
 * Thu Jun 29 2023 Nadja Heitmann <nadjah@atix.de> 0.9.4-2
 - Regenerate RPM spec based on latest template
 
