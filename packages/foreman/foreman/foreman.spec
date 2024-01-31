@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 7
+%global release 8
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -174,8 +174,8 @@ BuildRequires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimize
 BuildRequires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
 BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-BuildRequires: (npm(node-sass) >= 8.0.0 with npm(node-sass) < 9.0.0)
 BuildRequires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
+BuildRequires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
 BuildRequires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
 BuildRequires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
 BuildRequires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
@@ -326,8 +326,8 @@ Requires: (npm(css-minimizer-webpack-plugin) >= 4.2.2 with npm(css-minimizer-web
 Requires: (npm(cssnano) >= 5.0.1 with npm(cssnano) < 6.0.0)
 Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-Requires: (npm(node-sass) >= 8.0.0 with npm(node-sass) < 9.0.0)
 Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
+Requires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
 Requires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
 Requires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
 Requires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
@@ -860,6 +860,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jan 31 2024 Evgeni Golov - 3.10.0-0.8.develop
+- Use sass not node-sass
+
 * Mon Jan 29 2024 Evgeni Golov - 3.10.0-0.7.develop
 - Update NPM deps
 
