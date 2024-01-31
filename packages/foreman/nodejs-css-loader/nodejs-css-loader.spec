@@ -4,13 +4,13 @@
 %global npm_name css-loader
 
 Name: %{?scl_prefix}nodejs-css-loader
-Version: 6.9.1
+Version: 6.10.0
 Release: 1%{?dist}
 Summary: css loader module for webpack
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/webpack-contrib/css-loader
-Source0: https://registry.npmjs.org/css-loader/-/css-loader-6.9.1.tgz
+Source0: https://registry.npmjs.org/css-loader/-/css-loader-6.10.0.tgz
 Source1: https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz
 Source2: https://registry.npmjs.org/icss-utils/-/icss-utils-5.1.0.tgz
 Source3: https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz
@@ -36,7 +36,7 @@ BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(css-loader)) = 6.9.1
+Provides: bundled(npm(css-loader)) = 6.10.0
 Provides: bundled(npm(cssesc)) = 3.0.0
 Provides: bundled(npm(icss-utils)) = 5.1.0
 Provides: bundled(npm(lru-cache)) = 6.0.0
@@ -95,6 +95,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Jan 31 2024 Foreman Packaging Automation <packaging@theforeman.org> 6.10.0-1
+- Update to 6.10.0
+
 * Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> 6.9.1-1
 - Update to 6.9.1
 
