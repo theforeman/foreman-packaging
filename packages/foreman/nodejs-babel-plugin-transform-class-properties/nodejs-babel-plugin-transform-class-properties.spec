@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-plugin-transform-class-properties
 Version: 6.24.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: This plugin transforms static class properties as well as properties declared with the property initializer syntax
 License: MIT
 Group: Development/Libraries
@@ -105,7 +105,7 @@ done
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 %{?scl:end_of_scl}
 
 %install
@@ -122,6 +122,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 6.24.1-5
+- Use --legacy-peer-deps during npm install
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.24.1-4
 - Bump packages to build for el8
 
