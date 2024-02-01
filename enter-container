@@ -1,3 +1,3 @@
 #!/bin/bash
 
-podman run --rm --privileged -it -v ./:/opt/foreman-packaging foreman-packaging
+podman run --rm --privileged -it -v ./:/opt/foreman-packaging -v ~/.gitconfig:/etc/gitconfig foreman-packaging
