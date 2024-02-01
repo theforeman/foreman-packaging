@@ -94,7 +94,12 @@ add_npm_to_comps() {
 
 add_npm_to_manifest() {
   local package="${PACKAGE_NAME}"
-  local section="foreman_nodejs_packages"
+
+  if [[ $STRATEGY == "bundle" ]] ; then
+    local section="nodejs_bundle_packages"
+  else
+    local section="nodejs_single_packages"
+  fi
 
   ./add_host.py "$section" "$package"
   git add package_manifest.yaml

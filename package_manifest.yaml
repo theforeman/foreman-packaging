@@ -504,24 +504,17 @@ foreman_nodejs_packages:
   vars:
     copr_projects:
       - "{{ hostvars['foreman-copr'] }}"
+  children:
+    nodejs_single_packages: {}
+    nodejs_bundle_packages: {}
+
+nodejs_single_packages:
   hosts:
     gyp: {}
     nodejs-argv-parse: {}
-    nodejs-babel-core:
-      strategy: bundle
-    nodejs-babel-loader:
-      strategy: bundle
-    nodejs-babel-plugin-transform-class-properties:
-      strategy: bundle
-    nodejs-babel-preset-env:
-      strategy: bundle
-    nodejs-babel-preset-react:
-      strategy: bundle
     nodejs-buffer: {}
     nodejs-c3: {}
     nodejs-core-js: {}
-    nodejs-css-loader:
-      strategy: bundle
     nodejs-d3: {}
     nodejs-dotenv: {}
     nodejs-graphql: {}
@@ -534,30 +527,13 @@ foreman_nodejs_packages:
     nodejs-js-tokens: {}
     nodejs-lodash: {}
     nodejs-module-federation-utilities: {}
-    nodejs-node-gyp:
-      strategy: bundle
-    nodejs-node-sass:
-      strategy: bundle
     nodejs-os-browserify: {}
     nodejs-path-browserify: {}
     nodejs-performance-now: {}
-    nodejs-react-bootstrap:
-      strategy: bundle
     nodejs-react-ellipsis-with-tooltip: {}
-    nodejs-react-intl:
-      strategy: bundle
     nodejs-regenerator-runtime: {}
-    nodejs-sass:
-      strategy: bundle
-    nodejs-sass-loader:
-      strategy: bundle
     nodejs-sortabular: {}
-    nodejs-style-loader:
-      strategy: bundle
     nodejs-table-resolver: {}
-    nodejs-theforeman-builder:
-      name: "@theforeman/builder"
-      strategy: bundle
     nodejs-theforeman-vendor:
       name: "@theforeman/vendor"
     nodejs-tslib: {}
@@ -565,6 +541,38 @@ foreman_nodejs_packages:
     nodejs-uuid: {}
     nodejs-webpack-cli: {}
     nodejs-webpack-stats-plugin: {}
+
+nodejs_bundle_packages:
+  hosts:
+    nodejs-babel-core:
+      strategy: bundle
+    nodejs-babel-loader:
+      strategy: bundle
+    nodejs-babel-plugin-transform-class-properties:
+      strategy: bundle
+    nodejs-babel-preset-env:
+      strategy: bundle
+    nodejs-babel-preset-react:
+      strategy: bundle
+    nodejs-css-loader:
+      strategy: bundle
+    nodejs-node-gyp:
+      strategy: bundle
+    nodejs-node-sass:
+      strategy: bundle
+    nodejs-react-bootstrap:
+      strategy: bundle
+    nodejs-react-intl:
+      strategy: bundle
+    nodejs-sass:
+      strategy: bundle
+    nodejs-sass-loader:
+      strategy: bundle
+    nodejs-style-loader:
+      strategy: bundle
+    nodejs-theforeman-builder:
+      name: "@theforeman/builder"
+      strategy: bundle
     nodejs-webpack:
       strategy: bundle
 
