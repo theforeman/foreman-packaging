@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-theforeman-builder
 Version: 12.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Build production and development bundle files for foreman core and plugins
 License: MIT
 Group: Development/Libraries
@@ -369,7 +369,7 @@ done
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 %{?scl:end_of_scl}
 
 %install
@@ -403,6 +403,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 12.2.3-2
+- Use --legacy-peer-deps during npm install
+
 * Tue Jan 02 2024 Foreman Packaging Automation <packaging@theforeman.org> 12.2.3-1
 - Update to 12.2.3
 

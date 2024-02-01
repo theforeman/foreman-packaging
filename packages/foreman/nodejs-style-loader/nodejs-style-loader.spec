@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-style-loader
 Version: 1.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: style loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -71,7 +71,7 @@ done
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 %{?scl:end_of_scl}
 
 %install
@@ -90,6 +90,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-2
+- Use --legacy-peer-deps during npm install
+
 * Wed Dec 13 2023 Evgeni Golov 1.3.0-1
 - Update to 1.3.0
 
