@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 9
+%global release 10
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -110,6 +110,11 @@ BuildRequires: rubygems
 BuildRequires: rubygem(rake) >= 0.8.3
 BuildRequires: rubygem(bundler_ext)
 BuildRequires: /usr/bin/npx
+BuildRequires: make
+BuildRequires: (rubygem(rss) or ruby-default-gems < 3.0)
+Requires: (rubygem(rss) or ruby-default-gems < 3.0)
+BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
+Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
 # start specfile default BuildRequires
 BuildRequires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
@@ -856,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Feb 02 2024 Evgeni Golov - 3.10.0-0.10.develop
+- Correct (Build)Requiremens for EL9
+
 * Wed Jan 31 2024 Evgeni Golov - 3.10.0-0.9.develop
 - Update Gem and NPM dependencies
 
