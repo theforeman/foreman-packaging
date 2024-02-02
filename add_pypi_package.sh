@@ -2,8 +2,8 @@
 
 PYPI_NAME=$1
 VERSION=${2:-auto}
-KOJI_TAG=${3:-foreman-nightly-el8}
-DISTRO=${KOJI_TAG##*-}
+REPO=${3:-foreman-el8}
+DISTRO=${REPO##*-}
 BASE_DIR=${4:-foreman}
 TEMPLATE=${5:-fedora}
 BASE_PYTHON=3
@@ -73,7 +73,7 @@ generate_pypi_package() {
 
 add_pypi_to_comps() {
   local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
-  if [[ $KOJI_TAG == katello-* ]]; then
+  if [[ $REPO == katello-* ]]; then
     local comps_file="katello-server"
   else
     local comps_file="foreman"
@@ -89,11 +89,11 @@ add_pypi_to_comps() {
 }
 
 add_pypi_to_manifest() {
-	if [[ $KOJI_TAG == "foreman-nightly-el8" ]] ; then
+	if [[ $REPO == "foreman-el8" ]] ; then
 		local section="foreman_core_packages"
-	elif [[ $KOJI_TAG == "foreman-plugins-nightly-el8" ]] ; then
+	elif [[ $REPO == "foreman-plugins-el8" ]] ; then
 		local section="foreman_plugin_packages"
-	elif [[ $KOJI_TAG == "katello-nightly-el8" ]] ; then
+	elif [[ $REPO == "katello-el8" ]] ; then
 		local section="katello_packages"
 	else
 		# TODO: client packages
@@ -119,7 +119,7 @@ pypi_info() {
 
 if [[ -z $PYPI_NAME ]]; then
   echo "This script adds a new python package based on the module found on pypi.org"
-  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [KOJI_TAG [PACKAGE_SUBDIR [TEMPLATE]]] \n"
+  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [REPO [PACKAGE_SUBDIR [TEMPLATE]]] \n"
   echo "VERSION is optional but can be an exact version number or auto to use the latest version"
   exit 1
 fi

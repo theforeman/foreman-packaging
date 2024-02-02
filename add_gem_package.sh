@@ -1,9 +1,9 @@
 #!/bin/bash -e
 
 usage() {
-	echo "Usage: $0 GEM_NAME [TEMPLATE [PACKAGE_SUBDIR [KOJI_TAG]]]"
+	echo "Usage: $0 GEM_NAME [TEMPLATE [PACKAGE_SUBDIR [REPO]]]"
 	echo "Valid templates: $(ls gem2rpm | sed 's/.spec.erb//' | tr '\n' ' ')"
-	./list_koji_tags
+	echo "Valid repos: foreman-el8 foreman-plugins-el8 katello-el8 foreman-client-el8"
 	exit 1
 }
 
@@ -61,13 +61,13 @@ generate_gem_package() {
 }
 
 add_gem_to_all_comps() {
-	add_gem_to_comps $KOJI_TAG
-	if [[ $KOJI_TAG == "foreman-nightly-el8" ]] ; then
-		add_gem_to_comps foreman-nightly-el9
+	add_gem_to_comps $REPO
+	if [[ $REPO == "foreman-el8" ]] ; then
+		add_gem_to_comps foreman-el9
 	fi
-	if [[ $KOJI_TAG == "foreman-client-nightly-el8" ]] ; then
-		add_gem_to_comps foreman-client-nightly-el9
-		add_gem_to_comps foreman-client-nightly-rhel7
+	if [[ $REPO == "foreman-client-*" ]] ; then
+		add_gem_to_comps foreman-client-el9
+		add_gem_to_comps foreman-client-rhel7
 	fi
 }
 
@@ -88,13 +88,13 @@ add_gem_to_comps() {
 }
 
 add_to_manifest() {
-	if [[ $KOJI_TAG == "foreman-nightly-el8" ]] ; then
+	if [[ $REPO == "foreman-el8" ]] ; then
 		local section="foreman_core_packages"
-	elif [[ $KOJI_TAG == "foreman-plugins-nightly-el8" ]] ; then
+	elif [[ $REPO == "foreman-plugins-el8" ]] ; then
 		local section="foreman_plugin_packages"
-	elif [[ $KOJI_TAG == "katello-nightly-el8" ]] ; then
+	elif [[ $REPO == "katello-el8" ]] ; then
 		local section="katello_packages"
-	elif [[ $KOJI_TAG == "foreman-client-*" ]] ; then
+	elif [[ $REPO == "foreman-client-*" ]] ; then
 		local section="foreman_client_packages"
 	else
 		# TODO: installer, smart_proxy plugins, rails
@@ -123,7 +123,7 @@ GEM_VERSION=${GEM_NAME_ARR[1]}
 PACKAGE_NAME=rubygem-$GEM_NAME
 TEMPLATE_NAME=$2
 PACKAGE_SUBDIR=$3
-KOJI_TAG=$4
+REPO=$4
 ROOT=$(git rev-parse --show-toplevel)
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
@@ -138,16 +138,16 @@ if [[ -z $TEMPLATE_NAME ]] ; then
 	fi
 fi
 
-if [[ -z $KOJI_TAG ]] ; then
+if [[ -z $REPO ]] ; then
 	if [[ $TEMPLATE_NAME == *_plugin ]] ; then
-		KOJI_TAG="foreman-plugins-nightly-el8"
+		REPO="foreman-plugins-el8"
 	fi
 fi
 
 if [[ -z $PACKAGE_SUBDIR ]] ; then
-	if [[ $KOJI_TAG == foreman-plugins-* ]] ; then
+	if [[ $REPO == foreman-plugins-* ]] ; then
 		PACKAGE_SUBDIR="plugins"
-	elif [[ $KOJI_TAG == katello-* ]] ; then
+	elif [[ $REPO == katello-* ]] ; then
 		PACKAGE_SUBDIR="katello"
 	else
 		PACKAGE_SUBDIR="foreman"
@@ -167,7 +167,7 @@ else
 	UPDATE=false
 fi
 
-if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $KOJI_TAG ]]; then
+if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $REPO ]]; then
 	usage
 fi
 

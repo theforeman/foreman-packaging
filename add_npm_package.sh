@@ -3,8 +3,8 @@
 NPM_MODULE_NAME=$1
 VERSION=${2:-auto}
 STRATEGY=$3
-KOJI_TAG=foreman-nightly-el8
-DISTRO=${KOJI_TAG##*-}
+REPO=foreman-el8
+DISTRO=${REPO##*-}
 BASE_DIR=${4:-foreman}
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
