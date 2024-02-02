@@ -232,7 +232,7 @@ rails_core_packages:
 foreman_core_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['foreman-copr'] }}"
+      - "{{ hostvars['foreman-copr-with-el9'] }}"
   children:
     rails_core_packages: {}
     ruby_core_packages: {}
