@@ -505,7 +505,6 @@ foreman_nodejs_packages:
     copr_projects:
       - "{{ hostvars['foreman-copr'] }}"
   hosts:
-    gyp: {}
     nodejs-argv-parse: {}
     nodejs-babel-core:
       strategy: bundle
@@ -534,10 +533,6 @@ foreman_nodejs_packages:
     nodejs-js-tokens: {}
     nodejs-lodash: {}
     nodejs-module-federation-utilities: {}
-    nodejs-node-gyp:
-      strategy: bundle
-    nodejs-node-sass:
-      strategy: bundle
     nodejs-os-browserify: {}
     nodejs-path-browserify: {}
     nodejs-performance-now: {}
