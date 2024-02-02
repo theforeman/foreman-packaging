@@ -3,7 +3,7 @@
 usage() {
 	echo "Usage: $0 GEM_NAME [TEMPLATE [PACKAGE_SUBDIR [REPO]]]"
 	echo "Valid templates: $(ls gem2rpm | sed 's/.spec.erb//' | tr '\n' ' ')"
-	echo "Valid repos: foreman-el8 foreman-plugins-el8 katello-el8 foreman-client"
+	echo "Valid repos: foreman-el8 foreman-plugins-el8 katello-el8 foreman-client-el8"
 	exit 1
 }
 
