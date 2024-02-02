@@ -1,10 +1,11 @@
 # template: default
 %global gem_name sassc
 %global gem_require_name %{gem_name}
+%global debug_package %{nil}
 
 Name: rubygem-%{gem_name}
 Version: 2.4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Use libsass with Ruby!
 License: MIT
 URL: https://github.com/sass/sassc-ruby
@@ -16,9 +17,6 @@ BuildRequires: ruby-devel >= 2.0.0
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(ffi) >= 1.9 with rubygem(ffi) < 2)
 # end specfile generated dependencies
-# the upstream source builds an embedded libsass
-# but we use the system one, which makes this package noarch
-BuildArch: noarch
 
 BuildRequires: (libsass.so.1()(64bit) if libc.so.6()(64bit))
 Requires: (libsass.so.1()(64bit) if libc.so.6()(64bit))
@@ -83,6 +81,10 @@ ruby -I "%{buildroot}%{gem_libdir}" -e "require '%{gem_require_name}'"
 %{gem_instdir}/test
 
 %changelog
+* Fri Feb 02 2024 Patrick Creech <pcreech@redhat.com> - 2.4.0-4
+- Drop noarch
+- Set debug_package to nil
+
 * Thu Dec 21 2023 Evgeni Golov - 2.4.0-3
 - Make the package noarch
 - Drop the 32-bit Requires, we do not ship libsass in 32 bit and it confuses repoclosure
