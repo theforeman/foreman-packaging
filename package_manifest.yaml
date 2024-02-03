@@ -683,10 +683,22 @@ foreman_plugin_packages:
     hammer_plugin_packages: {}
     fdi_plugin_packages: {}
     other_plugin_packages: {}
+    nodejs_plugin_packages: {}
+    foreman_plugin_packages_tier1: {}
+    foreman_plugin_packages_tier2: {}
+
+nodejs_plugin_packages:
   hosts:
     nodejs-react-json-tree:
       strategy: bundle
+
+foreman_plugin_packages_tier1:
+  hosts:
     rubygem-foreman-tasks: {}
+    rubygem-foreman_remote_execution: {}
+
+foreman_plugin_packages_tier2:
+  hosts:
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_azure_rm: {}
@@ -713,7 +725,6 @@ foreman_plugin_packages:
     rubygem-foreman_openscap: {}
     rubygem-foreman_probing: {}
     rubygem-foreman_puppet: {}
-    rubygem-foreman_remote_execution: {}
     rubygem-foreman_rescue: {}
     rubygem-foreman_salt: {}
     rubygem-foreman_setup: {}
