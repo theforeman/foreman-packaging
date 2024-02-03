@@ -677,6 +677,9 @@ katello_common_packages:
     rhel8-kickstart-setup: {}
 
 foreman_plugin_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['plugins-copr-with-el9'] }}"
   children:
     ruby_plugin_packages: {}
     ruby_plugin_packages_tier2: {}
@@ -739,6 +742,9 @@ foreman_plugin_packages_tier2:
     rubygem-puppetdb_foreman: {}
 
 fdi_plugin_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['plugins-copr'] }}"
   hosts:
     foreman-discovery-image-service: {}
     rubygem-newt: {}
