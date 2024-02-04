@@ -4,8 +4,8 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 6.1.1
-Release: 2%{?foremandist}%{?dist}
+Version: 6.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_puppet
@@ -15,8 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -90,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Feb 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.2.0-1
+- Update to 6.2.0
+
 * Fri Jan 26 2024 Evgeni Golov - 6.1.1-2
 - Rebuild for Webpack 5
 
