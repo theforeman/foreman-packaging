@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 12.0.5
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -81,7 +81,7 @@ cp -a .%{gem_dir}/* \
 %foreman_precompile_plugin -s
 
 mkdir -p %{buildroot}%{_sbindir}
-ln -sv %{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_sbindir}/foreman-cockpit-session
+install -Dp -m0755 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_sbindir}/foreman-cockpit-session
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit.service %{buildroot}%{_unitdir}/foreman-cockpit.service
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/cockpit.conf.example %{buildroot}%{_sysconfdir}/foreman/cockpit/cockpit.conf
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example %{buildroot}%{_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
@@ -102,7 +102,6 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%{gem_instdir}/extra
 %exclude %{gem_instdir}/jsconfig.json
 %{gem_libdir}
 %{gem_instdir}/locale
@@ -129,11 +128,15 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %config(noreplace) %{_sysconfdir}/foreman/cockpit/cockpit.conf
 %config(noreplace) %{_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
 %{_unitdir}/foreman-cockpit.service
+%exclude %{gem_instdir}/extra/cockpit
 
 %posttrans
 %{foreman_plugin_log}
 
 %changelog
+* Thu Feb 08 2024 Evgeni Golov - 12.0.5-3
+- Move all cockpit related files to cockpit package
+
 * Fri Jan 26 2024 Evgeni Golov - 12.0.5-2
 - Rebuild for Webpack 5
 
