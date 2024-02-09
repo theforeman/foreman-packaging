@@ -619,14 +619,9 @@ katello_packages:
   children:
     satellite_packages: {}
     katello_common_packages: {}
+    katello_nodejs_packages: {}
     katello_ruby_packages: {}
   hosts:
-    nodejs-angular: {}
-    nodejs-bootstrap-select: {}
-    nodejs-decode-uri-component: {}
-    nodejs-ngreact: {}
-    nodejs-query-string: {}
-    nodejs-strict-uri-encode: {}
     rubygem-foreman_kernel_care: {}
     rubygem-foreman_rh_cloud: {}
     rubygem-foreman_scc_manager: {}
@@ -674,6 +669,18 @@ katello_common_packages:
     katello-repos: {}
     katello-selinux: {}
     rhel8-kickstart-setup: {}
+
+katello_nodejs_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['katello-copr-with-el9'] }}"
+  hosts:
+    nodejs-angular: {}
+    nodejs-bootstrap-select: {}
+    nodejs-decode-uri-component: {}
+    nodejs-ngreact: {}
+    nodejs-query-string: {}
+    nodejs-strict-uri-encode: {}
 
 foreman_plugin_packages:
   vars:
