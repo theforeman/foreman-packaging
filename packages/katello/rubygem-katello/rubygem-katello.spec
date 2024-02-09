@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.12.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -71,7 +71,6 @@ BuildRequires: npm(@theforeman/builder) >= 6.0.0
 # start package.json dependencies BuildRequires
 BuildRequires: npm(angular) = 1.8.2
 BuildRequires: npm(bootstrap-select) = 1.13.18
-BuildRequires: (npm(downshift) >= 5.4.2 with npm(downshift) < 6.0.0)
 BuildRequires: (npm(ngreact) >= 0.5.0 with npm(ngreact) < 1.0.0)
 BuildRequires: (npm(query-string) >= 6.1.0 with npm(query-string) < 7.0.0)
 BuildRequires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0)
@@ -103,7 +102,6 @@ Requires: npm(@theforeman/builder) >= 6.0.0
 # start package.json dependencies Requires
 Requires: npm(angular) = 1.8.2
 Requires: npm(bootstrap-select) = 1.13.18
-Requires: (npm(downshift) >= 5.4.2 with npm(downshift) < 6.0.0)
 Requires: (npm(ngreact) >= 0.5.0 with npm(ngreact) < 1.0.0)
 Requires: (npm(query-string) >= 6.1.0 with npm(query-string) < 7.0.0)
 Requires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0)
@@ -172,6 +170,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri Feb 09 2024 Eric D. Helms <ericdhelms@gmail.com> - 4.12.0-0.2.pre.master
+- Drop nodejs-downshift dependency
+
 * Mon Nov 27 2023 Ian Ballou <ianballou67@gmail.com> - 4.12.0-0.1.pre.master
 - Bump version to 4.12.0
 
