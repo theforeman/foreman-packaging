@@ -624,7 +624,6 @@ katello_packages:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
-    nodejs-downshift: {}
     nodejs-ngreact: {}
     nodejs-query-string: {}
     nodejs-strict-uri-encode: {}
