@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.12.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -24,10 +24,10 @@ Requires: (katello-selinux if selinux-policy-targeted)
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.5
-Requires: ruby < 3
-BuildRequires: ruby >= 2.5
-BuildRequires: ruby < 3
+Requires: ruby >= 2.7
+Requires: ruby < 3.1
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 3.1
 BuildRequires: rubygems-devel > 1.3.1
 BuildRequires: rubygem(rails)
 BuildRequires: rubygem(json)
@@ -170,6 +170,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Feb 12 2024 Evgeni Golov - 4.12.0-0.3.pre.master
+- Correct (Build)Requirements for EL9
+
 * Fri Feb 09 2024 Eric D. Helms <ericdhelms@gmail.com> - 4.12.0-0.2.pre.master
 - Drop nodejs-downshift dependency
 
