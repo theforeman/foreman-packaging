@@ -96,18 +96,6 @@ copr_projects:
             - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
-    katello-copr-with-el9:
-      copr_project_name: "katello-{{ katello_version }}-staging"
-      copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
-      copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules_el8 }}"
-          external_repos:
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
         - name: "rhel-{{ rhel_9 }}-x86_64"
           modules: "{{ core_modules_el9 }}"
           external_repos:
@@ -593,7 +581,7 @@ foreman_client_packages:
 katello_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['katello-copr-with-el9'] }}"
+      - "{{ hostvars['katello-copr'] }}"
     package_base_dir: 'packages/katello/'
     repoclosure_target_repos:
       el8:
@@ -634,9 +622,6 @@ katello_packages:
       source_system: jenkins
 
 katello_hammer_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['katello-copr-with-el9'] }}"
   hosts:
     rubygem-hammer_cli_foreman_rh_cloud: {}
     rubygem-hammer_cli_foreman_scc_manager: {}
@@ -646,9 +631,6 @@ katello_hammer_packages:
       source_system: jenkins
 
 katello_ruby_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['katello-copr-with-el9'] }}"
   hosts:
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
@@ -669,9 +651,6 @@ katello_ruby_packages:
     rubygem-zest: {}
 
 katello_common_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['katello-copr-with-el9'] }}"
   hosts:
     katello: {}
     katello-client-bootstrap: {}
@@ -680,9 +659,6 @@ katello_common_packages:
     rhel8-kickstart-setup: {}
 
 katello_nodejs_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['katello-copr-with-el9'] }}"
   hosts:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
