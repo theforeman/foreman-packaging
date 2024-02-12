@@ -15,6 +15,7 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+Requires: (rubygem(webrick) or ruby-default-gems < 3.0)
 
 %description
 Anemone web-spider framework.
