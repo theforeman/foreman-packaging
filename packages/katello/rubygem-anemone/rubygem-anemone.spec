@@ -1,63 +1,76 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name anemone
 
-Summary:    Anemone web-spider framework
-Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.7.2
-Release:    23%{?dist}
-License:    MIT
-Group:      Development/Languages
-URL:        http://anemone.rubyforge.org/
-Source:     https://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Name: rubygem-%{gem_name}
+Version: 0.7.2
+Release: 24%{?dist}
+Summary: Anemone web-spider framework
+License: MIT
+URL: https://anemone.rubyforge.org
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix}rubygem(robotex) >= 1.0.0
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.3.0
-
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-
-BuildArch:  noarch
-Provides:   %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
+BuildArch: noarch
+# end specfile generated dependencies
 
 %description
-Anemone is a Ruby library that makes it quick and painless to write programs that spider a website. It provides a simple DSL for performing actions on every page of a site, skipping certain URLs, and calculating the shortest path to a given page on a site.
+Anemone web-spider framework.
+
+
+%package doc
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
+
+%build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
-%{__rm} -Rf %{buildroot}/%{gem_instdir}/.yardoc
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+
 %files
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
-%{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%dir %{gem_dir}/gems/%{gem_name}-%{version}/
+%dir %{gem_instdir}
+%{_bindir}/anemone
 %license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/bin/anemone
-%exclude %{gem_dir}/bin/anemone
-%{gem_instdir}/Rakefile
-%{gem_instdir}/lib/
-%{gem_instdir}/spec/
+%{gem_libdir}
+%exclude %{gem_cache}
+%{gem_spec}
 
-%doc
+%files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.rdoc
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/VERSION
+%{gem_instdir}/Rakefile
+%{gem_instdir}/spec
 
 %changelog
+* Mon Feb 12 2024 Evgeni Golov 0.7.2-24
+- Regenerate spec based on latest template
+
 * Tue Jun 15 2021 Odilon Sousa <osousa@redhat.com> - 0.7.2-23
 - align version with satellite
 
