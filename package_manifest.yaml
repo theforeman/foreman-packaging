@@ -592,7 +592,7 @@ foreman_client_packages:
 katello_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['katello-copr'] }}"
+      - "{{ hostvars['katello-copr-with-el9'] }}"
     package_base_dir: 'packages/katello/'
     repoclosure_target_repos:
       el8:
