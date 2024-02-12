@@ -159,6 +159,7 @@ foreman_packages:
         - el9-baseos
         - el9-appstream
         - el9-puppet-7
+        - "el9-candlepin-{{ candlepin_version }}-staging"
       el8:
         - el8-baseos
         - el8-appstream
@@ -616,6 +617,7 @@ katello_packages:
         - el9-puppet-7
         - "el9-foreman-{{ foreman_version }}-staging"
         - "el9-foreman-plugins-{{ foreman_version }}-staging"
+        - "el9-candlepin-{{ candlepin_version }}-staging"
   children:
     satellite_packages: {}
     katello_common_packages: {}
@@ -971,6 +973,7 @@ repoclosures:
           - el9-baseos
           - el9-appstream
           - el9-puppet-7
+          - "el9-candlepin-{{ candlepin_version }}-staging"
     plugins-staging-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -1024,6 +1027,7 @@ repoclosures:
           - el9-puppet-7
           - "el9-foreman-{{ foreman_version }}-staging"
           - "el9-foreman-plugins-{{ foreman_version }}-staging"
+          - "el9-candlepin-{{ candlepin_version }}-staging"
     foreman-client-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
