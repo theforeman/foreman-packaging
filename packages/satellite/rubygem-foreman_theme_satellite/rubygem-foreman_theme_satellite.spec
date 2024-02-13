@@ -7,7 +7,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 13.2.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
 URL: https://github.com/RedHatSatellite/foreman_theme_satellite
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Feb 13 2024 Evgeni Golov - 13.2.3-2
+- Rebuild for Webpack 5
+
 * Wed Jan 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.3-1
 - Update to 13.2.3
 
