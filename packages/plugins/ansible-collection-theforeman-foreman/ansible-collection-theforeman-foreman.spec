@@ -4,7 +4,7 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    4.0.0
@@ -27,8 +27,10 @@ Requires: (python38-requests if ansible-core < 2.13)
 Requires: (python38-pyyaml if ansible-core < 2.13)
 Requires: (python39-requests if (ansible-core >= 2.13 and ansible-core < 2.14.2-3))
 Requires: (python39-pyyaml if (ansible-core >= 2.13 and ansible-core < 2.14.2-3))
-Requires: (python3.11-requests if ansible-core >= 2.14.2-3)
-Requires: (python3.11-pyyaml if ansible-core >= 2.14.2-3)
+Requires: (python3.11-requests if (ansible-core >= 2.14.2-3 and ansible-core < 2.16.3-2))
+Requires: (python3.11-pyyaml if (ansible-core >= 2.14.2-3 and ansible-core < 2.16.3-2))
+Requires: (python3.12-requests if ansible-core >= 2.16.3-2)
+Requires: (python3.12-pyyaml if ansible-core >= 2.16.3-2)
 %else
 Requires: ansible-core
 Requires: (python3-requests if ansible-core >= 1:2.14.7)
@@ -60,6 +62,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Thu Feb 15 2024 Evgeni Golov - 4.0.0-2
+- Adjust requirements for Ansible using Python 3.12
+
 * Fri Jan 12 2024 Evgeni Golov - 4.0.0-1
 - Release ansible-collection-theforeman-foreman 4.0.0
 
