@@ -35,8 +35,8 @@ Requires: (python3.12-pyyaml if ansible-core >= 2.16.3-2)
 Requires: ansible-core
 Requires: (python3-requests if ansible-core >= 1:2.14.7)
 Requires: (python3-pyyaml if ansible-core >= 1:2.14.7)
-Requires: (python3.11-requests if ansible-core >= 2.14.2-3)
-Requires: (python3.11-pyyaml if ansible-core >= 2.14.2-3)
+Requires: (python3.11-requests if (ansible-core >= 2.14.2-3 and ansible-core < 1:2.14.7))
+Requires: (python3.11-pyyaml if (ansible-core >= 2.14.2-3 and ansible-core < 1:2.14.7))
 %endif
 
 %description
