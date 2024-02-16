@@ -1,3 +1,9 @@
+ruby-foreman-discovery (24.0.1-1) stable; urgency=low
+
+  * 24.0.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 16 Feb 2024 11:07:12 +0000
+
 ruby-foreman-discovery (24.0.0-1) stable; urgency=low
 
   * 24.0.0 released
