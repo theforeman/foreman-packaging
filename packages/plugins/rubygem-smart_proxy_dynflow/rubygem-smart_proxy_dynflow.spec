@@ -10,11 +10,13 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Dynflow runtime for Foreman smart proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: rubygem(logging)
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
@@ -65,13 +67,16 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/dynflow.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/dynflow.yml
 
+mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
+
 %files
 %dir %{gem_instdir}
+%dir %attr(750, foreman-proxy, foreman-proxy) %{foreman_proxy_statedir}/dynflow
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/dynflow.yml
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/bundler.d
 %{gem_libdir}
-%exclude %{gem_instdir}/settings.d
+%{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
@@ -81,8 +86,8 @@ mv %{buildroot}%{gem_instdir}/settings.d/dynflow.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
-* Mon Feb 19 2024 Adam Ruzicka <aruzicka@redhat.com> 0.9.1-1
-- Update to 0.9.1-1
+* Mon Feb 19 2024 Adam Ruzicka <aruzicka@redhat.com> 0.9.1-2
+- Regenerate the spec
 
 * Wed Oct 25 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.9.1-1
 - Update to 0.9.1
