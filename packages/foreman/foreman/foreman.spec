@@ -4,12 +4,12 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 10
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 3.10.0
+Version: 3.11.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -861,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 3.11.0-0.1.develop
+- Bump version to 3.11-develop
+
 * Fri Feb 02 2024 Evgeni Golov - 3.10.0-0.10.develop
 - Correct (Build)Requiremens for EL9
 

@@ -1,10 +1,10 @@
-%global release 4
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
 Epoch:      1
-Version:    3.10.0
+Version:    3.11.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -122,6 +122,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 1:3.11.0-0.1.develop
+- Bump version to 3.11-develop
+
 * Thu Jan 11 2024 Patrick Creech <pcreech@redhat.com> - 1:3.10.0-0.4.develop
 - Remove pretrans segment
 

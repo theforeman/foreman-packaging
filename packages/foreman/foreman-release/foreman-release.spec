@@ -16,12 +16,12 @@
 %endif
 %endif
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
-Version:  3.10.0
+Version:  3.11.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -84,6 +84,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 3.11.0-0.1.develop
+- Bump version to 3.11-develop
+
 * Tue Dec 12 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.2.develop
 - Hardcode EL7 dist to 7
 
