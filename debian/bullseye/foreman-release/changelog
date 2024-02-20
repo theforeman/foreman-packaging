@@ -1,3 +1,9 @@
+foreman-release (3.11.0-1) stable; urgency=low
+
+  * Bump changelog to 3.11.0 to match VERSION
+
+ -- Patrick Creech <pcreech@redhat.com>  Tue, 20 Feb 2024 14:37:10 -0500
+
 foreman-release (3.10.0-1) stable; urgency=low
 
   * Bump changelog to 3.10.0 to match VERSION
