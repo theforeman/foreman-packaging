@@ -4,8 +4,6 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 Name: rubygem-%{gem_name}
 Version: 3.10.0
@@ -89,6 +87,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Feb 21 2024 Oleh Fedorenko <ofedoren@redhat.com> - 3.10.0-1
+- Release rubygem-hammer_cli 3.10.0
+
 * Wed Nov 29 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.10.0-0.1.pre.develop
 - Bump version to 3.10-develop
 
