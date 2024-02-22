@@ -1,3 +1,9 @@
+foreman-installer (3.10.0~rc1-1) stable; urgency=low
+
+  * 3.10.0-rc1 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Thu, 22 Feb 2024 09:43:06 -0500
+
 foreman-installer (3.10.0-1) stable; urgency=low
 
   * Bump changelog to 3.10.0 to match VERSION
