@@ -17,7 +17,7 @@
 %endif
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
@@ -84,6 +84,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Thu Feb 22 2024 Patrick Creech <pcreech@redhat.com> - 3.10.0-0.2.rc1
+- Release foreman-release 3.10.0rc1
+
 * Tue Dec 12 2023 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.2.develop
 - Hardcode EL7 dist to 7
 

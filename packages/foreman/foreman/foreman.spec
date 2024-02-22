@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 10
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -861,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Feb 22 2024 Patrick Creech <pcreech@redhat.com> - 3.10.0-0.10.rc1
+- Release foreman 3.10.0rc1
+
 * Fri Feb 02 2024 Evgeni Golov - 3.10.0-0.10.develop
 - Correct (Build)Requiremens for EL9
 
