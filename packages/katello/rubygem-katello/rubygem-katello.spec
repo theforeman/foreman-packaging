@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.10
-%global foreman_max_version 3.11
+%global foreman_min_version 3.11
+%global foreman_max_version 3.12
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.12.0
-%global release 3
+%global mainver 4.13.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -170,6 +170,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Feb 26 2024 Quinn James <qjames@redhat.com> - 4.13.0-0.1.pre.master
+- Bump version to 4.13.0
+
 * Mon Feb 12 2024 Evgeni Golov - 4.12.0-0.3.pre.master
 - Correct (Build)Requirements for EL9
 
