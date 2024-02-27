@@ -18,7 +18,7 @@ copr_projects:
     core_modules_el8:
       - 'ruby:2.7'
       - 'nodejs:14'
-      - 'postgresql:12'
+      - 'postgresql:13'
     core_modules_el9:
       - 'nodejs:18'
     core_buildroot_packages:
