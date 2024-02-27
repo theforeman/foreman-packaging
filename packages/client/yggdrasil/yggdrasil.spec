@@ -2,7 +2,7 @@
 
 Name:    yggdrasil
 Version: 0.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
@@ -20,8 +20,13 @@ Patch2:  Propagate-FOREMAN_REX_WORKDIR-to-workers.patch
 ExclusiveArch: %{go_arches}
 
 BuildRequires: git
-BuildRequires: golang
+%if 0%{?suse_version}
+BuildRequires: dbus-1-devel
+BuildRequires: go
+%else
 BuildRequires: dbus-devel
+BuildRequires: golang
+%endif
 BuildRequires: systemd-devel
 
 Requires: subscription-manager
@@ -42,6 +47,7 @@ BUILDFLAGS="%buildflags" \
 make PREFIX=%{_prefix} \
      SYSCONFDIR=%{_sysconfdir} \
      LOCALSTATEDIR=%{_localstatedir} \
+     LIBEXECDIR=%{_libexecdir} \
      SHORTNAME=%{name} \
      LONGNAME=%{name} \
      PKGNAME=%{name} \
@@ -53,6 +59,7 @@ BUILDFLAGS="%buildflags" \
 make PREFIX=%{_prefix} \
      SYSCONFDIR=%{_sysconfdir} \
      LOCALSTATEDIR=%{_localstatedir} \
+     LIBEXECDIR=%{_libexecdir} \
      DESTDIR=%{buildroot} \
      SHORTNAME=%{name} \
      LONGNAME=%{name} \
@@ -72,6 +79,9 @@ make PREFIX=%{_prefix} \
 %{_libexecdir}/%{name}
 
 %changelog
+* Fri Oct 27 2023 Maximilian Kolb <kolb@atix.de> - 0.2.3-2
+- Require go on SLES
+
 * Wed Oct 18 2023 Adam Ruzicka <aruzicka@redhat.com> - 0.2.3-1
 - Bump version to 0.2.3
 
