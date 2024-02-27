@@ -1,3 +1,9 @@
+ruby-foreman-puppet (6.2.0-2) stable; urgency=low
+
+  * Rebuild for Webpack 5
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 27 Feb 2024 08:56:04 +0100
+
 ruby-foreman-puppet (6.2.0-1) stable; urgency=low
 
   * 6.2.0 released
