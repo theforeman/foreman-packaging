@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -130,6 +130,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Feb 28 2024 Odilon Sousa <osousa@redhat.com> - 4.12.0-0.2.rc1
+- Release katello 4.12.0rc1
+
 * Wed Jan 10 2024 Evgeni Golov - 4.12.0-0.2.master
 - Don't require katello-debug
 - Drop katello-debug -> mktemp requirement, it's part of coreutils
