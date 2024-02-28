@@ -6,14 +6,14 @@ Summary: A package to obsolete retired packages
 URL: https://github.com/theforeman/foreman-packaging
 BuildArch: noarch
 
-Obsoletes: rubygem-fog-google < 1.19.0-2
-Obsoletes: rubygem-foreman_hooks < 0.3.17-4
-Obsoletes: rubygem-google-api-client < 0.33.2-3
 Obsoletes: rubygem-dalli < 2.7.6-4
+Obsoletes: rubygem-fog-google < 1.19.0-2
+Obsoletes: rubygem-foreman_column_view < 0.4.0-7
+Obsoletes: rubygem-foreman_hooks < 0.3.17-4
 Obsoletes: rubygem-foreman_memcache < 0.1.1-6
+Obsoletes: rubygem-google-api-client < 0.33.2-3
 Obsoletes: rubygem-quantile < 0.2.0-6
 Obsoletes: rubygem-runcible < 2.13.1-3
-Obsoletes: rubygem-foreman_column_view < 0.4.0-7
 Obsoletes: rubygem-unf < 0.1.4-2
 Obsoletes: rubygem-unf_ext < 0.0.8.2-2
 
