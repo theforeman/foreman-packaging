@@ -1,0 +1,23 @@
+ruby-kafo-parsers (1.2.1-1) stable; urgency=low
+
+  * 1.2.1 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Mon, 26 Jul 2021 10:45:28 -0400
+
+ruby-kafo-parsers (1.1.0-1) stable; urgency=low
+
+  * 1.1.0 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Thu, 02 Apr 2020 07:53:39 -0400
+
+ruby-kafo-parsers (1.0.0-1) stable; urgency=low
+
+  * 1.0.0 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 15 Nov 2018 11:56:12 +0100
+
+ruby-kafo-parsers (0.1.6-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
