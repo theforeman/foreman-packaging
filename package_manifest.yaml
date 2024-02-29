@@ -5,6 +5,7 @@ all:
     foreman_version: 'nightly'
     katello_version: 'nightly'
     candlepin_version: '4.3'
+    puppet_version: 7
     copr_project_user: "@theforeman"
     build_package_build_system: copr
   children:
@@ -30,7 +31,7 @@ copr_projects:
     rhel_9: '9'
     rhel_8: '8'
     rhel_7: '7'
-    puppet_baseurl: https://yum.puppet.com/puppet7
+    puppet_baseurl: "https://yum.puppet.com/puppet{{ puppet_version }}"
     root_repo_url: "https://download.copr.fedorainfracloud.org/results/{{ copr_project_user }}"
     foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
     plugins_staging: "{{ root_repo_url }}/plugins-{{ foreman_version }}-staging"
