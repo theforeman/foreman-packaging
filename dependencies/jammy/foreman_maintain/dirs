@@ -1,0 +1,3 @@
+etc/foreman-maintain
+var/lib/foreman-maintain
+var/log/foreman-maintain
