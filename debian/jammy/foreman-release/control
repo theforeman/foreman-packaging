@@ -1,0 +1,12 @@
+Source: foreman-release
+Section: web
+Priority: extra
+Build-Depends: debhelper (>= 12~)
+Homepage: https://theforeman.org/
+Maintainer: Amit Upadhye <upadhyeammit@gmail.com>
+
+Package: foreman-release
+Architecture: all
+Description: Configures the Foreman and Foreman Plugins repositories on the system. 
+ The foreman-release package configures the version specific
+ Foreman and Foreman Plugins repositories on the system.
