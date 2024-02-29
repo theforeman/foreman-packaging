@@ -34,7 +34,7 @@ build:
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	$(BUNDLE) install
 	$(BUNDLE) package --no-install
-	/usr/bin/python script/filter-package-json.py
+	/usr/bin/python3 script/filter-package-json.py
 	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
 	/bin/cp db/schema.rb.nulldb db/schema.rb
 	$(BUNDLE) exec rake locale:pack RAILS_ENV=production
