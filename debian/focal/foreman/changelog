@@ -1,3 +1,9 @@
+foreman (3.11.0-2) stable; urgency=low
+
+  * Use Python 3 for package.json filtering
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 29 Feb 2024 14:29:00 +0100
+
 foreman (3.11.0-1) stable; urgency=low
 
   * Bump changelog to 3.11.0 to match VERSION
