@@ -1,0 +1,11 @@
+ruby-server-sent-events (0.1.3-1) stable; urgency=low
+
+  * 0.1.3 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Oct 2022 14:37:05 +0000
+
+ruby-server-sent-events (0.1.2-1) UNRELEASED; urgency=medium
+
+  * Initial release
+
+ -- Lukas Zapletal <lzap+pub@redhat.com>  Mon, 26 Oct 2020 16:24:23 +0100
