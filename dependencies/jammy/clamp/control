@@ -1,0 +1,23 @@
+Source: ruby-clamp
+Section: ruby
+Priority: optional
+Maintainer: Evgeni Golov <evgeni@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb (>= 1),
+               rake,
+               ruby-rspec
+Standards-Version: 4.5.0
+Homepage: https://github.com/mdub/clamp
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-clamp
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: a minimal framework for command-line utilities
+ Clamp provides an object-model for command-line utilities.
+ It handles parsing of command-line options, and generation of usage help.
