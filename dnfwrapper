@@ -1,0 +1,47 @@
+#!/usr/bin/bash
+
+# Script to configure across different RPM-based distributions
+# Based on rpmdistro-repoquery
+# License: MIT
+# See LICENSE for license information
+
+if (( $# < 2 )); then
+	echo "Usage: $0 <distro> <releasever> [<options> ...]"
+	exit 1
+fi
+repos=$1
+releasever=$2
+module_platform=""
+repos_loc=$(dirname "$1")
+# if config is a path to an directory, use it
+# otherwise use the system installation
+if [ -d "${repos}" ]; then
+	repos_loc=$(dirname "$1")
+	repos=$(basename "$1")
+elif [[ "${repos}" =~ "/" ]]; then
+	echo "ERROR: specified repos path does not exist"
+	exit 1
+else
+	repos_loc=/usr/share/rpmdistro-repoquery/distros
+fi
+
+if [[ "${repos}" =~ "centos" ]]; then
+	module_platform="--setopt=module_platform_id=platform:el${2}"
+fi
+
+if [[ "${repos}" =~ "mageia" ]]; then
+	DNF_VAR_distarch=$(rpm --eval "%{_target_cpu}")
+	export DNF_VAR_distarch
+fi
+
+if [[ "${repos}" =~ "sle-bci" ]]; then
+	arr=(${releasever//./ })
+	if [ "${#arr[@]}" -gt "1" ]; then
+		DNF_VAR_releaseversp="${arr[0]}-SP${arr[1]}"
+	else
+		DNF_VAR_releaseversp="${arr[0]}"
+	fi
+	export DNF_VAR_releaseversp
+fi
+
+dnf --config="${repos_loc}/dnf.conf" --setopt=reposdir="${repos_loc}/${repos}" --releasever="${releasever}" ${module_platform} --nogpgcheck "${@:3}"

@@ -1,0 +1,33 @@
+[foreman-$foremanver-staging]
+name=Foreman $foremanver staging EL$releasever
+baseurl=https://stagingyum.theforeman.org/foreman/$foremanver/el$releasever/$basearch/
+module_hotfixes=1
+enable=0
+gpgcheck=0
+
+[foreman-plugins-$foremanver-staging]
+name=Foreman Plugins $foremanver staging EL$releasever
+baseurl=https://stagingyum.theforeman.org/plugins/$foremanver/el$releasever/$basearch/
+module_hotfixes=1
+enable=0
+gpgcheck=0
+
+[foreman-client-$foremanver-staging]
+name=Foreman Client $foremanver staging EL$releasever
+baseurl=https://stagingyum.theforeman.org/client/$foremanver/el$releasever/$basearch/
+enable=0
+gpgcheck=0
+
+[katello-$katellover-staging]
+name=Katello $katellover staging EL$releasever
+baseurl=https://stagingyum.theforeman.org/katello/$katellover/el$releasever/$basearch/
+module_hotfixes=1
+enable=0
+gpgcheck=0
+
+[candlepin-$candlepinver-staging]
+name=Candlepin $candlepinver staging EL$releasever
+baseurl=https://stagingyum.theforeman.org/candlepin/$candlepinver/el$releasever/$basearch/
+module_hotfixes=1
+enable=0
+gpgcheck=0
