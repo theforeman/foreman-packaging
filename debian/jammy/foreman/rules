@@ -35,7 +35,7 @@ build:
 	$(BUNDLE) install
 	$(BUNDLE) package --no-install
 	/usr/bin/python3 script/filter-package-json.py
-	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
+	/usr/bin/npm install --no-audit --no-optional --unsafe-perm --legacy-peer-deps
 	/bin/cp db/schema.rb.nulldb db/schema.rb
 	$(BUNDLE) exec rake locale:pack RAILS_ENV=production
 	$(BUNDLE) exec rake assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost
