@@ -1,0 +1,66 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+# DEB_VERBOSE_ALL=1
+# DH_VERBOSE=1
+
+DEB_BUILD_OPTIONS=noautodbgsym
+
+RUBY_VERSION := $(shell ruby -e 'print RbConfig::CONFIG["RUBY_API_VERSION"]')
+BUNDLE := /usr/bin/bundle$(RUBY_VERSION)
+
+export BUNDLE_BUILD__SASSC=--disable-march-tune-native
+export BUNDLE_RETRY=5
+export BUNDLE_JOBS=4
+export BUNDLE_PATH=./install-bundle/
+
+build:
+	/bin/cp config/settings.yaml.example config/settings.yaml
+	/bin/cp config/database.yml.example config/database.yml
+	/bin/cp config/dynflow/orchestrator.yml.example config/dynflow/orchestrator.yml
+	/bin/cp config/dynflow/worker.yml.example config/dynflow/worker.yml
+	/bin/mkdir -p ./vendor/cache
+	echo 'gem "thor", "1.1.0"' >> Gemfile
+	# rack-protection and sinatra have to be the same version
+	# foreman pulls in rack-protection via sidekiq, f-tasks needs sinatra
+	# let foreman.deb provide both gems in the cache, so that they always match
+	echo 'gem "sinatra"' >> bundler.d/debian.rb
+	# foreman_google and foreman_azure_rm both require faraday
+	# let foreman.deb provide both gems in the cache, so that the plugins always
+	# get compatible versions
+	echo 'gem "faraday", "<2"' >> bundler.d/debian.rb
+	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
+	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
+	$(BUNDLE) install
+	$(BUNDLE) package --no-install
+	/usr/bin/python3 script/filter-package-json.py
+	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
+	/bin/cp db/schema.rb.nulldb db/schema.rb
+	$(BUNDLE) exec rake locale:pack RAILS_ENV=production
+	$(BUNDLE) exec rake assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost
+	$(BUNDLE) exec rake webpack:compile DATABASE_URL=nulldb://nohost
+	/bin/rm -f public/webpack/*.js.map public/webpack/*.js.map.gz public/webpack/*.css.map public/webpack/*.css.map.gz
+	/bin/rm -f db/schema.rb
+	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
+	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby $(BUNDLE) exec"~' script/foreman-rake
+	/bin/sed -i 's#puma-status#cd /usr/share/foreman \&\& $(BUNDLE) exec &#' script/foreman-puma-status
+	/bin/sed -ri '/^ExecStart/ s#=#=$(BUNDLE) exec --keep-file-descriptors #' extras/systemd/foreman.service
+	/bin/sed -ri '/^ExecStart/ s#/usr/bin/sidekiq#$(BUNDLE) exec sidekiq#' extras/systemd/dynflow-sidekiq@.service
+	/bin/sed 's#@BUNDLE@#$(BUNDLE)#' debian/foreman.postinst.in > debian/foreman.postinst
+	/bin/sed 's#@BUNDLE@#$(BUNDLE)#' debian/foreman.postinst-lib.in > debian/foreman.postinst-lib
+	/bin/sed 's#@BUNDLE@#$(BUNDLE)#' debian/foreman-plugin.mk.in > debian/foreman-plugin.mk
+	/bin/sed 's#@BUNDLE@#$(BUNDLE)#' debian/foreman-plugin.postinst-lib.in > debian/foreman-plugin.postinst-lib
+	/bin/mkdir -p .ssh
+	/usr/bin/touch build
+
+%:
+	dh $@ --with=systemd
+
+override_dh_systemd_start:
+	dh_systemd_start --no-start --restart-after-upgrade --package=foreman-service
+	dh_systemd_start --no-start --restart-after-upgrade --package=foreman-dynflow-sidekiq
+
+override_dh_systemd_enable:
+	dh_systemd_enable --name=foreman.service --package=foreman-service
+	dh_systemd_enable --name=foreman.socket --package=foreman-service
