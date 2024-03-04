@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -63,7 +63,7 @@ Requires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validate
 Requires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
 Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
 Requires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
-Requires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
+Requires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
 Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
 Requires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
 Requires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
@@ -134,7 +134,7 @@ BuildRequires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(val
 BuildRequires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
 BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
 BuildRequires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
-BuildRequires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
+BuildRequires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
 BuildRequires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
 BuildRequires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
 BuildRequires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
@@ -861,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Mar 04 2024 Evgeni Golov - 3.11.0-0.2.develop
+- Update GEM Requiremens
+
 * Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 3.11.0-0.1.develop
 - Bump version to 3.11-develop
 
