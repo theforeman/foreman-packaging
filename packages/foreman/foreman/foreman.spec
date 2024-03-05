@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -17,6 +17,7 @@ Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+Source1: gen-gem-buildreqs
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
@@ -116,6 +117,7 @@ Requires: (rubygem(rss) or ruby-default-gems < 3.0)
 BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
 Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
+%if 0%{?fedora} < 31 && 0%{?rhel} < 9
 # start specfile default BuildRequires
 BuildRequires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
 BuildRequires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
@@ -161,6 +163,7 @@ BuildRequires: (rubygem(graphql) >= 1.13.0 with rubygem(graphql) < 1.14.0)
 BuildRequires: rubygem(graphql-batch)
 BuildRequires: rubygem(activerecord-nulldb-adapter)
 # end specfile default BuildRequires
+%endif
 
 # assets
 BuildRequires: nodejs-packaging
@@ -196,6 +199,7 @@ BuildRequires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
+%if 0%{?fedora} < 31 && 0%{?rhel} < 9
 # start specfile assets BuildRequires
 BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 BuildRequires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
@@ -210,7 +214,14 @@ BuildRequires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.
 # start specfile facter BuildRequires
 BuildRequires: rubygem(facter)
 # end specfile facter BuildRequires
+%else
+# Tools needed by the script
+BuildRequires: rubygems(bundler)
 
+%generate_buildrequires
+# Generate rubygem BuildRequires using a script that uses bundler
+%{SOURCE1}
+%endif
 
 %package cli
 Summary: Foreman CLI
@@ -861,6 +872,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Mar 04 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.11.0-0.3.develop
+- Use generated build dependencies if available
+
 * Mon Mar 04 2024 Evgeni Golov - 3.11.0-0.2.develop
 - Update GEM Requiremens
 
