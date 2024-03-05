@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.10.3
+Version: 0.10.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 License: GPLv3
@@ -90,6 +90,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Mar 05 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.10.4-1
+- Update to 0.10.4
+
 * Tue Nov 14 2023 Adam Ruzicka <aruzicka@redhat.com> 0.10.3-1
 - Update to 0.10.3
 
