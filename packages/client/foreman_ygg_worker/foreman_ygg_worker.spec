@@ -22,7 +22,7 @@
 Name: foreman_ygg_worker
 Version: 0.2.2
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
@@ -47,9 +47,13 @@ Worker service for yggdrasil that can act as pull client for Foreman Remote Exec
 mkdir -p _gopath/src
 ln -fs $(pwd)/src _gopath/src/%{name}-%{version}
 ln -fs $(pwd)/vendor _gopath/src/%{name}-%{version}/vendor
+ln -fs $(pwd)/go.mod _gopath/src/%{name}-%{version}/go.mod
 export GOPATH=$(pwd)/_gopath
 pushd _gopath/src/%{name}-%{version}
 %{gobuild}
+%if 0%{?rhel} > 7 || 0%{?fedora} || 0%{?suse_version}
+mv ygg_worker %{name}-%{version}
+%endif
 strip %{name}-%{version}
 popd
 
@@ -64,12 +68,21 @@ env = []
 EOF
 
 %files
+%if 0%{?suse_version}
+%dir %{yggdrasil_libexecdir}
+%dir %{_root_sysconfdir}/yggdrasil
+%dir %{yggdrasil_worker_conf_dir}
+%endif
 %{yggdrasil_libexecdir}/%{name}
 %{yggdrasil_worker_conf_dir}/foreman.toml
 %license LICENSE
 %doc README.md
 
 %changelog
+* Mon Mar 11 2024 Markus Bucher <bucher@atix.de> - 0.2.2-2
+- Fixes for opensuse build service
+- Require go and disable hardened go linker on SLES
+
 * Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 0.2.2-1
 - Release 0.2.2
 
