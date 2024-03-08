@@ -4,7 +4,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Fri Mar 08 2024 Odilon Sousa <osousa@redhat.com> - 4.12.0-0.2.rc2
+- Release katello-repos 4.12.0rc2
+
 * Wed Feb 28 2024 Odilon Sousa <osousa@redhat.com> - 4.12.0-0.2.rc1
 - Release katello-repos 4.12.0rc1
 
