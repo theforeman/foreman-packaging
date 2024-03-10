@@ -5,16 +5,18 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.1.1
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Leapp plugin for Hammer CLI
 License: GPLv3
 URL: https://github.com/stejskalleos/hammer-cli-foreman-leapp
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -65,6 +67,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.2-1
+- Update to 0.1.2
+
 * Wed Oct 19 2022 Evgeni Golov 0.1.1-2
 - Regenerate spec based on latest template
 
