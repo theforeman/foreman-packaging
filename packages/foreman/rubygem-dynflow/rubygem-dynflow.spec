@@ -2,7 +2,7 @@
 %global gem_name dynflow
 
 Name: rubygem-%{gem_name}
-Version: 1.8.2
+Version: 1.8.3
 Release: 1%{?dist}
 Summary: DYNamic workFLOW engine
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/Dynflow/dynflow
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.3.0
-BuildRequires: ruby >= 2.3.0
+Requires: ruby >= 2.7.0
+BuildRequires: ruby >= 2.7.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.8.3-1
+- Update to 1.8.3
+
 * Thu Nov 30 2023 Adam Ruzicka <aruzicka@redhat.com> 1.8.2-1
 - Update to 1.8.2
 
