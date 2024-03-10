@@ -4,8 +4,8 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 21.2.1
-Release: 2%{?foremandist}%{?dist}
+Version: 21.2.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
@@ -22,8 +22,10 @@ Requires:   /usr/bin/genisoimage
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -97,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 21.2.2-1
+- Update to 21.2.2
+
 * Wed Jan 31 2024 Evgeni Golov - 21.2.1-2
 - Rebuild for Webpack 5
 
