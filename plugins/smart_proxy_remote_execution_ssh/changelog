@@ -1,3 +1,9 @@
+ruby-smart-proxy-remote-execution-ssh (0.10.4-1) stable; urgency=low
+
+  * 0.10.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 10 Mar 2024 04:09:16 +0000
+
 ruby-smart-proxy-remote-execution-ssh (0.10.3-1) stable; urgency=low
 
   * 0.10.3 released
