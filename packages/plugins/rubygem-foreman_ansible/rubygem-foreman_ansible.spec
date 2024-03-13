@@ -4,8 +4,8 @@
 %global foreman_min_version 3.8.1
 
 Name: rubygem-%{gem_name}
-Version: 13.0.3
-Release: 2%{?foremandist}%{?dist}
+Version: 13.0.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
 URL: https://github.com/theforeman/foreman_ansible
@@ -20,7 +20,7 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(acts_as_list) >= 1.0.3 with rubygem(acts_as_list) < 1.1)
 BuildRequires: rubygem(deface) < 2.0
-BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 13)
+BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 14)
 BuildRequires: (rubygem(foreman-tasks) >= 7.0 with rubygem(foreman-tasks) < 10)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Mar 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.0.4-1
+- Update to 13.0.4
+
 * Fri Jan 26 2024 Evgeni Golov - 13.0.3-2
 - Rebuild for Webpack 5
 
