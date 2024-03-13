@@ -1,3 +1,9 @@
+ruby-foreman-ansible (13.0.4-1) stable; urgency=low
+
+  * 13.0.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 13 Mar 2024 18:33:15 +0000
+
 ruby-foreman-ansible (13.0.3-2) stable; urgency=low
 
   * Rebuild for Webpack 5
