@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Google plugin for Hammer CLI
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-google
@@ -55,6 +55,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
+%{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
@@ -65,6 +66,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon Mar 18 2024 Leos Stejskal <lstejska@redhat.com> 1.0.1-2
+- Add locale dir to the package
+
 * Thu Jan 05 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.0.1-1
 - Update to 1.0.1
 
