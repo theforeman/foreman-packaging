@@ -1,0 +1,197 @@
+ruby-hammer-cli-foreman (3.10.0-1) stable; urgency=low
+
+  * 3.10.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Wed, 21 Feb 2024 15:01:48 +0000
+
+ruby-hammer-cli-foreman (3.9.0-1) stable; urgency=low
+
+  * 3.9.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Wed, 29 Nov 2023 16:07:07 +0000
+
+ruby-hammer-cli-foreman (3.8.0-1) stable; urgency=low
+
+  * 3.8.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 06 Sep 2023 14:05:32 +0000
+
+ruby-hammer-cli-foreman (3.7.0-1) stable; urgency=low
+
+  * 3.7.0 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 23 May 2023 12:52:01 +0200
+
+ruby-hammer-cli-foreman (3.6.0-1) stable; urgency=low
+
+  * 3.6.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 26 Feb 2023 04:09:14 +0000
+
+ruby-hammer-cli-foreman (3.5.0-1) stable; urgency=low
+
+  * 3.5.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Mon, 31 Oct 2022 15:23:57 +0000
+
+ruby-hammer-cli-foreman (3.4.0-1) stable; urgency=low
+
+  * 3.4.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Tue, 09 Aug 2022 15:30:45 +0000
+
+ruby-hammer-cli-foreman (3.3.0-1) stable; urgency=low
+
+  * 3.3.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Tue, 10 May 2022 13:24:19 +0000
+
+ruby-hammer-cli-foreman (3.2.0-1) stable; urgency=low
+
+  * 3.2.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Thu, 10 Feb 2022 18:28:46 +0000
+
+ruby-hammer-cli-foreman (3.1.0-1) stable; urgency=low
+
+  * 3.1.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Wed, 10 Nov 2021 16:27:23 +0000
+
+ruby-hammer-cli-foreman (3.0.0-1) stable; urgency=low
+
+  * 3.0.0 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 05 Aug 2021 12:28:32 +0200
+
+ruby-hammer-cli-foreman (2.5.1-1) stable; urgency=low
+
+  * 2.5.1 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 03 Aug 2021 17:13:00 +0200
+
+ruby-hammer-cli-foreman (2.1.1-1) stable; urgency=low
+
+  * 2.1.1 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Fri, 29 May 2020 20:19:34 +0200
+
+ruby-hammer-cli-foreman (2.1.0-1) stable; urgency=low
+
+  * 2.1.0 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Thu, 14 May 2020 13:06:11 +0300
+
+ruby-hammer-cli-foreman (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Tue, 25 Feb 2020 15:13:33 +0000
+
+ruby-hammer-cli-foreman (2.0.0-1) stable; urgency=low
+
+  * 2.0.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 13 Feb 2020 20:00:03 +0100
+
+ruby-hammer-cli-foreman (0.19.7-1) stable; urgency=low
+
+  * 0.19.7 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Thu, 16 Jan 2020 16:11:16 +0000
+
+ruby-hammer-cli-foreman (0.19.6-1) stable; urgency=low
+
+  * 0.19.6 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Fri, 10 Jan 2020 13:31:54 +0000
+
+ruby-hammer-cli-foreman (0.19.5-2) stable; urgency=low
+
+  * Drop old API endpoints (2.0 only)
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Tue, 07 Jan 2020 14:44:46 +0100
+
+ruby-hammer-cli-foreman (0.19.5-1) stable; urgency=low
+
+  * 0.19.5 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Tue, 31 Dec 2019 17:23:07 +0200
+
+ruby-hammer-cli-foreman (0.19.4-1) stable; urgency=low
+
+  * 0.19.4 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Mon, 09 Dec 2019 16:37:48 +0200
+
+ruby-hammer-cli-foreman (0.19.3-1) stable; urgency=low
+
+  * 0.19.3 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Wed, 04 Dec 2019 17:02:15 +0200
+
+ruby-hammer-cli-foreman (0.19.2-1) stable; urgency=low
+
+  * 0.19.2 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Mon, 25 Nov 2019 14:27:23 +0200
+
+ruby-hammer-cli-foreman (0.19.1-1) stable; urgency=low
+
+  * 0.19.1 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Mon, 18 Nov 2019 17:45:43 +0200
+
+ruby-hammer-cli-foreman (0.19.0-1) stable; urgency=low
+
+  * 0.19.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Tue, 29 Oct 2019 14:10:48 +0100
+
+ruby-hammer-cli-foreman (0.18.0-1) stable; urgency=low
+
+  * 0.18.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Fri, 02 Aug 2019 00:23:25 +0200
+
+ruby-hammer-cli-foreman (0.17.0-1) stable; urgency=low
+
+  * 0.17.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 24 Apr 2019 13:43:43 +0200
+
+ruby-hammer-cli-foreman (0.16.0-1) stable; urgency=low
+
+  * 0.16.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 17 Jan 2019 01:04:56 +0100
+
+ruby-hammer-cli-foreman (0.15.1-1) stable; urgency=low
+
+  * 0.15.1 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 07 Nov 2018 01:11:54 +0100
+
+ruby-hammer-cli-foreman (0.15.0-1) stable; urgency=low
+
+  * 0.15.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 24 Oct 2018 14:43:33 +0200
+
+ruby-hammer-cli-foreman (0.14.0-1) stable; urgency=low
+
+  * 0.14.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Mon, 27 Aug 2018 18:50:40 +0200
+
+ruby-hammer-cli-foreman (0.13.2-1) stable; urgency=low
+
+  * 0.13.2 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 16 Aug 2018 13:55:03 +0200
+
+ruby-hammer-cli-foreman (0.13.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
