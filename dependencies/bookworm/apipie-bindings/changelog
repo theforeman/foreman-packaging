@@ -1,0 +1,41 @@
+ruby-apipie-bindings (0.6.0-1) stable; urgency=low
+
+  * 0.6.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 12 Feb 2023 04:09:05 +0000
+
+ruby-apipie-bindings (0.5.0-2) stable; urgency=low
+
+  * Add dependency on ruby-gssapi
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 18 Oct 2022 11:09:30 +0200
+
+ruby-apipie-bindings (0.5.0-1) stable; urgency=low
+
+  * 0.5.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Tue, 10 May 2022 13:21:11 +0000
+
+ruby-apipie-bindings (0.4.0-1) stable; urgency=low
+
+  * 0.4.0 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Fri, 29 May 2020 17:37:35 +0200
+
+ruby-apipie-bindings (0.3.0-1) stable; urgency=low
+
+  * 0.3.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 28 Oct 2019 13:23:16 +0100
+
+ruby-apipie-bindings (0.2.3-1) stable; urgency=low
+
+  * 0.2.3 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 17 Jan 2019 00:59:17 +0100
+
+ruby-apipie-bindings (0.2.2-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
