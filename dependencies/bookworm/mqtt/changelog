@@ -1,0 +1,11 @@
+ruby-mqtt (0.6.0-1) stable; urgency=low
+
+  * 0.6.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 19 Feb 2023 04:09:10 +0000
+
+ruby-mqtt (0.5.0-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 13 Dec 2021 07:57:29 +0000
