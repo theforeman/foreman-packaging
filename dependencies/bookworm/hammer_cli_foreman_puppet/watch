@@ -1,0 +1,2 @@
+version=3
+https://pkg-ruby-extras.alioth.debian.org/cgi-bin/gemwatch/hammer_cli_foreman_puppet .*/hammer_cli_foreman_puppet-(.*).tar.gz
