@@ -1,0 +1,156 @@
+ruby-foreman-maintain (1.6.1-1) stable; urgency=low
+
+  * 1.6.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 18 Mar 2024 15:23:35 +0000
+
+ruby-foreman-maintain (1.6.0-1) stable; urgency=low
+
+  * 1.6.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 18 Mar 2024 11:01:33 +0000
+
+ruby-foreman-maintain (1.5.1-1) stable; urgency=low
+
+  * 1.5.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 18 Feb 2024 04:09:00 +0000
+
+ruby-foreman-maintain (1.5.0-1) stable; urgency=low
+
+  * 1.5.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 03 Jan 2024 14:38:49 +0000
+
+ruby-foreman-maintain (1.4.4-1) stable; urgency=low
+
+  * 1.4.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 14 Dec 2023 18:57:01 +0000
+
+ruby-foreman-maintain (1.4.3-1) stable; urgency=low
+
+  * 1.4.3 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 06 Nov 2023 15:02:05 +0000
+
+ruby-foreman-maintain (1.4.2-1) stable; urgency=low
+
+  * 1.4.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 26 Oct 2023 15:18:11 +0000
+
+ruby-foreman-maintain (1.4.1-1) stable; urgency=low
+
+  * 1.4.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 06 Oct 2023 13:40:52 +0000
+
+ruby-foreman-maintain (1.4.0-1) stable; urgency=low
+
+  * 1.4.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 06 Sep 2023 20:30:17 +0000
+
+ruby-foreman-maintain (1.3.5-1) stable; urgency=low
+
+  * 1.3.5 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 16 Aug 2023 12:33:00 +0000
+
+ruby-foreman-maintain (1.3.4-1) stable; urgency=low
+
+  * 1.3.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 11 Aug 2023 13:19:45 +0000
+
+ruby-foreman-maintain (1.3.3-1) stable; urgency=low
+
+  * 1.3.3 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 12 Jul 2023 09:12:04 +0000
+
+ruby-foreman-maintain (1.3.2-1) stable; urgency=low
+
+  * 1.3.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 22 Jun 2023 19:42:37 +0000
+
+ruby-foreman-maintain (1.3.1-1) stable; urgency=low
+
+  * 1.3.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 30 Apr 2023 04:09:02 +0000
+
+ruby-foreman-maintain (1.3.0-1) stable; urgency=low
+
+  * 1.3.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 02 Apr 2023 04:09:04 +0000
+
+ruby-foreman-maintain (1.2.8-1) stable; urgency=low
+
+  * 1.2.8 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Tue, 21 Mar 2023 13:27:44 +0000
+
+ruby-foreman-maintain (1.2.7-1) stable; urgency=low
+
+  * 1.2.7 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 08 Mar 2023 07:56:14 +0000
+
+ruby-foreman-maintain (1.2.6-1) stable; urgency=low
+
+  * 1.2.6 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 23 Feb 2023 10:40:49 +0000
+
+ruby-foreman-maintain (1.2.4-1) stable; urgency=low
+
+  * 1.2.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 01 Feb 2023 12:56:11 +0000
+
+ruby-foreman-maintain (1.2.3-1) stable; urgency=low
+
+  * 1.2.3 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 05 Jan 2023 08:54:48 +0000
+
+ruby-foreman-maintain (1.2.2-1) stable; urgency=low
+
+  * 1.2.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Tue, 03 Jan 2023 07:14:06 +0000
+
+ruby-foreman-maintain (1.2.1-1) stable; urgency=low
+
+  * 1.2.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 18 Nov 2022 06:23:42 +0000
+
+ruby-foreman-maintain (1.2.0-1) stable; urgency=low
+
+  * 1.2.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 03 Nov 2022 09:47:49 +0000
+
+ruby-foreman-maintain (1.1.8-1) stable; urgency=low
+
+  * 1.1.8 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Oct 2022 14:37:04 +0000
+
+ruby-foreman-maintain (1.1.3-1) stable; urgency=low
+
+  * Drop passenger-recycler as we don't support passenger anymore
+  * Strip out + and ~ from package versions of Debian based operating systems
+
+ -- Amit Upadhye <upadhyeammit@gmail.com>  Fri, 01 Jul 2022 14:23:00 +0530
+
+ruby-foreman-maintain (1.1.2-1) stable; urgency=low
+
+  * Initial release for Debian 1.1.2-1
+
+ -- Amit Upadhye <upadhyeammit@gmail.com>  Wed, 29 Jun 2022 09:45:58 -0700
