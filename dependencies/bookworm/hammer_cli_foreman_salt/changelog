@@ -1,0 +1,11 @@
+ruby-hammer-cli-foreman-salt (0.1.0-1) stable; urgency=low
+
+  * 0.1.0 released
+
+ -- Bernhard Suttner <suttner@atix.de>  Mon, 13 Dec 2021 17:02:38 +0100
+
+ruby-hammer-cli-foreman-salt (0.0.5-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
