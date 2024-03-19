@@ -1,0 +1,258 @@
+foreman (3.11.0-2) stable; urgency=low
+
+  * Use Python 3 for package.json filtering
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 29 Feb 2024 14:29:00 +0100
+
+foreman (3.11.0-1) stable; urgency=low
+
+  * Bump changelog to 3.11.0 to match VERSION
+
+ -- Patrick Creech <pcreech@redhat.com>  Tue, 20 Feb 2024 14:37:10 -0500
+
+foreman (3.10.0-1) stable; urgency=low
+
+  * Bump changelog to 3.10.0 to match VERSION
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Wed, 29 Nov 2023 09:47:35 -0500
+
+foreman (3.9.0-2) stable; urgency=low
+
+  * add PCP subpackage
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 11 Oct 2023 08:49:09 +0200
+
+foreman (3.9.0-1) stable; urgency=low
+
+  * Bump changelog to 3.9.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Wed, 23 Aug 2023 17:54:31 +0200
+
+foreman (3.8.0-1) stable; urgency=low
+
+  * Bump changelog to 3.8.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 23 May 2023 17:49:59 +0200
+
+foreman (3.7.0-1) stable; urgency=low
+
+  * Bump changelog to 3.7.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Wed, 22 Feb 2023 21:12:34 +0100
+
+foreman (3.6.0-2) stable; urgency=low
+
+  * introduce a dynamic foreman:Depends instead of hard-coding versions
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 03 Jan 2023 10:37:56 +0100
+
+foreman (3.6.0-1) stable; urgency=low
+
+  * Bump changelog to 3.6.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 08 Nov 2022 13:06:47 +0100
+
+foreman (3.5.0-6) stable; urgency=low
+
+  * Vendor faraday
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 07 Nov 2022 11:02:28 +0100
+
+foreman (3.5.0-5) stable; urgency=low
+
+  * Replace foreman-gce with ruby-foreman-google
+
+ -- Leos Stejskal <lstejska@redhat.com>  Tue, 01 Nov 2022 10:05:58 +0100
+
+foreman (3.5.0-4) stable; urgency=low
+
+  * adjust foreman-plugin.mk to build the plugin as a user
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 17 Oct 2022 09:31:32 +0200
+
+foreman (3.5.0-3) stable; urgency=low
+
+  * clean up ruby and git dependencies
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 13 Oct 2022 09:30:37 +0200
+
+foreman (3.5.0-2) stable; urgency=low
+
+  * explicitly vendor sinatra
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 18 Aug 2022 14:14:39 +0200
+
+foreman (3.5.0-1) stable; urgency=low
+
+  * Bump changelog to 3.5.0 to match VERSION
+
+ -- Patrick Creech <pcreech@redhat.com>  Wed, 10 Aug 2022 13:39:13 -0400
+
+foreman (3.4.0-3) stable; urgency=low
+
+  * use the correct bundle binary in plugin.mk
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 19 Jul 2022 10:24:56 +0200
+
+foreman (3.4.0-2) stable; urgency=low
+
+  * Fixes #7988 - use an unified postinst library
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 18 Jul 2022 09:16:59 +0200
+
+foreman (3.4.0-1) stable; urgency=low
+
+  * Bump changelog to 3.4.0 to match VERSION
+
+ -- Odilon Sousa <osousa@redhat.com>  Tue, 10 May 2022 13:31:47 -0300
+
+foreman (3.3.0-3) stable; urgency=low
+
+  * Refs #34602 - log plugin installations
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 29 Apr 2022 14:51:46 +0200
+
+foreman (3.3.0-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:10:45 -0400
+
+foreman (3.3.0-1) stable; urgency=low
+
+  * Bump changelog to 3.3.0 to match VERSION
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Fri, 11 Feb 2022 11:42:07 -0500
+
+foreman (3.2.0-2) stable; urgency=low
+
+  * explicitly pin thor to 1.1.0
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 07 Jan 2022 11:16:15 +0100
+
+foreman (3.2.0-1) stable; urgency=low
+
+  * Bump changelog to 3.2.0 to match VERSION
+
+ -- Odilon Sousa <osousa@redhat.com>  Fri, 12 Nov 2021 09:23:16 -0300
+
+foreman (3.1.0-5) stable; urgency=low
+
+  * provide a central postinst library for plugins
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 04 Nov 2021 16:47:56 +0100
+
+foreman (3.1.0-4) stable; urgency=low
+
+  * fix dh_systemd_* calls
+  * don't run db:migrate in postinst
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 04 Nov 2021 09:58:34 +0100
+
+foreman (3.1.0-3) stable; urgency=low
+
+  * Do not restart Dynflow services on package upgrade
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Wed, 03 Nov 2021 11:26:21 -0400
+
+foreman (3.1.0-2) stable; urgency=low
+
+  * Restart foreman services after package upgrade
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Mon, 01 Nov 2021 10:59:14 -0400
+
+foreman (3.1.0-1) stable; urgency=low
+
+  * Bump changelog to 3.1.0 to match VERSION
+
+ -- Patrick Creech <pcreech@redhat.com>  Thu, 05 Aug 2021 20:39:03 -0400
+
+foreman (3.0.0-1) stable; urgency=low
+
+  * Bump changelog to 3.0.0 to match VERSION
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Thu, 22 Jul 2021 17:02:34 +0300
+
+foreman (2.6.0-1) stable; urgency=low
+
+  * Bump changelog to 2.6.0 to match VERSION
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Tue, 04 May 2021 15:47:53 -0400
+
+foreman (2.5.0-1) stable; urgency=low
+
+  * Bump changelog to 2.5.0 to match VERSION
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 02 Feb 2021 11:18:07 +0100
+
+foreman (2.4.0-1) stable; urgency=low
+
+  * Bump changelog to 2.4.0 to match VERSION
+
+ -- Patrick Creech <pcreech@redhat.com>  Mon, 02 Nov 2020 15:19:19 -0500
+
+foreman (2.3.0-1) stable; urgency=low
+
+  * Bump changelog to 2.3.0 to match VERSION
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Tue, 11 Aug 2020 08:47:01 -0400
+
+foreman (2.2.0-1) stable; urgency=low
+
+  * Bump changelog to 2.2.0 to match VERSION
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Wed, 13 May 2020 14:29:17 -0400
+
+foreman (2.1.0-1) stable; urgency=low
+
+  * Bump changelog to 2.1.0 to match VERSION
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Thu, 13 Feb 2020 19:00:20 +0200
+
+foreman (2.0.0-1) stable; urgency=low
+
+  * Bump changelog to 2.0.0 to match VERSION
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Mon, 06 Jan 2020 19:56:20 +0200
+
+foreman (1.25.0-1) stable; urgency=low
+
+  * Bump changelog to 1.25.0 to match VERSION
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 29 Oct 2019 22:43:25 +0100
+
+foreman (1.24.0-1) stable; urgency=low
+
+  * Bump changelog to 1.24.0 to match VERSION
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 30 Jul 2019 12:34:08 +0200
+
+foreman (1.23.0-1) stable; urgency=medium
+
+  * Bump changelog to 1.23.0 to match VERSION
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 23 Apr 2019 15:05:04 +0200
+
+foreman (1.22.0-1) stable; urgency=low
+
+  * Bump changelog to 1.22.0 to match VERSION
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 17 Jan 2019 01:16:09 +0100
+
+foreman (1.21.0-1) stable; urgency=low
+
+  * Bump changelog to 1.21.0 to match VERSION
+
+ -- Michael Moll <mmoll@mmoll.at>  Sun, 21 Oct 2018 02:08:17 +0200
+
+foreman (1.20.0-1) stable; urgency=low
+
+  * Bump changelog to 1.20.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 17 Jul 2018 18:26:17 +0200
+
+foreman (1.19.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
