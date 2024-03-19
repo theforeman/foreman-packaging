@@ -1,0 +1,3 @@
+deb [signed-by=/usr/share/keyrings/theforeman-archive-keyring.asc] http://deb.theforeman.org/ release nightly
+deb [signed-by=/usr/share/keyrings/theforeman-archive-keyring.asc] http://deb.theforeman.org/ plugins nightly
+
