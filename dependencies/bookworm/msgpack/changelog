@@ -1,0 +1,35 @@
+ruby-msgpack (1.7.2-1) stable; urgency=low
+
+  * 1.7.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 19 Jul 2023 18:21:18 +0000
+
+ruby-msgpack (1.7.1-1) stable; urgency=low
+
+  * 1.7.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 21 May 2023 04:08:58 +0000
+
+ruby-msgpack (1.7.0-1) stable; urgency=low
+
+  * 1.7.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 02 Apr 2023 04:09:05 +0000
+
+ruby-msgpack (1.6.1-1) stable; urgency=low
+
+  * 1.6.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 06 Mar 2023 10:18:49 +0000
+
+ruby-msgpack (1.6.0-1) stable; urgency=low
+
+  * 1.6.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Oct 2022 14:37:03 +0000
+
+ruby-msgpack (1.4.2-1) UNRELEASED; urgency=medium
+
+  * Initial release
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 09 Nov 2021 14:39:53 +0000
