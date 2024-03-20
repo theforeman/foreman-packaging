@@ -3,9 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:       katello
 Version:    4.12.0
@@ -130,6 +128,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Mar 20 2024 Odilon Sousa <osousa@redhat.com> - 4.12.0-1
+- Release katello 4.12.0
+
 * Fri Mar 08 2024 Odilon Sousa <osousa@redhat.com> - 4.12.0-0.2.rc3
 - Release katello 4.12.0rc3
 
