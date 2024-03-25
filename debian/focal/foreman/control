@@ -18,7 +18,7 @@ Depends: ruby (>= 1:2.7), ruby-dev, zlib1g-dev,
          build-essential, tzdata,
          rake (>=0.8.4), gawk, ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug (= ${binary:Version})
-Conflicts: ruby-activerecord-deprecated-finders, ruby-foreman-tasks (<< 0.10.1), ruby-sequel-pg
+Conflicts: ruby-activerecord-deprecated-finders, ruby-foreman-tasks (<< 0.10.1), ruby-sequel-pg, ruby-foreman-hooks (<= 0.3.17)
 Replaces: foreman-compute, foreman-rackspace
 Breaks: foreman-compute, foreman-mysql2, foreman-sqlite3
 Description: Systems management web interface
