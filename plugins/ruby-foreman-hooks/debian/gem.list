@@ -1,3 +1,0 @@
-# list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_hooks-0.3.17.gem"
-GEMS="$GEMS https://rubygems.org/downloads/jgrep-1.4.1.gem"
