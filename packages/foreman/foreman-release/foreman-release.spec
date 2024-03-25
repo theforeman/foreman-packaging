@@ -16,9 +16,7 @@
 %endif
 %endif
 
-%global release 2
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:     foreman-release
 Version:  3.10.0
@@ -84,6 +82,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Mon Mar 25 2024 Odilon Sousa <osousa@redhat.com> - 3.10.0-1
+- Release foreman-release 3.10.0
+
 * Tue Mar 05 2024 Patrick Creech <pcreech@redhat.com> - 3.10.0-0.2.rc2
 - Release foreman-release 3.10.0rc2
 
