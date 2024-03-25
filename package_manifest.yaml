@@ -709,7 +709,6 @@ foreman_plugin_packages_tier2:
     rubygem-foreman_google: {}
     rubygem-foreman_graphite: {}
     rubygem-foreman_hdm: {}
-    rubygem-foreman_hooks: {}
     rubygem-foreman_host_extra_validator: {}
     rubygem-foreman_kubevirt: {}
     rubygem-foreman_leapp: {}
