@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_kubevirt
 %global plugin_name kubevirt
-%global foreman_min_version 1.24.0
+%global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 0.1.9
-Release: 6%{?foremandist}%{?dist}
+Version: 0.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_kubevirt
@@ -15,8 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.5
+Requires: ruby < 4.0
+BuildRequires: ruby >= 2.5
+BuildRequires: ruby < 4.0
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(fog-kubevirt) >= 1.3.3 with rubygem(fog-kubevirt) < 1.4)
 BuildArch: noarch
@@ -77,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Mar 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.0-1
+- Update to 0.2.0
+
 * Sun Mar 10 2024 nofaralfasi <nalfassi@redhat.com> 0.1.9-6
 - Regenerate spec file based on the latest template
 
