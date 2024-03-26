@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.7
+Version: 1.8
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -11,6 +11,7 @@ Obsoletes: rubygem-fog-google < 1.19.0-2
 Obsoletes: rubygem-foreman_column_view < 0.4.0-7
 Obsoletes: rubygem-foreman_hooks < 0.3.17-4
 Obsoletes: rubygem-foreman_memcache < 0.1.1-6
+Obsoletes: rubygem-foreman_setup < 8.0.1-3
 Obsoletes: rubygem-google-api-client < 0.33.2-3
 Obsoletes: rubygem-quantile < 0.2.0-6
 Obsoletes: rubygem-runcible < 2.13.1-3
@@ -30,6 +31,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Tue Mar 26 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.8-1
+- Obsolete foreman_setup
+
 * Mon Mar 25 2024 Adam Ruzicka - 1.7-1
 - Obsolete rubygem-foreman_hooks
 
