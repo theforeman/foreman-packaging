@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.6
+Version: 1.7
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -7,6 +7,7 @@ URL: https://github.com/theforeman/foreman-packaging
 BuildArch: noarch
 
 Obsoletes: rubygem-fog-google < 1.19.0-2
+Obsoletes: rubygem-foreman_hooks < 0.3.17-4
 Obsoletes: rubygem-google-api-client < 0.33.2-3
 Obsoletes: rubygem-dalli < 2.7.6-4
 Obsoletes: rubygem-foreman_memcache < 0.1.1-6
@@ -29,6 +30,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Mon Mar 25 2024 Adam Ruzicka - 1.7-1
+- Obsolete rubygem-foreman_hooks
+
 * Thu Nov 16 2023 Evgeni Golov - 1.6-1
 - Obsolete rubygem-unf and rubygem-unf_ext
 
