@@ -2,7 +2,7 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 3.0.1
+Version: 3.2.0
 Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Mar 27 2024 sajha <sajha> - 3.2.0-1
+- Update to 3.2.0
+
 * Sun Dec 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.0.1-1
 - Update to 3.0.1
 
