@@ -37,7 +37,7 @@
 
 Name: katello-host-tools
 Version: 4.2.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -262,6 +262,12 @@ cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
 mkdir -p %{buildroot}%{plugins_dir}
 cp src/zypper_plugins/*.py %{buildroot}%{plugins_dir}/
 rm %{buildroot}%{plugins_dir}/__init__.py
+%if 0%{?suse_version} >= 1500
+# see https://github.com/openSUSE/python-rpm-macros/blob/master/flavor.in %<flavor>_fix_shebang_path
+for f in %{buildroot}%{plugins_dir}/*; do
+  [ -f "$f" ] && sed -i "1s@#!.*python.*@#!$(realpath %__python3)@" "$f"
+done
+%endif
 %endif
 
 %if %{build_tracer}
@@ -393,6 +399,9 @@ exit 0
 
 
 %changelog
+* Mon Mar 11 2024 Markus Bucher <bucher@atix.de> - 4.2.3-6
+- Fix hashbang in zypper tracer plugins
+
 * Thu Jan 25 2024 Ian Ballou <ianballou67@gmail.com> - 4.2.3-5
 - Add missing EL6/7 python-setuptools dependency
 
