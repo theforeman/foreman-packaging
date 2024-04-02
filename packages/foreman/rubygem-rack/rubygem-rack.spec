@@ -2,7 +2,7 @@
 %global gem_name rack
 
 Name: rubygem-%{gem_name}
-Version: 2.2.8.1
+Version: 2.2.9
 Release: 1%{?dist}
 Summary: A modular Ruby webserver interface
 License: MIT
@@ -75,6 +75,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/rack.gemspec
 
 %changelog
+* Tue Apr 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.9-1
+- Update to 2.2.9
+
 * Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.8.1-1
 - Update to 2.2.8.1
 
