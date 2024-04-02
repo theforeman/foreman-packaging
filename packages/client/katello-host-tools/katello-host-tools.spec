@@ -36,8 +36,8 @@
 %global katello_libdir %{python_libdir}/katello
 
 Name: katello-host-tools
-Version: 4.2.3
-Release: 5%{?dist}
+Version: 4.4.0
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -393,6 +393,9 @@ exit 0
 
 
 %changelog
+* Tue Apr 02 2024 Ian Ballou <ianballou67@gmail.com> - 4.4.0-1
+- Update to 4.4.0
+
 * Thu Jan 25 2024 Ian Ballou <ianballou67@gmail.com> - 4.2.3-5
 - Add missing EL6/7 python-setuptools dependency
 
