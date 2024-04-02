@@ -2,7 +2,7 @@
 %global gem_name pulp_rpm_client
 
 Name: rubygem-%{gem_name}
-Version: 3.25.1
+Version: 3.25.2
 Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 02 2024 sajha <sajha> - 3.25.2-1
+- Update to 3.25.2
+
 * Wed Mar 27 2024 sajha <sajha> - 3.25.1-1
 - Update to 3.25.1
 
