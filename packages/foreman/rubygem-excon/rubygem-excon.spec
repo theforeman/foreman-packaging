@@ -2,7 +2,7 @@
 %global gem_name excon
 
 Name: rubygem-%{gem_name}
-Version: 0.109.0
+Version: 0.110.0
 Release: 1%{?dist}
 Summary: speed, persistence, http(s)
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/excon/excon
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7.0
+BuildRequires: ruby >= 2.7.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -66,6 +66,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %exclude %{gem_instdir}/excon.gemspec
 
 %changelog
+* Tue Apr 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.110.0-1
+- Update to 0.110.0
+
 * Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.109.0-1
 - Update to 0.109.0
 
