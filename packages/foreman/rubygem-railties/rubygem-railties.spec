@@ -3,12 +3,13 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.1.7.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Tools for creating, working with, and running Rails applications
 License: MIT
 URL: https://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+Recommends: rubygem(irb)
 # start specfile generated dependencies
 Requires: ruby >= 2.5.0
 BuildRequires: ruby >= 2.5.0
@@ -66,6 +67,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Jun 18 2024 Eric D. Helms <ericdhelms@gmail.com> - 6.1.7.8-2
+- Require rubygem-irb
+
 * Sun Jun 09 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.1.7.8-1
 - Update to 6.1.7.8
 
