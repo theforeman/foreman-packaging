@@ -2,7 +2,7 @@
 %global gem_name graphql-batch
 
 Name: rubygem-%{gem_name}
-Version: 0.5.4
+Version: 0.6.0
 Release: 1%{?dist}
 Summary: A query batching executor for the graphql gem
 License: MIT
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/graphql-batch.gemspec
 
 %changelog
+* Sun Apr 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.0-1
+- Update to 0.6.0
+
 * Sun Feb 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.5.4-1
 - Update to 0.5.4
 
