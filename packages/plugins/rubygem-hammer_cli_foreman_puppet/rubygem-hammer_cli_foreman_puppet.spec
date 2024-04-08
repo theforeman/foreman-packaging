@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.0.7
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Puppet plugin for Hammer CLI
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-puppet
@@ -66,9 +66,11 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/config
-%{gem_instdir}/test
 
 %changelog
+* Mon Apr 08 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.0-1
+- Update to 0.1.0
+
 * Thu Mar 14 2024 nofaralfasi <nalfassi@redhat.com> 0.0.7-2
 - Regenerate spec file based on the latest template
 
