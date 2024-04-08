@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -527,6 +527,22 @@ Configuration files for the Performance Co-Pilot integration
 %{_sysconfdir}/pcp/proc/%{name}-hotproc.conf
 %{_sharedstatedir}/pcp/config/pmlogconf/%{name}-hotproc
 
+%package profiling
+Summary: Adds rails-profiling extensions to foreman
+# start specfile profiling Requires
+Requires: rubygem(rack-mini-profiler)
+Requires: rubygem(memory_profiler)
+Requires: rubygem(stackprof)
+# end specfile profiling Requires
+
+%description profiling
+This automatically installs and enables profiling extensions to foreman.
+It is probably not what you want on a productive system.
+
+%files profiling
+%{_datadir}/%{name}/bundler.d/profiling.rb
+%{_datadir}/%{name}/config/initializers/rack_mini_profiler.rb
+
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
 Foreman is based on Ruby on Rails, and this package bundles Rails and all
@@ -558,6 +574,9 @@ export NODE_ENV=production
 %{rake} webpack:compile DATABASE_URL=nulldb://nohost
 %{rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
 rm db/schema.rb
+
+# enable profiling if the bundler.d file is present
+sed -i 's/,\s*optional:\s*true//' bundler.d/profiling.rb
 
 %install
 rm -rf %{buildroot}
@@ -861,6 +880,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Apr 08 2024 Markus Bucher <bucher@atix.de> - 3.11.0-0.3.develop
+- Add profiling subpackage
+
 * Mon Mar 04 2024 Evgeni Golov - 3.11.0-0.2.develop
 - Update GEM Requiremens
 
