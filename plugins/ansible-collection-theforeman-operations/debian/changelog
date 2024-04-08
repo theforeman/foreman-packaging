@@ -1,3 +1,9 @@
+ansible-collection-theforeman-operations (3.0.0-1) stable; urgency=low
+
+  * 3.0.0 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 08 Apr 2024 10:32:37 +0200
+
 ansible-collection-theforeman-operations (2.1.0-1) stable; urgency=low
 
   * 2.1.0 released
