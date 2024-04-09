@@ -68,6 +68,7 @@
       <packagereq type="default">rubygem-foreman_azure_rm</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-foreman_concrete</packagereq>
+      <packagereq type="default">rubygem-foreman_cve_scanner</packagereq>
       <packagereq type="default">rubygem-foreman_datacenter</packagereq>
       <packagereq type="default">rubygem-foreman_default_hostgroup</packagereq>
       <packagereq type="default">rubygem-foreman_dhcp_browser</packagereq>
@@ -240,6 +241,7 @@
       <packagereq type="default">rubygem-foreman_azure_rm-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_concrete-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_cve_scanner-doc</packagereq>
       <packagereq type="default">rubygem-foreman_datacenter-doc</packagereq>
       <packagereq type="default">rubygem-foreman_default_hostgroup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_dhcp_browser-doc</packagereq>

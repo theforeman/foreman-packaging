@@ -698,6 +698,7 @@ foreman_plugin_packages_tier2:
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_concrete: {}
+    rubygem-foreman_cve_scanner: {}
     rubygem-foreman_datacenter: {}
     rubygem-foreman_default_hostgroup: {}
     rubygem-foreman_dhcp_browser: {}
