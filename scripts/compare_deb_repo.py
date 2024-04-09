@@ -27,6 +27,7 @@ def get_repo_packages(dist, release='nightly', arch='amd64', staging=False):
     for pkg in Packages.iter_paragraphs(remote_packages.text, use_apt_pkg=False):
         source = pkg.get('Source', pkg['Package'])
         version = re.sub(r'\+(debian|ubuntu).*', '', pkg['Version'])
+        version = re.sub(r'~fm\d+\.\d+$', '', version)
         if version.startswith('9999-') and release == 'nightly' and source in NIGHTLY_PACKAGES:
             continue
         if NativeVersion(packages[source]) < NativeVersion(version):
