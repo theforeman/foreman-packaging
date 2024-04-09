@@ -40,7 +40,6 @@
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
-      <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">libsass</packagereq>
       <packagereq type="default">libsass-devel</packagereq>
       <packagereq type="default">nodejs-argv-parse</packagereq>
@@ -90,7 +89,6 @@
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-rgen</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
-      <packagereq type="default">python3-keycloak-httpd-client-install</packagereq>
       <packagereq type="default">python3-websockify</packagereq>
       <packagereq type="default">rubygem-actioncable</packagereq>
       <packagereq type="default">rubygem-actionmailbox</packagereq>

@@ -55,6 +55,17 @@ copr_projects:
             - "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_9 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
+    foreman-copr-el8:
+      copr_project_name: "foreman-{{ foreman_version }}-staging"
+      copr_project_fork_from: "{{ 'foreman-nightly-staging' if foreman_version != 'nightly' else False }}"
+      copr_project_chroots:
+        - name: "rhel-{{ rhel_8 }}-x86_64"
+          modules: "{{ core_modules_el8 }}"
+          external_repos:
+            - "{{ puppet_baseurl }}/el/{{ rhel_8 }}/x86_64/"
+            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
     plugins-copr:
       copr_project_name: "plugins-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
@@ -222,7 +233,9 @@ other_core_packages:
     dynflow-utils: {}
     foreman-bootloaders-redhat: {}
     foreman-obsolete-packages: {}
-    keycloak-httpd-client-install: {}
+    keycloak-httpd-client-install:
+      copr_projects:
+        - "{{ hostvars['foreman-copr-el8'] }}"
     pcp-mmvstatsd: {}
     python-websockify: {}
 
