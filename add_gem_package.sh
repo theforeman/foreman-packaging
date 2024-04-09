@@ -91,7 +91,7 @@ add_to_manifest() {
 	if [[ $REPO == "foreman-el8" ]] ; then
 		local section="foreman_core_packages"
 	elif [[ $REPO == "foreman-plugins-el8" ]] ; then
-		local section="foreman_plugin_packages"
+		local section="foreman_plugin_packages_tier2"
 	elif [[ $REPO == "katello-el8" ]] ; then
 		local section="katello_packages"
 	elif [[ $REPO == "foreman-client-*" ]] ; then
