@@ -252,7 +252,6 @@
       <packagereq type="default">rubygem-foreman_google-doc</packagereq>
       <packagereq type="default">rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">rubygem-foreman_hdm-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator-doc</packagereq>
       <packagereq type="default">rubygem-foreman_kubevirt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_leapp-doc</packagereq>
