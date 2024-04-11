@@ -455,6 +455,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-buffer: {}
     nodejs-c3: {}
+    nodejs-compression-webpack-plugin: {}
     nodejs-core-js: {}
     nodejs-css-loader:
       strategy: bundle
