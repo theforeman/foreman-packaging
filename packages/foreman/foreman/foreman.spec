@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -174,6 +174,7 @@ BuildRequires: (npm(@theforeman/builder) >= 13.0.1 with npm(@theforeman/builder)
 BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 BuildRequires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
+BuildRequires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-webpack-plugin) < 11.0.0)
 BuildRequires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
@@ -324,6 +325,7 @@ Requires: (npm(@theforeman/builder) >= 13.0.1 with npm(@theforeman/builder) < 14
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 Requires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
+Requires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-webpack-plugin) < 11.0.0)
 Requires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
@@ -861,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Apr 11 2024 Evgeni Golov - 3.11.0-0.4.develop
+- Update NPM Requirements
+
 * Tue Apr 09 2024 Evgeni Golov - 3.11.0-0.3.develop
 - Update GEM and NPM Requirements
 
