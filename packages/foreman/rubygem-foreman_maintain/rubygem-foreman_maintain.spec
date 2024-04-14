@@ -6,8 +6,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: rubygem-%{gem_name}
-Version: 1.6.2
-Release: 2%{?dist}
+Version: 1.6.3
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -114,6 +114,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.3-1
+- Update to 1.6.3
+
 * Thu Apr 04 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.6.2-2
 - Add dependency on hostname
 
