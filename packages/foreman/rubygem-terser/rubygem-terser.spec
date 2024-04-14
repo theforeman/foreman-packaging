@@ -2,7 +2,7 @@
 %global gem_name terser
 
 Name: rubygem-%{gem_name}
-Version: 1.2.0
+Version: 1.2.2
 Release: 1%{?dist}
 Summary: Ruby wrapper for Terser JavaScript compressor
 License: MIT
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/terser.gemspec
 
 %changelog
+* Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.2-1
+- Update to 1.2.2
+
 * Wed Jan 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.0-1
 - Update to 1.2.0
 
