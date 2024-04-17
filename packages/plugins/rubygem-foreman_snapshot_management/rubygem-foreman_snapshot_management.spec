@@ -4,8 +4,8 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 3.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 3.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for machines on virtualization-platforms
 License: GPLv3
 URL: https://www.orcharhino.com
@@ -23,12 +23,10 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 4.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -89,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Apr 17 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.1-1
+- Update to 3.0.1
+
 * Wed Mar 27 2024 Evgeni Golov - 3.0.0-2
 - Rebuild for Webpack 5
 
