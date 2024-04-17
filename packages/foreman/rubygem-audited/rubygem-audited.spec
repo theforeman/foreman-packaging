@@ -46,13 +46,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.standard.yml
-%exclude %{gem_instdir}/.yardopts
 %exclude %{gem_instdir}/Appraisals
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/gemfiles
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -63,8 +58,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/spec
-%{gem_instdir}/test
 
 %changelog
 * Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.6.0-1
