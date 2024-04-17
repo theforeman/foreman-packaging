@@ -1,1 +1,1 @@
-gem 'foreman_snapshot_management', '3.0.0'
+gem 'foreman_snapshot_management', '3.0.1'
