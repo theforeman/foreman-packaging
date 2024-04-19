@@ -36,7 +36,7 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.1
+Version: 5.1.0
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -55,15 +55,12 @@ BuildRequires: python3-rpm-macros
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -121,7 +118,6 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/foreman-node
-sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/salt_python_wrapper
 
 # runners
 mkdir -p %{buildroot}%{salt_proxy_runners_dir}
@@ -156,7 +152,6 @@ cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/f
 
 mkdir -p %{buildroot}%{_root_bindir}
 cp -pa .%{_bindir}/foreman-node %{buildroot}%{_root_bindir}/foreman-node
-cp -pa .%{_bindir}/salt_python_wrapper %{buildroot}%{_root_bindir}/salt_python_wrapper
 
 mkdir -p %{buildroot}%{_root_sbindir}
 mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
@@ -164,7 +159,6 @@ mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbin
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/foreman-node
-%{_root_bindir}/salt_python_wrapper
 %{_root_sbindir}/upload-salt-reports
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.saltfile
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.yml
@@ -196,6 +190,10 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Fri Apr 19 2024 Nadja Heitmann <nadjah@atix.de> - 5.1.0-1
+- Update to 5.1.0
+- Remove 'salt_python_wrapper'
+
 * Fri Nov 25 2022 Bastian Schmidt <schmidt@atix.de> 5.0.1-1
 - Update to 5.0.1
 - Drop cron job
