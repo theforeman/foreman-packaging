@@ -1,3 +1,9 @@
+ruby-kafo (7.5.0-1) stable; urgency=low
+
+  * 7.5.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 21 Apr 2024 04:09:12 +0000
+
 ruby-kafo (7.4.0-1) stable; urgency=low
 
   * 7.4.0 released
