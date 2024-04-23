@@ -69,8 +69,6 @@ cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
-sed -ri 'sX.*/usr/bin/env ruby.*$X\#\!/usr/bin/rubyX' .%{_bindir}/foreman-node
-
 # runners
 mkdir -p %{buildroot}%{salt_proxy_runners_dir}
 mv %{buildroot}%{gem_instdir}/salt/minion_auth/srv/salt/_runners/* \
