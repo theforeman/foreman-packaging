@@ -1,40 +1,33 @@
 # template: hammer_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 1
+%global release 2
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-%global hammer_confdir %{_root_sysconfdir}/hammer
+%global hammer_confdir %{_sysconfdir}/hammer
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 1.13.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
-Group: Development/Languages
 License: GPLv3
 URL: https://github.com/Katello/hammer-cli-katello
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby(release)
+Requires: ruby
+Requires: ruby(rubygems)
+Requires: rubygem(hammer_cli_foreman)
+Requires: rubygem(hammer_cli_foreman_tasks)
+BuildRequires: ruby(release)
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: %{?scl_prefix}rubygem-hammer_cli_foreman_docker < 0.0.7-2
 
 %description
 Hammer-CLI-Katello is a plugin for Hammer to provide connectivity to a Katello
@@ -42,36 +35,23 @@ server.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -D -T -n %{gem_name}-%{version}%{?prerelease}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -88,7 +68,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
-%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
+%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
@@ -96,6 +76,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 25 2024 Ian Ballou <ianballou67@gmail.com> 1.13.0-0.2.pre.master
+- Remove SCL references
+
 * Fri May 10 2024 Ian Ballou <ianballou67@gmail.com> - 1.13.0-0.1.pre.master
 - Bump version to 1.13.0
 
