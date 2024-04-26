@@ -7,7 +7,7 @@
 %global release 1
 
 Name:    foreman
-Version: 3.9.1
+Version: 3.9.3
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -167,7 +167,7 @@ BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+BuildRequires: (npm(@theforeman/builder) >= 13.0.1 with npm(@theforeman/builder) < 14.0.0)
 BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 BuildRequires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
@@ -189,7 +189,7 @@ BuildRequires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
+BuildRequires: (npm(@theforeman/vendor) >= 13.0.1 with npm(@theforeman/vendor) < 14.0.0)
 BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 BuildRequires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
@@ -319,7 +319,7 @@ Requires: nodejs >= 14
 
 # start package.json devDependencies Requires
 Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-Requires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+Requires: (npm(@theforeman/builder) >= 13.0.1 with npm(@theforeman/builder) < 14.0.0)
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 Requires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
@@ -341,7 +341,7 @@ Requires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin) < 1
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
+Requires: (npm(@theforeman/vendor) >= 13.0.1 with npm(@theforeman/vendor) < 14.0.0)
 Requires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 Requires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 Requires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
@@ -864,6 +864,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Apr 26 2024 Patrick Creech <pcreech@redhat.com> - 3.9.3-1
+- Release foreman 3.9.3
+
 * Wed Jan 03 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.1-1
 - Release foreman 3.9.1
 
