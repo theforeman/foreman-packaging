@@ -7,7 +7,7 @@
 %global foreman_min_version 1.22.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.0
+Version: 0.15.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
@@ -22,11 +22,10 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
+BuildRequires: rubygem(deface)
+BuildRequires: (rubygem(fog-proxmox) >= 0.15 with rubygem(fog-proxmox) < 1)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(deface)
-BuildRequires: rubygem(fog-proxmox) >= 0.15
-BuildRequires: rubygem(fog-proxmox) < 1
 # end specfile generated dependencies
 %if 0%{?fedora} >= 27 || 0%{?rhel} >= 8
 Requires(post):   policycoreutils-python-utils
@@ -113,6 +112,9 @@ fi
 %{foreman_plugin_log}
 
 %changelog
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.15.1-1
+- Update to 0.15.1
+
 * Thu Nov 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.15.0-1
 - Update to 0.15.0
 
