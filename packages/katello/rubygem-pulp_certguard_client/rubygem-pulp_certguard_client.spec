@@ -2,7 +2,7 @@
 %global gem_name pulp_certguard_client
 
 Name: rubygem-%{gem_name}
-Version: 3.49.3
+Version: 3.49.5
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.49.5-1
+- Update to 3.49.5
+
 * Wed Mar 27 2024 sajha <sajha> - 3.49.3-1
 - Update to 3.49.3
 
