@@ -47,6 +47,11 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Allow thor 1.3 as we don't care about Ruby 2.5 compat
+# See https://github.com/puppetlabs/facter/commit/5e6c601f2a4ae37e3cd72f8411816a508d2f8b3c
+%gemspec_remove_dep -g thor ['>= 1.0.1', '< 1.3']
+%gemspec_add_dep -g thor ['>= 1.0.1', '< 2.0']
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
