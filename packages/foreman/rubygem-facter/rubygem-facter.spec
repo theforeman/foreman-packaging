@@ -2,7 +2,7 @@
 %global gem_name facter
 
 Name: rubygem-%{gem_name}
-Version: 4.6.1
+Version: 4.7.0
 Release: 1%{?dist}
 Summary: Facter, a system inventory tool
 License: ASL 2.0
@@ -10,9 +10,9 @@ URL: https://github.com/puppetlabs/facter
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.6
+Requires: ruby >= 2.5
 Requires: ruby < 4.0
-BuildRequires: ruby >= 2.6
+BuildRequires: ruby >= 2.5
 BuildRequires: ruby < 4.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
@@ -47,6 +47,11 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Allow thor 1.3 as we don't care about Ruby 2.5 compat
+# See https://github.com/puppetlabs/facter/commit/5e6c601f2a4ae37e3cd72f8411816a508d2f8b3c
+%gemspec_remove_dep -g thor ['>= 1.0.1', '< 1.3']
+%gemspec_add_dep -g thor ['>= 1.0.1', '< 2.0']
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -79,6 +84,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.7.0-1
+- Update to 4.7.0
+
 * Tue Apr 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.6.1-1
 - Update to 4.6.1
 
