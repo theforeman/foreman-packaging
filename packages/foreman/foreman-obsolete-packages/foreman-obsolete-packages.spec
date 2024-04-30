@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.8
+Version: 1.9
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -14,6 +14,7 @@ Obsoletes: rubygem-foreman_memcache < 0.1.1-6
 Obsoletes: rubygem-foreman_setup < 8.0.1-3
 Obsoletes: rubygem-google-api-client < 0.33.2-3
 Obsoletes: rubygem-quantile < 0.2.0-6
+Obsoletes: rubygem-request_store < 1.6.0-2
 Obsoletes: rubygem-runcible < 2.13.1-3
 Obsoletes: rubygem-unf < 0.1.4-2
 Obsoletes: rubygem-unf_ext < 0.0.8.2-2
@@ -31,6 +32,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Tue Apr 30 2024 Evgeni Golov - 1.9-1
+- Obsolete rubygem-request_store
+
 * Tue Mar 26 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.8-1
 - Obsolete foreman_setup
 
