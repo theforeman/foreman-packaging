@@ -389,7 +389,6 @@ ruby_core_packages_tier1:
     rubygem-rbvmomi2: {}
     rubygem-redis: {}
     rubygem-representable: {}
-    rubygem-request_store: {}
     rubygem-responders: {}
     rubygem-rest-client: {}
     rubygem-retriable: {}
