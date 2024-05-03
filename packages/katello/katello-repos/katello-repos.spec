@@ -6,7 +6,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        4.13
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Fri May 03 2024 Evgeni Golov - 4.13-0.4.nightly
+- Disable gpgcheck when using pulpcore nightly
+
 * Wed May 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 4.13-0.3.nightly
 - Use Candlepin 4.4
 
