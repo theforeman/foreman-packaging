@@ -1,3 +1,9 @@
+foreman (3.11.0-3) stable; urgency=low
+
+  * Add libyaml-dev to Build-Depends for psych
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 07 May 2024 11:41:27 +0200
+
 foreman (3.11.0-2) stable; urgency=low
 
   * Use Python 3 for package.json filtering

@@ -4,7 +4,7 @@ Section: web
 Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 9.20160709), ruby-dev (>= 1:2.7), git,
-               zlib1g-dev, libpq-dev, pkg-config, libvirt-dev,
+               zlib1g-dev, libpq-dev, pkg-config, libvirt-dev, libyaml-dev,
                build-essential, curl, nodejs (>= 8.9), npm,
                python3, libsystemd-dev, libcurl4-openssl-dev, libxml2-dev, tzdata,
                libfontconfig1, libfreetype6
