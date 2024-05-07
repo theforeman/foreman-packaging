@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 24.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: MaaS Discovery Plugin for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_discovery
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 07 2024 Evgeni Golov - 24.0.1-2
+- Rebuild for Webpack asset compression
+
 * Fri Feb 16 2024 Foreman Packaging Automation <packaging@theforeman.org> - 24.0.1-1
 - Update to 24.0.1
 

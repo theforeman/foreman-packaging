@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 13.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -29,7 +29,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
 BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 # end package.json devDependencies BuildRequires
@@ -134,6 +134,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 07 2024 Evgeni Golov - 13.0.0-2
+- Rebuild for Webpack asset compression
+
 * Tue Mar 12 2024 Adam Ruzicka <aruzicka@redhat.com> - 13.0.0-1
 - Update to 13.0.0
 

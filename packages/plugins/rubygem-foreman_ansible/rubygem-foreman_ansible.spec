@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 14.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
 URL: https://github.com/theforeman/foreman_ansible
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 07 2024 Evgeni Golov - 14.0.0-2
+- Rebuild for Webpack asset compression
+
 * Tue Mar 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.0.0-1
 - Update to 14.0.0
 

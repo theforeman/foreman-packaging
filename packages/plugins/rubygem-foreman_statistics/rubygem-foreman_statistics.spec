@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Add Statistics and Trends
 License: GPLv3
 URL: https://theforeman.org
@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 07 2024 Evgeni Golov - 2.1.0-3
+- Rebuild for Webpack asset compression
+
 * Wed Jan 31 2024 Evgeni Golov - 2.1.0-2
 - Rebuild for Webpack 5
 

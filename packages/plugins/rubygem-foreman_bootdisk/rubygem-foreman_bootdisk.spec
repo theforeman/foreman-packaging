@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 21.2.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 07 2024 Evgeni Golov - 21.2.3-2
+- Rebuild for Webpack asset compression
+
 * Tue Apr 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 21.2.3-1
 - Update to 21.2.3
 
