@@ -4,11 +4,12 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server for Ruby/Rack applications
 License: BSD-3-Clause
 URL: https://puma.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0: fix-request-chunking.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.4
@@ -40,6 +41,7 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+%patch0 -p1
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -97,6 +99,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/docs
 
 %changelog
+* Tue May 07 2024 Ian Ballou <ianballou67@gmail.com> - 6.4.2-2
+- Add patch for chunking bug
+
 * Tue Jan 09 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.4.2-1
 - Update to 6.4.2
 
