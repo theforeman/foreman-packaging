@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.13.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -48,7 +48,7 @@ BuildRequires: rubygem(anemone)
 BuildRequires: (rubygem(pulpcore_client) >= 3.49.3 with rubygem(pulpcore_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.49.3 with rubygem(pulp_file_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.21.3 with rubygem(pulp_ansible_client) < 0.22.0)
-BuildRequires: (rubygem(pulp_container_client) >= 2.19.2 with rubygem(pulp_container_client) < 2.20.0)
+BuildRequires: (rubygem(pulp_container_client) >= 2.20.0 with rubygem(pulp_container_client) < 2.21.0)
 BuildRequires: (rubygem(pulp_deb_client) >= 3.2.0 with rubygem(pulp_deb_client) < 3.3.0)
 BuildRequires: (rubygem(pulp_rpm_client) >= 3.25.2 with rubygem(pulp_rpm_client) < 3.26.0)
 BuildRequires: (rubygem(pulp_certguard_client) >= 3.49.3 with rubygem(pulp_certguard_client) < 3.50.0)
@@ -170,6 +170,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 07 2024 Ian Ballou <ianballou67@gmail.com> - 4.13.0-0.3.pre.master
+- Bump pulp-container client requirement to at be least 2.20
+
 * Tue Apr 09 2024 Samir Jha <samirjha1525@gmail.com> - 4.13.0-0.2.pre.master
 - Bump Pulpcore client requirements for 3.49
 
