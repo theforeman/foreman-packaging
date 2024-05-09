@@ -91,6 +91,7 @@
       <packagereq type="default">rubygem-foreman_remote_execution</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution-cockpit</packagereq>
       <packagereq type="default">rubygem-foreman_rescue</packagereq>
+      <packagereq type="default">rubygem-foreman_resource_quota</packagereq>
       <packagereq type="default">rubygem-foreman_salt</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot_management</packagereq>
       <packagereq type="default">rubygem-foreman_statistics</packagereq>
@@ -262,6 +263,7 @@
       <packagereq type="default">rubygem-foreman_puppet-doc</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution-doc</packagereq>
       <packagereq type="default">rubygem-foreman_rescue-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_resource_quota-doc</packagereq>
       <packagereq type="default">rubygem-foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot_management-doc</packagereq>
       <packagereq type="default">rubygem-foreman_statistics-doc</packagereq>
