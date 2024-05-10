@@ -3,9 +3,6 @@
 %global zypper_install (0%{?suse_version} > 0)
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
-%global build_agent 0
-%global legacy_agent 0
-
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
 %endif
@@ -36,8 +33,8 @@
 %global katello_libdir %{python_libdir}/katello
 
 Name: katello-host-tools
-Version: 4.2.3
-Release: 6%{?dist}
+Version: 4.4.0
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -45,8 +42,8 @@ License: LGPL-2.0
 %else
 License: LGPLv2
 %endif
-URL:     https://github.com/Katello/katello-agent
-Source0: https://codeload.github.com/Katello/katello-host-tools/tar.gz/%{version}#/%{name}-%{version}.tar.gz
+URL:     https://github.com/Katello/katello-host-tools
+Source0: https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 
 %if 0%{?suse_version} && 0%{?suse_version} < 1200
 # this needs to be BuildArch for Suse but
@@ -58,6 +55,7 @@ BuildArch: noarch
 
 Requires: subscription-manager
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
+Obsoletes: katello-agent < %{version}-%{release}
 
 %if %{dnf_install} || 0%{?suse_version} >= 1500
 Requires: python3-subscription-manager-rhsm
@@ -94,46 +92,6 @@ BuildRequires: python-setuptools
 %description
 A set of commands and yum plugins that support a Katello host including faster package profile uploading and bound repository reporting.  This is required for errata and package applicability reporting.
 
-%if %{build_agent}
-%package -n katello-agent
-BuildArch:  noarch
-Summary:    The Katello Agent
-Group:      Development/Languages
-
-Conflicts: pulp-consumer-client
-
-%if %{legacy_agent}
-Requires: gofer >= 2.11.5
-Requires: gofer < 2.12
-Requires: python-pulp-agent-lib >= 2.6
-Requires: pulp-rpm-handlers >= 2.6
-%else
-Requires: gofer >= 2.12.1
-Obsoletes: python-pulp-agent-lib < 3.0
-Obsoletes: pulp-rpm-handlers < 3.0
-Obsoletes: python-pulp-rpm-common < 2.16.4
-%endif
-
-%if %{dnf_install}
-Requires: python3-gofer-proton
-Requires: dnf >= 4.0.9
-Requires: python3-libdnf
-%else
-Requires: python-gofer-proton >= 2.5
-%endif
-
-Requires: subscription-manager
-Requires: %{name} = %{version}-%{release}
-
-%if 0%{?rhel} == 6
-Requires: yum-plugin-security
-%endif
-
-%description -n katello-agent
-Provides plugin for gofer, which allows communicating with Katello server
-and execute scheduled actions.
-%endif
-
 %if %{build_tracer}
 %package tracer
 BuildArch:  noarch
@@ -145,12 +103,11 @@ Requires: cronie
 %else
 Requires: crontabs
 %endif
-%if %{dnf_install}
-Requires: python3-tracer
-%else
-%if 0%{?suse_version} == 0
+%if %{yum_install}
 Requires: python2-tracer >= 0.6.12
 %endif
+%if %{dnf_install}
+Requires: python3-psutil
 %endif
 
 %description tracer
@@ -161,16 +118,13 @@ Adds Tracer functionality to a client managed by katello-host-tools
 %setup -q
 
 %build
-# Remove apt bits
 rm -r src/apt_plugins
-rm src/katello/deb_tracer.py
+rm -f src/katello/tracer/deb.py
 
 %if !%{dnf_install}
-rm -r src/dnf_plugins
-%else
-# 'Hack' for the fact that dnf recognizes plugins in 'dnf-plugins'
-# can be removed when we update to a release that contains https://github.com/Katello/katello-host-tools/pull/145
-mv src/dnf_plugins src/dnf-plugins
+rm -r src/dnf-plugins
+rm -f src/katello/tracer/dnf.py
+rm -f src/katello/tracer/SystemdDbus.py
 %endif
 
 %if !%{yum_install}
@@ -179,7 +133,7 @@ rm -r src/yum-plugins
 
 %if !%{zypper_install}
 rm -r src/zypper_plugins
-rm src/katello/zypper_tracer.py
+rm -f src/katello/tracer/zypper.py
 %endif
 
 %if %{build_tracer}
@@ -188,29 +142,16 @@ rm src/katello/zypper_tracer.py
 sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
 %endif
 %else
-rm src/katello/tracer.py
+rm -r src/katello/tracer
 sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
-rm etc/yum/pluginconf.d/tracer_upload.conf
-%endif
-
-%if %{build_agent}
-%if %{legacy_agent}
-mv src/katello/agent/goferd/legacy_plugin.py src/katello/agent/goferd/plugin.py
-rm -r src/katello/agent/pulp
-%else
-rm src/katello/agent/goferd/legacy_plugin.py
-# This should be in test/ instead of src/
-rm src/katello/agent/pulp/test.py
-%endif
-%else
-rm -r src/katello/agent
+rm -f etc/yum/pluginconf.d/tracer_upload.conf
 %endif
 
 pushd src
 %if %{dnf_install} || 0%{?suse_version} >= 1500
 %py3_build
 %else
-%if 0%{?rhel} == 6
+%if 0%{?rhel} == 6 || 0%{?suse_version} < 1500
 %{__python} setup.py build
 %else
 %py_build
@@ -225,7 +166,7 @@ pushd src
 %if %{dnf_install} || 0%{?suse_version} >= 1500
 %py3_install
 %else
-%if 0%{?rhel} == 6
+%if 0%{?rhel} == 6 || 0%{?suse_version} < 1500
 %{__python} setup.py install --root %{buildroot}
 %else
 %py_install
@@ -235,14 +176,6 @@ popd
 
 mkdir -p %{buildroot}%{_sbindir}
 mv %{buildroot}%{_bindir}/* %{buildroot}%{_sbindir}/
-
-%if %{build_agent}
-mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
-cp etc/gofer/plugins/katello.conf %{buildroot}%{_sysconfdir}/gofer/plugins
-
-# cache directory
-mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
-%endif
 
 %if %{dnf_install} || %{yum_install} || %{zypper_install}
 mkdir -p %{buildroot}%{plugins_confdir}
@@ -262,6 +195,11 @@ cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
 mkdir -p %{buildroot}%{plugins_dir}
 cp src/zypper_plugins/*.py %{buildroot}%{plugins_dir}/
 rm %{buildroot}%{plugins_dir}/__init__.py
+%if 0%{?suse_version} >= 1500
+for f in %{buildroot}%{plugins_dir}/*; do
+  [ -f "$f" ] && sed -i "1s@#!.*python.*@#!$(realpath %__python3)@" "$f"
+done
+%endif
 %endif
 
 %if %{build_tracer}
@@ -279,41 +217,11 @@ cp extra/katello-tracer-upload.cron %{buildroot}%{_sysconfdir}/cron.d/katello-tr
 %clean
 rm -rf %{buildroot}
 
-%if %{build_agent}
-%post -n katello-agent
-%if %{dnf_install}
-sed 's/bin\/python$/bin\/python3/' /etc/sysconfig/goferd -i
-%endif
-
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
-  systemctl enable goferd
-  /bin/systemctl start goferd > /dev/null 2>&1 || :
-%else
-  chkconfig goferd on
-  /sbin/service goferd start > /dev/null 2>&1 || :
-%endif
-
-touch /tmp/katello-agent-restart
-exit 0
-%endif
-
 %if %{yum_install} || %{zypper_install}
 %posttrans
 katello-package-upload 2> /dev/null
 katello-enabled-repos-upload 2> /dev/null
 exit 0
-%endif
-
-%if %{build_agent}
-%postun -n katello-agent
-touch /tmp/katello-agent-restart
-exit 0
-
-%files -n katello-agent
-%defattr(-,root,root,-)
-%config %{_sysconfdir}/gofer/plugins/katello.conf
-%{katello_libdir}/agent/
-%dir %{_localstatedir}/cache/katello-agent/
 %endif
 
 %files
@@ -328,27 +236,9 @@ exit 0
 %{python_libdir}/katello_host_tools-*.egg-info
 %exclude %{katello_libdir}/contrib
 
-%if %{build_agent}
-%exclude %{katello_libdir}/agent
-%endif
-
 %if %{build_tracer}
-# TODO pycached unavailable on SuSE - what to do with cache files?
-%if %{zypper_install}
-%exclude %{katello_libdir}/tracer.py
-%else
-%if %{yum_install}
-%exclude %{katello_libdir}/tracer.py*
-%else
-%pycached %exclude %{katello_libdir}/tracer.py
-%endif
-%endif
-
-%if %{dnf_install}
-%pycached %exclude %{plugins_dir}/__init__.py
-%else
+%exclude %{katello_libdir}/tracer
 %exclude %{plugins_dir}
-%endif
 %endif
 
 %if %{yum_install} || %{zypper_install}
@@ -362,6 +252,8 @@ exit 0
 %if %{zypper_install}
 %dir %{_sysconfdir}/yum
 %dir %{plugins_confdir}
+%{plugins_dir}/package_upload.py
+%{plugins_dir}/enabled_repos_upload.py
 %exclude %{python_libdir}/zypper_plugins
 %endif
 
@@ -379,20 +271,18 @@ exit 0
 %files tracer
 %defattr(-,root,root,-)
 %if %{zypper_install}
-%{katello_libdir}/tracer.py
 %dir %{_usr}/lib/zypp
 %dir %{_usr}/lib/zypp/plugins
 %dir %{plugins_dir}
 %{plugins_dir}/tracer_upload.py
 %else
 %if %{yum_install}
-%{katello_libdir}/tracer.py*
 %{plugins_dir}/tracer_upload.py*
 %else
-%pycached %{katello_libdir}/tracer.py
 %pycached %{plugins_dir}/tracer_upload.py
 %endif
 %endif
+%{katello_libdir}/tracer
 %{plugins_confdir}/tracer_upload.conf
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
@@ -400,6 +290,9 @@ exit 0
 
 
 %changelog
+* Fri May 10 2024 Bernhard Suttner <suttner@atix.de> - 4.4.0-1
+- Update to 4.4.0 (Based on the work of wbclark and ianballou)
+
 * Tue Apr 09 2024 Evgeni Golov - 4.2.3-6
 - Don't install package and repository upload on DNF installs
 
