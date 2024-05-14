@@ -9,8 +9,8 @@
 %global service_name foreman-dlm-expire-events
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
-Release: 3%{?foremandist}%{?dist}
+Version: 3.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -117,6 +117,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.ti
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 14 2024 Manuel Laug <laugmanuel@gmail.com> - 3.0.0-1
+- Update foreman_dlm to 3.0.0
+
 * Mon May 09 2022 Evgeni Golov - 2.0.0-3
 - log plugin installation in posttrans
 
