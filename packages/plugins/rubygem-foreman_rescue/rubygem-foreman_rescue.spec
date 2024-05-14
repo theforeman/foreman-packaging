@@ -7,8 +7,8 @@
 %global foreman_min_version 1.21
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
-Release: 3%{?foremandist}%{?dist}
+Version: 4.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Provides the ability to boot a host into a rescue system
 Group: Applications/Systems
 License: GPLv3+
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 14 2024 Manuel Laug <laugmanuel@gmail.com> - 4.0.0-1
+- Update foreman_rescue to 4.0.0
+
 * Mon May 09 2022 Evgeni Golov - 3.0.0-3
 - log plugin installation in posttrans
 
