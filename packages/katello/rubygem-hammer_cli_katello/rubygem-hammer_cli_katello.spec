@@ -17,16 +17,13 @@ URL: https://github.com/Katello/hammer-cli-katello
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
-Requires: ruby(release)
-Requires: ruby
-Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli_foreman)
-Requires: rubygem(hammer_cli_foreman_tasks)
-BuildRequires: ruby(release)
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 3.2
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 3.2
 BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -43,11 +40,11 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-%setup -q -D -T -n %{gem_name}-%{version}%{?prerelease}
+%setup -q -n  %{gem_name}-%{version}%{?prerelease}
 
 %build
 # Create the gem as gem install only works on a gem file
-gem build ../%{gem_name}-%{version}.gemspec
+gem build ../%{gem_name}-%{version}%{?prerelease}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
@@ -76,7 +73,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
-* Thu Apr 25 2024 Ian Ballou <ianballou67@gmail.com> 1.13.0-0.2.pre.master
+* Wed May 15 2024 Ian Ballou <ianballou67@gmail.com> - 1.13.0-0.2.pre.master
 - Remove SCL references
 
 * Fri May 10 2024 Ian Ballou <ianballou67@gmail.com> - 1.13.0-0.1.pre.master
