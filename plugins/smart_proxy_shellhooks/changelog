@@ -1,3 +1,9 @@
+ruby-smart-proxy-shellhooks (0.9.3-1) stable; urgency=low
+
+  * 0.9.3 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Wed, 15 May 2024 16:51:30 +0200
+
 ruby-smart-proxy-shellhooks (0.9.2-1) stable; urgency=low
 
   * 0.9.2 released
