@@ -4,7 +4,7 @@
 %define rubyabi 1.8
 
 Name: rubygem-%{gem_name}
-Version: 0.5.2
+Version: 0.5.3
 Release: 1%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
@@ -96,6 +96,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 15 2024 Oleh Fedorenko <ofedoren@redhat.com> - 0.5.3-1
+- Release rubygem-foreman_scap_client 0.5.3
+
 * Fri Dec 15 2023 Oleh Fedorenko <ofedoren@redhat.com> - 0.5.2-1
 - Release rubygem-foreman_scap_client 0.5.2
 
