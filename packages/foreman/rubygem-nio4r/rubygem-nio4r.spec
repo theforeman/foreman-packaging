@@ -75,15 +75,8 @@ rm -rf gem_ext_test
 
 %files doc
 %doc %{gem_docdir}
-%exclude %{gem_instdir}/.rspec
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/changes.md
 %doc %{gem_instdir}/readme.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/rakelib
-%{gem_instdir}/examples
-%exclude %{gem_instdir}/nio4r.gemspec
-%{gem_instdir}/spec
 
 %changelog
 * Sun May 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.7.3-1
