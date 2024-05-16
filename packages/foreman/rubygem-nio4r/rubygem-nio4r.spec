@@ -68,12 +68,7 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.mailmap
-%exclude %{gem_instdir}/.rubocop.yml
 %{gem_libdir}
-%{gem_instdir}/logo.png
 %license %{gem_instdir}/license.md
 %exclude %{gem_cache}
 %{gem_spec}
