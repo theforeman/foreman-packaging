@@ -2,7 +2,7 @@
 %global gem_name dynflow
 
 Name: rubygem-%{gem_name}
-Version: 1.8.3
+Version: 1.8.4
 Release: 1%{?dist}
 Summary: DYNamic workFLOW engine
 License: MIT
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 16 2024 Adam Ruzicka <aruzicka@redhat.com> - 1.8.4-1
+- Release rubygem-dynflow 1.8.4
+
 * Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.8.3-1
 - Update to 1.8.3
 
