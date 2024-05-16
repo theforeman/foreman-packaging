@@ -3,7 +3,7 @@
 %global gem_require_name nio
 
 Name: rubygem-%{gem_name}
-Version: 2.7.1
+Version: 2.7.3
 Release: 1%{?dist}
 Summary: New IO for Ruby
 License: MIT
@@ -68,29 +68,20 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.mailmap
-%exclude %{gem_instdir}/.rubocop.yml
 %{gem_libdir}
-%{gem_instdir}/logo.png
 %license %{gem_instdir}/license.md
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%exclude %{gem_instdir}/.rspec
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/changes.md
 %doc %{gem_instdir}/readme.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/rakelib
-%{gem_instdir}/examples
-%exclude %{gem_instdir}/nio4r.gemspec
-%{gem_instdir}/spec
 
 %changelog
+* Sun May 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.7.3-1
+- Update to 2.7.3
+
 * Sun Mar 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.7.1-1
 - Update to 2.7.1
 
