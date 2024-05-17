@@ -50,6 +50,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.solargraph.yml
+%exclude %{gem_instdir}/.standard.yml
 %license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/codecov.yml
 %{gem_libdir}
