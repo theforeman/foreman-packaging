@@ -121,6 +121,10 @@ copr_projects:
             - "https://dl.fedoraproject.org/pub/epel/{{ rhel_7 }}/x86_64/"
             - "{{ client_staging }}/rhel-{{ rhel_7 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-rhel{{ rhel_7 }}.xml"
+        - name: "opensuse-leap-15.5-x86_64"
+          external_repos:
+            - "{{ client_staging }}/opensuse-leap-15.5-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-sles155.xml"
 
 packages:
   vars:
