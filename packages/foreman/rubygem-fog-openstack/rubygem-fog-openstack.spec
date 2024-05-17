@@ -70,6 +70,7 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%doc %{gem_instdir}/SECURITY.md
 %doc %{gem_instdir}/docker-compose.yml
 %doc %{gem_instdir}/docs
 %{gem_instdir}/examples
