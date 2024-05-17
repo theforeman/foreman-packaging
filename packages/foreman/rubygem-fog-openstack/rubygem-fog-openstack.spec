@@ -2,7 +2,7 @@
 %global gem_name fog-openstack
 
 Name: rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.1.1
 Release: 1%{?dist}
 Summary: OpenStack fog provider gem
 License: MIT
@@ -70,12 +70,16 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%doc %{gem_instdir}/SECURITY.md
 %doc %{gem_instdir}/docker-compose.yml
 %doc %{gem_instdir}/docs
 %{gem_instdir}/examples
 %exclude %{gem_instdir}/fog-openstack.gemspec
 
 %changelog
+* Fri May 17 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.1-1
+- Update to 1.1.1
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.0-1
 - Update to 1.1.0
 
