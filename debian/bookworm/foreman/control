@@ -15,7 +15,7 @@ Architecture: any
 Section: web
 Priority: extra
 Depends: ruby (>= 1:2.7), ruby-dev, zlib1g-dev,
-         build-essential, tzdata,
+         build-essential, tzdata, libyaml-dev,
          rake (>=0.8.4), gawk, ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug (= ${binary:Version})
 Conflicts: ruby-activerecord-deprecated-finders, ruby-foreman-tasks (<< 0.10.1), ruby-sequel-pg, ruby-foreman-hooks (<= 0.3.17)
