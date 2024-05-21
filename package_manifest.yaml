@@ -67,7 +67,7 @@ copr_projects:
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ plugins_buildroot_packages }}"
     plugins-copr-with-el9:
-      copr_project_name: "plugins-{{ foreman_version }}-staging"
+      copr_project_name: "plugins-{{ foreman_version }}-staging-with-el9"
       copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
         - name: "rhel-{{ rhel_8 }}-x86_64"
