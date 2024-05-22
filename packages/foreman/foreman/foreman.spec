@@ -4,12 +4,12 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 3.11.0
+Version: 3.12.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -863,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.develop
+- Bump version to 3.12-develop
+
 * Thu Apr 11 2024 Evgeni Golov - 3.11.0-0.4.develop
 - Update NPM Requirements
 
