@@ -66,17 +66,6 @@ copr_projects:
             - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
           buildroot_packages: "{{ plugins_buildroot_packages }}"
-    plugins-copr-with-el9:
-      copr_project_name: "plugins-{{ foreman_version }}-staging"
-      copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
-      copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules_el8 }}"
-          external_repos:
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ plugins_buildroot_packages }}"
         - name: "rhel-{{ rhel_9 }}-x86_64"
           modules: "{{ core_modules_el9 }}"
           external_repos:
@@ -672,9 +661,6 @@ katello_nodejs_packages:
     nodejs-strict-uri-encode: {}
 
 foreman_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   children:
     ruby_plugin_packages: {}
     ruby_plugin_packages_tier2: {}
@@ -744,16 +730,10 @@ fdi_plugin_packages:
     rubygem-newt: {}
 
 other_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     yggdrasil-worker-forwarder: {}
 
 hammer_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
@@ -775,9 +755,6 @@ hammer_plugin_packages:
     rubygem-net-ssh-multi: {}
 
 ruby_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
@@ -851,16 +828,10 @@ ruby_plugin_packages:
     rubygem-zscheduler: {}
 
 ruby_plugin_packages_tier2:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-grpc: {}
 
 foreman_proxy_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   children:
     foreman_proxy_other_plugin_packages: {}
     foreman_proxy_other_plugin_packages_tier2: {}
