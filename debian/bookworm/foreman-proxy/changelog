@@ -1,3 +1,9 @@
+foreman-proxy (3.12.0-1) stable; urgency=low
+
+  * Bump changelog to 3.12.0 to match VERSION
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Wed, 22 May 2024 09:18:13 -0400
+
 foreman-proxy (3.11.0-1) stable; urgency=low
 
   * Bump changelog to 3.11.0 to match VERSION
