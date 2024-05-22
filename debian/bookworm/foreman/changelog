@@ -1,3 +1,9 @@
+foreman (3.12.0-1) stable; urgency=low
+
+  * Bump changelog to 3.12.0 to match VERSION
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Wed, 22 May 2024 09:18:13 -0400
+
 foreman (3.11.0-4) stable; urgency=low
 
   * Add libyaml-dev to Depends for psych
