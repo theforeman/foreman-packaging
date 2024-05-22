@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 4
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -863,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.11.0-0.4.rc1
+- Release foreman 3.11.0rc1
+
 * Thu Apr 11 2024 Evgeni Golov - 3.11.0-0.4.develop
 - Update NPM Requirements
 
