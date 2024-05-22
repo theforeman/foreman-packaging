@@ -544,6 +544,9 @@ foreman_client_packages:
       el7:
         - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
+      leap155:
+        - leap155-oss
+        - atix-sles155
       el9:
         - el9-baseos
         - el9-appstream
