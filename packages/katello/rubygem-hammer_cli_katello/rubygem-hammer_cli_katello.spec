@@ -9,7 +9,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 1.13.0
+Version: 1.14.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 License: GPLv3
@@ -73,6 +73,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 23 2024 Partha Aji - 4.14-0.1.nightly
+- Bump version to 4.14.0
+
 * Wed May 15 2024 Ian Ballou <ianballou67@gmail.com> - 1.13.0-0.2.pre.master
 - Remove SCL references
 
