@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_monitoring
 %global plugin_name monitoring
-%global foreman_min_version 3.0.0
+%global foreman_min_version 3.0
 
 Name: rubygem-%{gem_name}
-Version: 3.0.0
+Version: 3.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 License: GPLv3
@@ -13,10 +13,11 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -74,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.1.0-1
+- Update to 3.1.0
+
 * Wed Nov 02 2022 Dirk Goetz 3.0.0-1
 - Update to 3.0.0
 
