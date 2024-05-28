@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.11
-%global foreman_max_version 3.12
+%global foreman_min_version 3.12
+%global foreman_max_version 3.13
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.13.0
-%global release 3
+%global mainver 4.14.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -170,6 +170,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 28 2024 Ian Ballou <ianballou67@gmail.com> - 4.14.0-0.1.pre.master
+- Bump version to 4.14.0-0.1.pre.master
+
 * Tue May 07 2024 Ian Ballou <ianballou67@gmail.com> - 4.13.0-0.3.pre.master
 - Bump pulp-container client requirement to at be least 2.20
 
