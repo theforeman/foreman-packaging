@@ -21,7 +21,7 @@
 %global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.10.0
+Version: 0.11.0
 Release: 1%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
@@ -31,18 +31,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(openscap) >= 0.4.7
-Requires: %{?scl_prefix}rubygem(openscap) < 0.5
-Requires: %{?scl_prefix}rubygem(openscap_parser) >= 1.0.2
-Requires: %{?scl_prefix}rubygem(openscap_parser) < 1.1
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -151,6 +143,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Thu May 30 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.11.0-1
+- Update to 0.11.0
+
 * Wed May 15 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.10.0-1
 - Release rubygem-smart_proxy_openscap 0.10.0
 
