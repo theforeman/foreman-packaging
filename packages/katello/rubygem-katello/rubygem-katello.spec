@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.11
 %global foreman_max_version 3.12
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.13.0
 %global release 3
@@ -170,6 +170,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 30 2024 Zach Huntington-Meath <zhunting@redhat.com> - 4.13.0-0.3.rc1
+- Release rubygem-katello 4.13.0rc1
+
 * Tue May 07 2024 Ian Ballou <ianballou67@gmail.com> - 4.13.0-0.3.pre.master
 - Bump pulp-container client requirement to at be least 2.20
 

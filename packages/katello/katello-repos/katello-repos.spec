@@ -4,12 +4,12 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource nightly
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 4
 
 Name:           katello-repos
-Version:        4.13
+Version:        4.13.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Thu May 30 2024 Zach Huntington-Meath <zhunting@redhat.com> - 4.13.0-0.4.rc1
+- Release katello-repos 4.13.0rc1
+
 * Fri May 03 2024 Evgeni Golov - 4.13-0.4.nightly
 - Disable gpgcheck when using pulpcore nightly
 
