@@ -1,45 +1,31 @@
 # template: smart_proxy_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name smart_proxy_monitoring
 %global plugin_name monitoring
 
-%global foreman_proxy_min_version 1.25
-%global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_min_version 1.24
+%global foreman_proxy_dir %{_datadir}/foreman-proxy
+%global foreman_proxy_statedir %{_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
-%global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
+%global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
-Release: 2%{?foremandist}%{?dist}
+Name: rubygem-%{gem_name}
+Version: 0.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Monitoring plug-in for Foreman's smart proxy
-Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_monitoring
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(rest-client)
-Requires: %{?scl_prefix_ruby}rubygem(json)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
-
-%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
 %description
 Monitoring plug-in for Foreman's smart proxy.
@@ -47,37 +33,22 @@ Monitoring plug-in for Foreman's smart proxy.
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
-
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -99,7 +70,7 @@ mv %{buildroot}%{gem_instdir}/settings.d/monitoring_icingadirector.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/monitoring_icingadirector.yml
 
 # additional config
-mkdir -p %{buildroot}%{_root_sysconfdir}/foreman-proxy/monitoring
+mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 
 %files
 %dir %{gem_instdir}
@@ -107,17 +78,22 @@ mkdir -p %{buildroot}%{_root_sysconfdir}/foreman-proxy/monitoring
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/monitoring_icinga2.yml
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/monitoring_icingadirector.yml
 %license %{gem_instdir}/LICENSE
+%exclude %{gem_instdir}/bundler.d
 %{gem_libdir}
+%exclude %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
-%dir %{_root_sysconfdir}/foreman-proxy/monitoring
+%dir %{_sysconfdir}/foreman-proxy/monitoring
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri May 31 2024 David Ochner <ochnerd@yahoo.de> - 0.3.0-1
+- Update to 0.3.0
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.2.0-2
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
