@@ -4,7 +4,7 @@
 %global foreman_min_version 3.0
 
 Name: rubygem-%{gem_name}
-Version: 3.1.0
+Version: 3.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 License: GPLv3
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 31 2024 David Ochner <ochnerd@yahoo.de> - 3.2.0-1
+- Update to 3.2.0
+
 * Tue May 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.1.0-1
 - Update to 3.1.0
 
