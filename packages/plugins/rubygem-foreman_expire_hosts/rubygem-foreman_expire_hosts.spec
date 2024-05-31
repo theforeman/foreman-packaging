@@ -1,17 +1,12 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name foreman_expire_hosts
 %global plugin_name expire_hosts
 %global foreman_min_version 3.0.0
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 8.1.0
+Name: rubygem-%{gem_name}
+Version: 8.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
-Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_expire_hosts
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -19,7 +14,6 @@ Source1: %{gem_name}.cron.d
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
@@ -29,49 +23,36 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
-This Plugin will add new column expired_on to hosts to limit the lifetime of a
-host.
+A Foreman plugin that allows hosts to expire at a configurable date.
+Hosts will be shut down and automatically deleted after a grace period.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d/
-mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
+mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
+mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 %foreman_bundlerd_file
 
 %files
@@ -85,7 +66,7 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%config(noreplace) %{_root_sysconfdir}/cron.d/%{gem_name}
+%config(noreplace) %{_sysconfdir}/cron.d/%{gem_name}
 
 %files doc
 %doc %{gem_docdir}
@@ -96,6 +77,9 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 31 2024 David Ochner <ochnerd@yahoo.de> 8.2.0-1
+- Update to 8.2.0
+
 * Mon Mar 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 8.1.0-1
 - Update to 8.1.0
 
