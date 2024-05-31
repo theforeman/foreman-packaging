@@ -6,8 +6,8 @@
 %global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat")
 
 Name: rubygem-%{gem_name}
-Version: 13.2.4
-Release: 2%{?foremandist}%{?dist}
+Version: 13.2.5
+Release: 1%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
 URL: https://github.com/RedHatSatellite/foreman_theme_satellite
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 31 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.5-1
+- Update to 13.2.5
+
 * Tue May 07 2024 Evgeni Golov - 13.2.4-2
 - Rebuild for Webpack asset compression
 
