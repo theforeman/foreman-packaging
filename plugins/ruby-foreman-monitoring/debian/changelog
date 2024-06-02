@@ -1,3 +1,9 @@
+ruby-foreman-monitoring (3.2.0-1) stable; urgency=low
+
+  * 3.2.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 02 Jun 2024 04:09:33 +0000
+
 ruby-foreman-monitoring (3.1.0-1) stable; urgency=low
 
   * 3.1.0 released
