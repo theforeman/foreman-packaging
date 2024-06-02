@@ -8,7 +8,7 @@
 %global foreman_min_version 3.0.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 8.1.0
+Version: 8.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 Group: Applications/Systems
@@ -19,7 +19,6 @@ Source1: %{gem_name}.cron.d
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
@@ -96,6 +95,9 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jun 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 8.2.0-1
+- Update to 8.2.0
+
 * Mon Mar 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 8.1.0-1
 - Update to 8.1.0
 
