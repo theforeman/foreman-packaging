@@ -1,0 +1,30 @@
+#!/bin/bash
+
+DNF_VAR_foremanver=nightly
+DNF_VAR_katellover=nightly
+DNF_VAR_candlepinver=nightly
+DNF_VAR_puppetver=7
+
+export DNF_VAR_foremanver DNF_VAR_katellover DNF_VAR_candlepinver DNF_VAR_puppetver
+
+repoclosure() {
+	local distro releasever module
+	distro=./distros/$1
+	releasever=$2
+	module=$3
+
+	if [[ -n $module ]] ; then
+		# DNF needs root to enable modules
+		INSTALLROOT=$(mktemp -d)
+
+		fakeroot ./dnfwrapper "$distro" "$releasever" module enable "$module" -y --installroot "$INSTALLROOT"
+		fakeroot ./dnfwrapper "$distro" "$releasever" repoclosure --installroot "$INSTALLROOT" "${@:4}"
+
+		rm -rf "$INSTALLROOT"
+	else
+		./dnfwrapper "$distro" "$releasever" repoclosure "${@:4}"
+	fi
+}
+
+repoclosure centos-stream 9 "" --check foreman-${DNF_VAR_foremanver}-staging --enablerepo puppet7
+repoclosure centos-stream-legacy 8 foreman-devel:el8 --check foreman-${DNF_VAR_foremanver}-staging --enablerepo puppet7
