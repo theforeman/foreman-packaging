@@ -4,7 +4,7 @@ all:
     foremandist: .fm3_11
     foreman_version: '3.11'
     katello_version: '4.13'
-    candlepin_version: '4.3'
+    candlepin_version: '4.4'
     copr_project_user: "@theforeman"
     build_package_build_system: copr
   children:
