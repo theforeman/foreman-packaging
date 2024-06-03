@@ -11,7 +11,6 @@ all:
   children:
     packages: {}
     repoclosures: {}
-    staging_repoclosures: {}
     copr_projects: {}
 
 copr_projects:
