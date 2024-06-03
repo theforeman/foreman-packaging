@@ -6,7 +6,7 @@
 
 %global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 5
+%global release 6
 
 Name:           katello-repos
 Version:        4.13.0
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Mon Jun 03 2024 Evgeni Golov - 4.13.0-0.6.rc1
+- Update Candlepin 4.4 key
+
 * Fri May 31 2024 Evgeni Golov - 4.13.0-0.5.rc1
 * Use Pulpcore 3.49, not nightly
 
