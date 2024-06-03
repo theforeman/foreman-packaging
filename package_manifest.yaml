@@ -136,18 +136,8 @@ foreman_packages:
       el9:
         - "el9-foreman-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-        - "el9-candlepin-{{ candlepin_version }}-staging"
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-extras
-        - el8-powertools
-        - el8-puppet-7
-        - "el8-candlepin-{{ candlepin_version }}-staging"
+      el8: "{{ hostvars['foreman-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
+      el9: "{{ hostvars['foreman-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     foreman_core_packages: {}
     foreman_proxy_packages: {}
@@ -165,20 +155,8 @@ plugin_packages:
       el9:
         - "el9-foreman-plugins-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el8:
-        - el8-appstream
-        - el8-baseos
-        - el8-powertools
-        - el8-configmanagement-salt
-        - el8-extras
-        - el8-puppet-7
-        - "el8-foreman-{{ foreman_version }}-staging"
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-configmanagement-salt
-        - el9-puppet-7
-        - "el9-foreman-{{ foreman_version }}-staging"
+      el8: "{{ hostvars['plugins-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
+      el9: "{{ hostvars['plugins-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     foreman_plugin_packages: {}
     foreman_proxy_plugin_packages: {}
@@ -544,26 +522,12 @@ foreman_client_packages:
       el7:
         - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
+      el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
+      el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
+      el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
       leap155:
         - leap155-oss
         - atix-sles155
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-epel
-        - el8-extras
-        - el8-puppet-7
-      el7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-7
   children:
     yggdrasil_client_packages: {}
   hosts:
@@ -585,23 +549,8 @@ katello_packages:
       el9:
         - "el9-katello-{{ katello_version }}-staging"
     repoclosure_lookaside_repos:
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-epel
-        - el8-extras
-        - el8-puppet-7
-        - "el8-foreman-{{ foreman_version }}-staging"
-        - "el8-foreman-plugins-{{ foreman_version }}-staging"
-        - "el8-candlepin-{{ candlepin_version }}-staging"
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-        - "el9-foreman-{{ foreman_version }}-staging"
-        - "el9-foreman-plugins-{{ foreman_version }}-staging"
-        - "el9-candlepin-{{ candlepin_version }}-staging"
+      el8: "{{ hostvars['katello-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
+      el9: "{{ hostvars['katello-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     satellite_packages: {}
     katello_common_packages: {}
@@ -1031,22 +980,9 @@ foreman_release_packages:
       el7:
         - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-7
-      el7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-7
+      el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
+      el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
+      el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
   hosts:
     foreman-release: {}
 
