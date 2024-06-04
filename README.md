@@ -170,3 +170,48 @@ While adding packages, please check if any of them are (now) available in Debian
 ### Build core
 
 After the depdendencies are built, you can copy over `foreman`, `foreman-proxy` and `foreman-installer` from another release directory.
+
+## HOWTO: Archive a Foreman release
+
+1. Identify which releases are affected:
+```console
+# ls /var/www/freight/apt/*
+/var/www/freight/apt/bionic:
+2.0  2.1  2.2  2.3  2.4  2.5  3.0
+…
+/var/www/freight/apt/focal:
+2.5  3.0  3.1  3.10  3.11  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  nightly
+…
+```
+
+2. Also check which releases are already archived:
+```console
+# ls /var/www/freightarchive/apt/*
+/var/www/freightarchive/apt/bionic:
+1.19  1.20  1.21  1.22  1.23  1.24
+…
+```
+
+3. Move as planned:
+```console
+# mv /var/www/freight/apt/bionic/* /var/www/freightarchive/apt/bionic/
+
+# mkdir /var/www/freightarchive/apt/focal
+# mv /var/www/freight/apt/focal/2.5 /var/www/freightarchive/apt/focal/
+# mv /var/www/freight/apt/focal/3.0 /var/www/freightarchive/apt/focal/
+# mv /var/www/freight/apt/focal/3.1 /var/www/freightarchive/apt/focal/
+# mv /var/www/freight/apt/focal/3.2 /var/www/freightarchive/apt/focal/
+# mv /var/www/freight/apt/focal/3.3 /var/www/freightarchive/apt/focal/
+# mv /var/www/freight/apt/focal/3.4 /var/www/freightarchive/apt/focal/
+```
+
+4. Adjust permissions
+```console
+# chown -R freightarchive.freightarchive /var/www/freightarchive/apt/
+```
+
+5. Regenerate package indexes
+```console
+# sudo -u freightarchive /usr/bin/freight-cache -c /home/freightarchive/freight.conf
+# sudo -u freight /usr/bin/freight-cache -c /home/freight/freight.conf
+```
