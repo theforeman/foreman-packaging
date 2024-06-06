@@ -30,6 +30,8 @@ build:
 	# let foreman.deb provide both gems in the cache, so that the plugins always
 	# get compatible versions
 	echo 'gem "faraday", "<2"' >> bundler.d/debian.rb
+	# pin FFI to a version compatible with Ruby 2.7
+	echo 'gem "ffi", "<1.17"' >> bundler.d/debian.rb
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	$(BUNDLE) install
