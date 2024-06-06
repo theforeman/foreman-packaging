@@ -75,7 +75,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/README.rst
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/apipie-rails.gemspec
 %{gem_instdir}/spec
