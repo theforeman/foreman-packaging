@@ -1,3 +1,9 @@
+ruby-dynflow (1.9.0-1) stable; urgency=low
+
+  * 1.9.0 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 11 Jun 2024 10:47:44 +0200
+
 ruby-dynflow (1.8.4-1) stable; urgency=low
 
   * 1.8.4 released
