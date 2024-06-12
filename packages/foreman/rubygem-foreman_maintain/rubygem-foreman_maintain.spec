@@ -6,7 +6,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: rubygem-%{gem_name}
-Version: 1.6.8
+Version: 1.6.9
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -114,6 +114,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jun 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.9-1
+- Update to 1.6.9
+
 * Thu Jun 06 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.8-1
 - Update to 1.6.8
 
