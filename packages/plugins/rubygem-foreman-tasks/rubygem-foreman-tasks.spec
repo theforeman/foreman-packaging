@@ -4,7 +4,7 @@
 %global foreman_min_version 3.9
 
 Name: rubygem-%{gem_name}
-Version: 9.1.1
+Version: 9.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
@@ -19,7 +19,7 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(dynflow) >= 1.8.0
+BuildRequires: rubygem(dynflow) >= 1.9.0
 BuildRequires: (rubygem(fugit) >= 1.8 with rubygem(fugit) < 2)
 BuildRequires: rubygem(get_process_mem)
 BuildRequires: rubygem(sinatra)
@@ -152,6 +152,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jun 12 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.2.0-1
+- Update to 9.2.0
+
 * Tue Mar 19 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.1.1-1
 - Update to 9.1.1
 
