@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.10
 %global foreman_max_version 3.11
-%global mainver 4.12.0
+%global mainver 4.12.1
 %global release 1
 
 Name: rubygem-%{gem_name}
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jun 14 2024 Odilon Sousa <osousa@redhat.com> - 4.12.1-1
+- Release rubygem-katello 4.12.1
+
 * Wed Mar 20 2024 Odilon Sousa <osousa@redhat.com> - 4.12.0-1
 - Release rubygem-katello 4.12.0
 
