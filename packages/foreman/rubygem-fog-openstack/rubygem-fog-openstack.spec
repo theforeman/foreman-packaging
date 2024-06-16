@@ -2,7 +2,7 @@
 %global gem_name fog-openstack
 
 Name: rubygem-%{gem_name}
-Version: 1.1.1
+Version: 1.1.3
 Release: 1%{?dist}
 Summary: OpenStack fog provider gem
 License: MIT
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-openstack.gemspec
 
 %changelog
+* Sun Jun 16 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.3-1
+- Update to 1.1.3
+
 * Fri May 17 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.1-1
 - Update to 1.1.1
 
