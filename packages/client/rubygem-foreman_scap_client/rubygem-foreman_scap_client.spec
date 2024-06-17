@@ -3,9 +3,18 @@
 
 %define rubyabi 1.8
 
+%if 0%{?suse_version}
+%define mod_name %{gem_name}
+%define gem_instdir %{gem_base}/gems/%{gem_name}-%{version}
+%define gem_libdir %{gem_instdir}/lib
+%define gem_docdir %{gem_base}/doc/%{gem_name}-%{version}
+%define gem_cache %{gem_base}/cache/%{gem_name}-%{version}.gem
+%define gem_spec %{gem_base}/specifications/%{gem_name}-%{version}.gemspec
+%endif
+
 Name: rubygem-%{gem_name}
 Version: 0.5.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
@@ -13,22 +22,34 @@ URL: https://github.com/theforeman/foreman_scap_client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: bzip2
+%if 0%{?suse_version} == 0
 Requires: ruby(rubygems)
+%endif
 %if 0%{?el6}
 Requires: ruby(abi)
 Requires: rubygem(json) >= 1.4
 Requires: rubygem(json) < 2.0
 %else
+%if 0%{?suse_version} == 0
 Requires: ruby(release)
 %endif
+%endif
+%if 0%{?suse_version}
+Requires: openscap-utils
+%else
 Requires: openscap-scanner
+%endif
 %if 0%{?el6}
 BuildRequires: ruby(abi)
 %else
+%if 0%{?suse_version} == 0
 BuildRequires: ruby(release)
 %endif
+%endif
+%if 0%{?suse_version} == 0
 BuildRequires: ruby(rubygems)
 BuildRequires: rubygems-devel
+%endif
 BuildRequires: ruby
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
@@ -63,6 +84,8 @@ gem build %{gem_name}.gemspec
 %gem_install
 
 %install
+# %%gem_install on SUSE takes care of all that, so we don't have to
+%if 0%{?suse_version} == 0
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -72,13 +95,14 @@ cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+%endif
 
 # create config directory
 mkdir -p %{buildroot}%{config_dir}
 
 %files
 %dir %{gem_instdir}
-%{_bindir}/foreman_scap_client
+%{_bindir}/foreman_scap_client*
 %{config_dir}
 %{gem_instdir}/bin
 %{gem_libdir}
@@ -96,6 +120,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 17 2024 Evgeni Golov - 0.5.3-2
+- Make it build on SUSE too
+
 * Wed May 15 2024 Oleh Fedorenko <ofedoren@redhat.com> - 0.5.3-1
 - Release rubygem-foreman_scap_client 0.5.3
 
