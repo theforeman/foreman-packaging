@@ -12,11 +12,11 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 
 %if 0%{?rhel}
-%define repo_dist el%{rhel}
+%define repo_dist el$releasever_major
 %endif
 %endif
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -65,8 +65,7 @@ install -Dpm0644 %{SOURCE0} %{buildroot}%{repo_dir}/foreman.repo
 install -Dpm0644 %{SOURCE1} %{buildroot}%{repo_dir}/foreman-plugins.repo
 install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
 
-trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
-sed "s/\$DIST/${trimmed_dist}/g" -i %{buildroot}%{repo_dir}/*.repo
+sed 's/$DIST/%{repo_dist}/g' -i %{buildroot}%{repo_dir}/*.repo
 
 if [[ '%{release}' != *"develop"* ]];then
   VERSION="%{version}"
@@ -84,6 +83,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Fri Jun 21 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.12.0-0.2.develop
+- Use $releasever_major for better leapp compatibility
+
 * Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.develop
 - Bump version to 3.12-develop
 
