@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 16.0.2
+Version: 16.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for Salt
 License: GPLv3
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jun 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.3-1
+- Update to 16.0.3
+
 * Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.2-1
 - Update to 16.0.2
 
