@@ -10,13 +10,10 @@
 
 %else
 %define repo_dir %{_sysconfdir}/yum.repos.d
-
-%if 0%{?rhel}
-%define repo_dist el%{rhel}
-%endif
+%define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -84,6 +81,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Fri Jun 21 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.12.0-0.2.develop
+- Use dist tag to determine repo_dist
+
 * Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.develop
 - Bump version to 3.12-develop
 
