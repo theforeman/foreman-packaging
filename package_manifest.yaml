@@ -591,6 +591,7 @@ katello_ruby_packages:
     rubygem-pulp_rpm_client: {}
     rubygem-pulpcore_client: {}
     rubygem-robotex: {}
+    rubygem-spidr: {}
     rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}

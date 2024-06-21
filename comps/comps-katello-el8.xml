@@ -47,6 +47,7 @@
       <packagereq type="default">rubygem-pulp_python_client</packagereq>
       <packagereq type="default">rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">rubygem-robotex</packagereq>
+      <packagereq type="default">rubygem-spidr</packagereq>
       <packagereq type="default">rubygem-stomp</packagereq>
       <packagereq type="default">rubygem-typhoeus</packagereq>
       <packagereq type="default">rubygem-zest</packagereq>
