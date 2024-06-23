@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 9.0.56
+Version: 10.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -36,9 +36,10 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 7.8.0)
 BuildRequires: npm(@theforeman/builder) >= 10.1.1
-BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: (npm(cosmiconfig-typescript-loader) >= 4.3.0 with npm(cosmiconfig-typescript-loader) < 4.4.0)
+BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 1.2.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -103,6 +104,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jun 23 2024 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.1-1
+- Update to 10.0.1
+
 * Mon Apr 29 2024 Chris Roberts <chrobert@redhat.com> - 9.0.56-1
 - Update to 9.0.56
 
