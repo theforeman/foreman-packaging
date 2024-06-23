@@ -4,22 +4,24 @@
 %global npm_name query-string
 
 Name: %{?scl_prefix}nodejs-query-string
-Version: 6.1.0
-Release: 2%{?dist}
+Version: 6.14.1
+Release: 1%{?dist}
 Summary: Parse and stringify URL query strings
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/sindresorhus/query-string#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/query-string/-/query-string-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
-Requires: %{?scl_prefix}npm(decode-uri-component) >= 0.2.0
-Requires: %{?scl_prefix}npm(decode-uri-component) < 0.3.0
-Requires: %{?scl_prefix}npm(strict-uri-encode) >= 2.0.0
-Requires: %{?scl_prefix}npm(strict-uri-encode) < 3.0.0
+Requires: npm(decode-uri-component) >= 0.2.0
+Requires: npm(decode-uri-component) < 0.3.0
+Requires: npm(filter-obj) >= 1.1.0
+Requires: npm(filter-obj) < 2.0.0
+Requires: npm(split-on-first) >= 1.0.0
+Requires: npm(split-on-first) < 2.0.0
+Requires: npm(strict-uri-encode) >= 2.0.0
+Requires: npm(strict-uri-encode) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -32,6 +34,7 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr index.d.ts %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -46,6 +49,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Sun Jun 23 2024 Foreman Packaging Automation <packaging@theforeman.org> 6.14.1-1
+- Update to 6.14.1
+
 * Sun Oct 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.1.0-2
 - Update to handle building for SCL
 
