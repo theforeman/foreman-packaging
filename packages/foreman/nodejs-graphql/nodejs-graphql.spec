@@ -4,7 +4,7 @@
 %global npm_name graphql
 
 Name: %{?scl_prefix}nodejs-graphql
-Version: 15.8.0
+Version: 15.9.0
 Release: 1%{?dist}
 Summary: A Query Language and Runtime which can target any service
 License: MIT
@@ -60,6 +60,9 @@ cp -pfr version.mjs %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sun Jun 23 2024 Foreman Packaging Automation <packaging@theforeman.org> 15.9.0-1
+- Update to 15.9.0
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 15.8.0-1
 - Update to 15.8.0
 
