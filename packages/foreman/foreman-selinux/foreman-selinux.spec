@@ -22,8 +22,6 @@
 %define moduletype apps
 
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
 Version:        3.11.0
@@ -173,6 +171,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Jun 25 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.11.0-1
+- Release foreman-selinux 3.11.0
+
 * Thu Jun 06 2024 Patrick Creech <pcreech@redhat.com> - 3.11.0-0.1.rc2
 - Release foreman-selinux 3.11.0rc2
 
