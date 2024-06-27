@@ -609,7 +609,6 @@ katello_nodejs_packages:
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
     nodejs-ngreact: {}
-    nodejs-query-string: {}
     nodejs-strict-uri-encode: {}
 
 foreman_plugin_packages:

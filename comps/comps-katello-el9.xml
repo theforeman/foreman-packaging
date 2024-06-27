@@ -29,7 +29,6 @@
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-decode-uri-component</packagereq>
       <packagereq type="default">nodejs-ngreact</packagereq>
-      <packagereq type="default">nodejs-query-string</packagereq>
       <packagereq type="default">nodejs-strict-uri-encode</packagereq>
       <!-- katello thirdparty rubygem packages -->
       <packagereq type="default">rubygem-anemone</packagereq>
