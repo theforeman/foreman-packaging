@@ -607,7 +607,6 @@ katello_nodejs_packages:
   hosts:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
-    nodejs-decode-uri-component: {}
     nodejs-ngreact: {}
     nodejs-strict-uri-encode: {}
 
