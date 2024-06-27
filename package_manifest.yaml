@@ -608,7 +608,6 @@ katello_nodejs_packages:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-ngreact: {}
-    nodejs-strict-uri-encode: {}
 
 foreman_plugin_packages:
   children:
