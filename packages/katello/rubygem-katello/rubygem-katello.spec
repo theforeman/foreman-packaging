@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.14.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -72,7 +72,6 @@ BuildRequires: npm(@theforeman/builder) >= 6.0.0
 BuildRequires: npm(angular) = 1.8.2
 BuildRequires: npm(bootstrap-select) = 1.13.18
 BuildRequires: (npm(ngreact) >= 0.5.0 with npm(ngreact) < 1.0.0)
-BuildRequires: (npm(query-string) >= 6.1.0 with npm(query-string) < 7.0.0)
 BuildRequires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0)
 BuildRequires: (npm(use-deep-compare-effect) >= 1.6.1 with npm(use-deep-compare-effect) < 2.0.0)
 # end package.json dependencies BuildRequires
@@ -103,7 +102,6 @@ Requires: npm(@theforeman/builder) >= 6.0.0
 Requires: npm(angular) = 1.8.2
 Requires: npm(bootstrap-select) = 1.13.18
 Requires: (npm(ngreact) >= 0.5.0 with npm(ngreact) < 1.0.0)
-Requires: (npm(query-string) >= 6.1.0 with npm(query-string) < 7.0.0)
 Requires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0)
 Requires: (npm(use-deep-compare-effect) >= 1.6.1 with npm(use-deep-compare-effect) < 2.0.0)
 # end package.json dependencies Requires
@@ -170,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jun 27 2024 Evgeni Golov - 4.14.0-0.2.pre.master
+- Update NPM dependencies
+
 * Tue May 28 2024 Ian Ballou <ianballou67@gmail.com> - 4.14.0-0.1.pre.master
 - Bump version to 4.14.0-0.1.pre.master
 
