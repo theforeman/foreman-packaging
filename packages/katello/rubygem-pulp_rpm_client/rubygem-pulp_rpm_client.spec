@@ -2,7 +2,7 @@
 %global gem_name pulp_rpm_client
 
 Name: rubygem-%{gem_name}
-Version: 3.25.3
+Version: 3.25.5
 Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.25.5-1
+- Update to 3.25.5
+
 * Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.25.3-1
 - Update to 3.25.3
 
