@@ -2,7 +2,7 @@
 %global gem_name addressable
 
 Name: rubygem-%{gem_name}
-Version: 2.8.6
+Version: 2.8.7
 Release: 1%{?dist}
 Summary: URI Implementation
 License: Apache-2.0
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/addressable.gemspec
 
 %changelog
+* Sun Jul 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.8.7-1
+- Update to 2.8.7
+
 * Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.8.6-1
 - Update to 2.8.6
 
