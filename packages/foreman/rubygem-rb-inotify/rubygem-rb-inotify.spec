@@ -46,8 +46,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
@@ -58,7 +58,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
 %{gem_instdir}/rb-inotify.gemspec
 %{gem_instdir}/spec
 
