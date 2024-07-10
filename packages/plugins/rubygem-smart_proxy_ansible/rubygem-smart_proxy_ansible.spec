@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 3.5.5
+Version: 3.5.6
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 License: GPLv3
@@ -114,6 +114,9 @@ ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 10 2024 nofaralfasi <nalfassi@redhat.com> - 3.5.6-1
+- Update to 3.5.6
+
 * Thu May 18 2023 nofaralfasi <nalfassi@redhat.com> 3.5.5-1
 - Update to 3.5.5
 
