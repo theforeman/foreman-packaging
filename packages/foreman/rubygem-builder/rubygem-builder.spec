@@ -52,7 +52,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %doc %{gem_instdir}/CHANGES
 %license %{gem_instdir}/MIT-LICENSE
-%{gem_instdir}/builder.blurb
+%exclude %{gem_instdir}/builder.blurb
 %{gem_libdir}
 %{gem_instdir}/rakelib
 %exclude %{gem_cache}
