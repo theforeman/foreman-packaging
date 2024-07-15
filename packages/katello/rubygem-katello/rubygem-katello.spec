@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.14.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -44,7 +44,7 @@ BuildRequires: rubygem(gettext_i18n_rails)
 BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
-BuildRequires: rubygem(anemone)
+BuildRequires: rubygem(spidr)
 BuildRequires: (rubygem(pulpcore_client) >= 3.49.3 with rubygem(pulpcore_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.49.3 with rubygem(pulp_file_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.21.3 with rubygem(pulp_ansible_client) < 0.22.0)
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jul 15 2024 Samir Jha <samirjha1525@gmail.com> - 4.14.0-0.3.pre.master
+- Remove anemone and add spidr dependency
+
 * Thu Jun 27 2024 Evgeni Golov - 4.14.0-0.2.pre.master
 - Update NPM dependencies
 
