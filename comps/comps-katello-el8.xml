@@ -33,7 +33,6 @@
       <packagereq type="default">nodejs-query-string</packagereq>
       <packagereq type="default">nodejs-strict-uri-encode</packagereq>
       <!-- katello thirdparty rubygem packages -->
-      <packagereq type="default">rubygem-anemone</packagereq>
       <packagereq type="default">rubygem-foreman_kernel_care</packagereq>
       <packagereq type="default">rubygem-foreman_rh_cloud</packagereq>
       <packagereq type="default">rubygem-foreman_scc_manager</packagereq>

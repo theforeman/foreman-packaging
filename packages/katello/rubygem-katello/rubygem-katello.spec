@@ -4,7 +4,7 @@
 %global foreman_min_version 3.11
 %global foreman_max_version 3.12
 %global mainver 4.13.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -42,7 +42,7 @@ BuildRequires: rubygem(gettext_i18n_rails)
 BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
-BuildRequires: rubygem(anemone)
+BuildRequires: rubygem(spidr)
 BuildRequires: (rubygem(pulpcore_client) >= 3.49.3 with rubygem(pulpcore_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.49.3 with rubygem(pulp_file_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.21.3 with rubygem(pulp_ansible_client) < 0.22.0)
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jul 15 2024 Samir Jha <samirjha1525@gmail.com> - 4.13.0-2
+- Remove anemone and add spidr dependency
+
 * Thu Jun 27 2024 Odilon Sousa <osousa@redhat.com> - 4.13.0-1
 - Release rubygem-katello 4.13.0
 
