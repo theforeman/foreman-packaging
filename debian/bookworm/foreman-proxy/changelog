@@ -1,3 +1,9 @@
+foreman-proxy (3.11.1-1) stable; urgency=low
+
+  * 3.11.1 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Thu, 18 Jul 2024 14:51:38 -0400
+
 foreman-proxy (3.11.0-1) stable; urgency=low
 
   * 3.11.0 released
