@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -42,6 +42,10 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
 Requires: katello-certs-tools
 Requires: which
+
+# both katello and foreman-proxy-content scenarios require this
+# it also makes the package lock feature available on the first run
+Requires: foreman-maintain
 
 %description katello
 Various scenarios and tools for the Katello ecosystem
@@ -122,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Jul 18 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.12.0-0.2.develop
+- katello: depend on foreman-maintain
+
 * Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 1:3.12.0-0.1.develop
 - Bump version to 3.12-develop
 
