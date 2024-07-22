@@ -438,6 +438,7 @@ foreman_nodejs_packages:
     nodejs-intl: {}
     nodejs-jed: {}
     nodejs-jquery: {}
+    nodejs-js-cookie: {}
     nodejs-js-tokens: {}
     nodejs-lodash: {}
     nodejs-module-federation-utilities: {}

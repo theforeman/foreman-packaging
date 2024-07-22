@@ -62,6 +62,7 @@
       <packagereq type="default">nodejs-intl</packagereq>
       <packagereq type="default">nodejs-jed</packagereq>
       <packagereq type="default">nodejs-jquery</packagereq>
+      <packagereq type="default">nodejs-js-cookie</packagereq>
       <packagereq type="default">nodejs-js-tokens</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-module-federation-utilities</packagereq>
