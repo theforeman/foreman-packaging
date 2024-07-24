@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.11
 %global foreman_max_version 3.12
-%global mainver 4.13.0
+%global mainver 4.13.1
 %global release 1
 
 Name: rubygem-%{gem_name}
@@ -42,13 +42,13 @@ BuildRequires: rubygem(gettext_i18n_rails)
 BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
-BuildRequires: rubygem(anemone)
+BuildRequires: rubygem(spidr)
 BuildRequires: (rubygem(pulpcore_client) >= 3.49.3 with rubygem(pulpcore_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.49.3 with rubygem(pulp_file_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.21.3 with rubygem(pulp_ansible_client) < 0.22.0)
 BuildRequires: (rubygem(pulp_container_client) >= 2.20.0 with rubygem(pulp_container_client) < 2.21.0)
 BuildRequires: (rubygem(pulp_deb_client) >= 3.2.0 with rubygem(pulp_deb_client) < 3.3.0)
-BuildRequires: (rubygem(pulp_rpm_client) >= 3.25.2 with rubygem(pulp_rpm_client) < 3.26.0)
+BuildRequires: (rubygem(pulp_rpm_client) >= 3.26.1 with rubygem(pulp_rpm_client) < 3.27.0)
 BuildRequires: (rubygem(pulp_certguard_client) >= 3.49.3 with rubygem(pulp_certguard_client) < 3.50.0)
 BuildRequires: (rubygem(pulp_python_client) >= 3.11.0 with rubygem(pulp_python_client) < 3.12.0)
 BuildRequires: (rubygem(pulp_ostree_client) >= 2.3.0 with rubygem(pulp_ostree_client) < 2.4.0)
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jul 24 2024 Odilon Sousa <osousa@redhat.com> - 4.13.1-1
+- Release rubygem-katello 4.13.1
+
 * Thu Jun 27 2024 Odilon Sousa <osousa@redhat.com> - 4.13.0-1
 - Release rubygem-katello 4.13.0
 
