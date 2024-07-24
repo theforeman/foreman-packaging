@@ -4,8 +4,8 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 3.2.2
-Release: 3%{?foremandist}%{?dist}
+Version: 3.2.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_webhooks
@@ -23,11 +23,9 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 0
-BuildRequires: npm(jed) >= 1.1.1
-BuildRequires: npm(jed) < 2.0.0
+BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -92,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jul 24 2024 Adam Ruzicka <aruzicka@redhat.com> - 3.2.3-1
+- Update to 3.2.3
+
 * Tue May 07 2024 Evgeni Golov - 3.2.2-3
 - Rebuild for Webpack asset compression
 
