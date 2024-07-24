@@ -1,3 +1,9 @@
+ruby-foreman-tasks (9.2.3-1) stable; urgency=low
+
+  * 9.2.3 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Wed, 24 Jul 2024 12:16:00 +0200
+
 ruby-foreman-tasks (9.2.2-1) stable; urgency=low
 
   * 9.2.2 released
