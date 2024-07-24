@@ -1,16 +1,12 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name foreman_fog_proxmox
 %global plugin_name fog_proxmox
 %global foreman_min_version 1.22.0
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.1
+Name: rubygem-%{gem_name}
+Version: 0.16.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
-Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_fog_proxmox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -27,13 +23,18 @@ BuildRequires: (rubygem(fog-proxmox) >= 0.15 with rubygem(fog-proxmox) < 1)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
-%if 0%{?fedora} >= 27 || 0%{?rhel} >= 8
+
 Requires(post):   policycoreutils-python-utils
 Requires(postun): policycoreutils-python-utils
-%else
-Requires(post):   policycoreutils-python
-Requires(postun): policycoreutils-python
-%endif
+
+# start package.json devDependencies BuildRequires
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
+# end package.json dependencies BuildRequires
 
 %description
 Foreman plugin adds Proxmox VE compute resource using fog-proxmox. It is
@@ -41,40 +42,27 @@ compatible with Foreman 1.22+.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -88,11 +76,15 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
 %{foreman_assets_foreman}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -112,6 +104,10 @@ fi
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jul 24 2024 Nadja Heitmann <nadjah@atix.de> 0.16.1-1
+- Update to 0.16.1-1
+- New enhanced React UI
+
 * Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.15.1-1
 - Update to 0.15.1
 
