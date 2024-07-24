@@ -13,7 +13,7 @@
 %endif
 
 Name: rubygem-%{gem_name}
-Version: 0.6.0
+Version: 0.6.2
 Release: 1%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
@@ -22,6 +22,7 @@ URL: https://github.com/theforeman/foreman_scap_client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: bzip2
+Requires: rubygem(json)
 %if 0%{?suse_version} == 0
 Requires: ruby(rubygems)
 %endif
@@ -120,6 +121,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 24 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.6.2-1
+- Release rubygem-foreman_scap_client 0.6.2
+
 * Tue Jun 18 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.6.0-1
 - Release rubygem-foreman_scap_client 0.6.0
 
