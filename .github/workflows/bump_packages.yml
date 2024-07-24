@@ -3,7 +3,7 @@ name: Update packages
 on:
   workflow_dispatch:
   schedule:
-    - cron: '4 4 * * 0'
+    - cron: '4 4 * * 0,3'
 
 env:
   GIT_AUTHOR_NAME: Foreman Packaging Automation
