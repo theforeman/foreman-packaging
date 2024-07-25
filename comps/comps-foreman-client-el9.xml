@@ -18,6 +18,7 @@
       <packagereq type="default">katello-pull-transport-migrate</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">yggdrasil</packagereq>
+      <packagereq type="default">foreman_scap_client_bash</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
