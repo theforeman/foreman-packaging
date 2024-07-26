@@ -1,3 +1,4 @@
 foreman_fog_proxmox.rb           usr/share/foreman/bundler.d
 cache                            usr/share/foreman/vendor
+webpack/foreman_fog_proxmox      var/lib/foreman/public/webpack
 assets                           var/lib/foreman/public
