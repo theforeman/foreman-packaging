@@ -2,7 +2,7 @@
 %global gem_name fog-libvirt
 
 Name: rubygem-%{gem_name}
-Version: 0.12.0
+Version: 0.12.2
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support libvirt
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Fri Jul 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.12.2-1
+- Update to 0.12.2
+
 * Wed Nov 15 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.12.0-1
 - Update to 0.12.0
 
