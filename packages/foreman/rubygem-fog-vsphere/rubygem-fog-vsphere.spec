@@ -2,7 +2,7 @@
 %global gem_name fog-vsphere
 
 Name: rubygem-%{gem_name}
-Version: 3.6.7
+Version: 3.7.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/fog-vsphere.gemspec
 
 %changelog
+* Wed Jul 31 2024 Chris Roberts <chrobert@redhat.com> - 3.7.0-1
+- Update to 3.7.0
+
 * Mon Jul 15 2024 Chris Roberts <chrobert@redhat.com> - 3.6.7-1
 - Update to 3.6.7
 
