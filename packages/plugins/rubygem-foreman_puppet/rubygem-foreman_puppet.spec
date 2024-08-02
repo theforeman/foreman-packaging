@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 6.2.0
+Version: 6.4.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Aug 02 2024 Nadja Heitmann <nadjah@atix.de> - 6.4.0-1
+- Update to 6.4.0
+
 * Sun Feb 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.2.0-1
 - Update to 6.2.0
 
