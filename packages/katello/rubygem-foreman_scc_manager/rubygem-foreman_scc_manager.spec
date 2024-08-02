@@ -4,8 +4,8 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 3.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 3.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 License: GPLv3
 URL: https://www.orcharhino.com/
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Aug 02 2024 Nadja Heitmann <nadjah@atix.de> - 3.1.0-1
+- Update to 3.1.0
+
 * Wed Jan 31 2024 Evgeni Golov - 3.0.0-2
 - Rebuild for Webpack 5
 
