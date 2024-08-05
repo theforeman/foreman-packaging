@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.9
+Version: 1.10
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -18,6 +18,7 @@ Obsoletes: rubygem-request_store < 1.6.0-2
 Obsoletes: rubygem-runcible < 2.13.1-3
 Obsoletes: rubygem-unf < 0.1.4-2
 Obsoletes: rubygem-unf_ext < 0.0.8.2-2
+Obsoletes: rubygem-anemone < 0.7.2-2
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -32,6 +33,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Mon Aug 05 2024 Samir Jha - 1.10-1
+- Obsolete rubygem-anemone
+
 * Tue Apr 30 2024 Evgeni Golov - 1.9-1
 - Obsolete rubygem-request_store
 
