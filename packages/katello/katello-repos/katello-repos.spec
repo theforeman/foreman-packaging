@@ -2,11 +2,11 @@
 %global candlepin_version 4.4
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
-%define repo_dist %{dist}
+%define repo_dist el$releasever_major
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        4.14
@@ -54,8 +54,7 @@ else
 fi
 
 for repofile in %{buildroot}%{repo_dir}/*.repo; do
-    trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
-    sed -i "s/@DIST@/${trimmed_dist}/" $repofile
+    sed -i 's/@DIST@/%{repo_dist}/' $repofile
     sed -i "s/@RHEL@/%{rhel}/" $repofile
     sed -i "s/@REPO_VERSION@/${REPO_VERSION}/" $repofile
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
@@ -73,6 +72,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Fri Jun 21 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.14-0.3.nightly
+- Use $releasever_major for better leapp compatibility
+
 * Mon Jun 03 2024 Evgeni Golov - 4.14-0.2.nightly
 - Update Candlepin 4.4 key
 
