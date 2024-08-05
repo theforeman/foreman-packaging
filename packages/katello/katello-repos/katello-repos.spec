@@ -6,7 +6,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        4.14
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Mon Jun 03 2024 Eric D. Helms <ericdhelms@gmail.com> - 4.14-0.3.nightly
+- Set Candlepin repo gpgcheck to true
+
 * Mon Jun 03 2024 Evgeni Golov - 4.14-0.2.nightly
 - Update Candlepin 4.4 key
 
