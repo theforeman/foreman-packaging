@@ -215,7 +215,6 @@ ruby_core_packages_tier1:
   hosts:
     libsass: {}
     rubygem-activerecord-nulldb-adapter: {}
-    rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
     rubygem-amazing_print: {}
@@ -230,6 +229,7 @@ ruby_core_packages_tier1:
     rubygem-bootstrap-sass: {}
     rubygem-builder: {}
     rubygem-bundler_ext: {}
+    rubygem-cgi: {}
     rubygem-clamp: {}
     rubygem-coffee-script: {}
     rubygem-coffee-script-source: {}
@@ -405,6 +405,7 @@ ruby_core_packages_tier1:
 
 ruby_core_packages_tier2:
   hosts:
+    rubygem-activerecord-session_store: {}
     rubygem-puma: {}
     rubygem-rkerberos: {}
     rubygem-sassc: {}

@@ -122,6 +122,7 @@
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-builder</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
+      <packagereq type="default">rubygem-cgi</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-coffee-rails</packagereq>
       <packagereq type="default">rubygem-coffee-script</packagereq>
@@ -344,6 +345,7 @@
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-builder-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
+      <packagereq type="default">rubygem-cgi-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-coffee-rails-doc</packagereq>
       <packagereq type="default">rubygem-coffee-script-doc</packagereq>
