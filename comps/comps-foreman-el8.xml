@@ -118,6 +118,7 @@
       <packagereq type="default">rubygem-apipie-rails</packagereq>
       <packagereq type="default">rubygem-audited</packagereq>
       <packagereq type="default">rubygem-autoprefixer-rails</packagereq>
+      <packagereq type="default">rubygem-base64</packagereq>
       <packagereq type="default">rubygem-bcrypt</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-builder</packagereq>
@@ -340,6 +341,7 @@
       <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">rubygem-audited-doc</packagereq>
       <packagereq type="default">rubygem-autoprefixer-rails-doc</packagereq>
+      <packagereq type="default">rubygem-base64-doc</packagereq>
       <packagereq type="default">rubygem-bcrypt-doc</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-builder-doc</packagereq>
