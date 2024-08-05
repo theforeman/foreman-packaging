@@ -35,7 +35,7 @@ gpgcheck=@REPO_GPGCHECK@
 
 [candlepin-source]
 name=Katello Candlepin source
-baseurl=https://yum.theforeman.org/candlepin/@REPO_VERSION@/@DIST@/source/
+baseurl=https://yum.theforeman.org/candlepin/@CANDLEPIN_VERSION@/@DIST@/source/
 gpgkey=https://yum.theforeman.org/candlepin/@CANDLEPIN_VERSION@/RPM-GPG-KEY-candlepin
 enabled=0
 gpgcheck=1
