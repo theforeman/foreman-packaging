@@ -532,6 +532,7 @@ foreman_client_packages:
   children:
     yggdrasil_client_packages: {}
   hosts:
+    foreman_scap_client_bash: {}
     foreman_ygg_worker: {}
     katello-host-tools: {}
     katello-pull-transport-migrate: {}
