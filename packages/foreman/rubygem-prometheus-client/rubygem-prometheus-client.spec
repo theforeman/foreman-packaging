@@ -2,7 +2,7 @@
 %global gem_name prometheus-client
 
 Name: rubygem-%{gem_name}
-Version: 4.2.2
+Version: 4.2.3
 Release: 1%{?dist}
 Summary: A suite of instrumentation metric primitivesthat can be exposed through a web services interface
 License: Apache-2.0
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.2.3-1
+- Update to 4.2.3
+
 * Sun Nov 05 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.2.2-1
 - Update to 4.2.2
 
