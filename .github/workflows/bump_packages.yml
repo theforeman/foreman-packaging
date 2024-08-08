@@ -2,6 +2,12 @@ name: Update packages
 
 on:
   workflow_dispatch:
+    inputs:
+      filter:
+        type: string
+        description: A filter to apply on package names
+        required: false
+        default: ""
   schedule:
     - cron: '4 4 * * 0,3'
 
@@ -23,7 +29,7 @@ jobs:
         ref: rpm/develop
     - name: Set the list
       id: set_list
-      run: ./list_updatable_packages
+      run: ./list_updatable_packages "${{ inputs.filter }}"
 
   bump_rpm:
     name: 'Bump ${{ matrix.package_name }} RPM ${{ matrix.new_version }}'
@@ -84,7 +90,7 @@ jobs:
         ref: deb/develop
     - name: Set the list
       id: set_list
-      run: ./scripts/list_updatable_packages
+      run: ./scripts/list_updatable_packages "${{ inputs.filter }}"
 
   bump_plugin_deb:
     name: 'Bump ${{ matrix.package_name }} deb ${{ matrix.new_version }}'
