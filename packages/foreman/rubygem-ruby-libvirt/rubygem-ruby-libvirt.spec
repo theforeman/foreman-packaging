@@ -3,7 +3,7 @@
 %global gem_require_name libvirt
 
 Name: rubygem-%{gem_name}
-Version: 0.8.2
+Version: 0.8.3
 Release: 1%{?dist}
 Summary: Ruby bindings for LIBVIRT
 License: LGPLv2+
@@ -86,6 +86,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/tests
 
 %changelog
+* Wed Jul 31 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.3-1
+- Update to 0.8.3
+
 * Sun Feb 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.2-1
 - Update to 0.8.2
 
