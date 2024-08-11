@@ -2,7 +2,7 @@
 %global gem_name sprockets-rails
 
 Name: rubygem-%{gem_name}
-Version: 3.5.1
+Version: 3.5.2
 Release: 1%{?dist}
 Summary: Sprockets Rails integration
 License: MIT
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.2-1
+- Update to 3.5.2
+
 * Wed Jun 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.1-1
 - Update to 3.5.1
 
