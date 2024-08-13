@@ -2,12 +2,14 @@
 %global gem_name graphql
 
 Name: rubygem-%{gem_name}
-Version: 1.13.21
+Version: 1.13.23
 Release: 1%{?dist}
 Summary: A GraphQL language and runtime for Ruby
 License: MIT
 URL: https://github.com/rmosolgo/graphql-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
 
 # start specfile generated dependencies
 Requires: ruby >= 2.4.0
@@ -30,6 +32,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -57,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Tue Aug 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.23-1
+- Update to 1.13.23
+
 * Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.21-1
 - Update to 1.13.21
 
