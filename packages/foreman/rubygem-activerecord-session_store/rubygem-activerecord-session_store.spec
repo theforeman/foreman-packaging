@@ -1,36 +1,21 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name activerecord-session_store
-%global gem_require_name %{gem_name}
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
+Name: rubygem-%{gem_name}
+Version: 2.1.0
 Release: 1%{?dist}
 Summary: An Action Dispatch session store backed by an Active Record class
-Group: Development/Languages
 License: MIT
 URL: https://github.com/rails/activerecord-session_store
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+Requires: (rubygem(cgi) or ruby-default-gems < 3.4)
+
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix}rubygem(activerecord) >= 5.2.4.1
-Requires: %{?scl_prefix}rubygem(actionpack) >= 5.2.4.1
-Requires: %{?scl_prefix}rubygem(railties) >= 5.2.4.1
-Requires: %{?scl_prefix}rubygem(rack) >= 2.0.8
-Requires: %{?scl_prefix}rubygem(rack) < 3
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.11
-Requires: %{?scl_prefix}rubygem(multi_json) < 2
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.11.2
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -38,36 +23,25 @@ An Action Dispatch session store backed by an Active Record class.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%gemspec_remove_dep -g cgi
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -86,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.0-1
+- Update to 2.1.0
+
 * Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-1
 - Release 2.0.0
 
