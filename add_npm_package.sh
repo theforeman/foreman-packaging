@@ -50,7 +50,7 @@ generate_npm_package() {
   mkdir $PACKAGE_DIR
   echo "FINISHED"
   echo -n "Creating specs and downloading sources..."
-  npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY -o $PACKAGE_DIR
+  npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY -o $PACKAGE_DIR --use-legacy-peer-deps
   echo "FINISHED"
   if [[ $UPDATE == true ]]; then
     echo "Restoring changelogs..."
