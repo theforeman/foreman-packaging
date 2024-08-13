@@ -2,7 +2,7 @@
 %global gem_name logging
 
 Name: rubygem-%{gem_name}
-Version: 2.3.1
+Version: 2.4.0
 Release: 1%{?dist}
 Summary: A flexible and extendable logging library for Ruby
 License: MIT
@@ -51,6 +51,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.github/workflows/ruby.yml
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %{gem_instdir}/script
@@ -67,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.4.0-1
+- Update to 2.4.0
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.3.1-1
 - Update to 2.3.1
 
