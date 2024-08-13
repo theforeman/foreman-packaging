@@ -1,0 +1,16 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/foreman_opennebula-4.0.1.gem"
+GEMS="$GEMS https://rubygems.org/downloads/fog-opennebula-0.0.5.gem"
+GEMS="$GEMS https://rubygems.org/downloads/opennebula-6.8.2.gem"
+# we really should not pin nokogiri/opennebula,
+# but opennebula gem wants an old nokogiri version since 6.8.3
+# and core brings a newer we can't downgrade
+# https://github.com/OpenNebula/one/commit/030b5770336f61f69273275ae0e10d7014376d63
+#GEMS="$GEMS https://rubygems.org/downloads/opennebula-7.0.0.gem"
+#GEMS="$GEMS https://rubygems.org/downloads/nokogiri-1.15.6.gem"
+GEMS="$GEMS https://rubygems.org/downloads/ipaddress-0.8.3.gem"
+GEMS="$GEMS https://rubygems.org/downloads/parse-cron-0.1.4.gem"
+GEMS="$GEMS https://rubygems.org/downloads/treetop-1.6.12.gem"
+GEMS="$GEMS https://rubygems.org/downloads/polyglot-0.3.4.gem"
+GEMS="$GEMS https://rubygems.org/downloads/xmlrpc-0.3.3.gem"
+GEMS="$GEMS https://rubygems.org/downloads/webrick-1.8.1.gem"
