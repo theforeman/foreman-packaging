@@ -185,7 +185,7 @@ depend on each other, `mockchain` can be very helpful. To do this use Obal `mock
 
 Look at https://stdgems.org/ and see if a gem is listed as a default gem. The [development release notes](https://docs.ruby-lang.org/en/master/NEWS_md.html) can also help in determining what will or is default and for the next version of Ruby.
 
-Use`%gemspec_remove_dep <GEM_NAME>` to drop the gem from the gemspec and manually add a dependency on ruby-default-gems as a rich dependency: `(rubygem(<GEM_NAME>) or ruby-default-gems < 3.4)`.
+Use `%gemspec_remove_dep -g <GEM_NAME>` to drop the gem from the gemspec and manually add a dependency on ruby-default-gems as a rich dependency: `(rubygem(<GEM_NAME>) or ruby-default-gems < 3.4)`.
 
 ## How does this repo work?
 
