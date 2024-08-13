@@ -2,12 +2,14 @@
 %global gem_name fast_gettext
 
 Name: rubygem-%{gem_name}
-Version: 2.3.0
+Version: 2.4.0
 Release: 1%{?dist}
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 License: MIT and Ruby
 URL: https://github.com/grosser/fast_gettext
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: (rubygem(prime) or ruby-default-gems < 3.4)
 
 # start specfile generated dependencies
 Requires: ruby >= 2.5.0
@@ -30,6 +32,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g prime
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -57,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/Readme.md
 
 %changelog
+* Tue Aug 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.4.0-1
+- Update to 2.4.0
+
 * Fri Mar 01 2024 Evgeni Golov - 2.3.0-1
 - Update to 2.3.0
 
