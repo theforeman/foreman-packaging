@@ -1,0 +1,13 @@
+Source: ruby-foreman-opennebula
+Section: ruby
+Priority: extra
+Maintainer: IaaS IVI.RU <ops@ivi.ru>
+Build-Depends: debhelper (>= 9), foreman-nulldb (>= 3.14), foreman-assets (>= 3.14), ruby-foreman-deface
+Standards-Version: 4.5.0
+Homepage: https://github.com/theforeman/foreman_opennebula
+
+Package: ruby-foreman-opennebula
+Architecture: all
+Depends: foreman (>= 3.14), ruby-foreman-deface, python3-websockify, ${misc:Depends}
+Description: Foreman OpenNebula compute resource plugin
+ Provision and manage OpenNebula VMs from Foreman
