@@ -118,7 +118,7 @@ copr_projects:
             - "{{ client_staging }}/rhel-{{ rhel_8 }}-x86_64"
         - name: "rhel-{{ rhel_7 }}-x86_64"
           external_repos:
-            - "https://dl.fedoraproject.org/pub/epel/{{ rhel_7 }}/x86_64/"
+            - "https://dl.fedoraproject.org/pub/archive/epel/{{ rhel_7 }}/x86_64/"
             - "{{ client_staging }}/rhel-{{ rhel_7 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-rhel{{ rhel_7 }}.xml"
 
