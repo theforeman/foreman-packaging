@@ -9,7 +9,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 3.12.0
+Version: 3.13.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -863,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.develop
+- Bump version to 3.13-develop
+
 * Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.develop
 - Bump version to 3.12-develop
 
