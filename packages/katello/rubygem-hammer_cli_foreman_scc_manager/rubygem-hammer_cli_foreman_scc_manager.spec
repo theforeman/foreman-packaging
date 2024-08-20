@@ -19,7 +19,6 @@ BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 3
 BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
