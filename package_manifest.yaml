@@ -2,8 +2,8 @@
 all:
   vars:
     foremandist: .fm3_12
-    foreman_version: 'nightly'
-    katello_version: 'nightly'
+    foreman_version: '3.12'
+    katello_version: '4.14'
     candlepin_version: '4.4'
     puppet_version: 7
     copr_project_user: "@theforeman"
