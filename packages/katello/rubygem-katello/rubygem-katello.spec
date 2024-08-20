@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.12
-%global foreman_max_version 3.13
+%global foreman_min_version 3.13
+%global foreman_max_version 3.14
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.14.0
-%global release 4
+%global mainver 4.15.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Aug 20 2024 Chris Roberts <chrobert@redhat.com> - 4.15.0-0.1.pre.master
+- Bump version to 4.15.0
+
 * Thu Jul 18 2024 Ian Ballou <ianballou67@gmail.com> - 4.14.0-0.4.pre.master
 - Update pulp-rpm-client minimum requirement to 3.26.1
 

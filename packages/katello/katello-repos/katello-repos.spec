@@ -6,10 +6,10 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        4.14
+Version:        4.15
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Tue Aug 20 2024 Chris Roberts - 4.15-0.1.nightly
+- Bump version to 4.15.0
+
 * Mon Jun 03 2024 Evgeni Golov - 4.14-0.2.nightly
 - Update Candlepin 4.4 key
 
