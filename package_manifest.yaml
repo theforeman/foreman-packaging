@@ -184,9 +184,7 @@ foreman_core_packages:
     hammer_core_packages: {}
     other_core_packages: {}
   hosts:
-    foreman:
-      source_location: https://ci.theforeman.org/job/foreman-develop-source-release
-      source_system: jenkins
+    foreman: {}
 
 other_core_packages:
   hosts:
@@ -199,12 +197,8 @@ other_core_packages:
 
 hammer_core_packages:
   hosts:
-    rubygem-hammer_cli:
-      source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
-      source_system: jenkins
-    rubygem-hammer_cli_foreman:
-      source_location: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release
-      source_system: jenkins
+    rubygem-hammer_cli: {}
+    rubygem-hammer_cli_foreman: {}
 
 ruby_core_packages:
   children:
@@ -475,12 +469,8 @@ foreman_nodejs_packages:
 foreman_installer_packages:
   hosts:
     foreman-fapolicyd: {}
-    foreman-installer:
-      source_location: https://ci.theforeman.org/job/foreman-installer-develop-source-release
-      source_system: jenkins
-    foreman-selinux:
-      source_location: https://ci.theforeman.org/job/foreman-selinux-develop-source-release
-      source_system: jenkins
+    foreman-installer: {}
+    foreman-selinux: {}
     katello-certs-tools: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
@@ -493,9 +483,7 @@ foreman_installer_packages:
 
 foreman_proxy_packages:
   hosts:
-    foreman-proxy:
-      source_location: https://ci.theforeman.org/job/smart-proxy-develop-source-release
-      source_system: jenkins
+    foreman-proxy: {}
     rubygem-concurrent-ruby: {}
     rubygem-gssapi: {}
     rubygem-rake-compiler: {}
@@ -563,18 +551,14 @@ katello_packages:
     rubygem-foreman_rh_cloud: {}
     rubygem-foreman_scc_manager: {}
     rubygem-foreman_virt_who_configure: {}
-    rubygem-katello:
-      source_location: https://ci.theforeman.org/job/katello-master-source-release
-      source_system: jenkins
+    rubygem-katello: {}
 
 katello_hammer_packages:
   hosts:
     rubygem-hammer_cli_foreman_rh_cloud: {}
     rubygem-hammer_cli_foreman_scc_manager: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello:
-      source_location: https://ci.theforeman.org/job/hammer-cli-katello-master-source-release
-      source_system: jenkins
+    rubygem-hammer_cli_katello: {}
 
 katello_ruby_packages:
   hosts:
