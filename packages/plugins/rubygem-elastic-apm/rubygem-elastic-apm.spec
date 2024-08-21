@@ -52,7 +52,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.pre-commit-config.yaml
 %exclude %{gem_instdir}/.rubocop.yml
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
-%{gem_instdir}/Dockerfile
+%exclude %{gem_instdir}/Dockerfile
 %license %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/bench
