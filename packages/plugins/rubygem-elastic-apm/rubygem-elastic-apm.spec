@@ -49,7 +49,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.ci
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%{gem_instdir}/.pre-commit-config.yaml
+%exclude %{gem_instdir}/.pre-commit-config.yaml
 %exclude %{gem_instdir}/.rubocop.yml
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %{gem_instdir}/Dockerfile
