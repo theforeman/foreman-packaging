@@ -46,7 +46,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/.ci
+%exclude %{gem_instdir}/.ci
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %{gem_instdir}/.pre-commit-config.yaml
