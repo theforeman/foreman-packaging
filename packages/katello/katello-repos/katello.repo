@@ -15,7 +15,7 @@ name=Candlepin: an open source entitlement management system.
 baseurl=https://yum.theforeman.org/candlepin/@CANDLEPIN_VERSION@/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 enabled=1
-gpgcheck=@REPO_GPGCHECK@
+gpgcheck=1
 
 [pulpcore]
 name=pulpcore: Fetch, Upload, Organize, and Distribute Software Packages.
@@ -35,10 +35,10 @@ gpgcheck=@REPO_GPGCHECK@
 
 [candlepin-source]
 name=Katello Candlepin source
-baseurl=https://yum.theforeman.org/candlepin/@REPO_VERSION@/@DIST@/source/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-candlepin
+baseurl=https://yum.theforeman.org/candlepin/@CANDLEPIN_VERSION@/@DIST@/source/
+gpgkey=https://yum.theforeman.org/candlepin/@CANDLEPIN_VERSION@/RPM-GPG-KEY-candlepin
 enabled=0
-gpgcheck=@REPO_GPGCHECK@
+gpgcheck=1
 
 [pulpcore-source]
 name=pulpcore source
