@@ -2,7 +2,7 @@
 %global gem_name facter
 
 Name: rubygem-%{gem_name}
-Version: 4.7.1
+Version: 4.8.0
 Release: 1%{?dist}
 Summary: Facter, a system inventory tool
 License: ASL 2.0
@@ -84,6 +84,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Thu Aug 22 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.8.0-1
+- Update to 4.8.0
+
 * Sun Jul 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.7.1-1
 - Update to 4.7.1
 
