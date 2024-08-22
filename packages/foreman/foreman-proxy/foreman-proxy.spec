@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -237,6 +237,9 @@ exit 0
 
 
 %changelog
+* Thu Aug 22 2024 Patrick Creech <pcreech@redhat.com> - 3.12.0-0.1.rc1
+- Release foreman-proxy 3.12.0rc1
+
 * Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.develop
 - Bump version to 3.12-develop
 
