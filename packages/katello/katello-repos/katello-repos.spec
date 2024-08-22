@@ -6,7 +6,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        4.14
@@ -18,6 +18,7 @@ License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
 Source1:        candlepin.gpg
+Source2:        pulpcore.gpg
 
 BuildArch:      noarch
 
@@ -41,6 +42,7 @@ install -d -m 0755 %{buildroot}%{_sysconfdir}/pki/rpm-gpg/
 
 install -m 644 %{SOURCE0} %{buildroot}%{repo_dir}/
 install -Dpm0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
+install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-pulpcore
 
 if [[ '%{release}' == *"nightly"* ]];then
     REPO_VERSION='nightly'
@@ -53,6 +55,18 @@ else
     REPO_GPGCHECK=1
 fi
 
+if [[ '%{pulpcore_version}' == nightly ]] ; then
+    PULPCORE_REPO_GPGCHECK=0
+else
+    PULPCORE_REPO_GPGCHECK=1
+fi
+
+if [[ '%{candlepin_version}' == nightly ]] ; then
+    CANDLEPIN_REPO_GPGCHECK=0
+else
+    CANDLEPIN_REPO_GPGCHECK=1
+fi
+
 for repofile in %{buildroot}%{repo_dir}/*.repo; do
     trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
     sed -i "s/@DIST@/${trimmed_dist}/" $repofile
@@ -61,7 +75,9 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
     sed -i "s/@REPO_GPGCHECK@/${REPO_GPGCHECK}/" $repofile
     sed -i "s/@PULPCORE_VERSION@/%pulpcore_version/" $repofile
+    sed -i "s/@PULPCORE_REPO_GPGCHECK@/${PULPCORE_REPO_GPGCHECK}/" $repofile
     sed -i "s/@CANDLEPIN_VERSION@/%candlepin_version/" $repofile
+    sed -i "s/@CANDLEPIN_REPO_GPGCHECK@/${CANDLEPIN_REPO_GPGCHECK}/" $repofile
 done
 
 %clean
@@ -71,8 +87,13 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %config %{repo_dir}/*.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-pulpcore
 
 %changelog
+* Thu Aug 15 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.14-0.3.nightly
+- Include all GPG keys in the repo file itself
+- Consistently enable GPG checking only on non-nightly
+
 * Mon Jun 03 2024 Evgeni Golov - 4.14-0.2.nightly
 - Update Candlepin 4.4 key
 
