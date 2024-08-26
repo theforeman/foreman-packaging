@@ -633,7 +633,6 @@ foreman_plugin_packages_tier1:
 
 foreman_plugin_packages_tier2:
   hosts:
-    rubygem-base64: {}
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_azure_rm: {}
