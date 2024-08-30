@@ -1,3 +1,9 @@
+ansible-collection-theforeman-foreman (4.2.0-1) stable; urgency=low
+
+  * 4.2.0 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 30 Aug 2024 19:56:43 +0200
+
 ansible-collection-theforeman-foreman (4.1.0-1) stable; urgency=low
 
   * 4.1.0 released
