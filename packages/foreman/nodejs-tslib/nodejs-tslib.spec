@@ -4,7 +4,7 @@
 %global npm_name tslib
 
 Name: %{?scl_prefix}nodejs-tslib
-Version: 2.6.3
+Version: 2.7.0
 Release: 1%{?dist}
 Summary: Runtime library for TypeScript helper functions
 License: 0BSD
@@ -48,6 +48,9 @@ cp -pfr tslib.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc SECURITY.md
 
 %changelog
+* Sun Sep 01 2024 Foreman Packaging Automation <packaging@theforeman.org> 2.7.0-1
+- Update to 2.7.0
+
 * Sun Jun 09 2024 Foreman Packaging Automation <packaging@theforeman.org> 2.6.3-1
 - Update to 2.6.3
 
