@@ -862,7 +862,7 @@ repoclosures:
           - el8-appstream
           - el8-powertools
           - el8-extras
-          - el8-puppet-7
+          - "el8-puppet-{{ puppet_version }}"
           - "el8-candlepin-{{ candlepin_version }}-staging"
     foreman-staging-repoclosure-el9:
       repoclosure_target_repos:
@@ -873,7 +873,7 @@ repoclosures:
         el9:
           - el9-baseos
           - el9-appstream
-          - el9-puppet-7
+          - "el9-puppet-{{ puppet_version }}"
           - "el9-candlepin-{{ candlepin_version }}-staging"
     plugins-staging-repoclosure-el8:
       repoclosure_target_repos:
@@ -887,7 +887,7 @@ repoclosures:
           - el8-powertools
           - el8-configmanagement-salt
           - el8-extras
-          - el8-puppet-7
+          - "el8-puppet-{{ puppet_version }}"
           - "el8-foreman-{{ foreman_version }}-staging"
     plugins-staging-repoclosure-el9:
       repoclosure_target_repos:
@@ -899,7 +899,7 @@ repoclosures:
           - el9-baseos
           - el9-appstream
           - el9-configmanagement-salt
-          - el9-puppet-7
+          - "el9-puppet-{{ puppet_version }}"
           - "el9-foreman-{{ foreman_version }}-staging"
     katello-staging-repoclosure-el8:
       repoclosure_target_repos:
@@ -912,7 +912,7 @@ repoclosures:
           - el8-appstream
           - el8-powertools
           - el8-extras
-          - el8-puppet-7
+          - "el8-puppet-{{ puppet_version }}"
           - "el8-foreman-{{ foreman_version }}-staging"
           - "el8-foreman-plugins-{{ foreman_version }}-staging"
           - "el8-candlepin-{{ candlepin_version }}-staging"
@@ -925,7 +925,7 @@ repoclosures:
         el9:
           - el9-baseos
           - el9-appstream
-          - el9-puppet-7
+          - "el9-puppet-{{ puppet_version }}"
           - "el9-foreman-{{ foreman_version }}-staging"
           - "el9-foreman-plugins-{{ foreman_version }}-staging"
           - "el9-candlepin-{{ candlepin_version }}-staging"
@@ -938,7 +938,7 @@ repoclosures:
         el9:
           - el9-baseos
           - el9-appstream
-          - el9-puppet-7
+          - "el9-puppet-{{ puppet_version }}"
     foreman-client-staging-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -951,7 +951,7 @@ repoclosures:
           - el8-powertools
           - el8-epel
           - el8-extras
-          - el8-puppet-7
+          - "el8-puppet-{{ puppet_version }}"
     foreman-client-staging-repoclosure-el7:
       repoclosure_target_repos:
         el7:
@@ -963,7 +963,7 @@ repoclosures:
           - el7-updates
           - el7-epel
           - el7-extras
-          - el7-puppet-7
+          - "el7-puppet-{{ puppet_version }}"
 
 foreman_release_packages:
   vars:
