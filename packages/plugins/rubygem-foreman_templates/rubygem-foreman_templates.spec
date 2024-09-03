@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 9.5.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Template-syncing engine for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_templates
@@ -67,6 +67,10 @@ cp -a .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
 
+# Ensure a git config file exists
+mkdir -p %{buildroot}%{foreman_dir}/.config/git
+touch %{buildroot}%{foreman_dir}/.config/git/config
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
@@ -84,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
+%attr(-, foreman, foreman) %dir %{foreman_dir}/.config
+%attr(-, foreman, foreman) %dir %{foreman_dir}/.config/git
+%attr(0600, foreman, foreman) %config(noreplace) %{foreman_dir}/.config/git/config
 
 %files doc
 %doc %{gem_docdir}
@@ -94,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 28 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 9.5.1-2
+- Add ownership of the git configuration file
+
 * Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 9.5.1-1
 - Update to 9.5.1
 
