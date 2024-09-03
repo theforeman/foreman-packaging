@@ -989,4 +989,6 @@ satellite_packages:
   vars:
     package_base_dir: 'packages/satellite/'
   hosts:
+    ansible-collection-redhat-satellite: {}
+    ansible-collection-redhat-satellite_operations: {}
     rubygem-foreman_theme_satellite: {}
