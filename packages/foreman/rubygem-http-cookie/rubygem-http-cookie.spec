@@ -2,7 +2,7 @@
 %global gem_name http-cookie
 
 Name: rubygem-%{gem_name}
-Version: 1.0.6
+Version: 1.0.7
 Release: 1%{?dist}
 Summary: A Ruby library to handle HTTP Cookies based on RFC 6265
 License: MIT
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.7-1
+- Update to 1.0.7
+
 * Thu Jul 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.6-1
 - Update to 1.0.6
 
