@@ -2,7 +2,7 @@
 %global gem_name sequel
 
 Name: rubygem-%{gem_name}
-Version: 5.83.1
+Version: 5.84.0
 Release: 1%{?dist}
 Summary: The Database Toolkit for Ruby
 License: MIT
@@ -64,11 +64,11 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CHANGELOG
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/doc
 
 %changelog
+* Wed Sep 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.84.0-1
+- Update to 5.84.0
+
 * Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.83.1-1
 - Update to 5.83.1
 
