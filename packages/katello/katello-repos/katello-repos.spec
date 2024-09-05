@@ -4,7 +4,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 3
 
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Thu Sep 05 2024 Patrick Creech <pcreech@redhat.com> - 4.14.0-0.3.rc2
+- Release katello-repos 4.14.0rc2
+
 * Mon Sep 02 2024 Evgeni Golov - 4.14.0-0.3.rc1
 - Correctly use Pulpcore 3.49 repos
 
