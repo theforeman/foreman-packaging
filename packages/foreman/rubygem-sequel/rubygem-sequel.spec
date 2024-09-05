@@ -64,9 +64,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CHANGELOG
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/doc
 
 %changelog
 * Wed Sep 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.84.0-1
