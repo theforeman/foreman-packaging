@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 8.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 License: GPLv3
 URL: https://github.com/theforeman/foreman_expire_hosts
@@ -77,6 +77,9 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{g
 %{foreman_plugin_log}
 
 %changelog
+* Thu Sep 05 2024 Evgeni Golov - 8.2.0-2
+- Rebuild against Foreman 3.10
+
 * Fri May 31 2024 David Ochner <ochnerd@yahoo.de> 8.2.0-1
 - Update to 8.2.0
 
