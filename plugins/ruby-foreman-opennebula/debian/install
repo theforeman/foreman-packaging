@@ -1,0 +1,4 @@
+foreman_opennebula.rb        usr/share/foreman/bundler.d
+cache                        usr/share/foreman/vendor
+webpack/foreman_opennebula   var/lib/foreman/public/webpack
+assets                       var/lib/foreman/public
