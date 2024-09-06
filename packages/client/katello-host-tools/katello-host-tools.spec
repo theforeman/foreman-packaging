@@ -1,4 +1,4 @@
-%global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 26)
+%global dnf_install ((0%{?rhel} > 7) || (0%{?fedora} > 26))
 %global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
 %global zypper_install (0%{?suse_version} > 0)
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
@@ -34,7 +34,7 @@
 
 Name: katello-host-tools
 Version: 4.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -290,6 +290,9 @@ exit 0
 
 
 %changelog
+* Tue Sep 10 2024 Bernhard Suttner <suttner@atix.de> - 4.4.0-2
+- Fix build on Amazon Linux 2023
+
 * Fri May 10 2024 Bernhard Suttner <suttner@atix.de> - 4.4.0-1
 - Update to 4.4.0 (Based on the work of wbclark and ianballou)
 
