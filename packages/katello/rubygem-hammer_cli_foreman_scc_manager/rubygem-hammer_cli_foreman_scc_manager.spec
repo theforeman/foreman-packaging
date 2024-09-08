@@ -9,8 +9,8 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman SCC Manager plugin for Hammer CLI
 Group: Development/Languages
 License: GPLv3
@@ -20,15 +20,13 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Autoreq: 0
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.12.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -91,6 +89,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Sun Sep 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.3.0-1
+- Update to 0.3.0
+
 * Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-2
 - Rebuild for Ruby 2.7
 
