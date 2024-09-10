@@ -63,6 +63,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/Contributing.md
 %doc %{gem_instdir}/History.md
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
 
 %changelog
