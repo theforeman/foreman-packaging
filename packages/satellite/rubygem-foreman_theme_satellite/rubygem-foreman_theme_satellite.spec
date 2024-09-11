@@ -79,6 +79,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
+%{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
