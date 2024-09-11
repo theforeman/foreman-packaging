@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name foreman_theme_satellite
 %global plugin_name theme_satellite
-%global foreman_min_version 3.7.0
+%global foreman_min_version 3.13.0
 
 %global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat")
 
 Name: rubygem-%{gem_name}
-Version: 13.3.0
+Version: 14.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Sep 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.0.1-1
+- Update to 14.0.1
+
 * Tue Aug 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.3.0-1
 - Update to 13.3.0
 
