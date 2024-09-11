@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -686,10 +686,15 @@ GEMFILE
 %%%{name}_bundlerd_plugin %%{%{name}_bundlerd_dir}/%%{gem_name}.rb
 %%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
 # Common assets locations
-%%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
+%%%{name}_assets_plugin \\
+%%dir %%{gem_instdir}/public \\
+%%dir %%{gem_instdir}/public/assets \\
+%%{gem_instdir}/public/assets/%%{gem_name}
 %%%{name}_assets_foreman %%{foreman_dir}/public/assets/%%{gem_name}
 # Common webpack locations
-%%%{name}_webpack_plugin %%{gem_instdir}/public/webpack/%%{gem_name}
+%%%{name}_webpack_plugin \\
+%%dir %%{gem_instdir}/public/webpack \\
+%%{gem_instdir}/public/webpack/%%{gem_name}
 %%%{name}_webpack_foreman %%{foreman_dir}/public/webpack/%%{gem_name}
 # Common apipie locations
 %%%{name}_apipie_cache_plugin %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name}
@@ -863,6 +868,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Sep 11 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.2.develop
+- Include parent directories in macros so asset/webpack directories are cleaned up on removal/upgrade
+
 * Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.develop
 - Bump version to 3.13-develop
 
