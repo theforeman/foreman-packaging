@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_salt
 %global plugin_name salt
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 16.0.3
-Release: 2%{?foremandist}%{?dist}
+Version: 17.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for Salt
 License: GPLv3
 URL: https://github.com/theforeman/foreman_salt
@@ -19,8 +19,8 @@ Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildRequires: rubygem(deface) < 2.0
-BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 14)
-BuildRequires: (rubygem(foreman-tasks) >= 7.0 with rubygem(foreman-tasks) < 10)
+BuildRequires: (rubygem(foreman_remote_execution) >= 14.0 with rubygem(foreman_remote_execution) < 15)
+BuildRequires: (rubygem(foreman-tasks) >= 10.0 with rubygem(foreman-tasks) < 11)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Sep 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 17.0.0-1
+- Update to 17.0.0
+
 * Thu Sep 05 2024 Evgeni Golov - 16.0.3-2
 - Rebuild against Foreman nightly
 
