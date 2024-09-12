@@ -1,3 +1,9 @@
+ruby-foreman-salt (17.0.0-1) stable; urgency=low
+
+  * 17.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 12 Sep 2024 06:13:51 +0000
+
 ruby-foreman-salt (16.0.3-1) stable; urgency=low
 
   * 16.0.3 released
