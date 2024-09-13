@@ -2,11 +2,11 @@
 
 %global gem_name foreman_google
 %global plugin_name google
-%global foreman_min_version 3.7.0
+%global foreman_min_version 3.13.0
 
 Name: rubygem-%{gem_name}
-Version: 2.0.1
-Release: 2%{?foremandist}%{?dist}
+Version: 3.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Google Compute Engine plugin for the Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_google
@@ -19,8 +19,10 @@ Obsoletes: foreman-gce < 3.5.0-1
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(google-apis-compute_v1) >= 0.14 with rubygem(google-apis-compute_v1) < 1)
 BuildRequires: (rubygem(google-cloud-compute) >= 0.2 with rubygem(google-cloud-compute) < 1)
@@ -96,6 +98,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Sep 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
+- Update to 3.0.0
+
 * Tue May 07 2024 Evgeni Golov - 2.0.1-2
 - Rebuild for Webpack asset compression
 
