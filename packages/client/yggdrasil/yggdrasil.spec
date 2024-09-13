@@ -1,17 +1,13 @@
 %define debug_package %{nil}
 
 Name:    yggdrasil
-Version: 0.2.3
-Release: 2%{?dist}
+Version: 0.4.1
+Release: 1%{?dist}
 Summary: Message dispatch agent for cloud-connected systems
 License: GPL-3.0-only
 URL:     https://github.com/redhatinsights/yggdrasil
 
-Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
-
-Patch0:  Use-gzip-c-instead-of-k.patch
-Patch1:  build-Remove-the-Makefile-preamble.patch
-Patch2:  Propagate-FOREMAN_REX_WORKDIR-to-workers.patch
+Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/%{name}-%{version}.tar.xz
 
 # EL7 doesn't define go_arches
 %if ! 0%{?go_arches:1}
@@ -30,8 +26,12 @@ BuildRequires: dbus-devel
 BuildRequires: golang
 %endif
 BuildRequires: systemd-devel
+BuildRequires: systemd-rpm-macros
+BuildRequires: meson
+BuildRequires: pkgconfig(dbus-1)
+BuildRequires: pkgconfig(systemd)
+BuildRequires: pkgconfig(bash-completion)
 
-Requires: subscription-manager
 
 %description
 %{name} is pair of utilities that register systems with RHSM and establishes
@@ -44,46 +44,31 @@ a receiving queue for instructions to be sent to the system via a broker.
 %global buildflags %{expand:-compiler gc -buildmode pie -tags=\\"rpm_crashtraceback libtrust_openssl\\" -ldflags \\"%ldflags\\" -a -v -x %{?**}}
 
 %build
-CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2 -fstack-protector-all"  \
-BUILDFLAGS="%buildflags" \
-make PREFIX=%{_prefix} \
-     SYSCONFDIR=%{_sysconfdir} \
-     LOCALSTATEDIR=%{_localstatedir} \
-     LIBEXECDIR=%{_libexecdir} \
-     SHORTNAME=%{name} \
-     LONGNAME=%{name} \
-     PKGNAME=%{name} \
-     VERSION=%{version}
+%meson "-Dgobuildflags=%buildflags" %ldflags
+%meson_build
 
+%global gosupfiles ./ipc/com.redhat.Yggdrasil1.Dispatcher1.xml ./ipc/com.redhat.Yggdrasil1.Worker1.xml
 %install
-CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2 -fstack-protector-all"  \
-BUILDFLAGS="%buildflags" \
-make PREFIX=%{_prefix} \
-     SYSCONFDIR=%{_sysconfdir} \
-     LOCALSTATEDIR=%{_localstatedir} \
-     LIBEXECDIR=%{_libexecdir} \
-     DESTDIR=%{buildroot} \
-     SHORTNAME=%{name} \
-     LONGNAME=%{name} \
-     PKGNAME=%{name} \
-     VERSION=%{version} \
-     install
+%meson_install
 
 %files
 %if 0%{?suse_version}
 %dir %{_sysconfdir}/%{name}
 %endif
 %doc README.md
-%{_bindir}/%{name}
-%{_sbindir}/%{name}d
-%config(noreplace) %{_sysconfdir}/%{name}/config.toml
-%{_unitdir}/%{name}d.service
+%{_bindir}/*
+%config(noreplace) %{_sysconfdir}/%{name}
+%{_unitdir}/*
+%{_userunitdir}/*
 %{_datadir}/bash-completion/completions/*
+%{_datadir}/dbus-1/{interfaces,system-services,system.d}/*
+%{_datadir}/doc/%{name}/*
 %{_mandir}/man1/*
-%{_prefix}/share/pkgconfig/%{name}.pc
-%{_libexecdir}/%{name}
 
 %changelog
+* Thu Aug 29 2024 Adam Ruzicka <aruzicak@redhat.com> - 0.4.1-1
+- Fixes for opensuse build service
+
 * Mon Mar 11 2024 Markus Bucher <bucher@atix.de> - 0.2.3-2
 - Fixes for opensuse build service
 - Require go on SLES
