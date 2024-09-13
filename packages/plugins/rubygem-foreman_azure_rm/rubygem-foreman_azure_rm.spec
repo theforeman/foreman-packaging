@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_azure_rm
 %global plugin_name azure_rm
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 2.3.0
+Version: 3.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 License: GPLv3
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Sep 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
+- Update to 3.0.0
+
 * Sun Apr 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.3.0-1
 - Update to 2.3.0
 
