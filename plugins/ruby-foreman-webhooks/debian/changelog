@@ -1,3 +1,9 @@
+ruby-foreman-webhooks (4.0.0-1) stable; urgency=low
+
+  * 4.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 13 Sep 2024 08:09:22 +0000
+
 ruby-foreman-webhooks (3.2.3-1) stable; urgency=low
 
   * 3.2.3 released
