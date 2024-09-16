@@ -141,6 +141,7 @@
       <packagereq type="default">rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">rubygem-jsonpath</packagereq>
       <packagereq type="default">rubygem-kubeclient</packagereq>
+      <packagereq type="default">rubygem-llhttp-ffi</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-mqtt</packagereq>
       <packagereq type="default">rubygem-ms_rest</packagereq>
@@ -315,6 +316,7 @@
       <packagereq type="default">rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">rubygem-jsonpath-doc</packagereq>
       <packagereq type="default">rubygem-kubeclient-doc</packagereq>
+      <packagereq type="default">rubygem-llhttp-ffi-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-mqtt-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest_azure-doc</packagereq>
