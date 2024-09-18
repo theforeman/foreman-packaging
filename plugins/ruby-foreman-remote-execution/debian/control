@@ -14,3 +14,10 @@ Depends: ${misc:Depends}, bundler, foreman (>= 3.8.0~rc1), ruby-foreman-tasks (>
   ruby-foreman-deface, ruby-dynflow (>= 1.0.2), ruby-dynflow (<< 2.0.0)
 Description: Foreman Remote Execution Plugin
   A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
+
+Package: ruby-foreman-remote-execution-cockpit
+Architecture: all
+Depends: ${misc:Depends}, ruby-foreman-remote-execution (= ${binary:Version}), cockpit-ws
+Description: Foreman Remote Execution Plugin - Cockpit integration
+  This package contains files related to Cockpit, mainly foreman-cockpit service
+  and corresponding configuration files.
