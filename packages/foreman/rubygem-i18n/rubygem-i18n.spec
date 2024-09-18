@@ -2,7 +2,7 @@
 %global gem_name i18n
 
 Name: rubygem-%{gem_name}
-Version: 1.14.5
+Version: 1.14.6
 Release: 1%{?dist}
 Summary: New wave Internationalization support for Ruby
 License: MIT
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.14.6-1
+- Update to 1.14.6
+
 * Sun May 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.14.5-1
 - Update to 1.14.5
 
