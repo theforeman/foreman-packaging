@@ -1,0 +1,4 @@
+extra/cockpit/foreman-cockpit-session usr/sbin/
+extra/cockpit/foreman-cockpit.service lib/systemd/system/
+extra/cockpit/cockpit.conf etc/foreman/cockpit/
+extra/cockpit/foreman-cockpit-session.yml etc/foreman/cockpit/

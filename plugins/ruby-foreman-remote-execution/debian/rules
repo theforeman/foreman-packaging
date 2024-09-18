@@ -15,3 +15,11 @@ PLUGIN_HAS_WEBPACK = true
 PLUGIN_HAS_PACKAGE_JSON = true
 
 include /usr/share/foreman/foreman-plugin.mk
+
+override_dh_auto_install:
+	mv ./usr/share/foreman/vendor/ruby/*/gems/foreman_remote_execution-*/extra ./
+	# cockpit-ws ships /usr/lib/cockpit/cockpit-ws on Debian, not /usr/libexec/cockpit-ws
+	sed -i 's#libexec#lib/cockpit#' ./extra/cockpit/foreman-cockpit.service
+	mv ./extra/cockpit/cockpit.conf.example ./extra/cockpit/cockpit.conf
+	mv ./extra/cockpit/settings.yml.example ./extra/cockpit/foreman-cockpit-session.yml
+	dh_auto_install
