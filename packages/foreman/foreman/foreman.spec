@@ -5,8 +5,6 @@
 %global rake /usr/bin/rake
 
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:    foreman
 Version: 3.12.0
@@ -863,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Sep 19 2024 Patrick Creech <pcreech@redhat.com> - 3.12.0-1
+- Release foreman 3.12.0
+
 * Thu Sep 05 2024 Patrick Creech <pcreech@redhat.com> - 3.12.0-0.1.rc2
 - Release foreman 3.12.0rc2
 
