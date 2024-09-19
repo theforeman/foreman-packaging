@@ -738,6 +738,7 @@ ruby_plugin_packages:
     rubygem-faraday-detailed_logger: {}
     rubygem-ffi-compiler: {}
     rubygem-fog-kubevirt: {}
+    rubygem-fog-opennebula: {}
     rubygem-fog-proxmox: {}
     rubygem-fugit: {}
     rubygem-gapic-common: {}
