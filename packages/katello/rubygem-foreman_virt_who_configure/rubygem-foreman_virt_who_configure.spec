@@ -4,10 +4,10 @@
 
 %global gem_name foreman_virt_who_configure
 %global plugin_name virt_who_configure
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.23
+Version: 0.5.24
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 Group: Applications/Systems
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Sep 20 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.5.24-1
+- Update to 0.5.24
+
 * Tue Aug 20 2024 Chris Roberts <chrobert@redhat.com> - 0.5.23-1
 - Update to 0.5.23
 
