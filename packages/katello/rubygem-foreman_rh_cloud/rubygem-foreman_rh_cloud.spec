@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 10.0.1
+Version: 10.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -30,7 +30,7 @@ BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildRequires: rubygem(foreman_ansible)
 BuildRequires: rubygem(foreman-tasks)
-BuildRequires: rubygem(katello)
+BuildRequires: rubygem(katello) >= 4.14.0
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -103,6 +103,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Sep 20 2024 Chris Roberts <chrobert@redhat.com> - 10.0.2-1
+- Update to 10.0.2
+
 * Tue Jun 25 2024 Chris Roberts <chrobert@redhat.com> - 10.0.1-1
 - Update to 10.0.1
 
