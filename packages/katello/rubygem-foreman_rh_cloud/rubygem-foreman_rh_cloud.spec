@@ -34,9 +34,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 7.8.0)
+BuildRequires: npm(@babel/core) >= 7.7.0
 BuildRequires: npm(@theforeman/builder) >= 10.1.1
-BuildRequires: (npm(cosmiconfig-typescript-loader) >= 4.3.0 with npm(cosmiconfig-typescript-loader) < 4.4.0)
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 1.2.0)
 # end package.json devDependencies BuildRequires
 
