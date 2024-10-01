@@ -2,7 +2,7 @@
 %global gem_name webrick
 
 Name: rubygem-%{gem_name}
-Version: 1.8.1
+Version: 1.8.2
 Release: 1%{?dist}
 Summary: HTTP server toolkit
 License: Ruby and BSD-2-Clause
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/webrick.gemspec
 
 %changelog
+* Tue Oct 01 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.8.2-1
+- Update to 1.8.2
+
 * Sun Apr 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.8.1-1
 - Update to 1.8.1
 
