@@ -2,7 +2,7 @@
 %global gem_name jwt
 
 Name: rubygem-%{gem_name}
-Version: 2.8.2
+Version: 2.9.1
 Release: 1%{?dist}
 Summary: JSON Web Token implementation in Ruby
 License: MIT
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/ruby-jwt.gemspec
 
 %changelog
+* Wed Oct 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.9.1-1
+- Update to 2.9.1
+
 * Tue Aug 13 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.8.2-1
 - Update to 2.8.2
 
