@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 22.0.0
+Version: 22.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 22.0.1-1
+- Update to 22.0.1
+
 * Thu Sep 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 22.0.0-1
 - Update to 22.0.0
 
