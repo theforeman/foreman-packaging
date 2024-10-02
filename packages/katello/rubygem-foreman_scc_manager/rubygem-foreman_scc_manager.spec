@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 3.1.0
+Version: 3.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 License: GPLv3
@@ -91,6 +91,10 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 02 2024 Nadja Heitmann <nadjah@atix.de> - 3.1.1-1
+- Update to 3.1.1
+- Fixed bug that prevented editing/deleting SCC accounts with sync plans enabled
+
 * Fri Aug 02 2024 Nadja Heitmann <nadjah@atix.de> - 3.1.0-1
 - Update to 3.1.0
 
