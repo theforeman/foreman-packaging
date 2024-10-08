@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -678,6 +678,7 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
 # -n<plugin_name>   Overrides default of gem_name
 %%%{name}_bundlerd_file(n:) \\
 mkdir -p %%{buildroot}%%{%{name}_bundlerd_dir} \\
+echo %%{%{name}_bundlerd_dir}/%%{-n*}%%{!?-n:%%{gem_name}} >> %%%{name}_plugin_files \\
 cat <<GEMFILE > %%{buildroot}%%{%{name}_bundlerd_dir}/%%{-n*}%%{!?-n:%%{gem_name}}.rb \\
 gem '%%{-n*}%%{!?-n:%%{gem_name}}' \\
 GEMFILE
@@ -707,6 +708,7 @@ chown foreman:foreman %%{foreman_dir}/tmp/restart_required_changed_plugins || :
 # -a                Prebuild apipie cache
 # -s                Precompile assets
 %%%{name}_precompile_plugin(r:n:as) \\
+touch %%%{name}_plugin_files \\
 mkdir -p ./%{_datadir} \\
 cp -r %%{%{name}_dir} ./%{_datadir} || echo 0 \\
 mkdir -p ./%{_localstatedir}/lib/%{name} \\
@@ -735,16 +737,23 @@ popd \\
 rm -rf ./usr \\
 %%{?-a:mkdir -p %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin} \\
 %%{?-a:ln -s %%{%{name}_apipie_cache_plugin} %%{buildroot}%%{%{name}_apipie_cache_foreman}} \\
+%%{?-a:echo %%%%dir %%{buildroot}%%{%{name}_apipie_cache_plugin} >> %%%{name}_plugin_files} \\
+%%{?-a:echo %%{buildroot}%%{%{name}_apipie_cache_foreman} >> %%%{name}_plugin_files} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_assets_plugin} ] && mkdir -p %%{buildroot}%%{foreman_dir}/public/assets} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_assets_plugin} ] && ln -s %%{%{name}_assets_plugin} %%{buildroot}%%{%{name}_assets_foreman}} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_assets_plugin} ] && echo %%%%dir %%{buildroot}%%{%{name}_assets_plugin} >> %%%{name}_plugin_files} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_assets_plugin} ] && echo %%{buildroot}%%{%{name}_assets_foreman} >> %%%{name}_plugin_files} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && mkdir -p %%{buildroot}%%{foreman_dir}/public/webpack} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && echo %%%%dir %%{buildroot}%%{%{name}_webpack_plugin} >> %%%{name}_plugin_files} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && echo %%{buildroot}%%{%{name}_webpack_foreman} >> %%%{name}_plugin_files} \\
 %%{?-s:rm -f %%{buildroot}%%{%{name}_webpack_plugin}/*.js.map} \\
 %%{?-s:rm -f %%{buildroot}%%{gem_instdir}/public/webpack/foreman-vendor.*} \\
 %%{?-s:rm -rf %%{buildroot}%%{gem_instdir}/public/webpack/fonts} \\
 %%{?-s:rm -rf %%{buildroot}%%{gem_instdir}/public/webpack/images}
 EOF
 
+# TODO: exclude package.json & webpack above?
 
 %clean
 rm -rf %{buildroot}
@@ -863,6 +872,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Aug 30 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.2.develop
+- Introduce foreman_plugin_files file to plugins to include
+
 * Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.develop
 - Bump version to 3.13-develop
 
