@@ -26,7 +26,7 @@
 Name: foreman_ygg_worker
 Version: 0.2.2
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
@@ -43,7 +43,14 @@ BuildRequires: go
 %else
 BuildRequires: golang
 %endif
-Requires: yggdrasil
+
+# Use rich dependencies if available
+%if 0%{?rhel} >= 8 || 0%{?fedora}
+Requires: (yggdrasil >= 0.2 with yggdrasil < 0.3)
+%else
+Requires: yggdrasil >= 0.2
+Conflicts: yggdrasil >= 0.3
+%endif
 
 %description
 Worker service for yggdrasil that can act as pull client for Foreman Remote Execution.
@@ -84,6 +91,9 @@ EOF
 %doc README.md
 
 %changelog
+* Wed Sep 11 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.2.2-4
+- Narrow yggdrasil version requirement
+
 * Thu Aug 01 2024 Markus Bucher <bucher@atix.de> - 0.2.2-3
 - Fixes for opensuse build service
 - Require go and disable hardened go linker on SLES
