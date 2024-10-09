@@ -4,7 +4,7 @@
 %global foreman_min_version 1.22.0
 
 Name: rubygem-%{gem_name}
-Version: 0.16.1
+Version: 0.17.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 License: GPLv3
@@ -104,6 +104,9 @@ fi
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 09 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.17.0-1
+- Update to 0.17.0
+
 * Wed Jul 24 2024 Nadja Heitmann <nadjah@atix.de> 0.16.1-1
 - Update to 0.16.1-1
 - New enhanced React UI
