@@ -1,3 +1,9 @@
+ruby-puppet-strings (4.1.3-1) stable; urgency=low
+
+  * 4.1.3 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 10 Oct 2024 18:55:04 +0000
+
 ruby-puppet-strings (3.0.1-1) stable; urgency=low
 
   * 3.0.1 released
