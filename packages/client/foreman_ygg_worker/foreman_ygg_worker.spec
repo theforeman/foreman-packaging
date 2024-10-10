@@ -24,9 +24,9 @@
 %endif
 
 Name: foreman_ygg_worker
-Version: 0.2.2
+Version: 0.3.0
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
@@ -38,6 +38,7 @@ Url: https://github.com/%{repo_orgname}/%{repo_name}/
 %endif
 ExclusiveArch: %{go_arches}
 
+BuildRequires: systemd-rpm-macros
 %if 0%{?suse_version}
 BuildRequires: go
 %else
@@ -61,10 +62,14 @@ pushd _gopath/src/%{name}-%{version}
 %{gobuild}
 strip %{name}-%{version}
 popd
+make data LIBEXECDIR=%{yggdrasil_libexecdir}
 
 %install
 install -D -m 755 _gopath/src/%{name}-%{version}/%{name}-%{version} %{buildroot}%{yggdrasil_libexecdir}/%{name}
 install -D -d -m 755 %{buildroot}%{yggdrasil_worker_conf_dir}
+install -D -m 644 build/data/com.redhat.Yggdrasil1.Worker1.foreman.conf %{buildroot}%{_datadir}/dbus-1/system.d/com.redhat.Yggdrasil1.Worker1.foreman.conf
+install -D -m 644 data/dbus_com.redhat.Yggdrasil1.Worker1.foreman.service %{buildroot}%{_datadir}/dbus-1/system-services/com.redhat.Yggdrasil1.Worker1.foreman.service
+install -D -m 644 build/data/com.redhat.Yggdrasil1.Worker1.foreman.service %{buildroot}%{_unitdir}/com.redhat.Yggdrasil1.Worker1.foreman.service
 
 cat <<EOF >%{buildroot}%{yggdrasil_worker_conf_dir}/foreman.toml
 exec = "%{yggdrasil_libexecdir}/%{name}"
@@ -80,10 +85,16 @@ EOF
 %endif
 %{yggdrasil_libexecdir}/%{name}
 %{yggdrasil_worker_conf_dir}/foreman.toml
+%{_datadir}/dbus-1/system.d/com.redhat.Yggdrasil1.Worker1.foreman.conf
+%{_datadir}/dbus-1/system-services/com.redhat.Yggdrasil1.Worker1.foreman.service
+%{_unitdir}/com.redhat.Yggdrasil1.Worker1.foreman.service
 %license LICENSE
 %doc README.md
 
 %changelog
+* Wed Sep 25 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.3.0-1
+- Release 0.3.0
+
 * Thu Aug 01 2024 Markus Bucher <bucher@atix.de> - 0.2.2-3
 - Fixes for opensuse build service
 - Require go and disable hardened go linker on SLES
