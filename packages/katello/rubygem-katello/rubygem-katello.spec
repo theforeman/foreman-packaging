@@ -76,6 +76,10 @@ BuildRequires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0
 BuildRequires: (npm(use-deep-compare-effect) >= 1.6.1 with npm(use-deep-compare-effect) < 2.0.0)
 # end package.json dependencies BuildRequires
 
+# start specfile assets BuildRequires
+BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
+# end specfile assets BuildRequires
+
 %description
 Katello adds Content and Subscription Management to Foreman. For this it
 relies on Candlepin and Pulp.
