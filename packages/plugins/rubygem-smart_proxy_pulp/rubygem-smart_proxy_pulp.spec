@@ -1,26 +1,17 @@
 # template: smart_proxy_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_bindir:%global _root_bindir %{_bindir}}
-%{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name smart_proxy_pulp
 %global plugin_name pulp
 
 %global foreman_proxy_min_version 2.3
-%global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_dir %{_datadir}/foreman-proxy
+%global foreman_proxy_statedir %{_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
-%global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
+%global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 3.3.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
-Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart-proxy-pulp-plugin
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -36,45 +27,28 @@ BuildArch: noarch
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
-
 %description
 Basic Pulp support for Foreman Smart-Proxy.
 
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
-
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -107,6 +81,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpcore.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Fri Oct 11 2024 Evgeni Golov 3.3.0-2
+- Regenerate spec based on latest template to drop SCL remains
+
 * Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.3.0-1
 - Update to 3.3.0
 
