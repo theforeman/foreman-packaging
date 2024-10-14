@@ -1,1 +1,8 @@
 * @theforeman/packaging
+/packages/plugins/*_remote_execution*/ @theforeman/packaging @theforeman/remote-execution
+/packages/plugins/*_discovery/ @theforeman/packaging @theforeman/discovery
+/packages/plugins/*_bootdisk/ @theforeman/packaging @theforeman/bootdisk
+/packages/katello/*_scc_manager/ @theforeman/packaging @theforeman/atix
+/packages/plugins/*_acd/ @theforeman/packaging @theforeman/atix
+/packages/plugins/*_resource_quota/ @theforeman/packaging @theforeman/atix
+/packages/plugins/*_snapshot_management/ @theforeman/packaging @theforeman/atix
