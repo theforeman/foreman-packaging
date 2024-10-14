@@ -1,1 +1,8 @@
 * @theforeman/packaging
+/plugins/*remote*execution*/ @theforeman/packaging @theforeman/remote-execution
+/dependencies/*/*remote_execution*/ @theforeman/packaging @theforeman/remote-execution
+/plugins/*discovery/ @theforeman/packaging @theforeman/discovery
+/dependencies/*/*discovery/ @theforeman/packaging @theforeman/discovery
+/plugins/*bootdisk/ @theforeman/packaging @theforeman/bootdisk
+/dependencies/*/*bootdisk/ @theforeman/packaging @theforeman/bootdisk
+/plugins/*snapshot-management/ @theforeman/packaging @theforeman/atix
