@@ -7,7 +7,7 @@ License: MIT
 %if 0%{?rhel} >= 8
 Supplements: yggdrasil >= 0.4.0
 %endif
-Requires:    yggdrasil >= 0.4.0
+Conflicts:   yggdrasil  < 0.4.0
 
 %description
 A helper package to ease transition from yggdrasil 0.2.z to 0.4.z
