@@ -2,7 +2,7 @@
 
 Name:    yggdrasil
 Version: 0.2.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Message dispatch agent for cloud-connected systems
 License: GPL-3.0-only
 URL:     https://github.com/redhatinsights/yggdrasil
@@ -80,10 +80,13 @@ make PREFIX=%{_prefix} \
 %{_unitdir}/%{name}d.service
 %{_datadir}/bash-completion/completions/*
 %{_mandir}/man1/*
-%{_prefix}/share/pkgconfig/%{name}.pc
+%exclude %{_prefix}/share/pkgconfig/%{name}.pc
 %{_libexecdir}/%{name}
 
 %changelog
+* Tue Oct 15 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.2.3-3
+- Exclude pkgconf definition file
+
 * Mon Mar 11 2024 Markus Bucher <bucher@atix.de> - 0.2.3-2
 - Fixes for opensuse build service
 - Require go on SLES
