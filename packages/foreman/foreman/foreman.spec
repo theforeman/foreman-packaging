@@ -198,7 +198,6 @@ BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
-BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 BuildRequires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
 BuildRequires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 BuildRequires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
@@ -349,7 +348,6 @@ Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies Requires
 
 # start specfile assets Requires
-Requires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 Requires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
 Requires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 Requires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
