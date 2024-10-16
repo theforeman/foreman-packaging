@@ -2,7 +2,7 @@
 %global gem_name railties
 
 Name: rubygem-%{gem_name}
-Version: 6.1.7.8
+Version: 6.1.7.9
 Release: 1%{?dist}
 Summary: Tools for creating, working with, and running Rails applications
 License: MIT
@@ -67,6 +67,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Oct 16 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.1.7.9-1
+- Update to 6.1.7.9
+
 * Sun Jun 09 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.1.7.8-1
 - Update to 6.1.7.8
 
