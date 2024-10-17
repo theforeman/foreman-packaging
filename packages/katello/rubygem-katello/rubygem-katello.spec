@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.15.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -143,8 +143,11 @@ done
 %{gem_instdir}/engines
 %{gem_libdir}
 %{gem_instdir}/locale
+%dir %{gem_instdir}/public
+%dir %{gem_instdir}/public/assets
 %{gem_instdir}/public/assets/bastion
 %{gem_instdir}/public/assets/bastion_katello
+%dir %{gem_instdir}/public/webpack
 %exclude %{gem_instdir}/vendor
 %exclude %{gem_cache}
 %{gem_spec}
@@ -168,6 +171,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 29 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.15.0-0.2.pre.master
+- Own public/{assets,webpack} for proper cleanup on removal
+
 * Tue Aug 20 2024 Chris Roberts <chrobert@redhat.com> - 4.15.0-0.1.pre.master
 - Bump version to 4.15.0
 
