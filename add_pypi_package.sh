@@ -2,10 +2,27 @@
 
 PYPI_NAME=$1
 VERSION=${2:-auto}
-REPO=${3:-foreman-el8}
-BASE_DIR=${4:-foreman}
-TEMPLATE=${5:-fedora}
+BASE_DIR=${3:-foreman}
+TEMPLATE=${4:-fedora}
 BASE_PYTHON=3
+
+case $BASE_DIR in
+  client)
+    MANIFEST_SECTION="foreman_client_packages"
+    ;;
+  foreman)
+    MANIFEST_SECTION="foreman_core_packages"
+    ;;
+  katello)
+    MANIFEST_SECTION="katello_packages"
+    ;;
+  plugins)
+    MANIFEST_SECTION="foreman_plugin_packages"
+    ;;
+  *)
+    MANIFEST_SECTION=""
+    ;;
+esac
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
 
@@ -75,27 +92,19 @@ add_to_comps() {
   git add comps/
 }
 
-add_pypi_to_manifest() {
-	if [[ $REPO == "foreman-el8" ]] ; then
-		local section="foreman_core_packages"
-	elif [[ $REPO == "foreman-plugins-el8" ]] ; then
-		local section="foreman_plugin_packages"
-	elif [[ $REPO == "katello-el8" ]] ; then
-		local section="katello_packages"
-	else
-		# TODO: client packages
-		local section=""
-	fi
+add_to_package_manifest() {
+  local package="${PACKAGE_NAME}"
+  local section="${MANIFEST_SECTION}"
 
-	if [[ -n $section ]] ; then
-		${SCRIPT_ROOT}/add_host.py "$section" "$PACKAGE_NAME"
-		git add package_manifest.yaml
-	else
-		echo "TODO: Add the package into the right section"
-		echo "${SCRIPT_ROOT}/add_host.py SECTION '$PACKAGE_NAME'"
-		echo "git add package_manifest.yaml"
-		echo "git commit --amend --no-edit"
-	fi
+  if [[ -n $section ]] ; then
+    "${SCRIPT_ROOT}"/add_host.py "$section" "$package"
+    git add package_manifest.yaml
+  else
+    echo "TODO: Add the package into the right section"
+    echo "${SCRIPT_ROOT}/add_host.py SECTION '$package'"
+    echo "git add package_manifest.yaml"
+    echo "git commit --amend --no-edit"
+  fi
 }
 
 pypi_info() {
@@ -106,7 +115,7 @@ pypi_info() {
 
 if [[ -z $PYPI_NAME ]]; then
   echo "This script adds a new python package based on the module found on pypi.org"
-  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [REPO [PACKAGE_SUBDIR [TEMPLATE]]] \n"
+  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [PACKAGE_SUBDIR [TEMPLATE]] \n"
   echo "VERSION is optional but can be an exact version number or auto to use the latest version"
   exit 1
 fi
@@ -147,7 +156,7 @@ else
   add_to_comps
   echo "FINISHED"
   echo -e "Updating manifest... - "
-  add_pypi_to_manifest
+  add_to_package_manifest
   echo "FINISHED"
   git commit -m "Add $PACKAGE_NAME package"
 fi
