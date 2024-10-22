@@ -19,7 +19,7 @@ fi
 PACKAGE_NAME=${PACKAGE_PREFIX}$(echo ${PYPI_NAME} |tr '[A-Z].' '[a-z]-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
-SCRIPT_ROOT=$(dirname $(readlink -f $0))
+SCRIPT_ROOT=$(dirname "$(readlink -f "$0")")
 
 program_exists() {
   which "$@" &> /dev/null
