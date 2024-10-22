@@ -3,8 +3,6 @@
 NPM_MODULE_NAME=$1
 VERSION=${2:-auto}
 STRATEGY=$3
-REPO=foreman-el8
-DISTRO=${REPO##*-}
 BASE_DIR=${4:-foreman}
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
@@ -80,12 +78,8 @@ generate_npm_package() {
   echo "FINISHED"
 }
 
-add_npm_to_comps() {
-  local comps_package="${PACKAGE_NAME}"
-  local comps_file="foreman"
-
-  ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package
-  ./comps_doc.sh
+add_to_comps() {
+  "${SCRIPT_ROOT}/add_spec_to_comps" "$SPEC_FILE"
   git add comps/
 }
 
@@ -158,7 +152,7 @@ if [[ $UPDATE == true ]] ; then
 else
   generate_npm_package
   echo -e "Updating comps... - "
-  add_npm_to_comps
+  add_to_comps
   echo "FINISHED"
   echo -e "Updating manifest... - "
   add_npm_to_manifest

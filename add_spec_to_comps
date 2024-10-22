@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -e
+shopt -s nullglob
+
+SPEC=$1
+
+if [[ -z $SPEC ]] ; then
+	echo "Usage: $0 SPEC_FILE" >&2
+	exit 1
+fi
+
+SCRIPT_ROOT=$(dirname "$(readlink -f "$0")")
+PACKAGE_SUBDIR=$(basename "$(dirname "$(dirname "$SPEC")")")
+
+case $PACKAGE_SUBDIR in
+	client)
+		COMPS_PREFIX=foreman-client-
+		;;
+	foreman)
+		COMPS_PREFIX=foreman-el
+		;;
+	katello)
+		COMPS_PREFIX=katello-
+		;;
+	plugins)
+		COMPS_PREFIX=foreman-plugins-
+		;;
+	*)
+		COMPS_PREFIX=
+		;;
+esac
+
+if [[ -z $COMPS_PREFIX ]] ; then
+	echo "Unable to determine package directory for '$SPEC'" >&2
+	echo "Guessed '$PACKAGE_SUBDIR'" >&2
+	exit 1
+fi
+
+COMPS_PACKAGES=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' "$SPEC")
+
+for comps_file in comps/comps-"${COMPS_PREFIX}"*.xml ; do
+	for comps_package in ${COMPS_PACKAGES} ; do
+		if [[ $comps_package != *-debuginfo ]] && [[ $comps_package != *-debugsource ]] && [[ $comps_package != *-doc ]] ; then
+			"${SCRIPT_ROOT}"/add_to_comps.rb "${comps_file}" "$comps_package"
+		fi
+	done
+done
+
+"${SCRIPT_ROOT}"/comps_doc.sh
