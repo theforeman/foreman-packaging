@@ -20,7 +20,7 @@ PUPPET_VERSION=${PUPPET_VERSION:-6}
 # user repos TBD
 
 case ${DEBIAN_RELEASE} in
-  focal)
+  jammy)
     DEBIAN_PACKAGES_SOURCE=http://archive.ubuntu.com/ubuntu/dists/${DEBIAN_RELEASE}/@DEBIAN_SUITE@/binary-amd64/Packages.xz
     DEBIAN_SUITES="main universe"
     ;;

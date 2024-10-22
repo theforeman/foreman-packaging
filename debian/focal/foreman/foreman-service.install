@@ -1,4 +1,0 @@
-extras/systemd/foreman.service /lib/systemd/system
-extras/systemd/foreman.socket /lib/systemd/system
-bundler.d/service.rb /usr/share/foreman/bundler.d
-script/foreman-puma-status               usr/sbin

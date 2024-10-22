@@ -1,9 +1,0 @@
-/var/log/foreman-maintain/*.log {
-  daily
-  missingok
-  rotate 14
-  compress
-  delaycompress
-  notifempty
-  copytruncate
-}
