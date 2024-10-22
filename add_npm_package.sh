@@ -5,6 +5,15 @@ VERSION=${2:-auto}
 STRATEGY=$3
 BASE_DIR=${4:-foreman}
 
+case $BASE_DIR in
+  foreman | katello)
+    MANIFEST_SECTION="${BASE_DIR}_nodejs_packages"
+    ;;
+  *)
+    MANIFEST_SECTION=""
+    ;;
+esac
+
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
 
 PACKAGE_MODULE=${NPM_MODULE_NAME##*/}
@@ -83,12 +92,19 @@ add_to_comps() {
   git add comps/
 }
 
-add_npm_to_manifest() {
+add_to_package_manifest() {
   local package="${PACKAGE_NAME}"
-  local section="foreman_nodejs_packages"
+  local section="${MANIFEST_SECTION}"
 
-  ./add_host.py "$section" "$package"
-  git add package_manifest.yaml
+  if [[ -n $section ]] ; then
+    "${SCRIPT_ROOT}"/add_host.py "$section" "$package"
+    git add package_manifest.yaml
+  else
+    echo "TODO: Add the package into the right section"
+    echo "${SCRIPT_ROOT}/add_host.py SECTION '$package'"
+    echo "git add package_manifest.yaml"
+    echo "git commit --amend --no-edit"
+  fi
 }
 
 npm_info() {
@@ -155,7 +171,7 @@ else
   add_to_comps
   echo "FINISHED"
   echo -e "Updating manifest... - "
-  add_npm_to_manifest
+  add_to_package_manifest
   echo "FINISHED"
   git commit -m "Add $PACKAGE_NAME package"
 fi

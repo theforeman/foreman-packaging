@@ -1,9 +1,8 @@
 #!/bin/bash -e
 
 usage() {
-	echo "Usage: $0 GEM_NAME [TEMPLATE [PACKAGE_SUBDIR [REPO]]]"
+	echo "Usage: $0 GEM_NAME [TEMPLATE [PACKAGE_SUBDIR [MANIFEST_SECTION]]]"
 	echo "Valid templates: $(ls gem2rpm | sed 's/.spec.erb//' | tr '\n' ' ')"
-	echo "Valid repos: foreman-el8 foreman-plugins-el8 katello-el8 foreman-client-el8"
 	exit 1
 }
 
@@ -65,26 +64,16 @@ add_to_comps() {
 	git add comps/
 }
 
-add_to_manifest() {
-	if [[ $REPO == "foreman-el8" ]] ; then
-		local section="foreman_core_packages"
-	elif [[ $REPO == "foreman-plugins-el8" ]] ; then
-		local section="foreman_plugin_packages_tier2"
-	elif [[ $REPO == "katello-el8" ]] ; then
-		local section="katello_packages"
-	elif [[ $REPO == "foreman-client-*" ]] ; then
-		local section="foreman_client_packages"
-	else
-		# TODO: installer, smart_proxy plugins, rails
-		local section=""
-	fi
+add_to_package_manifest() {
+	local package="${PACKAGE_NAME}"
+	local section="${MANIFEST_SECTION}"
 
 	if [[ -n $section ]] ; then
-		./add_host.py "$section" "$PACKAGE_NAME"
+		"${SCRIPT_ROOT}"/add_host.py "$section" "$package"
 		git add package_manifest.yaml
 	else
 		echo "TODO: Add the package into the right section"
-		echo "./add_host.py SECTION '$PACKAGE_NAME'"
+		echo "${SCRIPT_ROOT}/add_host.py SECTION '$package'"
 		echo "git add package_manifest.yaml"
 		echo "git commit --amend --no-edit"
 	fi
@@ -101,7 +90,7 @@ GEM_VERSION=${GEM_NAME_ARR[1]}
 PACKAGE_NAME=rubygem-$GEM_NAME
 TEMPLATE_NAME=$2
 PACKAGE_SUBDIR=$3
-REPO=$4
+MANIFEST_SECTION=$4
 SCRIPT_ROOT=$(dirname "$(readlink -f "$0")")
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
@@ -116,20 +105,29 @@ if [[ -z $TEMPLATE_NAME ]] ; then
 	fi
 fi
 
-if [[ -z $REPO ]] ; then
-	if [[ $TEMPLATE_NAME == *_plugin ]] ; then
-		REPO="foreman-plugins-el8"
-	fi
-fi
-
 if [[ -z $PACKAGE_SUBDIR ]] ; then
-	if [[ $REPO == foreman-plugins-* ]] ; then
+	if [[ $TEMPLATE_NAME == *_plugin ]] ; then
 		PACKAGE_SUBDIR="plugins"
-	elif [[ $REPO == katello-* ]] ; then
-		PACKAGE_SUBDIR="katello"
 	else
 		PACKAGE_SUBDIR="foreman"
 	fi
+fi
+
+if [[ -z $MANIFEST_SECTION ]] ; then
+	case $PACKAGE_SUBDIR in
+		client)
+			MANIFEST_SECTION="foreman_client_packages"
+			;;
+		foreman)
+			MANIFEST_SECTION="foreman_core_packages"
+			;;
+		katello)
+			MANIFEST_SECTION="katello_packages"
+			;;
+		plugins)
+			MANIFEST_SECTION="foreman_plugin_packages_tier2"
+			;;
+	esac
 fi
 
 PACKAGE_DIR=packages/$PACKAGE_SUBDIR/$PACKAGE_NAME
@@ -145,7 +143,7 @@ else
 	UPDATE=false
 fi
 
-if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $REPO ]]; then
+if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $MANIFEST_SECTION ]] ; then
 	usage
 fi
 
@@ -168,7 +166,7 @@ if [[ $UPDATE == true ]] ; then
 	fi
 else
 	generate_gem_package
-	add_to_manifest
+	add_to_package_manifest
 	add_to_comps
 	git commit -m "Add $PACKAGE_NAME package"
 fi
