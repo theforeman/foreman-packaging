@@ -3,7 +3,6 @@
 PYPI_NAME=$1
 VERSION=${2:-auto}
 REPO=${3:-foreman-el8}
-DISTRO=${REPO##*-}
 BASE_DIR=${4:-foreman}
 TEMPLATE=${5:-fedora}
 BASE_PYTHON=3
@@ -71,20 +70,8 @@ generate_pypi_package() {
   echo "FINISHED"
 }
 
-add_pypi_to_comps() {
-  local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
-  if [[ $REPO == katello-* ]]; then
-    local comps_file="katello-server"
-  else
-    local comps_file="foreman"
-  fi
-
-  for comps_package in ${comps_packages}; do
-    if [[ $comps_package != *-debuginfo ]] && [[ $comps_package != *-debugsource ]] ; then
-      ${SCRIPT_ROOT}/add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package
-    fi
-  done
-  ${SCRIPT_ROOT}/comps_doc.sh
+add_to_comps() {
+  "${SCRIPT_ROOT}/add_spec_to_comps" "$PACKAGE_DIR"/*.spec
   git add comps/
 }
 
@@ -157,7 +144,7 @@ if [[ $UPDATE == true ]] ; then
 else
   generate_pypi_package
   echo -e "Updating comps... - "
-  add_pypi_to_comps
+  add_to_comps
   echo "FINISHED"
   echo -e "Updating manifest... - "
   add_pypi_to_manifest

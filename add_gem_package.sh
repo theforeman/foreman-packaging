@@ -60,30 +60,8 @@ generate_gem_package() {
 	popd
 }
 
-add_gem_to_all_comps() {
-	add_gem_to_comps $REPO
-	if [[ $REPO == "foreman-el8" ]] ; then
-		add_gem_to_comps foreman-el9
-	fi
-	if [[ $REPO == "foreman-client-*" ]] ; then
-		add_gem_to_comps foreman-client-el9
-		add_gem_to_comps foreman-client-rhel7
-	fi
-}
-
-add_gem_to_comps() {
-	local tag=$1
-	local distro=${tag##*-}
-
-	# TODO: figure this out for katello
-	if [[ $tag == foreman-plugins-* ]]; then
-		local comps_file="foreman-plugins"
-	else
-		local comps_file="foreman"
-	fi
-
-	./add_to_comps.rb comps/comps-${comps_file}-${distro}.xml $PACKAGE_NAME
-	./comps_doc.sh
+add_to_comps() {
+	"${SCRIPT_ROOT}"/add_spec_to_comps "$PACKAGE_DIR/$SPEC_FILE"
 	git add comps/
 }
 
@@ -191,6 +169,6 @@ if [[ $UPDATE == true ]] ; then
 else
 	generate_gem_package
 	add_to_manifest
-	add_gem_to_all_comps
+	add_to_comps
 	git commit -m "Add $PACKAGE_NAME package"
 fi
