@@ -14,7 +14,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.6.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
@@ -54,6 +54,7 @@ BuildRequires: rubygems-devel
 BuildRequires: ruby
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
+Provides: deprecated()
 
 
 %description
@@ -121,6 +122,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jul 25 2024 Oleh Fedorenko <ofedoren@redhat.com> - 0.6.2-2
+- Mark rubygem-foreman_scap_client as deprecated
+
 * Wed Jul 24 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.6.2-1
 - Release rubygem-foreman_scap_client 0.6.2
 
