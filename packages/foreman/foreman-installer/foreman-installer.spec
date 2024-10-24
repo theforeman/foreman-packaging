@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -17,14 +17,14 @@ BuildArch:  noarch
 Requires:   curl
 Requires:   hostname
 Requires:   puppet-agent >= 7.0.0
-Requires:   rubygem(kafo) >= 7.3.0
+Requires:   rubygem(kafo) >= 7.6.0
 Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 7.0.0
 BuildRequires: rubygem(rake)
-BuildRequires: rubygem(kafo) >= 7.3.0
+BuildRequires: rubygem(kafo) >= 7.6.0
 BuildRequires: rubygem(kafo) < 8.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 5
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Oct 24 2024 Evgeni Golov - 1:3.13.0-0.2.develop
+- Require kafo >= 7.6
+
 * Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 1:3.13.0-0.1.develop
 - Bump version to 3.13-develop
 
