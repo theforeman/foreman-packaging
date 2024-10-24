@@ -1,3 +1,9 @@
+foreman-installer (3.13.0-2) stable; urgency=low
+
+  * Require kafo >= 7.6
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 24 Oct 2024 07:50:52 +0200
+
 foreman-installer (3.13.0-1) stable; urgency=low
 
   * Bump changelog to 3.13.0 to match VERSION
