@@ -4,7 +4,7 @@
 %global release 1
 
 Name:           foreman-proxy
-Version:        3.11.2
+Version:        3.11.4
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -235,6 +235,9 @@ exit 0
 
 
 %changelog
+* Thu Oct 24 2024 Patrick Creech <pcreech@redhat.com> - 3.11.4-1
+- Release foreman-proxy 3.11.4
+
 * Wed Sep 04 2024 Patrick Creech <pcreech@redhat.com> - 3.11.2-1
 - Release foreman-proxy 3.11.2
 
