@@ -3,7 +3,7 @@
 %global gem_require_name nio
 
 Name: rubygem-%{gem_name}
-Version: 2.7.3
+Version: 2.7.4
 Release: 1%{?dist}
 Summary: New IO for Ruby
 License: MIT
@@ -11,8 +11,8 @@ URL: https://github.com/socketry/nio4r
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.4
-BuildRequires: ruby-devel >= 2.4
+Requires: ruby >= 2.6
+BuildRequires: ruby-devel >= 2.6
 BuildRequires: rubygems-devel
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
@@ -79,6 +79,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Wed Oct 30 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.7.4-1
+- Update to 2.7.4
+
 * Sun May 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.7.3-1
 - Update to 2.7.3
 
