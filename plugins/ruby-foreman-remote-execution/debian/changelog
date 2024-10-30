@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (14.0.2-1) stable; urgency=low
+
+  * 14.0.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 30 Oct 2024 04:11:21 +0000
+
 ruby-foreman-remote-execution (14.0.0-2) stable; urgency=low
 
   * package cockpit integration
