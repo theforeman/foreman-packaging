@@ -16,7 +16,7 @@ exchanging data with its worker processes through a D-Bus message broker.}
 %global godocs          CONTRIBUTING.md README.md
 
 Name:           yggdrasil
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Remote data transmission and processing client
 
 License:        GPL-3.0-only
@@ -77,9 +77,6 @@ export %gomodulesmode
 %gopkgfiles
 
 %changelog
-* Thu Sep  5 2024 Link Dupont <link@redhat.com> - 0.4.1-2
-- Rebuild for RHEL-47192
-
 * Mon Apr 15 2024 Link Dupont <link@redhat.com> - 0.4.1-1
 - Initial package (RHEL-29800)
 
