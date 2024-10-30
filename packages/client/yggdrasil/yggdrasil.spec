@@ -1,91 +1,87 @@
-%define debug_package %{nil}
+%bcond_without check
 
-Name:    yggdrasil
-Version: 0.2.3
-Release: 3%{?dist}
-Summary: Message dispatch agent for cloud-connected systems
-License: GPL-3.0-only
-URL:     https://github.com/redhatinsights/yggdrasil
+# https://github.com/redhatinsights/yggdrasil
+%global goipath         github.com/redhatinsights/yggdrasil
+Version:                0.4.1
+%global tag             %{version}
 
-Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
+%gometa -f
 
-Patch0:  Use-gzip-c-instead-of-k.patch
-Patch1:  build-Remove-the-Makefile-preamble.patch
-Patch2:  Propagate-FOREMAN_REX_WORKDIR-to-workers.patch
+%global common_description %{expand:
+yggdrasil is a system daemon that subscribes to topics on an MQTT broker and
+routes any data received on the topics to an appropriate child "worker" process,
+exchanging data with its worker processes through a D-Bus message broker.}
 
-# EL7 doesn't define go_arches
-%if ! 0%{?go_arches:1}
-%define go_arches %{ix86} x86_64 %{arm} aarch64 ppc64le
-%endif
-ExclusiveArch: %{go_arches}
+%global golicenses      LICENSE
+%global godocs          CONTRIBUTING.md README.md
 
-BuildRequires: git
-%if 0%{?suse_version}
-BuildRequires: dbus-1-devel
-BuildRequires: go
-# see https://lists.opensuse.org/archives/list/bugs@lists.opensuse.org/message/Q5R6VVHE5ZCP75XI3MB2B7EXNWXAY2P4/
-BuildRequires: systemd
-%else
-BuildRequires: dbus-devel
-BuildRequires: golang
-%endif
-BuildRequires: systemd-devel
+Name:           yggdrasil
+Release:        2%{?dist}
+Summary:        Remote data transmission and processing client
 
-Requires: subscription-manager
+License:        GPL-3.0-only
+URL:            %{gourl}
+Source:         %{url}/releases/download/%{version}/yggdrasil-%{version}.tar.xz
 
-%description
-%{name} is pair of utilities that register systems with RHSM and establishes
-a receiving queue for instructions to be sent to the system via a broker.
+BuildRequires:  systemd-rpm-macros
+BuildRequires:  meson
+BuildRequires:  pkgconfig(dbus-1)
+BuildRequires:  pkgconfig(systemd)
+BuildRequires:  pkgconfig(bash-completion)
+
+%description %{common_description}
+
+%gopkg
 
 %prep
-%autosetup -p1
+%goprep %{?rhel:-k}
+%autopatch -p1
 
-%global ldflags %{expand:-linkmode=external -compressdwarf=false -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '%__global_ldflags'}
-%global buildflags %{expand:-compiler gc -buildmode pie -tags=\\"rpm_crashtraceback libtrust_openssl\\" -ldflags \\"%ldflags\\" -a -v -x %{?**}}
+%if %{undefined rhel}
+%generate_buildrequires
+%go_generate_buildrequires
+%endif
 
 %build
-CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2 -fstack-protector-all"  \
-BUILDFLAGS="%buildflags" \
-make PREFIX=%{_prefix} \
-     SYSCONFDIR=%{_sysconfdir} \
-     LOCALSTATEDIR=%{_localstatedir} \
-     LIBEXECDIR=%{_libexecdir} \
-     SHORTNAME=%{name} \
-     LONGNAME=%{name} \
-     PKGNAME=%{name} \
-     VERSION=%{version}
+%undefine _auto_set_build_flags
+export %gomodulesmode
+%{?gobuilddir:export GOPATH="%{gobuilddir}:${GOPATH:+${GOPATH}:}%{?gopath}"}
+%meson "-Dgobuildflags=[%(echo %{expand:%gocompilerflags} | sed -e s/"^"/"'"/ -e s/" "/"', '"/g -e s/"$"/"'"/), '-tags', '"rpm_crashtraceback\ ${BUILDTAGS:-}"', '-a', '-v', '-x']" -Dgoldflags='%{?currentgoldflags} -B 0x%(head -c20 /dev/urandom|od -An -tx1|tr -d " \n") -compressdwarf=false -linkmode=external -extldflags "%{build_ldflags} %{?__golang_extldflags}"'
+%meson_build
 
+%global gosupfiles ./ipc/com.redhat.Yggdrasil1.Dispatcher1.xml ./ipc/com.redhat.Yggdrasil1.Worker1.xml
 %install
-CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2 -fstack-protector-all"  \
-BUILDFLAGS="%buildflags" \
-make PREFIX=%{_prefix} \
-     SYSCONFDIR=%{_sysconfdir} \
-     LOCALSTATEDIR=%{_localstatedir} \
-     LIBEXECDIR=%{_libexecdir} \
-     DESTDIR=%{buildroot} \
-     SHORTNAME=%{name} \
-     LONGNAME=%{name} \
-     PKGNAME=%{name} \
-     VERSION=%{version} \
-     install
+%meson_install
+%gopkginstall
+
+%if %{with check}
+%check
+%gocheck
+%endif
 
 %files
-%if 0%{?suse_version}
-%dir %{_sysconfdir}/%{name}
+%license LICENSE
+%if %{defined rhel}
+%license vendor/modules.txt
 %endif
-%doc README.md
-%{_bindir}/%{name}
-%{_sbindir}/%{name}d
-%config(noreplace) %{_sysconfdir}/%{name}/config.toml
-%{_unitdir}/%{name}d.service
+%doc CONTRIBUTING.md README.md
+%{_bindir}/*
+%config(noreplace) %{_sysconfdir}/%{name}
+%{_unitdir}/*
+%{_userunitdir}/*
 %{_datadir}/bash-completion/completions/*
+%{_datadir}/dbus-1/{interfaces,system-services,system.d}/*
+%{_datadir}/doc/%{name}/*
 %{_mandir}/man1/*
-%exclude %{_prefix}/share/pkgconfig/%{name}.pc
-%{_libexecdir}/%{name}
+
+%gopkgfiles
 
 %changelog
-* Tue Oct 15 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.2.3-3
-- Exclude pkgconf definition file
+* Thu Sep  5 2024 Link Dupont <link@redhat.com> - 0.4.1-2
+- Rebuild for RHEL-47192
+
+* Mon Apr 15 2024 Link Dupont <link@redhat.com> - 0.4.1-1
+- Initial package (RHEL-29800)
 
 * Mon Mar 11 2024 Markus Bucher <bucher@atix.de> - 0.2.3-2
 - Fixes for opensuse build service
