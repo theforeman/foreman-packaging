@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -198,7 +198,6 @@ BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
-BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 BuildRequires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
 BuildRequires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 BuildRequires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
@@ -349,7 +348,6 @@ Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies Requires
 
 # start specfile assets Requires
-Requires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 Requires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
 Requires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 Requires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
@@ -863,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Oct 31 2024 MariaAga <mariaaga@redhat.com> - 3.13.0-0.2.develop
+- move jquery-ui-rails package to katello
+
 * Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.develop
 - Bump version to 3.13-develop
 

@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.15.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -75,6 +75,10 @@ BuildRequires: (npm(ngreact) >= 0.5.0 with npm(ngreact) < 1.0.0)
 BuildRequires: (npm(react-bootstrap) >= 0.32.1 with npm(react-bootstrap) < 1.0.0)
 BuildRequires: (npm(use-deep-compare-effect) >= 1.6.1 with npm(use-deep-compare-effect) < 2.0.0)
 # end package.json dependencies BuildRequires
+
+# start specfile assets BuildRequires
+BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
+# end specfile assets BuildRequires
 
 %description
 Katello adds Content and Subscription Management to Foreman. For this it
@@ -168,6 +172,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Oct 31 2024 MariaAga <mariaaga@redhat.com> - 4.15.0-0.2.pre.master
+- move jquery-ui-rails package to katello
+
 * Tue Aug 20 2024 Chris Roberts <chrobert@redhat.com> - 4.15.0-0.1.pre.master
 - Bump version to 4.15.0
 
