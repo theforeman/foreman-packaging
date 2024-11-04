@@ -136,7 +136,7 @@ find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 %foreman_precompile_plugin <%= precompile_flags.strip %>
 <% end -%>
 
-%files
+%files -f foreman_plugin_files
 %dir %{gem_instdir}
 <% unless spec.executables.nil? or spec.executables.empty? -%>
 <% for f in spec.executables -%>
@@ -153,17 +153,8 @@ find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 <% end -%>
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_plugin}
-<% if has_assets || has_webpack -%>
-%{foreman_assets_plugin}
-%{foreman_assets_foreman}
-<% end -%>
 <% if has_cronjob -%>
 %config(noreplace) %{_sysconfdir}/cron.d/%{gem_name}
-<% end -%>
-<% if has_webpack -%>
-%{foreman_webpack_plugin}
-%{foreman_webpack_foreman}
 <% end -%>
 
 <% if doc_subpackage -%>
