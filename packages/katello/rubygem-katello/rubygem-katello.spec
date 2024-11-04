@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.15.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -48,7 +48,7 @@ BuildRequires: rubygem(spidr)
 BuildRequires: (rubygem(pulpcore_client) >= 3.63.1 with rubygem(pulpcore_client) < 3.64.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.63.1 with rubygem(pulp_file_client) < 3.64.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.22.2 with rubygem(pulp_ansible_client) < 0.23.0)
-BuildRequires: (rubygem(pulp_container_client) >= 2.21.1 with rubygem(pulp_container_client) < 2.22.0)
+BuildRequires: (rubygem(pulp_container_client) >= 2.22.0 with rubygem(pulp_container_client) < 2.23.0)
 BuildRequires: (rubygem(pulp_deb_client) >= 3.3.1 with rubygem(pulp_deb_client) < 3.4.0)
 BuildRequires: (rubygem(pulp_rpm_client) >= 3.27.2 with rubygem(pulp_rpm_client) < 3.28.0)
 BuildRequires: (rubygem(pulp_certguard_client) >= 3.63.1 with rubygem(pulp_certguard_client) < 3.64.0)
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Nov 04 2024 Ian Ballou <ianballou67@gmail.com> - 4.15.0-0.3.pre.master
+- Bump Pulp Container API bindings requirement lower bound to 2.22.0
+
 * Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 4.15.0-0.2.pre.master
 - Bump Pulpcore client bindings requirements for the 3.63 repo.
 
