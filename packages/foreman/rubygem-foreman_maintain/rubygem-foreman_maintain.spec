@@ -6,8 +6,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: rubygem-%{gem_name}
-Version: 1.5.0
-Release: 1%{?dist}
+Version: 1.8.1
+Release: 2%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -24,9 +24,11 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: hostname
 Requires: yum-utils
 Requires: /usr/bin/psql
 Requires: nftables
+Conflicts: satellite-maintain < 0.0.3
 BuildRequires: python3-devel
 
 Provides: foreman-maintain = %{version}
@@ -113,6 +115,81 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Oct 24 2024 Evgeni Golov - 1:1.8.1-2
+- Conflict satellite-maintain < 0.0.3
+
+* Mon Oct 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.8.1-1
+- Update to 1.8.1
+
+* Thu Oct 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.8.0-1
+- Update to 1.8.0
+
+* Thu Sep 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.7.5-1
+- Update to 1.7.5
+
+* Wed Sep 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.7.4-1
+- Update to 1.7.4
+
+* Thu Aug 29 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.7.3-1
+- Update to 1.7.3
+
+* Mon Aug 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.7.2-1
+- Update to 1.7.2
+
+* Wed Aug 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.7.1-1
+- Update to 1.7.1
+
+* Tue Aug 20 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.7.0-1
+- Update to 1.7.0
+
+* Mon Aug 05 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.14-1
+- Update to 1.6.14
+
+* Mon Jul 22 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.13-1
+- Update to 1.6.13
+
+* Thu Jul 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.12-1
+- Update to 1.6.12
+
+* Wed Jun 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.11-1
+- Update to 1.6.11
+
+* Mon Jun 17 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.10-1
+- Update to 1.6.10
+
+* Wed Jun 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.9-1
+- Update to 1.6.9
+
+* Thu Jun 06 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.8-1
+- Update to 1.6.8
+
+* Mon May 06 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.7-1
+- Update to 1.6.7
+
+* Wed May 01 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.6-1
+- Update to 1.6.6
+
+* Wed Apr 17 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.4-1
+- Update to 1.6.4
+
+* Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.3-1
+- Update to 1.6.3
+
+* Thu Apr 04 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.6.2-2
+- Add dependency on hostname
+
+* Sun Mar 31 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.2-1
+- Update to 1.6.2
+
+* Mon Mar 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.1-1
+- Update to 1.6.1
+
+* Mon Mar 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.6.0-1
+- Update to 1.6.0
+
+* Sun Feb 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.5.1-1
+- Update to 1.5.1
+
 * Wed Jan 03 2024 Foreman Packaging Automation <packaging@theforeman.org> 1:1.5.0-1
 - Update to 1.5.0
 

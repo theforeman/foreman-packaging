@@ -1,48 +1,22 @@
 ---
 all:
   vars:
-    foremandist: .fm3_10
+    foremandist: .fm3_13
     foreman_version: 'nightly'
     katello_version: 'nightly'
-    candlepin_version: '4.3'
-    all_tags:
-      foreman-el8:
-        name: "foreman-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-      foreman-plugins-el8:
-        name: "foreman-plugins-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-      foreman-client-el9:
-        name: "foreman-client-{{ foreman_version }}-el9"
-        dist: '.el9'
-      foreman-client-el8:
-        name: "foreman-client-{{ foreman_version }}-el8"
-        dist: '.el8'
-      foreman-client-el7:
-        name: "foreman-client-{{ foreman_version }}-rhel7"
-        dist: '.el7'
-      katello-el8:
-        name: "katello-{{ katello_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
+    candlepin_version: '4.4'
+    puppet_version: 8
     copr_project_user: "@theforeman"
+    build_package_build_system: copr
   children:
     packages: {}
     repoclosures: {}
-    staging_repoclosures: {}
     copr_projects: {}
 
 copr_projects:
   vars:
-    core_modules:
-      - 'ruby:2.7'
-      - 'nodejs:14'
-      - 'postgresql:12'
+    core_modules_el9:
+      - 'nodejs:18'
     core_buildroot_packages:
       - 'foreman-build'
     plugins_buildroot_packages:
@@ -52,8 +26,8 @@ copr_projects:
     rhel_9: '9'
     rhel_8: '8'
     rhel_7: '7'
-    puppet_baseurl: https://yum.puppet.com/puppet7
-    root_repo_url: https://download.copr.fedorainfracloud.org/results/@theforeman
+    puppet_baseurl: "https://yum.puppet.com/puppet{{ puppet_version }}"
+    root_repo_url: "https://download.copr.fedorainfracloud.org/results/{{ copr_project_user }}"
     foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
     plugins_staging: "{{ root_repo_url }}/plugins-{{ foreman_version }}-staging"
     katello_staging: "{{ root_repo_url }}/katello-{{ katello_version }}-staging"
@@ -63,89 +37,36 @@ copr_projects:
       copr_project_name: "foreman-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'foreman-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules }}"
-          external_repos:
-            - "{{ puppet_baseurl }}/el/{{ rhel_8 }}/x86_64/"
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
-    foreman-copr-with-el9:
-      copr_project_name: "foreman-{{ foreman_version }}-staging"
-      copr_project_fork_from: "{{ 'foreman-nightly-staging' if foreman_version != 'nightly' else False }}"
-      copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules }}"
-          external_repos:
-            - "{{ puppet_baseurl }}/el/{{ rhel_8 }}/x86_64/"
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
         - name: "rhel-{{ rhel_9 }}-x86_64"
+          modules: "{{ core_modules_el9 }}"
           external_repos:
             - "{{ puppet_baseurl }}/el/{{ rhel_9 }}/x86_64/"
             - "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_9 }}.xml"
-          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
+          buildroot_packages: "{{ core_buildroot_packages }}"
     plugins-copr:
       copr_project_name: "plugins-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules }}"
-          external_repos:
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ plugins_buildroot_packages }}"
-    plugins-copr-with-el9:
-      copr_project_name: "plugins-{{ foreman_version }}-staging"
-      copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
-      copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules }}"
-          external_repos:
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ plugins_buildroot_packages }}"
         - name: "rhel-{{ rhel_9 }}-x86_64"
+          modules: "{{ core_modules_el9 }}"
           external_repos:
             - "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
             - "{{ plugins_staging }}/rhel-{{ rhel_9 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_9 }}.xml"
-          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
+          buildroot_packages: "{{ core_buildroot_packages }}"
     katello-copr:
       copr_project_name: "katello-{{ katello_version }}-staging"
       copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules }}"
-          external_repos:
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
-    katello-copr-with-el9:
-      copr_project_name: "katello-{{ katello_version }}-staging"
-      copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
-      copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
-          modules: "{{ core_modules }}"
-          external_repos:
-            - "{{ foreman_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ plugins_staging }}/rhel-{{ rhel_8 }}-x86_64"
-            - "{{ katello_staging }}/rhel-{{ rhel_8 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_8 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
         - name: "rhel-{{ rhel_9 }}-x86_64"
+          modules: "{{ core_modules_el9 }}"
           external_repos:
             - "{{ foreman_staging }}/rhel-{{ rhel_9 }}-x86_64"
             - "{{ plugins_staging }}/rhel-{{ rhel_9 }}-x86_64"
             - "{{ katello_staging }}/rhel-{{ rhel_9 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_9 }}.xml"
-          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
+          buildroot_packages: "{{ core_buildroot_packages }}"
     client-copr:
       copr_project_name: "client-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'client-nightly-staging' if foreman_version != 'nightly' else False }}"
@@ -160,14 +81,17 @@ copr_projects:
             - "{{ client_staging }}/rhel-{{ rhel_8 }}-x86_64"
         - name: "rhel-{{ rhel_7 }}-x86_64"
           external_repos:
-            - "https://dl.fedoraproject.org/pub/epel/{{ rhel_7 }}/x86_64/"
+            - "https://archives.fedoraproject.org/pub/archive/epel/{{ rhel_7 }}/x86_64/"
             - "{{ client_staging }}/rhel-{{ rhel_7 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-rhel{{ rhel_7 }}.xml"
+        - name: "opensuse-leap-15.5-x86_64"
+          external_repos:
+            - "{{ client_staging }}/opensuse-leap-15.5-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-sles155.xml"
 
 packages:
   vars:
     rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
-    build_package_use_koji_build: true
   children:
     foreman_packages: {}
     plugin_packages: {}
@@ -178,25 +102,13 @@ packages:
 foreman_packages:
   vars:
     package_base_dir: 'packages/foreman/'
-    koji_tags:
-      - "{{ all_tags['foreman-el8'] }}"
+    copr_projects:
+      - "{{ hostvars['foreman-copr'] }}"
     repoclosure_target_repos:
-      el8:
-        - "el8-foreman-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-extras
-        - el8-powertools
-        - el8-puppet-7
-        - "el8-candlepin-{{ candlepin_version }}-staging"
+      el9: "{{ hostvars['foreman-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     foreman_core_packages: {}
     foreman_proxy_packages: {}
@@ -208,36 +120,16 @@ plugin_packages:
     copr_projects:
       - "{{ hostvars['plugins-copr'] }}"
     package_base_dir: 'packages/plugins/'
-    koji_tags:
-      - "{{ all_tags['foreman-plugins-el8'] }}"
     repoclosure_target_repos:
-      el8:
-        - "el8-foreman-plugins-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-plugins-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el8:
-        - el8-appstream
-        - el8-baseos
-        - el8-powertools
-        - el8-configmanagement-salt
-        - el8-extras
-        - el8-puppet-7
-        - "el8-foreman-{{ foreman_version }}-staging"
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-configmanagement-salt
-        - el9-puppet-7
-        - "el9-foreman-{{ foreman_version }}-staging"
+      el9: "{{ hostvars['plugins-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     foreman_plugin_packages: {}
     foreman_proxy_plugin_packages: {}
 
 rails_core_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     rubygem-actioncable: {}
     rubygem-actionmailbox: {}
@@ -254,9 +146,6 @@ rails_core_packages:
     rubygem-railties: {}
 
 foreman_core_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr'] }}"
   children:
     rails_core_packages: {}
     ruby_core_packages: {}
@@ -268,9 +157,6 @@ foreman_core_packages:
       source_system: jenkins
 
 other_core_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     dynflow-utils: {}
     foreman-bootloaders-redhat: {}
@@ -280,9 +166,6 @@ other_core_packages:
     python-websockify: {}
 
 hammer_core_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     rubygem-hammer_cli:
       source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
@@ -292,9 +175,6 @@ hammer_core_packages:
       source_system: jenkins
 
 ruby_core_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr-with-el9'] }}"
   children:
     ruby_core_packages_tier1: {}
     ruby_core_packages_tier2: {}
@@ -448,7 +328,6 @@ ruby_core_packages_tier1:
     rubygem-rbvmomi2: {}
     rubygem-redis: {}
     rubygem-representable: {}
-    rubygem-request_store: {}
     rubygem-responders: {}
     rubygem-rest-client: {}
     rubygem-retriable: {}
@@ -486,7 +365,6 @@ ruby_core_packages_tier1:
     rubygem-unicode-display_width: {}
     rubygem-validates_lengths_from_database: {}
     rubygem-version_gem: {}
-    rubygem-webpack-rails: {}
     rubygem-websocket-extensions: {}
     rubygem-will_paginate: {}
     rubygem-wirb: {}
@@ -501,11 +379,7 @@ ruby_core_packages_tier2:
     rubygem-websocket-driver: {}
 
 foreman_nodejs_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr'] }}"
   hosts:
-    gyp: {}
     nodejs-argv-parse: {}
     nodejs-babel-core:
       strategy: bundle
@@ -517,21 +391,14 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-babel-preset-react:
       strategy: bundle
+    nodejs-buffer: {}
     nodejs-c3: {}
-    nodejs-compression-webpack-plugin:
-      strategy: bundle
+    nodejs-compression-webpack-plugin: {}
     nodejs-core-js: {}
     nodejs-css-loader:
       strategy: bundle
-    nodejs-cssnano:
-      strategy: bundle
     nodejs-d3: {}
     nodejs-dotenv: {}
-    nodejs-expose-loader: {}
-    nodejs-extract-text-webpack-plugin:
-      strategy: bundle
-    nodejs-file-loader:
-      strategy: bundle
     nodejs-graphql: {}
     nodejs-graphql-tag: {}
     nodejs-harmony-reflect: {}
@@ -539,13 +406,12 @@ foreman_nodejs_packages:
     nodejs-intl: {}
     nodejs-jed: {}
     nodejs-jquery: {}
+    nodejs-js-cookie: {}
     nodejs-js-tokens: {}
     nodejs-lodash: {}
-    nodejs-node-gyp:
-      strategy: bundle
-    nodejs-node-sass:
-      strategy: bundle
-    nodejs-optimize-css-assets-webpack-plugin: {}
+    nodejs-module-federation-utilities: {}
+    nodejs-os-browserify: {}
+    nodejs-path-browserify: {}
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
       strategy: bundle
@@ -553,6 +419,8 @@ foreman_nodejs_packages:
     nodejs-react-intl:
       strategy: bundle
     nodejs-regenerator-runtime: {}
+    nodejs-sass:
+      strategy: bundle
     nodejs-sass-loader:
       strategy: bundle
     nodejs-sortabular: {}
@@ -565,20 +433,14 @@ foreman_nodejs_packages:
     nodejs-theforeman-vendor:
       name: "@theforeman/vendor"
     nodejs-tslib: {}
-    nodejs-uglifyjs-webpack-plugin:
-      strategy: bundle
-    nodejs-url-loader:
-      strategy: bundle
     nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
+    nodejs-webpack-cli: {}
     nodejs-webpack-stats-plugin: {}
     nodejs-webpack:
       strategy: bundle
 
 foreman_installer_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     foreman-fapolicyd: {}
     foreman-installer:
@@ -598,9 +460,6 @@ foreman_installer_packages:
     rubygem-kafo_wizards: {}
 
 foreman_proxy_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['foreman-copr-with-el9'] }}"
   hosts:
     foreman-proxy:
       source_location: https://ci.theforeman.org/job/smart-proxy-develop-source-release
@@ -616,12 +475,6 @@ foreman_proxy_packages:
     rubygem-webrick: {}
 
 yggdrasil_client_packages:
-  vars:
-    koji_tags:
-      - "{{ all_tags['foreman-client-el9'] }}"
-      - "{{ all_tags['foreman-client-el8'] }}"
-      - "{{ all_tags['foreman-client-el7'] }}"
-      - "{{ all_tags['foreman-plugins-el8'] }}"
   hosts:
     yggdrasil: {}
 
@@ -630,10 +483,6 @@ foreman_client_packages:
     copr_projects:
       - "{{ hostvars['client-copr'] }}"
     package_base_dir: 'packages/client/'
-    koji_tags:
-      - "{{ all_tags['foreman-client-el9'] }}"
-      - "{{ all_tags['foreman-client-el8'] }}"
-      - "{{ all_tags['foreman-client-el7'] }}"
     repoclosure_target_repos:
       el9:
         - "el9-foreman-client-{{ foreman_version }}-staging"
@@ -642,23 +491,12 @@ foreman_client_packages:
       el7:
         - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-epel
-        - el8-extras
-        - el8-puppet-7
-      el7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-7
+      el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
+      el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
+      el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
+      leap155:
+        - leap155-oss
+        - atix-sles155
   children:
     yggdrasil_client_packages: {}
   hosts:
@@ -674,76 +512,56 @@ katello_packages:
     copr_projects:
       - "{{ hostvars['katello-copr'] }}"
     package_base_dir: 'packages/katello/'
-    koji_tags:
-      - "{{ all_tags['katello-el8'] }}"
     repoclosure_target_repos:
-      el8:
-        - "el8-katello-{{ katello_version }}-staging"
       el9:
         - "el9-katello-{{ katello_version }}-staging"
     repoclosure_lookaside_repos:
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-epel
-        - el8-extras
-        - el8-puppet-7
-        - "el8-foreman-{{ foreman_version }}-staging"
-        - "el8-foreman-plugins-{{ foreman_version }}-staging"
-        - "el8-candlepin-{{ candlepin_version }}-staging"
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-        - "el9-foreman-{{ foreman_version }}-staging"
-        - "el9-foreman-plugins-{{ foreman_version }}-staging"
+      el9: "{{ hostvars['katello-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     satellite_packages: {}
     katello_common_packages: {}
+    katello_nodejs_packages: {}
+    katello_ruby_packages: {}
+    katello_hammer_packages: {}
   hosts:
-    nodejs-angular: {}
-    nodejs-bootstrap-select: {}
-    nodejs-decode-uri-component: {}
-    nodejs-downshift: {}
-    nodejs-ngreact: {}
-    nodejs-query-string: {}
-    nodejs-strict-uri-encode: {}
-    rubygem-activerecord-import: {}
-    rubygem-anemone: {}
-    rubygem-ethon: {}
     rubygem-foreman_kernel_care: {}
     rubygem-foreman_rh_cloud: {}
     rubygem-foreman_scc_manager: {}
     rubygem-foreman_virt_who_configure: {}
-    rubygem-fx: {}
+    rubygem-katello:
+      source_location: https://ci.theforeman.org/job/katello-master-source-release
+      source_system: jenkins
+
+katello_hammer_packages:
+  hosts:
     rubygem-hammer_cli_foreman_rh_cloud: {}
     rubygem-hammer_cli_foreman_scc_manager: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello:
-      source_location: https://ci.theforeman.org/job/hammer-cli-katello-master-source-release
+      source_location: https://ci.theforeman.org/job/hammer-cli-katello-main-source-release
       source_system: jenkins
-    rubygem-katello:
-      source_location: https://ci.theforeman.org/job/katello-master-source-release
-      source_system: jenkins
-    rubygem-pulp_python_client: {}
-    rubygem-pulpcore_client: {}
+
+katello_ruby_packages:
+  hosts:
+    rubygem-activerecord-import: {}
+    rubygem-ethon: {}
+    rubygem-fx: {}
     rubygem-pulp_ansible_client: {}
     rubygem-pulp_certguard_client: {}
     rubygem-pulp_container_client: {}
     rubygem-pulp_deb_client: {}
     rubygem-pulp_file_client: {}
     rubygem-pulp_ostree_client: {}
+    rubygem-pulp_python_client: {}
     rubygem-pulp_rpm_client: {}
+    rubygem-pulpcore_client: {}
     rubygem-robotex: {}
+    rubygem-spidr: {}
     rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}
 
 katello_common_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['katello-copr-with-el9'] }}"
   hosts:
     katello: {}
     katello-client-bootstrap: {}
@@ -751,21 +569,41 @@ katello_common_packages:
     katello-selinux: {}
     rhel8-kickstart-setup: {}
 
+katello_nodejs_packages:
+  hosts:
+    nodejs-angular: {}
+    nodejs-bootstrap-select: {}
+    nodejs-ngreact: {}
+
 foreman_plugin_packages:
   children:
     ruby_plugin_packages: {}
     ruby_plugin_packages_tier2: {}
     hammer_plugin_packages: {}
     fdi_plugin_packages: {}
+    other_plugin_packages: {}
+    nodejs_plugin_packages: {}
+    foreman_plugin_packages_tier1: {}
+    foreman_plugin_packages_tier2: {}
+
+nodejs_plugin_packages:
   hosts:
     nodejs-react-json-tree:
       strategy: bundle
+
+foreman_plugin_packages_tier1:
+  hosts:
     rubygem-foreman-tasks: {}
+    rubygem-foreman_remote_execution: {}
+
+foreman_plugin_packages_tier2:
+  hosts:
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_concrete: {}
+    rubygem-foreman_cve_scanner: {}
     rubygem-foreman_datacenter: {}
     rubygem-foreman_default_hostgroup: {}
     rubygem-foreman_dhcp_browser: {}
@@ -777,7 +615,6 @@ foreman_plugin_packages:
     rubygem-foreman_google: {}
     rubygem-foreman_graphite: {}
     rubygem-foreman_hdm: {}
-    rubygem-foreman_hooks: {}
     rubygem-foreman_host_extra_validator: {}
     rubygem-foreman_kubevirt: {}
     rubygem-foreman_leapp: {}
@@ -787,10 +624,9 @@ foreman_plugin_packages:
     rubygem-foreman_openscap: {}
     rubygem-foreman_probing: {}
     rubygem-foreman_puppet: {}
-    rubygem-foreman_remote_execution: {}
     rubygem-foreman_rescue: {}
+    rubygem-foreman_resource_quota: {}
     rubygem-foreman_salt: {}
-    rubygem-foreman_setup: {}
     rubygem-foreman_snapshot_management: {}
     rubygem-foreman_statistics: {}
     rubygem-foreman_supervisory_authority: {}
@@ -800,17 +636,20 @@ foreman_plugin_packages:
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
     rubygem-puppetdb_foreman: {}
-    yggdrasil-worker-forwarder: {}
 
 fdi_plugin_packages:
+  vars:
+    copr_projects:
+      - "{{ hostvars['plugins-copr'] }}"
   hosts:
     foreman-discovery-image-service: {}
     rubygem-newt: {}
 
+other_plugin_packages:
+  hosts:
+    yggdrasil-worker-forwarder: {}
+
 hammer_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
@@ -832,9 +671,6 @@ hammer_plugin_packages:
     rubygem-net-ssh-multi: {}
 
 ruby_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   hosts:
     rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
@@ -912,9 +748,6 @@ ruby_plugin_packages_tier2:
     rubygem-grpc: {}
 
 foreman_proxy_plugin_packages:
-  vars:
-    copr_projects:
-      - "{{ hostvars['plugins-copr-with-el9'] }}"
   children:
     foreman_proxy_other_plugin_packages: {}
     foreman_proxy_other_plugin_packages_tier2: {}
@@ -983,19 +816,6 @@ foreman_proxy_other_plugin_packages_tier2:
 
 repoclosures:
   hosts:
-    foreman-staging-repoclosure-el8:
-      repoclosure_target_repos:
-        el8:
-          - "el8-foreman-{{ foreman_version }}-staging"
-      repoclosure_target_dist: el8
-      repoclosure_lookaside_repos:
-        el8:
-          - el8-baseos
-          - el8-appstream
-          - el8-powertools
-          - el8-extras
-          - el8-puppet-7
-          - "el8-candlepin-{{ candlepin_version }}-staging"
     foreman-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -1005,21 +825,8 @@ repoclosures:
         el9:
           - el9-baseos
           - el9-appstream
-          - el9-puppet-7
-    plugins-staging-repoclosure-el8:
-      repoclosure_target_repos:
-        el8:
-          - "el8-foreman-plugins-{{ foreman_version }}-staging"
-      repoclosure_target_dist: el8
-      repoclosure_lookaside_repos:
-        el8:
-          - el8-baseos
-          - el8-appstream
-          - el8-powertools
-          - el8-configmanagement-salt
-          - el8-extras
-          - el8-puppet-7
-          - "el8-foreman-{{ foreman_version }}-staging"
+          - "el9-puppet-{{ puppet_version }}"
+          - "el9-candlepin-{{ candlepin_version }}-staging"
     plugins-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -1030,23 +837,8 @@ repoclosures:
           - el9-baseos
           - el9-appstream
           - el9-configmanagement-salt
-          - el9-puppet-7
+          - "el9-puppet-{{ puppet_version }}"
           - "el9-foreman-{{ foreman_version }}-staging"
-    katello-staging-repoclosure-el8:
-      repoclosure_target_repos:
-        el8:
-          - "el8-katello-{{ katello_version }}-staging"
-      repoclosure_target_dist: el8
-      repoclosure_lookaside_repos:
-        el8:
-          - el8-baseos
-          - el8-appstream
-          - el8-powertools
-          - el8-extras
-          - el8-puppet-7
-          - "el8-foreman-{{ foreman_version }}-staging"
-          - "el8-foreman-plugins-{{ foreman_version }}-staging"
-          - "el8-candlepin-{{ candlepin_version }}-staging"
     katello-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -1056,9 +848,10 @@ repoclosures:
         el9:
           - el9-baseos
           - el9-appstream
-          - el9-puppet-7
+          - "el9-puppet-{{ puppet_version }}"
           - "el9-foreman-{{ foreman_version }}-staging"
           - "el9-foreman-plugins-{{ foreman_version }}-staging"
+          - "el9-candlepin-{{ candlepin_version }}-staging"
     foreman-client-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -1068,7 +861,7 @@ repoclosures:
         el9:
           - el9-baseos
           - el9-appstream
-          - el9-puppet-7
+          - "el9-puppet-{{ puppet_version }}"
     foreman-client-staging-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -1081,7 +874,7 @@ repoclosures:
           - el8-powertools
           - el8-epel
           - el8-extras
-          - el8-puppet-7
+          - "el8-puppet-{{ puppet_version }}"
     foreman-client-staging-repoclosure-el7:
       repoclosure_target_repos:
         el7:
@@ -1093,18 +886,13 @@ repoclosures:
           - el7-updates
           - el7-epel
           - el7-extras
-          - el7-puppet-7
+          - "el7-puppet-{{ puppet_version }}"
 
 foreman_release_packages:
   vars:
     copr_projects:
-      - "{{ hostvars['foreman-copr-with-el9'] }}"
+      - "{{ hostvars['foreman-copr'] }}"
       - "{{ hostvars['client-copr'] }}"
-    koji_tags:
-      - "{{ all_tags['foreman-el8'] }}"
-      - "{{ all_tags['foreman-client-el9'] }}"
-      - "{{ all_tags['foreman-client-el8'] }}"
-      - "{{ all_tags['foreman-client-el7'] }}"
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
       el9:
@@ -1114,22 +902,9 @@ foreman_release_packages:
       el7:
         - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el9:
-        - el9-baseos
-        - el9-appstream
-        - el9-puppet-7
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-7
-      el7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-7
+      el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
+      el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
+      el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
   hosts:
     foreman-release: {}
 
@@ -1137,4 +912,6 @@ satellite_packages:
   vars:
     package_base_dir: 'packages/satellite/'
   hosts:
+    ansible-collection-redhat-satellite: {}
+    ansible-collection-redhat-satellite_operations: {}
     rubygem-foreman_theme_satellite: {}

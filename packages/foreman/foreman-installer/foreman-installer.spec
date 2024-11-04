@@ -1,10 +1,10 @@
-%global release 4
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
 Epoch:      1
-Version:    3.10.0
+Version:    3.13.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -17,14 +17,14 @@ BuildArch:  noarch
 Requires:   curl
 Requires:   hostname
 Requires:   puppet-agent >= 7.0.0
-Requires:   rubygem(kafo) >= 7.3.0
+Requires:   rubygem(kafo) >= 7.6.0
 Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 7.0.0
 BuildRequires: rubygem(rake)
-BuildRequires: rubygem(kafo) >= 7.3.0
+BuildRequires: rubygem(kafo) >= 7.6.0
 BuildRequires: rubygem(kafo) < 8.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 5
@@ -42,6 +42,10 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
 Requires: katello-certs-tools
 Requires: which
+
+# both katello and foreman-proxy-content scenarios require this
+# it also makes the package lock feature available on the first run
+Requires: foreman-maintain
 
 %description katello
 Various scenarios and tools for the Katello ecosystem
@@ -122,6 +126,21 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Oct 24 2024 Evgeni Golov - 1:3.13.0-0.2.develop
+- Require kafo >= 7.6
+
+* Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 1:3.13.0-0.1.develop
+- Bump version to 3.13-develop
+
+* Thu Jul 18 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.12.0-0.2.develop
+- katello: depend on foreman-maintain
+
+* Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 1:3.12.0-0.1.develop
+- Bump version to 3.12-develop
+
+* Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 1:3.11.0-0.1.develop
+- Bump version to 3.11-develop
+
 * Thu Jan 11 2024 Patrick Creech <pcreech@redhat.com> - 1:3.10.0-0.4.develop
 - Remove pretrans segment
 

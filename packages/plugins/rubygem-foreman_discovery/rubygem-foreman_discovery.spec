@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_discovery
 %global plugin_name discovery
-%global foreman_min_version 3.8
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 23.0.0
+Version: 25.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: MaaS Discovery Plugin for Foreman
 License: GPLv3
@@ -89,6 +89,27 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Sep 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 25.0.0-1
+- Update to 25.0.0
+
+* Thu Jul 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 24.0.2-1
+- Update to 24.0.2
+
+* Tue May 07 2024 Evgeni Golov - 24.0.1-2
+- Rebuild for Webpack asset compression
+
+* Fri Feb 16 2024 Foreman Packaging Automation <packaging@theforeman.org> - 24.0.1-1
+- Update to 24.0.1
+
+* Fri Feb 16 2024 Foreman Packaging Automation <packaging@theforeman.org> - 24.0.0-1
+- Update to 24.0.0
+
+* Wed Jan 31 2024 Evgeni Golov - 23.0.1-2
+- Rebuild for Webpack 5
+
+* Sun Jan 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 23.0.1-1
+- Update to 23.0.1
+
 * Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 23.0.0-1
 - Update to 23.0.0
 

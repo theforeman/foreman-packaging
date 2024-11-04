@@ -9,8 +9,8 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.6
-Release: 3%{?foremandist}%{?dist}
+Version: 2.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using templates from Git repositories
 Group: Applications/Systems
 License: GPLv3
@@ -87,6 +87,7 @@ cp -a .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -102,6 +103,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 14 2024 Manuel Laug <laugmanuel@gmail.com> - 2.0.0-1
+- Update foreman_git_templates to 2.0.0
+
 * Mon May 09 2022 Evgeni Golov - 1.0.6-3
 - log plugin installation in posttrans
 

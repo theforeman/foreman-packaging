@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_acd
 %global plugin_name acd
-%global foreman_min_version 2.1
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.9.4
-Release: 2%{?foremandist}%{?dist}
+Version: 0.11.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 License: GPLv3
 URL: https://www.orcharhino.com
@@ -13,33 +13,28 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby >= 2.5
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
+BuildRequires: rubygem(foreman_remote_execution) >= 8.0
+BuildRequires: rubygem(foreman-tasks) >= 7.0
+BuildRequires: rubygem(git)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
-BuildRequires: rubygem(foreman_remote_execution) >= 3.3.0
-BuildRequires: rubygem(foreman-tasks) >= 0.10
-BuildRequires: rubygem(git)
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@theforeman/builder) >= 10.1.0
-BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: npm(babel-preset-env) >= 1.6.0
-BuildRequires: npm(babel-preset-env) < 2.0.0
-BuildRequires: npm(babel-preset-react) >= 6.24.1
-BuildRequires: npm(babel-preset-react) < 7.0.0
-BuildRequires: npm(lodash) >= 4.17.11
-BuildRequires: npm(lodash) < 5.0.0
-BuildRequires: npm(sortabular) >= 1.5.1
-BuildRequires: npm(sortabular) < 2.0.0
-BuildRequires: npm(table-resolver) >= 3.2.0
-BuildRequires: npm(table-resolver) < 4.0.0
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
+BuildRequires: (npm(babel-plugin-transform-class-properties) >= 6.24.1 with npm(babel-plugin-transform-class-properties) < 7.0.0)
+BuildRequires: (npm(babel-preset-env) >= 1.6.0 with npm(babel-preset-env) < 2.0.0)
+BuildRequires: (npm(babel-preset-react) >= 6.24.1 with npm(babel-preset-react) < 7.0.0)
+BuildRequires: (npm(lodash) >= 4.17.11 with npm(lodash) < 5.0.0)
+BuildRequires: (npm(sortabular) >= 1.5.1 with npm(sortabular) < 2.0.0)
+BuildRequires: (npm(table-resolver) >= 3.2.0 with npm(table-resolver) < 4.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -109,6 +104,21 @@ mkdir -p %{buildroot}%{_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks
 %{foreman_plugin_log}
 
 %changelog
+* Mon Oct 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.11.0-1
+- Update to 0.11.0
+
+* Thu Sep 26 2024 Nadja Heitmann <nadjah@atix.de> - 0.10.0-1
+- Update to 0.10.0
+
+* Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.7-1
+- Update to 0.9.7
+
+* Sun Mar 31 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.5-1
+- Update to 0.9.5
+
+* Wed Jan 31 2024 Evgeni Golov - 0.9.4-3
+- Rebuild for Webpack 5
+
 * Thu Jun 29 2023 Nadja Heitmann <nadjah@atix.de> 0.9.4-2
 - Regenerate RPM spec based on latest template
 

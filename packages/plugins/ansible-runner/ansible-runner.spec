@@ -3,8 +3,8 @@
 %global pypi_name ansible-runner
 
 Name:           %{pypi_name}
-Version:        2.2.1
-Release:        6%{?dist}
+Version:        2.3.6
+Release:        1%{?dist}
 Summary:        A tool and python library to interface with Ansible
 
 License:        ASL 2.0
@@ -72,6 +72,9 @@ ln -s %{_bindir}/ansible-runner-%{python3_version} %{buildroot}/%{_bindir}/ansib
 %{python3_sitelib}/*
 
 %changelog
+* Fri Sep 06 2024 Evgeni Golov - 2.3.6-1
+- Release ansible-runner 2.3.6
+
 * Mon Jan 15 2024 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-6
 - Exclude packaging directory
 

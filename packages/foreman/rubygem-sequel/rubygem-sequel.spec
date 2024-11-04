@@ -2,7 +2,7 @@
 %global gem_name sequel
 
 Name: rubygem-%{gem_name}
-Version: 5.76.0
+Version: 5.86.0
 Release: 1%{?dist}
 Summary: The Database Toolkit for Ruby
 License: MIT
@@ -64,11 +64,38 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CHANGELOG
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/doc
 
 %changelog
+* Sun Nov 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.86.0-1
+- Update to 5.86.0
+
+* Wed Oct 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.85.0-1
+- Update to 5.85.0
+
+* Wed Sep 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.84.0-1
+- Update to 5.84.0
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.83.1-1
+- Update to 5.83.1
+
+* Tue Jul 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.82.0-1
+- Update to 5.82.0
+
+* Sun Jun 09 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.81.0-1
+- Update to 5.81.0
+
+* Mon May 06 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.80.0-1
+- Update to 5.80.0
+
+* Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.79.0-1
+- Update to 5.79.0
+
+* Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.78.0-1
+- Update to 5.78.0
+
+* Sun Feb 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.77.0-1
+- Update to 5.77.0
+
 * Tue Jan 02 2024 Foreman Packaging Automation <packaging@theforeman.org> 5.76.0-1
 - Update to 5.76.0
 

@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 3.8.1
+%global foreman_min_version 3.13.0
 
 Name: rubygem-%{gem_name}
-Version: 13.0.2
+Version: 15.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -20,8 +20,8 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(acts_as_list) >= 1.0.3 with rubygem(acts_as_list) < 1.1)
 BuildRequires: rubygem(deface) < 2.0
-BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 13)
-BuildRequires: (rubygem(foreman-tasks) >= 7.0 with rubygem(foreman-tasks) < 10)
+BuildRequires: (rubygem(foreman_remote_execution) >= 14.0 with rubygem(foreman_remote_execution) < 15)
+BuildRequires: (rubygem(foreman-tasks) >= 10.0 with rubygem(foreman-tasks) < 11)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -94,6 +94,42 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Sep 25 2024 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.1-1
+- Update to 15.0.1
+
+* Wed Sep 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.0-1
+- Update to 15.0.0
+
+* Wed Sep 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.2.2-1
+- Update to 14.2.2
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.2.1-1
+- Update to 14.2.1
+
+* Thu Aug 01 2024 Leos Stejskal <lstejska@redhat.com> - 14.2.0-1
+- Update to 14.2.0
+
+* Wed Jul 31 2024 Leos Stejskal <lstejska@redhat.com> - 14.1.1-1
+- Update to 14.1.1
+
+* Fri Jun 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.1.0-1
+- Update to 14.1.0
+
+* Tue May 07 2024 Evgeni Golov - 14.0.0-2
+- Rebuild for Webpack asset compression
+
+* Tue Mar 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.0.0-1
+- Update to 14.0.0
+
+* Wed Mar 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.0.4-1
+- Update to 13.0.4
+
+* Fri Jan 26 2024 Evgeni Golov - 13.0.3-2
+- Rebuild for Webpack 5
+
+* Fri Jan 19 2024 nofaralfasi <nalfassi@redhat.com> - 13.0.3-1
+- Update to 13.0.3
+
 * Sun Dec 03 2023 nofaralfasi <nalfassi@redhat.com> 13.0.2-1
 - Update to 13.0.2
 

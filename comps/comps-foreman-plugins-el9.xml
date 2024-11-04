@@ -68,6 +68,7 @@
       <packagereq type="default">rubygem-foreman_azure_rm</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-foreman_concrete</packagereq>
+      <packagereq type="default">rubygem-foreman_cve_scanner</packagereq>
       <packagereq type="default">rubygem-foreman_datacenter</packagereq>
       <packagereq type="default">rubygem-foreman_default_hostgroup</packagereq>
       <packagereq type="default">rubygem-foreman_dhcp_browser</packagereq>
@@ -79,7 +80,6 @@
       <packagereq type="default">rubygem-foreman_google</packagereq>
       <packagereq type="default">rubygem-foreman_graphite</packagereq>
       <packagereq type="default">rubygem-foreman_hdm</packagereq>
-      <packagereq type="default">rubygem-foreman_hooks</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator</packagereq>
       <packagereq type="default">rubygem-foreman_kubevirt</packagereq>
       <packagereq type="default">rubygem-foreman_leapp</packagereq>
@@ -92,8 +92,8 @@
       <packagereq type="default">rubygem-foreman_remote_execution</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution-cockpit</packagereq>
       <packagereq type="default">rubygem-foreman_rescue</packagereq>
+      <packagereq type="default">rubygem-foreman_resource_quota</packagereq>
       <packagereq type="default">rubygem-foreman_salt</packagereq>
-      <packagereq type="default">rubygem-foreman_setup</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot_management</packagereq>
       <packagereq type="default">rubygem-foreman_statistics</packagereq>
       <packagereq type="default">rubygem-foreman_supervisory_authority</packagereq>
@@ -242,6 +242,7 @@
       <packagereq type="default">rubygem-foreman_azure_rm-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_concrete-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_cve_scanner-doc</packagereq>
       <packagereq type="default">rubygem-foreman_datacenter-doc</packagereq>
       <packagereq type="default">rubygem-foreman_default_hostgroup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_dhcp_browser-doc</packagereq>
@@ -253,7 +254,6 @@
       <packagereq type="default">rubygem-foreman_google-doc</packagereq>
       <packagereq type="default">rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">rubygem-foreman_hdm-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator-doc</packagereq>
       <packagereq type="default">rubygem-foreman_kubevirt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_leapp-doc</packagereq>
@@ -265,8 +265,8 @@
       <packagereq type="default">rubygem-foreman_puppet-doc</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution-doc</packagereq>
       <packagereq type="default">rubygem-foreman_rescue-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_resource_quota-doc</packagereq>
       <packagereq type="default">rubygem-foreman_salt-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot_management-doc</packagereq>
       <packagereq type="default">rubygem-foreman_statistics-doc</packagereq>
       <packagereq type="default">rubygem-foreman_supervisory_authority-doc</packagereq>

@@ -1,127 +1,73 @@
-%if 0%{?rhel} == 7 || (0%{?fedora} && 0%{?fedora} <= 29)
-%bcond_without python2
-%else
-%bcond_with python2
-%endif
-
-%if 0%{?rhel} >= 8 || 0%{?fedora} || 0%{?epel}
-%bcond_without python3
-%else
-%bcond_with python3
-%endif
-
 # template: smart_proxy_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_bindir:%global _root_bindir %{_bindir}}
-%{!?_root_sbindir:%global _root_sbindir %{_sbindir}}
-%{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name smart_proxy_salt
 %global plugin_name salt
 
 %global foreman_proxy_min_version 2.5
-%global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_dir %{_datadir}/foreman-proxy
+%global foreman_proxy_statedir %{_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
-%global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
+%global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-%global salt_config_dir %{_root_sysconfdir}/salt
+%global salt_config_dir %{_sysconfdir}/salt
 %global salt_proxy_runners_dir %{foreman_proxy_dir}/salt/runners
 %global salt_proxy_reactors_dir %{foreman_proxy_dir}/salt/reactors
 %global salt_state_grains_dir %{foreman_proxy_statedir}/salt/grains
 
-Summary: SaltStack support for Foreman Smart-Proxy
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.1
+Name: rubygem-%{gem_name}
+Version: 5.1.0
 Release: 1%{?foremandist}%{?dist}
-Group: Applications/System
+Summary: SaltStack Plug-In for Foreman's Smart Proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# salt-specific dependencies
 Requires: salt-master
-%if %{with python2}
-Requires: python
-BuildRequires: python2-rpm-macros
-%endif
-%if %{with python3}
 Requires: python3
 BuildRequires: python3-rpm-macros
-%endif
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
-
 %description
-SaltStack Plug-In for Foreman's Smart Proxy.
-
+This plug-in adds support for Salt to Foreman's Smart Proxy.
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
-
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%if %{with python2} && 0%{?rhel} >= 8
-sed -i -e '1s|^#!.*$|#!%{__python2}|' sbin/upload-salt-reports
-%endif
-
-%if %{with python3} && 0%{?rhel} >= 8
-sed -i -e '1s|^#!.*$|#!%{__python3}|' sbin/upload-salt-reports
-%endif
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
-sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/foreman-node
-sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/salt_python_wrapper
 
 # runners
 mkdir -p %{buildroot}%{salt_proxy_runners_dir}
@@ -154,26 +100,26 @@ mv %{buildroot}%{gem_instdir}/settings.d/salt.yml.example \
 mkdir -p  %{buildroot}%{salt_config_dir}
 cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/foreman.yaml
 
-mkdir -p %{buildroot}%{_root_bindir}
-cp -pa .%{_bindir}/foreman-node %{buildroot}%{_root_bindir}/foreman-node
-cp -pa .%{_bindir}/salt_python_wrapper %{buildroot}%{_root_bindir}/salt_python_wrapper
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/foreman-node %{buildroot}%{_bindir}/foreman-node
 
-mkdir -p %{buildroot}%{_root_sbindir}
-mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
+mkdir -p %{buildroot}%{_sbindir}
+mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_sbindir}/upload-salt-reports
 
 %files
 %dir %{gem_instdir}
-%{_root_bindir}/foreman-node
-%{_root_bindir}/salt_python_wrapper
-%{_root_sbindir}/upload-salt-reports
+%{_bindir}/foreman-node
+%{_sbindir}/upload-salt-reports
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.saltfile
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.yml
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
+%exclude %{gem_instdir}/bundler.d
+%{gem_instdir}/etc
+%{gem_libdir}
 %{gem_instdir}/salt
-%{gem_instdir}/lib
-%{gem_instdir}/bundler.d
-%{gem_instdir}/settings.d
+%{gem_instdir}/sbin
+%exclude %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
@@ -196,6 +142,10 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Fri Apr 19 2024 Nadja Heitmann <nadjah@atix.de> 5.1.0-1
+- Update to 5.1.0-1
+- Remove python2 support
+
 * Fri Nov 25 2022 Bastian Schmidt <schmidt@atix.de> 5.0.1-1
 - Update to 5.0.1
 - Drop cron job

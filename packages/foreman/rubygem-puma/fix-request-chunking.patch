@@ -1,0 +1,22 @@
+From 67063acd4d1431771686a383db2045897d79b627 Mon Sep 17 00:00:00 2001
+From: MSP-Greg <Greg.mpls@gmail.com>
+Date: Wed, 21 Feb 2024 19:32:56 -0600
+Subject: [PATCH 1/1] client.rb - fix up request chunked body handling
+
+---
+ lib/puma/client.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/puma/client.rb b/lib/puma/client.rb
+index 6c82eed356..5470d0b240 100644
+--- a/lib/puma/client.rb
++++ b/lib/puma/client.rb
+@@ -642,7 +642,7 @@ def decode_chunk(chunk)
+             @partial_part_left = len - part.size
+           end
+         else
+-          if @prev_chunk.size + chunk.size >= MAX_CHUNK_HEADER_SIZE
++          if @prev_chunk.size + line.size >= MAX_CHUNK_HEADER_SIZE
+             raise HttpParserError, "maximum size of chunk header exceeded"
+           end
+ 

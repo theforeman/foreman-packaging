@@ -2,7 +2,7 @@
 %global gem_name secure_headers
 
 Name: rubygem-%{gem_name}
-Version: 6.5.0
+Version: 6.7.0
 Release: 1%{?dist}
 Summary: Manages application of security headers with many safe defaults.
 License: MIT
@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.7.0-1
+- Update to 6.7.0
+
 * Tue Oct 25 2022 Foreman Packaging Automation <packaging@theforeman.org> 6.5.0-1
 - Update to 6.5.0
 

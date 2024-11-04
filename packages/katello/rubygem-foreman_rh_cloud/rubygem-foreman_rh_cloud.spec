@@ -1,17 +1,15 @@
 # template: foreman_plugin
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 9.0.54
+Version: 11.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Autoreq: 0
 
 Obsoletes: %{?scl_prefix}rubygem-redhat_access
 Obsoletes: %{?scl_prefix}rubygem-redhat_access_lib
@@ -23,20 +21,22 @@ Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(katello)
-BuildRequires: rubygem(foreman_ansible)
-BuildRequires: rubygem(foreman-tasks)
+BuildRequires: rubygem(foreman_ansible) >= 15.0.0
+BuildRequires: rubygem(foreman-tasks) >= 10.0.0
+BuildRequires: rubygem(katello) >= 4.14.0.rc1.1
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 10.1.1
-BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 1.2.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -101,6 +101,33 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Oct 29 2024 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.2-1
+- Update to 11.0.2
+
+* Wed Sep 25 2024 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.1-1
+- Update to 11.0.1
+
+* Mon Sep 23 2024 Evgeni Golov - 11.0.0-2
+- Enable AutoReq for rh_cloud
+
+* Fri Sep 20 2024 Chris Roberts <chrobert@redhat.com> - 11.0.0-1
+- Update to 11.0.0
+
+* Mon Sep 09 2024 Chris Roberts <chrobert@redhat.com> - 10.0.2-1
+- Update to 10.0.2
+
+* Tue Jun 25 2024 Chris Roberts <chrobert@redhat.com> - 10.0.1-1
+- Update to 10.0.1
+
+* Mon Apr 29 2024 Chris Roberts <chrobert@redhat.com> - 9.0.56-1
+- Update to 9.0.56
+
+* Wed Jan 31 2024 Evgeni Golov - 9.0.55-2
+- Rebuild for Webpack 5
+
+* Tue Jan 16 2024 Chris Roberts <chrobert@redhat.com> - 9.0.55-1
+- Update to 9.0.55
+
 * Tue Dec 19 2023 Chris Roberts <chrobert@redhat.com> 9.0.54-1
 - Update to 9.0.54
 

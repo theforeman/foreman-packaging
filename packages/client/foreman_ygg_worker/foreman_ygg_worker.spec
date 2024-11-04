@@ -12,17 +12,21 @@
 
 %if 0%{?rhel} > 7 && ! 0%{?fedora}
 %define gobuild(o:) \
-        go build -buildmode pie -compiler gc -tags="rpm_crashtraceback libtrust_openssl ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -compressdwarf=false -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '%__global_ldflags'" -a -v %{?**};
+        GO111MODULE=off go build -buildmode pie -compiler gc -tags="rpm_crashtraceback libtrust_openssl ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -compressdwarf=false -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '%__global_ldflags'" -a -v %{?**};
 %else
 %if ! 0%{?gobuild:1}
+%if 0%{?suse_version}
+%define gobuild(o:) GO111MODULE=off go build -buildmode pie -compiler gc -tags="rpm_crashtraceback ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '-Wl,-z,relro -Wl,-z,now '" -a -v %{?**};
+%else
 %define gobuild(o:) GO111MODULE=off go build -buildmode pie -compiler gc -tags="rpm_crashtraceback ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '-Wl,-z,relro -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld '" -a -v %{?**};
+%endif
 %endif
 %endif
 
 Name: foreman_ygg_worker
 Version: 0.2.2
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 1%{?dist}
+Release: 4%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
@@ -34,8 +38,19 @@ Url: https://github.com/%{repo_orgname}/%{repo_name}/
 %endif
 ExclusiveArch: %{go_arches}
 
+%if 0%{?suse_version}
+BuildRequires: go
+%else
 BuildRequires: golang
-Requires: yggdrasil
+%endif
+
+# Use rich dependencies if available
+%if 0%{?rhel} >= 8 || 0%{?fedora}
+Requires: (yggdrasil >= 0.2 with yggdrasil < 0.3)
+%else
+Requires: yggdrasil >= 0.2
+Conflicts: yggdrasil >= 0.3
+%endif
 
 %description
 Worker service for yggdrasil that can act as pull client for Foreman Remote Execution.
@@ -45,8 +60,9 @@ Worker service for yggdrasil that can act as pull client for Foreman Remote Exec
 
 %build
 mkdir -p _gopath/src
-ln -fs $(pwd)/src _gopath/src/%{name}-%{version}
+cp -av $(pwd)/src _gopath/src/%{name}-%{version}
 ln -fs $(pwd)/vendor _gopath/src/%{name}-%{version}/vendor
+ln -fs $(pwd)/go.mod _gopath/src/%{name}-%{version}/go.mod
 export GOPATH=$(pwd)/_gopath
 pushd _gopath/src/%{name}-%{version}
 %{gobuild}
@@ -64,12 +80,27 @@ env = []
 EOF
 
 %files
+%if 0%{?suse_version}
+%dir %{yggdrasil_libexecdir}
+%dir %{_root_sysconfdir}/yggdrasil
+%dir %{yggdrasil_worker_conf_dir}
+%endif
 %{yggdrasil_libexecdir}/%{name}
 %{yggdrasil_worker_conf_dir}/foreman.toml
 %license LICENSE
 %doc README.md
 
 %changelog
+* Wed Sep 11 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.2.2-4
+- Narrow yggdrasil version requirement
+
+* Thu Aug 01 2024 Markus Bucher <bucher@atix.de> - 0.2.2-3
+- Fixes for opensuse build service
+- Require go and disable hardened go linker on SLES
+
+* Fri Nov 10 2023 Bernhard Suttner <suttner@atix.de> - 0.2.2-2
+- Fix build on CentOS 9-stream
+
 * Fri Oct 13 2023 Eric D. Helms <ericdhelms@gmail.com> - 0.2.2-1
 - Release 0.2.2
 

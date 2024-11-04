@@ -2,7 +2,7 @@
 %global gem_name pulpcore_client
 
 Name: rubygem-%{gem_name}
-Version: 3.39.5
+Version: 3.63.1
 Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
@@ -62,6 +62,39 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 1:3.63.1-1
+- Update to 3.63.1
+
+* Sun Oct 20 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.49.22-1
+- Update to 3.49.22
+
+* Sun Oct 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.49.21-1
+- Update to 3.49.21
+
+* Sun Aug 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.49.17-1
+- Update to 3.49.17
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.49.16-1
+- Update to 3.49.16
+
+* Mon May 06 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.49.6-1
+- Update to 3.49.6
+
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.49.5-1
+- Update to 3.49.5
+
+* Wed Mar 27 2024 sajha <sajha> - 1:3.49.3-1
+- Update to 3.49.3
+
+* Wed Jan 31 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.39.9-1
+- Update to 3.39.9
+
+* Sun Jan 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.39.8-1
+- Update to 3.39.8
+
+* Thu Jan 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.39.6-1
+- Update to 3.39.6
+
 * Wed Jan 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.39.5-1
 - Update to 3.39.5
 

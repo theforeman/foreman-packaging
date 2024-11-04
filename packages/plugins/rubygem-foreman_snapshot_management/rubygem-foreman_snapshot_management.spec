@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_snapshot_management
 %global plugin_name snapshot_management
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 3.0.0
+Version: 4.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for machines on virtualization-platforms
 License: GPLv3
@@ -24,11 +24,10 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: npm(@theforeman/builder) >= 4.0.0
+BuildRequires: npm(@theforeman/builder) >= 12.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -89,6 +88,15 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Oct 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.0.0-1
+- Update to 4.0.0
+
+* Wed Apr 17 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.1-1
+- Update to 3.0.1
+
+* Wed Mar 27 2024 Evgeni Golov - 3.0.0-2
+- Rebuild for Webpack 5
+
 * Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
 - Update to 3.0.0
 

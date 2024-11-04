@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.2
+Version: 1.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Rh Cloud plugin for Hammer CLI
 Group: Development/Languages
@@ -18,10 +18,13 @@ URL: https://github.com/theforeman/hammer-cli-foreman-rh-cloud
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -84,6 +87,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Thu Sep 19 2024 Chris Roberts <chrobert@redhat.com> - 1.0.3-1
+- Update to 1.0.3
+
 * Mon Oct 09 2023 Chris Roberts <chrobert@redhat.com> 1.0.2-1
 - Update to 1.0.2
 

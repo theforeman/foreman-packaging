@@ -2,7 +2,7 @@
 %global gem_name method_source
 
 Name: rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.1.0
 Release: 1%{?dist}
 Summary: retrieve the sourcecode for a method
 License: MIT
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.0-1
+- Update to 1.1.0
+
 * Tue Jul 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.0.0-1
 - Update to 1.0.0
 

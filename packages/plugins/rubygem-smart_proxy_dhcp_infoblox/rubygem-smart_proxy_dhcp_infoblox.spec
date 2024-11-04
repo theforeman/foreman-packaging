@@ -16,7 +16,7 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.17
+Version: 0.0.18
 Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
@@ -104,6 +104,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 19 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.18-1
+- Update to 0.0.18
+
 * Sun Sep 25 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.0.17-1
 - Update to 0.0.17
 

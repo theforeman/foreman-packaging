@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 3.9
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 9.0.1
+Version: 10.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
@@ -19,7 +19,7 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(dynflow) >= 1.8.0
+BuildRequires: rubygem(dynflow) >= 1.9.0
 BuildRequires: (rubygem(fugit) >= 1.8 with rubygem(fugit) < 2)
 BuildRequires: rubygem(get_process_mem)
 BuildRequires: rubygem(sinatra)
@@ -77,6 +77,8 @@ cp -a .%{gem_dir}/* \
 
 # the gem_name is foreman-tasks, but the assets are actually in both foreman-tasks and foreman_tasks
 ln -s %{gem_instdir}/public/assets/foreman_tasks  %{buildroot}%{foreman_dir}/public/assets/foreman_tasks
+mkdir -p %{buildroot}%{foreman_dir}/public/webpack
+ln -s %{gem_instdir}/public/webpack/foreman_tasks %{buildroot}%{foreman_dir}/public/webpack/foreman_tasks
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
@@ -135,8 +137,8 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_assets_foreman}
 %{gem_instdir}/public/assets/foreman_tasks/
 %{foreman_dir}/public/assets/foreman_tasks
-%{foreman_webpack_plugin}
-%{foreman_webpack_foreman}
+%{gem_instdir}/public/webpack/foreman_tasks/
+%{foreman_dir}/public/webpack/foreman_tasks
 
 %files doc
 %doc %{gem_docdir}
@@ -150,6 +152,36 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 30 2024 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.1-1
+- Update to 10.0.1
+
+* Wed Sep 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.0-1
+- Update to 10.0.0
+
+* Wed Jul 24 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.2.3-1
+- Update to 9.2.3
+
+* Wed Jul 17 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.2.2-1
+- Update to 9.2.2
+
+* Wed Jul 10 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.2.1-1
+- Update to 9.2.1
+
+* Wed Jun 12 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.2.0-1
+- Update to 9.2.0
+
+* Tue Mar 19 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.1.1-1
+- Update to 9.1.1
+
+* Wed Feb 14 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.1.0-1
+- Update to 9.1.0
+
+* Mon Jan 29 2024 Evgeni Golov - 9.0.2-2
+- Update for Webpack 5
+
+* Wed Jan 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 9.0.2-1
+- Update to 9.0.2
+
 * Wed Jan 10 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.0.1-1
 - Update to 9.0.1
 

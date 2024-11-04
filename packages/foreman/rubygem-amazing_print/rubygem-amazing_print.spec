@@ -2,7 +2,7 @@
 %global gem_name amazing_print
 
 Name: rubygem-%{gem_name}
-Version: 1.5.0
+Version: 1.6.0
 Release: 1%{?dist}
 Summary: Pretty print Ruby objects with proper indentation and colors
 License: MIT
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun May 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.6.0-1
+- Update to 1.6.0
+
 * Thu Jun 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.5.0-1
 - Update to 1.5.0
 

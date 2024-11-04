@@ -68,6 +68,12 @@ if [[ -z $2 ]] ; then
 	fi
 else
 	NEW_VERSION=$2
+
+	if [[ $NEW_VERSION == "CONFLICT" ]] ; then
+		echo "${PACKAGE_NAME}: requested with a conflict."
+		echo "This means multiple packages requested different versions"
+		exit 1
+	fi
 fi
 
 if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then

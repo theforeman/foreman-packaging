@@ -1,31 +1,19 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name deface
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.5.3
-Release: 3%{?dist}
+Name: rubygem-%{gem_name}
+Version: 1.9.0
+Release: 1%{?dist}
 Summary: Deface is a library that allows you to customize ERB, Haml and Slim views in Rails
-Group: Development/Languages
 License: MIT
-URL: https://github.com/spree/deface
+URL: https://github.com/spree/deface#readme
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6
-Requires: %{?scl_prefix}rubygem(rails) >= 4.1
-Requires: %{?scl_prefix}rubygem(rainbow) >= 2.1.0
-Requires: %{?scl_prefix}rubygem(polyglot)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -34,36 +22,23 @@ Rails application without editing the underlying view.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -72,12 +47,12 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/Appraisals
 %license %{gem_instdir}/MIT-LICENSE
+%{gem_instdir}/bin
 %exclude %{gem_instdir}/gemfiles
-%{gem_instdir}/init.rb
 %{gem_libdir}
 %{gem_instdir}/tasks
 %exclude %{gem_cache}
@@ -87,13 +62,17 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.markdown
+%doc %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.markdown
 %{gem_instdir}/Rakefile
-%{gem_instdir}/deface.gemspec
+%exclude %{gem_instdir}/deface.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Thu Feb 08 2024 Evgeni Golov - 1.9.0-1
+- Update to 1.9.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.5.3-3
 - Rebuild for Ruby 2.7
 

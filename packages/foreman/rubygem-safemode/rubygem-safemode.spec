@@ -2,7 +2,7 @@
 %global gem_name safemode
 
 Name: rubygem-%{gem_name}
-Version: 1.4.0
+Version: 1.5.0
 Release: 1%{?dist}
 Summary: A library for safe evaluation of Ruby code based on ParseTree/RubyParser and Ruby2Ruby
 License: MIT
@@ -11,9 +11,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: ruby >= 2.7
-Requires: ruby < 3.1
+Requires: ruby < 3.2
 BuildRequires: ruby >= 2.7
-BuildRequires: ruby < 3.1
+BuildRequires: ruby < 3.2
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 19 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.0-1
+- Update to 1.5.0
+
 * Thu Dec 14 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.4.0-1
 - Update to 1.4.0
 

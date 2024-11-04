@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_openscap
 %global plugin_name openscap
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 7.1.1
+Version: 10.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 License: GPLv3
@@ -90,6 +90,39 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 30 2024 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.1-1
+- Update to 10.0.1
+
+* Fri Sep 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.0-1
+- Update to 10.0.0
+
+* Tue Jul 30 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.0.4-1
+- Update to 9.0.4
+
+* Wed Jul 17 2024 Oleh Fedorenko <ofedoren@redhat.com> - 9.0.3-1
+- Update to 9.0.3
+
+* Wed Jul 10 2024 Oleh Fedorenko <ofedoren@redhat.com> - 9.0.2-1
+- Update to 9.0.2
+
+* Thu Jun 20 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.0.1-1
+- Update to 9.0.1
+
+* Thu May 30 2024 Adam Ruzicka <aruzicka@redhat.com> - 9.0.0-1
+- Update to 9.0.0
+
+* Wed May 22 2024 Oleh Fedorenko <ofedoren@redhat.com> - 8.0.2-1
+- Update to 8.0.2
+
+* Wed May 15 2024 Oleh Fedorenko <ofedoren@redhat.com> - 8.0.1-1
+- Update to 8.0.1
+
+* Fri Apr 26 2024 Oleh Fedorenko <ofedoren@redhat.com> - 8.0.0-1
+- Update to 8.0.0
+
+* Wed Jan 31 2024 Evgeni Golov - 7.1.1-2
+- Rebuild for Webpack 5
+
 * Wed Jan 10 2024 Adam Ruzicka <aruzicka@redhat.com> - 7.1.1-1
 - Update to 7.1.1
 

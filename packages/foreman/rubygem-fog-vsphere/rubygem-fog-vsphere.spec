@@ -2,7 +2,7 @@
 %global gem_name fog-vsphere
 
 Name: rubygem-%{gem_name}
-Version: 3.6.2
+Version: 3.7.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 License: MIT
@@ -47,20 +47,15 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.rubocop_todo.yml
-%{gem_instdir}/Jenkinsfile
 %license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
+%exclude %{gem_instdir}/tests
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
@@ -68,6 +63,21 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/fog-vsphere.gemspec
 
 %changelog
+* Wed Jul 31 2024 Chris Roberts <chrobert@redhat.com> - 3.7.0-1
+- Update to 3.7.0
+
+* Mon Jul 15 2024 Chris Roberts <chrobert@redhat.com> - 3.6.7-1
+- Update to 3.6.7
+
+* Thu Apr 11 2024 Chris Roberts <chrobert@redhat.com> - 3.6.5-1
+- Update to 3.6.5
+
+* Mon Mar 04 2024 Chris Roberts <chrobert@redhat.com> - 3.6.4-1
+- Update to 3.6.4
+
+* Tue Jan 16 2024 Chris Roberts <chrobert@redhat.com> - 3.6.3-1
+- Update to 3.6.3
+
 * Sun Jul 02 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.6.2-1
 - Update to 3.6.2
 

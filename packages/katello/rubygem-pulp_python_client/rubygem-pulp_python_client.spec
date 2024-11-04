@@ -2,7 +2,7 @@
 %global gem_name pulp_python_client
 
 Name: rubygem-%{gem_name}
-Version: 3.10.0
+Version: 3.12.5
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -60,6 +60,21 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 3.12.5-1
+- Update to 3.12.5
+
+* Wed Oct 16 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.11.3-1
+- Update to 3.11.3
+
+* Tue Jul 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.11.2-1
+- Update to 3.11.2
+
+* Sun Apr 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.11.1-1
+- Update to 3.11.1
+
+* Wed Mar 27 2024 sajha <sajha> - 3.11.0-1
+- Update to 3.11.0
+
 * Fri Aug 04 2023 ianballou <ianballou67@gmail.com> 3.10.0-1
 - Update to 3.10.0
 

@@ -2,7 +2,7 @@
 %global gem_name parallel
 
 Name: rubygem-%{gem_name}
-Version: 1.23.0
+Version: 1.26.3
 Release: 1%{?dist}
 Summary: Run any kind of code in parallel processes
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/grosser/parallel
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -56,6 +56,15 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Thu Aug 22 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.26.3-1
+- Update to 1.26.3
+
+* Sun Jul 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.25.1-1
+- Update to 1.25.1
+
+* Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.24.0-1
+- Update to 1.24.0
+
 * Thu May 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.23.0-1
 - Update to 1.23.0
 

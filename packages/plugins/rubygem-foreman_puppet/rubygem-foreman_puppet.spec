@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_puppet
 %global plugin_name puppet
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 6.1.1
+Version: 8.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
@@ -15,8 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -90,6 +92,27 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Sep 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 8.0.0-1
+- Update to 8.0.0
+
+* Thu Sep 05 2024 Evgeni Golov - 7.0.0-2
+- Rebuild against Foreman nightly
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.0-1
+- Update to 7.0.0
+
+* Tue May 07 2024 Evgeni Golov - 6.3.0-2
+- Rebuild for Webpack asset compression
+
+* Sun Apr 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.3.0-1
+- Update to 6.3.0
+
+* Sun Feb 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.2.0-1
+- Update to 6.2.0
+
+* Fri Jan 26 2024 Evgeni Golov - 6.1.1-2
+- Rebuild for Webpack 5
+
 * Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.1.1-1
 - Update to 6.1.1
 

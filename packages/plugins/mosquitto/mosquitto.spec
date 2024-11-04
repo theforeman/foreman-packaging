@@ -2,7 +2,7 @@
 %bcond_with websockets
 
 Name:           mosquitto
-Version:        2.0.17
+Version:        2.0.19
 Release:        1%{?dist}
 Summary:        Open Source MQTT v5/v3.1.x Broker
 
@@ -120,6 +120,9 @@ exit 0
 %{_mandir}/man3/libmosquitto.3.*
 
 %changelog
+* Mon Oct 14 2024 Eric D. Helms <ericdhelms@gmail.com> - 2.0.19-1
+- Build 2.0.19
+
 * Thu Sep 07 2023 Eric D. Helms <ericdhelms@gmail.com> - 2.0.17-1
 - Release 2.0.17
 

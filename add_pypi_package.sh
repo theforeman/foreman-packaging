@@ -2,11 +2,27 @@
 
 PYPI_NAME=$1
 VERSION=${2:-auto}
-KOJI_TAG=${3:-foreman-nightly-el8}
-DISTRO=${KOJI_TAG##*-}
-BASE_DIR=${4:-foreman}
-TEMPLATE=${5:-fedora}
+BASE_DIR=${3:-foreman}
+TEMPLATE=${4:-fedora}
 BASE_PYTHON=3
+
+case $BASE_DIR in
+  client)
+    MANIFEST_SECTION="foreman_client_packages"
+    ;;
+  foreman)
+    MANIFEST_SECTION="foreman_core_packages"
+    ;;
+  katello)
+    MANIFEST_SECTION="katello_packages"
+    ;;
+  plugins)
+    MANIFEST_SECTION="foreman_plugin_packages"
+    ;;
+  *)
+    MANIFEST_SECTION=""
+    ;;
+esac
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
 
@@ -19,7 +35,7 @@ fi
 PACKAGE_NAME=${PACKAGE_PREFIX}$(echo ${PYPI_NAME} |tr '[A-Z].' '[a-z]-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
-SCRIPT_ROOT=$(dirname $(readlink -f $0))
+SCRIPT_ROOT=$(dirname "$(readlink -f "$0")")
 
 program_exists() {
   which "$@" &> /dev/null
@@ -71,44 +87,24 @@ generate_pypi_package() {
   echo "FINISHED"
 }
 
-add_pypi_to_comps() {
-  local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
-  if [[ $KOJI_TAG == katello-* ]]; then
-    local comps_file="katello-server"
-  else
-    local comps_file="foreman"
-  fi
-
-  for comps_package in ${comps_packages}; do
-    if [[ $comps_package != *-debuginfo ]] && [[ $comps_package != *-debugsource ]] ; then
-      ${SCRIPT_ROOT}/add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package
-    fi
-  done
-  ${SCRIPT_ROOT}/comps_doc.sh
+add_to_comps() {
+  "${SCRIPT_ROOT}/add_spec_to_comps" "$PACKAGE_DIR"/*.spec
   git add comps/
 }
 
-add_pypi_to_manifest() {
-	if [[ $KOJI_TAG == "foreman-nightly-el8" ]] ; then
-		local section="foreman_core_packages"
-	elif [[ $KOJI_TAG == "foreman-plugins-nightly-el8" ]] ; then
-		local section="foreman_plugin_packages"
-	elif [[ $KOJI_TAG == "katello-nightly-el8" ]] ; then
-		local section="katello_packages"
-	else
-		# TODO: client packages
-		local section=""
-	fi
+add_to_package_manifest() {
+  local package="${PACKAGE_NAME}"
+  local section="${MANIFEST_SECTION}"
 
-	if [[ -n $section ]] ; then
-		${SCRIPT_ROOT}/add_host.py "$section" "$PACKAGE_NAME"
-		git add package_manifest.yaml
-	else
-		echo "TODO: Add the package into the right section"
-		echo "${SCRIPT_ROOT}/add_host.py SECTION '$PACKAGE_NAME'"
-		echo "git add package_manifest.yaml"
-		echo "git commit --amend --no-edit"
-	fi
+  if [[ -n $section ]] ; then
+    "${SCRIPT_ROOT}"/add_host.py "$section" "$package"
+    git add package_manifest.yaml
+  else
+    echo "TODO: Add the package into the right section"
+    echo "${SCRIPT_ROOT}/add_host.py SECTION '$package'"
+    echo "git add package_manifest.yaml"
+    echo "git commit --amend --no-edit"
+  fi
 }
 
 pypi_info() {
@@ -119,7 +115,7 @@ pypi_info() {
 
 if [[ -z $PYPI_NAME ]]; then
   echo "This script adds a new python package based on the module found on pypi.org"
-  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [KOJI_TAG [PACKAGE_SUBDIR [TEMPLATE]]] \n"
+  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [PACKAGE_SUBDIR [TEMPLATE]] \n"
   echo "VERSION is optional but can be an exact version number or auto to use the latest version"
   exit 1
 fi
@@ -157,10 +153,10 @@ if [[ $UPDATE == true ]] ; then
 else
   generate_pypi_package
   echo -e "Updating comps... - "
-  add_pypi_to_comps
+  add_to_comps
   echo "FINISHED"
   echo -e "Updating manifest... - "
-  add_pypi_to_manifest
+  add_to_package_manifest
   echo "FINISHED"
   git commit -m "Add $PACKAGE_NAME package"
 fi

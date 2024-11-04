@@ -1,39 +1,27 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name foreman_kubevirt
 %global plugin_name kubevirt
-%global foreman_min_version 1.24.0
+%global foreman_min_version 3.7
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.9
-Release: 5%{?foremandist}%{?dist}
+Name: rubygem-%{gem_name}
+Version: 0.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
-Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_kubevirt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Autoreq: 0
-
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3.3
-Requires: %{?scl_prefix}rubygem(fog-kubevirt) < 1.4
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3.3
-BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) < 1.4
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+Requires: ruby < 4.0
+BuildRequires: ruby >= 2.5
+BuildRequires: ruby < 4.0
+BuildRequires: rubygems-devel
+BuildRequires: (rubygem(fog-kubevirt) >= 1.3.3 with rubygem(fog-kubevirt) < 1.4)
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -42,36 +30,23 @@ Provision and manage Kubevirt Virtual Machines from Foreman.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -104,6 +79,12 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Mar 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.0-1
+- Update to 0.2.0
+
+* Sun Mar 10 2024 nofaralfasi <nalfassi@redhat.com> 0.1.9-6
+- Regenerate spec file based on the latest template
+
 * Wed Aug 24 2022 Evgeni Golov - 0.1.9-5
 - Refs #35409 - Include sprockets assets
 

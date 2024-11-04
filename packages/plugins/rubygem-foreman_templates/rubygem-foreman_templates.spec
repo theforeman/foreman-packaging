@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_templates
 %global plugin_name templates
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 9.4.0
+Version: 10.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Template-syncing engine for Foreman
 License: GPLv3
@@ -16,24 +16,21 @@ Requires: rubygem(git) >= 1.18.0
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
-BuildArch: noarch
-Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: rubygem(diffy)
 BuildRequires: rubygem(git)
+BuildArch: noarch
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(@babel/core) >= 7.7.0
-BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 12.0.1
-BuildRequires: npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: npm(identity-obj-proxy) < 4.0.0
+BuildRequires: (npm(identity-obj-proxy) >= 3.0.0 with npm(identity-obj-proxy) < 4.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -97,6 +94,24 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 30 2024 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.1-1
+- Update to 10.0.1
+
+* Thu Sep 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.0-1
+- Update to 10.0.0
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 9.5.1-1
+- Update to 9.5.1
+
+* Wed Jul 10 2024 Oleh Fedorenko <ofedoren@redhat.com> - 9.5.0-1
+- Update to 9.5.0
+
+* Tue May 07 2024 Evgeni Golov - 9.4.0-3
+- Rebuild for Webpack asset compression
+
+* Wed Jan 31 2024 Evgeni Golov - 9.4.0-2
+- Rebuild for Webpack 5
+
 * Thu May 25 2023 Oleh Fedorenko <ofedoren@redhat.com> 9.4.0-1
 - Update to 9.4.0-1
 
