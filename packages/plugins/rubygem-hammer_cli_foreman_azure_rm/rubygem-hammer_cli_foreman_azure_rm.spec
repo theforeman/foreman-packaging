@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.3.1
+Version: 0.3.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman AzureRM commands for Hammer CLI
 License: GPLv3
@@ -13,10 +13,13 @@ URL: https://github.com/theforeman/hammer_cli_foreman_azure_rm
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -66,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon Nov 04 2024 Chris Roberts <chrobert@redhat.com> - 0.3.2-1
+- Update to 0.3.2
+
 * Mon Mar 25 2024 Leos Stejskal <lstejska@redhat.com> 0.3.1-1
 - Update to 0.3.1-1
 
