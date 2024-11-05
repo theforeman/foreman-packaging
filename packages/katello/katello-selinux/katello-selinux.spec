@@ -53,11 +53,7 @@ Requires(postun):   /sbin/restorecon
 
 Obsoletes: crane-selinux < 4.0.0
 
-%if 0%{?rhel} == 7
-Requires(post):     policycoreutils-python
-%else
 Requires(post):     policycoreutils-python-utils
-%endif
 
 %description
 SELinux policy module for Katello
