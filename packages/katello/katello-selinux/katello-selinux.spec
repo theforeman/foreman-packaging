@@ -62,17 +62,9 @@ SELinux policy module for Katello
 %setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
-# determine distribution name and version
-%if 0%{?rhel} >= 6
-%define distver rhel%{rhel}
-%endif
-%if 0%{?fedora} >= 18
-%define distver fedora%{fedora}
-%endif
-
 # build policy
 for selinuxvariant in %{selinux_variants}; do
-    make clean all NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
+    make clean all NAME=${selinuxvariant} VERSION=%{version} INSTPREFIX=%{buildroot}
     for selinuxmodule in %{selinux_modules}; do
         mv ${selinuxmodule}.pp.bz2 ${selinuxmodule}-${selinuxvariant}.pp.bz2
     done
@@ -89,7 +81,7 @@ for selinuxvariant in %{selinux_variants}; do
 done
 
 # install the rest
-make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
+make clean install-data NAME=${selinuxvariant} VERSION=%{version} INSTPREFIX=%{buildroot}
 
 %post
 # install and upgrade
