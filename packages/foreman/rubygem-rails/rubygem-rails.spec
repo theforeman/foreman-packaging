@@ -2,7 +2,7 @@
 %global gem_name rails
 
 Name: rubygem-%{gem_name}
-Version: 6.1.7.10
+Version: 7.0.8.6
 Release: 1%{?dist}
 Summary: Full-stack web application framework
 License: MIT
@@ -48,6 +48,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/MIT-LICENSE
 
 %exclude %{gem_cache}
 %{gem_spec}
@@ -57,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 06 2024 Evgeni Golov - 7.0.8.6-1
+- Release rubygem-rails 7.0.8.6
+
 * Sun Oct 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.1.7.10-1
 - Update to 6.1.7.10
 
