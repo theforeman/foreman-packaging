@@ -6,3 +6,6 @@
 /plugins/*bootdisk/ @theforeman/packaging @theforeman/bootdisk
 /dependencies/*/*bootdisk/ @theforeman/packaging @theforeman/bootdisk
 /plugins/*snapshot-management/ @theforeman/packaging @theforeman/atix
+/plugins/*puppet/ @theforeman/packaging @theforeman/puppet
+/plugins/*salt/ @theforeman/packaging @theforeman/salt
+/plugins/*fog-proxmox/ @theforeman/packaging @theforeman/proxmox
