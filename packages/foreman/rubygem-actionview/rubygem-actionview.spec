@@ -2,7 +2,7 @@
 %global gem_name actionview
 
 Name: rubygem-%{gem_name}
-Version: 6.1.7.10
+Version: 7.0.8.6
 Release: 1%{?dist}
 Summary: Rendering framework putting the V in MVC (part of Rails)
 License: MIT
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Nov 06 2024 Evgeni Golov - 7.0.8.6-1
+- Release rubygem-actionview 7.0.8.6
+
 * Sun Oct 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 6.1.7.10-1
 - Update to 6.1.7.10
 
