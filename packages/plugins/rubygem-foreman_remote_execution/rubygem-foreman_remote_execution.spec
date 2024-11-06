@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 14.0.2
+Version: 14.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
@@ -117,11 +117,8 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/foreman_remote_execution.gemspec
-%{gem_instdir}/test
 
 %files cockpit
 %{_sbindir}/foreman-cockpit-session
@@ -134,6 +131,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 06 2024 aruzicka - 14.1.0-1
+- Release rubygem-foreman_remote_execution 14.1.0
+
 * Wed Oct 30 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.0.2-1
 - Update to 14.0.2
 
