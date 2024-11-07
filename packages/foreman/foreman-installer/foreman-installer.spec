@@ -1,5 +1,5 @@
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Nov 07 2024 Patrick Creech <pcreech@redhat.com> - 1:3.13.0-0.2.rc1
+- Release foreman-installer 3.13.0rc1
+
 * Thu Oct 24 2024 Evgeni Golov - 1:3.13.0-0.2.develop
 - Require kafo >= 7.6
 
