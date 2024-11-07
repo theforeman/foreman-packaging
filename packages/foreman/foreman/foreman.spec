@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -863,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Nov 07 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.rc1
+- Release foreman 3.13.0rc1
+
 * Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.develop
 - Bump version to 3.13-develop
 
