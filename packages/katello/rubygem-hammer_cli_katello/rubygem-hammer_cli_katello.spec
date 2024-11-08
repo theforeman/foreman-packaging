@@ -9,7 +9,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 1.15.0
+Version: 1.16.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 License: GPLv3
@@ -73,6 +73,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Nov 08 2024 Ian Ballou <ianballou67@gmail.com> - 1.16.0-0.1.pre.main
+- Bump version to 1.16.0
+
 * Tue Aug 20 2024 Evgeni Golov - 1.15.0-0.1.pre.main
 - Bump version to 1.15.0
 - Use main instead of master
