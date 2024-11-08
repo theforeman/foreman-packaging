@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.13
-%global foreman_max_version 3.14
+%global foreman_min_version 3.14
+%global foreman_max_version 3.15
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.15.0
-%global release 3
+%global mainver 4.16.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri Nov 08 2024 Ian Ballou <ianballou67@gmail.com> - 4.16.0-0.1.pre.master
+- Bump version to 4.16.0
+
 * Mon Nov 04 2024 Ian Ballou <ianballou67@gmail.com> - 4.15.0-0.3.pre.master
 - Bump Pulp Container API bindings requirement lower bound to 2.22.0
 
