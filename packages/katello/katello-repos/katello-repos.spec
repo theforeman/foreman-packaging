@@ -7,7 +7,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        4.14.0
+Version:        4.14.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -71,6 +71,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Mon Nov 11 2024 Patrick Creech <pcreech@redhat.com> - 4.14.1-1
+- Release katello-repos 4.14.1
+
 * Thu Sep 19 2024 Patrick Creech <pcreech@redhat.com> - 4.14.0-1
 - Release katello-repos 4.14.0
 
