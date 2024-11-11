@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
 Version: 202102220000
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -73,6 +73,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Mon Nov 11 2024 Evgeni Golov 202102220000-4
+- Don't fail if shim-ia32 is missing
+
 * Sat Mar 23 2024 Eric D. Helms <ericdhelms@gmail.com> 202102220000-3
 - Only requires shim-ia32 on RHEL 8 or less
 
