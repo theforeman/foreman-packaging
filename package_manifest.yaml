@@ -161,7 +161,6 @@ other_core_packages:
     dynflow-utils: {}
     foreman-bootloaders-redhat: {}
     foreman-obsolete-packages: {}
-    keycloak-httpd-client-install: {}
     pcp-mmvstatsd: {}
     python-websockify: {}
 
