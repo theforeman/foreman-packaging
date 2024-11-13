@@ -6,8 +6,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: rubygem-%{gem_name}
-Version: 1.8.1
-Release: 2%{?dist}
+Version: 1.8.2
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -115,6 +115,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.8.2-1
+- Update to 1.8.2
+
 * Thu Oct 24 2024 Evgeni Golov - 1:1.8.1-2
 - Conflict satellite-maintain < 0.0.3
 
