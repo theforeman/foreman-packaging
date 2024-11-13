@@ -90,7 +90,6 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %dir %{gem_instdir}
 %{_bindir}/foreman-maintain
 %{_bindir}/foreman-maintain-complete
-%{_bindir}/foreman-maintain-rotate-tar
 %{_sysconfdir}/bash_completion.d/%{gem_name}
 %{gem_instdir}/bin
 %{gem_instdir}/definitions
