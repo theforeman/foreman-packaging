@@ -1,80 +1,66 @@
-# Template for Rubygem's spec file
-# It should work with f18, f19, rhel6 and rhel6 with SCL
-
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name angular-rails-templates
 
-Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   1.1.0
-Release:   2%{?dist}
+Name:      rubygem-%{gem_name}
+Version:   1.2.2
+Release:   1%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
-Group:     Development/Languages
 License:   MIT
 URL:       https://github.com/pitr/angular-rails-templates
 Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Patch0:    enable-fips.patch
 
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-
-Requires:  %{?scl_prefix_ruby}ruby(rubygems)
-Requires:  %{?scl_prefix}rubygem(railties) >= 4.2
-Requires:  %{?scl_prefix}rubygem(railties) < 7
-Requires:  %{?scl_prefix}rubygem(sprockets) >= 3.0
-Requires:  %{?scl_prefix}rubygem(sprockets) < 5
-Requires:  %{?scl_prefix}rubygem(tilt)
-Requires:  %{?scl_prefix_ruby}ruby(release)
-
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
+# end specfile generated dependencies
 
 %description
-Adds your HTML templates into Angular's $templateCache using Rails asset pipeline.
-It removes the need for AJAX calls to retrieve the templates (or for you to manually set them into the DOM).
+Use your angular templates with rails' asset pipeline.
+
 
 %package doc
 BuildArch:  noarch
 Requires:   %{name} = %{epoch}:%{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for %{name}
 
 %description doc
-This package contains documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
-
-pushd .%{gem_instdir}
-%patch0 -p1
-popd
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/vendor/assets/javascripts/angular-rails-templates.js.erb
-%{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
+%{gem_libdir}
+%{gem_instdir}/vendor
 %exclude %{gem_cache}
 %{gem_spec}
-%{gem_libdir}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 19 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.2.2-1
+- Update to 1.2.2
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:1.1.0-2
 - Rebuild for Ruby 2.7
 
