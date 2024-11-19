@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.16.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -55,7 +55,7 @@ BuildRequires: (rubygem(pulp_certguard_client) >= 3.63.1 with rubygem(pulp_certg
 BuildRequires: (rubygem(pulp_python_client) >= 3.12.5 with rubygem(pulp_python_client) < 3.13.0)
 BuildRequires: (rubygem(pulp_ostree_client) >= 2.4.4 with rubygem(pulp_ostree_client) < 2.5.0)
 BuildRequires: (rubygem(deface) >= 1.0.2 with rubygem(deface) < 2.0.0)
-BuildRequires: (rubygem(angular-rails-templates) >= 1.1.0 with rubygem(angular-rails-templates) < 1.2)
+BuildRequires: (rubygem(angular-rails-templates) >= 1.1 with rubygem(angular-rails-templates) < 2)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -168,6 +168,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Nov 19 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.16.0-0.2.pre.master
+- Update angular-rails-templates dependency
+
 * Fri Nov 08 2024 Ian Ballou <ianballou67@gmail.com> - 4.16.0-0.1.pre.master
 - Bump version to 4.16.0
 
