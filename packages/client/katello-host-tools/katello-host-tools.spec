@@ -1,98 +1,53 @@
-%global dnf_install ((0%{?rhel} > 7) || (0%{?fedora} > 26))
-%global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
-%global zypper_install (0%{?suse_version} > 0)
-%global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
-
-%if 0%{?suse_version}
-%define dist suse%{?suse_version}
-%endif
-
-%if %{dnf_install}
-%global python_libdir %{python3_sitelib}
-%global plugins_dir %{python3_sitelib}/dnf-plugins
-%global plugins_confdir %{_sysconfdir}/dnf/plugins
-%endif
-
-%if %{yum_install}
-%if 0%{?rhel} == 6
-%global python_libdir %{python_sitelib}
-%else
-%global python_libdir %{python2_sitelib}
-%endif
-%global plugins_dir %{_usr}/lib/yum-plugins
-%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
-%endif
+%global zypper_install 0%{?suse_version}
+%global dnf_install !%{zypper_install}
 
 %if %{zypper_install}
+%define dist suse%{?suse_version}
+
 %global python_libdir %{python_sitelib}
 %global plugins_dir %{_usr}/lib/zypp/plugins/commit/
 # Deploy yum plugin config to control reports
 %global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
+%else
+%global python_libdir %{python3_sitelib}
+%global plugins_dir %{python3_sitelib}/dnf-plugins
+%global plugins_confdir %{_sysconfdir}/dnf/plugins
 %endif
 
 %global katello_libdir %{python_libdir}/katello
 
 Name: katello-host-tools
 Version: 4.4.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
-%if 0%{?suse_version}
 License: LGPL-2.0
-%else
-License: LGPLv2
-%endif
 URL:     https://github.com/Katello/katello-host-tools
 Source0: https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 
-%if 0%{?suse_version} && 0%{?suse_version} < 1200
-# this needs to be BuildArch for Suse but
-# keeping it as ExclusiveArch to avoid lint errors
-ExclusiveArch: x86_64
-%else
 BuildArch: noarch
-%endif
 
 Requires: subscription-manager
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
 Obsoletes: katello-agent < %{version}-%{release}
 
-%if %{dnf_install} || 0%{?suse_version} >= 1500
-Requires: python3-subscription-manager-rhsm
-%else
-Requires: python-rhsm
-%endif
-
-%if 0%{?suse_version}
-%if 0%{?suse_version} >= 1500
-BuildRequires: python3-devel
-Requires: python3-zypp-plugin
-%else
+%if 0%{?suse_version} < 1500
 BuildRequires: python-devel >= 2.6
-Requires: python2-zypp-plugin
-%endif
-%else
-%if %{dnf_install}
-BuildRequires: python3-devel
-%else
-BuildRequires: python2-devel
-%endif
-%endif
-
-%if %{yum_install}
-Requires: python-setuptools
-%endif
-
-%if %{dnf_install} || 0%{?suse_version} >= 1500
-BuildRequires: python3-setuptools
-%else
 BuildRequires: python-setuptools
+Requires: python-rhsm
+Requires: python2-zypp-plugin
+%else
+BuildRequires: python3-devel
+BuildRequires: python3-setuptools
+Requires: python3-subscription-manager-rhsm
+%if 0%{?suse_version}
+Requires: python3-zypp-plugin
+%endif
 %endif
 
 %description
 A set of commands and yum plugins that support a Katello host including faster package profile uploading and bound repository reporting.  This is required for errata and package applicability reporting.
 
-%if %{build_tracer}
 %package tracer
 BuildArch:  noarch
 Summary:    Adds Tracer functionality to a client managed by katello-host-tools
@@ -102,17 +57,11 @@ Requires: %{name} = %{version}-%{release}
 Requires: cronie
 %else
 Requires: crontabs
-%endif
-%if %{yum_install}
-Requires: python2-tracer >= 0.6.12
-%endif
-%if %{dnf_install}
 Requires: python3-psutil
 %endif
 
 %description tracer
 Adds Tracer functionality to a client managed by katello-host-tools
-%endif
 
 %prep
 %setup -q
@@ -120,42 +69,27 @@ Adds Tracer functionality to a client managed by katello-host-tools
 %build
 rm -r src/apt_plugins
 rm -f src/katello/tracer/deb.py
+rm -r src/yum-plugins
 
-%if !%{dnf_install}
+%if %{zypper_install}
 rm -r src/dnf-plugins
 rm -f src/katello/tracer/dnf.py
 rm -f src/katello/tracer/SystemdDbus.py
-%endif
-
-%if !%{yum_install}
-rm -r src/yum-plugins
-%endif
-
-%if !%{zypper_install}
+%else
 rm -r src/zypper_plugins
 rm -f src/katello/tracer/zypper.py
 %endif
 
-%if %{build_tracer}
 %if %{dnf_install}
 # On DNF installs a small shell wrapper for "dnf katello-tracer-upload" is used
 sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
 %endif
-%else
-rm -r src/katello/tracer
-sed -i '/katello-tracer-upload=katello.scripts:tracer_upload/d' src/setup.py
-rm -f etc/yum/pluginconf.d/tracer_upload.conf
-%endif
 
 pushd src
-%if %{dnf_install} || 0%{?suse_version} >= 1500
-%py3_build
-%else
-%if 0%{?rhel} == 6 || 0%{?suse_version} < 1500
+%if 0%{?suse_version} < 1500
 %{__python} setup.py build
 %else
-%py_build
-%endif
+%py3_build
 %endif
 popd
 
@@ -163,32 +97,21 @@ popd
 rm -rf %{buildroot}
 
 pushd src
-%if %{dnf_install} || 0%{?suse_version} >= 1500
-%py3_install
-%else
-%if 0%{?rhel} == 6 || 0%{?suse_version} < 1500
+%if 0%{?suse_version} < 1500
 %{__python} setup.py install --root %{buildroot}
 %else
-%py_install
-%endif
+%py3_install
 %endif
 popd
 
 mkdir -p %{buildroot}%{_sbindir}
 mv %{buildroot}%{_bindir}/* %{buildroot}%{_sbindir}/
 
-%if %{dnf_install} || %{yum_install} || %{zypper_install}
 mkdir -p %{buildroot}%{plugins_confdir}
-%if %{dnf_install}
 cp etc/yum/pluginconf.d/tracer_upload.conf %{buildroot}%{plugins_confdir}/
-%else
-cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
-%endif
-%endif
-
-%if %{yum_install}
-mkdir -p %{buildroot}%{plugins_dir}
-cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
+%if %{zypper_install}
+cp etc/yum/pluginconf.d/enabled_repos_upload.conf %{buildroot}%{plugins_confdir}/
+cp etc/yum/pluginconf.d/package_upload.conf %{buildroot}%{plugins_confdir}/
 %endif
 
 %if %{zypper_install}
@@ -202,12 +125,10 @@ done
 %endif
 %endif
 
-%if %{build_tracer}
 # executables
 mkdir -p %{buildroot}%{_sbindir}
 %if %{dnf_install}
 cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
-%endif
 
 # crontab
 mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
@@ -217,7 +138,7 @@ cp extra/katello-tracer-upload.cron %{buildroot}%{_sysconfdir}/cron.d/katello-tr
 %clean
 rm -rf %{buildroot}
 
-%if %{yum_install} || %{zypper_install}
+%if %{zypper_install}
 %posttrans
 katello-package-upload 2> /dev/null
 katello-enabled-repos-upload 2> /dev/null
@@ -226,22 +147,15 @@ exit 0
 
 %files
 %defattr(-,root,root,-)
-%if 0%{?rhel} == 6
-%doc LICENSE
-%else
 %license LICENSE
-%endif
 
 %{katello_libdir}
 %{python_libdir}/katello_host_tools-*.egg-info
 %exclude %{katello_libdir}/contrib
-
-%if %{build_tracer}
 %exclude %{katello_libdir}/tracer
 %exclude %{plugins_dir}
-%endif
 
-%if %{yum_install} || %{zypper_install}
+%if %{zypper_install}
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
 %else
@@ -257,17 +171,11 @@ exit 0
 %exclude %{python_libdir}/zypper_plugins
 %endif
 
-%if %{yum_install}
-%{plugins_dir}
-%exclude %{python_libdir}/yum-plugins
-%endif
-
-%if %{yum_install} || %{zypper_install}
+%if %{zypper_install}
 %config(noreplace) %{plugins_confdir}/package_upload.conf
 %config(noreplace) %{plugins_confdir}/enabled_repos_upload.conf
 %endif
 
-%if %{build_tracer}
 %files tracer
 %defattr(-,root,root,-)
 %if %{zypper_install}
@@ -276,20 +184,18 @@ exit 0
 %dir %{plugins_dir}
 %{plugins_dir}/tracer_upload.py
 %else
-%if %{yum_install}
-%{plugins_dir}/tracer_upload.py*
-%else
 %pycached %{plugins_dir}/tracer_upload.py
-%endif
 %endif
 %{katello_libdir}/tracer
 %{plugins_confdir}/tracer_upload.conf
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
-%endif
 
 
 %changelog
+* Thu Nov 21 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.4.0-3
+- Drop EL7 support
+
 * Tue Sep 10 2024 Bernhard Suttner <suttner@atix.de> - 4.4.0-2
 - Fix build on Amazon Linux 2023
 
