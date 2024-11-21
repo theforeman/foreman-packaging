@@ -25,7 +25,6 @@ copr_projects:
       - python3.11
     rhel_9: '9'
     rhel_8: '8'
-    rhel_7: '7'
     puppet_baseurl: "https://yum.puppet.com/puppet{{ puppet_version }}"
     root_repo_url: "https://download.copr.fedorainfracloud.org/results/{{ copr_project_user }}"
     foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
@@ -79,11 +78,6 @@ copr_projects:
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_8 }}.xml"
           external_repos:
             - "{{ client_staging }}/rhel-{{ rhel_8 }}-x86_64"
-        - name: "rhel-{{ rhel_7 }}-x86_64"
-          external_repos:
-            - "https://archives.fedoraproject.org/pub/archive/epel/{{ rhel_7 }}/x86_64/"
-            - "{{ client_staging }}/rhel-{{ rhel_7 }}-x86_64"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-rhel{{ rhel_7 }}.xml"
         - name: "opensuse-leap-15.5-x86_64"
           external_repos:
             - "{{ client_staging }}/opensuse-leap-15.5-x86_64"
@@ -487,12 +481,9 @@ foreman_client_packages:
         - "el9-foreman-client-{{ foreman_version }}-staging"
       el8:
         - "el8-foreman-client-{{ foreman_version }}-staging"
-      el7:
-        - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
       el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
-      el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
       leap155:
         - leap155-oss
         - atix-sles155
@@ -872,18 +863,6 @@ repoclosures:
           - el8-epel
           - el8-extras
           - "el8-puppet-{{ puppet_version }}"
-    foreman-client-staging-repoclosure-el7:
-      repoclosure_target_repos:
-        el7:
-          - "el7-foreman-client-{{ foreman_version }}-staging"
-      repoclosure_target_dist: el7
-      repoclosure_lookaside_repos:
-        el7:
-          - el7-base
-          - el7-updates
-          - el7-epel
-          - el7-extras
-          - "el7-puppet-{{ puppet_version }}"
 
 foreman_release_packages:
   vars:
@@ -896,12 +875,9 @@ foreman_release_packages:
         - "el9-foreman-client-{{ foreman_version }}-staging"
       el8:
         - "el8-foreman-client-{{ foreman_version }}-staging"
-      el7:
-        - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
       el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
-      el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
   hosts:
     foreman-release: {}
 
