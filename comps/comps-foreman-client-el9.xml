@@ -16,9 +16,7 @@
       <packagereq type="default">katello-host-tools-tracer</packagereq>
       <packagereq type="default">katello-pull-transport-migrate</packagereq>
       <packagereq type="default">python3-psutil</packagereq>
-      <packagereq type="default">python3-tracer</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
-      <packagereq type="default">tracer-common</packagereq>
       <packagereq type="default">yggdrasil</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
