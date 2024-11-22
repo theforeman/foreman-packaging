@@ -7,7 +7,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    4.2.0
+Version:    5.0.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Red Hat Satellite Ansible Modules Collection
 
@@ -62,6 +62,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Fri Nov 22 2024 Evgeni Golov - 5.0.0-1
+- Release ansible-collection-redhat-satellite 5.0.0
+
 * Mon Sep 02 2024 Evgeni Golov - 4.2.0-1
 - Release ansible-collection-redhat-satellite 4.2.0
 
