@@ -5,7 +5,7 @@
 %global foreman_min_version 3.13.0
 
 Name: rubygem-%{gem_name}
-Version: 3.0.0
+Version: 3.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Google Compute Engine plugin for the Foreman
 License: GPLv3
@@ -24,8 +24,9 @@ Requires: ruby < 4
 BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(google-apis-compute_v1) >= 0.14 with rubygem(google-apis-compute_v1) < 1)
-BuildRequires: (rubygem(google-cloud-compute) >= 0.2 with rubygem(google-cloud-compute) < 1)
+BuildRequires: rubygem(google-apis-compute_v1) = 0.54.0
+BuildRequires: rubygem(google-cloud-compute) = 0.5.0
+BuildRequires: rubygem(google-protobuf) = 3.24.3
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -98,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Nov 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.2-1
+- Update to 3.0.2
+
 * Fri Sep 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
 - Update to 3.0.0
 
