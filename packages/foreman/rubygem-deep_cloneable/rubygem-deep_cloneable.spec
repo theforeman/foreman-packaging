@@ -2,7 +2,7 @@
 %global gem_name deep_cloneable
 
 Name: rubygem-%{gem_name}
-Version: 3.2.0
+Version: 3.2.1
 Release: 1%{?dist}
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 License: MIT
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Sun Nov 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.2.1-1
+- Update to 3.2.1
+
 * Fri Jul 22 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.2.0-1
 - Update to 3.2.0
 
