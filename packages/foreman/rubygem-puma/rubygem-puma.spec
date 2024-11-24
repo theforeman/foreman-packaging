@@ -9,7 +9,6 @@ Summary: Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server f
 License: BSD-3-Clause
 URL: https://puma.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Patch0: fix-request-chunking.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.4
@@ -41,7 +40,6 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
-%patch0 -p1
 
 %build
 # Create the gem as gem install only works on a gem file
