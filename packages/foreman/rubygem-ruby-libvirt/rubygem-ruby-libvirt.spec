@@ -3,7 +3,7 @@
 %global gem_require_name libvirt
 
 Name: rubygem-%{gem_name}
-Version: 0.8.2
+Version: 0.8.4
 Release: 1%{?dist}
 Summary: Ruby bindings for LIBVIRT
 License: LGPLv2+
@@ -37,6 +37,8 @@ Documentation for %{name}.
 %setup -q -n  %{gem_name}-%{version}
 
 %build
+export CONFIGURE_ARGS="--with-cflags='%{build_cflags} -fPIC'"
+
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
 
@@ -79,13 +81,16 @@ rm -rf gem_ext_test
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/NEWS
-%doc %{gem_instdir}/README
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/NEWS.rst
+%doc %{gem_instdir}/README.rst
+%doc %{gem_instdir}/doc/main.rdoc
 %{gem_instdir}/Rakefile
 %{gem_instdir}/tests
 
 %changelog
+* Sun Nov 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.4-1
+- Update to 0.8.4
+
 * Sun Feb 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.2-1
 - Update to 0.8.2
 
