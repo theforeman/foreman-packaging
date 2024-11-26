@@ -557,7 +557,6 @@ katello_ruby_packages:
     rubygem-robotex: {}
     rubygem-spidr: {}
     rubygem-stomp: {}
-    rubygem-typhoeus: {}
 
 katello_common_packages:
   hosts:
