@@ -543,7 +543,6 @@ katello_hammer_packages:
 katello_ruby_packages:
   hosts:
     rubygem-activerecord-import: {}
-    rubygem-ethon: {}
     rubygem-fx: {}
     rubygem-pulp_ansible_client: {}
     rubygem-pulp_certguard_client: {}
