@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -52,10 +52,10 @@ Requires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 Requires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
 Requires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
 Requires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
-Requires: (rubygem(ldap_fluff) >= 0.5.0 with rubygem(ldap_fluff) < 1.0)
+Requires: (rubygem(ldap_fluff) >= 0.7.0 with rubygem(ldap_fluff) < 1.0)
 Requires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
 Requires: rubygem(apipie-dsl) >= 2.6.2
-Requires: rubygem(rdoc) < 6.4
+Requires: rubygem(rdoc)
 Requires: (rubygem(rabl) >= 0.15.0 with rubygem(rabl) < 1)
 Requires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
 Requires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
@@ -123,10 +123,10 @@ BuildRequires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 BuildRequires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
 BuildRequires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
 BuildRequires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
-BuildRequires: (rubygem(ldap_fluff) >= 0.5.0 with rubygem(ldap_fluff) < 1.0)
+BuildRequires: (rubygem(ldap_fluff) >= 0.7.0 with rubygem(ldap_fluff) < 1.0)
 BuildRequires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
 BuildRequires: rubygem(apipie-dsl) >= 2.6.2
-BuildRequires: rubygem(rdoc) < 6.4
+BuildRequires: rubygem(rdoc)
 BuildRequires: (rubygem(rabl) >= 0.15.0 with rubygem(rabl) < 1)
 BuildRequires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
 BuildRequires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
@@ -170,7 +170,7 @@ BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: (npm(@theforeman/builder) >= 13.0.1 with npm(@theforeman/builder) < 14.0.0)
+BuildRequires: (npm(@theforeman/builder) >= 13.1.0 with npm(@theforeman/builder) < 14.0.0)
 BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 BuildRequires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
@@ -189,10 +189,11 @@ BuildRequires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin
 
 # start package.json dependencies BuildRequires
 BuildRequires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
-BuildRequires: (npm(@theforeman/vendor) >= 13.0.1 with npm(@theforeman/vendor) < 14.0.0)
+BuildRequires: (npm(@theforeman/vendor) >= 13.1.0 with npm(@theforeman/vendor) < 14.0.0)
 BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 BuildRequires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+BuildRequires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
 BuildRequires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
@@ -205,7 +206,6 @@ BuildRequires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
 BuildRequires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
 BuildRequires: (rubygem(terser) >= 1.1 with rubygem(terser) < 2.0)
 BuildRequires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
-BuildRequires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets BuildRequires
 
 # start specfile facter BuildRequires
@@ -239,7 +239,7 @@ Useful utilities for debug info collection
 Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
-Requires: rubygem(fog-libvirt) >= 0.9.0
+Requires: rubygem(fog-libvirt) >= 0.13.0
 Requires: (rubygem(ruby-libvirt) >= 0.5 with rubygem(ruby-libvirt) < 1.0)
 # end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
@@ -301,7 +301,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: (rubygem(fog-vsphere) >= 3.6.4 with rubygem(fog-vsphere) < 4.0)
+Requires: (rubygem(fog-vsphere) >= 3.7.0 with rubygem(fog-vsphere) < 4.0)
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 Requires: /usr/bin/websockify
@@ -321,7 +321,7 @@ Requires: /usr/bin/npx
 
 # start package.json devDependencies Requires
 Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-Requires: (npm(@theforeman/builder) >= 13.0.1 with npm(@theforeman/builder) < 14.0.0)
+Requires: (npm(@theforeman/builder) >= 13.1.0 with npm(@theforeman/builder) < 14.0.0)
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 Requires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
@@ -340,10 +340,11 @@ Requires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2
 
 # start package.json dependencies Requires
 Requires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
-Requires: (npm(@theforeman/vendor) >= 13.0.1 with npm(@theforeman/vendor) < 14.0.0)
+Requires: (npm(@theforeman/vendor) >= 13.1.0 with npm(@theforeman/vendor) < 14.0.0)
 Requires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 Requires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 Requires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+Requires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
 Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies Requires
@@ -356,7 +357,6 @@ Requires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
 Requires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
 Requires: (rubygem(terser) >= 1.1 with rubygem(terser) < 2.0)
 Requires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
-Requires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets Requires
 
 %description assets
@@ -863,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Nov 26 2024 Evgeni Golov - 3.14.0-0.2.develop
+- Update GEM and NPM dependencies
+
 * Wed Nov 06 2024 Patrick Creech <pcreech@redhat.com> - 3.14.0-0.1.develop
 - Bump version to 3.14-develop
 
