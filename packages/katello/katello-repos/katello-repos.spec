@@ -4,9 +4,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:           katello-repos
 Version:        4.15.0
@@ -73,6 +71,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Tue Dec 03 2024 Odilon Sousa <osousa@redhat.com> - 4.15.0-1
+- Release katello-repos 4.15.0
+
 * Thu Nov 21 2024 Odilon Sousa <osousa@redhat.com> - 4.15.0-0.2.rc2
 - Release katello-repos 4.15.0rc2
 
