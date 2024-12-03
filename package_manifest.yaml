@@ -23,6 +23,7 @@ copr_projects:
       - 'foreman-build'
       - python3.11-rpm-macros
       - python3.11
+    rhel_10: '10'
     rhel_9: '9'
     rhel_8: '8'
     rhel_7: '7'
@@ -71,6 +72,10 @@ copr_projects:
       copr_project_name: "client-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'client-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
+        - name: "centos-stream-{{ rhel_10 }}-x86_64"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_10 }}.xml"
+          external_repos:
+            - "{{ client_staging }}/centos-stream-{{ rhel_10 }}-x86_64"
         - name: "rhel-{{ rhel_9 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_9 }}.xml"
           external_repos:
@@ -483,6 +488,8 @@ foreman_client_packages:
       - "{{ hostvars['client-copr'] }}"
     package_base_dir: 'packages/client/'
     repoclosure_target_repos:
+      el10:
+        - "el10-foreman-client-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-client-{{ foreman_version }}-staging"
       el8:
@@ -490,6 +497,7 @@ foreman_client_packages:
       el7:
         - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
+      el10: "{{ hostvars['foreman-client-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
       el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
@@ -849,6 +857,15 @@ repoclosures:
           - "el9-foreman-{{ foreman_version }}-staging"
           - "el9-foreman-plugins-{{ foreman_version }}-staging"
           - "el9-candlepin-{{ candlepin_version }}-staging"
+    foreman-client-staging-repoclosure-el10:
+      repoclosure_target_repos:
+        el10:
+          - "el10-foreman-client-{{ foreman_version }}-staging"
+      repoclosure_target_dist: el10
+      repoclosure_lookaside_repos:
+        el10:
+          - el10-baseos
+          - el10-appstream
     foreman-client-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -892,6 +909,8 @@ foreman_release_packages:
       - "{{ hostvars['client-copr'] }}"
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
+      el10:
+        - "el10-foreman-client-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-client-{{ foreman_version }}-staging"
       el8:
@@ -899,6 +918,7 @@ foreman_release_packages:
       el7:
         - "el7-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
+      el10: "{{ hostvars['foreman-client-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
       el7: "{{ hostvars['foreman-client-staging-repoclosure-el7']['repoclosure_lookaside_repos']['el7'] }}"
