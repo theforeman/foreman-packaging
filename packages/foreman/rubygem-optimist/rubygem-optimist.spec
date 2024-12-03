@@ -67,7 +67,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/Gemfile
-%doc %{gem_instdir}/History.txt
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/optimist.gemspec
