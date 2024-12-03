@@ -2,7 +2,7 @@
 %global gem_name roadie-rails
 
 Name: rubygem-%{gem_name}
-Version: 3.2.0
+Version: 3.3.0
 Release: 1%{?dist}
 Summary: Making HTML emails comfortable for the Rails rockstars
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/Mange/roadie-rails
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.6
-BuildRequires: ruby >= 2.6
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -51,6 +51,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.solargraph.yml
 %exclude %{gem_instdir}/.standard.yml
+%exclude %{gem_instdir}/flake.lock
+%exclude %{gem_instdir}/flake.nix
 %license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/codecov.yml
 %{gem_libdir}
@@ -68,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/roadie-rails.gemspec
 
 %changelog
+* Sun Dec 01 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.3.0-1
+- Update to 3.3.0
+
 * Fri May 17 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.2.0-1
 - Update to 3.2.0
 
