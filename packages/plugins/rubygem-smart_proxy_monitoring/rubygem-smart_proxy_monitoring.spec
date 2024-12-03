@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.4.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Monitoring plug-in for Foreman's smart proxy
 License: GPLv3
@@ -91,6 +91,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.0-1
+- Update to 0.4.0
+
 * Fri May 31 2024 David Ochner <ochnerd@yahoo.de> - 0.3.0-1
 - Update to 0.3.0
 
