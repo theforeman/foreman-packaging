@@ -59,6 +59,7 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/.whitesource
 %{gem_instdir}/FAQ.txt
 %license %{gem_instdir}/LICENSE.txt
+%exclude %{gem_instdir}/renovate.json
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -66,6 +67,7 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/examples/
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
