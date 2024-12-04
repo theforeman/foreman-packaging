@@ -2,7 +2,7 @@
 %global gem_name rails-html-sanitizer
 
 Name: rubygem-%{gem_name}
-Version: 1.6.0
+Version: 1.6.1
 Release: 1%{?dist}
 Summary: This gem is responsible to sanitize HTML fragments in Rails applications
 License: MIT
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Dec 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.6.1-1
+- Update to 1.6.1
+
 * Thu Jun 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.6.0-1
 - Update to 1.6.0
 
