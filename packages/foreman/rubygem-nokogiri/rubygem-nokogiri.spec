@@ -23,8 +23,6 @@ Provides:	bundled(gumbo-parser) = 0.10.1
 Requires: ruby >= 2.7.0
 BuildRequires: ruby-devel >= 2.7.0
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(mini_portile2) >= 2.8.2 with rubygem(mini_portile2) < 2.9)
-BuildRequires: (rubygem(racc) >= 1.4 with rubygem(racc) < 2)
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
