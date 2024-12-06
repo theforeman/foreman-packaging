@@ -4,7 +4,7 @@
 %global foreman_min_version 3.7
 
 Name: rubygem-%{gem_name}
-Version: 0.2.0
+Version: 0.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 License: GPLv3
@@ -20,7 +20,7 @@ Requires: ruby < 4.0
 BuildRequires: ruby >= 2.5
 BuildRequires: ruby < 4.0
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(fog-kubevirt) >= 1.3.3 with rubygem(fog-kubevirt) < 1.4)
+BuildRequires: (rubygem(fog-kubevirt) >= 1.3.3 with rubygem(fog-kubevirt) < 2)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Dec 06 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.3.0-1
+- Update to 0.3.0
+
 * Tue Mar 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.0-1
 - Update to 0.2.0
 
