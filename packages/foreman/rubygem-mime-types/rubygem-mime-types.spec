@@ -2,12 +2,14 @@
 %global gem_name mime-types
 
 Name: rubygem-%{gem_name}
-Version: 3.5.2
+Version: 3.6.0
 Release: 1%{?dist}
 Summary: The mime-types library provides a library and registry for information about MIME content type definitions
 License: MIT
 URL: https://github.com/mime-types/ruby-mime-types/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
 
 # start specfile generated dependencies
 Requires: ruby >= 2.0
@@ -43,6 +45,8 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+%gemspec_remove_dep -g logger
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -75,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 10 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-1
+- Update to 3.6.0
+
 * Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.2-1
 - Update to 3.5.2
 
