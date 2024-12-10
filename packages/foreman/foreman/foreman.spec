@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -46,7 +46,7 @@ Requires(preun): systemd-units
 Requires: (%{name}-fapolicyd if fapolicyd)
 
 # start specfile default Requires
-Requires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
+Requires: (rubygem(rails) >= 7.0.3 with rubygem(rails) < 7.1.0)
 Requires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
 Requires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 Requires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
@@ -117,7 +117,7 @@ BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
 Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
 # start specfile default BuildRequires
-BuildRequires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
+BuildRequires: (rubygem(rails) >= 7.0.3 with rubygem(rails) < 7.1.0)
 BuildRequires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
 BuildRequires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 BuildRequires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
@@ -863,6 +863,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Dec 10 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.3.develop
+- Update Rails dependency
+
 * Tue Nov 26 2024 Evgeni Golov - 3.14.0-0.2.develop
 - Update GEM and NPM dependencies
 
