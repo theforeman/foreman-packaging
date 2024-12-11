@@ -2,7 +2,7 @@
 %global gem_name actiontext
 
 Name: rubygem-%{gem_name}
-Version: 7.0.8.6
+Version: 7.0.8.7
 Release: 1%{?dist}
 Summary: Rich text framework
 License: MIT
@@ -10,8 +10,8 @@ URL: https://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5.0
-BuildRequires: ruby >= 2.5.0
+Requires: ruby >= 2.7.0
+BuildRequires: ruby >= 2.7.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Dec 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.8.7-1
+- Update to 7.0.8.7
+
 * Wed Nov 06 2024 Evgeni Golov - 7.0.8.6-1
 - Release rubygem-actiontext 7.0.8.6
 
