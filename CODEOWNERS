@@ -6,6 +6,7 @@
 /packages/plugins/*_acd/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_resource_quota/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_snapshot_management/ @theforeman/packaging @theforeman/atix
+/packages/plugins/*_cve_scanner/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_salt/ @theforeman/packaging @theforeman/salt
 /packages/plugins/*_puppet/ @theforeman/packaging @theforeman/puppet
 /packages/katello/*_kernel_care/ @theforeman/packaging @theforeman/foreman_kernel_care
