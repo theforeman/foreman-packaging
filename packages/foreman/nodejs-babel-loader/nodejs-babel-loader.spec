@@ -4,16 +4,16 @@
 %global npm_name babel-loader
 
 Name: %{?scl_prefix}nodejs-babel-loader
-Version: 8.3.0
-Release: 2%{?dist}
+Version: 8.4.1
+Release: 1%{?dist}
 Summary: babel module loader for webpack
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/babel/babel-loader
-Source0: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.12.tgz
+Source0: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
 Source1: https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz
 Source2: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz
-Source3: https://registry.npmjs.org/babel-loader/-/babel-loader-8.3.0.tgz
+Source3: https://registry.npmjs.org/babel-loader/-/babel-loader-8.4.1.tgz
 Source4: https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz
 Source5: https://registry.npmjs.org/commondir/-/commondir-1.0.1.tgz
 Source6: https://registry.npmjs.org/emojis-list/-/emojis-list-3.0.0.tgz
@@ -31,7 +31,7 @@ Source17: https://registry.npmjs.org/p-locate/-/p-locate-4.1.0.tgz
 Source18: https://registry.npmjs.org/p-try/-/p-try-2.2.0.tgz
 Source19: https://registry.npmjs.org/path-exists/-/path-exists-4.0.0.tgz
 Source20: https://registry.npmjs.org/pkg-dir/-/pkg-dir-4.2.0.tgz
-Source21: https://registry.npmjs.org/punycode/-/punycode-2.3.0.tgz
+Source21: https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz
 Source22: https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz
 Source23: https://registry.npmjs.org/semver/-/semver-6.3.1.tgz
 Source24: https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz
@@ -44,10 +44,10 @@ BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@types/json-schema)) = 7.0.12
+Provides: bundled(npm(@types/json-schema)) = 7.0.15
 Provides: bundled(npm(ajv)) = 6.12.6
 Provides: bundled(npm(ajv-keywords)) = 3.5.2
-Provides: bundled(npm(babel-loader)) = 8.3.0
+Provides: bundled(npm(babel-loader)) = 8.4.1
 Provides: bundled(npm(big.js)) = 5.2.2
 Provides: bundled(npm(commondir)) = 1.0.1
 Provides: bundled(npm(emojis-list)) = 3.0.0
@@ -65,7 +65,7 @@ Provides: bundled(npm(p-locate)) = 4.1.0
 Provides: bundled(npm(p-try)) = 2.2.0
 Provides: bundled(npm(path-exists)) = 4.0.0
 Provides: bundled(npm(pkg-dir)) = 4.2.0
-Provides: bundled(npm(punycode)) = 2.3.0
+Provides: bundled(npm(punycode)) = 2.3.1
 Provides: bundled(npm(schema-utils)) = 2.7.1
 Provides: bundled(npm(semver)) = 6.3.1
 Provides: bundled(npm(uri-js)) = 4.4.1
@@ -112,6 +112,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Dec 13 2024 Foreman Packaging Automation <packaging@theforeman.org> 8.4.1-1
+- Update to 8.4.1
+
 * Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 8.3.0-2
 - Use --legacy-peer-deps during npm install
 
