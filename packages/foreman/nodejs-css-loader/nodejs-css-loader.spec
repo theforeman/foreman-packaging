@@ -4,30 +4,28 @@
 %global npm_name css-loader
 
 Name: %{?scl_prefix}nodejs-css-loader
-Version: 6.10.0
-Release: 2%{?dist}
+Version: 6.11.0
+Release: 1%{?dist}
 Summary: css loader module for webpack
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/webpack-contrib/css-loader
-Source0: https://registry.npmjs.org/css-loader/-/css-loader-6.10.0.tgz
+Source0: https://registry.npmjs.org/css-loader/-/css-loader-6.11.0.tgz
 Source1: https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz
 Source2: https://registry.npmjs.org/icss-utils/-/icss-utils-5.1.0.tgz
-Source3: https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz
-Source4: https://registry.npmjs.org/nanoid/-/nanoid-3.3.7.tgz
-Source5: https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz
-Source6: https://registry.npmjs.org/postcss/-/postcss-8.4.33.tgz
-Source7: https://registry.npmjs.org/postcss-modules-extract-imports/-/postcss-modules-extract-imports-3.0.0.tgz
-Source8: https://registry.npmjs.org/postcss-modules-local-by-default/-/postcss-modules-local-by-default-4.0.4.tgz
-Source9: https://registry.npmjs.org/postcss-modules-scope/-/postcss-modules-scope-3.1.1.tgz
-Source10: https://registry.npmjs.org/postcss-modules-values/-/postcss-modules-values-4.0.0.tgz
-Source11: https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.15.tgz
-Source12: https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz
-Source13: https://registry.npmjs.org/semver/-/semver-7.5.4.tgz
-Source14: https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz
-Source15: https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz
-Source16: https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz
-Source17: nodejs-css-loader-%{version}-registry.npmjs.org.tgz
+Source3: https://registry.npmjs.org/nanoid/-/nanoid-3.3.8.tgz
+Source4: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
+Source5: https://registry.npmjs.org/postcss/-/postcss-8.4.49.tgz
+Source6: https://registry.npmjs.org/postcss-modules-extract-imports/-/postcss-modules-extract-imports-3.1.0.tgz
+Source7: https://registry.npmjs.org/postcss-modules-local-by-default/-/postcss-modules-local-by-default-4.2.0.tgz
+Source8: https://registry.npmjs.org/postcss-modules-scope/-/postcss-modules-scope-3.2.1.tgz
+Source9: https://registry.npmjs.org/postcss-modules-values/-/postcss-modules-values-4.0.0.tgz
+Source10: https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.0.0.tgz
+Source11: https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz
+Source12: https://registry.npmjs.org/semver/-/semver-7.6.3.tgz
+Source13: https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz
+Source14: https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz
+Source15: nodejs-css-loader-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
@@ -36,23 +34,21 @@ BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(css-loader)) = 6.10.0
+Provides: bundled(npm(css-loader)) = 6.11.0
 Provides: bundled(npm(cssesc)) = 3.0.0
 Provides: bundled(npm(icss-utils)) = 5.1.0
-Provides: bundled(npm(lru-cache)) = 6.0.0
-Provides: bundled(npm(nanoid)) = 3.3.7
-Provides: bundled(npm(picocolors)) = 1.0.0
-Provides: bundled(npm(postcss)) = 8.4.33
-Provides: bundled(npm(postcss-modules-extract-imports)) = 3.0.0
-Provides: bundled(npm(postcss-modules-local-by-default)) = 4.0.4
-Provides: bundled(npm(postcss-modules-scope)) = 3.1.1
+Provides: bundled(npm(nanoid)) = 3.3.8
+Provides: bundled(npm(picocolors)) = 1.1.1
+Provides: bundled(npm(postcss)) = 8.4.49
+Provides: bundled(npm(postcss-modules-extract-imports)) = 3.1.0
+Provides: bundled(npm(postcss-modules-local-by-default)) = 4.2.0
+Provides: bundled(npm(postcss-modules-scope)) = 3.2.1
 Provides: bundled(npm(postcss-modules-values)) = 4.0.0
-Provides: bundled(npm(postcss-selector-parser)) = 6.0.15
+Provides: bundled(npm(postcss-selector-parser)) = 7.0.0
 Provides: bundled(npm(postcss-value-parser)) = 4.2.0
-Provides: bundled(npm(semver)) = 7.5.4
-Provides: bundled(npm(source-map-js)) = 1.0.2
+Provides: bundled(npm(semver)) = 7.6.3
+Provides: bundled(npm(source-map-js)) = 1.2.1
 Provides: bundled(npm(util-deprecate)) = 1.0.2
-Provides: bundled(npm(yallist)) = 4.0.0
 AutoReq: no
 AutoProv: no
 
@@ -73,7 +69,7 @@ for tgz in %{sources}; do
 done
 %{?scl:end_of_scl}
 
-%setup -T -q -a 17 -D -n %{npm_cache_dir}
+%setup -T -q -a 15 -D -n %{npm_cache_dir}
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
@@ -95,6 +91,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Dec 13 2024 Foreman Packaging Automation <packaging@theforeman.org> 6.11.0-1
+- Update to 6.11.0
+
 * Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 6.10.0-2
 - Use --legacy-peer-deps during npm install
 
