@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.16.0
@@ -130,6 +130,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Dec 16 2024 Evgeni Golov - 4.16.0-0.2.master
+- correctly regenerate Puppet certs when changing hostname
+
 * Fri Nov 08 2024 Ian Ballou <ianballou67@gmail.com> - 4.16.0-0.1.master
 - Bump version to 4.16.0
 
