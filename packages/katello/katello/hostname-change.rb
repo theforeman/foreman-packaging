@@ -220,12 +220,15 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       scenario_answers["certs"]["server_key"]
     end
 
-    def delete_puppet_certs
+    def regenerate_puppet_certs
       return unless @scenario_answers['puppet'].is_a?(Hash)
 
       puppet_ssldir = @scenario_answers['puppet']['ssldir']
 
-      run_cmd("rm -rf '#{puppet_ssldir}'")
+      return unless puppet_ssldir
+
+      run_cmd("rm -rf '#{puppet_ssldir}'/*/#{@old_hostname}.*")
+      run_cmd("puppetserver ca generate --ca-client --certname #{@new_hostname}")
     end
 
     def all_custom_cert_options_present?
@@ -488,7 +491,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_key"]}")
       end
 
-      delete_puppet_certs
+      regenerate_puppet_certs
 
       STDOUT.puts "backed up #{public_dir} to #{public_backup_dir}"
       STDOUT.puts "updating hostname in /etc/hosts"
