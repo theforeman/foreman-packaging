@@ -1,0 +1,12 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/foreman_opennebula-2.3.0.gem"
+GEMS="$GEMS https://rubygems.org/downloads/fog-opennebula-0.0.5.gem"
+GEMS="$GEMS https://rubygems.org/downloads/opennebula-6.8.3.gem"
+GEMS="$GEMS https://rubygems.org/downloads/nokogiri-1.15.6.gem"
+GEMS="$GEMS https://rubygems.org/downloads/mini_portile2-2.8.7.gem"
+GEMS="$GEMS https://rubygems.org/downloads/ipaddress-0.8.3.gem"
+GEMS="$GEMS https://rubygems.org/downloads/parse-cron-0.1.4.gem"
+GEMS="$GEMS https://rubygems.org/downloads/treetop-1.6.12.gem"
+GEMS="$GEMS https://rubygems.org/downloads/polyglot-0.3.4.gem"
+GEMS="$GEMS https://rubygems.org/downloads/xmlrpc-0.3.3.gem"
+GEMS="$GEMS https://rubygems.org/downloads/webrick-1.8.1.gem"
