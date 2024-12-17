@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.16.0
-%global release 2
+%global release 3
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -56,6 +56,7 @@ BuildRequires: (rubygem(pulp_python_client) >= 3.12.5 with rubygem(pulp_python_c
 BuildRequires: (rubygem(pulp_ostree_client) >= 2.4.4 with rubygem(pulp_ostree_client) < 2.5.0)
 BuildRequires: (rubygem(deface) >= 1.0.2 with rubygem(deface) < 2.0.0)
 BuildRequires: (rubygem(angular-rails-templates) >= 1.1 with rubygem(angular-rails-templates) < 2)
+BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -168,6 +169,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Dec 17 2024 MariaAga <mariaaga@redhat.com> - 4.16.0-0.3.pre.master
+- move jquery-ui-rails package to katello
+
 * Tue Nov 19 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.16.0-0.2.pre.master
 - Update angular-rails-templates dependency
 
