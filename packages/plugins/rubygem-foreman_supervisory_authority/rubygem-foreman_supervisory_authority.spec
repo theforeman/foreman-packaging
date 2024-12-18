@@ -5,11 +5,11 @@
 
 %global gem_name foreman_supervisory_authority
 %global plugin_name supervisory_authority
-%global foreman_min_version 1.20
+%global foreman_min_version 3.10
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
-Release: 4%{?foremandist}%{?dist}
+Version: 0.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: This Foreman plug-in integrates with Elastic APM
 Group: Applications/Systems
 License: GPLv3+
@@ -18,17 +18,13 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(elastic-apm) >= 2.0
-Requires: %{?scl_prefix}rubygem(elastic-apm) < 3
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+Requires: ruby < 4
+BuildRequires: ruby >= 2.5
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -95,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Dec 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.0-1
+- Update to 0.2.0
+
 * Mon May 09 2022 Evgeni Golov - 0.0.2-4
 - log plugin installation in posttrans
 
