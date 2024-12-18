@@ -15,7 +15,7 @@ per-user area on [stagingdeb.theforeman.org](https://stagingdeb.theforeman.org).
 Example for adding a repository:
 
     # wget https://deb.theforeman.org/foreman.asc -O /etc/apt/trusted.gpg.d/foreman.asc
-    # echo "deb http://stagingdeb.theforeman.org/ bullseye $USER-nightly" >> /etc/apt/sources.list.d/foreman.list
+    # echo "deb http://stagingdeb.theforeman.org/ bookworm $USER-nightly" >> /etc/apt/sources.list.d/foreman.list
 
 ## HOWTO: update a package
 
