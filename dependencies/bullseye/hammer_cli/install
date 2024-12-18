@@ -1,3 +1,0 @@
-config/cli_config.yml     etc/hammer
-config/hammer.completion  etc/bash_completion.d
-locale                    usr/share

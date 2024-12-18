@@ -12,7 +12,7 @@ if [[ $1 == "--help" ]] || [[ $1 == "-h" ]]; then
   exit
 fi
 
-DEBIAN_RELEASE=${1:-bullseye}
+DEBIAN_RELEASE=${1:-bookworm}
 FOREMAN_VERSION=${2:-nightly}
 INCLUDE_PLUGINS=${3:-true}
 USE_STAGING=${4:-false}

@@ -24,7 +24,7 @@ def find_package_directories() -> Generator[Tuple, None, None]:
         package_changelog = next(directory.glob('**/changelog'))
         yield (gem_name, directory, package_changelog)
 
-    for dependency in Path('dependencies/bullseye/').glob('*'):
+    for dependency in Path('dependencies/bookworm/').glob('*'):
         gem_name = dependency.name
         directory = dependency
         package_changelog = directory / 'changelog'
