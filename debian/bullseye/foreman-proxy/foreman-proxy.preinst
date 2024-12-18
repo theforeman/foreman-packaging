@@ -1,5 +1,0 @@
-#!/bin/sh
-dpkg-maintscript-helper rm_conffile /etc/init.d/foreman-proxy 2.4.0~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/default/foreman-proxy 2.4.0~ -- "$@"
-
-#DEBHELPER#

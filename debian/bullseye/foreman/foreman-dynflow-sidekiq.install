@@ -1,5 +1,0 @@
-extras/dynflow-sidekiq.rb /usr/share/foreman/extras
-extras/systemd/dynflow-sidekiq@.service /lib/systemd/system
-bundler.d/dynflow_sidekiq.rb /usr/share/foreman/bundler.d
-config/dynflow/orchestrator.yml etc/foreman/dynflow
-config/dynflow/worker.yml etc/foreman/dynflow

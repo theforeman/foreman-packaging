@@ -1,2 +1,0 @@
-extras/pcp/foreman-hotproc.conf etc/pcp/proc/
-extras/pcp/foreman-hotproc.summary var/lib/pcp/config/pmlogconf/foreman-hotproc/
