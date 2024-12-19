@@ -140,18 +140,15 @@ module KatelloUtilities
       else
         # the following multi-line string isn't indented because the indents are taken literally.
 %(
-  You will have to install the new bootstrap rpm and reregister all clients and #{@plural_proxy} with subscription-manager
-  (update organization and environment arguments appropriately):
+  You will have to reregister all clients and #{@plural_proxy}.
+  The global registration method requires an activation key and root privileges on the client server.
 
-  yum remove -y katello-ca-consumer*
-  rpm -Uvh http://#{@new_hostname}/pub/katello-ca-consumer-latest.noarch.rpm
-  subscription-manager register --org="Default_Organization" --environment="Library" --force
+  For each client and #{@plural_proxy}, go to Hosts > Register Host in the UI.
+  Select the correct activation key you want to use and any other parameters you wish to include.
+  Once you are done selecting your parameters, click Generate and copy the curl command.
+  Run the curl command as root from the client machine to reregister.
 
-  Then reattach subscriptions to the client(s) and run:
-
-  subscription-manager refresh
-  yum repolist
-
+  Visit the documentation on Registering Hosts for more detailed information.
 
   On all #{@plural_proxy}, you will need to re-run the #{@options[:program]}-installer with this command:
 
