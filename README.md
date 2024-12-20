@@ -171,6 +171,25 @@ While adding packages, please check if any of them are (now) available in Debian
 
 After the depdendencies are built, you can copy over `foreman`, `foreman-proxy` and `foreman-installer` from another release directory.
 
+## HOWTO: remove a Debian release
+
+First make sure the removal is announced, usually done with an RFC and a release note.
+For this a newer Debian/Ubuntu release needs to be supported together with the old release.
+This gives users a chance to upgrade their distribution separate from the Foreman version.
+
+1. Drop the release from [the website/manual](https://github.com/theforeman/theforeman.org) and [foreman-documentation](https://github.com/theforeman/foreman-documentation)
+2. Update [jenkins-jobs](https://github.com/theforeman/jenkins-jobs)
+  * Update the `operating_system` for dependency building in [`theforeman.org/pipelines/lib/packaging.groovy`](https://github.com/theforeman/jenkins-jobs/blob/master/theforeman.org/pipelines/lib/packaging.groovy) if it's the oldest release
+  * Update `foreman_debian_releases` and `pipelines_deb` in [`theforeman.org/pipelines/vars/foreman/nightly.groovy`](https://github.com/theforeman/jenkins-jobs/blob/master/theforeman.org/pipelines/vars/foreman/nightly.groovy)
+3. Drop it from [forklift](https://github.com/theforeman/forklift)'s [vagrant/config/versions.yaml](https://github.com/theforeman/forklift/blob/master/vagrant/config/versions.yaml)
+4. Drop it from foreman-packaging's `deb/develop` branch
+  * Drop the packaging definitions: `git rm -r {debian,dependencies}/$SUITE`
+  * Update any remaining entries in the repository: `$EDITOR $(git grep -l $SUITE)`
+5. Remove nightly packages
+  * `sudo rm -r /var/www/freight/apt/$SUITE/nightly && sudo -u freight /usr/bin/freight-cache -c /home/freight/freight.conf`
+  * `sudo rm -r /var/www/freightstage/apt/$SUITE/theforeman-nightly && sudo -u freightstage /usr/bin/freight-cache -c /home/freightstage/freight.conf`
+6. Close the RFC on Discourse as resolved
+
 ## HOWTO: Archive a Foreman release
 
 1. Identify which releases are affected:
