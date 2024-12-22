@@ -2,7 +2,7 @@
 %global gem_name erubi
 
 Name: rubygem-%{gem_name}
-Version: 1.13.0
+Version: 1.13.1
 Release: 1%{?dist}
 Summary: Small ERB Implementation
 License: MIT
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Sun Dec 22 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.1-1
+- Update to 1.13.1
+
 * Sun Jul 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.0-1
 - Update to 1.13.0
 
