@@ -667,6 +667,7 @@ hammer_plugin_packages:
     rubygem-hammer_cli_foreman_openscap: {}
     rubygem-hammer_cli_foreman_puppet: {}
     rubygem-hammer_cli_foreman_remote_execution: {}
+    rubygem-hammer_cli_foreman_resource_quota: {}
     rubygem-hammer_cli_foreman_salt: {}
     rubygem-hammer_cli_foreman_ssh: {}
     rubygem-hammer_cli_foreman_tasks: {}
