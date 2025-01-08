@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.7.0-1) stable; urgency=low
+
+  * 0.7.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 08 Jan 2025 15:38:55 +0000
+
 ruby-apipie-bindings (0.6.0-1) stable; urgency=low
 
   * 0.6.0 released
