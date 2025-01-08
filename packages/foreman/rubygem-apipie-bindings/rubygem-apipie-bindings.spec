@@ -2,7 +2,7 @@
 %global gem_name apipie-bindings
 
 Name: rubygem-%{gem_name}
-Version: 0.6.0
+Version: 0.7.0
 Release: 1%{?dist}
 Summary: The Ruby bindings for Apipie documented APIs
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/Apipie/apipie-bindings
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.0.0
-BuildRequires: ruby >= 2.0.0
+Requires: ruby >= 2.7.0
+BuildRequires: ruby >= 2.7.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 08 2025 Oleh Fedorenko <ofedoren@redhat.com> - 0.7.0-1
+- Update to 0.7.0
+
 * Wed Feb 22 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.6.0-1
 - Update to 0.6.0
 
