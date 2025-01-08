@@ -63,6 +63,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/fog-xml.gemspec
 %{gem_instdir}/spec
