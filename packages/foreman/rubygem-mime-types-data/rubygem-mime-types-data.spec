@@ -49,8 +49,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/Code-of-Conduct.md
-%license %{gem_instdir}/Licence.md
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
+%license %{gem_instdir}/LICENCE.md
 %exclude %{gem_instdir}/Manifest.txt
 %{gem_instdir}/data
 %{gem_libdir}
@@ -60,8 +60,8 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/Contributing.md
-%doc %{gem_instdir}/History.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
