@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.5.8-1) stable; urgency=low
+
+  * 3.5.8 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 15 Jan 2025 04:10:58 +0000
+
 ruby-smart-proxy-ansible (3.5.7-1) stable; urgency=low
 
   * 3.5.7 released
