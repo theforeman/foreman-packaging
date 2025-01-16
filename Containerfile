@@ -10,6 +10,8 @@ RUN echo "[git-annex]" >> /etc/yum.repos.d/git-annex.repo \
          && echo "gpgcheck=0" >> /etc/yum.repos.d/git-annex.repo \
          && echo "enabled=1" >> /etc/yum.repos.d/git-annex.repo
 
+RUN dnf -y module enable nodejs:18
+
 RUN dnf -y install nodejs vim git rpmdevtools git-annex-standalone wget ruby jq ruby-devel make gcc-c++ postgresql-devel libxml2-devel libcurl-devel systemd-devel \
     python3 python3-pip python3-ruamel-yaml python3-requests python3-packaging
 
