@@ -5,35 +5,25 @@
 %global repo_orgname theforeman
 %global repo_name foreman_ygg_worker
 %global yggdrasil_libexecdir %{_libexecdir}/yggdrasil
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-%global yggdrasil_worker_conf_dir %{_root_sysconfdir}/yggdrasil/workers
+%global yggdrasil_worker_conf_dir %{_sysconfdir}/yggdrasil/workers
 
 %global goipath         github.com/%{repo_orgname}/%{repo_name}
 
-%if 0%{?rhel} > 7 && ! 0%{?fedora}
-%define gobuild(o:) \
-        GO111MODULE=off go build -buildmode pie -compiler gc -tags="rpm_crashtraceback libtrust_openssl ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -compressdwarf=false -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '%__global_ldflags'" -a -v %{?**};
-%else
-%if ! 0%{?gobuild:1}
 %if 0%{?suse_version}
 %define gobuild(o:) GO111MODULE=off go build -buildmode pie -compiler gc -tags="rpm_crashtraceback ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '-Wl,-z,relro -Wl,-z,now '" -a -v %{?**};
-%else
-%define gobuild(o:) GO111MODULE=off go build -buildmode pie -compiler gc -tags="rpm_crashtraceback ${BUILDTAGS:-}" -ldflags "${LDFLAGS:-} -linkmode=external -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n') -extldflags '-Wl,-z,relro -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld '" -a -v %{?**};
-%endif
-%endif
 %endif
 
 Name: foreman_ygg_worker
 Version: 0.3.0
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
 Url: https://github.com/%{repo_orgname}/%{repo_name}/
 
-# EL7 doesn't define go_arches
-%if ! 0%{?go_arches:1}
+# suse leap 15.5 doesn't define go_arches
+%if 0%{?suse_version}
 %define go_arches %{ix86} x86_64 %{arm} aarch64 ppc64le
 %endif
 ExclusiveArch: %{go_arches}
@@ -41,17 +31,19 @@ ExclusiveArch: %{go_arches}
 BuildRequires: systemd-rpm-macros
 %if 0%{?suse_version}
 BuildRequires: go
+BuildRequires: golang-packaging
 %else
 BuildRequires: golang
+%if 0%{?rhel} >= 9 || 0%{?fedora}
+BuildRequires: go-rpm-macros
+%else
+%if 0%{?rhel} == 8
+BuildRequires: go-srpm-macros
+%endif
+%endif
 %endif
 
-# Use rich dependencies if available
-%if 0%{?rhel} >= 8 || 0%{?fedora}
 Requires: (yggdrasil >= 0.2 with yggdrasil < 0.5)
-%else
-Requires: yggdrasil >= 0.2
-Conflicts: yggdrasil >= 0.5
-%endif
 
 %description
 Worker service for yggdrasil that can act as pull client for Foreman Remote Execution.
@@ -66,7 +58,7 @@ ln -fs $(pwd)/vendor _gopath/src/%{name}-%{version}/vendor
 ln -fs $(pwd)/go.mod _gopath/src/%{name}-%{version}/go.mod
 export GOPATH=$(pwd)/_gopath
 pushd _gopath/src/%{name}-%{version}
-%{gobuild}
+%gobuild -o %{name}-%{version}
 strip %{name}-%{version}
 popd
 make data LIBEXECDIR=%{yggdrasil_libexecdir}
@@ -87,7 +79,7 @@ EOF
 %files
 %if 0%{?suse_version}
 %dir %{yggdrasil_libexecdir}
-%dir %{_root_sysconfdir}/yggdrasil
+%dir %{_sysconfdir}/yggdrasil
 %dir %{yggdrasil_worker_conf_dir}
 %endif
 %{yggdrasil_libexecdir}/%{name}
@@ -99,6 +91,9 @@ EOF
 %doc README.md
 
 %changelog
+* Thu Jan 16 2025 Adam Ruzicka <aruzicka@redhat.com> - 0.3.0-2
+- Make it build on EL10
+
 * Wed Sep 25 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.3.0-1
 - Release 0.3.0
 
