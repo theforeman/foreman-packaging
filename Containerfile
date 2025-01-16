@@ -1,4 +1,4 @@
-FROM almalinux:8
+FROM almalinux:9
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -10,8 +10,7 @@ RUN echo "[git-annex]" >> /etc/yum.repos.d/git-annex.repo \
          && echo "gpgcheck=0" >> /etc/yum.repos.d/git-annex.repo \
          && echo "enabled=1" >> /etc/yum.repos.d/git-annex.repo
 
-RUN dnf -y module enable nodejs:14 ruby:2.7
-RUN dnf -y install nodejs vim git rpmdevtools git-annex-standalone wget python3 ruby jq ruby-devel make gcc-c++ postgresql-devel libvirt-devel libxml2-devel libcurl-devel systemd-devel
+RUN dnf -y install nodejs vim git rpmdevtools git-annex-standalone wget python3 python3-pip ruby jq ruby-devel make gcc-c++ postgresql-devel libxml2-devel libcurl-devel systemd-devel
 
 RUN npm install npm2rpm --global
 
