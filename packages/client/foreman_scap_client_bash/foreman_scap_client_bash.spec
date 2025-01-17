@@ -5,7 +5,7 @@
 
 Name: foreman_scap_client_bash
 Version: 0.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 
 License: GPLv3
@@ -22,7 +22,7 @@ Requires: openscap-scanner
 Requires: bzip2
 BuildArch: noarch
 
-Obsoletes: rubygem-foreman_scap_client
+Obsoletes: rubygem-foreman_scap_client < 0.6.3-1
 
 %description
 Client script that runs OpenSCAP scan and uploads the result to foreman proxy.
@@ -46,5 +46,7 @@ mkdir -p %{buildroot}%{config_dir}
 %doc config
 
 %changelog
+* Fri Jan 17 2025 Oleh Fedorenko <ofedoren@redhat.com> - 0.2.0-2
+- Make obsolete versioned
 * Mon Jan 6 2025 Oleh Fedorenko <ofedoren@redhat.com> - 0.2.0-1
 - Initial packaging of 0.2.0
