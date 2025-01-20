@@ -22,7 +22,7 @@ Requires: openscap-scanner
 Requires: bzip2
 BuildArch: noarch
 
-Obsoletes: rubygem-foreman_scap_client < 0.6.3-1
+Obsoletes: rubygem-foreman_scap_client < 0.6.2-2
 
 %description
 Client script that runs OpenSCAP scan and uploads the result to foreman proxy.
