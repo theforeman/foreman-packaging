@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.1.0
+Version: 0.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Resource Quota plugin for Hammer CLI
 License: GPL-3.0-only
@@ -69,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Tue Jan 21 2025 Nadja Heitmann <nadjah@atix.de> - 0.2.0-1
+- Update to 0.2.0
+
 * Thu Jan 16 2025 Nadja Heitmann <nadjah@atix.de> - 0.1.0-1
 - Update to 0.1.0
 
