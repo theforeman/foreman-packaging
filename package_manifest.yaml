@@ -155,6 +155,7 @@ foreman_core_packages:
       source_location: https://ci.theforeman.org/job/foreman-develop-source-release
       source_system: jenkins
 
+    rubygem-rexml: {}
 other_core_packages:
   hosts:
     dynflow-utils: {}
