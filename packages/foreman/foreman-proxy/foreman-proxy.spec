@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -36,6 +36,7 @@ Requires:       rubygem(json)
 Requires:       rubygem(rack) >= 1.3.0
 Requires:       (rubygem(sd_notify) >= 0.1 with rubygem(sd_notify) < 0.2)
 Requires:       (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
+Requires:       (rubygem(rexml) >= 3.2.0 with rubygem(rexml) < 4.0.0)
 Requires:       rubygem(sinatra)
 
 # start specfile default Requires
@@ -237,6 +238,9 @@ exit 0
 
 
 %changelog
+* Fri Jan 24 2025 Adam Ruzicka <aruzicka@redhat.com> - 3.14.0-0.2.develop
+- Declare rexml as dependency
+
 * Wed Nov 06 2024 Patrick Creech <pcreech@redhat.com> - 3.14.0-0.1.develop
 - Bump version to 3.14-develop
 
