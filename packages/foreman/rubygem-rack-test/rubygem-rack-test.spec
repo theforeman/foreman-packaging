@@ -2,7 +2,7 @@
 %global gem_name rack-test
 
 Name: rubygem-%{gem_name}
-Version: 2.1.0
+Version: 2.2.0
 Release: 1%{?dist}
 Summary: Simple testing API built on Rack
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jan 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.0-1
+- Update to 2.2.0
+
 * Sun Apr 02 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.1.0-1
 - Update to 2.1.0
 
