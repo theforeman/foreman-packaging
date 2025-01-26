@@ -1,3 +1,9 @@
+ruby-foreman-dhcp-browser (0.1.1-1) stable; urgency=low
+
+  * 0.1.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 26 Jan 2025 04:10:56 +0000
+
 ruby-foreman-dhcp-browser (0.0.8-2) stable; urgency=low
 
   * Use Foreman postinst library
