@@ -2,7 +2,7 @@
 %global gem_name net-scp
 
 Name: rubygem-%{gem_name}
-Version: 4.0.0
+Version: 4.1.0
 Release: 1%{?dist}
 Summary: A pure Ruby implementation of the SCP client protocol
 License: MIT
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/net-scp.gemspec
 
 %changelog
+* Mon Jan 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.1.0-1
+- Update to 4.1.0
+
 * Sun Oct 23 2022 Foreman Packaging Automation <packaging@theforeman.org> 4.0.0-1
 - Update to 4.0.0
 
