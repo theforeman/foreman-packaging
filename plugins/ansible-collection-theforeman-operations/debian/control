@@ -9,7 +9,7 @@ Rules-Requires-Root: no
 
 Package: ansible-collection-theforeman-operations
 Architecture: all
-Depends: ${misc:Depends}, ansible (>= 2.9)
+Depends: ${misc:Depends}, ansible-core | ansible (>= 2.9)
 Description: The Foreman Project Ansible operations collection
  Collection of Ansible assets for managing Foreman operations such as
  install, upgrade or maintenance tasks.

@@ -9,7 +9,7 @@ Rules-Requires-Root: no
 
 Package: ansible-collection-theforeman-foreman
 Architecture: all
-Depends: ${misc:Depends}, ansible (>= 2.9), python-requests | base-files (>= 10.3), python3-requests
+Depends: ${misc:Depends}, ansible-core | ansible (>= 2.9), python3-requests
 Description: The Foreman Project Ansible modules collection
  Collection of Ansible Modules to manage Foreman installations.
  Includes modules for Katello.

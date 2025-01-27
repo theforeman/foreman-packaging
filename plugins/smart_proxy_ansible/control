@@ -13,7 +13,7 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.22.0~rc1),
   ruby-smart-proxy-dynflow (>= 0.8.0), ruby-smart-proxy-dynflow (<< 1.0.0), ruby-net-ssh,
   ruby-smart-proxy-remote-execution-ssh (>= 0.4.0), ruby-smart-proxy-remote-execution-ssh (<< 1.0.0),
-  ansible (>= 2.2.0), python-requests | base-files (>= 10.3), python3-requests
+  ansible-core | ansible (>= 2.2.0), python3-requests
 Breaks: ruby-foreman-ansible-core (<<4.1.0)
 Replaces: ruby-foreman-ansible-core (<<4.1.0)
 Description: Ansible support for Foreman smart proxy
