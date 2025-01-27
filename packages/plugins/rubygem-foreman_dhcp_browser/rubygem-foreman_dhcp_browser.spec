@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_dhcp_browser
 %global plugin_name dhcp_browser
-%global foreman_min_version 3.14.0
+%global foreman_min_version 3.13.0
 
 Summary:    DHCP browser plugin for Foreman
 Name:       rubygem-%{gem_name}
-Version:    0.1.1
+Version:    0.1.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jan 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.2-1
+- Update to 0.1.2
+
 * Fri Jan 24 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.1-1
 - Update to 0.1.1
 
