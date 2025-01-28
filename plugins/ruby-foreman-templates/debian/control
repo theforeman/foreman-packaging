@@ -2,7 +2,7 @@ Source: ruby-foreman-templates
 Section: ruby
 Priority: extra
 Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
-Build-Depends: debhelper (>= 9.20160709), git | git-core, foreman (>= 3.7.0~rc1), foreman-nulldb (>= 3.7.0~rc1), foreman-assets, python-dev
+Build-Depends: debhelper (>= 9.20160709), git | git-core, foreman (>= 3.7.0~rc1), foreman-nulldb (>= 3.7.0~rc1), foreman-assets
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_templates
 
