@@ -2,8 +2,8 @@ Source: ruby-foreman-ansible
 Section: ruby
 Priority: extra
 Maintainer: Daniel Lobato Garcia <elobatocs@gmail.com>
-Build-Depends: debhelper, git | git-core, python-dev, foreman (>= 3.5.0~rc1), ruby-foreman-deface (<<2.0.0),
-  foreman-assets(>= 3.5.0~rc1),
+Build-Depends: debhelper, git | git-core, foreman (>= 3.5.0~rc1), ruby-foreman-deface (<<2.0.0),
+  foreman-assets (>= 3.5.0~rc1),
   ruby-foreman-remote-execution (>= 4.4.0-1),
   foreman-nulldb (>= 3.5.0~rc1)
 Standards-Version: 3.9.3
