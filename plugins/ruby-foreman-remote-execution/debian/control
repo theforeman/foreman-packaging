@@ -3,7 +3,7 @@ Section: ruby
 Priority: extra
 Maintainer: Stephen Benjamin <stephen@redhat.com>
 Build-Depends: debhelper (>= 8.0.0), git | git-core, foreman-assets (>= 3.8.0~rc1), foreman (>= 3.8.0~rc1),
-  foreman-nulldb (>= 3.8.0~rc1), ruby-foreman-tasks (>= 8.2.0), ruby-foreman-deface, python-dev,
+  foreman-nulldb (>= 3.8.0~rc1), ruby-foreman-tasks (>= 8.2.0), ruby-foreman-deface,
   ruby-dynflow (>= 1.0.2), ruby-dynflow (<< 2.0.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_remote_execution
