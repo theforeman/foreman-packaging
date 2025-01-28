@@ -61,6 +61,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGES.txt
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/net-scp.gemspec
 
