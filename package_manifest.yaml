@@ -21,8 +21,8 @@ copr_projects:
       - 'foreman-build'
     plugins_buildroot_packages:
       - 'foreman-build'
-      - python3.11-rpm-macros
-      - python3.11
+      - python3.12-rpm-macros
+      - python3.12
     rhel_10: '10'
     rhel_9: '9'
     rhel_8: '8'
