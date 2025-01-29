@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.7.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Run a subprocess in a pseudo terminal
 
 License:        None
@@ -62,6 +62,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 0.7.0-3
+- Rebuild against python 3.12
+
 * Sat Nov 11 2023 Odilon Sousa <osousa@redhat.com> - 0.7.0-2
 - Build against python 3.11
 
