@@ -1,7 +1,7 @@
 %{?scl:%scl_package python-%{srcname}}
 %{!?scl:%global pkg_name %{name}}
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 
 # Created by pyp2rpm-3.3.8
 %global pypi_name python-daemon
@@ -9,7 +9,7 @@
 
 Name:           %{?scl_prefix}python-%{srcname}
 Version:        2.3.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Library to implement a well-behaved Unix daemon process
 
 License:        Apache-2
@@ -71,6 +71,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 2.3.1-4
+- Rebuild against python 3.12
+
 * Mon Dec 18 2023 Evgeni Golov - 2.3.1-3
 - Obsolete Python 3.9 package to smoothen upgrade path
 
