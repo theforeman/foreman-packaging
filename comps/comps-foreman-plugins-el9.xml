@@ -29,6 +29,7 @@
       <packagereq type="default">python3.11-pexpect</packagereq>
       <packagereq type="default">python3.12-ptyprocess</packagereq>
       <packagereq type="default">python3.12-pyparsing</packagereq>
+      <packagereq type="default">python3.12-six</packagereq>
       <packagereq type="default">rubygem-acts_as_list</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">rubygem-aws-eventstream</packagereq>
