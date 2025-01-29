@@ -26,7 +26,7 @@
       <packagereq type="default">python3.11-lockfile</packagereq>
       <packagereq type="default">python3.12-pbr</packagereq>
       <packagereq type="default">python3.12-packaging</packagereq>
-      <packagereq type="default">python3.11-pexpect</packagereq>
+      <packagereq type="default">python3.12-pexpect</packagereq>
       <packagereq type="default">python3.12-ptyprocess</packagereq>
       <packagereq type="default">python3.12-pyparsing</packagereq>
       <packagereq type="default">rubygem-acts_as_list</packagereq>
