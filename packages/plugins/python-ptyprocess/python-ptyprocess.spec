@@ -1,5 +1,5 @@
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.7.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Run a subprocess in a pseudo terminal
 
 License:        None
@@ -62,6 +62,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 0.7.0-4
+- Add python3.12 macro
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 0.7.0-3
 - Rebuild against python 3.12
 
