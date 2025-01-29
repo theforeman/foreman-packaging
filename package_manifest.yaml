@@ -820,6 +820,7 @@ foreman_proxy_other_plugin_packages_tier2:
     mosquitto: {}
     ansible-runner: {}
     python-lockfile: {}
+    ansible-core: {}
 
 repoclosures:
   hosts:
