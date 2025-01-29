@@ -1,10 +1,10 @@
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 %global pypi_name ansible-runner
 
 Name:           %{pypi_name}
 Version:        2.3.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A tool and python library to interface with Ansible
 
 License:        ASL 2.0
@@ -21,6 +21,7 @@ Requires:      python%{python3_pkgversion}-%{pypi_name} = %{version}-%{release}
 Obsoletes:     python3-%{pypi_name} < %{version}
 Obsoletes:     python38-%{pypi_name} < %{version}
 Obsoletes:     python39-%{pypi_name} < %{version}-%{release}
+Obsoletes:     python3.11-%{pypi_name} < %{version}-%{release}
 
 %description
 Ansible Runner is a tool and python library that helps when interfacing with
@@ -72,6 +73,9 @@ ln -s %{_bindir}/ansible-runner-%{python3_version} %{buildroot}/%{_bindir}/ansib
 %{python3_sitelib}/*
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 2.3.6-2
+- Rebuild against python 3.12
+
 * Fri Sep 06 2024 Evgeni Golov - 2.3.6-1
 - Release ansible-runner 2.3.6
 
