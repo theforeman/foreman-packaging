@@ -22,7 +22,7 @@
       <packagereq type="default">puppetlabs-stdlib</packagereq>
       <packagereq type="default">python3.11-ansible-runner</packagereq>
       <packagereq type="default">python3.11-daemon</packagereq>
-      <packagereq type="default">python3.11-docutils</packagereq>
+      <packagereq type="default">python3.12-docutils</packagereq>
       <packagereq type="default">python3.11-lockfile</packagereq>
       <packagereq type="default">python3.11-packaging</packagereq>
       <packagereq type="default">python3.11-pbr</packagereq>
