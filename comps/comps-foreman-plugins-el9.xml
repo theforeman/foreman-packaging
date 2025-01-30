@@ -23,6 +23,7 @@
       <packagereq type="default">python3.12-ansible-runner</packagereq>
       <packagereq type="default">python3.12-daemon</packagereq>
       <packagereq type="default">python3.12-docutils</packagereq>
+      <packagereq type="default">python3.12-jinja2</packagereq>
       <packagereq type="default">python3.12-lockfile</packagereq>
       <packagereq type="default">python3.12-pbr</packagereq>
       <packagereq type="default">python3.12-packaging</packagereq>

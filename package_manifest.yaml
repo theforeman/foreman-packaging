@@ -798,6 +798,7 @@ foreman_proxy_other_plugin_packages:
     cjson: {}
     python-daemon: {}
     python-docutils: {}
+    python-jinja2: {}
     python-packaging: {}
     python-pbr: {}
     python-pexpect: {}
