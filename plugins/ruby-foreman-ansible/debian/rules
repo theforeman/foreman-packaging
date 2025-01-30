@@ -14,4 +14,6 @@ PLUGIN_HAS_ASSETS = true
 PLUGIN_HAS_WEBPACK = true
 PLUGIN_HAS_PACKAGE_JSON = true
 
+export CYPRESS_INSTALL_BINARY=0
+
 include /usr/share/foreman/foreman-plugin.mk
