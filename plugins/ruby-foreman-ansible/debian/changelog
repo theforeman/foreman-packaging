@@ -1,3 +1,9 @@
+ruby-foreman-ansible (15.0.5-1) stable; urgency=low
+
+  * 15.0.5 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 30 Jan 2025 13:21:13 +0000
+
 ruby-foreman-ansible (15.0.3-2) stable; urgency=low
 
   * Drop python-dev build-dependency
