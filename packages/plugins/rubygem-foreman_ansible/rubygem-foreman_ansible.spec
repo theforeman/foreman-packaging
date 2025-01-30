@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13.0
 
 Name: rubygem-%{gem_name}
-Version: 15.0.4
+Version: 15.0.5
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -20,7 +20,7 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(acts_as_list) >= 1.0.3 with rubygem(acts_as_list) < 1.1)
 BuildRequires: rubygem(deface) < 2.0
-BuildRequires: (rubygem(foreman_remote_execution) >= 14.0 with rubygem(foreman_remote_execution) < 15)
+BuildRequires: (rubygem(foreman_remote_execution) >= 14.0 with rubygem(foreman_remote_execution) < 16)
 BuildRequires: (rubygem(foreman-tasks) >= 10.0 with rubygem(foreman-tasks) < 11)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jan 30 2025 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.5-1
+- Update to 15.0.5
+
 * Sun Jan 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.4-1
 - Update to 15.0.4
 
