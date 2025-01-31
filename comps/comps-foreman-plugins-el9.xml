@@ -31,6 +31,7 @@
       <packagereq type="default">python3.12-ptyprocess</packagereq>
       <packagereq type="default">python3.12-pyparsing</packagereq>
       <packagereq type="default">python3.12-resolvelib</packagereq>
+      <packagereq type="default">python3.12-semantic-version</packagereq>
       <packagereq type="default">python3.12-setuptools-scm</packagereq>
       <packagereq type="default">python3.12-six</packagereq>
       <packagereq type="default">rubygem-acts_as_list</packagereq>
