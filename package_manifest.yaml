@@ -807,6 +807,7 @@ foreman_proxy_other_plugin_packages:
     python-resolvelib: {}
     python-semantic-version: {}
     python-setuptools-scm: {}
+    python-setuptools-rust: {}
     python-six: {}
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
