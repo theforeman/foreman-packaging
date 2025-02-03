@@ -804,6 +804,7 @@ foreman_proxy_other_plugin_packages:
     python-pbr: {}
     python-pexpect: {}
     python-ptyprocess: {}
+    python-pycparser: {}
     python-pyparsing: {}
     python-resolvelib: {}
     python-semantic-version: {}
