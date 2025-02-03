@@ -799,6 +799,7 @@ foreman_proxy_other_plugin_packages:
     python-daemon: {}
     python-docutils: {}
     python-jinja2: {}
+    python-markupsafe: {}
     python-packaging: {}
     python-pbr: {}
     python-pexpect: {}
