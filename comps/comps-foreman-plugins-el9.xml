@@ -26,6 +26,7 @@
       <packagereq type="default">python3.12-jinja2</packagereq>
       <packagereq type="default">python3.12-lockfile</packagereq>
       <packagereq type="default">python3.12-markupsafe</packagereq>
+      <packagereq type="default">python3.12-maturin</packagereq>
       <packagereq type="default">python3.12-pbr</packagereq>
       <packagereq type="default">python3.12-packaging</packagereq>
       <packagereq type="default">python3.12-pexpect</packagereq>
