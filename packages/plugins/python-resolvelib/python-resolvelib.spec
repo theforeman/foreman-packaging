@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Resolve abstract dependencies into concrete ones
 
 License:        ISC License
@@ -33,7 +33,6 @@ Summary:        %{summary}
 %description -n python%{python3_pkgversion}-%{pypi_name}
 %{summary}
 
-
 %prep
 %autosetup -n %{pypi_name}-%{version}
 
@@ -43,7 +42,7 @@ Summary:        %{summary}
 %install
 %pyproject_install
 
-%files
+%files -n python%{python3_pkgversion}-%{pypi_name}
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/%{pypi_name}
@@ -52,6 +51,9 @@ Summary:        %{summary}
 
 
 %changelog
+* Mon Feb 03 2025 Odilon Sousa <osousa@redhat.com> - 1.0.1-3
+- Provides python3.12-resolvelib
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 1.0.1-2
 - Rebuild against python 3.12
 
