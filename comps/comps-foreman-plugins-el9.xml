@@ -21,6 +21,7 @@
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>
       <packagereq type="default">python3.12-ansible-runner</packagereq>
+      <packagereq type="default">python3.12-cryptography</packagereq>
       <packagereq type="default">python3.12-daemon</packagereq>
       <packagereq type="default">python3.12-docutils</packagereq>
       <packagereq type="default">python3.12-jinja2</packagereq>
