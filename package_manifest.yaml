@@ -806,6 +806,7 @@ foreman_proxy_other_plugin_packages:
     python-ptyprocess: {}
     python-pyparsing: {}
     python-resolvelib: {}
+    python-cffi: {}
     python-semantic-version: {}
     python-setuptools-scm: {}
     python-setuptools-rust: {}
