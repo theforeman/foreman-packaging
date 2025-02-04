@@ -11,6 +11,7 @@
       <packagereq type="default">ansible-collection-theforeman-operations</packagereq>
       <packagereq type="default">ansible-core</packagereq>
       <packagereq type="default">ansible-runner</packagereq>
+      <packagereq type="default">ansible-test</packagereq>
       <packagereq type="default">ansiblerole-foreman_scap_client</packagereq>
       <packagereq type="default">ansiblerole-insights-client</packagereq>
       <packagereq type="default">cjson</packagereq>
