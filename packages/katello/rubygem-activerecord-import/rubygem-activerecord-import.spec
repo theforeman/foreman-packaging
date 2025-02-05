@@ -2,7 +2,7 @@
 %global gem_name activerecord-import
 
 Name: rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.1.0
 Release: 1%{?dist}
 Summary: Bulk insert extension for ActiveRecord
 License: MIT
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Feb 05 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.0-1
+- Update to 2.1.0
+
 * Wed Dec 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.0-1
 - Update to 2.0.0
 
