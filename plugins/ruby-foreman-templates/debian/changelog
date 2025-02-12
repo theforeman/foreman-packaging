@@ -1,3 +1,9 @@
+ruby-foreman-templates (10.0.4-1) stable; urgency=low
+
+  * 10.0.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 12 Feb 2025 04:11:16 +0000
+
 ruby-foreman-templates (10.0.3-2) stable; urgency=low
 
   * Drop python-dev build-dependency
