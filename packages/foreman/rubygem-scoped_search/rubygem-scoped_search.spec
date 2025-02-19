@@ -2,7 +2,7 @@
 %global gem_name scoped_search
 
 Name: rubygem-%{gem_name}
-Version: 4.1.13
+Version: 4.2.0
 Release: 1%{?dist}
 Summary: Easily search you ActiveRecord models with a simple query language using a named scope
 License: MIT
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Feb 19 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.2.0-1
+- Update to 4.2.0
+
 * Tue Dec 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.1.13-1
 - Update to 4.1.13
 
