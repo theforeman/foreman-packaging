@@ -4,7 +4,7 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    5.1.0
@@ -20,10 +20,13 @@ Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{ver
 Provides: bundled(python-apypie) = 0.5.0
 
 Requires: ansible-core
-Requires: (python3-requests if ansible-core >= 1:2.14.7)
-Requires: (python3-pyyaml if ansible-core >= 1:2.14.7)
+Requires: (python3-requests if (ansible-core >= 1:2.14.7 and ansible-core < 1:2.16.14-3))
+Requires: (python3-pyyaml if (ansible-core >= 1:2.14.7 and ansible-core < 1:2.16.14-3))
 Requires: (python3.11-requests if (ansible-core >= 2.14.2-3 and ansible-core < 1:2.14.7))
 Requires: (python3.11-pyyaml if (ansible-core >= 2.14.2-3 and ansible-core < 1:2.14.7))
+Requires: (python3.12-requests if ansible-core >= 1:2.16.14-3)
+Requires: (python3.12-pyyaml if ansible-core >= 1:2.16.14-3)
+
 
 %description
 Collection of Ansible Modules to manage Foreman installations.
@@ -48,6 +51,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Wed Feb 19 2025 Odilon Sousa <osousa@redhat.com> - 5.1.0-2
+- Update requests and pyaml requirements to python 3.12
+
 * Fri Dec 06 2024 Evgeni Golov - 5.1.0-1
 - Release ansible-collection-theforeman-foreman 5.1.0
 
