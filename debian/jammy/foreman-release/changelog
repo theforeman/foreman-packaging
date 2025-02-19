@@ -1,3 +1,9 @@
+foreman-release (3.14.0~rc1-1) stable; urgency=low
+
+  * 3.14.0-rc1 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Wed, 19 Feb 2025 14:28:01 -0500
+
 foreman-release (3.14.0-1) stable; urgency=low
 
   * Bump changelog to 3.14.0 to match VERSION
