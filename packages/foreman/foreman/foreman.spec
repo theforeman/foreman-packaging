@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 5
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -861,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Feb 19 2025 Patrick Creech <pcreech@redhat.com> - 3.14.0-0.5.rc1
+- Release foreman 3.14.0rc1
+
 * Mon Jan 20 2025 Adam Ruzicka <aruzicka@redhat.com> - 3.14.0-0.5.develop
 - Bump foreman-js to 14
 

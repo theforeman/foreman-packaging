@@ -1,5 +1,5 @@
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Feb 19 2025 Patrick Creech <pcreech@redhat.com> - 1:3.14.0-0.1.rc1
+- Release foreman-installer 3.14.0rc1
+
 * Wed Nov 06 2024 Patrick Creech <pcreech@redhat.com> - 1:3.14.0-0.1.develop
 - Bump version to 3.14-develop
 
