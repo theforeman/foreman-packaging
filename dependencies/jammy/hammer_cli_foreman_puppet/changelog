@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-puppet (0.1.1-1) stable; urgency=low
+
+  * 0.1.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 20 Feb 2025 13:42:29 +0000
+
 ruby-hammer-cli-foreman-puppet (0.1.0-1) stable; urgency=low
 
   * 0.1.0 released
