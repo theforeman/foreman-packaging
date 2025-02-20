@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 2.0.3
+Version: 2.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 License: GPLv3
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Feb 20 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.4-1
+- Update to 2.0.4
+
 * Wed Dec 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.3-1
 - Update to 2.0.3
 
