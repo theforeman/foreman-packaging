@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 1.3.0
+Version: 1.3.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman CLI plugin for managing discovery hosts in foreman
 License: GPLv3+
@@ -19,6 +19,7 @@ BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -69,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Thu Feb 20 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.1-1
+- Update to 1.3.1
+
 * Sun Apr 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.0-1
 - Update to 1.3.0
 
