@@ -17,7 +17,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-highline,
          ruby-fast-gettext (>= 1.2.0),
          ruby-locale (>= 2.0.6),
-         ruby-apipie-bindings (>= 0.5.0),
+         ruby-apipie-bindings (>= 0.7.0),
          ruby-unicode-display-width,
          ruby-unicode
 Description: Universal command-line interface
