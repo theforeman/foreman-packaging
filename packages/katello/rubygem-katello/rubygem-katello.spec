@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.14
 %global foreman_max_version 3.15
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.16.0
 %global release 3
@@ -169,6 +169,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Feb 20 2025 Patrick Creech <pcreech@redhat.com> - 4.16.0-0.3.rc1
+- Release rubygem-katello 4.16.0rc1
+
 * Tue Dec 17 2024 MariaAga <mariaaga@redhat.com> - 4.16.0-0.3.pre.master
 - move jquery-ui-rails package to katello
 

@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -130,6 +130,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Feb 20 2025 Patrick Creech <pcreech@redhat.com> - 4.16.0-0.2.rc1
+- Release katello 4.16.0rc1
+
 * Mon Dec 16 2024 Evgeni Golov - 4.16.0-0.2.master
 - correctly regenerate Puppet certs when changing hostname
 
