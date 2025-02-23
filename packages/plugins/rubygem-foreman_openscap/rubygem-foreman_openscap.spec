@@ -4,7 +4,7 @@
 %global foreman_min_version 3.14
 
 Name: rubygem-%{gem_name}
-Version: 10.2.0
+Version: 10.2.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 License: GPLv3
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Feb 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 10.2.1-1
+- Update to 10.2.1
+
 * Wed Feb 12 2025 Foreman Packaging Automation <packaging@theforeman.org> - 10.2.0-1
 - Update to 10.2.0
 
