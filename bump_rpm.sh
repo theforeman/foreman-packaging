@@ -88,11 +88,14 @@ if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
 		bump_spec $SPEC_FILE "${NEW_VERSION}"
 
 		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
-		if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]]; then
+		if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]] || grep --no-messages %scl_package $SPEC_FILE; then
+			if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]] ; then
+				TEMPLATE=default
+			fi
 			CHANGELOG=$(mktemp)
 			trap "rm -f $CHANGELOG" EXIT
 			sed -e '1,/%changelog/ d' $SPEC_FILE > "$CHANGELOG"
-			gem2rpm -t "$ROOT/gem2rpm/default.spec.erb" -o $SPEC_FILE ./*.gem
+			gem2rpm -t "$ROOT/gem2rpm/$TEMPLATE.spec.erb" -o $SPEC_FILE ./*.gem
 			cat "$CHANGELOG" >> $SPEC_FILE
 			git add $SPEC_FILE
 		elif [[ -n $TEMPLATE ]] ; then
