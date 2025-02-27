@@ -2,7 +2,7 @@
 %global gem_name angular-rails-templates
 
 Name:      rubygem-%{gem_name}
-Version:   1.2.2
+Version:   1.3.1
 Release:   1%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Feb 27 2025 Eric D. Helms <ericdhelms@gmail.com> - 1:1.3.1-1
+- Update to 1.3.1
+
 * Tue Nov 19 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.2.2-1
 - Update to 1.2.2
 
