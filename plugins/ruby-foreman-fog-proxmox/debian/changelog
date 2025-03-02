@@ -1,3 +1,9 @@
+ruby-foreman-fog-proxmox (0.18.1-1) stable; urgency=low
+
+  * 0.18.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 02 Mar 2025 04:10:57 +0000
+
 ruby-foreman-fog-proxmox (0.17.1-1) stable; urgency=low
 
   * 0.17.1 released
