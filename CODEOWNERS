@@ -9,3 +9,9 @@
 /plugins/*puppet/ @theforeman/packaging @theforeman/puppet
 /plugins/*salt/ @theforeman/packaging @theforeman/salt
 /plugins/*fog-proxmox/ @theforeman/packaging @theforeman/proxmox
+/dependencies/*/dynflow/ @theforeman/packaging @theforeman/foreman-tasks
+/plugins/*/smart_proxy_dynflow/ @theforeman/packaging @theforeman/foreman-tasks
+/plugins/*/ruby-foreman-tasks/ @theforeman/packaging @theforeman/foreman-tasks
+/plugins/*/ruby-foreman-webhooks/ @theforeman/packaging @theforeman/webhooks
+/plugins/*/smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
+/plugins/*/ruby-foreman-templates/ @theforeman/packaging @theforeman/foreman_templates
