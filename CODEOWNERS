@@ -16,6 +16,7 @@
 /packages/plugins/*_openscap/ @theforeman/packaging @theforeman/openscap
 /packages/foreman/rubygem-ldap_fluff/ @theforeman/packaging @theforeman/ldap-fluff
 /packages/plugins/*_webhooks/ @theforeman/packaging @theforeman/webhooks
+/packages/plugins/*_smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
 /packages/plugins/rubygem-foreman-tasks/ @theforeman/packaging @theforeman/foreman-tasks
 /packages/foreman/*dynflow*/ @theforeman/packaging @theforeman/foreman-tasks
 /packages/plugins/rubygem-smart_proxy_dynflow/ @theforeman/packaging @theforeman/foreman-tasks
