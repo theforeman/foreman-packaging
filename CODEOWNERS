@@ -1,5 +1,6 @@
 * @theforeman/packaging
 /packages/plugins/*_remote_execution*/ @theforeman/packaging @theforeman/remote-execution
+/packages/client/foreman_ygg*/ @theforeman/packaging @theforeman/remote-execution
 /packages/plugins/*_discovery/ @theforeman/packaging @theforeman/discovery
 /packages/plugins/*_bootdisk/ @theforeman/packaging @theforeman/bootdisk
 /packages/katello/*_scc_manager/ @theforeman/packaging @theforeman/atix
@@ -11,3 +12,12 @@
 /packages/plugins/*_puppet/ @theforeman/packaging @theforeman/puppet
 /packages/katello/*_kernel_care/ @theforeman/packaging @theforeman/foreman_kernel_care
 /packages/plugins/*_fog_proxmox/ @theforeman/packaging @theforeman/proxmox
+/packages/client/*scap_client*/ @theforeman/packaging @theforeman/openscap
+/packages/plugins/*_openscap/ @theforeman/packaging @theforeman/openscap
+/packages/foreman/rubygem-ldap_fluff/ @theforeman/packaging @theforeman/ldap-fluff
+/packages/plugins/*_webhooks/ @theforeman/packaging @theforeman/webhooks
+/packages/plugins/rubygem-foreman-tasks/ @theforeman/packaging @theforeman/foreman-tasks
+/packages/foreman/*dynflow*/ @theforeman/packaging @theforeman/foreman-tasks
+/packages/plugins/rubygem-smart_proxy_dynflow/ @theforeman/packaging @theforeman/foreman-tasks
+/packages/plugins/rubygem-foreman_templates/ @theforeman/packaging @theforeman/foreman_templates
+/packages/plugins/rubygem-safemode/ @theforeman/packaging @theforeman/safemode
