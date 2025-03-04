@@ -73,7 +73,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
-* Thu Feb 20 2024 Chris Roberts <chrobert@redhat.com> - 1.17.0-0.1.pre.main
+* Thu Feb 20 2025 Chris Roberts <chrobert@redhat.com> - 1.17.0-0.1.pre.main
 - Bump version to 1.17.0
 
 * Fri Nov 08 2024 Ian Ballou <ianballou67@gmail.com> - 1.16.0-0.1.pre.main
