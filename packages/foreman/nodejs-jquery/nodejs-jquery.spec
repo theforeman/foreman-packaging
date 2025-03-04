@@ -4,18 +4,15 @@
 %global npm_name jquery
 
 Name: %{?scl_prefix}nodejs-jquery
-Version: 2.2.4
-Release: 4%{?dist}
+Version: 3.7.1
+Release: 1%{?dist}
 Summary: JavaScript library for DOM operations
 License: MIT
 Group: Development/Libraries
-URL: http://jquery.com
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+URL: https://jquery.com
+Source0: https://registry.npmjs.org/jquery/-/jquery-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -30,7 +27,6 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr external %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -46,6 +42,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 04 2025 Foreman Packaging Automation <packaging@theforeman.org> 3.7.1-1
+- Update to 3.7.1
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.4-4
 - Bump packages to build for el8
 
