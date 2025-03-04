@@ -2,7 +2,7 @@
 %global gem_name redfish_client
 
 Name: rubygem-%{gem_name}
-Version: 0.6.0
+Version: 0.6.2
 Release: 1%{?dist}
 Summary: Simple Redfish client library
 License: Apache-2.0
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/redfish_client.gemspec
 
 %changelog
+* Tue Mar 04 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.6.2-1
+- Update to 0.6.2
+
 * Mon Jul 15 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.6.0-1
 - Update to 0.6.0
 
