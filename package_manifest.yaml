@@ -482,7 +482,7 @@ foreman_client_packages:
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
       leap156:
         - leap156-oss
-        - atix-sles155
+        - atix-sles156
   children:
     yggdrasil_client_packages: {}
   hosts:
