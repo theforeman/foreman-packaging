@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.13
 %global foreman_max_version 3.14
-%global mainver 4.15.0
+%global mainver 4.15.1
 %global release 1
 
 Name: rubygem-%{gem_name}
@@ -33,7 +33,7 @@ BuildRequires: rubygem(oauth)
 BuildRequires: rubygem(rest-client)
 BuildRequires: rubygem(rabl)
 BuildRequires: rubygem(foreman-tasks) >= 5.0
-BuildRequires: rubygem(foreman_remote_execution) >= 7.1.0
+BuildRequires: (rubygem(foreman_remote_execution) >= 7.1.0 with rubygem(foreman_remote_execution) < 15)
 BuildRequires: rubygem(dynflow) >= 1.6.1
 BuildRequires: rubygem(activerecord-import)
 BuildRequires: rubygem(stomp)
@@ -166,6 +166,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Mar 05 2025 Ian Ballou <ianballou67@gmail.com> - 4.15.1-1
+- Update to 4.15.1
+
 * Tue Dec 03 2024 Odilon Sousa <osousa@redhat.com> - 4.15.0-1
 - Release rubygem-katello 4.15.0
 
