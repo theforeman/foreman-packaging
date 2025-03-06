@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 14.0.0
+Version: 15.0.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Thu Mar 06 2025 Evgeni Golov 15.0.0-1
+- Update to 15.0.0
+
 * Wed Jan 22 2025 Evgeni Golov 14.0.0-1
 - Update to 14.0.0
 
