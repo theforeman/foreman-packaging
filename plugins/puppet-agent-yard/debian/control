@@ -8,5 +8,5 @@ Homepage: http://yardoc.org/
 
 Package: puppet-agent-yard
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent
+Depends: ${shlibs:Depends}, ${misc:Depends}, openvox-agent | puppet-agent
 Description: YARD is a Ruby Documentation tool. The Y stands for "Yay!"
