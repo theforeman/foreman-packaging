@@ -1,3 +1,9 @@
+puppet-agent-puppet-strings (3.0.1-3) stable; urgency=low
+
+  * Add support for OpenVox agent
+
+ -- Dirk Goetz <dirk.goetz@netways.de>  Thu, 16 Apr 2026 17:21:00 +0100
+
 puppet-agent-puppet-strings (3.0.1-2) stable; urgency=low
 
   * Update depends to require rgen ~> 0.9.0
