@@ -8,5 +8,5 @@ Homepage: https://github.com/oauth-xx/oauth-ruby
 
 Package: puppet-agent-oauth
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent
+Depends: ${shlibs:Depends}, ${misc:Depends}, openvox-agent | puppet-agent
 Description: OAuth Core Ruby implementation for Puppet Agent
