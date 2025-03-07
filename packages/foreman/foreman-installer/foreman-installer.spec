@@ -16,7 +16,7 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   hostname
-Requires:   puppet-agent >= 7.0.0
+Requires:   (openvox-agent >= 7.35.0 or puppet-agent >= 7.0.0)
 Requires:   rubygem(kafo) >= 7.6.0
 Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
