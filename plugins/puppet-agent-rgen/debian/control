@@ -8,5 +8,5 @@ Homepage: http://rgenoc.org/
 
 Package: puppet-agent-rgen
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent
+Depends: ${shlibs:Depends}, ${misc:Depends}, openvox-agent | puppet-agent
 Description: RGen is a framework for Model Driven Software Development (MDSD) in Ruby.

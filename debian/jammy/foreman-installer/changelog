@@ -1,3 +1,9 @@
+foreman-installer (3.19.0-2) stable; urgency=low
+
+  * Add support for OpenVox agent
+
+ -- Dirk Goetz <dirk.goetz@netways.de>  Thu, 16 Apr 2026 17:21:00 +0100
+
 foreman-installer (3.19.0-1) stable; urgency=low
 
   * 3.19.0 released
