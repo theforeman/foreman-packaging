@@ -22,7 +22,7 @@ Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
-BuildRequires: puppet-agent >= 7.0.0
+BuildRequires: (openvox-agent >= 7.35.0 or puppet-agent >= 7.0.0)
 BuildRequires: rubygem(rake)
 BuildRequires: rubygem(kafo) >= 7.6.0
 BuildRequires: rubygem(kafo) < 8.0.0
