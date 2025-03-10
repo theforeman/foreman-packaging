@@ -9,7 +9,7 @@ Group: Development/Languages
 License: ASL-2.0
 URL: https://github.com/puppetlabs/puppetlabs-strings
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: puppet-agent >= 7
+Requires: (openvox-agent >= 7 or puppet-agent >= 7)
 Requires: (puppet-agent-yard >= 0.9.5 with puppet-agent-yard < 1)
 Requires: (puppet-agent-rgen >= 0.9 with puppet-agent-rgen < 1)
 BuildArch: noarch

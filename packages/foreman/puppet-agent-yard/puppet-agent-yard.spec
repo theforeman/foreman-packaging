@@ -9,7 +9,7 @@ Group: Development/Languages
 License: MIT
 URL: http://yardoc.org/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: puppet-agent
+Requires: (openvox-agent or puppet-agent)
 BuildArch: noarch
 
 %description
