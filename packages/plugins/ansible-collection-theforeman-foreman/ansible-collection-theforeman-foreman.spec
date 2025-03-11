@@ -4,10 +4,10 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 2
+%global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    5.1.0
+Version:    5.2.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -51,6 +51,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Tue Mar 11 2025 Evgeni Golov - 5.2.0-1
+- Release ansible-collection-theforeman-foreman 5.2.0
+
 * Wed Feb 19 2025 Odilon Sousa <osousa@redhat.com> - 5.1.0-2
 - Update requests and pyaml requirements to python 3.12
 
