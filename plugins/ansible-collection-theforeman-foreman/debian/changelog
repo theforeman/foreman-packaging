@@ -1,3 +1,9 @@
+ansible-collection-theforeman-foreman (5.2.0-1) stable; urgency=low
+
+  * 5.2.0 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 11 Mar 2025 18:34:22 +0100
+
 ansible-collection-theforeman-foreman (5.1.0-2) stable; urgency=low
 
   * Allow ansible-core and be Python3 only
