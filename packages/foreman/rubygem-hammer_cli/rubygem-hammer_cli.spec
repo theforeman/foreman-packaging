@@ -3,7 +3,7 @@
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -22,6 +22,9 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
+Requires: (rubygem(csv) or ruby-default-gems < 3.4)
+
 %description
 Hammer cli provides universal extendable CLI interface for ruby apps.
 
@@ -36,6 +39,9 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}%{?prerelease}
+
+%gemspec_remove_dep -g base64
+%gemspec_remove_dep -g csv
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -89,6 +95,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 17 2025 Evgeni Golov - 3.15.0-0.2.pre.develop
+- Fix Requires on base64 and csv on Ruby < 3.4
+
 * Tue Feb 18 2025 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.1.pre.develop
 - Bump version to 3.15-develop
 
