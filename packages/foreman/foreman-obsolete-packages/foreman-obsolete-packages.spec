@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.10
+Version: 1.11
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -19,6 +19,8 @@ Obsoletes: rubygem-runcible < 2.13.1-3
 Obsoletes: rubygem-unf < 0.1.4-2
 Obsoletes: rubygem-unf_ext < 0.0.8.2-2
 Obsoletes: rubygem-anemone < 0.7.2-2
+Obsoletes: rubygem-fog-ovirt < 2.0.3-1
+Obsoletes: rubygem-ovirt-engine-sdk < 4.6.0-1
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -33,6 +35,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Tue Apr 01 2025 Leos Stejskal - 1.11-1
+- Obsolete oVirt
+
 * Mon Aug 05 2024 Samir Jha - 1.10-1
 - Obsolete rubygem-anemone
 

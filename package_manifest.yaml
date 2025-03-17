@@ -236,7 +236,6 @@ ruby_core_packages_tier1:
     rubygem-fog-json: {}
     rubygem-fog-libvirt: {}
     rubygem-fog-openstack: {}
-    rubygem-fog-ovirt: {}
     rubygem-fog-vsphere: {}
     rubygem-fog-xml: {}
     rubygem-font-awesome-sass: {}
@@ -302,7 +301,6 @@ ruby_core_packages_tier1:
     rubygem-oauth-tty: {}
     rubygem-optimist: {}
     rubygem-os: {}
-    rubygem-ovirt-engine-sdk: {}
     rubygem-paint: {}
     rubygem-parallel: {}
     rubygem-patternfly-sass: {}

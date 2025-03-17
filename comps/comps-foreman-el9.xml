@@ -26,7 +26,6 @@
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-obsolete-packages</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>
-      <packagereq type="default">foreman-ovirt</packagereq>
       <packagereq type="default">foreman-pcp</packagereq>
       <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
@@ -160,7 +159,6 @@
       <packagereq type="default">rubygem-fog-json</packagereq>
       <packagereq type="default">rubygem-fog-libvirt</packagereq>
       <packagereq type="default">rubygem-fog-openstack</packagereq>
-      <packagereq type="default">rubygem-fog-ovirt</packagereq>
       <packagereq type="default">rubygem-fog-vsphere</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass</packagereq>
@@ -232,7 +230,6 @@
       <packagereq type="default">rubygem-oauth-tty</packagereq>
       <packagereq type="default">rubygem-optimist</packagereq>
       <packagereq type="default">rubygem-os</packagereq>
-      <packagereq type="default">rubygem-ovirt-engine-sdk</packagereq>
       <packagereq type="default">rubygem-paint</packagereq>
       <packagereq type="default">rubygem-parallel</packagereq>
       <packagereq type="default">rubygem-patternfly-sass</packagereq>
@@ -382,7 +379,6 @@
       <packagereq type="default">rubygem-fog-json-doc</packagereq>
       <packagereq type="default">rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-openstack-doc</packagereq>
-      <packagereq type="default">rubygem-fog-ovirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-vsphere-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass-doc</packagereq>
@@ -454,7 +450,6 @@
       <packagereq type="default">rubygem-oauth-tty-doc</packagereq>
       <packagereq type="default">rubygem-optimist-doc</packagereq>
       <packagereq type="default">rubygem-os-doc</packagereq>
-      <packagereq type="default">rubygem-ovirt-engine-sdk-doc</packagereq>
       <packagereq type="default">rubygem-paint-doc</packagereq>
       <packagereq type="default">rubygem-parallel-doc</packagereq>
       <packagereq type="default">rubygem-patternfly-sass-doc</packagereq>

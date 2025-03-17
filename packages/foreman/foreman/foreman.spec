@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -24,6 +24,8 @@ BuildArch:  noarch
 
 # Plugin was removed in Foreman 3.3, 3.5 includes DB cleanup
 Obsoletes: rubygem-foreman_docker < 5.0.0-4
+# oVirt integration was removed in Foreman 3.16
+Obsoletes: %{name}-ovirt < %{version}-%{release}
 
 Requires: (%{name}-selinux if selinux-policy-targeted)
 
@@ -266,21 +268,6 @@ Meta package to install requirements for OpenStack compute resource support.
 
 %files openstack
 %{_datadir}/%{name}/bundler.d/openstack.rb
-
-%package ovirt
-Summary: Foreman oVirt support
-Group:  Applications/System
-# start specfile ovirt Requires
-Requires: (rubygem(fog-ovirt) >= 2.0.1 with rubygem(fog-ovirt) < 3)
-# end specfile ovirt Requires
-Requires: %{name} = %{version}-%{release}
-Requires: /usr/bin/websockify
-
-%description ovirt
-Meta package to install requirements for oVirt compute resource support.
-
-%files ovirt
-%{_datadir}/%{name}/bundler.d/ovirt.rb
 
 %package ec2
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
@@ -861,6 +848,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Jun 03 2025 Leos Stejskal <lstejska@redhat.com> - 3.16.0-0.2.develop
+- Remove oVirt packages
+
 * Mon May 19 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.develop
 - Bump version to 3.16-develop
 
