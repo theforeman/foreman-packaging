@@ -64,7 +64,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/fog-core.gemspec
 %doc %{gem_instdir}/changelog.md
-%{gem_instdir}/spec
 
 %changelog
 * Tue Mar 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.6.0-1
