@@ -1,7 +1,7 @@
 # template: foreman_plugin
 %global gem_name foreman_virt_who_configure
 %global plugin_name virt_who_configure
-%global foreman_min_version FIXME
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
 Version: 0.5.26
