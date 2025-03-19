@@ -62,9 +62,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.standard.yml
-%doc %{gem_instdir}/Code-of-Conduct.md
-%license %{gem_instdir}/Licence.md
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
+%license %{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/Manifest.txt
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -72,9 +71,11 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/Contributing.md
-%doc %{gem_instdir}/History.md
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
