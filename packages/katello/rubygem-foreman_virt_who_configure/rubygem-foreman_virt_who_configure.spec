@@ -1,16 +1,12 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name foreman_virt_who_configure
 %global plugin_name virt_who_configure
-%global foreman_min_version 3.13
+%global foreman_min_version FIXME
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.25
+Name: rubygem-%{gem_name}
+Version: 0.5.26
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
-Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_virt_who_configure
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -32,36 +28,23 @@ A plugin to make virt-who configuration easy.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -91,7 +74,13 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Wed Mar 19 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.5.26-1
+- Update to 0.5.26
+
 * Tue Nov 05 2024 Chris Roberts <chrobert@redhat.com> - 0.5.25-1
 - Update to 0.5.25
 
