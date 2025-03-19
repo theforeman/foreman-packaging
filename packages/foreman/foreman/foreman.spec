@@ -4,9 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 3.14.0
@@ -861,6 +859,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Mar 19 2025 Patrick Creech <pcreech@redhat.com> - 3.14.0-1
+- Release foreman 3.14.0
+
 * Tue Mar 04 2025 Patrick Creech <pcreech@redhat.com> - 3.14.0-0.5.rc2
 - Release foreman 3.14.0rc2
 
