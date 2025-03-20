@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 25.1.0
+Version: 25.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: MaaS Discovery Plugin for Foreman
 License: GPLv3
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Mar 20 2025 Leos Stejskal <lstejska@redhat.com> - 25.1.1-1
+- Update to 25.1.1
+
 * Mon Jan 27 2025 Leos Stejskal <lstejska@redhat.com> - 25.1.0-1
 - Update to 25.1.0
 
