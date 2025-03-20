@@ -2,7 +2,7 @@
 %global gem_name optimist
 
 Name: rubygem-%{gem_name}
-Version: 3.2.0
+Version: 3.2.1
 Release: 1%{?dist}
 Summary: Optimist is a commandline option parser for Ruby that just gets out of your way
 License: MIT
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 20 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.2.1-1
+- Update to 3.2.1
+
 * Sun Dec 01 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.2.0-1
 - Update to 3.2.0
 
