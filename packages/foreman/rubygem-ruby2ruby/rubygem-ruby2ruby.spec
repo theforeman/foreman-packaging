@@ -2,7 +2,7 @@
 %global gem_name ruby2ruby
 
 Name: rubygem-%{gem_name}
-Version: 2.5.1
+Version: 2.5.2
 Release: 1%{?dist}
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
 License: MIT
@@ -70,6 +70,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.5.2-1
+- Update to 2.5.2
+
 * Sun Jul 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.5.1-1
 - Update to 2.5.1
 
