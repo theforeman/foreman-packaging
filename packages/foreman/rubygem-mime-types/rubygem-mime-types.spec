@@ -2,7 +2,7 @@
 %global gem_name mime-types
 
 Name: rubygem-%{gem_name}
-Version: 3.6.1
+Version: 3.6.2
 Release: 1%{?dist}
 Summary: The mime-types library provides a library and registry for information about MIME content type definitions
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.6.2-1
+- Update to 3.6.2
+
 * Wed Mar 19 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.6.1-1
 - Update to 3.6.1
 
