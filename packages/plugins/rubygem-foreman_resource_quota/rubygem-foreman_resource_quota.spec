@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.3.1
+Version: 0.5.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for resource quota
 License: GPLv3
@@ -18,14 +18,14 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(foreman-tasks) >= 10.0 with rubygem(foreman-tasks) < 11)
+BuildRequires: (rubygem(foreman-tasks) >= 10.0 with rubygem(foreman-tasks) < 12)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.23.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: npm(@theforeman/builder) >= 12.0.1
+BuildRequires: npm(@theforeman/builder) >= 15.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Mar 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.5.0-1
+- Update to 0.5.0
+
 * Thu Nov 28 2024 Nadja Heitmann <nadjah@atix.de> - 0.3.1-1
 - Update to 0.3.1
 
