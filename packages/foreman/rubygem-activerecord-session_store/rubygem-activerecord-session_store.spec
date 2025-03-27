@@ -2,7 +2,7 @@
 %global gem_name activerecord-session_store
 
 Name: rubygem-%{gem_name}
-Version: 2.1.0
+Version: 2.2.0
 Release: 1%{?dist}
 Summary: An Action Dispatch session store backed by an Active Record class
 License: MIT
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.0-1
+- Update to 2.2.0
+
 * Tue Aug 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.0-1
 - Update to 2.1.0
 
