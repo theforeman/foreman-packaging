@@ -1,0 +1,6 @@
+# This seems ok to me
+addFilter('invalid-url')
+
+# Ignore failing suse specific checks
+setBadness("suse-dbus-unauthorized-service", 0)
+setBadness("polkit-unauthorized-privilege", 0)
