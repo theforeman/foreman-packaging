@@ -7,7 +7,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 3.14.0
+Version: 3.14.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
 Group: Development/Languages
@@ -78,6 +78,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 31 2025 Oleh Fedorenko <ofedoren@redhat.com> - 3.14.1-1
+- Release rubygem-hammer_cli_foreman 3.14.1
+
 * Thu Feb 20 2025 Oleh Fedorenko <ofedoren@redhat.com> - 3.14.0-1
 - Release rubygem-hammer_cli_foreman 3.14.0
 
