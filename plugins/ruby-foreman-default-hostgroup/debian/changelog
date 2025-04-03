@@ -1,3 +1,9 @@
+ruby-foreman-default-hostgroup (7.1.0-1) stable; urgency=low
+
+  * 7.1.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 03 Apr 2025 10:18:08 +0000
+
 ruby-foreman-default-hostgroup (7.0.0-1) stable; urgency=low
 
   * 7.0.0 released
