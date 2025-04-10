@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -32,6 +32,7 @@ Requires:       rubygem(bundler_ext)
 Requires: (%{name}-fapolicyd if fapolicyd)
 
 # These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
+Requires:       (rubygem(base64) or ruby-default-gems < 3.4)
 Requires:       rubygem(json)
 Requires:       rubygem(rack) >= 1.3.0
 Requires:       (rubygem(sd_notify) >= 0.1 with rubygem(sd_notify) < 0.2)
@@ -238,6 +239,9 @@ exit 0
 
 
 %changelog
+* Thu Apr 10 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.15.0-0.2.develop
+- Add dependency on base64 gem
+
 * Tue Feb 18 2025 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.1.develop
 - Bump version to 3.15-develop
 
