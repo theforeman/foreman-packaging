@@ -1,30 +1,17 @@
 # template: smart_proxy_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_bindir:%global _root_bindir %{_bindir}}
-%{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name smart_proxy_openscap
 %global plugin_name openscap
 
-%global foreman_proxy_min_version 1.25
-%global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_min_version 1.24
+%global foreman_proxy_dir %{_datadir}/foreman-proxy
+%global foreman_proxy_statedir %{_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
-%global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
+%global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-%global spool_dir %{_var}/spool/foreman-proxy/openscap
-%global content_dir %{foreman_proxy_statedir}/openscap
-%global proxy_user foreman-proxy
-
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.12.0
+Name: rubygem-%{gem_name}
+Version: 0.12.1
 Release: 1%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
-Group: Applications/Internet
 License: GPLv3+
 URL: https://github.com/theforeman/smart_proxy_openscap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -40,12 +27,6 @@ BuildArch: noarch
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-# These are called at runtime
-Requires: /usr/bin/bunzip2
-Requires: /usr/bin/oscap
-
-%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
-
 %description
 A plug-in to the Foreman's smart-proxy which receives
 bzip2ed ARF files and forwards them to the Foreman.
@@ -53,47 +34,32 @@ bzip2ed ARF files and forwards them to the Foreman.
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
-
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
-mkdir -p %{buildroot}%{_root_bindir}
-mv  %{buildroot}%{gem_instdir}/bin/* \
-        %{buildroot}%{_root_bindir}/
 
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
@@ -105,38 +71,22 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/openscap.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/openscap.yml
 
-#crontab
-mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d/
-mv %{buildroot}%{gem_instdir}/extra/smart-proxy-openscap-send.cron \
-   %{buildroot}%{_root_sysconfdir}/cron.d/%{name}
-
-# create spool directory
-mkdir -p %{buildroot}%{spool_dir}
-
-# create content, reports and failed_reports directories and symlink it to foreman-proxy directory
-mkdir -p %{buildroot}%{content_dir}/content
-mkdir -p %{buildroot}%{content_dir}/reports
-mkdir -p %{buildroot}%{content_dir}/failed
-ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
-
 %files
 %dir %{gem_instdir}
-%{_root_bindir}/smart-proxy-openscap-send
-%{foreman_proxy_dir}/openscap
-%attr(-,%{proxy_user},%{proxy_user}) %{spool_dir}
-%attr(-,%{proxy_user},%{proxy_user}) %{content_dir}
-%config(noreplace) %attr(0644, root, root) %{_root_sysconfdir}/cron.d/%{name}
+%{_bindir}/smart-proxy-openscap-send
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/openscap.yml
-%exclude %{gem_instdir}/.github
+%{gem_instdir}/.github
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/COPYING
 %{gem_instdir}/bin
+%exclude %{gem_instdir}/bundler.d
+%{gem_instdir}/extra
 %{gem_libdir}
+%exclude %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/extra
 %{gem_spec}
 
 %files doc
@@ -148,6 +98,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Sun Apr 13 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.12.1-1
+- Update to 0.12.1
+
 * Wed Dec 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.12.0-1
 - Update to 0.12.0
 
