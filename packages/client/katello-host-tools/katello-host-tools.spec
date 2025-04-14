@@ -34,7 +34,7 @@
 
 Name: katello-host-tools
 Version: 4.5.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -237,7 +237,9 @@ exit 0
 
 %if %{build_tracer}
 %exclude %{katello_libdir}/tracer
+%if %{dnf_install} || %{yum_install}
 %exclude %{plugins_dir}
+%endif
 %endif
 
 %if %{yum_install} || %{zypper_install}
@@ -289,6 +291,9 @@ exit 0
 
 
 %changelog
+* Tue Oct 21 2025 Markus Bucher <bucher@atix.de> - 4.5.0-2
+- Fix missing package upload on SLES 15
+
 * Thu May 08 2025 pavansomashekar <pavansomashekar> - 4.5.0-1
 - Update to 4.5.0
 
