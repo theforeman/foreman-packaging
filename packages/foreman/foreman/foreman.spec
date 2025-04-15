@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -38,6 +38,7 @@ Requires: wget
 Requires: /etc/cron.d
 Requires: gawk
 Requires: /usr/sbin/sendmail
+Requires: sshpass
 
 Requires(pre):  shadow-utils
 Requires(post): systemd-sysv
@@ -870,6 +871,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Jun 24 2025 Loes Stejskal - 3.16.0-0.5.develop
+- Add sshpass dependency
+
 * Tue Jun 17 2025 Evgeni Golov - 3.16.0-0.4.develop
 - Update NPM dependencies
 
