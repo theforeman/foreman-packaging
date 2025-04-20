@@ -4,7 +4,7 @@
 %global npm_name webpack
 
 Name: %{?scl_prefix}nodejs-webpack
-Version: 5.99.5
+Version: 5.99.6
 Release: 1%{?dist}
 Summary: Packs ECMAScript/CommonJs/AMD modules for the browser
 License: MIT
@@ -20,7 +20,7 @@ Source6: https://registry.npmjs.org/@types/eslint/-/eslint-9.6.1.tgz
 Source7: https://registry.npmjs.org/@types/eslint-scope/-/eslint-scope-3.7.7.tgz
 Source8: https://registry.npmjs.org/@types/estree/-/estree-1.0.7.tgz
 Source9: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
-Source10: https://registry.npmjs.org/@types/node/-/node-22.14.0.tgz
+Source10: https://registry.npmjs.org/@types/node/-/node-22.14.1.tgz
 Source11: https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.14.1.tgz
 Source12: https://registry.npmjs.org/@webassemblyjs/floating-point-hex-parser/-/floating-point-hex-parser-1.13.2.tgz
 Source13: https://registry.npmjs.org/@webassemblyjs/helper-api-error/-/helper-api-error-1.13.2.tgz
@@ -44,10 +44,10 @@ Source30: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source31: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
 Source32: https://registry.npmjs.org/browserslist/-/browserslist-4.24.4.tgz
 Source33: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
-Source34: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001712.tgz
+Source34: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001715.tgz
 Source35: https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz
 Source36: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
-Source37: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.134.tgz
+Source37: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.139.tgz
 Source38: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.18.1.tgz
 Source39: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-1.6.0.tgz
 Source40: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
@@ -85,7 +85,7 @@ Source71: https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plug
 Source72: https://registry.npmjs.org/undici-types/-/undici-types-6.21.0.tgz
 Source73: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.1.3.tgz
 Source74: https://registry.npmjs.org/watchpack/-/watchpack-2.4.2.tgz
-Source75: https://registry.npmjs.org/webpack/-/webpack-5.99.5.tgz
+Source75: https://registry.npmjs.org/webpack/-/webpack-5.99.6.tgz
 Source76: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.2.3.tgz
 Source77: nodejs-webpack-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
@@ -106,7 +106,7 @@ Provides: bundled(npm(@types/eslint)) = 9.6.1
 Provides: bundled(npm(@types/eslint-scope)) = 3.7.7
 Provides: bundled(npm(@types/estree)) = 1.0.7
 Provides: bundled(npm(@types/json-schema)) = 7.0.15
-Provides: bundled(npm(@types/node)) = 22.14.0
+Provides: bundled(npm(@types/node)) = 22.14.1
 Provides: bundled(npm(@webassemblyjs/ast)) = 1.14.1
 Provides: bundled(npm(@webassemblyjs/floating-point-hex-parser)) = 1.13.2
 Provides: bundled(npm(@webassemblyjs/helper-api-error)) = 1.13.2
@@ -130,10 +130,10 @@ Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
 Provides: bundled(npm(browserslist)) = 4.24.4
 Provides: bundled(npm(buffer-from)) = 1.1.2
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001712
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001715
 Provides: bundled(npm(chrome-trace-event)) = 1.0.4
 Provides: bundled(npm(commander)) = 2.20.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.134
+Provides: bundled(npm(electron-to-chromium)) = 1.5.139
 Provides: bundled(npm(enhanced-resolve)) = 5.18.1
 Provides: bundled(npm(es-module-lexer)) = 1.6.0
 Provides: bundled(npm(escalade)) = 3.2.0
@@ -171,7 +171,7 @@ Provides: bundled(npm(terser-webpack-plugin)) = 5.3.14
 Provides: bundled(npm(undici-types)) = 6.21.0
 Provides: bundled(npm(update-browserslist-db)) = 1.1.3
 Provides: bundled(npm(watchpack)) = 2.4.2
-Provides: bundled(npm(webpack)) = 5.99.5
+Provides: bundled(npm(webpack)) = 5.99.6
 Provides: bundled(npm(webpack-sources)) = 3.2.3
 AutoReq: no
 AutoProv: no
@@ -226,6 +226,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/SECURITY.md
 
 %changelog
+* Sun Apr 20 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.99.6-1
+- Update to 5.99.6
+
 * Wed Apr 09 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.99.5-1
 - Update to 5.99.5
 
