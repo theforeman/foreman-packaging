@@ -45,6 +45,7 @@ BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
 BuildRequires: rubygem(spidr)
+BuildRequires: (rubygem(faraday) >= 1.0.1 with rubygem(faraday) < 2.0.0)
 BuildRequires: (rubygem(pulpcore_client) >= 3.73.0 with rubygem(pulpcore_client) < 3.74.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.73.0 with rubygem(pulp_file_client) < 3.74.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.24.1 with rubygem(pulp_ansible_client) < 0.25.0)
