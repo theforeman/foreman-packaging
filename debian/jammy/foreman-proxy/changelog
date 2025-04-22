@@ -1,3 +1,9 @@
+foreman-proxy (3.15.0-2) stable; urgency=low
+
+  * Increase lower version bound for ruby-webrick to ensure that the ruby3.0 package is installed.
+
+ -- Kenyon Ralph <kralph@qti.qualcomm.com>  Tue, 22 Apr 2025 16:05:34 -0700
+
 foreman-proxy (3.15.0-1) stable; urgency=low
 
   * Bump changelog to 3.15.0 to match VERSION
