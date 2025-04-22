@@ -2,7 +2,7 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 3.5.1
+Version: 3.3.1
 Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
@@ -10,8 +10,8 @@ URL: https://github.com/pulp/pulp_deb
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.7
-BuildRequires: ruby >= 2.7
+Requires: ruby >= 1.9
+BuildRequires: ruby >= 1.9
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -61,9 +61,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
-* Mon Apr 14 2025 Ian Ballou <ianballou67@gmail.com> - 3.5.1-1
-- Update to 3.5.1
-
 * Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 3.3.1-1
 - Update to 3.3.1
 
