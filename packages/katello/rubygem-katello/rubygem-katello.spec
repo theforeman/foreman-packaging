@@ -45,7 +45,7 @@ BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
 BuildRequires: rubygem(spidr)
-BuildRequires: (rubygem(faraday) >= 1.0.1 with rubygem(faraday) < 2.0.0)
+BuildRequires: (rubygem(faraday) ~> 1.10 with rubygem(faraday) >= 1.10.2)
 BuildRequires: (rubygem(pulpcore_client) >= 3.73.0 with rubygem(pulpcore_client) < 3.74.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.73.0 with rubygem(pulp_file_client) < 3.74.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.24.1 with rubygem(pulp_ansible_client) < 0.25.0)
@@ -53,7 +53,7 @@ BuildRequires: (rubygem(pulp_container_client) >= 2.24.0 with rubygem(pulp_conta
 BuildRequires: (rubygem(pulp_deb_client) >= 3.5.1 with rubygem(pulp_deb_client) < 3.6.0)
 BuildRequires: (rubygem(pulp_rpm_client) >= 3.29.0 with rubygem(pulp_rpm_client) < 3.30.0)
 BuildRequires: (rubygem(pulp_certguard_client) >= 3.73.0 with rubygem(pulp_certguard_client) < 3.74.0)
-BuildRequires: (rubygem(pulp_python_client) >= 3.14.0 with rubygem(pulp_python_client) < 3.15.0)
+BuildRequires: (rubygem(pulp_python_client) >= 3.13.0 with rubygem(pulp_python_client) < 3.14.0)
 BuildRequires: (rubygem(pulp_ostree_client) >= 2.4.6 with rubygem(pulp_ostree_client) < 2.5.0)
 BuildRequires: (rubygem(deface) >= 1.0.2 with rubygem(deface) < 2.0.0)
 BuildRequires: (rubygem(angular-rails-templates) >= 1.1 with rubygem(angular-rails-templates) < 2)
