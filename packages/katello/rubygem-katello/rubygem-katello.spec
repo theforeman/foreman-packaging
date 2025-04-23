@@ -45,7 +45,7 @@ BuildRequires: rubygem(apipie-rails) >= 0.5.14
 BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
 BuildRequires: rubygem(spidr)
-BuildRequires: (rubygem(faraday) ~> 1.10 with rubygem(faraday) >= 1.10.2)
+BuildRequires: (rubygem(faraday) >= 1.10.2 with rubygem(faraday) < 1.11.0)
 BuildRequires: (rubygem(pulpcore_client) >= 3.73.0 with rubygem(pulpcore_client) < 3.74.0)
 BuildRequires: (rubygem(pulp_file_client) >= 3.73.0 with rubygem(pulp_file_client) < 3.74.0)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.24.1 with rubygem(pulp_ansible_client) < 0.25.0)
@@ -61,10 +61,6 @@ BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
-
-Obsoletes: %{?scl_prefix}rubygem-%{gem_name}_ostree
-Obsoletes: %{?scl_prefix}rubygem-pulp_2to3_migration_client
-Obsoletes: %{?scl_prefix}rubygem-bastion
 
 # start package.json devDependencies BuildRequires
 BuildRequires: npm(@theforeman/builder) >= 6.0.0
