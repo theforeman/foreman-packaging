@@ -2,7 +2,7 @@
 %global gem_name pulp_rpm_client
 
 Name: rubygem-%{gem_name}
-Version: 3.27.2
+Version: 3.29.2
 Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 License: GPLv2+
@@ -10,8 +10,8 @@ URL: https://github.com/pulp/pulp_rpm
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9
-BuildRequires: ruby >= 1.9
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 23 2025 Ian Ballou <ianballou67@gmail.com> - 3.29.2-1
+- Update to 3.29.2
+
 * Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 3.27.2-1
 - Update to 3.27.2
 
