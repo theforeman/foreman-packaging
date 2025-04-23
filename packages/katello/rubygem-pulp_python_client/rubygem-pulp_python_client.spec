@@ -2,7 +2,7 @@
 %global gem_name pulp_python_client
 
 Name: rubygem-%{gem_name}
-Version: 3.12.6
+Version: 3.13.5
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -10,8 +10,8 @@ URL: https://github.com/pulp/pulp_python
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9
-BuildRequires: ruby >= 1.9
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 23 2025 Ian Ballou <ianballou67@gmail.com> - 3.13.5-1
+- Update to 3.13.5
+
 * Sun Mar 16 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.12.6-1
 - Update to 3.12.6
 
