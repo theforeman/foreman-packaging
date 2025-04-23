@@ -2,7 +2,7 @@
 %global gem_name connection_pool
 
 Name: rubygem-%{gem_name}
-Version: 2.5.0
+Version: 2.5.1
 Release: 1%{?dist}
 Summary: Generic connection pool for Ruby
 License: MIT
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/connection_pool.gemspec
 
 %changelog
+* Wed Apr 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.5.1-1
+- Update to 2.5.1
+
 * Wed Jan 15 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.5.0-1
 - Update to 2.5.0
 
