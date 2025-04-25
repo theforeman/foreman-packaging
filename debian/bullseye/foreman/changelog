@@ -1,3 +1,9 @@
+foreman (3.13.1-1) stable; urgency=low
+
+  * 3.13.1 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Fri, 25 Apr 2025 15:50:09 +0200
+
 foreman (3.13.0-1) stable; urgency=low
 
   * 3.13.0 released
