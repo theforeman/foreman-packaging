@@ -16,6 +16,8 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
+
 %description
 Sprockets is a Rack-based asset packaging system that concatenates and serves
 JavaScript, CoffeeScript, CSS, Sass, and SCSS.
@@ -31,6 +33,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g logger
 
 %build
 # Create the gem as gem install only works on a gem file
