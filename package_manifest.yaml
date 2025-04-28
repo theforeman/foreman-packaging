@@ -407,6 +407,7 @@ foreman_nodejs_packages:
     nodejs-js-cookie: {}
     nodejs-js-tokens: {}
     nodejs-lodash: {}
+    nodejs-mini-css-extract-plugin: {}
     nodejs-module-federation-utilities: {}
     nodejs-os-browserify: {}
     nodejs-path-browserify: {}
