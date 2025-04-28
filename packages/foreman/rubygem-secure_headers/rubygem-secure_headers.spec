@@ -46,13 +46,6 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.ruby-gemset
-%exclude %{gem_instdir}/.ruby-version
-%exclude %{gem_instdir}/CODE_OF_CONDUCT.md
-%exclude %{gem_instdir}/Guardfile
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -60,15 +53,10 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%doc %{gem_instdir}/docs
 %exclude %{gem_instdir}/secure_headers.gemspec
-%{gem_instdir}/spec
 
 %changelog
 * Sun Apr 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 7.1.0-1
