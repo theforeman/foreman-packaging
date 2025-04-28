@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -61,7 +61,7 @@ Requires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
 Requires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
 Requires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
 Requires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
-Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
+Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 8)
 Requires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
 Requires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
 Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
@@ -132,7 +132,7 @@ BuildRequires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
 BuildRequires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
 BuildRequires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
 BuildRequires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
-BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
+BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 8)
 BuildRequires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
 BuildRequires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
 BuildRequires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
@@ -861,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Apr 28 2025 Evgeni Golov - 3.15.0-0.3.develop
+- Update GEM dependencies
+
 * Thu Mar 06 2025 Evgeni Golov - 3.15.0-0.2.develop
 - Update NPM dependencies
 
