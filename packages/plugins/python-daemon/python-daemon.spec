@@ -1,5 +1,3 @@
-%{?scl:%scl_package python-%{srcname}}
-%{!?scl:%global pkg_name %{name}}
 %global python3_pkgversion 3.12
 %global __python3 /usr/bin/python3.12
 
@@ -7,9 +5,9 @@
 %global pypi_name python-daemon
 %global srcname daemon
 
-Name:           %{?scl_prefix}python-%{srcname}
+Name:           python%{python3_pkgversion}-%{srcname}
 Version:        2.3.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Library to implement a well-behaved Unix daemon process
 
 License:        Apache-2
@@ -18,59 +16,49 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 Patch0:         remove-twine-dependency.patch
 
 BuildArch:      noarch
-BuildRequires:  %{?scl_prefix}python%{python3_pkgversion}-devel
-BuildRequires:  %{?scl_prefix}python%{python3_pkgversion}-docutils
-BuildRequires:  %{?scl_prefix}python%{python3_pkgversion}-setuptools
+BuildRequires:  python%{python3_pkgversion}-devel
+BuildRequires:  python%{python3_pkgversion}-docutils
+BuildRequires:  python%{python3_pkgversion}-setuptools
 
+%{?python_provide:%python_provide python%{python3_pkgversion}-%{srcname}}
+Requires:       python%{python3_pkgversion}-docutils
+Requires:       python%{python3_pkgversion}-lockfile >= 0.10
+
+Obsoletes:      python3.11-%{srcname} < %{version}-%{release}
 
 %description
 %{summary}
 
 
-%package -n     %{?scl_prefix}python%{python3_pkgversion}-%{srcname}
-Summary:        %{summary}
-%{?python_provide:%python_provide python%{python3_pkgversion}-%{srcname}}
-Requires:       %{?scl_prefix}python%{python3_pkgversion}-docutils
-Requires:       %{?scl_prefix}python%{python3_pkgversion}-lockfile >= 0.10
-
-%if 0%{?rhel} == 8
-Obsoletes:      python39-%{srcname} < %{version}-%{release}
-%endif
-
-%description -n %{?scl_prefix}python%{python3_pkgversion}-%{srcname}
-%{summary}
-
-
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
 set -ex
 %autosetup -n %{pypi_name}-%{version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
-%{?scl:EOF}
+
 
 
 %build
-%{?scl:scl enable %{scl} - << \EOF}
 set -ex
 %py3_build
-%{?scl:EOF}
+
 
 
 %install
-%{?scl:scl enable %{scl} - << \EOF}
 set -ex
 %py3_install
-%{?scl:EOF}
 
 
-%files -n %{?scl_prefix}python%{python3_pkgversion}-%{srcname}
+%files -n python%{python3_pkgversion}-%{srcname}
 %license LICENSE.ASF-2 LICENSE.GPL-3
 %{python3_sitelib}/daemon
 %{python3_sitelib}/python_daemon-%{version}-py%{python3_version}.egg-info
 
 
 %changelog
+* Wed Apr 30 2025 Odilon Sousa <osousa@redhat.com> - 2.3.1-5
+- Obsolete python3.11 package for better upgrade
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 2.3.1-4
 - Rebuild against python 3.12
 
