@@ -14,9 +14,9 @@
 %endif
 
 Name: foreman_ygg_worker
-Version: 0.3.0
+Version: 0.3.1
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
@@ -91,6 +91,9 @@ EOF
 %doc README.md
 
 %changelog
+* Wed Apr 30 2025 Odilon Sousa <osousa@redhat.com> - 0.3.1-1
+- Release foreman_ygg_worker 0.3.1
+
 * Thu Jan 16 2025 Adam Ruzicka <aruzicka@redhat.com> - 0.3.0-2
 - Make it build on EL10
 
