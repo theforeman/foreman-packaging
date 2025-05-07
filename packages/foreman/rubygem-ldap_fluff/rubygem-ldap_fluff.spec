@@ -2,7 +2,7 @@
 %global gem_name ldap_fluff
 
 Name: rubygem-%{gem_name}
-Version: 0.8.0
+Version: 0.9.0
 Release: 1%{?dist}
 Summary: LDAP querying tools for Active Directory, FreeIPA and POSIX-style
 License: GPL-2.0-only
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.0-1
+- Update to 0.9.0
+
 * Sun Oct 20 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.0-1
 - Update to 0.8.0
 
