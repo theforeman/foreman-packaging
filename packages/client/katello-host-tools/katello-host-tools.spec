@@ -33,8 +33,8 @@
 %global katello_libdir %{python_libdir}/katello
 
 Name: katello-host-tools
-Version: 4.4.0
-Release: 2%{?dist}
+Version: 4.5.0
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -118,7 +118,6 @@ Adds Tracer functionality to a client managed by katello-host-tools
 %setup -q
 
 %build
-rm -r src/apt_plugins
 rm -f src/katello/tracer/deb.py
 
 %if !%{dnf_install}
@@ -290,6 +289,9 @@ exit 0
 
 
 %changelog
+* Thu May 08 2025 pavansomashekar <pavansomashekar> - 4.5.0-1
+- Update to 4.5.0
+
 * Tue Sep 10 2024 Bernhard Suttner <suttner@atix.de> - 4.4.0-2
 - Fix build on Amazon Linux 2023
 
