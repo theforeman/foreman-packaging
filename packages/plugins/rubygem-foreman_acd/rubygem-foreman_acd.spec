@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.11.0
+Version: 0.12.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 License: GPLv3
@@ -104,6 +104,9 @@ mkdir -p %{buildroot}%{_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.12.0-1
+- Update to 0.12.0
+
 * Mon Oct 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.11.0-1
 - Update to 0.11.0
 
