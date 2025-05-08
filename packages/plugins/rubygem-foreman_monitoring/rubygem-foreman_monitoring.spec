@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_monitoring
 %global plugin_name monitoring
-%global foreman_min_version 3.0
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 3.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 3.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 License: GPLv3
 URL: https://github.com/theforeman/foreman_monitoring
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.3.0-1
+- Update to 3.3.0
+
 * Thu Sep 05 2024 Evgeni Golov - 3.2.0-2
 - Rebuild against Foreman nightly
 
