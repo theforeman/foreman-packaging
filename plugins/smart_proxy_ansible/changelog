@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.6.0-1) stable; urgency=low
+
+  * 3.6.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 08 May 2025 13:46:26 +0000
+
 ruby-smart-proxy-ansible (3.5.8-2) stable; urgency=low
 
   * Allow ansible-core and be Python3 only
