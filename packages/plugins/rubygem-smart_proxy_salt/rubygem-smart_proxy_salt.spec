@@ -14,7 +14,7 @@
 %global salt_state_grains_dir %{foreman_proxy_statedir}/salt/grains
 
 Name: rubygem-%{gem_name}
-Version: 5.1.0
+Version: 6.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: SaltStack Plug-In for Foreman's Smart Proxy
 License: GPLv3
@@ -142,6 +142,9 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Thu May 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 6.0.0-1
+- Update to 6.0.0
+
 * Fri Apr 19 2024 Nadja Heitmann <nadjah@atix.de> 5.1.0-1
 - Update to 5.1.0-1
 - Remove python2 support
