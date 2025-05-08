@@ -1,3 +1,9 @@
+ruby-smart-proxy-salt (6.0.0-1) stable; urgency=low
+
+  * 6.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 08 May 2025 13:46:26 +0000
+
 ruby-smart-proxy-salt (5.1.0-1) stable; urgency=low
 
   * 5.1.0 released
