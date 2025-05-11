@@ -30,8 +30,8 @@
       <packagereq type="default">python3.12-lockfile</packagereq>
       <packagereq type="default">python3.12-markupsafe</packagereq>
       <packagereq type="default">python3.12-maturin</packagereq>
-      <packagereq type="default">python3.12-pbr</packagereq>
       <packagereq type="default">python3.12-packaging</packagereq>
+      <packagereq type="default">python3.12-pbr</packagereq>
       <packagereq type="default">python3.12-pexpect</packagereq>
       <packagereq type="default">python3.12-ptyprocess</packagereq>
       <packagereq type="default">python3.12-pyparsing</packagereq>
@@ -153,6 +153,7 @@
       <packagereq type="default">rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">rubygem-jsonpath</packagereq>
       <packagereq type="default">rubygem-kubeclient</packagereq>
+      <packagereq type="default">rubygem-llhttp</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-mqtt</packagereq>
       <packagereq type="default">rubygem-ms_rest</packagereq>
@@ -328,6 +329,7 @@
       <packagereq type="default">rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">rubygem-jsonpath-doc</packagereq>
       <packagereq type="default">rubygem-kubeclient-doc</packagereq>
+      <packagereq type="default">rubygem-llhttp-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-mqtt-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest_azure-doc</packagereq>

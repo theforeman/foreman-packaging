@@ -632,6 +632,7 @@ foreman_plugin_packages_tier2:
     rubygem-foreman_webhooks: {}
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
+    rubygem-llhttp: {}
     rubygem-puppetdb_foreman: {}
 
 fdi_plugin_packages:
