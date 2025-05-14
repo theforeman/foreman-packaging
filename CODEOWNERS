@@ -22,3 +22,4 @@
 /packages/plugins/rubygem-smart_proxy_dynflow/ @theforeman/packaging @theforeman/foreman-tasks
 /packages/plugins/*foreman_templates/ @theforeman/packaging @theforeman/foreman_templates
 /packages/plugins/rubygem-safemode/ @theforeman/packaging @theforeman/safemode
+/packages/foreman/rubygem-apipie-* @theforeman/packaging @theforeman/cli
