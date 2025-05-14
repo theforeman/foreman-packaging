@@ -1,3 +1,9 @@
+foreman (3.13.1-2) stable; urgency=low
+
+  * 3.13.1 dependency rebuild for net-imap
+
+ -- Patrick Creech <pcreech@redhat.com>  Wed, 14 May 2025 10:53:47 -0400
+
 foreman (3.13.1-1) stable; urgency=low
 
   * 3.13.1 released
