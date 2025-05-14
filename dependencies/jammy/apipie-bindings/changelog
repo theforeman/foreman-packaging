@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.7.1-1) stable; urgency=low
+
+  * 0.7.1 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 14 May 2025 16:15:08 +0200
+
 ruby-apipie-bindings (0.7.0-1) stable; urgency=low
 
   * 0.7.0 released
