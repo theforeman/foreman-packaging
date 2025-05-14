@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.4.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Hammer commands for exporting and importing templates
 License: GPLv3
@@ -13,10 +13,13 @@ URL: https://github.com/theforeman/hammer-cli-foreman-templates
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -67,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 14 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.0-1
+- Update to 0.4.0
+
 * Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.3.0-1
 - Update to 0.3.0
 
