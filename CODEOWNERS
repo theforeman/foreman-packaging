@@ -16,3 +16,4 @@
 /plugins/smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
 /plugins/ruby-foreman-templates/ @theforeman/packaging @theforeman/foreman_templates
 /dependencies/*/hammer_cli_foreman_templates @theforeman/packaging @theforeman/foreman_templates
+/dependencies/*/apipie-* @theforeman/packaging @theforeman/cli
