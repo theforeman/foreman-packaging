@@ -1,0 +1,25 @@
+Source: ruby-oauth
+Section: ruby
+Priority: optional
+Maintainer: Evgeni Golov <evgeni@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               rake,
+               ruby-oauth-tty,
+               ruby-rspec,
+               ruby-snaky-hash,
+               ruby-version-gem
+Standards-Version: 4.5.0
+Homepage: https://gitlab.com/oauth-xx/oauth
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-oauth
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: OAuth 1.0 Core Ruby implementation
+ A Ruby wrapper for the original OAuth 1.0 spec.
