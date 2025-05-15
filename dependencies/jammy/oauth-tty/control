@@ -1,0 +1,23 @@
+Source: ruby-oauth-tty
+Section: ruby
+Priority: optional
+Maintainer: Evgeni Golov <evgeni@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               rake,
+               ruby-rspec,
+               ruby-version-gem
+Standards-Version: 4.5.0
+Homepage: https://gitlab.com/oauth-xx/oauth-tty
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-oauth-tty
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: OAuth 1.0 TTY CLI
+ OAuth 1.0 TTY Command Line Interface
