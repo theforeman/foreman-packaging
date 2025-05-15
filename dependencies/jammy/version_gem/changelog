@@ -1,0 +1,5 @@
+ruby-version-gem (1.1.1-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 15 May 2025 08:57:29 +0200
