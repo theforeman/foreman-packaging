@@ -4,7 +4,7 @@
 %global foreman_min_version 3.9
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
+Version: 6.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 License: GPLv3
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 16 2025 Manuel Laug <laugmanuel@gmail.com> - 6.0.0-1
+- Update to 6.0.0
+
 * Tue May 14 2024 Manuel Laug <laugmanuel@gmail.com> - 5.0.0-1
 - Update foreman_wreckingball to 5.0.0
 
