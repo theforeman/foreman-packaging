@@ -3,9 +3,7 @@
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
-%global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: 3.15.0
@@ -95,6 +93,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 16 2025 Oleh Fedorenko <ofedoren@redhat.com> - 3.15.0-1
+- Release rubygem-hammer_cli 3.15.0
+
 * Mon Mar 17 2025 Evgeni Golov - 3.15.0-0.2.pre.develop
 - Fix Requires on base64 and csv on Ruby < 3.4
 
