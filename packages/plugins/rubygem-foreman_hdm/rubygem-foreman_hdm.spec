@@ -4,8 +4,8 @@
 %global foreman_min_version 3.4.0
 
 Name: rubygem-%{gem_name}
-Version: 1.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Display hiera data in Foreman using HDM
 License: GPLv3
 URL: https://github.com/betadots/foreman_hdm
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun May 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.0-1
+- Update to 1.1.0
+
 * Tue May 07 2024 Evgeni Golov - 1.0.0-2
 - Rebuild for Webpack asset compression
 
