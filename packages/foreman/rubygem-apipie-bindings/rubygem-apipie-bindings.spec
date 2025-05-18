@@ -2,7 +2,7 @@
 %global gem_name apipie-bindings
 
 Name: rubygem-%{gem_name}
-Version: 0.7.0
+Version: 0.7.1
 Release: 1%{?dist}
 Summary: The Ruby bindings for Apipie documented APIs
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Sun May 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.7.1-1
+- Update to 0.7.1
+
 * Wed Jan 08 2025 Oleh Fedorenko <ofedoren@redhat.com> - 0.7.0-1
 - Update to 0.7.0
 
