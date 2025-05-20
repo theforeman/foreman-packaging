@@ -5,17 +5,11 @@
 
 Name: rubygem-%{gem_name}
 Version: 12.1.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Obsoletes: %{?scl_prefix}rubygem-redhat_access
-Obsoletes: %{?scl_prefix}rubygem-redhat_access_lib
-
-Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload
-Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -101,6 +95,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue May 20 2025 Odilon Sousa <osousa@redhat.com> - 12.1.0-2
+- Drop unversioned obsoletes
+
 * Tue May 06 2025 Chris Roberts <chrobert@redhat.com> - 12.1.0-1
 - Update to 12.1.0
 
