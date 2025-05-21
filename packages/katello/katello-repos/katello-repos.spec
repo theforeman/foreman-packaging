@@ -4,12 +4,10 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource nightly
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 1
 
 Name:           katello-repos
-Version:        4.17
+Version:        4.17.0.rc1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -73,6 +71,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Wed May 21 2025 Patrick Creech <pcreech@redhat.com> - 4.17.0.rc1-1
+- Release katello-repos 4.17.0.rc1
+
 * Tue Feb 18 2025 Quinn James <qj@quinnjam.es> - 4.17-0.1.nightly
 - Bump version to 4.17.0
 
