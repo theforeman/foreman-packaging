@@ -2,7 +2,7 @@
 %global gem_name rails-dom-testing
 
 Name: rubygem-%{gem_name}
-Version: 2.2.0
+Version: 2.3.0
 Release: 1%{?dist}
 Summary: Dom and Selector assertions for Rails applications
 License: MIT
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 21 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.3.0-1
+- Update to 2.3.0
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.2.0-1
 - Update to 2.2.0
 
