@@ -9,7 +9,7 @@
 Summary:    This plugin adds extra validations to a host
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.2
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_host_extra_validator
@@ -33,7 +33,6 @@ This plugin adds extra validations to a host.
 BuildArch:  noarch
 Group:      Documentation
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for %{pkg_name}
 
 %description doc
@@ -90,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.2-2
+- Removed unversioned obsoletes
+
 * Sun Jan 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.2-1
 - Update to 0.2.2
 

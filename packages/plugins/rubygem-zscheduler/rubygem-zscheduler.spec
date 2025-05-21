@@ -6,7 +6,7 @@
 Summary: Minimalistic scheduler on top of eventmachine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.6
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: LGPLv3
 URL: https://github.com/eranb/zscheduler
@@ -22,7 +22,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Minimalistic scheduler on top of eventmachine.
@@ -31,7 +30,6 @@ Minimalistic scheduler on top of eventmachine.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -63,6 +61,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.6-7
+- Removed unversioned obsoletes
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.6-6
 - Rebuild for Ruby 2.7
 

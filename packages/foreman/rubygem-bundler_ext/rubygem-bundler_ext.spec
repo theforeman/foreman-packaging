@@ -7,7 +7,7 @@
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/bundlerext/bundler_ext
@@ -27,11 +27,8 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}ruby
-# BuildRequires: %{?scl_prefix}rubygem(rspec)
-# BuildRequires: %{?scl_prefix_ruby}rubygem(bundler)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Simple library leveraging the Bundler Gemfile DSL to load gems already on the
@@ -42,7 +39,6 @@ system and managed by the systems package manager (like yum/apt)
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -79,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-7
+- Removed unversioned obsoletes
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.1-6
 - Rebuild against rh-ruby27
 

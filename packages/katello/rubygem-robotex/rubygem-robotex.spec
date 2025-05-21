@@ -8,13 +8,12 @@
 Summary:    Ruby library to obey robots.txt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.0
-Release:    22%{?dist}
+Release:    23%{?dist}
 License:    MIT
 Group:      Development/Languages
 URL:        https://www.github.com/chriskite/robotex
 Source0:    https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 Provides:   %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 BuildArch:  noarch
 
@@ -33,7 +32,6 @@ to visit a given link.
 BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
 Summary:    Documentation for rubygem-%{gem_name}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for rubygem-%{gem_name}.
@@ -79,6 +77,9 @@ popd
 %{gem_instdir}/spec/
 
 %changelog
+* Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-23
+- Removed unversioned obsoletes
+
 * Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-22
 - Rebuild for Ruby 2.7
 

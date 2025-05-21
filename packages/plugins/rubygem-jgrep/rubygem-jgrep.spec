@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.3
-Release:        11%{?dist}
+Release:        12%{?dist}
 Summary:        Query JSON structure with a matching language
 
 Group:          Development/Tools
@@ -22,7 +22,6 @@ Requires:       %{?scl_prefix_ruby}ruby(release) >= 1.8
 Requires:       %{?scl_prefix_ruby}rubygems
 Requires:       %{?scl_prefix_ruby}rubygem(json)
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 JGrep is  Ruby-based CLI tool and API for parsing and displaying JSON data
@@ -34,7 +33,6 @@ documents and return specific documents or values based on logical truths.
 Summary:        Documentation for %{pkg_name}
 Group:          Documentation
 Requires:       %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{pkg_name}
@@ -74,6 +72,9 @@ cp -a ./%{_bindir}/* %{buildroot}%{_bindir}
 
 
 %changelog
+* Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.3-12
+- Removed unversioned obsoletes
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.3-11
 - Rebuild for Ruby 2.7
 

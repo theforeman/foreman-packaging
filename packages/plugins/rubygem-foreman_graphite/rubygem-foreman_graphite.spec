@@ -9,7 +9,7 @@
 Summary:    Adds graphite integration to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.3
-Release:    9%{?foremandist}%{?dist}
+Release:    10%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_graphite
@@ -29,7 +29,6 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
 # end specfile generated dependencies
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Adds graphite support to Foreman.
@@ -43,7 +42,6 @@ You will need to install a graphite instance to use this plugin.
 BuildArch:  noarch
 Group:      Documentation
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for %{pkg_name}
 
 %description doc
@@ -100,6 +98,9 @@ mv %{buildroot}%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_plu
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.3-10
+- Removed unversioned obsoletes
+
 * Mon May 09 2022 Evgeni Golov - 0.0.3-9
 - log plugin installation in posttrans
 

@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.18.0
@@ -121,7 +121,6 @@ Requires: findutils
 Requires: foreman-installer-%{name}
 Requires: rubygem-foreman_maintain >= 0.2.2
 Requires: %{name}-common = %{version}-%{release}
-Obsoletes: katello-capsule
 
 %description -n foreman-proxy-content
 Provides a federation of katello services
@@ -130,6 +129,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Jun 04 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.18.0-0.2.master
+- Removed unversioned obsoletes
+
 * Wed May 14 2025 Pavan Soma Shekar <shekarpavan97@gmail.com> - 4.18.0-0.1.master
 - Bump version to 4.18.0
 
