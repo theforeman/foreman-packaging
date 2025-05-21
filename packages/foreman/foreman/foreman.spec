@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -861,6 +861,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed May 21 2025 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.3.rc1
+- Release foreman 3.15.0rc1
+
 * Mon Apr 28 2025 Evgeni Golov - 3.15.0-0.3.develop
 - Update GEM dependencies
 

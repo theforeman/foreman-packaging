@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -239,6 +239,9 @@ exit 0
 
 
 %changelog
+* Wed May 21 2025 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.2.rc1
+- Release foreman-proxy 3.15.0rc1
+
 * Thu Apr 10 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.15.0-0.2.develop
 - Add dependency on base64 gem
 
