@@ -1,10 +1,10 @@
-%global pulpcore_version nightly
+%global pulpcore_version 3.73
 %global candlepin_version 4.4
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.17.0.rc1
@@ -71,6 +71,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Wed May 28 2025 Ian Ballou <ianballou67@gmail.com> - 4.17.0.rc1-2
+- Update pulpcore_repository to 3.73
+
 * Wed May 21 2025 Patrick Creech <pcreech@redhat.com> - 4.17.0.rc1-1
 - Release katello-repos 4.17.0.rc1
 
