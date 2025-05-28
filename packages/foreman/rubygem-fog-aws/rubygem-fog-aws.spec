@@ -2,7 +2,7 @@
 %global gem_name fog-aws
 
 Name: rubygem-%{gem_name}
-Version: 3.31.0
+Version: 3.32.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Amazon Web Services
 License: MIT
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-aws.gemspec
 
 %changelog
+* Wed May 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.32.0-1
+- Update to 3.32.0
+
 * Wed Apr 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.31.0-1
 - Update to 3.31.0
 
