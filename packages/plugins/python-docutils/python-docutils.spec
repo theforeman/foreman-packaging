@@ -1,14 +1,14 @@
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 
 # Created by pyp2rpm-3.3.8
 %global pypi_name docutils
 
 Name:           python-%{pypi_name}
 Version:        0.19
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Docutils -- Python Documentation Utilities
 
 License:        public domain, Python, 2-Clause BSD, GPL 3 (see COPYING.txt)
@@ -78,6 +78,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 0.19-3
+- Rebuild against python 3.12
+
 * Fri Dec 01 2023 Odilon Sousa <osousa@redhat.com> - 0.19-2
 - Rebuild against python 3.11
 

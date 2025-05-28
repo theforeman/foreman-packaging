@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-json-tree
 Version: 0.11.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: React JSON Viewer Component, Extracted from redux-devtools
 License: MIT
 Group: Development/Libraries
@@ -73,7 +73,7 @@ done
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 %{?scl:end_of_scl}
 
 %install
@@ -93,6 +93,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Feb 03 2024 Evgeni Golov - 0.11.0-5
+- Use legacy-peer-deps
+
 * Mon Apr 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.0-4
 - Add npm to buildrequires for el8
 

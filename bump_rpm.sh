@@ -68,6 +68,12 @@ if [[ -z $2 ]] ; then
 	fi
 else
 	NEW_VERSION=$2
+
+	if [[ $NEW_VERSION == "CONFLICT" ]] ; then
+		echo "${PACKAGE_NAME}: requested with a conflict."
+		echo "This means multiple packages requested different versions"
+		exit 1
+	fi
 fi
 
 if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
@@ -82,28 +88,30 @@ if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
 		bump_spec $SPEC_FILE "${NEW_VERSION}"
 
 		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
-		if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]]; then
+		if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]] || grep --no-messages %scl_package $SPEC_FILE; then
+			if [[ $TEMPLATE == 'scl' ]] || [[ $TEMPLATE == 'nonscl' ]] || [[ -z $TEMPLATE ]] ; then
+				TEMPLATE=default
+			fi
 			CHANGELOG=$(mktemp)
 			trap "rm -f $CHANGELOG" EXIT
 			sed -e '1,/%changelog/ d' $SPEC_FILE > "$CHANGELOG"
-			gem2rpm -t "$ROOT/gem2rpm/default.spec.erb" -o $SPEC_FILE ./*.gem
+			gem2rpm -t "$ROOT/gem2rpm/$TEMPLATE.spec.erb" -o $SPEC_FILE ./*.gem
 			cat "$CHANGELOG" >> $SPEC_FILE
-			git add $SPEC_FILE
 		elif [[ -n $TEMPLATE ]] ; then
 			echo "* Updating requirements"
 			gem2rpm -t "$ROOT/gem2rpm/$TEMPLATE.spec.erb" ./*.gem | "$SCRIPT_DIR"/update-requirements specfile - $SPEC_FILE
-			if [[ $TEMPLATE == foreman_plugin ]]; then
-				UNPACKED_GEM_DIR=$(mktemp -d)
-				gem unpack --target "$UNPACKED_GEM_DIR" ./*.gem
-				PLUGIN_LIB="${UNPACKED_GEM_DIR}/${GEM_NAME}-${NEW_VERSION}/lib"
-				REQUIRES_FOREMAN=$(grep --extended-regexp --recursive --no-filename 'requires_foreman\s' "$PLUGIN_LIB" | sed -E 's/[^0-9.]//g; q')
-				if [[ -n $REQUIRES_FOREMAN ]]; then
-					sed -i "/%global foreman_min_version/ s/foreman_min_version.*/foreman_min_version $REQUIRES_FOREMAN/" $SPEC_FILE
-				fi
-				rm -rf "$UNPACKED_GEM_DIR"
-			fi
-			git add $SPEC_FILE
 		fi
+		if [[ $TEMPLATE == foreman_plugin ]]; then
+			UNPACKED_GEM_DIR=$(mktemp -d)
+			gem unpack --target "$UNPACKED_GEM_DIR" ./*.gem
+			PLUGIN_LIB="${UNPACKED_GEM_DIR}/${GEM_NAME}-${NEW_VERSION}/lib"
+			REQUIRES_FOREMAN=$(grep --extended-regexp --recursive --no-filename 'requires_foreman\s' "$PLUGIN_LIB" | sed -E 's/[^0-9.]//g; q')
+			if [[ -n $REQUIRES_FOREMAN ]]; then
+				sed -i "/%global foreman_min_version/ s/foreman_min_version.*/foreman_min_version $REQUIRES_FOREMAN/" $SPEC_FILE
+			fi
+			rm -rf "$UNPACKED_GEM_DIR"
+		fi
+		git add $SPEC_FILE
 
 		if grep -q "# start package.json" $SPEC_FILE ; then
 			UNPACKED_GEM_DIR=$(mktemp -d)

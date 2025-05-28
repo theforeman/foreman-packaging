@@ -3,7 +3,7 @@
 %global gem_require_name ovirtsdk4
 
 Name: rubygem-%{gem_name}
-Version: 4.4.1
+Version: 4.6.0
 Release: 1%{?dist}
 Summary: oVirt SDK
 License: Apache-2.0
@@ -14,8 +14,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby >= 2.5
 BuildRequires: ruby-devel >= 2.5
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(json) >= 1
-BuildRequires: rubygem(json) < 3
+BuildRequires: (rubygem(json) >= 1 with rubygem(json) < 3)
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
@@ -84,6 +83,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.adoc
 
 %changelog
+* Sun Feb 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.6.0-1
+- Update to 4.6.0
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.4.1-1
 - Update to 4.4.1
 

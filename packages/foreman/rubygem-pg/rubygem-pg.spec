@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.5.4
+Version: 1.5.9
 Release: 1%{?dist}
 Summary: Pg is the Ruby interface to the PostgreSQL RDBMS
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
@@ -114,6 +114,18 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/pg.gemspec
 
 %changelog
+* Sun Oct 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.9-1
+- Update to 1.5.9
+
+* Wed Sep 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.8-1
+- Update to 1.5.8
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.7-1
+- Update to 1.5.7
+
+* Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.6-1
+- Update to 1.5.6
+
 * Sun Sep 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.5.4-1
 - Update to 1.5.4
 

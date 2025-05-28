@@ -2,7 +2,7 @@
 %global gem_name fog-kubevirt
 
 Name: rubygem-%{gem_name}
-Version: 1.3.7
+Version: 1.4.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Kubevirt
 License: Apache-2.0
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Dec 04 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.4.0-1
+- Update to 1.4.0
+
 * Thu Dec 15 2022 Dirk Goetz <dirk.goetz@netways.de> 1.3.7-1
 - Update to 1.3.7
 

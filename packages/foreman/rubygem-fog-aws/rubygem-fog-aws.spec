@@ -2,7 +2,7 @@
 %global gem_name fog-aws
 
 Name: rubygem-%{gem_name}
-Version: 3.21.0
+Version: 3.32.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Amazon Web Services
 License: MIT
@@ -15,6 +15,8 @@ BuildRequires: ruby >= 2.0.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
 
 %description
 This library can be used as a module for `fog` or as standalone provider
@@ -31,6 +33,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -61,6 +65,27 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-aws.gemspec
 
 %changelog
+* Wed May 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.32.0-1
+- Update to 3.32.0
+
+* Wed Apr 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.31.0-1
+- Update to 3.31.0
+
+* Tue Mar 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.30.0-1
+- Update to 3.30.0
+
+* Sun Jul 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.24.0-1
+- Update to 3.24.0
+
+* Fri Jun 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.23.0-1
+- Update to 3.23.0
+
+* Tue Mar 19 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.22.0-1
+- Update to 3.22.0
+
+* Mon Mar 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.21.1-1
+- Update to 3.21.1
+
 * Sun Oct 08 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.21.0-1
 - Update to 3.21.0
 

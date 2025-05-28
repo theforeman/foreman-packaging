@@ -1,34 +1,25 @@
-# Generated from foreman_supervisory_authority-0.0.1.gem by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name foreman_supervisory_authority
 %global plugin_name supervisory_authority
-%global foreman_min_version 1.20
+%global foreman_min_version 3.10
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
-Release: 4%{?foremandist}%{?dist}
+Name: rubygem-%{gem_name}
+Version: 0.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: This Foreman plug-in integrates with Elastic APM
-Group: Applications/Systems
-License: GPLv3+
-URL: https://github.com/timogoebel/foreman_supervisory_authority
+License: GPLv3
+URL: https://github.com/theforeman/foreman_supervisory_authority
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(elastic-apm) >= 2.0
-Requires: %{?scl_prefix}rubygem(elastic-apm) < 3
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+Requires: ruby < 4
+BuildRequires: ruby >= 2.5
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -37,40 +28,27 @@ This plug-in for Foreman sends data to Elastic APM.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -89,12 +67,14 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/test
 
 %posttrans
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 21 2024 Manuel Laug - 0.2.0-1
+- Update foreman_supervisory_authority to 0.2.0
+
 * Mon May 09 2022 Evgeni Golov - 0.0.2-4
 - log plugin installation in posttrans
 

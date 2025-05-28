@@ -2,7 +2,7 @@
 %global gem_name rb-inotify
 
 Name: rubygem-%{gem_name}
-Version: 0.10.1
+Version: 0.11.1
 Release: 1%{?dist}
 Summary: A Ruby wrapper for Linux inotify, using FFI
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/guard/rb-inotify
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.2
-BuildRequires: ruby >= 2.2
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -46,8 +46,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
@@ -58,11 +58,13 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
 %{gem_instdir}/rb-inotify.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Sun Jul 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.11.1-1
+- Update to 0.11.1
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.10.1-1
 - Update to 0.10.1
 

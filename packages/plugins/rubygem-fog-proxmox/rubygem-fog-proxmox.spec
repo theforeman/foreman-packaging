@@ -2,7 +2,7 @@
 %global gem_name fog-proxmox
 
 Name: rubygem-%{gem_name}
-Version: 0.15.0
+Version: 0.15.1
 Release: 1%{?dist}
 Summary: Module for the 'Fog' gem to support Proxmox VE
 License: GPLv3
@@ -44,16 +44,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_bindir}
-cp -a .%{_bindir}/* \
-        %{buildroot}%{_bindir}/
-
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
-
 %files
 %dir %{gem_instdir}
-%exclude %{_bindir}/console
-%exclude %{_bindir}/setup
 %exclude %{gem_instdir}/.bundle
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
@@ -63,8 +55,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/.solargraph.yml
 %exclude %{gem_instdir}/.vscode
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/bin/setup
-%exclude %{gem_instdir}/bin/console
 %{gem_libdir}
 %exclude %{gem_instdir}/tasks
 %exclude %{gem_cache}
@@ -82,6 +72,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Wed Feb 26 2025 Manisha Singhal <singhal@atix.de> - 0.15.1-1
+- Update to 0.15.1
+
 * Wed Feb 22 2023 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.15.0-1
 - Update to 0.15.0
 

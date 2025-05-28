@@ -3,7 +3,7 @@
 
 Summary: Documentation generation tool for Ruby
 Name: puppet-agent-%{gem_name}
-Version: 0.9.34
+Version: 0.9.36
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -46,6 +46,9 @@ else  # upgrade
 fi
 
 %changelog
+* Wed Apr 03 2024 Eric D. Helms <ericdhelms@gmail.com> - 0.9.36-1
+- Update yard to 0.9.36
+
 * Thu Jan 04 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.9.34-1
 - Update to 0.9.34
 

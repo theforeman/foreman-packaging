@@ -8,7 +8,7 @@
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 Name: rubygem-%{gem_name}
-Version: 3.10.0
+Version: 3.16.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 License: GPLv3
@@ -21,6 +21,9 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
+Requires: (rubygem(csv) or ruby-default-gems < 3.4)
 
 %description
 Hammer cli provides universal extendable CLI interface for ruby apps.
@@ -36,6 +39,9 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}%{?prerelease}
+
+%gemspec_remove_dep -g base64
+%gemspec_remove_dep -g csv
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -89,6 +95,27 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 19 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.pre.develop
+- Bump version to 3.16-develop
+
+* Mon Mar 17 2025 Evgeni Golov - 3.15.0-0.2.pre.develop
+- Fix Requires on base64 and csv on Ruby < 3.4
+
+* Tue Feb 18 2025 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.1.pre.develop
+- Bump version to 3.15-develop
+
+* Wed Nov 06 2024 Patrick Creech <pcreech@redhat.com> - 3.14.0-0.1.pre.develop
+- Bump version to 3.14-develop
+
+* Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.pre.develop
+- Bump version to 3.13-develop
+
+* Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.pre.develop
+- Bump version to 3.12-develop
+
+* Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 3.11.0-0.1.pre.develop
+- Bump version to 3.11-develop
+
 * Wed Nov 29 2023 Zach Huntington-Meath <zhunting@redhat.com> - 3.10.0-0.1.pre.develop
 - Bump version to 3.10-develop
 

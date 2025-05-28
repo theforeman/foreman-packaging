@@ -2,7 +2,7 @@
 %global gem_name sprockets
 
 Name: rubygem-%{gem_name}
-Version: 4.2.1
+Version: 4.2.2
 Release: 1%{?dist}
 Summary: Rack-based asset packaging system
 License: MIT
@@ -15,6 +15,8 @@ BuildRequires: ruby >= 2.5.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
 
 %description
 Sprockets is a Rack-based asset packaging system that concatenates and serves
@@ -31,6 +33,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g logger
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -66,6 +70,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Apr 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.2.2-1
+- Update to 4.2.2
+
 * Wed Sep 13 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.2.1-1
 - Update to 4.2.1
 

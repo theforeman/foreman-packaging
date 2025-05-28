@@ -2,7 +2,7 @@
 %global gem_name fog-xml
 
 Name: rubygem-%{gem_name}
-Version: 0.1.4
+Version: 0.1.5
 Release: 1%{?dist}
 Summary: XML parsing for fog providers
 License: MIT
@@ -63,11 +63,15 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/fog-xml.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jan 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.5-1
+- Update to 0.1.5
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.1.4-1
 - Update to 0.1.4
 

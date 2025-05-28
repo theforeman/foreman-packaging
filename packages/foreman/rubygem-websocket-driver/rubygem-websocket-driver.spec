@@ -3,7 +3,7 @@
 %global gem_require_name websocket/driver
 
 Name: rubygem-%{gem_name}
-Version: 0.7.6
+Version: 0.7.7
 Release: 1%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 License: Apache-2.0
@@ -19,6 +19,7 @@ BuildRequires: rubygem(websocket-extensions) >= 0.1.0
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
 # end specfile generated dependencies
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
 
 %description
 WebSocket protocol handler with pluggable I/O.
@@ -34,6 +35,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -80,6 +83,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.7.7-1
+- Update to 0.7.7
+
 * Sun Aug 20 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.7.6-1
 - Update to 0.7.6
 

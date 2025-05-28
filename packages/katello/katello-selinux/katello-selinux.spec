@@ -23,7 +23,7 @@
 
 
 Name:           katello-selinux
-Version:        5.0.2
+Version:        5.2.0
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
@@ -53,11 +53,7 @@ Requires(postun):   /sbin/restorecon
 
 Obsoletes: crane-selinux < 4.0.0
 
-%if 0%{?rhel} == 7
-Requires(post):     policycoreutils-python
-%else
 Requires(post):     policycoreutils-python-utils
-%endif
 
 %description
 SELinux policy module for Katello
@@ -66,17 +62,9 @@ SELinux policy module for Katello
 %setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
-# determine distribution name and version
-%if 0%{?rhel} >= 6
-%define distver rhel%{rhel}
-%endif
-%if 0%{?fedora} >= 18
-%define distver fedora%{fedora}
-%endif
-
 # build policy
 for selinuxvariant in %{selinux_variants}; do
-    make clean all NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
+    make clean all NAME=${selinuxvariant} VERSION=%{version} INSTPREFIX=%{buildroot}
     for selinuxmodule in %{selinux_modules}; do
         mv ${selinuxmodule}.pp.bz2 ${selinuxmodule}-${selinuxvariant}.pp.bz2
     done
@@ -93,7 +81,7 @@ for selinuxvariant in %{selinux_variants}; do
 done
 
 # install the rest
-make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
+make clean install-data NAME=${selinuxvariant} VERSION=%{version} INSTPREFIX=%{buildroot}
 
 %post
 # install and upgrade
@@ -129,6 +117,12 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Thu Feb 06 2025 Evgeni Golov - 5.2.0-1
+- Release katello-selinux 5.2.0
+
+* Tue Nov 05 2024 Evgeni Golov - 5.1.0-1
+- Release katello-selinux 5.1.0
+
 * Fri May 12 2023 Eric D. Helms <ericdhelms@gmail.com> 5.0.2-1
 - Update to 5.0.2
 

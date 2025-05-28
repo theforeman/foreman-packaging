@@ -2,7 +2,7 @@
 %global gem_name facter
 
 Name: rubygem-%{gem_name}
-Version: 4.5.1
+Version: 4.10.0
 Release: 1%{?dist}
 Summary: Facter, a system inventory tool
 License: ASL 2.0
@@ -47,6 +47,11 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Allow thor 1.3 as we don't care about Ruby 2.5 compat
+# See https://github.com/puppetlabs/facter/commit/5e6c601f2a4ae37e3cd72f8411816a508d2f8b3c
+%gemspec_remove_dep -g thor ['>= 1.0.1', '< 1.3']
+%gemspec_add_dep -g thor ['>= 1.0.1', '< 2.0']
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -79,6 +84,27 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Sun Nov 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.10.0-1
+- Update to 4.10.0
+
+* Tue Oct 01 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.9.0-1
+- Update to 4.9.0
+
+* Thu Aug 22 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.8.0-1
+- Update to 4.8.0
+
+* Sun Jul 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.7.1-1
+- Update to 4.7.1
+
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.7.0-1
+- Update to 4.7.0
+
+* Tue Apr 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.6.1-1
+- Update to 4.6.1
+
+* Fri Jan 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.5.2-1
+- Update to 4.5.2
+
 * Sun Dec 03 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.5.1-1
 - Update to 4.5.1
 

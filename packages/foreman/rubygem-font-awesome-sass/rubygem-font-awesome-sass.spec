@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.6.2
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: Font-Awesome SASS
 License: MIT
 URL: https://github.com/FortAwesome/font-awesome-sass
@@ -31,8 +31,7 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-%setup -q -n  %{gem_name}-%{version}
-%patch0 -p1
+%autosetup -p1 -n %{gem_name}-%{version}
 
 # Foreman relies on the Rails integration and that pulls in sass
 %gemspec_remove_dep -g sass
@@ -67,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Fri Feb 14 2025 Adam Ruzicka <aruzicka@redhat.com> - 4.6.2-10
+- Do not use obsolete form of patch macro
+
 * Fri Jul 29 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.6.2-9
 - Use upstream patch to make sass optional
 

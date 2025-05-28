@@ -1,0 +1,19 @@
+{
+  "build": {
+    "dockerfile": "../Containerfile",
+    "context": "."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ian-h-chamberlain.rpm-specfile"]
+    }
+  },
+  "runArgs": [
+    "--privileged",
+    "--platform=linux/amd64"
+  ],
+  // When using podman instead of docker, uncomment the next line and follow to configure your editor https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman
+  // "remoteUser": "root",
+  "workspaceFolder": "/opt/foreman-packaging",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/opt/foreman-packaging,type=bind,consistency=cached"
+}

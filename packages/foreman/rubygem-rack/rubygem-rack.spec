@@ -2,7 +2,7 @@
 %global gem_name rack
 
 Name: rubygem-%{gem_name}
-Version: 2.2.8
+Version: 2.2.16
 Release: 1%{?dist}
 Summary: A modular Ruby webserver interface
 License: MIT
@@ -75,6 +75,30 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/rack.gemspec
 
 %changelog
+* Wed May 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.16-1
+- Update to 2.2.16
+
+* Wed May 21 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.15-1
+- Update to 2.2.15
+
+* Thu May 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.14-1
+- Update to 2.2.14
+
+* Thu Mar 13 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.13-1
+- Update to 2.2.13
+
+* Wed Mar 05 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.12-1
+- Update to 2.2.12
+
+* Sun Nov 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.10-1
+- Update to 2.2.10
+
+* Tue Apr 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.9-1
+- Update to 2.2.9
+
+* Sun Mar 10 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.8.1-1
+- Update to 2.2.8.1
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.2.8-1
 - Update to 2.2.8
 

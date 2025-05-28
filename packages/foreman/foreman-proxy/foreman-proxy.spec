@@ -1,12 +1,12 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        3.10.0
+Version:        3.16.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -32,10 +32,12 @@ Requires:       rubygem(bundler_ext)
 Requires: (%{name}-fapolicyd if fapolicyd)
 
 # These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
+Requires:       (rubygem(base64) or ruby-default-gems < 3.4)
 Requires:       rubygem(json)
 Requires:       rubygem(rack) >= 1.3.0
 Requires:       (rubygem(sd_notify) >= 0.1 with rubygem(sd_notify) < 0.2)
 Requires:       (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
+Requires:       (rubygem(rexml) >= 3.2.0 with rubygem(rexml) < 4.0.0)
 Requires:       rubygem(sinatra)
 
 # start specfile default Requires
@@ -237,6 +239,30 @@ exit 0
 
 
 %changelog
+* Mon May 19 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.develop
+- Bump version to 3.16-develop
+
+* Thu Apr 10 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.15.0-0.2.develop
+- Add dependency on base64 gem
+
+* Tue Feb 18 2025 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.1.develop
+- Bump version to 3.15-develop
+
+* Fri Jan 24 2025 Adam Ruzicka <aruzicka@redhat.com> - 3.14.0-0.2.develop
+- Declare rexml as dependency
+
+* Wed Nov 06 2024 Patrick Creech <pcreech@redhat.com> - 3.14.0-0.1.develop
+- Bump version to 3.14-develop
+
+* Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.develop
+- Bump version to 3.13-develop
+
+* Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.develop
+- Bump version to 3.12-develop
+
+* Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 3.11.0-0.1.develop
+- Bump version to 3.11-develop
+
 * Wed Jan 03 2024 Evgeni Golov - 3.10.0-0.2.develop
 - Drop requirement on foreman-debug
 

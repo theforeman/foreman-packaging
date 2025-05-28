@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 3.5.5
+Version: 3.6.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 License: GPLv3
@@ -23,8 +23,8 @@ Requires: ansible-collection-theforeman-foreman
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
@@ -114,6 +114,18 @@ ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu May 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.6.0-1
+- Update to 3.6.0
+
+* Wed Jan 15 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.8-1
+- Update to 3.5.8
+
+* Wed Sep 25 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.7-1
+- Update to 3.5.7
+
+* Wed Jul 10 2024 nofaralfasi <nalfassi@redhat.com> - 3.5.6-1
+- Update to 3.5.6
+
 * Thu May 18 2023 nofaralfasi <nalfassi@redhat.com> 3.5.5-1
 - Update to 3.5.5
 

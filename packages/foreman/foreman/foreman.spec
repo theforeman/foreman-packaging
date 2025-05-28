@@ -4,12 +4,12 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 3.10.0
+Version: 3.16.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -46,24 +46,24 @@ Requires(preun): systemd-units
 Requires: (%{name}-fapolicyd if fapolicyd)
 
 # start specfile default Requires
-Requires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
+Requires: (rubygem(rails) >= 7.0.3 with rubygem(rails) < 7.1.0)
 Requires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
 Requires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 Requires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
 Requires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
 Requires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
-Requires: (rubygem(ldap_fluff) >= 0.5.0 with rubygem(ldap_fluff) < 1.0)
+Requires: (rubygem(ldap_fluff) >= 0.7.0 with rubygem(ldap_fluff) < 1.0)
 Requires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
-Requires: rubygem(apipie-dsl) >= 2.6.1
-Requires: rubygem(rdoc) < 6.4
+Requires: rubygem(apipie-dsl) >= 2.6.2
+Requires: rubygem(rdoc)
 Requires: (rubygem(rabl) >= 0.15.0 with rubygem(rabl) < 1)
 Requires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
 Requires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
 Requires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
 Requires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
-Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
-Requires: (rubygem(safemode) >= 1.3.5 with rubygem(safemode) < 2)
-Requires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
+Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 8)
+Requires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
+Requires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
 Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
 Requires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
 Requires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
@@ -78,7 +78,6 @@ Requires: (rubygem(sprockets-rails) >= 3.0 with rubygem(sprockets-rails) < 4.0)
 Requires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
 Requires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
 Requires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
-Requires: (rubygem(webpack-rails) >= 0.9.8 with rubygem(webpack-rails) < 0.10.0)
 Requires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
 Requires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
 Requires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
@@ -110,26 +109,32 @@ BuildRequires: /usr/bin/ruby
 BuildRequires: rubygems
 BuildRequires: rubygem(rake) >= 0.8.3
 BuildRequires: rubygem(bundler_ext)
+BuildRequires: /usr/bin/npx
+BuildRequires: make
+BuildRequires: (rubygem(rss) or ruby-default-gems < 3.0)
+Requires: (rubygem(rss) or ruby-default-gems < 3.0)
+BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
+Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
 # start specfile default BuildRequires
-BuildRequires: (rubygem(rails) >= 6.1.6 with rubygem(rails) < 6.2.0)
+BuildRequires: (rubygem(rails) >= 7.0.3 with rubygem(rails) < 7.1.0)
 BuildRequires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
 BuildRequires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 BuildRequires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
 BuildRequires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
 BuildRequires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
-BuildRequires: (rubygem(ldap_fluff) >= 0.5.0 with rubygem(ldap_fluff) < 1.0)
+BuildRequires: (rubygem(ldap_fluff) >= 0.7.0 with rubygem(ldap_fluff) < 1.0)
 BuildRequires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
-BuildRequires: rubygem(apipie-dsl) >= 2.6.1
-BuildRequires: rubygem(rdoc) < 6.4
+BuildRequires: rubygem(apipie-dsl) >= 2.6.2
+BuildRequires: rubygem(rdoc)
 BuildRequires: (rubygem(rabl) >= 0.15.0 with rubygem(rabl) < 1)
 BuildRequires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
 BuildRequires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
 BuildRequires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
 BuildRequires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
-BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 7.0)
-BuildRequires: (rubygem(safemode) >= 1.3.5 with rubygem(safemode) < 2)
-BuildRequires: (rubygem(fast_gettext) >= 1.4 with rubygem(fast_gettext) < 2.0)
+BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 8)
+BuildRequires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
+BuildRequires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
 BuildRequires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
 BuildRequires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
 BuildRequires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
@@ -144,7 +149,6 @@ BuildRequires: (rubygem(sprockets-rails) >= 3.0 with rubygem(sprockets-rails) < 
 BuildRequires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
 BuildRequires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
 BuildRequires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
-BuildRequires: (rubygem(webpack-rails) >= 0.9.8 with rubygem(webpack-rails) < 0.10.0)
 BuildRequires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
 BuildRequires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
 BuildRequires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
@@ -166,44 +170,41 @@ BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+BuildRequires: (npm(@theforeman/builder) >= 15.0.0 with npm(@theforeman/builder) < 16.0.0)
 BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
-BuildRequires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
-BuildRequires: (npm(css-loader) >= 0.23.1 with npm(css-loader) < 1.0.0)
-BuildRequires: (npm(cssnano) >= 4.1.10 with npm(cssnano) < 5.0.0)
+BuildRequires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
+BuildRequires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-webpack-plugin) < 11.0.0)
+BuildRequires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
-BuildRequires: (npm(expose-loader) >= 0.6.0 with npm(expose-loader) < 0.7.0)
-BuildRequires: (npm(extract-text-webpack-plugin) >= 3.0.0 with npm(extract-text-webpack-plugin) < 4.0.0)
-BuildRequires: (npm(file-loader) >= 0.9.0 with npm(file-loader) < 1.0.0)
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-BuildRequires: (npm(node-sass) >= 4.5.0 with npm(node-sass) < 5.0.0)
-BuildRequires: (npm(optimize-css-assets-webpack-plugin) >= 3.2.0 with npm(optimize-css-assets-webpack-plugin) < 4.0.0)
-BuildRequires: (npm(sass-loader) >= 6.0.6 with npm(sass-loader) < 6.1.0)
-BuildRequires: (npm(style-loader) >= 0.13.1 with npm(style-loader) < 1.0.0)
-BuildRequires: (npm(uglifyjs-webpack-plugin) >= 1.2.2 with npm(uglifyjs-webpack-plugin) < 2.0.0)
-BuildRequires: (npm(url-loader) >= 1.0.1 with npm(url-loader) < 2.0.0)
-BuildRequires: (npm(webpack) >= 3.4.1 with npm(webpack) < 4.0.0)
-BuildRequires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin) < 1.0.0)
+BuildRequires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
+BuildRequires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
+BuildRequires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
+BuildRequires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
+BuildRequires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
+BuildRequires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
+BuildRequires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
+BuildRequires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
+BuildRequires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
 BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 BuildRequires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+BuildRequires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
+BuildRequires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
-BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 BuildRequires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
 BuildRequires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 BuildRequires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
 BuildRequires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
 BuildRequires: (rubygem(terser) >= 1.1 with rubygem(terser) < 2.0)
 BuildRequires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
-BuildRequires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets BuildRequires
 
 # start specfile facter BuildRequires
@@ -237,7 +238,7 @@ Useful utilities for debug info collection
 Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
-Requires: rubygem(fog-libvirt) >= 0.9.0
+Requires: rubygem(fog-libvirt) >= 0.13.0
 Requires: (rubygem(ruby-libvirt) >= 0.5 with rubygem(ruby-libvirt) < 1.0)
 # end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
@@ -299,7 +300,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: (rubygem(fog-vsphere) >= 3.6.2 with rubygem(fog-vsphere) < 4.0)
+Requires: (rubygem(fog-vsphere) >= 3.7.0 with rubygem(fog-vsphere) < 4.0)
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 Requires: /usr/bin/websockify
@@ -315,47 +316,45 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 Requires: nodejs >= 14
+Requires: /usr/bin/npx
 
 # start package.json devDependencies Requires
 Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-Requires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+Requires: (npm(@theforeman/builder) >= 15.0.0 with npm(@theforeman/builder) < 16.0.0)
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
-Requires: (npm(compression-webpack-plugin) >= 1.1.11 with npm(compression-webpack-plugin) < 1.2.0)
-Requires: (npm(css-loader) >= 0.23.1 with npm(css-loader) < 1.0.0)
-Requires: (npm(cssnano) >= 4.1.10 with npm(cssnano) < 5.0.0)
+Requires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
+Requires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-webpack-plugin) < 11.0.0)
+Requires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
-Requires: (npm(expose-loader) >= 0.6.0 with npm(expose-loader) < 0.7.0)
-Requires: (npm(extract-text-webpack-plugin) >= 3.0.0 with npm(extract-text-webpack-plugin) < 4.0.0)
-Requires: (npm(file-loader) >= 0.9.0 with npm(file-loader) < 1.0.0)
 Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-Requires: (npm(node-sass) >= 4.5.0 with npm(node-sass) < 5.0.0)
-Requires: (npm(optimize-css-assets-webpack-plugin) >= 3.2.0 with npm(optimize-css-assets-webpack-plugin) < 4.0.0)
-Requires: (npm(sass-loader) >= 6.0.6 with npm(sass-loader) < 6.1.0)
-Requires: (npm(style-loader) >= 0.13.1 with npm(style-loader) < 1.0.0)
-Requires: (npm(uglifyjs-webpack-plugin) >= 1.2.2 with npm(uglifyjs-webpack-plugin) < 2.0.0)
-Requires: (npm(url-loader) >= 1.0.1 with npm(url-loader) < 2.0.0)
-Requires: (npm(webpack) >= 3.4.1 with npm(webpack) < 4.0.0)
-Requires: (npm(webpack-stats-plugin) >= 0.1.5 with npm(webpack-stats-plugin) < 1.0.0)
+Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
+Requires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
+Requires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
+Requires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
+Requires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
+Requires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
+Requires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: (npm(@theforeman/vendor) >= 12.0.1 with npm(@theforeman/vendor) < 13.0.0)
+Requires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
+Requires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
 Requires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 Requires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 Requires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+Requires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
+Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 # end package.json dependencies Requires
 
 # start specfile assets Requires
-Requires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
 Requires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
 Requires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
 Requires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
 Requires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
 Requires: (rubygem(terser) >= 1.1 with rubygem(terser) < 2.0)
 Requires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
-Requires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1.0)
 # end specfile assets Requires
 
 %description assets
@@ -555,10 +554,8 @@ mv Gemfile Gemfile.in
 cp db/schema.rb.nulldb db/schema.rb
 export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{nodejs_sitelib} node_modules
-# Calls webpack manually since webpack:compile uses the config which uses
-# node_modules/.bin/webpack and that doesn't exist in our setup
 export NODE_ENV=production
-webpack --bail --config config/webpack.config.js
+%{rake} webpack:compile DATABASE_URL=nulldb://nohost
 %{rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
 rm db/schema.rb
 
@@ -864,6 +861,69 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon May 19 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.develop
+- Bump version to 3.16-develop
+
+* Mon Apr 28 2025 Evgeni Golov - 3.15.0-0.3.develop
+- Update GEM dependencies
+
+* Thu Mar 06 2025 Evgeni Golov - 3.15.0-0.2.develop
+- Update NPM dependencies
+
+* Tue Feb 18 2025 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.1.develop
+- Bump version to 3.15-develop
+
+* Mon Jan 20 2025 Adam Ruzicka <aruzicka@redhat.com> - 3.14.0-0.5.develop
+- Bump foreman-js to 14
+
+* Mon Jan 13 2025 MariaAga <mariaaga@redhat.com> - 3.14.0-0.4.develop
+- move jquery-ui-rails package to katello
+
+* Tue Dec 10 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.3.develop
+- Update Rails dependency
+
+* Tue Nov 26 2024 Evgeni Golov - 3.14.0-0.2.develop
+- Update GEM and NPM dependencies
+
+* Wed Nov 06 2024 Patrick Creech <pcreech@redhat.com> - 3.14.0-0.1.develop
+- Bump version to 3.14-develop
+
+* Tue Aug 20 2024 Patrick Creech <pcreech@redhat.com> - 3.13.0-0.1.develop
+- Bump version to 3.13-develop
+
+* Wed May 22 2024 Zach Huntington-Meath <zhunting@redhat.com> - 3.12.0-0.1.develop
+- Bump version to 3.12-develop
+
+* Thu Apr 11 2024 Evgeni Golov - 3.11.0-0.4.develop
+- Update NPM Requirements
+
+* Tue Apr 09 2024 Evgeni Golov - 3.11.0-0.3.develop
+- Update GEM and NPM Requirements
+
+* Mon Mar 04 2024 Evgeni Golov - 3.11.0-0.2.develop
+- Update GEM Requiremens
+
+* Tue Feb 20 2024 Patrick Creech <pcreech@redhat.com> - 3.11.0-0.1.develop
+- Bump version to 3.11-develop
+
+* Fri Feb 02 2024 Evgeni Golov - 3.10.0-0.10.develop
+- Correct (Build)Requiremens for EL9
+
+* Wed Jan 31 2024 Evgeni Golov - 3.10.0-0.9.develop
+- Update Gem and NPM dependencies
+
+* Wed Jan 31 2024 Evgeni Golov - 3.10.0-0.8.develop
+- Use sass not node-sass
+
+* Mon Jan 29 2024 Evgeni Golov - 3.10.0-0.7.develop
+- Update NPM deps
+
+* Mon Jan 29 2024 Evgeni Golov - 3.10.0-0.6.develop
+- Use webpack:compile
+
+* Fri Jan 26 2024 Evgeni Golov - 3.10.0-0.5.develop
+- Update deps for webpack5
+
 * Sat Jan 13 2024 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.4.develop
 - Exclude docker-compose.yml from foreman
 

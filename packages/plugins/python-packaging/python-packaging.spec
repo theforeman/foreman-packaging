@@ -1,5 +1,5 @@
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        21.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Core utilities for Python packages
 
 License:        BSD-2-Clause or Apache-2.0
@@ -65,6 +65,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 21.3-4
+- Rebuild against python 3.12
+
 * Wed Nov 15 2023 Patrick Creech <pcreech@redhat.com> - 21.3-3
 - Conflict with pyparsing 3.0.5 instead 
 

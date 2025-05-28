@@ -2,7 +2,7 @@
 %global gem_name kubeclient
 
 Name: rubygem-%{gem_name}
-Version: 4.10.1
+Version: 4.12.0
 Release: 1%{?dist}
 Summary: A client for Kubernetes REST api
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/abonas/kubeclient
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.2.0
-BuildRequires: ruby >= 2.2.0
+Requires: ruby >= 2.7.0
+BuildRequires: ruby >= 2.7.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/kubeclient.gemspec
 
 %changelog
+* Wed May 14 2025 Evgeni Golov - 4.12.0-1
+- Update to 4.12.0
+
 * Thu Dec 15 2022 Dirk Goetz <dirk.goetz@netways.de> 4.10.1-1
 - Update to 4.10.1
 

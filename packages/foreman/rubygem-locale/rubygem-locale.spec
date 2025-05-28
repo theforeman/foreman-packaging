@@ -2,7 +2,7 @@
 %global gem_name locale
 
 Name: rubygem-%{gem_name}
-Version: 2.1.3
+Version: 2.1.4
 Release: 1%{?dist}
 Summary: Pure ruby library which provides basic APIs for localization
 License: Ruby and LGPLv3+
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Sun May 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.4-1
+- Update to 2.1.4
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.3-1
 - Update to 2.1.3
 

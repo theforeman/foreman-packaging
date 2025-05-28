@@ -2,18 +2,16 @@
 %global gem_name pulp_container_client
 
 Name: rubygem-%{gem_name}
-Version: 2.16.3
-Release: 1%{?dist}
+Version: 2.24.2
+Release: 2%{?dist}
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_container
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: rubygem-pulp_docker_client
-
 # start specfile generated dependencies
-Requires: ruby >= 1.9
-BuildRequires: ruby >= 1.9
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -63,6 +61,45 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 23 2025 Odilon Sousa <osousa@redhat.com> - 2.24.2-2
+- Drop unversioned obsolete
+
+* Wed Apr 23 2025 Ian Ballou <ianballou67@gmail.com> - 2.24.2-1
+- Update to 2.24.2
+
+* Sun Apr 06 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.22.2-1
+- Update to 2.22.2
+
+* Sun Jan 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.22.1-1
+- Update to 2.22.1
+
+* Mon Nov 04 2024 Ian Ballou <ianballou67@gmail.com> - 2.22.0-1
+- Update to 2.22.0
+
+* Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 2.21.1-1
+- Update to 2.21.1
+
+* Sun Oct 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.20.4-1
+- Update to 2.20.4
+
+* Sun Oct 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.20.3-1
+- Update to 2.20.3
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.20.2-1
+- Update to 2.20.2
+
+* Tue May 07 2024 Ian Ballou <ianballou67@gmail.com> - 2.20.0-1
+- Update to 2.20.0
+
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.19.3-1
+- Update to 2.19.3
+
+* Wed Mar 27 2024 sajha <sajha> - 2.19.2-1
+- Update to 2.19.2
+
+* Sun Jan 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.16.4-1
+- Update to 2.16.4
+
 * Sun Dec 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.16.3-1
 - Update to 2.16.3
 

@@ -4,11 +4,11 @@
 
 %global gem_name foreman_host_extra_validator
 %global plugin_name host_extra_validator
-%global foreman_min_version 1.24.0
+%global foreman_min_version 3.0.0
 
 Summary:    This plugin adds extra validations to a host
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.2.1
+Version:    0.2.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -17,7 +17,6 @@ Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: ruby
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
@@ -91,6 +90,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jan 21 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.2-1
+- Update to 0.2.2
+
 * Fri Nov 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.2.1-1
 - Update to 0.2.1
 

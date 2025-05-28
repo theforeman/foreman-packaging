@@ -22,7 +22,7 @@ name=pulpcore: Fetch, Upload, Organize, and Distribute Software Packages.
 baseurl=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/@DIST@/$basearch/
 gpgkey=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/GPG-RPM-KEY-pulpcore
 enabled=1
-gpgcheck=1
+gpgcheck=@REPO_GPGCHECK@
 
 # source repositories
 
@@ -45,4 +45,4 @@ name=pulpcore source
 baseurl=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/@DIST@/source/
 gpgkey=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/GPG-RPM-KEY-pulpcore
 enabled=0
-gpgcheck=1
+gpgcheck=@REPO_GPGCHECK@

@@ -1,5 +1,5 @@
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.12.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Platform-independent file locking module
 
 License:        None
@@ -65,6 +65,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 0.12.2-3
+- Rebuild against python 3.12
+
 * Sat Nov 11 2023 Odilon Sousa <osousa@redhat.com> - 0.12.2-2
 - Build against python 3.11
 

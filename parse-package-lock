@@ -2,10 +2,13 @@
 
 require "json"
 
-dependencies = JSON.load_file('package-lock.json')['dependencies']
+package_lock = JSON.load_file('package-lock.json')
+dependencies = package_lock['dependencies'] || package_lock['packages']
 
 npm_module_name_version_map = dependencies.map do |name, metadata|
-  {"name": name, "version": metadata['version']}
+  {"name": name.sub('node_modules/', ''), "version": metadata['version']}
 end
+
+npm_module_name_version_map.reject! { |d| d[:name].include?('node_modules') }
 
 puts npm_module_name_version_map.to_json

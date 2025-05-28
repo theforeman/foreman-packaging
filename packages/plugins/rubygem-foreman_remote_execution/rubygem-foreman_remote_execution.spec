@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 3.9
+%global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 12.0.2
+Version: 16.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
@@ -29,7 +29,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: (npm(@theforeman/builder) >= 12.0.1 with npm(@theforeman/builder) < 13.0.0)
+BuildRequires: npm(@theforeman/builder) >= 15.0.1
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
 BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 # end package.json devDependencies BuildRequires
@@ -81,7 +81,7 @@ cp -a .%{gem_dir}/* \
 %foreman_precompile_plugin -s
 
 mkdir -p %{buildroot}%{_sbindir}
-ln -sv %{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_sbindir}/foreman-cockpit-session
+install -Dp -m0755 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_sbindir}/foreman-cockpit-session
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit.service %{buildroot}%{_unitdir}/foreman-cockpit.service
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/cockpit.conf.example %{buildroot}%{_sysconfdir}/foreman/cockpit/cockpit.conf
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example %{buildroot}%{_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
@@ -102,7 +102,6 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%{gem_instdir}/extra
 %exclude %{gem_instdir}/jsconfig.json
 %{gem_libdir}
 %{gem_instdir}/locale
@@ -118,10 +117,8 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/foreman_remote_execution.gemspec
 %{gem_instdir}/test
 
 %files cockpit
@@ -129,11 +126,93 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %config(noreplace) %{_sysconfdir}/foreman/cockpit/cockpit.conf
 %config(noreplace) %{_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
 %{_unitdir}/foreman-cockpit.service
+%exclude %{gem_instdir}/extra/cockpit
 
 %posttrans
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 14 2025 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.3-1
+- Update to 16.0.3
+
+* Sun Apr 13 2025 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.2-1
+- Update to 16.0.2
+
+* Wed Mar 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.1-1
+- Update to 16.0.1
+
+* Wed Mar 05 2025 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.2-1
+- Update to 15.0.2
+
+* Wed Feb 19 2025 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.1-1
+- Update to 15.0.1
+
+* Wed Jan 29 2025 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.0-1
+- Update to 15.0.0
+
+* Wed Dec 18 2024 Adam Ruzicka <aruzicka@redhat.com> - 14.1.4-1
+- Update to 14.1.4
+
+* Tue Dec 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.1.3-1
+- Update to 14.1.3
+
+* Wed Nov 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.1.2-1
+- Update to 14.1.2
+
+* Tue Nov 12 2024 Adam Ruzicka <aruzicka@redhat.com> - 14.1.1-1
+- Update to 14.1.1
+
+* Wed Nov 06 2024 aruzicka - 14.1.0-1
+- Release rubygem-foreman_remote_execution 14.1.0
+
+* Wed Oct 30 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.0.2-1
+- Update to 14.0.2
+
+* Wed Sep 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 14.0.0-1
+- Update to 14.0.0
+
+* Wed Aug 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.5-1
+- Update to 13.2.5
+
+* Thu Aug 01 2024 Leos Stejskal <lstejska@redhat.com> - 13.2.4-1
+- Update to 13.2.4
+
+* Thu Jul 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.3-1
+- Update to 13.2.3
+
+* Wed Jul 10 2024 Adam Ruzicka <aruzicka@redhat.com> - 13.2.2-1
+- Update to 13.2.2
+
+* Thu Jun 20 2024 Adam Ruzicka <aruzicka@redhat.com> - 13.2.1-1
+- Update to 13.2.1
+
+* Thu May 30 2024 Adam Ruzicka <aruzicka@redhat.com> - 13.2.0-1
+- Update to 13.2.0
+
+* Thu May 23 2024 Adam Ruzicka <aruzicka@redhat.com> - 13.1.1-1
+- Update to 13.1.1
+
+* Thu May 16 2024 Adam Ruzicka <aruzicka@redhat.com> - 13.1.0-1
+- Release rubygem-foreman_remote_execution 13.1.0
+
+* Tue May 07 2024 Evgeni Golov - 13.0.0-2
+- Rebuild for Webpack asset compression
+
+* Tue Mar 12 2024 Adam Ruzicka <aruzicka@redhat.com> - 13.0.0-1
+- Update to 13.0.0
+
+* Thu Feb 08 2024 Evgeni Golov - 12.0.5-3
+- Move all cockpit related files to cockpit package
+
+* Fri Jan 26 2024 Evgeni Golov - 12.0.5-2
+- Rebuild for Webpack 5
+
+* Tue Jan 23 2024 Adam Ruzicka <aruzicka@redhat.com> - 12.0.5-1
+- Update to 12.0.5
+
+* Thu Jan 18 2024 Adam Ruzicka <aruzicka@redhat.com> - 12.0.4-1
+- Update to 12.0.4
+
 * Thu Jan 04 2024 Adam Ruzicka <aruzicka@redhat.com> 12.0.2-1
 - Update to 12.0.2
 

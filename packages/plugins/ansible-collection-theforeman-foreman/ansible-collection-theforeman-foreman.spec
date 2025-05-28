@@ -7,7 +7,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    4.0.0
+Version:    5.3.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -17,25 +17,16 @@ Source0:    https://galaxy.ansible.com/download/%{collection_namespace}-%{collec
 BuildArch:  noarch
 
 Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{version}
-Provides: bundled(python-apypie) = 0.4.0
+Provides: bundled(python-apypie) = 0.7.0
 
-%if 0%{?rhel} == 8
-Requires: (ansible >= 2.9 or ansible-core)
-Requires: (python3-requests if ansible)
-Requires: (python3-pyyaml if ansible)
-Requires: (python38-requests if ansible-core < 2.13)
-Requires: (python38-pyyaml if ansible-core < 2.13)
-Requires: (python39-requests if (ansible-core >= 2.13 and ansible-core < 2.14.2-3))
-Requires: (python39-pyyaml if (ansible-core >= 2.13 and ansible-core < 2.14.2-3))
-Requires: (python3.11-requests if ansible-core >= 2.14.2-3)
-Requires: (python3.11-pyyaml if ansible-core >= 2.14.2-3)
-%else
 Requires: ansible-core
-Requires: (python3-requests if ansible-core >= 1:2.14.7)
-Requires: (python3-pyyaml if ansible-core >= 1:2.14.7)
-Requires: (python3.11-requests if ansible-core >= 2.14.2-3)
-Requires: (python3.11-pyyaml if ansible-core >= 2.14.2-3)
-%endif
+Requires: (python3-requests if (ansible-core >= 1:2.14.7 and ansible-core < 1:2.16.14-3))
+Requires: (python3-pyyaml if (ansible-core >= 1:2.14.7 and ansible-core < 1:2.16.14-3))
+Requires: (python3.11-requests if (ansible-core >= 2.14.2-3 and ansible-core < 1:2.14.7))
+Requires: (python3.11-pyyaml if (ansible-core >= 2.14.2-3 and ansible-core < 1:2.14.7))
+Requires: (python3.12-requests if ansible-core >= 1:2.16.14-3)
+Requires: (python3.12-pyyaml if ansible-core >= 1:2.16.14-3)
+
 
 %description
 Collection of Ansible Modules to manage Foreman installations.
@@ -60,6 +51,30 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Thu Mar 20 2025 Evgeni Golov - 5.3.0-1
+- Release ansible-collection-theforeman-foreman 5.3.0
+
+* Tue Mar 11 2025 Evgeni Golov - 5.2.0-1
+- Release ansible-collection-theforeman-foreman 5.2.0
+
+* Wed Feb 19 2025 Odilon Sousa <osousa@redhat.com> - 5.1.0-2
+- Update requests and pyaml requirements to python 3.12
+
+* Fri Dec 06 2024 Evgeni Golov - 5.1.0-1
+- Release ansible-collection-theforeman-foreman 5.1.0
+
+* Fri Nov 22 2024 Evgeni Golov - 5.0.0-1
+- Release ansible-collection-theforeman-foreman 5.0.0
+
+* Fri Aug 30 2024 Evgeni Golov - 4.2.0-1
+- Release ansible-collection-theforeman-foreman 4.2.0
+
+* Wed Jul 17 2024 Evgeni Golov - 4.1.0-1
+- Release ansible-collection-theforeman-foreman 4.1.0
+
+* Thu Feb 15 2024 Evgeni Golov - 4.0.0-2
+- Adjust requirements for Ansible using Python 3.12
+
 * Fri Jan 12 2024 Evgeni Golov - 4.0.0-1
 - Release ansible-collection-theforeman-foreman 4.0.0
 

@@ -2,12 +2,14 @@
 %global gem_name mime-types
 
 Name: rubygem-%{gem_name}
-Version: 3.5.2
+Version: 3.7.0
 Release: 1%{?dist}
 Summary: The mime-types library provides a library and registry for information about MIME content type definitions
 License: MIT
 URL: https://github.com/mime-types/ruby-mime-types/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
 
 # start specfile generated dependencies
 Requires: ruby >= 2.0
@@ -43,6 +45,8 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+%gemspec_remove_dep -g logger
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -58,9 +62,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.standard.yml
-%doc %{gem_instdir}/Code-of-Conduct.md
-%license %{gem_instdir}/Licence.md
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
+%license %{gem_instdir}/LICENCE.md
 %exclude %{gem_instdir}/Manifest.txt
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -68,13 +71,27 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/Contributing.md
-%doc %{gem_instdir}/History.md
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
 %changelog
+* Thu May 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.7.0-1
+- Update to 3.7.0
+
+* Wed Mar 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.6.2-1
+- Update to 3.6.2
+
+* Wed Mar 19 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.6.1-1
+- Update to 3.6.1
+
+* Tue Dec 10 2024 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.6.0-1
+- Update to 3.6.0
+
 * Mon Jan 08 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.2-1
 - Update to 3.5.2
 

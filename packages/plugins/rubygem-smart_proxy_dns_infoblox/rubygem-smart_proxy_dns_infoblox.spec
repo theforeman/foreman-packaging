@@ -16,8 +16,8 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
-Release: 7%{?foremandist}%{?dist}
+Version: 1.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -26,16 +26,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(infoblox) >= 3.0
-Requires: %{?scl_prefix}rubygem(infoblox) < 4
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -110,6 +104,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.0-1
+- Update to 1.2.0
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-7
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 

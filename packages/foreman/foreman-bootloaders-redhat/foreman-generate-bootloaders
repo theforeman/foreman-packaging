@@ -55,7 +55,6 @@ else
   generate x86_64-efi grub2/grubx64.efi
 fi
 
-check_pkg shim-ia32
 check_pkg shim-x64
 cp -f /boot/efi/EFI/*/shim*.efi /var/lib/tftpboot/grub2
 chmod 644 /var/lib/tftpboot/grub2/*.{efi,0}

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-bootstrap-select
 Version: 1.13.18
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Bootstrap-select is a jQuery plugin that utilizes Bootstrap's dropdown
 License: MIT
 Group: Development/Libraries
@@ -15,7 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 %endif
 Requires: %{?scl_prefix}npm(jquery) >= 1.9.1
-Requires: %{?scl_prefix}npm(jquery) < 3
+Requires: %{?scl_prefix}npm(jquery) < 4
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -50,6 +50,9 @@ cp -pfr tests %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc docs
 
 %changelog
+* Thu Feb 27 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.13.18-2
+- Bump jquery upper bound to allow version 3
+
 * Thu Sep 23 2021 Justin Sherrill <jsherril@redhat.com> 1.13.18-1
 - Update to 1.13.18
 

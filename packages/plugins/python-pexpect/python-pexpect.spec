@@ -1,5 +1,5 @@
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        4.8.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Pexpect allows easy control of interactive console applications
 
 License:        ISC license
@@ -64,6 +64,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 4.8.0-4
+- Rebuild against python 3.12
+
 * Sat Nov 11 2023 Odilon Sousa <osousa@redhat.com> - 4.8.0-3
 - Build against python 3.11
 

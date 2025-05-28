@@ -2,7 +2,7 @@
 %global gem_name pulp_file_client
 
 Name: rubygem-%{gem_name}
-Version: 1.15.1
+Version: 3.73.10
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -10,8 +10,8 @@ URL: https://github.com/pulp/pulp_file
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9
-BuildRequires: ruby >= 1.9
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -61,6 +61,78 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed May 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.73.10-1
+- Update to 3.73.10
+
+* Wed May 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.73.9-1
+- Update to 3.73.9
+
+* Tue Apr 29 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.73.8-1
+- Update to 3.73.8
+
+* Wed Apr 23 2025 Ian Ballou <ianballou67@gmail.com> - 3.73.7-1
+- Update to 3.73.7
+
+* Wed Apr 09 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.14-1
+- Update to 3.63.14
+
+* Thu Apr 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.13-1
+- Update to 3.63.13
+
+* Wed Mar 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.12-1
+- Update to 3.63.12
+
+* Sun Mar 16 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.11-1
+- Update to 3.63.11
+
+* Thu Jan 30 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.9-1
+- Update to 3.63.9
+
+* Wed Jan 22 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.8-1
+- Update to 3.63.8
+
+* Wed Jan 15 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.7-1
+- Update to 3.63.7
+
+* Sun Dec 15 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.6-1
+- Update to 3.63.6
+
+* Fri Dec 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.5-1
+- Update to 3.63.5
+
+* Wed Nov 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.4-1
+- Update to 3.63.4
+
+* Sun Nov 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.3-1
+- Update to 3.63.3
+
+* Wed Nov 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.63.2-1
+- Update to 3.63.2
+
+* Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 3.63.1-1
+- Update to 3.63.1
+
+* Sun Oct 20 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.49.22-1
+- Update to 3.49.22
+
+* Sun Oct 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.49.21-1
+- Update to 3.49.21
+
+* Sun Aug 18 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.49.17-1
+- Update to 3.49.17
+
+* Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.49.16-1
+- Update to 3.49.16
+
+* Mon May 06 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.49.6-1
+- Update to 3.49.6
+
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.49.5-1
+- Update to 3.49.5
+
+* Wed Mar 27 2024 sajha <sajha> - 3.49.3-1
+- Update to 3.49.3
+
 * Wed Nov 08 2023 ianballou <ianballou67@gmail.com> 1.15.1-1
 - Update to 1.15.1
 

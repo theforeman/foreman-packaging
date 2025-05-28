@@ -8,8 +8,8 @@ remove_from_comps - removes packagereqs for a package to a comps xml file
 Usage #{$0} comps-file package-name [package-name]
 
 Examples:
-  #{$0} comps/comps-foreman-el8.xml nodejs-example
-  #{$0} comps/comps-foreman-el8.xml nodejs-example nodejs-other-example
+  #{$0} comps/comps-foreman-el9.xml nodejs-example
+  #{$0} comps/comps-foreman-el9.xml nodejs-example nodejs-other-example
 
 Return codes:
 

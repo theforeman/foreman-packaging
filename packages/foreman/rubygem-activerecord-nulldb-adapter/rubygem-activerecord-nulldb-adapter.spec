@@ -2,7 +2,7 @@
 %global gem_name activerecord-nulldb-adapter
 
 Name: rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.1.1
 Release: 1%{?dist}
 Summary: The Null Object pattern as applied to ActiveRecord database adapters
 License: MIT
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Nov 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.1-1
+- Update to 1.1.1
+
 * Tue Nov 14 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.0.1-1
 - Update to 1.0.1
 

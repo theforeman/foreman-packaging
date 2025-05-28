@@ -21,7 +21,7 @@
 %global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.2
+Version: 0.12.1
 Release: 1%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
@@ -31,20 +31,18 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(openscap) >= 0.4.7
-Requires: %{?scl_prefix}rubygem(openscap) < 0.5
-Requires: %{?scl_prefix}rubygem(openscap_parser) >= 1.0.2
-Requires: %{?scl_prefix}rubygem(openscap_parser) < 1.1
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.7
+Requires: ruby < 4
+BuildRequires: ruby >= 2.7
+BuildRequires: ruby < 4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+
+# These are called at runtime
+Requires: /usr/bin/bunzip2
+Requires: /usr/bin/oscap
 
 %{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
@@ -123,15 +121,13 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 
 %files
 %dir %{gem_instdir}
-%{_root_bindir}/smart-proxy-arf-html
 %{_root_bindir}/smart-proxy-openscap-send
-%{_root_bindir}/smart-proxy-openscap-send-inner
-%{_root_bindir}/smart-proxy-policy-guide
 %{foreman_proxy_dir}/openscap
 %attr(-,%{proxy_user},%{proxy_user}) %{spool_dir}
 %attr(-,%{proxy_user},%{proxy_user}) %{content_dir}
 %config(noreplace) %attr(0644, root, root) %{_root_sysconfdir}/cron.d/%{name}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/openscap.yml
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.travis.yml
@@ -152,6 +148,21 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 14 2025 Adam Ruzicka <aruzicka@redhat.com> - 0.12.1-1
+- Update to 0.12.1
+
+* Wed Dec 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.12.0-1
+- Update to 0.12.0
+
+* Wed Jul 24 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.11.1-1
+- Update to 0.11.1
+
+* Thu May 30 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.11.0-1
+- Update to 0.11.0
+
+* Wed May 15 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.10.0-1
+- Release rubygem-smart_proxy_openscap 0.10.0
+
 * Thu May 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.9.2-1
 - Update to 0.9.2
 

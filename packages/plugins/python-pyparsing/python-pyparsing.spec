@@ -1,5 +1,5 @@
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 %{?scl:%scl_package python-%{pypi_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.4.7
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Python parsing module
 
 License:        MIT License
@@ -65,6 +65,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 2.4.7-5
+- Rebuild against python 3.12
+
 * Sat Nov 11 2023 Odilon Sousa <osousa@redhat.com> - 2.4.7-4
 - Build against python 3.11
 

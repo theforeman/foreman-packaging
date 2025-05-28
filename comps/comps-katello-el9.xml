@@ -12,13 +12,12 @@
     <packagelist>
       <!-- katello core packages -->
       <packagereq type="default">foreman-proxy-content</packagereq>
-      <!-- temp removal due to unresolved dependencies <packagereq type="default">katello</packagereq> -->
+      <packagereq type="default">katello</packagereq>
       <packagereq type="default">katello-client-bootstrap</packagereq>
       <packagereq type="default">katello-common</packagereq>
       <packagereq type="default">katello-repos</packagereq>
-      <!-- temp removal due to unresolved dependencies <packagereq type="default">katello-selinux</packagereq> -->
+      <packagereq type="default">katello-selinux</packagereq>
       <packagereq type="default">rubygem-activerecord-import</packagereq>
-      <packagereq type="default">rubygem-ethon</packagereq>
       <packagereq type="default">rubygem-foreman_virt_who_configure</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_virt_who_configure</packagereq>
       <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
@@ -27,13 +26,8 @@
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-angular</packagereq>
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
-      <packagereq type="default">nodejs-decode-uri-component</packagereq>
-      <packagereq type="default">nodejs-downshift</packagereq>
       <packagereq type="default">nodejs-ngreact</packagereq>
-      <packagereq type="default">nodejs-query-string</packagereq>
-      <packagereq type="default">nodejs-strict-uri-encode</packagereq>
       <!-- katello thirdparty rubygem packages -->
-      <packagereq type="default">rubygem-anemone</packagereq>
       <packagereq type="default">rubygem-foreman_kernel_care</packagereq>
       <packagereq type="default">rubygem-foreman_rh_cloud</packagereq>
       <packagereq type="default">rubygem-foreman_scc_manager</packagereq>
@@ -50,9 +44,8 @@
       <packagereq type="default">rubygem-pulp_python_client</packagereq>
       <packagereq type="default">rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">rubygem-robotex</packagereq>
+      <packagereq type="default">rubygem-spidr</packagereq>
       <packagereq type="default">rubygem-stomp</packagereq>
-      <packagereq type="default">rubygem-typhoeus</packagereq>
-      <packagereq type="default">rubygem-zest</packagereq>
       <!-- other katello related packages -->
       <packagereq type="default">rhel8-kickstart-setup</packagereq>
     </packagelist>
@@ -76,8 +69,6 @@
       <packagereq type="optional">rubygem-pulp_ostree_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_python_client-doc</packagereq>
       <packagereq type="optional">rubygem-stomp-doc</packagereq>
-      <packagereq type="optional">rubygem-typhoeus-doc</packagereq>
-      <packagereq type="optional">rubygem-zest-doc</packagereq>
     </packagelist>
   </group>
 </comps>

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-bootstrap
 Version: 0.33.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Bootstrap 3 components built with React
 License: MIT
 Group: Development/Libraries
@@ -97,7 +97,7 @@ done
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 %{?scl:end_of_scl}
 
 %install
@@ -118,6 +118,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 0.33.1-2
+- Use --legacy-peer-deps during npm install
+
 * Thu May 04 2023 Eric D. Helms <ericdhelms@gmail.com> 0.33.1-1
 - Update to 0.33.1
 

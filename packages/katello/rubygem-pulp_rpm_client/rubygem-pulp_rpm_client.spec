@@ -2,7 +2,7 @@
 %global gem_name pulp_rpm_client
 
 Name: rubygem-%{gem_name}
-Version: 3.23.0
+Version: 3.29.2
 Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 License: GPLv2+
@@ -10,8 +10,8 @@ URL: https://github.com/pulp/pulp_rpm
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9
-BuildRequires: ruby >= 1.9
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -61,6 +61,33 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 23 2025 Ian Ballou <ianballou67@gmail.com> - 3.29.2-1
+- Update to 3.29.2
+
+* Wed Oct 30 2024 Ian Ballou <ianballou67@gmail.com> - 3.27.2-1
+- Update to 3.27.2
+
+* Wed Oct 23 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.26.3-1
+- Update to 3.26.3
+
+* Tue Jul 02 2024 Ian Ballou <ianballou67@gmail.com> - 3.26.1-1
+- Update to 3.26.1
+
+* Tue Jul 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.25.5-1
+- Update to 3.25.5
+
+* Sun Apr 28 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.25.3-1
+- Update to 3.25.3
+
+* Tue Apr 02 2024 sajha <sajha> - 3.25.2-1
+- Update to 3.25.2
+
+* Wed Mar 27 2024 sajha <sajha> - 3.25.1-1
+- Update to 3.25.1
+
+* Wed Jan 31 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.23.2-1
+- Update to 3.23.2
+
 * Wed Nov 08 2023 ianballou <ianballou67@gmail.com> 3.23.0-1
 - Update to 3.23.0
 

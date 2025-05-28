@@ -2,7 +2,7 @@
 %global gem_name rabl
 
 Name: rubygem-%{gem_name}
-Version: 0.16.1
+Version: 0.17.0
 Release: 1%{?dist}
 Summary: General ruby templating with json, bson, xml and msgpack support
 License: MIT
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.17.0-1
+- Update to 0.17.0
+
 * Sun Oct 16 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.16.1-1
 - Update to 0.16.1
 

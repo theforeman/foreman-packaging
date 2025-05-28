@@ -42,6 +42,7 @@ BuildRequires: gcc
 <% if spec.extensions.empty? -%>
 BuildArch: noarch
 <% end -%>
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description

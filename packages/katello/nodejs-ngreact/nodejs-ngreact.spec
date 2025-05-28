@@ -4,16 +4,14 @@
 %global npm_name ngreact
 
 Name: %{?scl_prefix}nodejs-ngreact
-Version: 0.5.1
-Release: 2%{?dist}
+Version: 0.5.2
+Release: 1%{?dist}
 Summary: Use React Components in Angular
 License: MIT
 Group: Development/Libraries
 URL: http://davidchang.github.io/ngReact/
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/ngreact/-/ngreact-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
 BuildArch: noarch
@@ -33,6 +31,7 @@ cp -pfr karma.config.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr ngReact.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr ngReact.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr tests %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -46,6 +45,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sun Jan 28 2024 Foreman Packaging Automation <packaging@theforeman.org> 0.5.2-1
+- Update to 0.5.2
+
 * Sun Oct 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.5.1-2
 - Update to handle building for SCL
 

@@ -1,12 +1,12 @@
-%global python3_pkgversion 3.11
-%global __python3 /usr/bin/python3.11
+%global python3_pkgversion 3.12
+%global __python3 /usr/bin/python3.12
 
 # Created by pyp2rpm-3.3.3
 %global pypi_name pbr
 
 Name:           python-%{pypi_name}
 Version:        5.8.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Python Build Reasonableness
 
 License:        None
@@ -58,6 +58,9 @@ set -ex
 
 
 %changelog
+* Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 5.8.0-6
+- Rebuild against python 3.12
+
 * Sat Nov 11 2023 Odilon Sousa <osousa@redhat.com> - 5.8.0-5
 - Build against python 3.11
 
