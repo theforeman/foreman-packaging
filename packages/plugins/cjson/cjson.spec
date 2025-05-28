@@ -1,5 +1,5 @@
 Name:           cjson
-Version:        1.7.17
+Version:        1.7.18
 Release:        1%{?dist}
 Summary:        Ultralightweight JSON parser in ANSI C
 
@@ -54,6 +54,9 @@ rm -f %{buildroot}%{_libdir}/*.{la,a}
 %{_includedir}/cjson/
 
 %changelog
+* Wed May 28 2025 Odilon Sousa <osousa@redhat.com> - 1.7.18-1
+- Release cjson 1.7.18
+
 * Fri Jan 26 2024 Eric D. Helms <ericdhelms@gmail.com> - 1.7.17-1
 - Release 1.7.17
 
