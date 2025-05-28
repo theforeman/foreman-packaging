@@ -4,10 +4,10 @@
 
 %global gem_name foreman_azure_rm
 %global plugin_name azure_rm
-%global foreman_min_version 3.7
+%global foreman_min_version 3.13
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.11
+Version: 3.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 28 2025 Chris Roberts <chrobert@redhat.com> - 3.0.4-1
+- Update to 3.0.4
+
 * Mon Jan 08 2024 Leos Stejskal <lstejska@redhat.com> - 2.2.11-1
 - Update to 2.2.11
 
