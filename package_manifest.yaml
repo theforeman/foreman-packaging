@@ -16,7 +16,7 @@ all:
 copr_projects:
   vars:
     core_modules_el9:
-      - 'nodejs:18'
+      - 'nodejs:22'
     core_buildroot_packages:
       - 'foreman-build'
     plugins_buildroot_packages:

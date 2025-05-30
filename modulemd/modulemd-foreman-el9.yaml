@@ -15,5 +15,5 @@ data:
   dependencies:
     - requires:
         platform: ['el9']
-        nodejs: ['18']
+        nodejs: ['22']
 ...
