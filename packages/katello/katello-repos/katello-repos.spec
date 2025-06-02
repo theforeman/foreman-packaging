@@ -4,10 +4,12 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
+%global prereleasesource rc2
+%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
 Name:           katello-repos
-Version:        4.17.0.rc1
+Version:        4.17.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -71,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Mon Jun 02 2025 Patrick Creech <pcreech@redhat.com> - 4.17.0-0.2.rc2
+- Release katello-repos 4.17.0rc2
+
 * Wed May 28 2025 Ian Ballou <ianballou67@gmail.com> - 4.17.0.rc1-2
 - Update pulpcore_repository to 3.73
 
