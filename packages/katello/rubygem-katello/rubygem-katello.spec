@@ -3,7 +3,10 @@
 %global plugin_name katello
 %global foreman_min_version 3.15
 %global foreman_max_version 3.16
-%global mainver 4.17.0.rc1
+
+%global prereleasesource rc2
+%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global mainver 4.17.0
 %global release 1
 
 Name: rubygem-%{gem_name}
@@ -164,6 +167,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jun 02 2025 Patrick Creech <pcreech@redhat.com> - 4.17.0-0.1.rc2
+- Release rubygem-katello 4.17.0rc2
+
 * Wed May 21 2025 Patrick Creech <pcreech@redhat.com> - 4.17.0.rc1-1
 - Release rubygem-katello 4.17.0.rc1
 
