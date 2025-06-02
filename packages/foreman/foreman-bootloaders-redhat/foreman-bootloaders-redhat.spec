@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
-Version: 202102220000
-Release: 4%{?dist}
+Version: 202506020000
+Release: 1%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -66,6 +66,7 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 %ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/shimx64-redhat.efi
 %ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64.efi
 %ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64-redhat.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/mmx64.efi
 
 
 %post tftpboot
@@ -73,6 +74,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Mon Jun 02 2025 Leos Stejskal <lstejska@redhat.com> 202506020000-1
+- Add mmx64.efi to the list of files in grub2 directory
+
 * Mon Nov 11 2024 Evgeni Golov 202102220000-4
 - Don't fail if shim-ia32 is missing
 

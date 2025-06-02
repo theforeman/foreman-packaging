@@ -57,6 +57,7 @@ fi
 
 check_pkg shim-x64
 cp -f /boot/efi/EFI/*/shim*.efi /var/lib/tftpboot/grub2
+cp -f /boot/efi/EFI/*/mm*.efi /var/lib/tftpboot/grub2
 chmod 644 /var/lib/tftpboot/grub2/*.{efi,0}
 chown foreman-proxy:root /var/lib/tftpboot/grub2/*.{efi,0}
 # these files are managed by puppet
