@@ -19,8 +19,8 @@ Depends: ruby (>= 1:2.7), ruby-dev, zlib1g-dev,
          rake (>=0.8.4), gawk, ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug (= ${binary:Version})
 Conflicts: ruby-activerecord-deprecated-finders, ruby-foreman-tasks (<< 0.10.1), ruby-sequel-pg, ruby-foreman-hooks (<= 0.3.17)
-Replaces: foreman-compute, foreman-rackspace
-Breaks: foreman-compute, foreman-mysql2, foreman-sqlite3
+Replaces: foreman-compute, foreman-rackspace, foreman-ovirt
+Breaks: foreman-compute, foreman-mysql2, foreman-sqlite3, foreman-ovirt
 Description: Systems management web interface
  Foreman is aimed to be a single address for all machines life cycle management.
  .
@@ -107,17 +107,6 @@ Priority: extra
 Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing OpenStack dependencies for Foreman
  This package provides OpenStack dependencies for Foreman, a
- flexible systems management web application.
- .
- The foreman package should be installed along with this package.
-
-Package: foreman-ovirt
-Architecture: all
-Section: web
-Priority: extra
-Depends: foreman (= ${binary:Version}), python3-websockify, libcurl4-openssl-dev, libxml2-dev, ${misc:Depends}
-Description: metapackage providing ovirt dependencies for Foreman
- This package provides ovirt dependencies for Foreman, a
  flexible systems management web application.
  .
  The foreman package should be installed along with this package.

@@ -1,3 +1,9 @@
+foreman (3.16.0-2) stable; urgency=low
+
+  * Remove oVirt
+
+ -- Leos Stejskal <lstejska@redhat.com>  Thu, 12 Jun 2025 12:20:46 +0200
+
 foreman (3.16.0-1) stable; urgency=low
 
   * Bump changelog to 3.16.0 to match VERSION
