@@ -4,7 +4,7 @@
 %global foreman_min_version 3.15.0
 
 Name: rubygem-%{gem_name}
-Version: 16.0.0
+Version: 16.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jun 04 2025 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.1-1
+- Update to 16.0.1
+
 * Thu Mar 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.0-1
 - Update to 16.0.0
 
