@@ -1,3 +1,9 @@
+ruby-dynflow (1.9.2-1) stable; urgency=low
+
+  * 1.9.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 04 Jun 2025 04:14:39 +0000
+
 ruby-dynflow (1.9.1-1) stable; urgency=low
 
   * 1.9.1 released
