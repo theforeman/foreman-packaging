@@ -7,6 +7,7 @@
 /packages/plugins/*_acd/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_resource_quota/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_snapshot_management/ @theforeman/packaging @theforeman/atix
+/packages/plugins/rubygem-smart_proxy_request_forwarder/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_cve_scanner/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_salt/ @theforeman/packaging @theforeman/salt
 /packages/plugins/*_puppet/ @theforeman/packaging @theforeman/puppet
