@@ -1,3 +1,9 @@
+ruby-oauth-tty (1.0.5-2) stable; urgency=low
+
+  * Add 'Replaces: ruby-oauth', to smoothen upgrade that moves the binary
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 10 Jun 2025 09:35:18 +0200
+
 ruby-oauth-tty (1.0.5-1) stable; urgency=medium
 
   * Initial release

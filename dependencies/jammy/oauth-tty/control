@@ -19,5 +19,6 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${misc:Depends},
          ${ruby:Depends},
          ${shlibs:Depends}
+Replaces: ruby-oauth (<< 1.1.0-1)
 Description: OAuth 1.0 TTY CLI
  OAuth 1.0 TTY Command Line Interface
