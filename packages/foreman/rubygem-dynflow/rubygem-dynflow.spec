@@ -16,6 +16,8 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(csv) or ruby-default-gems < 3.4)
+
 # Optional dependency that we always pull in
 Requires: %{?scl_prefix}rubygem(statsd-instrument)
 Requires: dynflow-utils
@@ -34,6 +36,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g csv
 
 %build
 # Create the gem as gem install only works on a gem file
