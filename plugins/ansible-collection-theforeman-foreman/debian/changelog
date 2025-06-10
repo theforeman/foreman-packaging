@@ -1,3 +1,9 @@
+ansible-collection-theforeman-foreman (5.4.0-1) stable; urgency=low
+
+  * 5.4.0 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 10 Jun 2025 10:53:43 +0200
+
 ansible-collection-theforeman-foreman (5.3.0-1) stable; urgency=low
 
   * 5.3.0 released
