@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -180,6 +180,7 @@ BuildRequires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-w
 BuildRequires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
+BuildRequires: (npm(mini-css-extract-plugin) >= 2.9.1 with npm(mini-css-extract-plugin) < 3.0.0)
 BuildRequires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
 BuildRequires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
 BuildRequires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
@@ -315,6 +316,7 @@ Requires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-webpac
 Requires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
 Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
 Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
+Requires: (npm(mini-css-extract-plugin) >= 2.9.1 with npm(mini-css-extract-plugin) < 3.0.0)
 Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
 Requires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
 Requires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
@@ -848,6 +850,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Jun 12 2025 Evgeni Golov - 3.16.0-0.3.develop
+- Update NPM dependencies
+
 * Tue Jun 03 2025 Leos Stejskal <lstejska@redhat.com> - 3.16.0-0.2.develop
 - Remove oVirt packages
 
