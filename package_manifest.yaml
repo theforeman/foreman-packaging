@@ -387,6 +387,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-babel-preset-react:
       strategy: bundle
+    nodejs-bootstrap-sass: {}
     nodejs-buffer: {}
     nodejs-c3: {}
     nodejs-compression-webpack-plugin: {}
