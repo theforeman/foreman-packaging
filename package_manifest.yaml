@@ -411,6 +411,7 @@ foreman_nodejs_packages:
     nodejs-multiselect: {}
     nodejs-os-browserify: {}
     nodejs-path-browserify: {}
+    nodejs-patternfly: {}
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
       strategy: bundle
