@@ -66,6 +66,7 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-mini-css-extract-plugin</packagereq>
       <packagereq type="default">nodejs-module-federation-utilities</packagereq>
+      <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-os-browserify</packagereq>
       <packagereq type="default">nodejs-path-browserify</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
