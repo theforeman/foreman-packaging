@@ -413,6 +413,7 @@ foreman_nodejs_packages:
     nodejs-multiselect: {}
     nodejs-os-browserify: {}
     nodejs-path-browserify: {}
+    nodejs-patternfly: {}
     nodejs-patternfly-patternfly: {}
     nodejs-patternfly-react: {}
     nodejs-patternfly-react-extensions: {}
