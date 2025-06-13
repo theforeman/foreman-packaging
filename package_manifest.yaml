@@ -415,6 +415,7 @@ foreman_nodejs_packages:
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
       strategy: bundle
+    nodejs-react-diff-view: {}
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-intl:
       strategy: bundle
