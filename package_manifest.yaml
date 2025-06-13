@@ -395,6 +395,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-d3: {}
     nodejs-dotenv: {}
+    nodejs-dsmorse-gridster: {}
     nodejs-graphql: {}
     nodejs-graphql-tag: {}
     nodejs-harmony-reflect: {}
