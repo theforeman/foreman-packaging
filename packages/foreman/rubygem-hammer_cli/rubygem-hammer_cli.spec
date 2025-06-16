@@ -3,7 +3,7 @@
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -24,6 +24,8 @@ BuildArch: noarch
 
 Requires: (rubygem(base64) or ruby-default-gems < 3.4)
 Requires: (rubygem(csv) or ruby-default-gems < 3.4)
+
+Provides: hammer-cli = %{version}%{?prerelease}
 
 %description
 Hammer cli provides universal extendable CLI interface for ruby apps.
@@ -95,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jun 16 2025 Evgeni Golov - 3.16.0-0.2.pre.develop
+- Add Provides for "hammer-cli"
+
 * Mon May 19 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.pre.develop
 - Bump version to 3.16-develop
 
