@@ -83,6 +83,7 @@
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>
       <packagereq type="default">nodejs-sass</packagereq>
       <packagereq type="default">nodejs-sass-loader</packagereq>
+      <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-sortabular</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-table-resolver</packagereq>

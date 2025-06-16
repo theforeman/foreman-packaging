@@ -428,6 +428,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-sass-loader:
       strategy: bundle
+    nodejs-select2: {}
     nodejs-sortabular: {}
     nodejs-style-loader:
       strategy: bundle
