@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Foreman Salt-related commands for Hammer CLI
 License: GPLv3
 URL: https://github.com/theforeman/hammer_cli_foreman_salt
@@ -17,6 +17,7 @@ Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -64,6 +65,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon Jun 16 2025 Evgeni Golov 0.1.0-3
+- Update based on latest template
+
 * Wed Oct 19 2022 Evgeni Golov 0.1.0-2
 - Regenerate spec based on latest template
 
