@@ -2,7 +2,7 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -12,22 +12,16 @@ Name: rubygem-%{gem_name}
 Version: 3.16.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
-Group: Development/Languages
 License: GPLv3+
 URL: https://github.com/theforeman/hammer-cli-foreman
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
 Requires: ruby
-Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli) >= 3.7.0
-Requires: rubygem(apipie-bindings) >= 0.6.0
-Requires: rubygem(rest-client) >= 1.8.0
-Requires: rubygem(rest-client) < 3.0.0
-Requires: rubygem(jwt) >= 2.2.1
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}%{?prerelease}
 # end specfile generated dependencies
 
 %description
@@ -69,7 +63,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
-%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
+%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 %exclude %{gem_instdir}/lib/minitest
 
 %files doc
@@ -80,6 +74,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jun 16 2025 Evgeni Golov - 3.16.0-0.2.pre.develop
+- Update based on latest template
+
 * Mon May 19 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.pre.develop
 - Bump version to 3.16-develop
 
