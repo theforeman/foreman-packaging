@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman kubevirt commands for Hammer CLI
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-kubevirt
@@ -19,6 +19,7 @@ BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Provides: hammer-cli-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -68,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon Jun 16 2025 Evgeni Golov 0.2.0-2
+- Update based on latest template
+
 * Mon Mar 25 2024 Leos Stejskal <lstejska@redhat.com> 0.2.0-1
 - Update to 0.2.0-1
 
