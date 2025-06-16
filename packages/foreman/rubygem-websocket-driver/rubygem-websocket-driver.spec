@@ -3,7 +3,7 @@
 %global gem_require_name websocket/driver
 
 Name: rubygem-%{gem_name}
-Version: 0.7.7
+Version: 0.8.0
 Release: 1%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 License: Apache-2.0
@@ -20,6 +20,7 @@ BuildRequires: rubygem(websocket-extensions) >= 0.1.0
 BuildRequires: gcc
 # end specfile generated dependencies
 Requires: (rubygem(base64) or ruby-default-gems < 3.4)
+BuildRequires: (rubygem(base64) or ruby-default-gems < 3.4)
 
 %description
 WebSocket protocol handler with pluggable I/O.
@@ -83,6 +84,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 16 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.8.0-1
+- Update to 0.8.0
+
 * Wed Jan 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.7.7-1
 - Update to 0.7.7
 
