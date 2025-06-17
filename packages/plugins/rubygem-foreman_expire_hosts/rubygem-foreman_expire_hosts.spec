@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_expire_hosts
 %global plugin_name expire_hosts
-%global foreman_min_version 3.0.0
+%global foreman_min_version 3.13.0
 
 Name: rubygem-%{gem_name}
-Version: 8.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 9.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 License: GPLv3
 URL: https://github.com/theforeman/foreman_expire_hosts
@@ -77,6 +77,9 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{g
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jun 17 2025 David Ochner <ochnerd@yahoo.de> - 9.0.0-1
+- Update to 9.0.0
+
 * Thu Sep 05 2024 Evgeni Golov - 8.2.0-2
 - Rebuild against Foreman nightly
 
