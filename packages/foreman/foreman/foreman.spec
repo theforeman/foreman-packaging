@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -192,13 +192,23 @@ BuildRequires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin
 
 # start package.json dependencies BuildRequires
 BuildRequires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
+BuildRequires: (npm(@patternfly/patternfly) >= 5.4.2 with npm(@patternfly/patternfly) < 6.0.0)
 BuildRequires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
+BuildRequires: (npm(bootstrap-sass) >= 3.4.3 with npm(bootstrap-sass) < 4.0.0)
+BuildRequires: npm(datatables.net-bs) = 1.13.5
+BuildRequires: (npm(dsmorse-gridster) >= 0.8.0 with npm(dsmorse-gridster) < 1.0.0)
 BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 BuildRequires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
 BuildRequires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
+BuildRequires: (npm(multiselect) >= 0.9.12 with npm(multiselect) < 0.10.0)
 BuildRequires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
+BuildRequires: (npm(patternfly) >= 3.59.5 with npm(patternfly) < 4.0.0)
+BuildRequires: (npm(patternfly-react) >= 2.40.0 with npm(patternfly-react) < 3.0.0)
+BuildRequires: (npm(patternfly-react-extensions) >= 3.0.15 with npm(patternfly-react-extensions) < 4.0.0)
+BuildRequires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
 BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
+BuildRequires: npm(select2) = 4.0.12
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
@@ -328,13 +338,23 @@ Requires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2
 
 # start package.json dependencies Requires
 Requires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
+Requires: (npm(@patternfly/patternfly) >= 5.4.2 with npm(@patternfly/patternfly) < 6.0.0)
 Requires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
+Requires: (npm(bootstrap-sass) >= 3.4.3 with npm(bootstrap-sass) < 4.0.0)
+Requires: npm(datatables.net-bs) = 1.13.5
+Requires: (npm(dsmorse-gridster) >= 0.8.0 with npm(dsmorse-gridster) < 1.0.0)
 Requires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
 Requires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
 Requires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
 Requires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
+Requires: (npm(multiselect) >= 0.9.12 with npm(multiselect) < 0.10.0)
 Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
+Requires: (npm(patternfly) >= 3.59.5 with npm(patternfly) < 4.0.0)
+Requires: (npm(patternfly-react) >= 2.40.0 with npm(patternfly-react) < 3.0.0)
+Requires: (npm(patternfly-react-extensions) >= 3.0.15 with npm(patternfly-react-extensions) < 4.0.0)
+Requires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
 Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
+Requires: npm(select2) = 4.0.12
 # end package.json dependencies Requires
 
 # start specfile assets Requires
@@ -850,6 +870,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Jun 17 2025 Evgeni Golov - 3.16.0-0.4.develop
+- Update NPM dependencies
+
 * Thu Jun 12 2025 Evgeni Golov - 3.16.0-0.3.develop
 - Update NPM dependencies
 
