@@ -57,6 +57,7 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
+%doc %{gem_instdir}/CONTRIBUTORS.md
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/RELEASE_NOTES.md
 %{gem_instdir}/Rakefile
