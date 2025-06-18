@@ -16,6 +16,9 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
+Requires: (rubygem(observer) or ruby-default-gems < 3.4)
+
 Requires: ipmitool
 
 %description
@@ -32,6 +35,9 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g logger
+%gemspec_remove_dep -g observer
 
 %build
 # Create the gem as gem install only works on a gem file
