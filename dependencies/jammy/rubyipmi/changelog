@@ -1,3 +1,9 @@
+ruby-rubyipmi (0.12.0-1) stable; urgency=low
+
+  * 0.12.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 18 Jun 2025 04:15:46 +0000
+
 ruby-rubyipmi (0.11.1-1) stable; urgency=low
 
   * 0.11.1 released
