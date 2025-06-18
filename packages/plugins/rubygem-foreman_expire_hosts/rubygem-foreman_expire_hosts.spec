@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13.0
 
 Name: rubygem-%{gem_name}
-Version: 9.0.0
+Version: 9.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 License: GPLv3
@@ -77,6 +77,9 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{g
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jun 18 2025 David Ochner <ochnerd@yahoo.de> - 9.0.1-1
+- Update to 9.0.1
+
 * Tue Jun 17 2025 David Ochner <ochnerd@yahoo.de> - 9.0.0-1
 - Update to 9.0.0
 
