@@ -450,6 +450,7 @@ foreman_nodejs_packages:
     nodejs-react-ace: {}
     nodejs-react-bootstrap:
       strategy: bundle
+    nodejs-react-debounce-input: {}
     nodejs-react-diff-view: {}
     nodejs-react-dnd: {}
     nodejs-react-dom: {}

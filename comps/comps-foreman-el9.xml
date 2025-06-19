@@ -108,6 +108,7 @@
       <packagereq type="default">nodejs-rc-input-number</packagereq>
       <packagereq type="default">nodejs-react-ace</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
+      <packagereq type="default">nodejs-react-debounce-input</packagereq>
       <packagereq type="default">nodejs-react-diff-view</packagereq>
       <packagereq type="default">nodejs-react-dnd</packagereq>
       <packagereq type="default">nodejs-react-dnd-html5-backend</packagereq>
