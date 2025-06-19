@@ -100,6 +100,7 @@
       <packagereq type="default">nodejs-tslib</packagereq>
       <packagereq type="default">nodejs-use-deep-compare-effect</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
+      <packagereq type="default">nodejs-webcomponents-webcomponentsjs</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-cli</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
