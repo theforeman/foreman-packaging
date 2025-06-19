@@ -108,6 +108,7 @@
       <packagereq type="default">nodejs-redux-thunk</packagereq>
       <packagereq type="default">nodejs-reduxjs-toolkit</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>
+      <packagereq type="default">nodejs-reselect</packagereq>
       <packagereq type="default">nodejs-sass</packagereq>
       <packagereq type="default">nodejs-sass-loader</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
