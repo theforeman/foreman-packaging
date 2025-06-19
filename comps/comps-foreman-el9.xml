@@ -117,6 +117,7 @@
       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-router-dom</packagereq>
       <packagereq type="default">nodejs-redux-logger</packagereq>
+      <packagereq type="default">nodejs-redux-thunk</packagereq>
       <packagereq type="default">nodejs-reduxjs-toolkit</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>
       <packagereq type="default">nodejs-sass</packagereq>
