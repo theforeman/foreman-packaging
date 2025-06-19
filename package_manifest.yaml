@@ -429,6 +429,7 @@ foreman_nodejs_packages:
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-intl:
       strategy: bundle
+    nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
     nodejs-sass:
       strategy: bundle
