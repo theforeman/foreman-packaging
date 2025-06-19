@@ -64,6 +64,7 @@
       <packagereq type="default">nodejs-dotenv</packagereq>
       <packagereq type="default">nodejs-dsmorse-gridster</packagereq>
       <packagereq type="default">nodejs-file-saver</packagereq>
+      <packagereq type="default">nodejs-formik</packagereq>
       <packagereq type="default">nodejs-graphql</packagereq>
       <packagereq type="default">nodejs-graphql-tag</packagereq>
       <packagereq type="default">nodejs-harmony-reflect</packagereq>

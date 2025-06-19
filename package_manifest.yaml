@@ -405,6 +405,7 @@ foreman_nodejs_packages:
     nodejs-dotenv: {}
     nodejs-dsmorse-gridster: {}
     nodejs-file-saver: {}
+    nodejs-formik: {}
     nodejs-graphql: {}
     nodejs-graphql-tag: {}
     nodejs-harmony-reflect: {}
