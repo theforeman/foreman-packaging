@@ -458,6 +458,7 @@ foreman_nodejs_packages:
     nodejs-react-password-strength: {}
     nodejs-react-redux: {}
     nodejs-react-router-bootstrap: {}
+    nodejs-react-router-dom: {}
     nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
     nodejs-sass:
