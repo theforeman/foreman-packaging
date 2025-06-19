@@ -455,6 +455,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-react-loading-skeleton: {}
     nodejs-react-onclickoutside: {}
+    nodejs-react-password-strength: {}
     nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
     nodejs-sass:
