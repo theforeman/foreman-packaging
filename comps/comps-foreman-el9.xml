@@ -79,6 +79,7 @@
       <packagereq type="default">nodejs-patternfly-react-charts</packagereq>
       <packagereq type="default">nodejs-patternfly-react-extensions</packagereq>
       <packagereq type="default">nodejs-patternfly-react-icons</packagereq>
+      <packagereq type="default">nodejs-patternfly-react-styles</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-diff-view</packagereq>

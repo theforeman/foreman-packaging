@@ -420,6 +420,7 @@ foreman_nodejs_packages:
     nodejs-patternfly-react-charts: {}
     nodejs-patternfly-react-extensions: {}
     nodejs-patternfly-react-icons: {}
+    nodejs-patternfly-react-styles: {}
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
       strategy: bundle
