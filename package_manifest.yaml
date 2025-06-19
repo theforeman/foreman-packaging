@@ -418,6 +418,7 @@ foreman_nodejs_packages:
     nodejs-jquery-ujs: {}
     nodejs-js-cookie: {}
     nodejs-js-tokens: {}
+    nodejs-jstz: {}
     nodejs-lodash: {}
     nodejs-mini-css-extract-plugin: {}
     nodejs-module-federation-utilities: {}

@@ -77,6 +77,7 @@
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-js-cookie</packagereq>
       <packagereq type="default">nodejs-js-tokens</packagereq>
+      <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-mini-css-extract-plugin</packagereq>
       <packagereq type="default">nodejs-module-federation-utilities</packagereq>
