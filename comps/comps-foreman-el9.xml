@@ -52,6 +52,7 @@
       <packagereq type="default">nodejs-bootstrap-sass</packagereq>
       <packagereq type="default">nodejs-buffer</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
+      <packagereq type="default">nodejs-classnames</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-core-js</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>

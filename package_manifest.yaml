@@ -392,6 +392,7 @@ foreman_nodejs_packages:
     nodejs-bootstrap-sass: {}
     nodejs-buffer: {}
     nodejs-c3: {}
+    nodejs-classnames: {}
     nodejs-compression-webpack-plugin: {}
     nodejs-core-js: {}
     nodejs-css-loader:
