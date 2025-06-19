@@ -4,12 +4,12 @@
 %global npm_name regenerator-runtime
 
 Name: %{?scl_prefix}nodejs-regenerator-runtime
-Version: 0.14.1
+Version: 0.13.3
 Release: 1%{?dist}
 Summary: Runtime for Regenerator-compiled generator and async functions
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/facebook/regenerator/tree/main/packages/runtime
+URL: https://github.com/facebook/regenerator/tree/master#readme
 Source0: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
@@ -41,6 +41,9 @@ cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jun 19 2025 MariaAga <mariaaga@redhat.com> 0.13.3-1
+- Update to 0.13.3
+
 * Sun Dec 31 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.14.1-1
 - Update to 0.14.1
 
