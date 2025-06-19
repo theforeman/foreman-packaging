@@ -459,6 +459,7 @@ foreman_nodejs_packages:
     nodejs-react-redux: {}
     nodejs-react-router-bootstrap: {}
     nodejs-react-router-dom: {}
+    nodejs-redux: {}
     nodejs-redux-logger: {}
     nodejs-redux-thunk: {}
     nodejs-reduxjs-toolkit: {}
