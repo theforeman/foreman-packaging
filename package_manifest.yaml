@@ -457,6 +457,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-sass-loader:
       strategy: bundle
+    nodejs-seamless-immutable: {}
     nodejs-select2: {}
     nodejs-sortabular: {}
     nodejs-spice-project-spice-html5: {}
