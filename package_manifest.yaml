@@ -399,6 +399,7 @@ foreman_nodejs_packages:
     nodejs-css-loader:
       strategy: bundle
     nodejs-d3: {}
+    nodejs-datatables.net: {}
     nodejs-datatables.net-bs: {}
     nodejs-dotenv: {}
     nodejs-dsmorse-gridster: {}
