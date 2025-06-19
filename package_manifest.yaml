@@ -470,6 +470,7 @@ foreman_nodejs_packages:
     nodejs-theforeman-vendor:
       name: "@theforeman/vendor"
     nodejs-tslib: {}
+    nodejs-urijs: {}
     nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
     nodejs-webcomponents-webcomponentsjs: {}
