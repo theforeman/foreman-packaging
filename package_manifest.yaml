@@ -401,6 +401,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-d3: {}
     nodejs-datatables.net-bs: {}
+    nodejs-datatables.net-dt: {}
     nodejs-dotenv: {}
     nodejs-dsmorse-gridster: {}
     nodejs-graphql: {}
