@@ -44,6 +44,7 @@
       <packagereq type="default">nodejs-ace-builds</packagereq>
       <packagereq type="default">nodejs-apollo-client</packagereq>
       <packagereq type="default">nodejs-argv-parse</packagereq>
+      <packagereq type="default">nodejs-axios</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-class-properties</packagereq>
