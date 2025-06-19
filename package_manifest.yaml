@@ -435,6 +435,7 @@ foreman_nodejs_packages:
     nodejs-patternfly-react-styles: {}
     nodejs-patternfly-react-tokens: {}
     nodejs-performance-now: {}
+    nodejs-prop-types: {}
     nodejs-react-bootstrap:
       strategy: bundle
     nodejs-react-diff-view: {}
