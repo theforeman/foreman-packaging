@@ -4,12 +4,12 @@
 %global npm_name uuid
 
 Name: %{?scl_prefix}nodejs-uuid
-Version: 3.4.0
+Version: 3.3.2
 Release: 1%{?dist}
 Summary: RFC4122 (v1, v4, and v5) UUIDs
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/uuidjs/uuid#readme
+URL: https://github.com/kelektiv/node-uuid#readme
 Source0: https://registry.npmjs.org/uuid/-/uuid-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
@@ -51,8 +51,12 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 %doc AUTHORS
 %doc CHANGELOG.md
 %doc README.md
+%doc README_js.md
 
 %changelog
+* Thu Jun 19 2025 MariaAga <mariaaga@redhat.com> 3.3.2-1
+- Update to 3.3.2
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.4.0-1
 - Update to 3.4.0
 
