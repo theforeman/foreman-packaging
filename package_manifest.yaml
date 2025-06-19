@@ -457,6 +457,7 @@ foreman_nodejs_packages:
     nodejs-react-onclickoutside: {}
     nodejs-react-password-strength: {}
     nodejs-react-redux: {}
+    nodejs-react-router-bootstrap: {}
     nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
     nodejs-sass:
