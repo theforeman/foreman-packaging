@@ -403,6 +403,7 @@ foreman_nodejs_packages:
     nodejs-datatables.net: {}
     nodejs-datatables.net-bs: {}
     nodejs-datatables.net-dt: {}
+    nodejs-diff: {}
     nodejs-dotenv: {}
     nodejs-dsmorse-gridster: {}
     nodejs-graphql: {}
