@@ -89,6 +89,7 @@
       <packagereq type="default">nodejs-patternfly-patternfly</packagereq>
       <packagereq type="default">nodejs-patternfly-react</packagereq>
       <packagereq type="default">nodejs-patternfly-react-charts</packagereq>
+      <packagereq type="default">nodejs-patternfly-react-core</packagereq>
       <packagereq type="default">nodejs-patternfly-react-extensions</packagereq>
       <packagereq type="default">nodejs-patternfly-react-icons</packagereq>
       <packagereq type="default">nodejs-patternfly-react-styles</packagereq>

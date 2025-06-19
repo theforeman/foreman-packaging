@@ -430,6 +430,7 @@ foreman_nodejs_packages:
     nodejs-patternfly-patternfly: {}
     nodejs-patternfly-react: {}
     nodejs-patternfly-react-charts: {}
+    nodejs-patternfly-react-core: {}
     nodejs-patternfly-react-extensions: {}
     nodejs-patternfly-react-icons: {}
     nodejs-patternfly-react-styles: {}
