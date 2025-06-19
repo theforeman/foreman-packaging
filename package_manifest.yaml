@@ -452,6 +452,7 @@ foreman_nodejs_packages:
     nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
     nodejs-reselect: {}
+    nodejs-sanitize-html: {}
     nodejs-sass:
       strategy: bundle
     nodejs-sass-loader:
