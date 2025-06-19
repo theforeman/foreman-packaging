@@ -96,6 +96,7 @@
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
       <packagereq type="default">nodejs-rc-input-number</packagereq>
+      <packagereq type="default">nodejs-react-ace</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-diff-view</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
