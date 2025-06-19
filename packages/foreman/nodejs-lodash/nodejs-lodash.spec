@@ -4,7 +4,7 @@
 %global npm_name lodash
 
 Name: %{?scl_prefix}nodejs-lodash
-Version: 4.17.21
+Version: 4.17.14
 Release: 1%{?dist}
 Summary: Lodash modular utilities
 License: MIT
@@ -155,7 +155,6 @@ cp -pfr _baseTimes.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseToNumber.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseToPairs.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseToString.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr _baseTrim.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseUnary.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseUniq.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _baseUnset.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -319,7 +318,6 @@ cp -pfr _stringToArray.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _stringToPath.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _toKey.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _toSource.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr _trimmedEndIndex.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _unescapeHtmlChar.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _unicodeSize.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr _unicodeToArray.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -401,8 +399,6 @@ cp -pfr findLast.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr findLastIndex.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr findLastKey.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr first.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr flake.lock %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr flake.nix %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMap.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMapDeep.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMapDepth.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -528,6 +524,7 @@ cp -pfr omit.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr omitBy.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr once.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr orderBy.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr org.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr over.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr overArgs.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr overEvery.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -596,6 +593,7 @@ cp -pfr stubTrue.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr subtract.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr sum.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr sumBy.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr tag.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr tail.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr take.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr takeRight.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -673,9 +671,11 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
 %doc README.md
-%doc release.md
 
 %changelog
+* Thu Jun 19 2025 MariaAga <mariaaga@redhat.com> 4.17.14-1
+- Update to 4.17.14
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.17.21-1
 - Update to 4.17.21
 
