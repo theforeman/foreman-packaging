@@ -417,6 +417,7 @@ foreman_nodejs_packages:
     nodejs-patternfly: {}
     nodejs-patternfly-patternfly: {}
     nodejs-patternfly-react: {}
+    nodejs-patternfly-react-charts: {}
     nodejs-patternfly-react-extensions: {}
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
