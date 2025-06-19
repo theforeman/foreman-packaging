@@ -448,6 +448,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-react-onclickoutside: {}
     nodejs-react-redux: {}
+    nodejs-redux-thunk: {}
     nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
     nodejs-sass:
