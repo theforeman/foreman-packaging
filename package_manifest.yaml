@@ -450,6 +450,7 @@ foreman_nodejs_packages:
     nodejs-react-dnd-html5-backend: {}
     nodejs-react-dom: {}
     nodejs-react-ellipsis-with-tooltip: {}
+    nodejs-react-helmet: {}
     nodejs-react-intl:
       strategy: bundle
     nodejs-reduxjs-toolkit: {}
