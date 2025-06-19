@@ -415,6 +415,7 @@ foreman_nodejs_packages:
     nodejs-ipaddr.js: {}
     nodejs-jed: {}
     nodejs-jquery: {}
+    nodejs-jquery-ujs: {}
     nodejs-js-cookie: {}
     nodejs-js-tokens: {}
     nodejs-lodash: {}
