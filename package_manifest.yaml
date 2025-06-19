@@ -376,6 +376,7 @@ ruby_core_packages_tier2:
 
 foreman_nodejs_packages:
   hosts:
+    nodejs-apollo-client: {}
     nodejs-argv-parse: {}
     nodejs-babel-core:
       strategy: bundle
