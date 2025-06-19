@@ -422,6 +422,7 @@ foreman_nodejs_packages:
     nodejs-patternfly-react-icons: {}
     nodejs-patternfly-react-styles: {}
     nodejs-patternfly-react-table: {}
+    nodejs-patternfly-react-tokens: {}
     nodejs-performance-now: {}
     nodejs-react-bootstrap:
       strategy: bundle
