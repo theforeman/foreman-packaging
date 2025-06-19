@@ -446,6 +446,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-react-debounce-input: {}
     nodejs-react-diff-view: {}
+    nodejs-react-dnd: {}
     nodejs-react-dnd-html5-backend: {}
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-intl:
