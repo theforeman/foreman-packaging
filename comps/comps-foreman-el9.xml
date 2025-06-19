@@ -63,6 +63,7 @@
       <packagereq type="default">nodejs-deep-diff</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dnd-core</packagereq>
+      <packagereq type="default">nodejs-datatables.net-dt</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
       <packagereq type="default">nodejs-dsmorse-gridster</packagereq>
       <packagereq type="default">nodejs-emotion</packagereq>
