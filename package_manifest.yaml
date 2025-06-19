@@ -437,6 +437,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-select2: {}
     nodejs-sortabular: {}
+    nodejs-spice-project-spice-html5: {}
     nodejs-style-loader:
       strategy: bundle
     nodejs-table-resolver: {}
