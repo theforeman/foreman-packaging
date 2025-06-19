@@ -103,6 +103,7 @@
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
+      <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-reduxjs-toolkit</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>
       <packagereq type="default">nodejs-sass</packagereq>

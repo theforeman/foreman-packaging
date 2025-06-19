@@ -446,6 +446,7 @@ foreman_nodejs_packages:
     nodejs-react-helmet: {}
     nodejs-react-intl:
       strategy: bundle
+    nodejs-react-onclickoutside: {}
     nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
     nodejs-sass:
