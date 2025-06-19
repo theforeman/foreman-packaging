@@ -4,7 +4,7 @@
 %global npm_name core-js
 
 Name: %{?scl_prefix}nodejs-core-js
-Version: 2.6.12
+Version: 2.5.7
 Release: 1%{?dist}
 Summary: Standard library
 License: MIT
@@ -37,7 +37,6 @@ cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr library %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr postinstall.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr shim.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr stage %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr web %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -54,6 +53,9 @@ cp -pfr web %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jun 19 2025 MariaAga <mariaaga@redhat.com> 2.5.7-1
+- Update to 2.5.7
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.6.12-1
 - Update to 2.6.12
 
