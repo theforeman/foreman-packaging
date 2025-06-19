@@ -68,6 +68,7 @@
       <packagereq type="default">nodejs-graphql</packagereq>
       <packagereq type="default">nodejs-graphql-tag</packagereq>
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
+      <packagereq type="default">nodejs-humanize-duration</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
       <packagereq type="default">nodejs-intl</packagereq>
       <packagereq type="default">nodejs-jed</packagereq>
