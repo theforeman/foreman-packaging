@@ -492,6 +492,7 @@ foreman_nodejs_packages:
     nodejs-webpack:
       strategy: bundle
 
+    nodejs-yup: {}
 foreman_installer_packages:
   hosts:
     foreman-fapolicyd: {}
