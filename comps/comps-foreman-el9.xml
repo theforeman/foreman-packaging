@@ -71,6 +71,7 @@
       <packagereq type="default">nodejs-humanize-duration</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
       <packagereq type="default">nodejs-intl</packagereq>
+      <packagereq type="default">nodejs-ipaddr.js</packagereq>
       <packagereq type="default">nodejs-jed</packagereq>
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-js-cookie</packagereq>

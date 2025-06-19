@@ -412,6 +412,7 @@ foreman_nodejs_packages:
     nodejs-humanize-duration: {}
     nodejs-identity-obj-proxy: {}
     nodejs-intl: {}
+    nodejs-ipaddr.js: {}
     nodejs-jed: {}
     nodejs-jquery: {}
     nodejs-js-cookie: {}
