@@ -99,6 +99,7 @@
       <packagereq type="default">nodejs-react-ace</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-diff-view</packagereq>
+      <packagereq type="default">nodejs-react-dnd</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
       <packagereq type="default">nodejs-reduxjs-toolkit</packagereq>
