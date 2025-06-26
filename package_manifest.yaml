@@ -423,6 +423,7 @@ foreman_nodejs_packages:
     nodejs-mini-css-extract-plugin: {}
     nodejs-module-federation-utilities: {}
     nodejs-multiselect: {}
+    nodejs-novnc-novnc: {}
     nodejs-number_helpers: {}
     nodejs-os-browserify: {}
     nodejs-path-browserify: {}

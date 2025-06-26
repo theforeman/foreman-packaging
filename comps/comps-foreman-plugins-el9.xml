@@ -248,6 +248,7 @@
       <packagereq type="default">rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">rubygem-fog-kubevirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-proxmox-doc</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_acd-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">rubygem-foreman_azure_rm-doc</packagereq>
@@ -281,7 +282,6 @@
       <packagereq type="default">rubygem-foreman_snapshot_management-doc</packagereq>
       <packagereq type="default">rubygem-foreman_statistics-doc</packagereq>
       <packagereq type="default">rubygem-foreman_supervisory_authority-doc</packagereq>
-      <packagereq type="default">rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-foreman_vault-doc</packagereq>
       <packagereq type="default">rubygem-foreman_vmwareannotations-doc</packagereq>
@@ -290,14 +290,14 @@
       <packagereq type="default">rubygem-fugit-doc</packagereq>
       <packagereq type="default">rubygem-gapic-common-doc</packagereq>
       <packagereq type="default">rubygem-git-doc</packagereq>
-      <packagereq type="default">rubygem-googleapis-common-protos-doc</packagereq>
-      <packagereq type="default">rubygem-googleapis-common-protos-types-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-common-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-compute-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-compute-v1-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-core-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-errors-doc</packagereq>
       <packagereq type="default">rubygem-google-protobuf-doc</packagereq>
+      <packagereq type="default">rubygem-googleapis-common-protos-doc</packagereq>
+      <packagereq type="default">rubygem-googleapis-common-protos-types-doc</packagereq>
       <packagereq type="default">rubygem-graphite-api-doc</packagereq>
       <packagereq type="default">rubygem-grpc-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_admin-doc</packagereq>
@@ -317,10 +317,10 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_webhooks-doc</packagereq>
-      <packagereq type="default">rubygem-httparty-doc</packagereq>
       <packagereq type="default">rubygem-http-doc</packagereq>
       <packagereq type="default">rubygem-http-form_data-doc</packagereq>
       <packagereq type="default">rubygem-http_parser.rb-doc</packagereq>
+      <packagereq type="default">rubygem-httparty-doc</packagereq>
       <packagereq type="default">rubygem-infoblox-doc</packagereq>
       <packagereq type="default">rubygem-interactor-doc</packagereq>
       <packagereq type="default">rubygem-jgrep-doc</packagereq>
@@ -330,12 +330,12 @@
       <packagereq type="default">rubygem-llhttp-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-mqtt-doc</packagereq>
-      <packagereq type="default">rubygem-ms_rest_azure-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest-doc</packagereq>
+      <packagereq type="default">rubygem-ms_rest_azure-doc</packagereq>
       <packagereq type="default">rubygem-multi_xml-doc</packagereq>
-      <packagereq type="default">rubygem-netbox-client-ruby-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-multi-doc</packagereq>
+      <packagereq type="default">rubygem-netbox-client-ruby-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-openscap-doc</packagereq>
       <packagereq type="default">rubygem-openscap_parser-doc</packagereq>
@@ -356,6 +356,7 @@
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
       <packagereq type="default">rubygem-ruby-nmap-doc</packagereq>
       <packagereq type="default">rubygem-sentry-raven-doc</packagereq>
+      <packagereq type="default">rubygem-smart-proxy-probing-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_acd-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_container_gateway-doc</packagereq>
@@ -375,7 +376,6 @@
       <packagereq type="default">rubygem-smart_proxy_monitoring-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
-      <packagereq type="default">rubygem-smart-proxy-probing-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_realm_ad_plugin-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
