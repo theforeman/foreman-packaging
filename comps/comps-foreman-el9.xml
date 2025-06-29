@@ -107,6 +107,7 @@
       <packagereq type="default">nodejs-react-intl</packagereq>
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
+      <packagereq type="default">nodejs-react-router-dom</packagereq>
       <packagereq type="default">nodejs-redux-thunk</packagereq>
       <packagereq type="default">nodejs-reduxjs-toolkit</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>

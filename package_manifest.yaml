@@ -450,6 +450,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-react-onclickoutside: {}
     nodejs-react-redux: {}
+    nodejs-react-router-dom: {}
     nodejs-redux-thunk: {}
     nodejs-reduxjs-toolkit: {}
     nodejs-regenerator-runtime: {}
