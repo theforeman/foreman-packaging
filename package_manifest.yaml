@@ -444,6 +444,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-react-diff-view: {}
     nodejs-react-dnd: {}
+    nodejs-react-dom: {}
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-helmet: {}
     nodejs-react-intl:

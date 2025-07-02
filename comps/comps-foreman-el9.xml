@@ -102,6 +102,7 @@
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-diff-view</packagereq>
       <packagereq type="default">nodejs-react-dnd</packagereq>
+      <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
