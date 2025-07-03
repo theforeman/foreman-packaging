@@ -465,6 +465,7 @@ foreman_nodejs_packages:
     nodejs-redux-thunk: {}
     nodejs-reduxjs-toolkit: {}
     nodejs-react-loading-skeleton: {}
+    nodejs-react-password-strength: {}
     nodejs-regenerator-runtime: {}
     nodejs-reselect: {}
     nodejs-sanitize-html: {}
