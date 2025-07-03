@@ -30,6 +30,9 @@
 # foreman_kernel_care
 /packages/katello/*_kernel_care/ @theforeman/packaging @theforeman/foreman_kernel_care
 
+# foreman_leapp
+/packages/plugins/*foreman_leapp/ @theforeman/packaging @theforeman/foreman_leapp
+
 # foreman-tasks
 /packages/plugins/rubygem-foreman-tasks/ @theforeman/packaging @theforeman/foreman-tasks
 /packages/foreman/*dynflow*/ @theforeman/packaging @theforeman/foreman-tasks
