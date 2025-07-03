@@ -2,6 +2,9 @@
 
 # Individual teams below. Please group them and keep them sorted
 
+# ansible
+/packages/plugins/*_ansible/ @theforeman/packaging @theforeman/ansible
+
 # atix
 /packages/katello/*_scc_manager/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_acd/ @theforeman/packaging @theforeman/atix
