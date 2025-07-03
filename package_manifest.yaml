@@ -464,6 +464,7 @@ foreman_nodejs_packages:
     nodejs-react-router-dom: {}
     nodejs-redux-thunk: {}
     nodejs-reduxjs-toolkit: {}
+    nodejs-react-loading-skeleton: {}
     nodejs-regenerator-runtime: {}
     nodejs-reselect: {}
     nodejs-sanitize-html: {}
