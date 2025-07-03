@@ -467,6 +467,7 @@ foreman_nodejs_packages:
     nodejs-react-loading-skeleton: {}
     nodejs-react-password-strength: {}
     nodejs-react-router-bootstrap: {}
+    nodejs-redux: {}
     nodejs-redux-logger: {}
     nodejs-regenerator-runtime: {}
     nodejs-reselect: {}
