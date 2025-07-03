@@ -63,6 +63,7 @@
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
       <packagereq type="default">nodejs-dsmorse-gridster</packagereq>
+      <packagereq type="default">nodejs-emotion</packagereq>
       <packagereq type="default">nodejs-file-saver</packagereq>
       <packagereq type="default">nodejs-formik</packagereq>
       <packagereq type="default">nodejs-graphql</packagereq>
