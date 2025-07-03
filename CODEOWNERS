@@ -1,4 +1,6 @@
 * @theforeman/packaging
+/plugins/*ansible/ @theforeman/packaging @theforeman/ansible
+/dependencies/*/*ansible/ @theforeman/packaging @theforeman/ansible
 /plugins/*remote*execution*/ @theforeman/packaging @theforeman/remote-execution
 /dependencies/*/*remote_execution*/ @theforeman/packaging @theforeman/remote-execution
 /plugins/*discovery/ @theforeman/packaging @theforeman/discovery
