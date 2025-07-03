@@ -1,31 +1,63 @@
 * @theforeman/packaging
-/packages/plugins/*_remote_execution*/ @theforeman/packaging @theforeman/remote-execution
-/packages/client/foreman_ygg*/ @theforeman/packaging @theforeman/remote-execution
-/packages/plugins/*_discovery/ @theforeman/packaging @theforeman/discovery
-/packages/plugins/*_bootdisk/ @theforeman/packaging @theforeman/bootdisk
+
+# Individual teams below. Please group them and keep them sorted
+
+# atix
 /packages/katello/*_scc_manager/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_acd/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_resource_quota/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_snapshot_management/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_cve_scanner/ @theforeman/packaging @theforeman/atix
-/packages/plugins/*_salt/ @theforeman/packaging @theforeman/salt
-/packages/plugins/*_puppet/ @theforeman/packaging @theforeman/puppet
-/packages/katello/*_kernel_care/ @theforeman/packaging @theforeman/foreman_kernel_care
-/packages/plugins/*_fog_proxmox/ @theforeman/packaging @theforeman/proxmox
-/packages/client/*scap_client*/ @theforeman/packaging @theforeman/openscap
-/packages/plugins/*_openscap/ @theforeman/packaging @theforeman/openscap
-/packages/foreman/rubygem-ldap_fluff/ @theforeman/packaging @theforeman/ldap-fluff
-/packages/plugins/*_webhooks/ @theforeman/packaging @theforeman/webhooks
-/packages/plugins/rubygem-smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
-/packages/plugins/rubygem-foreman-tasks/ @theforeman/packaging @theforeman/foreman-tasks
-/packages/foreman/*dynflow*/ @theforeman/packaging @theforeman/foreman-tasks
-/packages/plugins/rubygem-smart_proxy_dynflow/ @theforeman/packaging @theforeman/foreman-tasks
-/packages/plugins/*foreman_templates/ @theforeman/packaging @theforeman/foreman_templates
-/packages/plugins/rubygem-safemode/ @theforeman/packaging @theforeman/safemode
+/packages/plugins/*_bootdisk/ @theforeman/packaging @theforeman/bootdisk
+
+# cli
 /packages/foreman/rubygem-apipie-* @theforeman/packaging @theforeman/cli
+
+# discovery
+/packages/plugins/*_discovery/ @theforeman/packaging @theforeman/discovery
+
+# dm-drogeriemarkt
 /packages/plugins/rubygem-foreman_dlm/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 /packages/plugins/rubygem-foreman_git_templates/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 /packages/plugins/rubygem-foreman_netbox/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 /packages/plugins/rubygem-foreman_rescue/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 /packages/plugins/rubygem-foreman_vault/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 /packages/plugins/rubygem-foreman_wreckingball/ @theforeman/packaging @theforeman/dm-drogeriemarkt
+
+# foreman_kernel_care
+/packages/katello/*_kernel_care/ @theforeman/packaging @theforeman/foreman_kernel_care
+
+# foreman-tasks
+/packages/plugins/rubygem-foreman-tasks/ @theforeman/packaging @theforeman/foreman-tasks
+/packages/foreman/*dynflow*/ @theforeman/packaging @theforeman/foreman-tasks
+/packages/plugins/rubygem-smart_proxy_dynflow/ @theforeman/packaging @theforeman/foreman-tasks
+
+# foreman_templates
+/packages/plugins/*foreman_templates/ @theforeman/packaging @theforeman/foreman_templates
+
+# ldap-fluff
+/packages/foreman/rubygem-ldap_fluff/ @theforeman/packaging @theforeman/ldap-fluff
+
+# openscap
+/packages/client/*scap_client*/ @theforeman/packaging @theforeman/openscap
+/packages/plugins/*_openscap/ @theforeman/packaging @theforeman/openscap
+
+# proxmox
+/packages/plugins/*_fog_proxmox/ @theforeman/packaging @theforeman/proxmox
+
+# puppet
+/packages/plugins/*_puppet/ @theforeman/packaging @theforeman/puppet
+
+# remote-execution
+/packages/plugins/*_remote_execution*/ @theforeman/packaging @theforeman/remote-execution
+/packages/client/foreman_ygg*/ @theforeman/packaging @theforeman/remote-execution
+
+# safemode
+/packages/plugins/rubygem-safemode/ @theforeman/packaging @theforeman/safemode
+
+# salt
+/packages/plugins/*_salt/ @theforeman/packaging @theforeman/salt
+
+# webhooks
+/packages/plugins/*_webhooks/ @theforeman/packaging @theforeman/webhooks
+/packages/plugins/rubygem-smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
