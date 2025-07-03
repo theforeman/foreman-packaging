@@ -469,6 +469,7 @@ foreman_nodejs_packages:
     nodejs-spice-project-spice-html5: {}
     nodejs-style-loader:
       strategy: bundle
+    nodejs-symbol-observable: {}
     nodejs-table-resolver: {}
     nodejs-theforeman-builder:
       name: "@theforeman/builder"
