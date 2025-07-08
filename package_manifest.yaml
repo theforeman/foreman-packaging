@@ -403,6 +403,7 @@ foreman_nodejs_packages:
     nodejs-datatables.net-bs: {}
     nodejs-deep-diff: {}
     nodejs-diff: {}
+    nodejs-dnd-core: {}
     nodejs-dotenv: {}
     nodejs-dsmorse-gridster: {}
     nodejs-emotion: {}
