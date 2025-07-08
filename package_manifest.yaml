@@ -423,6 +423,7 @@ foreman_nodejs_packages:
     nodejs-js-tokens: {}
     nodejs-jstz: {}
     nodejs-lodash: {}
+    nodejs-lodash.debounce: {}
     nodejs-loose-envify: {}
     nodejs-mini-css-extract-plugin: {}
     nodejs-module-federation-utilities: {}
