@@ -379,6 +379,7 @@ foreman_nodejs_packages:
     nodejs-ace-builds: {}
     nodejs-apollo-client: {}
     nodejs-argv-parse: {}
+    nodejs-axios: {}
     nodejs-babel-core:
       strategy: bundle
     nodejs-babel-loader:
