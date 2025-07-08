@@ -415,6 +415,7 @@ foreman_nodejs_packages:
     nodejs-graphql: {}
     nodejs-graphql-tag: {}
     nodejs-harmony-reflect: {}
+    nodejs-history: {}
     nodejs-humanize-duration: {}
     nodejs-identity-obj-proxy: {}
     nodejs-intl: {}

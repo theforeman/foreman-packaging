@@ -61,6 +61,7 @@
       <packagereq type="default">nodejs-d3</packagereq>
       <packagereq type="default">nodejs-datatables.net</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs</packagereq>
+      <packagereq type="default">nodejs-datatables.net-dt</packagereq>
       <packagereq type="default">nodejs-deep-diff</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dnd-core</packagereq>
@@ -74,6 +75,7 @@
       <packagereq type="default">nodejs-graphql</packagereq>
       <packagereq type="default">nodejs-graphql-tag</packagereq>
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
+      <packagereq type="default">nodejs-history</packagereq>
       <packagereq type="default">nodejs-humanize-duration</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
       <packagereq type="default">nodejs-intl</packagereq>
@@ -102,8 +104,8 @@
       <packagereq type="default">nodejs-patternfly-react-extensions</packagereq>
       <packagereq type="default">nodejs-patternfly-react-icons</packagereq>
       <packagereq type="default">nodejs-patternfly-react-styles</packagereq>
-      <packagereq type="default">nodejs-patternfly-react-tokens</packagereq>
       <packagereq type="default">nodejs-patternfly-react-table</packagereq>
+      <packagereq type="default">nodejs-patternfly-react-tokens</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
       <packagereq type="default">nodejs-rc-input-number</packagereq>
@@ -117,16 +119,16 @@
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
-      <packagereq type="default">nodejs-react-onclickoutside</packagereq>
-      <packagereq type="default">nodejs-react-redux</packagereq>
-      <packagereq type="default">nodejs-react-router-dom</packagereq>
-      <packagereq type="default">nodejs-redux-thunk</packagereq>
-      <packagereq type="default">nodejs-reduxjs-toolkit</packagereq>
       <packagereq type="default">nodejs-react-loading-skeleton</packagereq>
+      <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-password-strength</packagereq>
+      <packagereq type="default">nodejs-react-redux</packagereq>
       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
+      <packagereq type="default">nodejs-react-router-dom</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
       <packagereq type="default">nodejs-redux-logger</packagereq>
+      <packagereq type="default">nodejs-redux-thunk</packagereq>
+      <packagereq type="default">nodejs-reduxjs-toolkit</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>
       <packagereq type="default">nodejs-reselect</packagereq>
       <packagereq type="default">nodejs-sanitize-html</packagereq>
