@@ -407,6 +407,7 @@ foreman_nodejs_packages:
     nodejs-dsmorse-gridster: {}
     nodejs-emotion: {}
     nodejs-file-saver: {}
+    nodejs-follow-redirects: {}
     nodejs-formik: {}
     nodejs-graphql: {}
     nodejs-graphql-tag: {}
