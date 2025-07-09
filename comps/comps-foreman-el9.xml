@@ -136,6 +136,7 @@
       <packagereq type="default">nodejs-sanitize-html</packagereq>
       <packagereq type="default">nodejs-sass</packagereq>
       <packagereq type="default">nodejs-sass-loader</packagereq>
+      <packagereq type="default">nodejs-scalprum-core</packagereq>
       <packagereq type="default">nodejs-seamless-immutable</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-sortabular</packagereq>
