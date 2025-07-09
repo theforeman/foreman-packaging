@@ -62,7 +62,6 @@
       <packagereq type="default">nodejs-datatables.net</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs</packagereq>
       <packagereq type="default">nodejs-datatables.net-dt</packagereq>
-      <packagereq type="default">nodejs-datatables.net-dt</packagereq>
       <packagereq type="default">nodejs-deep-diff</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dnd-core</packagereq>
@@ -148,6 +147,7 @@
       <packagereq type="default">nodejs-tslib</packagereq>
       <packagereq type="default">nodejs-unleash-proxy-client</packagereq>
       <packagereq type="default">nodejs-unleash-proxy-client-react</packagereq>
+      <packagereq type="default">nodejs-unidiff</packagereq>
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-use-deep-compare-effect</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>

@@ -496,6 +496,7 @@ foreman_nodejs_packages:
     nodejs-tslib: {}
     nodejs-unleash-proxy-client: {}
     nodejs-unleash-proxy-client-react: {}
+    nodejs-unidiff: {}
     nodejs-urijs: {}
     nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
