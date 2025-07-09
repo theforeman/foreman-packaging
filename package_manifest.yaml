@@ -483,6 +483,7 @@ foreman_nodejs_packages:
     nodejs-sass-loader:
       strategy: bundle
     nodejs-scalprum-core: {}
+    nodejs-scalprum-react-core: {}
     nodejs-seamless-immutable: {}
     nodejs-select2: {}
     nodejs-sortabular: {}
