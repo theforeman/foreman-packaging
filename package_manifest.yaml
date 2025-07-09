@@ -434,6 +434,7 @@ foreman_nodejs_packages:
     nodejs-multiselect: {}
     nodejs-novnc-novnc: {}
     nodejs-number_helpers: {}
+    nodejs-openshift-dynamic-plugin-sdk: {}
     nodejs-os-browserify: {}
     nodejs-path-browserify: {}
     nodejs-patternfly: {}
