@@ -145,6 +145,7 @@
       <packagereq type="default">nodejs-theforeman-builder</packagereq>
       <packagereq type="default">nodejs-theforeman-vendor</packagereq>
       <packagereq type="default">nodejs-tslib</packagereq>
+      <packagereq type="default">nodejs-unleash-proxy-client</packagereq>
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-use-deep-compare-effect</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
