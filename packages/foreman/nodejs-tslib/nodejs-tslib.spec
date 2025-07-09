@@ -48,6 +48,9 @@ cp -pfr tslib.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc SECURITY.md
 
 %changelog
+* Wed Jul 09 2025 root <root> 2.8.1-1
+- Update to 2.8.1
+
 * Sun Nov 03 2024 Foreman Packaging Automation <packaging@theforeman.org> 2.8.1-1
 - Update to 2.8.1
 
