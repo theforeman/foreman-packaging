@@ -505,7 +505,7 @@ foreman_nodejs_packages:
     nodejs-webpack-stats-plugin: {}
     nodejs-webpack:
       strategy: bundle
-
+    nodejs-yup: {}
     nodejs-zxcvbn: {}
 foreman_installer_packages:
   hosts:
