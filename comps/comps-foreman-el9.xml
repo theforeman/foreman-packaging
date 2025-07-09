@@ -108,8 +108,8 @@
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-diff-view</packagereq>
       <packagereq type="default">nodejs-react-dnd</packagereq>
-      <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-dnd-html5-backend</packagereq>
+      <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
@@ -140,6 +140,7 @@
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-cli</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
+      <packagereq type="default">nodejs-zxcvbn</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>

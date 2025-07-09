@@ -491,6 +491,7 @@ foreman_nodejs_packages:
     nodejs-webpack:
       strategy: bundle
 
+    nodejs-zxcvbn: {}
 foreman_installer_packages:
   hosts:
     foreman-fapolicyd: {}
