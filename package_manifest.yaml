@@ -449,6 +449,7 @@ foreman_nodejs_packages:
     nodejs-performance-now: {}
     nodejs-prop-types: {}
     nodejs-rc-input-number: {}
+    nodejs-react: {}
     nodejs-react-ace: {}
     nodejs-react-bootstrap:
       strategy: bundle

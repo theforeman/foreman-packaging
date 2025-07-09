@@ -62,10 +62,10 @@
       <packagereq type="default">nodejs-datatables.net</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs</packagereq>
       <packagereq type="default">nodejs-datatables.net-dt</packagereq>
+      <packagereq type="default">nodejs-datatables.net-dt</packagereq>
       <packagereq type="default">nodejs-deep-diff</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dnd-core</packagereq>
-      <packagereq type="default">nodejs-datatables.net-dt</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
       <packagereq type="default">nodejs-dsmorse-gridster</packagereq>
       <packagereq type="default">nodejs-emotion</packagereq>
@@ -109,6 +109,7 @@
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
       <packagereq type="default">nodejs-rc-input-number</packagereq>
+      <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-ace</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-debounce-input</packagereq>
