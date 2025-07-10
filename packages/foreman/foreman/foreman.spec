@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 7
+%global release 8
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -196,6 +196,7 @@ BuildRequires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
 BuildRequires: (npm(rc-input-number) >= 6.0.0 with npm(rc-input-number) < 7.0.0)
 BuildRequires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
 BuildRequires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
+BuildRequires: (npm(react-bootstrap) >= 0.32.0 with npm(react-bootstrap) < 1.0.0)
 BuildRequires: (npm(react-debounce-input) >= 3.2.0 with npm(react-debounce-input) < 4.0.0)
 BuildRequires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
 BuildRequires: (npm(react-dnd) >= 14.0.2 with npm(react-dnd) < 15.0.0)
@@ -208,6 +209,7 @@ BuildRequires: (npm(react-loading-skeleton) >= 1.1.2 with npm(react-loading-skel
 BuildRequires: (npm(react-onclickoutside) >= 6.6.2 with npm(react-onclickoutside) < 7.0.0)
 BuildRequires: (npm(react-password-strength) >= 2.4.0 with npm(react-password-strength) < 3.0.0)
 BuildRequires: (npm(react-redux) >= 7.1.0 with npm(react-redux) < 8.0.0)
+BuildRequires: (npm(react-router) >= 5.3.4 with npm(react-router) < 6.0.0)
 BuildRequires: (npm(react-router-bootstrap) >= 0.25.0 with npm(react-router-bootstrap) < 1.0.0)
 BuildRequires: (npm(react-router-dom) >= 5.1.2 with npm(react-router-dom) < 6.0.0)
 BuildRequires: (npm(redux) >= 4.0.4 with npm(redux) < 5.0.0)
@@ -389,6 +391,7 @@ Requires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
 Requires: (npm(rc-input-number) >= 6.0.0 with npm(rc-input-number) < 7.0.0)
 Requires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
 Requires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
+Requires: (npm(react-bootstrap) >= 0.32.0 with npm(react-bootstrap) < 1.0.0)
 Requires: (npm(react-debounce-input) >= 3.2.0 with npm(react-debounce-input) < 4.0.0)
 Requires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
 Requires: (npm(react-dnd) >= 14.0.2 with npm(react-dnd) < 15.0.0)
@@ -401,6 +404,7 @@ Requires: (npm(react-loading-skeleton) >= 1.1.2 with npm(react-loading-skeleton)
 Requires: (npm(react-onclickoutside) >= 6.6.2 with npm(react-onclickoutside) < 7.0.0)
 Requires: (npm(react-password-strength) >= 2.4.0 with npm(react-password-strength) < 3.0.0)
 Requires: (npm(react-redux) >= 7.1.0 with npm(react-redux) < 8.0.0)
+Requires: (npm(react-router) >= 5.3.4 with npm(react-router) < 6.0.0)
 Requires: (npm(react-router-bootstrap) >= 0.25.0 with npm(react-router-bootstrap) < 1.0.0)
 Requires: (npm(react-router-dom) >= 5.1.2 with npm(react-router-dom) < 6.0.0)
 Requires: (npm(redux) >= 4.0.4 with npm(redux) < 5.0.0)
@@ -930,6 +934,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Jul 10 2025 Evgeni Golov - 3.16.0-0.8.develop
+- Update NPM dependencies
+
 * Thu Jul 10 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.16.0-0.7.develop
 - Use generated build dependencies if available
 
