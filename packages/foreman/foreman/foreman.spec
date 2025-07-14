@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 8
+%global release 9
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -159,7 +159,6 @@ BuildRequires: (npm(@patternfly/react-table) >= 5.2.0 with npm(@patternfly/react
 BuildRequires: (npm(@patternfly/react-tokens) >= 5.2.0 with npm(@patternfly/react-tokens) < 6.0.0)
 BuildRequires: (npm(@reduxjs/toolkit) >= 1.6.0 with npm(@reduxjs/toolkit) < 2.0.0)
 BuildRequires: (npm(@spice-project/spice-html5) >= 0.2.1 with npm(@spice-project/spice-html5) < 1.0.0)
-BuildRequires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
 BuildRequires: (npm(@webcomponents/webcomponentsjs) >= 2.2.10 with npm(@webcomponents/webcomponentsjs) < 3.0.0)
 BuildRequires: (npm(ace-builds) >= 1.4.13 with npm(ace-builds) < 2.0.0)
 BuildRequires: (npm(axios) >= 0.21.1 with npm(axios) < 1.0.0)
@@ -354,7 +353,6 @@ Requires: (npm(@patternfly/react-table) >= 5.2.0 with npm(@patternfly/react-tabl
 Requires: (npm(@patternfly/react-tokens) >= 5.2.0 with npm(@patternfly/react-tokens) < 6.0.0)
 Requires: (npm(@reduxjs/toolkit) >= 1.6.0 with npm(@reduxjs/toolkit) < 2.0.0)
 Requires: (npm(@spice-project/spice-html5) >= 0.2.1 with npm(@spice-project/spice-html5) < 1.0.0)
-Requires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
 Requires: (npm(@webcomponents/webcomponentsjs) >= 2.2.10 with npm(@webcomponents/webcomponentsjs) < 3.0.0)
 Requires: (npm(ace-builds) >= 1.4.13 with npm(ace-builds) < 2.0.0)
 Requires: (npm(axios) >= 0.21.1 with npm(axios) < 1.0.0)
@@ -934,6 +932,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Jul 14 2025 Evgeni Golov - 3.16.0-0.9.develop
+- Update NPM dependencies
+
 * Thu Jul 10 2025 Evgeni Golov - 3.16.0-0.8.develop
 - Update NPM dependencies
 
