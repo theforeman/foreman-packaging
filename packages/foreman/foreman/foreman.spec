@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 8
+%global release 9
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -436,6 +436,7 @@ Meta package to install asset pipeline support.
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
 %{_datadir}/%{name}/webpack
+%{_datadir}/%{name}/package.json
 %{_datadir}/%{name}/.babelrc.js
 %{_datadir}/%{name}/script/npm*
 %{_datadir}/%{name}/script/plugin_webpack*
@@ -676,7 +677,7 @@ exec sidekiq "\$@"
 EOF
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
-cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
+cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile package.json script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
 find %{buildroot}%{_datadir}/%{name}/script/%{name}-tail.d/* -type d |xargs rm -rf
 
@@ -934,6 +935,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Jul 14 2025 Evgeni Golov - 3.16.0-0.9.develop
+- Include package.json in packaging
+
 * Thu Jul 10 2025 Evgeni Golov - 3.16.0-0.8.develop
 - Update NPM dependencies
 
