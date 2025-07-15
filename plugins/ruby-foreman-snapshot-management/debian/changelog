@@ -1,3 +1,9 @@
+ruby-foreman-snapshot-management (4.0.0-2) stable; urgency=low
+
+  * Rebuild for removal of theforeman/vendor
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 15 Jul 2025 15:23:46 +0200
+
 ruby-foreman-snapshot-management (4.0.0-1) stable; urgency=low
 
   * 4.0.0 released
