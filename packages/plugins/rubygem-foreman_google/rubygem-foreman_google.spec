@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.0.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Google Compute Engine plugin for the Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_google
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jul 15 2025 Evgeni Golov - 3.0.5-2
+- Rebuild for removal of theforeman/vendor
+
 * Tue Feb 25 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.5-1
 - Update to 3.0.5
 
