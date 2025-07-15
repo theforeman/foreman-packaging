@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 License: GPLv3
 URL: https://www.orcharhino.com/
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jul 15 2025 Evgeni Golov - 4.0.1-2
+- Rebuild for removal of theforeman/vendor
+
 * Thu May 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.0.1-1
 - Update to 4.0.1
 
