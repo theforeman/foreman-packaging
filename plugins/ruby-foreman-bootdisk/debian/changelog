@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (23.1.0-2) stable; urgency=low
+
+  * Rebuild for removal of theforeman/vendor
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 15 Jul 2025 15:23:45 +0200
+
 ruby-foreman-bootdisk (23.1.0-1) stable; urgency=low
 
   * 23.1.0 released
