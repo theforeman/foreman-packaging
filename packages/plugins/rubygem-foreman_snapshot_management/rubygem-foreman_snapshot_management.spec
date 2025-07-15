@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Snapshot Management for machines on virtualization-platforms
 License: GPLv3
 URL: https://www.orcharhino.com
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jul 15 2025 Evgeni Golov - 4.0.0-2
+- Rebuild for removal of theforeman/vendor
+
 * Sun Oct 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.0.0-1
 - Update to 4.0.0
 
