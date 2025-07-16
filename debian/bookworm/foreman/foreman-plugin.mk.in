@@ -24,7 +24,7 @@ build:
 	# perform the actual build of the plugin
 	cd ./usr/share/foreman && ( \
 		/usr/bin/foreman-ruby $(BUNDLE) install --local && \
-		if [ "$(PLUGIN_HAS_PACKAGE_JSON)" = "true" ]; then /usr/bin/npm install --no-audit --no-optional --unsafe-perm; fi && \
+		if [ "$(PLUGIN_HAS_PACKAGE_JSON)" = "true" ]; then /usr/bin/npm install --legacy-peer-deps --no-audit --no-optional --unsafe-perm; fi && \
 		/usr/bin/foreman-ruby $(BUNDLE) exec rake security:generate_encryption_key && \
 		if [ "$(PLUGIN_HAS_ASSETS)" = "true" ] || [ "$(PLUGIN_HAS_WEBPACK)" = "true" ]; then /usr/bin/foreman-ruby $(BUNDLE) exec rake plugin:assets:precompile[$(PLUGIN)] RAILS_ENV=production DATABASE_URL=nulldb://nohost; fi \
 	)
