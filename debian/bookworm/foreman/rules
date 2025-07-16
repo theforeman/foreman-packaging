@@ -64,3 +64,6 @@ override_dh_systemd_start:
 override_dh_systemd_enable:
 	dh_systemd_enable --name=foreman.service --package=foreman-service
 	dh_systemd_enable --name=foreman.socket --package=foreman-service
+
+override_dh_strip_nondeterminism:
+	dh_strip_nondeterminism -X debian/foreman-assets/usr/share/foreman/node_modules

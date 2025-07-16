@@ -1,3 +1,9 @@
+foreman (3.16.0-4) stable; urgency=low
+
+  * Speed up build by not running strip_nondeterminism on node_modules
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 16 Jul 2025 10:36:47 +0200
+
 foreman (3.16.0-3) stable; urgency=low
 
   * Use --legacy-peer-deps when building plugins
