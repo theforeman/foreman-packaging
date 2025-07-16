@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 9
+%global release 10
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -158,8 +158,11 @@ BuildRequires: (npm(@patternfly/react-styles) >= 5.2.0 with npm(@patternfly/reac
 BuildRequires: (npm(@patternfly/react-table) >= 5.2.0 with npm(@patternfly/react-table) < 6.0.0)
 BuildRequires: (npm(@patternfly/react-tokens) >= 5.2.0 with npm(@patternfly/react-tokens) < 6.0.0)
 BuildRequires: (npm(@reduxjs/toolkit) >= 1.6.0 with npm(@reduxjs/toolkit) < 2.0.0)
+BuildRequires: (npm(@scalprum/core) >= 0.8.1 with npm(@scalprum/core) < 1.0.0)
+BuildRequires: (npm(@scalprum/react-core) >= 0.9.3 with npm(@scalprum/react-core) < 1.0.0)
 BuildRequires: (npm(@spice-project/spice-html5) >= 0.2.1 with npm(@spice-project/spice-html5) < 1.0.0)
 BuildRequires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
+BuildRequires: (npm(@unleash/proxy-client-react) >= 5.0.0 with npm(@unleash/proxy-client-react) < 6.0.0)
 BuildRequires: (npm(@webcomponents/webcomponentsjs) >= 2.2.10 with npm(@webcomponents/webcomponentsjs) < 3.0.0)
 BuildRequires: (npm(ace-builds) >= 1.4.13 with npm(ace-builds) < 2.0.0)
 BuildRequires: (npm(axios) >= 0.21.1 with npm(axios) < 1.0.0)
@@ -221,6 +224,7 @@ BuildRequires: npm(sanitize-html) = 2.3.2
 BuildRequires: (npm(seamless-immutable) >= 7.1.2 with npm(seamless-immutable) < 8.0.0)
 BuildRequires: npm(select2) = 4.0.12
 BuildRequires: (npm(unidiff) >= 1.0.0 with npm(unidiff) < 2.0.0)
+BuildRequires: (npm(unleash-proxy-client) >= 3.7.6 with npm(unleash-proxy-client) < 4.0.0)
 BuildRequires: (npm(urijs) >= 1.19.4 with npm(urijs) < 2.0.0)
 BuildRequires: (npm(uuid) >= 3.3.2 with npm(uuid) < 4.0.0)
 BuildRequires: (npm(yup) >= 0.29.3 with npm(yup) < 1.0.0)
@@ -353,8 +357,11 @@ Requires: (npm(@patternfly/react-styles) >= 5.2.0 with npm(@patternfly/react-sty
 Requires: (npm(@patternfly/react-table) >= 5.2.0 with npm(@patternfly/react-table) < 6.0.0)
 Requires: (npm(@patternfly/react-tokens) >= 5.2.0 with npm(@patternfly/react-tokens) < 6.0.0)
 Requires: (npm(@reduxjs/toolkit) >= 1.6.0 with npm(@reduxjs/toolkit) < 2.0.0)
+Requires: (npm(@scalprum/core) >= 0.8.1 with npm(@scalprum/core) < 1.0.0)
+Requires: (npm(@scalprum/react-core) >= 0.9.3 with npm(@scalprum/react-core) < 1.0.0)
 Requires: (npm(@spice-project/spice-html5) >= 0.2.1 with npm(@spice-project/spice-html5) < 1.0.0)
 Requires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
+Requires: (npm(@unleash/proxy-client-react) >= 5.0.0 with npm(@unleash/proxy-client-react) < 6.0.0)
 Requires: (npm(@webcomponents/webcomponentsjs) >= 2.2.10 with npm(@webcomponents/webcomponentsjs) < 3.0.0)
 Requires: (npm(ace-builds) >= 1.4.13 with npm(ace-builds) < 2.0.0)
 Requires: (npm(axios) >= 0.21.1 with npm(axios) < 1.0.0)
@@ -416,6 +423,7 @@ Requires: npm(sanitize-html) = 2.3.2
 Requires: (npm(seamless-immutable) >= 7.1.2 with npm(seamless-immutable) < 8.0.0)
 Requires: npm(select2) = 4.0.12
 Requires: (npm(unidiff) >= 1.0.0 with npm(unidiff) < 2.0.0)
+Requires: (npm(unleash-proxy-client) >= 3.7.6 with npm(unleash-proxy-client) < 4.0.0)
 Requires: (npm(urijs) >= 1.19.4 with npm(urijs) < 2.0.0)
 Requires: (npm(uuid) >= 3.3.2 with npm(uuid) < 4.0.0)
 Requires: (npm(yup) >= 0.29.3 with npm(yup) < 1.0.0)
@@ -935,6 +943,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jul 16 2025 Shimon Shtein - 3.16.0-0.10.develop
+- Add scalprum dependencies
+
 * Mon Jul 14 2025 Evgeni Golov - 3.16.0-0.9.develop
 - Include package.json in packaging
 
