@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.6.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.6.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for resource quota
 License: GPLv3
 URL: https://github.com/ATIX-AG/foreman_resource_quota
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jul 17 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.1-1
+- Update to 0.6.1
+
 * Tue Jul 15 2025 Evgeni Golov - 0.6.0-2
 - Rebuild for removal of theforeman/vendor
 
