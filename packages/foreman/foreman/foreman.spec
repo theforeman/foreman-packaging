@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 10
+%global release 11
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -151,7 +151,7 @@ BuildRequires: (npm(@apollo/client) >= 3.3.7 with npm(@apollo/client) < 4.0.0)
 BuildRequires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
 BuildRequires: npm(@novnc/novnc) = 1.3.0
 BuildRequires: (npm(@patternfly/patternfly) >= 5.4.2 with npm(@patternfly/patternfly) < 6.0.0)
-BuildRequires: (npm(@patternfly/react-charts) >= 6.94.15 with npm(@patternfly/react-charts) < 6.95.0)
+BuildRequires: (npm(@patternfly/react-charts) >= 7.4.5 with npm(@patternfly/react-charts) < 7.5.0)
 BuildRequires: (npm(@patternfly/react-core) >= 5.2.0 with npm(@patternfly/react-core) < 6.0.0)
 BuildRequires: (npm(@patternfly/react-icons) >= 5.2.0 with npm(@patternfly/react-icons) < 6.0.0)
 BuildRequires: (npm(@patternfly/react-styles) >= 5.2.0 with npm(@patternfly/react-styles) < 6.0.0)
@@ -350,7 +350,7 @@ Requires: (npm(@apollo/client) >= 3.3.7 with npm(@apollo/client) < 4.0.0)
 Requires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
 Requires: npm(@novnc/novnc) = 1.3.0
 Requires: (npm(@patternfly/patternfly) >= 5.4.2 with npm(@patternfly/patternfly) < 6.0.0)
-Requires: (npm(@patternfly/react-charts) >= 6.94.15 with npm(@patternfly/react-charts) < 6.95.0)
+Requires: (npm(@patternfly/react-charts) >= 7.4.5 with npm(@patternfly/react-charts) < 7.5.0)
 Requires: (npm(@patternfly/react-core) >= 5.2.0 with npm(@patternfly/react-core) < 6.0.0)
 Requires: (npm(@patternfly/react-icons) >= 5.2.0 with npm(@patternfly/react-icons) < 6.0.0)
 Requires: (npm(@patternfly/react-styles) >= 5.2.0 with npm(@patternfly/react-styles) < 6.0.0)
@@ -943,6 +943,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Jul 17 2025 Evgeni Golov - 3.16.0-0.11.develop
+- Bump charts
+
 * Wed Jul 16 2025 Shimon Shtein - 3.16.0-0.10.develop
 - Add scalprum dependencies
 
