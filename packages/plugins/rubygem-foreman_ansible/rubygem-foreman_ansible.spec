@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 3.15.0
+%global foreman_min_version 3.16.0
 
 Name: rubygem-%{gem_name}
-Version: 16.0.1
-Release: 2%{?foremandist}%{?dist}
+Version: 17.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
 URL: https://github.com/theforeman/foreman_ansible
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jul 17 2025 Foreman Packaging Automation <packaging@theforeman.org> - 17.0.0-1
+- Update to 17.0.0
+
 * Tue Jul 15 2025 Evgeni Golov - 16.0.1-2
 - Rebuild for removal of theforeman/vendor
 
