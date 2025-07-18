@@ -1,3 +1,9 @@
+ruby-foreman-tasks (11.0.2-1) stable; urgency=low
+
+  * 11.0.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 18 Jul 2025 10:04:04 +0000
+
 ruby-foreman-tasks (11.0.1-2) stable; urgency=low
 
   * Rebuild for removal of theforeman/vendor
