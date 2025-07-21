@@ -963,7 +963,7 @@ exit 0
 - Update NPM dependencies
 
 * Thu Jul 10 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.16.0-0.7.develop
-- Use generated build dependencies if available
+- Use generated gem build dependencies
 
 * Wed Jul 09 2025 MariaAga <mariaaga@redhat.com> - 3.16.0-0.6.develop
 - move theforeman/vendors dependencies to foreman core
