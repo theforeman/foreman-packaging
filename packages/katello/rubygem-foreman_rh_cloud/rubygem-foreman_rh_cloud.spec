@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 12.1.4
+Version: 12.1.5
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -34,6 +34,8 @@ BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 1.2.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
+BuildRequires: (npm(@scalprum/core) >= 0.8.1 with npm(@scalprum/core) < 1.0.0)
+BuildRequires: (npm(@scalprum/react-core) >= 0.9.3 with npm(@scalprum/react-core) < 1.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -95,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jul 22 2025 Chris Roberts <chrobert@redhat.com> - 12.1.5-1
+- Update to 12.1.5
+
 * Tue Jul 15 2025 Chris Roberts <chrobert@redhat.com> - 12.1.4-1
 - Update to 12.1.4
 
