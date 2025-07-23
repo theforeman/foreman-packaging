@@ -1,3 +1,9 @@
+ruby-foreman-templates (10.0.9-1) stable; urgency=low
+
+  * 10.0.9 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 23 Jul 2025 16:03:41 +0000
+
 ruby-foreman-templates (10.0.8-2) stable; urgency=low
 
   * Rebuild for removal of theforeman/vendor
