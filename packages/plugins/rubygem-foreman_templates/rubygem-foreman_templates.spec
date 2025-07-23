@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 10.0.8
-Release: 2%{?foremandist}%{?dist}
+Version: 10.0.9
+Release: 1%{?foremandist}%{?dist}
 Summary: Template-syncing engine for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_templates
@@ -30,7 +30,6 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
 BuildRequires: npm(@theforeman/builder) >= 12.0.1
-BuildRequires: (npm(identity-obj-proxy) >= 3.0.0 with npm(identity-obj-proxy) < 4.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -94,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jul 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 10.0.9-1
+- Update to 10.0.9
+
 * Tue Jul 15 2025 Evgeni Golov - 10.0.8-2
 - Rebuild for removal of theforeman/vendor
 
