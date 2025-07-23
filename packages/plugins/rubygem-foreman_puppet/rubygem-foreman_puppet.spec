@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 8.1.2
-Release: 3%{?foremandist}%{?dist}
+Version: 9.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_puppet
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jul 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 9.0.0-1
+- Update to 9.0.0
+
 * Tue Jul 15 2025 Evgeni Golov - 8.1.2-3
 - Rebuild for removal of theforeman/vendor
 
