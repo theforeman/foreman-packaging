@@ -115,7 +115,6 @@
       <packagereq type="default">nodejs-react-dnd</packagereq>
       <packagereq type="default">nodejs-react-dnd-html5-backend</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
-      <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
       <packagereq type="default">nodejs-react-intl</packagereq>
       <packagereq type="default">nodejs-react-loading-skeleton</packagereq>
