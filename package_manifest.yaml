@@ -417,7 +417,6 @@ foreman_nodejs_packages:
     nodejs-harmony-reflect: {}
     nodejs-history: {}
     nodejs-humanize-duration: {}
-    nodejs-identity-obj-proxy: {}
     nodejs-intl: {}
     nodejs-ipaddr.js: {}
     nodejs-jed: {}
