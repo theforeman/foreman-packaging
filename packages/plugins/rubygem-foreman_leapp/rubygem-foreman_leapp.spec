@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_leapp
 %global plugin_name leapp
-%global foreman_min_version 3.13
+%global foreman_min_version 3.16
 
 Name: rubygem-%{gem_name}
-Version: 2.0.5
-Release: 2%{?foremandist}%{?dist}
+Version: 3.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 License: GPLv3
 URL: https://github.com/theforeman/foreman_leapp
@@ -30,7 +30,6 @@ BuildRequires: npm(@theforeman/builder) >= 12.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: (npm(react-ellipsis-with-tooltip) >= 1.0.8 with npm(react-ellipsis-with-tooltip) < 2.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -92,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jul 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
+- Update to 3.0.0
+
 * Tue Jul 15 2025 Evgeni Golov - 2.0.5-2
 - Rebuild for removal of theforeman/vendor
 
