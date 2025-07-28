@@ -4,8 +4,8 @@
 %global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 23.1.0
-Release: 2%{?foremandist}%{?dist}
+Version: 23.1.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jul 28 2025 Leos Stejskal <lstejska@redhat.com> - 23.1.1-1
+- Update to 23.1.1
+
 * Tue Jul 15 2025 Evgeni Golov - 23.1.0-2
 - Rebuild for removal of theforeman/vendor
 
