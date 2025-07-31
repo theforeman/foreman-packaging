@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_fog_proxmox
 %global plugin_name fog_proxmox
-%global foreman_min_version 1.22.0
+%global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 0.18.1
-Release: 2%{?foremandist}%{?dist}
+Version: 0.19.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 License: GPLv3
 URL: https://github.com/theforeman/foreman_fog_proxmox
@@ -29,7 +29,7 @@ Requires(postun): policycoreutils-python-utils
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: npm(@theforeman/builder) >= 12.0.1
+BuildRequires: npm(@theforeman/builder) >= 15.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -104,6 +104,9 @@ fi
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jul 31 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.19.0-1
+- Update to 0.19.0
+
 * Tue Jul 15 2025 Evgeni Golov - 0.18.1-2
 - Rebuild for removal of theforeman/vendor
 
