@@ -4,7 +4,7 @@
 %global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 16.0.5
+Version: 16.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
@@ -132,6 +132,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Tue Aug 05 2025 Foreman Packaging Automation <packaging@theforeman.org> - 16.1.0-1
+- Update to 16.1.0
+
 * Mon Jul 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 16.0.5-1
 - Update to 16.0.5
 
