@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (23.1.1-1) stable; urgency=low
+
+  * 23.1.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 06 Aug 2025 09:27:17 +0000
+
 ruby-foreman-bootdisk (23.1.0-2) stable; urgency=low
 
   * Rebuild for removal of theforeman/vendor
