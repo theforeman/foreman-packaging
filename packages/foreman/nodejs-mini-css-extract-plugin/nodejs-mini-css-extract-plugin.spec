@@ -4,7 +4,7 @@
 %global npm_name mini-css-extract-plugin
 
 Name: %{?scl_prefix}nodejs-mini-css-extract-plugin
-Version: 2.9.2
+Version: 2.9.3
 Release: 1%{?dist}
 Summary: extracts CSS into separate files
 License: MIT
@@ -17,7 +17,7 @@ Source3: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
 Source4: https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz
 Source5: https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.6.tgz
 Source6: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
-Source7: https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-2.9.2.tgz
+Source7: https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-2.9.3.tgz
 Source8: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
 Source9: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.2.tgz
 Source10: https://registry.npmjs.org/tapable/-/tapable-2.2.2.tgz
@@ -37,7 +37,7 @@ Provides: bundled(npm(ajv-keywords)) = 5.1.0
 Provides: bundled(npm(fast-deep-equal)) = 3.1.3
 Provides: bundled(npm(fast-uri)) = 3.0.6
 Provides: bundled(npm(json-schema-traverse)) = 1.0.0
-Provides: bundled(npm(mini-css-extract-plugin)) = 2.9.2
+Provides: bundled(npm(mini-css-extract-plugin)) = 2.9.3
 Provides: bundled(npm(require-from-string)) = 2.0.2
 Provides: bundled(npm(schema-utils)) = 4.3.2
 Provides: bundled(npm(tapable)) = 2.2.2
@@ -84,6 +84,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Aug 06 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.9.3-1
+- Update to 2.9.3
+
 * Wed Jun 18 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.9.2-1
 - Update to 2.9.2
 
