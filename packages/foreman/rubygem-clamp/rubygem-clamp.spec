@@ -55,6 +55,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.travis.yml
 %doc %{gem_instdir}/CHANGES.md
+%exclude %{gem_instdir}/CODEOWNERS
 %exclude %{gem_instdir}/Guardfile
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
