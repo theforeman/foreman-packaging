@@ -7,7 +7,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    5.4.0
+Version:    5.5.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -51,6 +51,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Fri Aug 08 2025 Evgeni Golov - 5.5.0-1
+- Release ansible-collection-theforeman-foreman 5.5.0
+
 * Tue Jun 10 2025 Evgeni Golov - 5.4.0-1
 - Release ansible-collection-theforeman-foreman 5.4.0
 
