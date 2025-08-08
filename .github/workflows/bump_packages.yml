@@ -2,6 +2,11 @@ name: Update packages
 
 on:
   workflow_dispatch:
+    inputs:
+      package:
+        description: 'Limit bumping to sources contaning this string'
+        required: false
+        type: string
   schedule:
     - cron: '4 4 * * 0,3'
 
@@ -23,7 +28,7 @@ jobs:
         ref: rpm/develop
     - name: Set the list
       id: set_list
-      run: ./list_updatable_packages
+      run: ./list_updatable_packages ${{ inputs.package && inputs.package || '' }}
 
   bump_rpm:
     name: 'Bump ${{ matrix.package_name }} RPM ${{ matrix.new_version }}'
@@ -84,7 +89,7 @@ jobs:
         ref: deb/develop
     - name: Set the list
       id: set_list
-      run: ./scripts/list_updatable_packages
+      run: ./scripts/list_updatable_packages ${{ inputs.package && inputs.package || '' }}
 
   bump_plugin_deb:
     name: 'Bump ${{ matrix.package_name }} deb ${{ matrix.new_version }}'
