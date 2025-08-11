@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.12.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.13.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 License: GPLv3
 URL: https://www.orcharhino.com
@@ -104,6 +104,9 @@ mkdir -p %{buildroot}%{_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks
 %{foreman_plugin_log}
 
 %changelog
+* Mon Aug 11 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.13.0-1
+- Update to 0.13.0
+
 * Tue Jul 15 2025 Evgeni Golov - 0.12.0-2
 - Rebuild for removal of theforeman/vendor
 
