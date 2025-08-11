@@ -16,6 +16,8 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(reline) or ruby-default-gems < 3.5)
+
 %description
 STDOUT text formatting.
 
@@ -30,6 +32,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g reline
 
 %build
 # Create the gem as gem install only works on a gem file
