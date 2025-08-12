@@ -1,3 +1,9 @@
+ruby-foreman-fog-proxmox (0.19.1-2) stable; urgency=low
+
+  * Update fog-proxmox dependency to 0.15.2
+
+ -- Nadja Heitmann <nadjah@atix.de>  Tue, 12 Aug 2025 10:13:21 +0200
+
 ruby-foreman-fog-proxmox (0.19.1-1) stable; urgency=low
 
   * 0.19.1 released
