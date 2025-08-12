@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.16
-%global foreman_max_version 3.17
+%global foreman_min_version 3.17
+%global foreman_max_version 3.18
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.18.0
-%global release 2
+%global mainver 4.19.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -166,6 +166,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Aug 12 2025 Pavan Soma Shekar <shekarpavan97@gmail.com> - 4.19.0-0.1.pre.master
+- Bump version to 4.19.0
+
 * Tue Jul 15 2025 Evgeni Golov - 4.18.0-0.2.pre.master
 - Rebuild for removal of theforeman/vendor
 
