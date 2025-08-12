@@ -71,6 +71,7 @@
       <packagereq type="default">rubygem-faraday-detailed_logger</packagereq>
       <packagereq type="default">rubygem-faraday_middleware</packagereq>
       <packagereq type="default">rubygem-fog-kubevirt</packagereq>
+      <packagereq type="default">rubygem-fog-ovirt</packagereq>
       <packagereq type="default">rubygem-fog-proxmox</packagereq>
       <packagereq type="default">rubygem-foreman-tasks</packagereq>
       <packagereq type="default">rubygem-foreman_acd</packagereq>
@@ -164,6 +165,7 @@
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-openscap_parser</packagereq>
+      <packagereq type="default">rubygem-ovirt-engine-sdk</packagereq>
       <packagereq type="default">rubygem-parse-cron</packagereq>
       <packagereq type="default">rubygem-pdf-core</packagereq>
       <packagereq type="default">rubygem-polyglot</packagereq>
@@ -248,6 +250,7 @@
       <packagereq type="default">rubygem-faraday-detailed_logger-doc</packagereq>
       <packagereq type="default">rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">rubygem-fog-kubevirt-doc</packagereq>
+      <packagereq type="default">rubygem-fog-ovirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">rubygem-foreman_acd-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
@@ -340,6 +343,7 @@
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-openscap-doc</packagereq>
       <packagereq type="default">rubygem-openscap_parser-doc</packagereq>
+      <packagereq type="default">rubygem-ovirt-engine-sdk-doc</packagereq>
       <packagereq type="default">rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">rubygem-pdf-core-doc</packagereq>
       <packagereq type="default">rubygem-polyglot-doc</packagereq>
