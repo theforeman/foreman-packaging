@@ -1,0 +1,7 @@
+version=4
+https://gemwatch.debian.net/foreman_ovirt .*/foreman_ovirt-(.*).tar.gz
+
+# Use the regex below for github-based sources
+# opts=uversionmangle=s/[_.+-]?(rc|pre|dev|beta|alpha|b|a)/~$1/i,\
+# filenamemangle=s%(?:.+/)?v?@ANY_VERSION@(@ARCHIVE_EXT@)%@PACKAGE@-$1$2% \
+#   https://github.com/<owner>/<repo>/tags .*/v?@ANY_VERSION@@ARCHIVE_EXT@

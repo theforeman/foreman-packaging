@@ -1,0 +1,4 @@
+foreman_ovirt.rb                 usr/share/foreman/bundler.d
+cache                            usr/share/foreman/vendor
+webpack/foreman_ovirt            var/lib/foreman/public/webpack
+assets                           var/lib/foreman/public
