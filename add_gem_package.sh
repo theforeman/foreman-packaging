@@ -23,7 +23,7 @@ generate_gem_package() {
 
 	if [[ $TEMPLATE_NAME == foreman_plugin ]]; then
 		UNPACKED_GEM_DIR=$(mktemp -d)
-		gem unpack --target "$UNPACKED_GEM_DIR" -- *.gem
+		gem unpack --target "$UNPACKED_GEM_DIR" *.gem
 		PLUGIN_LIB="${UNPACKED_GEM_DIR}"/${GEM_NAME}-*/lib
 		REQUIRES_FOREMAN=$(grep --extended-regexp --recursive --no-filename 'requires_foreman\s' $PLUGIN_LIB | sed -E 's/[^0-9.]//g')
 		if [[ -n $REQUIRES_FOREMAN ]]; then
@@ -45,7 +45,7 @@ generate_gem_package() {
 	if grep -q "# start package.json" "$SPEC_FILE" ; then
 		GEM_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" --undefine=dist "$SPEC_FILE")
 		UNPACKED_GEM_DIR=$(mktemp -d)
-		gem unpack --target "$UNPACKED_GEM_DIR" -- *.gem
+		gem unpack --target "$UNPACKED_GEM_DIR" *.gem
 		PACKAGE_JSON="${UNPACKED_GEM_DIR}/${GEM_NAME}-${GEM_VERSION}/package.json"
 		if [[ -f $PACKAGE_JSON ]] ; then
 			"$SCRIPT_ROOT"/update-requirements npm "$PACKAGE_JSON" "$SPEC_FILE"
