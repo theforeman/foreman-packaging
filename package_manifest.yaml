@@ -773,6 +773,7 @@ ruby_plugin_packages:
     rubygem-faraday-cookie_jar: {}
     rubygem-faraday-detailed_logger: {}
     rubygem-fog-kubevirt: {}
+    rubygem-fog-ovirt: {}
     rubygem-fog-proxmox: {}
     rubygem-fugit: {}
     rubygem-gapic-common: {}
@@ -796,6 +797,7 @@ ruby_plugin_packages:
     rubygem-kubeclient: {}
     rubygem-ms_rest: {}
     rubygem-ms_rest_azure: {}
+    rubygem-ovirt-engine-sdk: {}
     rubygem-netbox-client-ruby: {}
     rubygem-parse-cron: {}
     rubygem-pdf-core: {}
