@@ -691,6 +691,7 @@ foreman_plugin_packages_tier2:
     rubygem-foreman_netbox: {}
     rubygem-foreman_omaha: {}
     rubygem-foreman_openscap: {}
+    rubygem-foreman_ovirt: {}
     rubygem-foreman_probing: {}
     rubygem-foreman_puppet: {}
     rubygem-foreman_rescue: {}
