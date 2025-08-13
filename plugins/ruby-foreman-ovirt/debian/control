@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: markt.de <github-oss-noreply@markt.de>
 Uploaders: <>
 Build-Depends: debhelper-compat (= 13),
+               libcurl4-openssl-dev,
                libxml2-dev,
                foreman (>= 3.16.0~rc1),
                gem2deb (>= 1)
@@ -19,6 +20,7 @@ Architecture: all
 Depends: ${misc:Depends},
          ${ruby:Depends},
          ${shlibs:Depends},
+         libcurl4-openssl-dev,
          libxml2-dev,
          foreman (>= 3.16.0~rc1)
 Description: oVirt as a compute resource for The Foreman
