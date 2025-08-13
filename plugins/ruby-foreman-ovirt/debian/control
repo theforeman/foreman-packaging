@@ -7,6 +7,8 @@ Build-Depends: debhelper-compat (= 13),
                libcurl4-openssl-dev,
                libxml2-dev,
                foreman (>= 3.16.0~rc1),
+               foreman-assets (>= 3.16.0~rc1),
+               foreman-nulldb (>= 3.16.0~rc1),
                gem2deb (>= 1)
 Standards-Version: 4.6.1
 Vcs-Git: https://salsa.debian.org/ruby-team/ruby-foreman-ovirt.git
