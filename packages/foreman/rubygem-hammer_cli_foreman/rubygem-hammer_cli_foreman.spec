@@ -2,14 +2,14 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 2
+%global release 1
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 3.16.0
+Version: 3.17.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
 License: GPLv3+
@@ -74,6 +74,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Aug 13 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.17.0-0.1.pre.develop
+- Bump version to 3.17-develop
+
 * Mon Jun 16 2025 Evgeni Golov - 3.16.0-0.2.pre.develop
 - Update based on latest template
 
