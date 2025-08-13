@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: markt.de <github-oss-noreply@markt.de>
 Uploaders: <>
 Build-Depends: debhelper-compat (= 13),
+               libxml2-dev,
                foreman (>= 3.16.0~rc1),
                gem2deb (>= 1)
 Standards-Version: 4.6.1
@@ -18,6 +19,7 @@ Architecture: all
 Depends: ${misc:Depends},
          ${ruby:Depends},
          ${shlibs:Depends},
+         libxml2-dev,
          foreman (>= 3.16.0~rc1)
 Description: oVirt as a compute resource for The Foreman
  The ForemanOvirt plugin adds oVirt compute resource to Foreman using
