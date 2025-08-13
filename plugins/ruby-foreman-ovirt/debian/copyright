@@ -5,6 +5,7 @@ Source: https://github.com/markt-de/foreman_ovirt
 
 Files: *
 Copyright: 2025 markt.de <github-oss-noreply@markt.de>
+           2009-2020 Ohad Levy, Paul Kelly and their respective owners
 License: GPL-3.0+
 
 Files: debian/*
