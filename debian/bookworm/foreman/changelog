@@ -1,3 +1,9 @@
+foreman (3.17.0-1) stable; urgency=low
+
+  * Bump changelog to 3.17.0 to match VERSION
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 13 Aug 2025 13:18:58 +0200
+
 foreman (3.16.0-4) stable; urgency=low
 
   * Speed up build by not running strip_nondeterminism on node_modules
