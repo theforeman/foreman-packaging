@@ -17,7 +17,7 @@
 %endif
 
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
@@ -84,6 +84,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed Aug 13 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.rc1
+- Release foreman-release 3.16.0rc1
+
 * Mon May 19 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.1.develop
 - Bump version to 3.16-develop
 
