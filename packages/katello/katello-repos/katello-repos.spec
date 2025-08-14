@@ -1,12 +1,12 @@
 %global pulpcore_version nightly
-%global candlepin_version 4.4
+%global candlepin_version 4.6
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.19
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Thu Aug 14 2025 Odilon Sousa <osousa@redhat.com> - 4.19-0.2.nightly
+- Update katello-repos with Candlepin 4.6
+
 * Tue Aug 12 2025 Pavan Soma Shekar <shekarpavan97@gmail.com> - 4.19-0.1.nightly
 - Bump version to 4.19.0
 
