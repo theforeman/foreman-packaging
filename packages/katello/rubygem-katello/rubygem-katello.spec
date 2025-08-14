@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 3.16
 %global foreman_max_version 3.17
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.18.0
 %global release 2
@@ -166,6 +166,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 14 2025 Odilon Sousa <osousa@redhat.com> - 4.18.0-0.2.rc1
+- Release rubygem-katello 4.18.0rc1
+
 * Tue Jul 15 2025 Evgeni Golov - 4.18.0-0.2.pre.master
 - Rebuild for removal of theforeman/vendor
 
