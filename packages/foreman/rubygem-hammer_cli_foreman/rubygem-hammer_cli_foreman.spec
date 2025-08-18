@@ -2,9 +2,7 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
@@ -74,6 +72,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 18 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-1
+- Release rubygem-hammer_cli_foreman 3.16.0
+
 * Mon Jun 16 2025 Evgeni Golov - 3.16.0-0.2.pre.develop
 - Update based on latest template
 

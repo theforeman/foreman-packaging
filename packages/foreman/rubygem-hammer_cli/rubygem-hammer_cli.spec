@@ -3,9 +3,7 @@
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
-%global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: 3.16.0
@@ -97,6 +95,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 18 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-1
+- Release rubygem-hammer_cli 3.16.0
+
 * Mon Jun 16 2025 Evgeni Golov - 3.16.0-0.2.pre.develop
 - Add Provides for "hammer-cli"
 
