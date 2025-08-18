@@ -15,6 +15,9 @@ Rules-Requires-Root: no
 
 Package: ruby-foreman-ovirt
 Architecture: all
+Breaks: foreman-ovirt (<<3.16.0)
+Replaces: foreman-ovirt (<<3.16.0)
+Provides: foreman-ovirt
 Depends: ${misc:Depends},
          ${ruby:Depends},
          ${shlibs:Depends},
