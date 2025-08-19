@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-uuid
 Version: 3.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: RFC4122 (v1, v4, and v5) UUIDs
 License: MIT
 Group: Development/Libraries
@@ -46,13 +46,16 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%{_bindir}/uuid
+%exclude %{_bindir}/uuid
 %license LICENSE.md
 %doc AUTHORS
 %doc CHANGELOG.md
 %doc README.md
 
 %changelog
+* Tue Aug 19 2025 Odilon Sousa <osousa@redhat.com> - 3.4.0-2
+- Exclude uuid bin to avoid upgrade issues with the binary from other packages
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 3.4.0-1
 - Update to 3.4.0
 
