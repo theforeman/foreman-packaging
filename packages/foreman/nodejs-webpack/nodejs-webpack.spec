@@ -4,7 +4,7 @@
 %global npm_name webpack
 
 Name: %{?scl_prefix}nodejs-webpack
-Version: 5.101.2
+Version: 5.101.3
 Release: 1%{?dist}
 Summary: Packs ECMAScript/CommonJs/AMD modules for the browser
 License: MIT
@@ -42,12 +42,12 @@ Source28: https://registry.npmjs.org/acorn-import-phases/-/acorn-import-phases-1
 Source29: https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz
 Source30: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source31: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
-Source32: https://registry.npmjs.org/browserslist/-/browserslist-4.25.2.tgz
+Source32: https://registry.npmjs.org/browserslist/-/browserslist-4.25.3.tgz
 Source33: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
 Source34: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001735.tgz
 Source35: https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz
 Source36: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
-Source37: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.203.tgz
+Source37: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.207.tgz
 Source38: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.18.3.tgz
 Source39: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-1.7.0.tgz
 Source40: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
@@ -85,7 +85,7 @@ Source71: https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plug
 Source72: https://registry.npmjs.org/undici-types/-/undici-types-7.10.0.tgz
 Source73: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.1.3.tgz
 Source74: https://registry.npmjs.org/watchpack/-/watchpack-2.4.4.tgz
-Source75: https://registry.npmjs.org/webpack/-/webpack-5.101.2.tgz
+Source75: https://registry.npmjs.org/webpack/-/webpack-5.101.3.tgz
 Source76: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.3.3.tgz
 Source77: nodejs-webpack-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
@@ -128,12 +128,12 @@ Provides: bundled(npm(acorn-import-phases)) = 1.0.4
 Provides: bundled(npm(ajv)) = 8.17.1
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
-Provides: bundled(npm(browserslist)) = 4.25.2
+Provides: bundled(npm(browserslist)) = 4.25.3
 Provides: bundled(npm(buffer-from)) = 1.1.2
 Provides: bundled(npm(caniuse-lite)) = 1.0.30001735
 Provides: bundled(npm(chrome-trace-event)) = 1.0.4
 Provides: bundled(npm(commander)) = 2.20.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.203
+Provides: bundled(npm(electron-to-chromium)) = 1.5.207
 Provides: bundled(npm(enhanced-resolve)) = 5.18.3
 Provides: bundled(npm(es-module-lexer)) = 1.7.0
 Provides: bundled(npm(escalade)) = 3.2.0
@@ -171,7 +171,7 @@ Provides: bundled(npm(terser-webpack-plugin)) = 5.3.14
 Provides: bundled(npm(undici-types)) = 7.10.0
 Provides: bundled(npm(update-browserslist-db)) = 1.1.3
 Provides: bundled(npm(watchpack)) = 2.4.4
-Provides: bundled(npm(webpack)) = 5.101.2
+Provides: bundled(npm(webpack)) = 5.101.3
 Provides: bundled(npm(webpack-sources)) = 3.3.3
 AutoReq: no
 AutoProv: no
@@ -226,6 +226,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/SECURITY.md
 
 %changelog
+* Wed Aug 20 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.101.3-1
+- Update to 5.101.3
+
 * Sun Aug 17 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.101.2-1
 - Update to 5.101.2
 
