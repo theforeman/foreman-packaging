@@ -50,6 +50,9 @@
 /packages/client/*scap_client*/ @theforeman/packaging @theforeman/openscap
 /packages/plugins/*_openscap/ @theforeman/packaging @theforeman/openscap
 
+# ovirt
+/packages/plugins/*ovirt*/ @theforeman/packaging @theforeman/ovirt
+
 # proxmox
 /packages/plugins/*_fog_proxmox/ @theforeman/packaging @theforeman/proxmox
 
