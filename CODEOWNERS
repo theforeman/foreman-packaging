@@ -33,6 +33,9 @@
 /plugins/ruby-foreman-templates/ @theforeman/packaging @theforeman/foreman_templates
 /dependencies/*/hammer_cli_foreman_templates @theforeman/packaging @theforeman/foreman_templates
 
+# ovirt
+/plugins/*ovirt/ @theforeman/packaging @theforeman/ovirt
+
 # proxmox
 /plugins/*fog-proxmox/ @theforeman/packaging @theforeman/proxmox
 
