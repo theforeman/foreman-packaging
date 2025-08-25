@@ -1,0 +1,11 @@
+ruby-foreman-ovirt (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Frank Wall <github-oss-noreply@markt.de>  Tue, 19 Aug 2025 11:34:11 +0200
+
+ruby-foreman-ovirt (2.0.0-1) stable; urgency=low
+
+  * Initial release
+
+ -- Frank Wall <github-oss-noreply@markt.de>  Tue, 12 Aug 2025 15:45:47 +0200

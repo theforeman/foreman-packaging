@@ -1,0 +1,4 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/foreman_ovirt-2.0.1.gem"
+GEMS="$GEMS https://rubygems.org/downloads/fog-ovirt-2.0.3.gem"
+GEMS="$GEMS https://rubygems.org/downloads/ovirt-engine-sdk-4.6.0.gem"

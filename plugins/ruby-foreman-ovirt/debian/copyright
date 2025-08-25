@@ -1,0 +1,31 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ruby-foreman-ovirt
+Upstream-Contact: ["github-oss-noreply@markt.de"]
+Source: https://github.com/markt-de/foreman_ovirt
+
+Files: *
+Copyright: 2025 markt.de <github-oss-noreply@markt.de>
+           2009-2020 Ohad Levy, Paul Kelly and their respective owners
+License: GPL-3.0+
+
+Files: debian/*
+Copyright: 2025 markt.de <github-oss-noreply@markt.de>
+License: GPL-3.0+
+Comment: The Debian packaging is licensed under the same terms as the source.
+
+License: GPL-3.0+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".

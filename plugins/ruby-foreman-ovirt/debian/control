@@ -1,0 +1,29 @@
+Source: ruby-foreman-ovirt
+Section: ruby
+Priority: optional
+Maintainer: markt.de <github-oss-noreply@markt.de>
+Build-Depends: debhelper-compat (= 13),
+               libcurl4-openssl-dev,
+               libxml2-dev,
+               foreman (>= 3.16.0~rc1),
+               foreman-assets (>= 3.16.0~rc1),
+               foreman-nulldb (>= 3.16.0~rc1),
+               gem2deb (>= 1)
+Standards-Version: 4.6.1
+Homepage: https://github.com/markt-de/foreman_ovirt
+Rules-Requires-Root: no
+
+Package: ruby-foreman-ovirt
+Architecture: all
+Breaks: foreman-ovirt (<<3.16.0)
+Replaces: foreman-ovirt (<<3.16.0)
+Provides: foreman-ovirt
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends},
+         libcurl4-openssl-dev,
+         libxml2-dev,
+         foreman (>= 3.16.0~rc1)
+Description: oVirt as a compute resource for The Foreman
+ The ForemanOvirt plugin adds oVirt compute resource to Foreman using
+ fog-ovirt. It is compatible with Foreman 3.16+
