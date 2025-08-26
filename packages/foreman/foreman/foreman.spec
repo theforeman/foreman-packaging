@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 11
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -943,6 +943,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Aug 26 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.11.rc2
+- Release foreman 3.16.0rc2
+
 * Wed Aug 13 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.11.rc1
 - Release foreman 3.16.0rc1
 
