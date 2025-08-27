@@ -76,17 +76,6 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/.appveyor.yml
-%exclude %{gem_instdir}/.gems
-%exclude %{gem_instdir}/.gemtest
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.hgsigs
-%exclude %{gem_instdir}/.hgtags
-%exclude %{gem_instdir}/.irbrc
-%exclude %{gem_instdir}/.pryrc
-%exclude %{gem_instdir}/.tm_properties
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/BSDL
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/Manifest.txt
@@ -102,13 +91,12 @@ rm -rf gem_ext_test
 %doc %{gem_docdir}
 %doc %{gem_instdir}/Contributors.rdoc
 %{gem_instdir}/Gemfile
-%doc %{gem_instdir}/History.md
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README-OS_X.rdoc
 %doc %{gem_instdir}/README-Windows.rdoc
 %doc %{gem_instdir}/README.ja.md
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/Rakefile.cross
 %{gem_instdir}/rakelib
 %{gem_instdir}/sample
 %exclude %{gem_instdir}/pg.gemspec
