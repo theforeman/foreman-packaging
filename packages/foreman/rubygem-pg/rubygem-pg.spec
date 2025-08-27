@@ -78,12 +78,11 @@ rm -rf gem_ext_test
 %{gem_extdir_mri}
 %exclude %{gem_instdir}/BSDL
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/Manifest.txt
 %license %{gem_instdir}/POSTGRES
 %exclude %{gem_instdir}/certs
 %{gem_libdir}
 %exclude %{gem_instdir}/misc
-%exclude %{gem_instdir}/translation
+%exclude %{gem_instdir}/ports
 %exclude %{gem_cache}
 %{gem_spec}
 
