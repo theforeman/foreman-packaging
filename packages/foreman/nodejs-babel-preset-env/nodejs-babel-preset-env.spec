@@ -1,184 +1,244 @@
 %{?scl:%scl_package nodejs-%{npm_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global npm_name babel-preset-env
+%global npm_name @babel/preset-env
 
 Name: %{?scl_prefix}nodejs-babel-preset-env
-Version: 1.7.0
-Release: 5%{?dist}
+Version: 7.9.5
+Release: 1%{?dist}
 Summary: A Babel preset for each environment
 License: MIT
 Group: Development/Libraries
 URL: https://babeljs.io/
-Source0: https://registry.npmjs.org/ansi-regex/-/ansi-regex-2.1.1.tgz
-Source1: https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.1.tgz
-Source2: https://registry.npmjs.org/babel-code-frame/-/babel-code-frame-6.26.0.tgz
-Source3: https://registry.npmjs.org/babel-helper-builder-binary-assignment-operator-visitor/-/babel-helper-builder-binary-assignment-operator-visitor-6.24.1.tgz
-Source4: https://registry.npmjs.org/babel-helper-call-delegate/-/babel-helper-call-delegate-6.24.1.tgz
-Source5: https://registry.npmjs.org/babel-helper-define-map/-/babel-helper-define-map-6.26.0.tgz
-Source6: https://registry.npmjs.org/babel-helper-explode-assignable-expression/-/babel-helper-explode-assignable-expression-6.24.1.tgz
-Source7: https://registry.npmjs.org/babel-helper-function-name/-/babel-helper-function-name-6.24.1.tgz
-Source8: https://registry.npmjs.org/babel-helper-get-function-arity/-/babel-helper-get-function-arity-6.24.1.tgz
-Source9: https://registry.npmjs.org/babel-helper-hoist-variables/-/babel-helper-hoist-variables-6.24.1.tgz
-Source10: https://registry.npmjs.org/babel-helper-optimise-call-expression/-/babel-helper-optimise-call-expression-6.24.1.tgz
-Source11: https://registry.npmjs.org/babel-helper-regex/-/babel-helper-regex-6.26.0.tgz
-Source12: https://registry.npmjs.org/babel-helper-remap-async-to-generator/-/babel-helper-remap-async-to-generator-6.24.1.tgz
-Source13: https://registry.npmjs.org/babel-helper-replace-supers/-/babel-helper-replace-supers-6.24.1.tgz
-Source14: https://registry.npmjs.org/babel-messages/-/babel-messages-6.23.0.tgz
-Source15: https://registry.npmjs.org/babel-plugin-check-es2015-constants/-/babel-plugin-check-es2015-constants-6.22.0.tgz
-Source16: https://registry.npmjs.org/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz
-Source17: https://registry.npmjs.org/babel-plugin-syntax-exponentiation-operator/-/babel-plugin-syntax-exponentiation-operator-6.13.0.tgz
-Source18: https://registry.npmjs.org/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz
-Source19: https://registry.npmjs.org/babel-plugin-transform-async-to-generator/-/babel-plugin-transform-async-to-generator-6.24.1.tgz
-Source20: https://registry.npmjs.org/babel-plugin-transform-es2015-arrow-functions/-/babel-plugin-transform-es2015-arrow-functions-6.22.0.tgz
-Source21: https://registry.npmjs.org/babel-plugin-transform-es2015-block-scoped-functions/-/babel-plugin-transform-es2015-block-scoped-functions-6.22.0.tgz
-Source22: https://registry.npmjs.org/babel-plugin-transform-es2015-block-scoping/-/babel-plugin-transform-es2015-block-scoping-6.26.0.tgz
-Source23: https://registry.npmjs.org/babel-plugin-transform-es2015-classes/-/babel-plugin-transform-es2015-classes-6.24.1.tgz
-Source24: https://registry.npmjs.org/babel-plugin-transform-es2015-computed-properties/-/babel-plugin-transform-es2015-computed-properties-6.24.1.tgz
-Source25: https://registry.npmjs.org/babel-plugin-transform-es2015-destructuring/-/babel-plugin-transform-es2015-destructuring-6.23.0.tgz
-Source26: https://registry.npmjs.org/babel-plugin-transform-es2015-duplicate-keys/-/babel-plugin-transform-es2015-duplicate-keys-6.24.1.tgz
-Source27: https://registry.npmjs.org/babel-plugin-transform-es2015-for-of/-/babel-plugin-transform-es2015-for-of-6.23.0.tgz
-Source28: https://registry.npmjs.org/babel-plugin-transform-es2015-function-name/-/babel-plugin-transform-es2015-function-name-6.24.1.tgz
-Source29: https://registry.npmjs.org/babel-plugin-transform-es2015-literals/-/babel-plugin-transform-es2015-literals-6.22.0.tgz
-Source30: https://registry.npmjs.org/babel-plugin-transform-es2015-modules-amd/-/babel-plugin-transform-es2015-modules-amd-6.24.1.tgz
-Source31: https://registry.npmjs.org/babel-plugin-transform-es2015-modules-commonjs/-/babel-plugin-transform-es2015-modules-commonjs-6.26.2.tgz
-Source32: https://registry.npmjs.org/babel-plugin-transform-es2015-modules-systemjs/-/babel-plugin-transform-es2015-modules-systemjs-6.24.1.tgz
-Source33: https://registry.npmjs.org/babel-plugin-transform-es2015-modules-umd/-/babel-plugin-transform-es2015-modules-umd-6.24.1.tgz
-Source34: https://registry.npmjs.org/babel-plugin-transform-es2015-object-super/-/babel-plugin-transform-es2015-object-super-6.24.1.tgz
-Source35: https://registry.npmjs.org/babel-plugin-transform-es2015-parameters/-/babel-plugin-transform-es2015-parameters-6.24.1.tgz
-Source36: https://registry.npmjs.org/babel-plugin-transform-es2015-shorthand-properties/-/babel-plugin-transform-es2015-shorthand-properties-6.24.1.tgz
-Source37: https://registry.npmjs.org/babel-plugin-transform-es2015-spread/-/babel-plugin-transform-es2015-spread-6.22.0.tgz
-Source38: https://registry.npmjs.org/babel-plugin-transform-es2015-sticky-regex/-/babel-plugin-transform-es2015-sticky-regex-6.24.1.tgz
-Source39: https://registry.npmjs.org/babel-plugin-transform-es2015-template-literals/-/babel-plugin-transform-es2015-template-literals-6.22.0.tgz
-Source40: https://registry.npmjs.org/babel-plugin-transform-es2015-typeof-symbol/-/babel-plugin-transform-es2015-typeof-symbol-6.23.0.tgz
-Source41: https://registry.npmjs.org/babel-plugin-transform-es2015-unicode-regex/-/babel-plugin-transform-es2015-unicode-regex-6.24.1.tgz
-Source42: https://registry.npmjs.org/babel-plugin-transform-exponentiation-operator/-/babel-plugin-transform-exponentiation-operator-6.24.1.tgz
-Source43: https://registry.npmjs.org/babel-plugin-transform-regenerator/-/babel-plugin-transform-regenerator-6.26.0.tgz
-Source44: https://registry.npmjs.org/babel-plugin-transform-strict-mode/-/babel-plugin-transform-strict-mode-6.24.1.tgz
-Source45: https://registry.npmjs.org/babel-preset-env/-/babel-preset-env-1.7.0.tgz
-Source46: https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz
-Source47: https://registry.npmjs.org/babel-template/-/babel-template-6.26.0.tgz
-Source48: https://registry.npmjs.org/babel-traverse/-/babel-traverse-6.26.0.tgz
-Source49: https://registry.npmjs.org/babel-types/-/babel-types-6.26.0.tgz
-Source50: https://registry.npmjs.org/babylon/-/babylon-6.18.0.tgz
-Source51: https://registry.npmjs.org/browserslist/-/browserslist-3.2.8.tgz
-Source52: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30000998.tgz
-Source53: https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz
-Source54: https://registry.npmjs.org/core-js/-/core-js-2.6.9.tgz
-Source55: https://registry.npmjs.org/debug/-/debug-2.6.9.tgz
-Source56: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.273.tgz
-Source57: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz
-Source58: https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz
-Source59: https://registry.npmjs.org/globals/-/globals-9.18.0.tgz
-Source60: https://registry.npmjs.org/has-ansi/-/has-ansi-2.0.0.tgz
-Source61: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
-Source62: https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz
-Source63: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
-Source64: https://registry.npmjs.org/jsesc/-/jsesc-0.5.0.tgz
-Source65: https://registry.npmjs.org/lodash/-/lodash-4.17.15.tgz
-Source66: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
-Source67: https://registry.npmjs.org/ms/-/ms-2.0.0.tgz
-Source68: https://registry.npmjs.org/private/-/private-0.1.8.tgz
-Source69: https://registry.npmjs.org/regenerate/-/regenerate-1.4.0.tgz
-Source70: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz
-Source71: https://registry.npmjs.org/regenerator-transform/-/regenerator-transform-0.10.1.tgz
-Source72: https://registry.npmjs.org/regexpu-core/-/regexpu-core-2.0.0.tgz
-Source73: https://registry.npmjs.org/regjsgen/-/regjsgen-0.2.0.tgz
-Source74: https://registry.npmjs.org/regjsparser/-/regjsparser-0.1.5.tgz
-Source75: https://registry.npmjs.org/semver/-/semver-5.7.1.tgz
-Source76: https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz
-Source77: https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz
-Source78: https://registry.npmjs.org/to-fast-properties/-/to-fast-properties-1.0.3.tgz
-Source79: nodejs-babel-preset-env-%{version}-registry.npmjs.org.tgz
-%if 0%{?scl:1}
+Source0: https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.27.1.tgz
+Source1: https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.28.0.tgz
+Source2: https://registry.npmjs.org/@babel/generator/-/generator-7.28.3.tgz
+Source3: https://registry.npmjs.org/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.27.3.tgz
+Source4: https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.27.2.tgz
+Source5: https://registry.npmjs.org/@babel/helper-create-regexp-features-plugin/-/helper-create-regexp-features-plugin-7.27.1.tgz
+Source6: https://registry.npmjs.org/@babel/helper-environment-visitor/-/helper-environment-visitor-7.24.7.tgz
+Source7: https://registry.npmjs.org/@babel/helper-globals/-/helper-globals-7.28.0.tgz
+Source8: https://registry.npmjs.org/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.27.1.tgz
+Source9: https://registry.npmjs.org/@babel/helper-module-imports/-/helper-module-imports-7.27.1.tgz
+Source10: https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.28.3.tgz
+Source11: https://registry.npmjs.org/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-7.27.1.tgz
+Source12: https://registry.npmjs.org/@babel/helper-plugin-utils/-/helper-plugin-utils-7.27.1.tgz
+Source13: https://registry.npmjs.org/@babel/helper-remap-async-to-generator/-/helper-remap-async-to-generator-7.27.1.tgz
+Source14: https://registry.npmjs.org/@babel/helper-replace-supers/-/helper-replace-supers-7.27.1.tgz
+Source15: https://registry.npmjs.org/@babel/helper-skip-transparent-expression-wrappers/-/helper-skip-transparent-expression-wrappers-7.27.1.tgz
+Source16: https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.27.1.tgz
+Source17: https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.27.1.tgz
+Source18: https://registry.npmjs.org/@babel/helper-validator-option/-/helper-validator-option-7.27.1.tgz
+Source19: https://registry.npmjs.org/@babel/helper-wrap-function/-/helper-wrap-function-7.28.3.tgz
+Source20: https://registry.npmjs.org/@babel/parser/-/parser-7.28.3.tgz
+Source21: https://registry.npmjs.org/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.20.7.tgz
+Source22: https://registry.npmjs.org/@babel/plugin-proposal-dynamic-import/-/plugin-proposal-dynamic-import-7.18.6.tgz
+Source23: https://registry.npmjs.org/@babel/plugin-proposal-json-strings/-/plugin-proposal-json-strings-7.18.6.tgz
+Source24: https://registry.npmjs.org/@babel/plugin-proposal-nullish-coalescing-operator/-/plugin-proposal-nullish-coalescing-operator-7.18.6.tgz
+Source25: https://registry.npmjs.org/@babel/plugin-proposal-numeric-separator/-/plugin-proposal-numeric-separator-7.18.6.tgz
+Source26: https://registry.npmjs.org/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.20.7.tgz
+Source27: https://registry.npmjs.org/@babel/plugin-proposal-optional-catch-binding/-/plugin-proposal-optional-catch-binding-7.18.6.tgz
+Source28: https://registry.npmjs.org/@babel/plugin-proposal-optional-chaining/-/plugin-proposal-optional-chaining-7.21.0.tgz
+Source29: https://registry.npmjs.org/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.18.6.tgz
+Source30: https://registry.npmjs.org/@babel/plugin-syntax-async-generators/-/plugin-syntax-async-generators-7.8.4.tgz
+Source31: https://registry.npmjs.org/@babel/plugin-syntax-dynamic-import/-/plugin-syntax-dynamic-import-7.8.3.tgz
+Source32: https://registry.npmjs.org/@babel/plugin-syntax-json-strings/-/plugin-syntax-json-strings-7.8.3.tgz
+Source33: https://registry.npmjs.org/@babel/plugin-syntax-nullish-coalescing-operator/-/plugin-syntax-nullish-coalescing-operator-7.8.3.tgz
+Source34: https://registry.npmjs.org/@babel/plugin-syntax-numeric-separator/-/plugin-syntax-numeric-separator-7.10.4.tgz
+Source35: https://registry.npmjs.org/@babel/plugin-syntax-object-rest-spread/-/plugin-syntax-object-rest-spread-7.8.3.tgz
+Source36: https://registry.npmjs.org/@babel/plugin-syntax-optional-catch-binding/-/plugin-syntax-optional-catch-binding-7.8.3.tgz
+Source37: https://registry.npmjs.org/@babel/plugin-syntax-optional-chaining/-/plugin-syntax-optional-chaining-7.8.3.tgz
+Source38: https://registry.npmjs.org/@babel/plugin-syntax-top-level-await/-/plugin-syntax-top-level-await-7.14.5.tgz
+Source39: https://registry.npmjs.org/@babel/plugin-transform-arrow-functions/-/plugin-transform-arrow-functions-7.27.1.tgz
+Source40: https://registry.npmjs.org/@babel/plugin-transform-async-to-generator/-/plugin-transform-async-to-generator-7.27.1.tgz
+Source41: https://registry.npmjs.org/@babel/plugin-transform-block-scoped-functions/-/plugin-transform-block-scoped-functions-7.27.1.tgz
+Source42: https://registry.npmjs.org/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.28.0.tgz
+Source43: https://registry.npmjs.org/@babel/plugin-transform-classes/-/plugin-transform-classes-7.28.3.tgz
+Source44: https://registry.npmjs.org/@babel/plugin-transform-computed-properties/-/plugin-transform-computed-properties-7.27.1.tgz
+Source45: https://registry.npmjs.org/@babel/plugin-transform-destructuring/-/plugin-transform-destructuring-7.28.0.tgz
+Source46: https://registry.npmjs.org/@babel/plugin-transform-dotall-regex/-/plugin-transform-dotall-regex-7.27.1.tgz
+Source47: https://registry.npmjs.org/@babel/plugin-transform-duplicate-keys/-/plugin-transform-duplicate-keys-7.27.1.tgz
+Source48: https://registry.npmjs.org/@babel/plugin-transform-exponentiation-operator/-/plugin-transform-exponentiation-operator-7.27.1.tgz
+Source49: https://registry.npmjs.org/@babel/plugin-transform-for-of/-/plugin-transform-for-of-7.27.1.tgz
+Source50: https://registry.npmjs.org/@babel/plugin-transform-function-name/-/plugin-transform-function-name-7.27.1.tgz
+Source51: https://registry.npmjs.org/@babel/plugin-transform-literals/-/plugin-transform-literals-7.27.1.tgz
+Source52: https://registry.npmjs.org/@babel/plugin-transform-member-expression-literals/-/plugin-transform-member-expression-literals-7.27.1.tgz
+Source53: https://registry.npmjs.org/@babel/plugin-transform-modules-amd/-/plugin-transform-modules-amd-7.27.1.tgz
+Source54: https://registry.npmjs.org/@babel/plugin-transform-modules-commonjs/-/plugin-transform-modules-commonjs-7.27.1.tgz
+Source55: https://registry.npmjs.org/@babel/plugin-transform-modules-systemjs/-/plugin-transform-modules-systemjs-7.27.1.tgz
+Source56: https://registry.npmjs.org/@babel/plugin-transform-modules-umd/-/plugin-transform-modules-umd-7.27.1.tgz
+Source57: https://registry.npmjs.org/@babel/plugin-transform-named-capturing-groups-regex/-/plugin-transform-named-capturing-groups-regex-7.27.1.tgz
+Source58: https://registry.npmjs.org/@babel/plugin-transform-new-target/-/plugin-transform-new-target-7.27.1.tgz
+Source59: https://registry.npmjs.org/@babel/plugin-transform-object-super/-/plugin-transform-object-super-7.27.1.tgz
+Source60: https://registry.npmjs.org/@babel/plugin-transform-parameters/-/plugin-transform-parameters-7.27.7.tgz
+Source61: https://registry.npmjs.org/@babel/plugin-transform-property-literals/-/plugin-transform-property-literals-7.27.1.tgz
+Source62: https://registry.npmjs.org/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.28.3.tgz
+Source63: https://registry.npmjs.org/@babel/plugin-transform-reserved-words/-/plugin-transform-reserved-words-7.27.1.tgz
+Source64: https://registry.npmjs.org/@babel/plugin-transform-shorthand-properties/-/plugin-transform-shorthand-properties-7.27.1.tgz
+Source65: https://registry.npmjs.org/@babel/plugin-transform-spread/-/plugin-transform-spread-7.27.1.tgz
+Source66: https://registry.npmjs.org/@babel/plugin-transform-sticky-regex/-/plugin-transform-sticky-regex-7.27.1.tgz
+Source67: https://registry.npmjs.org/@babel/plugin-transform-template-literals/-/plugin-transform-template-literals-7.27.1.tgz
+Source68: https://registry.npmjs.org/@babel/plugin-transform-typeof-symbol/-/plugin-transform-typeof-symbol-7.27.1.tgz
+Source69: https://registry.npmjs.org/@babel/plugin-transform-unicode-regex/-/plugin-transform-unicode-regex-7.27.1.tgz
+Source70: https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.9.5.tgz
+Source71: https://registry.npmjs.org/@babel/preset-modules/-/preset-modules-0.1.6.tgz
+Source72: https://registry.npmjs.org/@babel/template/-/template-7.27.2.tgz
+Source73: https://registry.npmjs.org/@babel/traverse/-/traverse-7.28.3.tgz
+Source74: https://registry.npmjs.org/@babel/types/-/types-7.28.2.tgz
+Source75: https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz
+Source76: https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz
+Source77: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz
+Source78: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.30.tgz
+Source79: https://registry.npmjs.org/browserslist/-/browserslist-4.25.4.tgz
+Source80: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001739.tgz
+Source81: https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.45.1.tgz
+Source82: https://registry.npmjs.org/debug/-/debug-4.4.1.tgz
+Source83: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.211.tgz
+Source84: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
+Source85: https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz
+Source86: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
+Source87: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
+Source88: https://registry.npmjs.org/jsesc/-/jsesc-3.0.2.tgz
+Source89: https://registry.npmjs.org/jsesc/-/jsesc-3.1.0.tgz
+Source90: https://registry.npmjs.org/leven/-/leven-3.1.0.tgz
+Source91: https://registry.npmjs.org/levenary/-/levenary-1.1.1.tgz
+Source92: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
+Source93: https://registry.npmjs.org/lru-cache/-/lru-cache-5.1.1.tgz
+Source94: https://registry.npmjs.org/ms/-/ms-2.1.3.tgz
+Source95: https://registry.npmjs.org/node-releases/-/node-releases-2.0.19.tgz
+Source96: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
+Source97: https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz
+Source98: https://registry.npmjs.org/regenerate-unicode-properties/-/regenerate-unicode-properties-10.2.0.tgz
+Source99: https://registry.npmjs.org/regexpu-core/-/regexpu-core-6.2.0.tgz
+Source100: https://registry.npmjs.org/regjsgen/-/regjsgen-0.8.0.tgz
+Source101: https://registry.npmjs.org/regjsparser/-/regjsparser-0.12.0.tgz
+Source102: https://registry.npmjs.org/semver/-/semver-5.7.2.tgz
+Source103: https://registry.npmjs.org/semver/-/semver-6.3.1.tgz
+Source104: https://registry.npmjs.org/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-2.0.1.tgz
+Source105: https://registry.npmjs.org/unicode-match-property-ecmascript/-/unicode-match-property-ecmascript-2.0.0.tgz
+Source106: https://registry.npmjs.org/unicode-match-property-value-ecmascript/-/unicode-match-property-value-ecmascript-2.2.0.tgz
+Source107: https://registry.npmjs.org/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.1.0.tgz
+Source108: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.1.3.tgz
+Source109: https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz
+Source110: nodejs-babel-preset-env-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+%if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(ansi-regex)) = 2.1.1
-Provides: bundled(npm(ansi-styles)) = 2.2.1
-Provides: bundled(npm(babel-code-frame)) = 6.26.0
-Provides: bundled(npm(babel-helper-builder-binary-assignment-operator-visitor)) = 6.24.1
-Provides: bundled(npm(babel-helper-call-delegate)) = 6.24.1
-Provides: bundled(npm(babel-helper-define-map)) = 6.26.0
-Provides: bundled(npm(babel-helper-explode-assignable-expression)) = 6.24.1
-Provides: bundled(npm(babel-helper-function-name)) = 6.24.1
-Provides: bundled(npm(babel-helper-get-function-arity)) = 6.24.1
-Provides: bundled(npm(babel-helper-hoist-variables)) = 6.24.1
-Provides: bundled(npm(babel-helper-optimise-call-expression)) = 6.24.1
-Provides: bundled(npm(babel-helper-regex)) = 6.26.0
-Provides: bundled(npm(babel-helper-remap-async-to-generator)) = 6.24.1
-Provides: bundled(npm(babel-helper-replace-supers)) = 6.24.1
-Provides: bundled(npm(babel-messages)) = 6.23.0
-Provides: bundled(npm(babel-plugin-check-es2015-constants)) = 6.22.0
-Provides: bundled(npm(babel-plugin-syntax-async-functions)) = 6.13.0
-Provides: bundled(npm(babel-plugin-syntax-exponentiation-operator)) = 6.13.0
-Provides: bundled(npm(babel-plugin-syntax-trailing-function-commas)) = 6.22.0
-Provides: bundled(npm(babel-plugin-transform-async-to-generator)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-arrow-functions)) = 6.22.0
-Provides: bundled(npm(babel-plugin-transform-es2015-block-scoped-functions)) = 6.22.0
-Provides: bundled(npm(babel-plugin-transform-es2015-block-scoping)) = 6.26.0
-Provides: bundled(npm(babel-plugin-transform-es2015-classes)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-computed-properties)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-destructuring)) = 6.23.0
-Provides: bundled(npm(babel-plugin-transform-es2015-duplicate-keys)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-for-of)) = 6.23.0
-Provides: bundled(npm(babel-plugin-transform-es2015-function-name)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-literals)) = 6.22.0
-Provides: bundled(npm(babel-plugin-transform-es2015-modules-amd)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-modules-commonjs)) = 6.26.2
-Provides: bundled(npm(babel-plugin-transform-es2015-modules-systemjs)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-modules-umd)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-object-super)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-parameters)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-shorthand-properties)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-spread)) = 6.22.0
-Provides: bundled(npm(babel-plugin-transform-es2015-sticky-regex)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-es2015-template-literals)) = 6.22.0
-Provides: bundled(npm(babel-plugin-transform-es2015-typeof-symbol)) = 6.23.0
-Provides: bundled(npm(babel-plugin-transform-es2015-unicode-regex)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-exponentiation-operator)) = 6.24.1
-Provides: bundled(npm(babel-plugin-transform-regenerator)) = 6.26.0
-Provides: bundled(npm(babel-plugin-transform-strict-mode)) = 6.24.1
-Provides: bundled(npm(babel-preset-env)) = 1.7.0
-Provides: bundled(npm(babel-runtime)) = 6.26.0
-Provides: bundled(npm(babel-template)) = 6.26.0
-Provides: bundled(npm(babel-traverse)) = 6.26.0
-Provides: bundled(npm(babel-types)) = 6.26.0
-Provides: bundled(npm(babylon)) = 6.18.0
-Provides: bundled(npm(browserslist)) = 3.2.8
-Provides: bundled(npm(caniuse-lite)) = 1.0.30000998
-Provides: bundled(npm(chalk)) = 1.1.3
-Provides: bundled(npm(core-js)) = 2.6.9
-Provides: bundled(npm(debug)) = 2.6.9
-Provides: bundled(npm(electron-to-chromium)) = 1.3.273
-Provides: bundled(npm(escape-string-regexp)) = 1.0.5
+Provides: bundled(npm(@babel/code-frame)) = 7.27.1
+Provides: bundled(npm(@babel/compat-data)) = 7.28.0
+Provides: bundled(npm(@babel/generator)) = 7.28.3
+Provides: bundled(npm(@babel/helper-annotate-as-pure)) = 7.27.3
+Provides: bundled(npm(@babel/helper-compilation-targets)) = 7.27.2
+Provides: bundled(npm(@babel/helper-create-regexp-features-plugin)) = 7.27.1
+Provides: bundled(npm(@babel/helper-environment-visitor)) = 7.24.7
+Provides: bundled(npm(@babel/helper-globals)) = 7.28.0
+Provides: bundled(npm(@babel/helper-member-expression-to-functions)) = 7.27.1
+Provides: bundled(npm(@babel/helper-module-imports)) = 7.27.1
+Provides: bundled(npm(@babel/helper-module-transforms)) = 7.28.3
+Provides: bundled(npm(@babel/helper-optimise-call-expression)) = 7.27.1
+Provides: bundled(npm(@babel/helper-plugin-utils)) = 7.27.1
+Provides: bundled(npm(@babel/helper-remap-async-to-generator)) = 7.27.1
+Provides: bundled(npm(@babel/helper-replace-supers)) = 7.27.1
+Provides: bundled(npm(@babel/helper-skip-transparent-expression-wrappers)) = 7.27.1
+Provides: bundled(npm(@babel/helper-string-parser)) = 7.27.1
+Provides: bundled(npm(@babel/helper-validator-identifier)) = 7.27.1
+Provides: bundled(npm(@babel/helper-validator-option)) = 7.27.1
+Provides: bundled(npm(@babel/helper-wrap-function)) = 7.28.3
+Provides: bundled(npm(@babel/parser)) = 7.28.3
+Provides: bundled(npm(@babel/plugin-proposal-async-generator-functions)) = 7.20.7
+Provides: bundled(npm(@babel/plugin-proposal-dynamic-import)) = 7.18.6
+Provides: bundled(npm(@babel/plugin-proposal-json-strings)) = 7.18.6
+Provides: bundled(npm(@babel/plugin-proposal-nullish-coalescing-operator)) = 7.18.6
+Provides: bundled(npm(@babel/plugin-proposal-numeric-separator)) = 7.18.6
+Provides: bundled(npm(@babel/plugin-proposal-object-rest-spread)) = 7.20.7
+Provides: bundled(npm(@babel/plugin-proposal-optional-catch-binding)) = 7.18.6
+Provides: bundled(npm(@babel/plugin-proposal-optional-chaining)) = 7.21.0
+Provides: bundled(npm(@babel/plugin-proposal-unicode-property-regex)) = 7.18.6
+Provides: bundled(npm(@babel/plugin-syntax-async-generators)) = 7.8.4
+Provides: bundled(npm(@babel/plugin-syntax-dynamic-import)) = 7.8.3
+Provides: bundled(npm(@babel/plugin-syntax-json-strings)) = 7.8.3
+Provides: bundled(npm(@babel/plugin-syntax-nullish-coalescing-operator)) = 7.8.3
+Provides: bundled(npm(@babel/plugin-syntax-numeric-separator)) = 7.10.4
+Provides: bundled(npm(@babel/plugin-syntax-object-rest-spread)) = 7.8.3
+Provides: bundled(npm(@babel/plugin-syntax-optional-catch-binding)) = 7.8.3
+Provides: bundled(npm(@babel/plugin-syntax-optional-chaining)) = 7.8.3
+Provides: bundled(npm(@babel/plugin-syntax-top-level-await)) = 7.14.5
+Provides: bundled(npm(@babel/plugin-transform-arrow-functions)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-async-to-generator)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-block-scoped-functions)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-block-scoping)) = 7.28.0
+Provides: bundled(npm(@babel/plugin-transform-classes)) = 7.28.3
+Provides: bundled(npm(@babel/plugin-transform-computed-properties)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-destructuring)) = 7.28.0
+Provides: bundled(npm(@babel/plugin-transform-dotall-regex)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-duplicate-keys)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-exponentiation-operator)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-for-of)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-function-name)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-literals)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-member-expression-literals)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-modules-amd)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-modules-commonjs)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-modules-systemjs)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-modules-umd)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-named-capturing-groups-regex)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-new-target)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-object-super)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-parameters)) = 7.27.7
+Provides: bundled(npm(@babel/plugin-transform-property-literals)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-regenerator)) = 7.28.3
+Provides: bundled(npm(@babel/plugin-transform-reserved-words)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-shorthand-properties)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-spread)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-sticky-regex)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-template-literals)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-typeof-symbol)) = 7.27.1
+Provides: bundled(npm(@babel/plugin-transform-unicode-regex)) = 7.27.1
+Provides: bundled(npm(@babel/preset-env)) = 7.9.5
+Provides: bundled(npm(@babel/preset-modules)) = 0.1.6
+Provides: bundled(npm(@babel/template)) = 7.27.2
+Provides: bundled(npm(@babel/traverse)) = 7.28.3
+Provides: bundled(npm(@babel/types)) = 7.28.2
+Provides: bundled(npm(@jridgewell/gen-mapping)) = 0.3.13
+Provides: bundled(npm(@jridgewell/resolve-uri)) = 3.1.2
+Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.5.5
+Provides: bundled(npm(@jridgewell/trace-mapping)) = 0.3.30
+Provides: bundled(npm(browserslist)) = 4.25.4
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001739
+Provides: bundled(npm(core-js-compat)) = 3.45.1
+Provides: bundled(npm(debug)) = 4.4.1
+Provides: bundled(npm(electron-to-chromium)) = 1.5.211
+Provides: bundled(npm(escalade)) = 3.2.0
 Provides: bundled(npm(esutils)) = 2.0.3
-Provides: bundled(npm(globals)) = 9.18.0
-Provides: bundled(npm(has-ansi)) = 2.0.0
 Provides: bundled(npm(invariant)) = 2.2.4
-Provides: bundled(npm(js-tokens)) = 3.0.2
 Provides: bundled(npm(js-tokens)) = 4.0.0
-Provides: bundled(npm(jsesc)) = 0.5.0
-Provides: bundled(npm(lodash)) = 4.17.15
+Provides: bundled(npm(jsesc)) = 3.0.2
+Provides: bundled(npm(jsesc)) = 3.1.0
+Provides: bundled(npm(leven)) = 3.1.0
+Provides: bundled(npm(levenary)) = 1.1.1
 Provides: bundled(npm(loose-envify)) = 1.4.0
-Provides: bundled(npm(ms)) = 2.0.0
-Provides: bundled(npm(private)) = 0.1.8
-Provides: bundled(npm(regenerate)) = 1.4.0
-Provides: bundled(npm(regenerator-runtime)) = 0.11.1
-Provides: bundled(npm(regenerator-transform)) = 0.10.1
-Provides: bundled(npm(regexpu-core)) = 2.0.0
-Provides: bundled(npm(regjsgen)) = 0.2.0
-Provides: bundled(npm(regjsparser)) = 0.1.5
-Provides: bundled(npm(semver)) = 5.7.1
-Provides: bundled(npm(strip-ansi)) = 3.0.1
-Provides: bundled(npm(supports-color)) = 2.0.0
-Provides: bundled(npm(to-fast-properties)) = 1.0.3
+Provides: bundled(npm(lru-cache)) = 5.1.1
+Provides: bundled(npm(ms)) = 2.1.3
+Provides: bundled(npm(node-releases)) = 2.0.19
+Provides: bundled(npm(picocolors)) = 1.1.1
+Provides: bundled(npm(regenerate)) = 1.4.2
+Provides: bundled(npm(regenerate-unicode-properties)) = 10.2.0
+Provides: bundled(npm(regexpu-core)) = 6.2.0
+Provides: bundled(npm(regjsgen)) = 0.8.0
+Provides: bundled(npm(regjsparser)) = 0.12.0
+Provides: bundled(npm(semver)) = 5.7.2
+Provides: bundled(npm(semver)) = 6.3.1
+Provides: bundled(npm(unicode-canonical-property-names-ecmascript)) = 2.0.1
+Provides: bundled(npm(unicode-match-property-ecmascript)) = 2.0.0
+Provides: bundled(npm(unicode-match-property-value-ecmascript)) = 2.2.0
+Provides: bundled(npm(unicode-property-aliases-ecmascript)) = 2.1.0
+Provides: bundled(npm(update-browserslist-db)) = 1.1.3
+Provides: bundled(npm(yallist)) = 3.1.1
 AutoReq: no
 AutoProv: no
 
@@ -199,7 +259,7 @@ for tgz in %{sources}; do
 done
 %{?scl:end_of_scl}
 
-%setup -T -q -a 79 -D -n %{npm_cache_dir}
+%setup -T -q -a 110 -D -n %{npm_cache_dir}
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
@@ -219,11 +279,12 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %files
 %{nodejs_sitelib}/%{npm_name}
 %license node_modules/%{npm_name}/LICENSE
-%doc node_modules/%{npm_name}/CHANGELOG.md
-%doc node_modules/%{npm_name}/CONTRIBUTING.md
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Sep 02 2025 Evgeni Golov 7.9.5-1
+- Update to 7.9.5
+
 * Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-5
 - Use --legacy-peer-deps during npm install
 
