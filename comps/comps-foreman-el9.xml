@@ -50,6 +50,7 @@
       <packagereq type="default">nodejs-babel-plugin-transform-class-properties</packagereq>
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
+      <packagereq type="default">nodejs-babel-runtime</packagereq>
       <packagereq type="default">nodejs-bootstrap-sass</packagereq>
       <packagereq type="default">nodejs-buffer</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
