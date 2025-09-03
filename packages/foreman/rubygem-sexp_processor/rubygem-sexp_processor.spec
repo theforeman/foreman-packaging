@@ -2,7 +2,7 @@
 %global gem_name sexp_processor
 
 Name: rubygem-%{gem_name}
-Version: 4.17.3
+Version: 4.17.4
 Release: 1%{?dist}
 Summary: sexp_processor branches from ParseTree bringing all the generic sexp processing tools with it
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.17.4-1
+- Update to 4.17.4
+
 * Tue Nov 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.17.3-1
 - Update to 4.17.3
 
