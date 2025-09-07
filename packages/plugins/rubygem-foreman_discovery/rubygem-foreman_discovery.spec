@@ -4,8 +4,8 @@
 %global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 26.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 26.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: MaaS Discovery Plugin for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_discovery
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Sep 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 26.0.1-1
+- Update to 26.0.1
+
 * Tue Jul 15 2025 Evgeni Golov - 26.0.0-2
 - Rebuild for removal of theforeman/vendor
 
