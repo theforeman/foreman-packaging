@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_openscap
 %global plugin_name openscap
-%global foreman_min_version 3.15
+%global foreman_min_version 3.16
 
 Name: rubygem-%{gem_name}
-Version: 11.0.2
-Release: 2%{?foremandist}%{?dist}
+Version: 11.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 License: GPLv3
 URL: https://github.com/theforeman/foreman_openscap
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Sep 08 2025 Oleh Fedorenko <ofedoren@redhat.com> - 11.1.0-1
+- Update to 11.1.0
+
 * Tue Jul 15 2025 Evgeni Golov - 11.0.2-2
 - Rebuild for removal of theforeman/vendor
 
