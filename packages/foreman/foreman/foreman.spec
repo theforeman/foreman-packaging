@@ -4,9 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 11
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 3.16.0
@@ -943,6 +941,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Sep 09 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-1
+- Release foreman 3.16.0
+
 * Tue Aug 26 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.16.0-0.11.rc2
 - Release foreman 3.16.0rc2
 
