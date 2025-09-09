@@ -1,11 +1,12 @@
 Name:           cjson
 Version:        1.7.18
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Ultralightweight JSON parser in ANSI C
 
 License:        MIT and ASL 2.0
 URL:            https://github.com/DaveGamble/cJSON
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:         0001-fix_the_incorrect_check_in_decode_array_index_from_pointer.patch
 
 BuildRequires:  gcc
 BuildRequires:  cmake
@@ -25,7 +26,7 @@ The %{name}-devel package contains libraries and header files for
 developing applications that use cJSON.
 
 %prep
-%autosetup -n cJSON-%{version}
+%autosetup -p1 -n cJSON-%{version}
 
 %build
 %cmake -DENABLE_CJSON_TEST=ON -DENABLE_TARGET_EXPORT=ON
@@ -54,6 +55,9 @@ rm -f %{buildroot}%{_libdir}/*.{la,a}
 %{_includedir}/cjson/
 
 %changelog
+* Tue Sep 09 2025 Odilon Sousa <osousa@redhat.com> - 1.7.18-2
+- Add patch to close CVE-2025-57052
+
 * Wed May 28 2025 Odilon Sousa <osousa@redhat.com> - 1.7.18-1
 - Release cjson 1.7.18
 
