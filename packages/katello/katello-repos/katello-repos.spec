@@ -4,7 +4,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Thu Sep 11 2025 Patrick Creech <pcreech@redhat.com> - 4.18.0-0.2.rc2
+- Release katello-repos 4.18.0rc2
+
 * Thu Aug 14 2025 Odilon Sousa <osousa@redhat.com> - 4.18.0-0.2.rc1
 - Switch Pulpcore to 3.73 repo
 
