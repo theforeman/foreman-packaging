@@ -7,7 +7,7 @@
 Name: ansiblerole-foreman_scap_client
 Summary: Packaging of the foreman_scap_client Ansible role
 Version: 0.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv3
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/archive/%{version}.tar.gz#/%{role_name}-%{version}.tar.gz
@@ -21,7 +21,7 @@ Requires: (ansible or ansible-core)
 %endif
 
 %description
-This package installs the foreman_scap_client Ansibile role.
+This package installs the foreman_scap_client Ansible role.
 
 Make sure that "/usr/share/ansible/roles" is on your Ansible role_path.
 
@@ -40,6 +40,9 @@ cp -pR %{repo_name}-%{version} %{buildroot}%{_datadir}/ansible/roles/%{role_orgn
 %doc %{repo_name}-%{version}/README.md
 
 %changelog
+* Fri Sep 12 2025 Maximilian Kolb - 0.4.0-2
+- Fix typo in package description
+
 * Thu Mar 06 2025 Adam Ruzicka <aruzicka@redhat.com> - 0.4.0-1
 - Update to 0.4.0
 
