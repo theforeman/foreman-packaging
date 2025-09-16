@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 5.0.3
+Version: 5.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 License: GPLv3
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Sep 16 2025 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.4-1
+- Update to 5.0.4
+
 * Thu Aug 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.3-1
 - Update to 5.0.3
 
