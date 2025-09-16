@@ -35,10 +35,6 @@ cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-%nodejs_symlink_deps
-
-%check
-%{nodejs_symlink_deps} --check
 
 %files
 %{nodejs_sitelib}/%{npm_name}
