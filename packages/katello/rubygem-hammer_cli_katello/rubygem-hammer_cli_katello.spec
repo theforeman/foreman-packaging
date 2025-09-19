@@ -2,7 +2,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 1
+%global release 2
 %global prereleasesource pre.main
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -18,9 +18,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 # start specfile generated dependencies
 Requires: ruby >= 2.7
-Requires: ruby < 3.2
+Requires: ruby < 4
 BuildRequires: ruby >= 2.7
-BuildRequires: ruby < 3.2
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: hammer-cli-plugin-%{plugin_name} = %{version}
@@ -73,6 +73,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Sep 19 2025 Evgeni Golov - 1.19.0-0.2.pre.main
+- Allow Ruby < 4
+
 * Wed Aug 20 2025 Pavan Soma Shekar <shekarpavan97@gmail.com> - 1.19.0-0.1.pre.main
 - Bump version to 1.19.0
 
