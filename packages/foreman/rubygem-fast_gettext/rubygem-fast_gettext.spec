@@ -3,13 +3,14 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 License: MIT and Ruby
 URL: https://github.com/grosser/fast_gettext
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: (rubygem(prime) or ruby-default-gems < 3.4)
+# prime is a default gem in Ruby < 3.1, bundled in >= 3.1
+Requires: (rubygem(prime) or ruby-default-gems < 3.1)
 
 # start specfile generated dependencies
 Requires: ruby >= 2.5.0
@@ -61,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/Readme.md
 
 %changelog
+* Sat Sep 20 2025 Evgeni Golov - 2.4.0-2
+- Correct dependency on prime for Ruby >= 3.1
+
 * Tue Aug 13 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.4.0-1
 - Update to 2.4.0
 
