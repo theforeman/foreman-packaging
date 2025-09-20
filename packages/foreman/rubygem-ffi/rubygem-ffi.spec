@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.16.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby FFI
 License: BSD-3-Clause
 URL: https://github.com/ffi/ffi/wiki
@@ -18,6 +18,8 @@ BuildRequires: rubygems-devel
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
 # end specfile generated dependencies
+
+BuildRequires: libffi-devel
 
 %description
 Ruby FFI library.
@@ -85,6 +87,9 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/ffi.gemspec
 
 %changelog
+* Sat Sep 20 2025 Evgeni Golov - 1.16.3-2
+- Use system libffi
+
 * Mon Nov 06 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.16.3-1
 - Update to 1.16.3
 
