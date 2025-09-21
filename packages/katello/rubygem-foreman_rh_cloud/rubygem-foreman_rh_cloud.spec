@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 13.0.2
+Version: 13.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -22,7 +22,7 @@ BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildRequires: rubygem(foreman_ansible) >= 15.0.0
 BuildRequires: rubygem(foreman-tasks) >= 10.0.0
-BuildRequires: rubygem(katello) >= 4.14.0.rc1.1
+BuildRequires: rubygem(katello) >= 4.18
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Sep 21 2025 Foreman Packaging Automation <packaging@theforeman.org> - 13.0.3-1
+- Update to 13.0.3
+
 * Tue Sep 16 2025 Foreman Packaging Automation <packaging@theforeman.org> - 13.0.2-1
 - Update to 13.0.2
 
