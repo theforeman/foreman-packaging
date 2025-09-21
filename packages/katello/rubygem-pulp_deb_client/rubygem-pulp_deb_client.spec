@@ -2,7 +2,7 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 3.5.2
+Version: 3.5.3
 Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Sep 21 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.3-1
+- Update to 3.5.3
+
 * Wed Apr 23 2025 Ian Ballou <ianballou67@gmail.com> - 3.5.2-1
 - Update to 3.5.2
 
