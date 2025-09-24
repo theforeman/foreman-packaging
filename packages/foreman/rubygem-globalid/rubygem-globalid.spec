@@ -2,7 +2,7 @@
 %global gem_name globalid
 
 Name: rubygem-%{gem_name}
-Version: 1.2.1
+Version: 1.3.0
 Release: 1%{?dist}
 Summary: Refer to any model with a URI: gid://app/class/id
 License: MIT
@@ -10,8 +10,8 @@ URL: https://www.rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5.0
-BuildRequires: ruby >= 2.5.0
+Requires: ruby >= 2.7.0
+BuildRequires: ruby >= 2.7.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 24 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.0-1
+- Update to 1.3.0
+
 * Wed Sep 13 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.2.1-1
 - Update to 1.2.1
 
