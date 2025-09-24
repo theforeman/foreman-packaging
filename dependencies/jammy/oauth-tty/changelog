@@ -1,3 +1,9 @@
+ruby-oauth-tty (1.0.6-1) stable; urgency=low
+
+  * 1.0.6 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 24 Sep 2025 04:11:28 +0000
+
 ruby-oauth-tty (1.0.5-2) stable; urgency=low
 
   * Add 'Replaces: ruby-oauth', to smoothen upgrade that moves the binary
