@@ -56,6 +56,11 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %license %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/SECURITY.md
+%exclude %{gem_instdir}/CITATION.cff
+%exclude %{gem_instdir}/FUNDING.md
+%exclude %{gem_instdir}/REEK
+%exclude %{gem_instdir}/RUBOCOP.md
+%exclude %{gem_instdir}/sig/
 %{gem_instdir}/exe
 %{gem_libdir}
 %exclude %{gem_cache}
