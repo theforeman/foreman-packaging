@@ -2,7 +2,7 @@
 %global gem_name oauth
 
 Name: rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.1.2
 Release: 1%{?dist}
 Summary: OAuth Core Ruby implementation
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/oauth-xx/oauth-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.7
-BuildRequires: ruby >= 2.7
+Requires: ruby >= 2.3
+BuildRequires: ruby >= 2.3
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Wed Sep 24 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.2-1
+- Update to 1.1.2
+
 * Mon Oct 31 2022 Eric D. Helms <ericdhelms@gmail.com> 1.1.0-1
 - Update to 1.1.0-1
 
