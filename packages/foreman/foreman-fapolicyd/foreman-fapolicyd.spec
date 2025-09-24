@@ -1,6 +1,6 @@
 Name:     foreman-fapolicyd
-Version:  1.0.1
-Release:  3%{?dist}
+Version:  1.1.0
+Release:  1%{?dist}
 Summary:  Foreman fapolicyd rules
 
 Group:    System Environment/Base
@@ -26,6 +26,7 @@ Foreman fapolicyd rules
 %install
 
 mkdir -p %{buildroot}%{_sysconfdir}/fapolicyd/rules.d
+cp 15-foreman-container.rules %{buildroot}%{_sysconfdir}/fapolicyd/rules.d/15-foreman-container.rules
 cp 60-foreman.rules %{buildroot}%{_sysconfdir}/fapolicyd/rules.d/60-foreman.rules
 cp 61-foreman-proxy.rules %{buildroot}%{_sysconfdir}/fapolicyd/rules.d/61-foreman-proxy.rules
 
@@ -41,6 +42,7 @@ cp 61-foreman-proxy.rules %{buildroot}%{_sysconfdir}/fapolicyd/rules.d/61-forema
 %systemd_postun_with_restart fapolicyd.service
 
 %files
+%attr(0644,root,fapolicyd) %{_sysconfdir}/fapolicyd/rules.d/15-foreman-container.rules
 %attr(0644,root,fapolicyd) %{_sysconfdir}/fapolicyd/rules.d/60-foreman.rules
 
 %package -n foreman-proxy-fapolicyd
@@ -67,6 +69,9 @@ Foreman Proxy fapolicyd rules
 %attr(0644,root,fapolicyd) %{_sysconfdir}/fapolicyd/rules.d/61-foreman-proxy.rules
 
 %changelog
+* Wed Sep 24 2025 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-1
+- Release foreman-fapolicyd 1.1.0
+
 * Tue Sep 10 2024 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-3
 - Add fapolicyd restart to ensure rules get loaded
 
