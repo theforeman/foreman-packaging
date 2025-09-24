@@ -47,8 +47,7 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
-%license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/TODO
+%license %{gem_instdir}/LICENSE.txt
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
