@@ -47,6 +47,10 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
+%exclude %{gem_instdir}/CITATION.cff
+%exclude %{gem_instdir}/FUNDING.md
+%exclude %{gem_instdir}/REEK
+%exclude %{gem_instdir}/RUBOCOP.md
 %license %{gem_instdir}/LICENSE.txt
 %{gem_libdir}
 %exclude %{gem_cache}
