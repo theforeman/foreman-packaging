@@ -1,0 +1,22 @@
+Source: ruby-version-gem
+Section: ruby
+Priority: optional
+Maintainer: Evgeni Golov <evgeni@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               rake,
+               ruby-rspec,
+Standards-Version: 4.5.0
+Homepage: https://gitlab.com/oauth-xx/version_gem
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-version-gem
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: Enhance your VERSION! Sugar for Version modules.
+ Versions are good. Versions are cool. Versions will win.
