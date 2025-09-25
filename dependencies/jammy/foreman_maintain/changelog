@@ -1,3 +1,9 @@
+ruby-foreman-maintain (1.13.3-1) stable; urgency=low
+
+  * 1.13.3 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 25 Sep 2025 05:58:24 +0000
+
 ruby-foreman-maintain (1.13.2-1) stable; urgency=low
 
   * 1.13.2 released
