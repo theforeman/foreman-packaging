@@ -209,6 +209,7 @@
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_shellhooks</packagereq>
       <packagereq type="default">rubygem-timeliness</packagereq>
+      <packagereq type="default">rubygem-treetop</packagereq>
       <packagereq type="default">rubygem-ttfunk</packagereq>
       <packagereq type="default">rubygem-vault</packagereq>
       <packagereq type="default">rubygem-zscheduler</packagereq>
@@ -386,6 +387,7 @@
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_shellhooks-doc</packagereq>
       <packagereq type="default">rubygem-timeliness-doc</packagereq>
+      <packagereq type="default">rubygem-treetop-doc</packagereq>
       <packagereq type="default">rubygem-ttfunk-doc</packagereq>
       <packagereq type="default">rubygem-vault-doc</packagereq>
       <packagereq type="default">rubygem-zscheduler-doc</packagereq>

@@ -707,6 +707,7 @@ foreman_plugin_packages_tier2:
     rubygem-foreman_wreckingball: {}
     rubygem-llhttp: {}
     rubygem-puppetdb_foreman: {}
+    rubygem-treetop: {}
 
 fdi_plugin_packages:
   vars:
