@@ -163,6 +163,7 @@
       <packagereq type="default">rubygem-net-ssh-multi</packagereq>
       <packagereq type="default">rubygem-netbox-client-ruby</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
+      <packagereq type="default">rubygem-opennebula</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-openscap_parser</packagereq>
       <packagereq type="default">rubygem-ovirt-engine-sdk</packagereq>
@@ -340,6 +341,7 @@
       <packagereq type="default">rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-multi-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
+      <packagereq type="default">rubygem-opennebula-doc</packagereq>
       <packagereq type="default">rubygem-openscap-doc</packagereq>
       <packagereq type="default">rubygem-openscap_parser-doc</packagereq>
       <packagereq type="default">rubygem-ovirt-engine-sdk-doc</packagereq>
