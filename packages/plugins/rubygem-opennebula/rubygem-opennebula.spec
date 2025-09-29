@@ -2,8 +2,8 @@
 %global gem_name opennebula
 
 Name: rubygem-%{gem_name}
-Version: 6.8.2
-Release: 2%{?dist}
+Version: 7.0.0
+Release: 1%{?dist}
 Summary: OpenNebula Client API
 License: Apache-2.0
 URL: https://opennebula.io
@@ -49,7 +49,6 @@ cp -a .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/NOTICE
 %{gem_libdir}
-%exclude %{gem_libdir}/rest_client.rb
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -58,6 +57,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Mon Sep 29 2025 Evgeni Golov - 7.0.0-1
+- Update to 7.0.0
+
 * Fri Sep 26 2025 Evgeni Golov 6.8.2-2
 - Don't install rest_client.rb, which breaks the real rest-client gem
 
