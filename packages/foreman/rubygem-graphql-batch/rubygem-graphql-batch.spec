@@ -50,6 +50,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.ruby-version
 %license %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/bin
 %{gem_libdir}
