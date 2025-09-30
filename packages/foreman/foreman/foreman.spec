@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -229,10 +229,6 @@ BuildRequires: (npm(urijs) >= 1.19.4 with npm(urijs) < 2.0.0)
 BuildRequires: (npm(uuid) >= 3.3.2 with npm(uuid) < 4.0.0)
 BuildRequires: (npm(yup) >= 0.29.3 with npm(yup) < 1.0.0)
 # end package.json dependencies BuildRequires
-
-%generate_buildrequires
-# Generate rubygem BuildRequires with a script that uses bundler
-%{SOURCE1}
 
 %package cli
 Summary: Foreman CLI
@@ -616,6 +612,10 @@ plugins required for Foreman to work.
 
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
+%generate_buildrequires
+# Generate rubygem BuildRequires with a script that uses bundler
+%{SOURCE1}
+
 
 %build
 #build man pages
@@ -943,6 +943,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Sep 30 2025 Odilon Sousa <osousa@redhat.com> - 3.17.0-0.2.develop
+- Update %generate_buildrequires macro section after the %prep phase
+
 * Wed Aug 13 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.17.0-0.1.develop
 - Bump version to 3.17-develop
 
