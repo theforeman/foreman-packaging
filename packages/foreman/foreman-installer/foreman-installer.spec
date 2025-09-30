@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Sep 30 2025 Bernhard Suttner <suttner@atix.de> - 1:3.17.0-0.2.develop
+- Build with openvox
+
 * Wed Aug 13 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 1:3.17.0-0.1.develop
 - Bump version to 3.17-develop
 
