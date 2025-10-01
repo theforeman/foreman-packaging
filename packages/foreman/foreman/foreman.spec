@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -25,8 +25,6 @@ BuildArch:  noarch
 
 # Plugin was removed in Foreman 3.3, 3.5 includes DB cleanup
 Obsoletes: rubygem-foreman_docker < 5.0.0-4
-# oVirt integration was removed in Foreman 3.16
-Obsoletes: %{name}-ovirt < %{version}-%{release}
 
 Requires: (%{name}-selinux if selinux-policy-targeted)
 
@@ -943,6 +941,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Oct 01 2025 Frank Wall <github-oss-noreply@markt.de> - 3.17.0-0.3.develop
+- Remove Obsoletes entry to fix migration to new ovirt plugin
+
 * Tue Sep 30 2025 Odilon Sousa <osousa@redhat.com> - 3.17.0-0.2.develop
 - Update %generate_buildrequires macro section after the %prep phase
 
