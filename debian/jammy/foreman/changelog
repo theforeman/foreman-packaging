@@ -1,3 +1,9 @@
+foreman (3.16.0-2) stable; urgency=low
+
+  * Fix upgrade to new ovirt plugin
+
+ -- Frank Wall <github-oss-noreply@markt.de>  Tue, 04 Nov 2025 10:10:42 +0200
+
 foreman (3.16.0-1) stable; urgency=low
 
   * 3.16.0 released
