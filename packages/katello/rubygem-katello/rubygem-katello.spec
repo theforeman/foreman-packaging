@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.19.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -46,15 +46,15 @@ BuildRequires: rubygem(fx) < 1.0
 BuildRequires: rubygem(pg)
 BuildRequires: rubygem(spidr)
 BuildRequires: (rubygem(faraday) >= 1.10.2 with rubygem(faraday) < 1.11.0)
-BuildRequires: (rubygem(pulpcore_client) >= 3.73.0 with rubygem(pulpcore_client) < 3.74.0)
-BuildRequires: (rubygem(pulp_file_client) >= 3.73.0 with rubygem(pulp_file_client) < 3.74.0)
-BuildRequires: (rubygem(pulp_ansible_client) >= 0.24.1 with rubygem(pulp_ansible_client) < 0.25.0)
-BuildRequires: (rubygem(pulp_container_client) >= 2.24.0 with rubygem(pulp_container_client) < 2.25.0)
-BuildRequires: (rubygem(pulp_deb_client) >= 3.5.1 with rubygem(pulp_deb_client) < 3.6.0)
-BuildRequires: (rubygem(pulp_rpm_client) >= 3.29.0 with rubygem(pulp_rpm_client) < 3.30.0)
-BuildRequires: (rubygem(pulp_certguard_client) >= 3.73.0 with rubygem(pulp_certguard_client) < 3.74.0)
-BuildRequires: (rubygem(pulp_python_client) >= 3.13.0 with rubygem(pulp_python_client) < 3.14.0)
-BuildRequires: (rubygem(pulp_ostree_client) >= 2.4.6 with rubygem(pulp_ostree_client) < 2.5.0)
+BuildRequires: (rubygem(pulpcore_client) >= 3.85.0 with rubygem(pulpcore_client) < 3.86.0)
+BuildRequires: (rubygem(pulp_file_client) >= 3.85.0 with rubygem(pulp_file_client) < 3.86.0)
+BuildRequires: (rubygem(pulp_ansible_client) >= 0.28.0 with rubygem(pulp_ansible_client) < 0.29.0)
+BuildRequires: (rubygem(pulp_container_client) >= 2.26.0 with rubygem(pulp_container_client) < 2.27.0)
+BuildRequires: (rubygem(pulp_deb_client) >= 3.7.0 with rubygem(pulp_deb_client) < 3.8.0)
+BuildRequires: (rubygem(pulp_rpm_client) >= 3.32.0 with rubygem(pulp_rpm_client) < 3.33.0)
+BuildRequires: (rubygem(pulp_certguard_client) >= 3.85.0 with rubygem(pulp_certguard_client) < 3.86.0)
+BuildRequires: (rubygem(pulp_python_client) >= 3.19.0 with rubygem(pulp_python_client) < 3.20.0)
+BuildRequires: (rubygem(pulp_ostree_client) >= 2.5.0 with rubygem(pulp_ostree_client) < 2.6.0)
 BuildRequires: (rubygem(deface) >= 1.0.2 with rubygem(deface) < 2.0.0)
 BuildRequires: (rubygem(angular-rails-templates) >= 1.1 with rubygem(angular-rails-templates) < 2)
 BuildRequires: (rubygem(jquery-ui-rails) >= 6.0 with rubygem(jquery-ui-rails) < 7.0)
@@ -166,6 +166,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Thu Oct 2 2025 Ian Ballou <ianballou67@gmail.com> - 4.19.0-0.2.pre.master
+- Bump Pulp binding requirements to 3.85 versions
+
 * Tue Aug 12 2025 Pavan Soma Shekar <shekarpavan97@gmail.com> - 4.19.0-0.1.pre.master
 - Bump version to 4.19.0
 
