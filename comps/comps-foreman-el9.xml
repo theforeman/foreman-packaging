@@ -10,6 +10,7 @@
       <packagereq type="default">dynflow-utils</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
+      <packagereq type="default">foremanctl</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat-tftpboot</packagereq>
