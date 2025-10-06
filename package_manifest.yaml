@@ -525,6 +525,7 @@ foreman_installer_packages:
     puppet-agent-puppet-strings: {}
     puppet-agent-rgen: {}
     puppet-agent-yard: {}
+    python-obsah: {}
     rubygem-ansi: {}
     rubygem-kafo: {}
     rubygem-kafo_parsers: {}

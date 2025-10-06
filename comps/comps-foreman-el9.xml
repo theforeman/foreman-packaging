@@ -165,6 +165,7 @@
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-rgen</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
+      <packagereq type="default">python3-obsah</packagereq>
       <packagereq type="default">python3-websockify</packagereq>
       <packagereq type="default">rubygem-actioncable</packagereq>
       <packagereq type="default">rubygem-actionmailbox</packagereq>
