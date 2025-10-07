@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 3.13
+%global foreman_min_version 3.17
 
 Name: rubygem-%{gem_name}
-Version: 13.0.5
+Version: 13.0.6
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Oct 07 2025 Chris Roberts <chrobert@redhat.com> - 13.0.6-1
+- Update to 13.0.6
+
 * Thu Oct 02 2025 Chris Roberts <chrobert@redhat.com> - 13.0.5-1
 - Update to 13.0.5
 
