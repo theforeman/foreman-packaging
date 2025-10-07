@@ -12,7 +12,7 @@ if [[ -z $VERSION ]] ; then
 	VERSION=$(rpmspec --srpm -q --queryformat="%{evr}" --undefine=dist $SPEC_FILE)
 fi
 
-read MESSAGE
+read -p "Enter changelog message: " MESSAGE
 
 sed -i -e "/%changelog/a \
 * $(LC_TIME=en_US.UTF-8 date +"%a %b %d %Y") $(rpmdev-packager) $VERSION\n$MESSAGE\n" $SPEC_FILE
