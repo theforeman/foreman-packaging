@@ -31,6 +31,10 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Allow http-cookie 1.1.x
+%gemspec_remove_dep -g http-cookie "~> 1.0.0"
+%gemspec_add_dep -g http-cookie [">= 1.0.0", "< 1.2"]
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
