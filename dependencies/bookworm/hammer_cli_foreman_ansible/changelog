@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-ansible (0.8.1-1) stable; urgency=low
+
+  * 0.8.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 08 Oct 2025 13:03:27 +0000
+
 ruby-hammer-cli-foreman-ansible (0.8.0-1) stable; urgency=low
 
   * 0.8.0 released
