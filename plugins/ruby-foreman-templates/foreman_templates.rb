@@ -1,1 +1,1 @@
-gem 'foreman_templates', '10.0.9'
+gem 'foreman_templates', '10.0.10'
