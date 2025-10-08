@@ -100,6 +100,9 @@ cp -a .%{gem_dir}/* \
 * Wed Oct 08 2025 Chris Roberts <chrobert@redhat.com> - 12.2.12-1
 - Release rubygem-foreman_rh_cloud 12.2.12
 
+* Tue Oct 07 2025 Chris Roberts <chrobert@redhat.com> - 12.2.11-1
+- Release rubygem-foreman_rh_cloud 12.2.11
+
 * Wed Oct 01 2025 Chris Roberts <chrobert@redhat.com> - 12.2.10-1
 - Release rubygem-foreman_rh_cloud 12.2.10
 
