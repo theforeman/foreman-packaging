@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-webhooks (0.2.1-1) stable; urgency=low
+
+  * 0.2.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 10 Oct 2025 13:00:43 +0000
+
 ruby-hammer-cli-foreman-webhooks (0.2.0-1) stable; urgency=low
 
   * 0.2.0 released
