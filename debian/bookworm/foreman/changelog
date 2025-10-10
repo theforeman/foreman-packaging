@@ -1,3 +1,9 @@
+foreman (3.17.0-2) stable; urgency=low
+
+  * Pin http-cookie to fix foreman_azure_rm installation
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 10 Oct 2025 13:04:18 +0200
+
 foreman (3.17.0-1) stable; urgency=low
 
   * Bump changelog to 3.17.0 to match VERSION
