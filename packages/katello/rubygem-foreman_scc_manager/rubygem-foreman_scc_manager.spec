@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 5.0.4
+Version: 5.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 License: GPLv3
@@ -18,7 +18,6 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(coffee-rails) >= 5.0.0 with rubygem(coffee-rails) < 5.1)
 BuildRequires: rubygem(katello) >= 3.16
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -92,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 15 2025 Foreman Packaging Automation <packaging@theforeman.org> - 5.1.0-1
+- Update to 5.1.0
+
 * Tue Sep 16 2025 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.4-1
 - Update to 5.0.4
 
