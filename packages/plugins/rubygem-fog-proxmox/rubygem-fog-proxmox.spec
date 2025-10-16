@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.15.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'Fog' gem to support Proxmox VE
 License: GPLv3
 URL: https://github.com/fog/fog-proxmox
@@ -49,6 +49,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.bundle
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.gitlab-ci.yml
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.ruby-gemset
@@ -72,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Oct 16 2025 Maximilian Kolb <kolb@atix.de> - 0.15.2-2
+- Do not package CI file
+
 * Wed Aug 06 2025 Manisha Singhal <singhal@atix.de> - 0.15.2-1
 - Update to 0.15.2
 
