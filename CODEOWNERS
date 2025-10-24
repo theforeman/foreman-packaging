@@ -43,6 +43,9 @@
 # foreman_templates
 /packages/plugins/*foreman_templates/ @theforeman/packaging @theforeman/foreman_templates
 
+# katello
+/packages/katello/*katello/ @theforeman/packaging @theforeman/katello
+
 # ldap-fluff
 /packages/foreman/rubygem-ldap_fluff/ @theforeman/packaging @theforeman/ldap-fluff
 
