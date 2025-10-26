@@ -2,7 +2,7 @@
 %global gem_name css_parser
 
 Name: rubygem-%{gem_name}
-Version: 1.17.1
+Version: 1.21.1
 Release: 1%{?dist}
 Summary: Ruby CSS parser
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/premailer/css_parser
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.7
-BuildRequires: ruby >= 2.7
+Requires: ruby >= 3.0
+BuildRequires: ruby >= 3.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Sun Oct 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.21.1-1
+- Update to 1.21.1
+
 * Sun Apr 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.17.1-1
 - Update to 1.17.1
 
