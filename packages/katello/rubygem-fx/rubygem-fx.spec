@@ -2,7 +2,7 @@
 %global gem_name fx
 
 Name: rubygem-%{gem_name}
-Version: 0.8.0
+Version: 0.9.0
 Release: 1%{?dist}
 Summary: Support for database functions and triggers in Rails migrations
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/teoljungberg/fx
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.7
-BuildRequires: ruby >= 2.7
+Requires: ruby >= 3.0
+BuildRequires: ruby >= 3.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Oct 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.0-1
+- Update to 0.9.0
+
 * Sun Mar 26 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.8.0-1
 - Update to 0.8.0
 
