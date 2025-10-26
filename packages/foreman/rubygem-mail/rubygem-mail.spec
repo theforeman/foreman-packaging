@@ -2,8 +2,8 @@
 %global gem_name mail
 
 Name: rubygem-%{gem_name}
-Version: 2.8.1
-Release: 2%{?dist}
+Version: 2.9.0
+Release: 1%{?dist}
 Summary: Mail provides a nice Ruby DSL for making, sending and reading emails
 License: MIT
 URL: https://github.com/mikel/mail
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Oct 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.9.0-1
+- Update to 2.9.0
+
 * Wed Jan 03 2024 Evgeni Golov - 2.8.1-2
 - Correct deps for Ruby 3.0 bundled gems
 
