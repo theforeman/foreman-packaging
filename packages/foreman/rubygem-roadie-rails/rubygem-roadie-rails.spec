@@ -2,7 +2,7 @@
 %global gem_name roadie-rails
 
 Name: rubygem-%{gem_name}
-Version: 3.3.0
+Version: 3.4.0
 Release: 1%{?dist}
 Summary: Making HTML emails comfortable for the Rails rockstars
 License: MIT
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/roadie-rails.gemspec
 
 %changelog
+* Sun Oct 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.4.0-1
+- Update to 3.4.0
+
 * Sun Dec 01 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.3.0-1
 - Update to 3.3.0
 
