@@ -57,7 +57,6 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/2.0-Upgrade.md
 %doc %{gem_instdir}/SECURITY.md
 %doc %{gem_instdir}/README.md
 
