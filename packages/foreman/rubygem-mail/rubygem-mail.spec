@@ -21,6 +21,8 @@ Requires: (rubygem(net-imap) or ruby-default-gems < 3.1)
 Requires: (rubygem(net-pop) or ruby-default-gems < 3.1)
 Requires: (rubygem(net-smtp) or ruby-default-gems < 3.1)
 
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
+
 %description
 A really Ruby Mail handler.
 
@@ -41,6 +43,8 @@ Documentation for %{name}.
 %gemspec_remove_dep -g net-smtp
 %gemspec_remove_dep -g net-imap
 %gemspec_remove_dep -g net-pop
+
+%gemspec_remove_dep -g logger
 
 %build
 # Create the gem as gem install only works on a gem file
