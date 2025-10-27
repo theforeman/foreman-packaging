@@ -16,6 +16,9 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
+Requires: (rubygem(ostruct) or ruby-default-gems < 3.5)
+
 %description
 Net::LDAP for Ruby (also called net-ldap) implements client access for the
 Lightweight Directory Access Protocol (LDAP), an IETF standard protocol for
@@ -39,6 +42,9 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
+%gemspec_remove_dep -g ostruct
 
 %build
 # Create the gem as gem install only works on a gem file
