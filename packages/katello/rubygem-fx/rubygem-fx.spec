@@ -61,6 +61,7 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %exclude %{gem_instdir}/.rspec
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
