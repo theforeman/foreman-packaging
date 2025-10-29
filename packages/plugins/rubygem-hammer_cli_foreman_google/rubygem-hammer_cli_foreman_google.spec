@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 1.1.1
-Release: 2%{?foremandist}%{?dist}
+Version: 1.1.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Google plugin for Hammer CLI
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-google
@@ -69,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Wed Oct 29 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.2-1
+- Update to 1.1.2
+
 * Mon Jun 16 2025 Evgeni Golov 1.1.1-2
 - Update based on latest template
 
