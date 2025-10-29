@@ -16,6 +16,14 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
+Requires: (rubygem(drb) or ruby-default-gems < 3.4)
+Requires: (rubygem(mutex_m) or ruby-default-gems < 3.4)
+Requires: (rubygem(bigdecimal) or ruby-default-gems < 3.4)
+Requires: (rubygem(logger) or ruby-default-gems < 3.4)
+Requires: (rubygem(securerandom) or ruby-default-gems < 3.4)
+Requires: (rubygem(benchmark) or ruby-default-gems < 3.4)
+
 %description
 A toolkit of support libraries and Ruby core extensions extracted from the
 Rails framework. Rich support for multibyte strings, internationalization,
@@ -32,6 +40,14 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
+%gemspec_remove_dep -g drb
+%gemspec_remove_dep -g mutex_m
+%gemspec_remove_dep -g bigdecimal
+%gemspec_remove_dep -g logger ">= 1.4.2"
+%gemspec_remove_dep -g securerandom ">= 0.3"
+%gemspec_remove_dep -g benchmark ">= 0.3"
 
 %build
 # Create the gem as gem install only works on a gem file
