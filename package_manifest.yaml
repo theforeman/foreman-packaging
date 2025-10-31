@@ -671,7 +671,6 @@ foreman_plugin_packages_tier1:
 foreman_plugin_packages_tier2:
   hosts:
     rubygem-fog-opennebula: {}
-    rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
@@ -844,7 +843,6 @@ foreman_proxy_plugin_packages:
     rubygem-rprogram: {}
     rubygem-ruby-hmac: {}
     rubygem-ruby-nmap: {}
-    rubygem-smart_proxy_acd: {}
     rubygem-smart_proxy_ansible: {}
     rubygem-smart_proxy_container_gateway: {}
     rubygem-smart_proxy_dhcp_bluecat: {}
