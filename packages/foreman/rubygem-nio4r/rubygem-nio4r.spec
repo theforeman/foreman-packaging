@@ -75,8 +75,8 @@ rm -rf gem_ext_test
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/changes.md
 %doc %{gem_instdir}/readme.md
+%doc %{gem_instdir}/releases.md
 
 %changelog
 * Mon Nov 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.7.5-1
