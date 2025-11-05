@@ -34,7 +34,7 @@
 
 Name: katello-host-tools
 Version: 4.5.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -273,6 +273,7 @@ exit 0
 %dir %{_usr}/lib/zypp
 %dir %{_usr}/lib/zypp/plugins
 %dir %{plugins_dir}
+%dir %{_sysconfdir}/cron.d/
 %{plugins_dir}/tracer_upload.py
 %else
 %if %{yum_install}
@@ -289,6 +290,9 @@ exit 0
 
 
 %changelog
+* Wed Nov 05 2025 Bernhard Suttner <suttner@atix.de> - 4.5.0-2
+- Fix missing /etc/cron.d/ dir for SLES / OBS build.
+
 * Thu May 08 2025 pavansomashekar <pavansomashekar> - 4.5.0-1
 - Update to 4.5.0
 
