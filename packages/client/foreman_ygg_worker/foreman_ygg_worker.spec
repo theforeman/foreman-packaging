@@ -16,22 +16,20 @@
 Name: foreman_ygg_worker
 Version: 0.3.1
 Summary: Worker service for yggdrasil that can act as pull client for Foreman Remote Execution
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
 Url: https://github.com/%{repo_orgname}/%{repo_name}/
 
-# suse leap 15.5 doesn't define go_arches
-%if 0%{?suse_version}
-%define go_arches %{ix86} x86_64 %{arm} aarch64 ppc64le
-%endif
+# set only if go_arches is defined
+%if %{?go_arches:1}%{!?go_arches:0}
 ExclusiveArch: %{go_arches}
+%endif
 
 BuildRequires: systemd-rpm-macros
 %if 0%{?suse_version}
-BuildRequires: go
-BuildRequires: golang-packaging
+BuildRequires: (golang-packaging or go)
 %else
 BuildRequires: golang
 %if 0%{?rhel} >= 9 || 0%{?fedora}
@@ -81,6 +79,10 @@ EOF
 %dir %{yggdrasil_libexecdir}
 %dir %{_sysconfdir}/yggdrasil
 %dir %{yggdrasil_worker_conf_dir}
+%dir %{_datadir}/dbus-1
+%dir %{_datadir}/dbus-1/system.d
+%dir %{_datadir}/dbus-1/system-services
+%dir %{_unitdir}
 %endif
 %{yggdrasil_libexecdir}/%{name}
 %{yggdrasil_worker_conf_dir}/foreman.toml
@@ -91,6 +93,12 @@ EOF
 %doc README.md
 
 %changelog
+* Tue Oct 21 2025 Markus Bucher <bucher@atix.de> - 0.3.1-2
+- Package missing files when building on SLES
+- Add rpmlintrc (for SLES builds on OBS)
+- SLES does not provide golang-packaging
+- Suse build does not provide go_arches macro
+
 * Wed Apr 30 2025 Odilon Sousa <osousa@redhat.com> - 0.3.1-1
 - Release foreman_ygg_worker 0.3.1
 
