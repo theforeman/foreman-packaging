@@ -19,6 +19,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby >= 3.0
+Requires: rubygem-concurrent-ruby
 BuildRequires: ruby >= 3.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
