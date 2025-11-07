@@ -713,6 +713,7 @@ foreman_plugin_packages_tier2:
     rubygem-llhttp: {}
     rubygem-opennebula: {}
     rubygem-puppetdb_foreman: {}
+    rubygem-smart_proxy_openbolt: {}
     rubygem-treetop: {}
 
 fdi_plugin_packages:

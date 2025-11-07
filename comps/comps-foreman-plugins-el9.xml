@@ -205,6 +205,7 @@
       <packagereq type="default">rubygem-smart_proxy_hdm</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openbolt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_realm_ad_plugin</packagereq>
@@ -387,6 +388,7 @@
       <packagereq type="default">rubygem-smart_proxy_hdm-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openbolt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_realm_ad_plugin-doc</packagereq>
