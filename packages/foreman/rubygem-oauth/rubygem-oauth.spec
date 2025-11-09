@@ -2,7 +2,7 @@
 %global gem_name oauth
 
 Name: rubygem-%{gem_name}
-Version: 1.1.2
+Version: 1.1.3
 Release: 1%{?dist}
 Summary: OAuth Core Ruby implementation
 License: MIT
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Sun Nov 09 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.3-1
+- Update to 1.1.3
+
 * Wed Sep 24 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.2-1
 - Update to 1.1.2
 
