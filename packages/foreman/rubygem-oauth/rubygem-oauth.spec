@@ -2,7 +2,7 @@
 %global gem_name oauth
 
 Name: rubygem-%{gem_name}
-Version: 1.1.2
+Version: 1.1.3
 Release: 1%{?dist}
 Summary: OAuth Core Ruby implementation
 License: MIT
@@ -15,6 +15,7 @@ BuildRequires: ruby >= 2.3
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
 
 %description
 OAuth Core Ruby implementation.
@@ -30,6 +31,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -64,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Sun Nov 09 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.3-1
+- Update to 1.1.3
+
 * Wed Sep 24 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.2-1
 - Update to 1.1.2
 
