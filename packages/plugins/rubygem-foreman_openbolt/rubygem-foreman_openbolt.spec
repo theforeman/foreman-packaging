@@ -4,7 +4,7 @@
 %global foreman_min_version 3.14.0
 
 Name: rubygem-%{gem_name}
-Version: 0.1.0
+Version: 0.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman OpenBolt integration
 License: GPL-3.0-only
@@ -20,7 +20,7 @@ Requires: ruby < 4
 BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(foreman-tasks) >= 11.0 with rubygem(foreman-tasks) < 12 with rubygem(foreman-tasks) >= 11.0.6)
+BuildRequires: (rubygem(foreman-tasks) >= 11.0 with rubygem(foreman-tasks) < 12)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Nov 10 14:23:50 CET 2025 Tim Meusel <tim@bastelfreak.de> - 0.1.1-1
+- Update to 0.1.1
+
 * Mon Nov 10 11:17:39 CET 2025 Tim Meusel <tim@bastelfreak.de> - 0.1.0-1
 - Update to 0.1.0
 
