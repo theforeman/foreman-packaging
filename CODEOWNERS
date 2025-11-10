@@ -23,3 +23,9 @@
 /packages/plugins/*foreman_templates/ @theforeman/packaging @theforeman/foreman_templates
 /packages/plugins/rubygem-safemode/ @theforeman/packaging @theforeman/safemode
 /packages/foreman/rubygem-apipie-* @theforeman/packaging @theforeman/cli
+
+# HDM integration
+/packages/plugins/rubygem-*_hdm @theforeman/packaging @theforeman/betadots
+
+# OpenBolt integration
+/packages/plugins/rubygem-*_openbolt @theforeman/packaging @theforeman/betadots @theforeman/overlookinfra
