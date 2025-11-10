@@ -75,3 +75,9 @@
 # webhooks
 /packages/plugins/*_webhooks/ @theforeman/packaging @theforeman/webhooks
 /packages/plugins/rubygem-smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
+
+# HDM integration
+/packages/plugins/rubygem-*_hdm @theforeman/packaging @theforeman/betadots
+
+# OpenBolt integration
+/packages/plugins/rubygem-*_openbolt @theforeman/packaging @theforeman/betadots @theforeman/overlookinfra
