@@ -15,6 +15,7 @@ BuildRequires: ruby >= 2.3
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
 
 %description
 OAuth Core Ruby implementation.
@@ -30,6 +31,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
 
 %build
 # Create the gem as gem install only works on a gem file
