@@ -5,8 +5,8 @@
 %global foreman_max_version 3.18
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.19.0
-%global release 2
+%global mainver 4.20.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -166,6 +166,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Nov 11 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-0.1.pre.master
+- Bump version to 4.20.0
+
 * Thu Oct 2 2025 Ian Ballou <ianballou67@gmail.com> - 4.19.0-0.2.pre.master
 - Bump Pulp binding requirements to 3.85 versions
 
