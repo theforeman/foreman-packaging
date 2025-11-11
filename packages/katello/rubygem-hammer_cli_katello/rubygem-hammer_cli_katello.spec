@@ -2,9 +2,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 2
-%global prereleasesource pre.main
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
@@ -73,6 +71,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 11 2025 Zach Huntington-Meath <zhunting@redhat.com> - 1.19.0-1
+- Release rubygem-hammer_cli_katello 1.19.0
+
 * Fri Sep 19 2025 Evgeni Golov - 1.19.0-0.2.pre.main
 - Allow Ruby < 4
 
