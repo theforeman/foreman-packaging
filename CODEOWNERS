@@ -33,6 +33,12 @@
 /plugins/ruby-foreman-templates/ @theforeman/packaging @theforeman/foreman_templates
 /dependencies/*/hammer_cli_foreman_templates @theforeman/packaging @theforeman/foreman_templates
 
+# HDM integration
+/packages/plugins/rubygem-*_hdm @theforeman/packaging @theforeman/betadots
+
+# OpenBolt integration
+/packages/plugins/rubygem-*_openbolt @theforeman/packaging @theforeman/betadots @theforeman/overlookinfra
+
 # ovirt
 /plugins/*ovirt/ @theforeman/packaging @theforeman/ovirt
 
