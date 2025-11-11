@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 4
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -839,6 +839,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Nov 11 2025 Patrick Creech <pcreech@redhat.com> - 3.17.0-0.4.rc1
+- Release foreman 3.17.0rc1
+
 * Mon Nov 10 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.17.0-0.4.develop
 - Use generated NPM build dependencies
 

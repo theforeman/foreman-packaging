@@ -1,5 +1,5 @@
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Nov 11 2025 Patrick Creech <pcreech@redhat.com> - 1:3.17.0-0.2.rc1
+- Release foreman-installer 3.17.0rc1
+
 * Tue Sep 30 2025 Bernhard Suttner <suttner@atix.de> - 1:3.17.0-0.2.develop
 - Build with openvox
 
