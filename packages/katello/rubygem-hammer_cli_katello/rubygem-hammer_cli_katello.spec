@@ -2,14 +2,14 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 2
+%global release 1
 %global prereleasesource pre.main
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 1.19.0
+Version: 1.20.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 License: GPLv3
@@ -73,6 +73,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 11 2025 Zach Huntington-Meath <zhunting@redhat.com> - 1.20.0-0.1.pre.main
+- Bump version to 1.20.0
+
 * Fri Sep 19 2025 Evgeni Golov - 1.19.0-0.2.pre.main
 - Allow Ruby < 4
 
