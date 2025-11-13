@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -229,6 +229,7 @@ Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
 Requires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
 Requires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
 Requires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
+Requires: (npm(tabbable) >= 6.2.0 with npm(tabbable) < 7.0.0)
 Requires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
 Requires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
 Requires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
@@ -839,6 +840,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Nov 13 2025 MariaAga <mariaaga@redhat.com> - 3.18.0-0.2.develop
+- Add nodejs-tabbable package
+
 * Tue Nov 11 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.develop
 - Bump version to 3.18-develop
 

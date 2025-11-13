@@ -491,6 +491,7 @@ foreman_nodejs_packages:
     nodejs-style-loader:
       strategy: bundle
     nodejs-symbol-observable: {}
+    nodejs-tabbable: {}
     nodejs-table-resolver: {}
     nodejs-theforeman-builder:
       name: "@theforeman/builder"
