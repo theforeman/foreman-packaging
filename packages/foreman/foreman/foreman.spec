@@ -18,6 +18,7 @@ License: GPLv3+ with exceptions
 URL: https://theforeman.org
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 Source1: gen-gem-buildreqs
+Source2: gen-npm-buildreqs
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
@@ -609,6 +610,9 @@ plugins required for Foreman to work.
 %generate_buildrequires
 # Generate rubygem BuildRequires with a script that uses bundler
 %{SOURCE1}
+# Generate NPM BuildRequires
+/usr/libexec/platform-python script/filter-package-json.py
+#%{SOURCE2}
 
 
 %build
