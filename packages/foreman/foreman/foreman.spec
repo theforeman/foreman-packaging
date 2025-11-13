@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -18,7 +18,6 @@ License: GPLv3+ with exceptions
 URL: https://theforeman.org
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 Source1: gen-gem-buildreqs
-Source2: gen-npm-buildreqs
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
@@ -119,9 +118,115 @@ Requires: (rubygem(rss) or ruby-default-gems < 3.0)
 BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
 Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
+# assets
 BuildRequires: nodejs-packaging
+BuildRequires: nodejs >= 14
 BuildRequires: http-parser
 BuildRequires: systemd
+
+# start package.json devDependencies BuildRequires
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
+BuildRequires: (npm(@theforeman/builder) >= 15.0.0 with npm(@theforeman/builder) < 16.0.0)
+BuildRequires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
+BuildRequires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
+BuildRequires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
+BuildRequires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-webpack-plugin) < 11.0.0)
+BuildRequires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
+BuildRequires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
+BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
+BuildRequires: (npm(mini-css-extract-plugin) >= 2.9.1 with npm(mini-css-extract-plugin) < 3.0.0)
+BuildRequires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
+BuildRequires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
+BuildRequires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
+BuildRequires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
+BuildRequires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
+BuildRequires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
+BuildRequires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+BuildRequires: (npm(@apollo/client) >= 3.3.7 with npm(@apollo/client) < 4.0.0)
+BuildRequires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
+BuildRequires: npm(@novnc/novnc) = 1.3.0
+BuildRequires: (npm(@patternfly/patternfly) >= 5.4.2 with npm(@patternfly/patternfly) < 6.0.0)
+BuildRequires: (npm(@patternfly/react-charts) >= 7.4.5 with npm(@patternfly/react-charts) < 7.5.0)
+BuildRequires: (npm(@patternfly/react-core) >= 5.2.0 with npm(@patternfly/react-core) < 6.0.0)
+BuildRequires: (npm(@patternfly/react-icons) >= 5.2.0 with npm(@patternfly/react-icons) < 6.0.0)
+BuildRequires: (npm(@patternfly/react-styles) >= 5.2.0 with npm(@patternfly/react-styles) < 6.0.0)
+BuildRequires: (npm(@patternfly/react-table) >= 5.2.0 with npm(@patternfly/react-table) < 6.0.0)
+BuildRequires: (npm(@patternfly/react-tokens) >= 5.2.0 with npm(@patternfly/react-tokens) < 6.0.0)
+BuildRequires: (npm(@reduxjs/toolkit) >= 1.6.0 with npm(@reduxjs/toolkit) < 2.0.0)
+BuildRequires: (npm(@scalprum/core) >= 0.8.1 with npm(@scalprum/core) < 1.0.0)
+BuildRequires: (npm(@scalprum/react-core) >= 0.9.3 with npm(@scalprum/react-core) < 1.0.0)
+BuildRequires: (npm(@spice-project/spice-html5) >= 0.2.1 with npm(@spice-project/spice-html5) < 1.0.0)
+BuildRequires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
+BuildRequires: (npm(@unleash/proxy-client-react) >= 5.0.0 with npm(@unleash/proxy-client-react) < 6.0.0)
+BuildRequires: (npm(@webcomponents/webcomponentsjs) >= 2.2.10 with npm(@webcomponents/webcomponentsjs) < 3.0.0)
+BuildRequires: (npm(ace-builds) >= 1.4.13 with npm(ace-builds) < 2.0.0)
+BuildRequires: (npm(axios) >= 0.21.1 with npm(axios) < 1.0.0)
+BuildRequires: (npm(bootstrap-sass) >= 3.4.3 with npm(bootstrap-sass) < 4.0.0)
+BuildRequires: (npm(classnames) >= 2.2.5 with npm(classnames) < 3.0.0)
+BuildRequires: npm(connected-react-router) = 6.6.1
+BuildRequires: (npm(core-js) >= 2.5.7 with npm(core-js) < 3.0.0)
+BuildRequires: npm(datatables.net) = 1.13.5
+BuildRequires: npm(datatables.net-bs) = 1.13.5
+BuildRequires: npm(datatables.net-dt) = 1.13.5
+BuildRequires: (npm(diff) >= 5.1.0 with npm(diff) < 6.0.0)
+BuildRequires: (npm(dsmorse-gridster) >= 0.8.0 with npm(dsmorse-gridster) < 1.0.0)
+BuildRequires: (npm(file-saver) >= 2.0.1 with npm(file-saver) < 3.0.0)
+BuildRequires: (npm(formik) >= 1.5.8 with npm(formik) < 2.0.0)
+BuildRequires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
+BuildRequires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
+BuildRequires: (npm(history) >= 4.7.2 with npm(history) < 5.0.0)
+BuildRequires: npm(humanize-duration) = 3.27.0
+BuildRequires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
+BuildRequires: (npm(ipaddr.js) >= 1.2.0 with npm(ipaddr.js) < 1.3.0)
+BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+BuildRequires: (npm(jquery) >= 3.7.1 with npm(jquery) < 4.0.0)
+BuildRequires: (npm(jquery-ujs) >= 1.2.0 with npm(jquery-ujs) < 1.3.0)
+BuildRequires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
+BuildRequires: (npm(jstz) >= 1.0.7 with npm(jstz) < 1.1.0)
+BuildRequires: (npm(lodash) >= 4.17.14 with npm(lodash) < 5.0.0)
+BuildRequires: (npm(multiselect) >= 0.9.12 with npm(multiselect) < 0.10.0)
+BuildRequires: (npm(number_helpers) >= 0.1.1 with npm(number_helpers) < 1.0.0)
+BuildRequires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
+BuildRequires: (npm(patternfly) >= 3.59.5 with npm(patternfly) < 4.0.0)
+BuildRequires: (npm(patternfly-react) >= 2.40.0 with npm(patternfly-react) < 3.0.0)
+BuildRequires: (npm(patternfly-react-extensions) >= 3.0.15 with npm(patternfly-react-extensions) < 4.0.0)
+BuildRequires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
+BuildRequires: (npm(rc-input-number) >= 6.0.0 with npm(rc-input-number) < 7.0.0)
+BuildRequires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
+BuildRequires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
+BuildRequires: (npm(react-bootstrap) >= 0.32.0 with npm(react-bootstrap) < 1.0.0)
+BuildRequires: (npm(react-debounce-input) >= 3.2.0 with npm(react-debounce-input) < 4.0.0)
+BuildRequires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
+BuildRequires: (npm(react-dnd) >= 14.0.2 with npm(react-dnd) < 15.0.0)
+BuildRequires: (npm(react-dnd-html5-backend) >= 14.0.0 with npm(react-dnd-html5-backend) < 15.0.0)
+BuildRequires: (npm(react-dom) >= 16.8.1 with npm(react-dom) < 17.0.0)
+BuildRequires: (npm(react-ellipsis-with-tooltip) >= 1.0.8 with npm(react-ellipsis-with-tooltip) < 2.0.0)
+BuildRequires: (npm(react-helmet) >= 6.1.0 with npm(react-helmet) < 7.0.0)
+BuildRequires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
+BuildRequires: (npm(react-loading-skeleton) >= 1.1.2 with npm(react-loading-skeleton) < 2.0.0)
+BuildRequires: (npm(react-onclickoutside) >= 6.6.2 with npm(react-onclickoutside) < 7.0.0)
+BuildRequires: (npm(react-password-strength) >= 2.4.0 with npm(react-password-strength) < 3.0.0)
+BuildRequires: (npm(react-redux) >= 7.1.0 with npm(react-redux) < 8.0.0)
+BuildRequires: (npm(react-router) >= 5.3.4 with npm(react-router) < 6.0.0)
+BuildRequires: (npm(react-router-bootstrap) >= 0.25.0 with npm(react-router-bootstrap) < 1.0.0)
+BuildRequires: (npm(react-router-dom) >= 5.1.2 with npm(react-router-dom) < 6.0.0)
+BuildRequires: (npm(redux) >= 4.0.4 with npm(redux) < 5.0.0)
+BuildRequires: (npm(redux-logger) >= 2.8.1 with npm(redux-logger) < 3.0.0)
+BuildRequires: (npm(redux-thunk) >= 2.2.0 with npm(redux-thunk) < 3.0.0)
+BuildRequires: (npm(regenerator-runtime) >= 0.13.3 with npm(regenerator-runtime) < 1.0.0)
+BuildRequires: (npm(reselect) >= 3.0.1 with npm(reselect) < 4.0.0)
+BuildRequires: npm(sanitize-html) = 2.3.2
+BuildRequires: (npm(seamless-immutable) >= 7.1.2 with npm(seamless-immutable) < 8.0.0)
+BuildRequires: npm(select2) = 4.0.12
+BuildRequires: (npm(unidiff) >= 1.0.0 with npm(unidiff) < 2.0.0)
+BuildRequires: (npm(unleash-proxy-client) >= 3.7.6 with npm(unleash-proxy-client) < 4.0.0)
+BuildRequires: (npm(urijs) >= 1.19.4 with npm(urijs) < 2.0.0)
+BuildRequires: (npm(uuid) >= 3.3.2 with npm(uuid) < 4.0.0)
+BuildRequires: (npm(yup) >= 0.29.3 with npm(yup) < 1.0.0)
+# end package.json dependencies BuildRequires
 
 %package cli
 Summary: Foreman CLI
@@ -508,9 +613,6 @@ plugins required for Foreman to work.
 %generate_buildrequires
 # Generate rubygem BuildRequires with a script that uses bundler
 %{SOURCE1}
-# Generate NPM BuildRequires
-/usr/libexec/platform-python script/filter-package-json.py
-%{SOURCE2}
 
 
 %build
@@ -839,6 +941,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Nov 13 2025 Evgeni Golov - 3.18.0-0.2.develop
+- Revert "Use generated NPM build dependencies"
+
 * Tue Nov 11 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.develop
 - Bump version to 3.18-develop
 
