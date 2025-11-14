@@ -1,0 +1,26 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: smart_proxy_openbolt
+Upstream-Contact: ["contact@overlookinfratech.com"]
+Source: https://github.com/overlookinfra/smart_proxy_openbolt
+
+Files: *
+Copyright: 2025 Overlook InfraTech <contact@overlookinfratech.com>
+License: GPL-3.0-only
+
+Files: debian/*
+Copyright: 2025 Overlook InfraTech <contact@overlookinfratech.com>
+License: GPL-3.0-only
+Comment: The Debian packaging is licensed under the same terms as the source.
+
+License: GPL-3-only
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License version 3
+ as published by the Free Software Foundation.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 3 can be found in the file `/usr/share/common-licenses/GPL-3'.
