@@ -1,0 +1,2 @@
+settings.d/openbolt.yml etc/foreman-proxy/settings.d
+bundler.d/openbolt.rb usr/share/foreman-proxy/bundler.d
