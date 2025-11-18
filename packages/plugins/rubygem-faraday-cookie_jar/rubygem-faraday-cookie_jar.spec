@@ -2,7 +2,7 @@
 %global gem_name faraday-cookie_jar
 
 Name: rubygem-%{gem_name}
-Version: 0.0.7
+Version: 0.0.8
 Release: 1%{?dist}
 Summary: Manages client-side cookie jar for Faraday HTTP client
 License: MIT
@@ -30,10 +30,6 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
-
-# Allow http-cookie 1.1.x
-%gemspec_remove_dep -g http-cookie "~> 1.0.0"
-%gemspec_add_dep -g http-cookie [">= 1.0.0", "< 1.2"]
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -66,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Nov 18 2025 Evgeni Golov - 0.0.8-1
+- Update to 0.0.8
+
 * Tue Oct 07 2025 Evgeni Golov - 0.0.7-1
 - Update to 0.0.7
 
