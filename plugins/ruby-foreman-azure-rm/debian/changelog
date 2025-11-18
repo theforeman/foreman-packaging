@@ -1,3 +1,9 @@
+ruby-foreman-azure-rm (3.0.4-2) stable; urgency=low
+
+  * Update faraday-cookie_jar to 0.0.8, allowing for new http-cookie
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 18 Nov 2025 11:16:42 +0100
+
 ruby-foreman-azure-rm (3.0.4-1) stable; urgency=low
 
   * 3.0.4 released
