@@ -1,1 +1,1 @@
-gem 'foreman_ovirt', '2.0.1'
+gem 'foreman_ovirt', '2.0.2'
