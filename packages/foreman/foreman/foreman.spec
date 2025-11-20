@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -655,7 +655,7 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
 %%%{name}_bundlerd_file(n:) \\
 mkdir -p %%{buildroot}%%{%{name}_bundlerd_dir} \\
 cat <<GEMFILE > %%{buildroot}%%{%{name}_bundlerd_dir}/%%{-n*}%%{!?-n:%%{gem_name}}.rb \\
-gem '%%{-n*}%%{!?-n:%%{gem_name}}' \\
+gem '%%{-n*}%%{!?-n:%%{gem_name}}' if ENV.fetch('FOREMAN_ENABLED_PLUGINS', '').split.include?('%%{-n*}%%{!?-n:%%{gem_name}}') || ENV.fetch('FOREMAN_ENABLED_PLUGINS', nil).nil? \\
 GEMFILE
 
 # Common locations
@@ -839,6 +839,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Nov 20 2025 Evgeni Golov - 3.18.0-0.2.develop
+- Support limiting loaded plugins via FOREMAN_ENABLED_PLUGINS
+
 * Tue Nov 11 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.develop
 - Bump version to 3.18-develop
 
