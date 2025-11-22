@@ -26,7 +26,7 @@ copr_projects:
     rhel_10: '10'
     rhel_9: '9'
     rhel_8: '8'
-    puppet_baseurl: "https://yum.puppet.com/puppet{{ puppet_version }}"
+    puppet_baseurl: "https://yum.voxpupuli.org/openvox{{ puppet_version }}"
     root_repo_url: "https://download.copr.fedorainfracloud.org/results/{{ copr_project_user }}"
     foreman_staging: "{{ root_repo_url }}/foreman-{{ foreman_version }}-staging"
     plugins_staging: "{{ root_repo_url }}/plugins-{{ foreman_version }}-staging"
