@@ -1,51 +1,52 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-# Generated from ipaddress-0.8.0.gem by gem2rpm -*- rpm-spec -*-
+# template: default
 %global gem_name ipaddress
 
-Summary: IPv4/IPv6 addresses manipulation library
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 0.8.3
-Release: 2%{?dist}
-Group: Development/Languages
+Release: 3%{?dist}
+Summary: IPv4/IPv6 address manipulation library
 License: MIT
 URL: https://github.com/bluemonk/ipaddress
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+# https://github.com/ipaddress-gem/ipaddress/pull/86
+# Integer unification on ruby2.4: ruby3.2 completely removes Fixnum
+Patch0:  %{name}-pr86-ruby24-integer-unification.patch
+
+BuildRequires: rubygem(minitest)
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 IPAddress is a Ruby library designed to make manipulation
-of IPv4 and IPv6 addresses both powerful and simple. It maintains
+of IPv4 and IPv6 addresses both powerful and simple. It mantains
 a layer of compatibility with Ruby's own IPAddr, while
 addressing many of its issues.
 
+
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
-
-# Remove un-needed file
-# See https://github.com/bluemonk/ipaddress/issues/23
-rm .%{gem_instdir}/.document
+%setup -q -n  %{gem_name}-%{version}
+%patch -P0 -p1
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -54,30 +55,33 @@ cp -a .%{gem_dir}/* \
 
 %check
 pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} - << \EOF}
 ruby -Ilib:test -e 'Dir.glob "./test/**/*_test.rb", &method(:require)'
-%{?scl:EOF}
 popd
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
-%{gem_spec}
-%license %{gem_instdir}/LICENSE.txt
-%exclude %{gem_instdir}/test
-%exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/.document
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rock.yml
+%license %{gem_instdir}/LICENSE.txt
+%{gem_libdir}
 %exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/README.rdoc
-%{gem_instdir}/CHANGELOG.rdoc
+%doc %{gem_instdir}/CHANGELOG.rdoc
 %{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/ipaddress.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Sat Nov 22 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.8.3-3
+- Regenerate spec file based on the current template
+- Backport upstream fix for ruby3.2 Fixnum removal
+
 * Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.3-2
 - Removed unversioned obsoletes
 

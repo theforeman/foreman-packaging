@@ -1,0 +1,39 @@
+From fd5b2e0e08b59d2b8f8c153405ab2c9d6f0fe3e4 Mon Sep 17 00:00:00 2001
+From: Koichi ITO <koic.ito@gmail.com>
+Date: Sat, 10 Dec 2016 19:27:24 +0900
+Subject: [PATCH] Integer Unification for Ruby 2.4.0+
+
+---
+ lib/ipaddress/prefix.rb | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/lib/ipaddress/prefix.rb b/lib/ipaddress/prefix.rb
+index a0e3bb0..136f2d3 100644
+--- a/lib/ipaddress/prefix.rb
++++ b/lib/ipaddress/prefix.rb
+@@ -55,10 +55,10 @@ def <=>(oth)
+ 
+     #
+     # Sums two prefixes or a prefix to a 
+-    # number, returns a Fixnum
++    # number, returns a Integer
+     #
+     def +(oth)
+-      if oth.is_a? Fixnum
++      if oth.is_a? Integer
+         self.prefix + oth
+       else
+         self.prefix + oth.prefix
+@@ -68,10 +68,10 @@ def +(oth)
+     #
+     # Returns the difference between two
+     # prefixes, or a prefix and a number,
+-    # as a Fixnum
++    # as a Integer
+     #
+     def -(oth)
+-      if oth.is_a? Fixnum
++      if oth.is_a? Integer
+         self.prefix - oth
+       else
+         (self.prefix - oth.prefix).abs
