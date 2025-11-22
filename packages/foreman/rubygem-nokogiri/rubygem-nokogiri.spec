@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.15.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 # MIT: see LICENSE.md
 # ASL 2.0
@@ -63,7 +63,7 @@ Documentation for %{name}.
 %gemspec_remove_dep -g racc "~> 1.4"
 
 # patches
-%patch0 -p1
+%patch -P0 -p1
 
 # remove bundled external libraries
 sed -i \
@@ -186,6 +186,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/gumbo-parser/src/README.md
 
 %changelog
+* Sat Nov 22 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.15.7-2
+- Replace use of deprecated PatchN macro
+
 * Wed Dec 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.15.7-1
 - Update to 1.15.7
 

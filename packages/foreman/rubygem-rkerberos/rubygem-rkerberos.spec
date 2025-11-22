@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 21%{?dist}
+Release: 22%{?dist}
 Summary: A Ruby interface for the the Kerberos library
 Group: Development/Languages
 License: Artistic 2.0
@@ -48,7 +48,7 @@ gem unpack %{SOURCE0}
 %{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -112,6 +112,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Sat Nov 22 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.5-22
+- Replace use of deprecated PatchN macro
+
 * Mon Dec 18 2023 Evgeni Golov - 0.1.5-21
 - Explicitly BuildRequire gcc
 
