@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
 Version: 202506020000
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -13,7 +13,7 @@ Source0: foreman-generate-bootloaders
 Requires: /usr/bin/grub2-mknetdir
 Requires: /usr/bin/grub2-mkimage
 
-%if 0%{rhel} < 9
+%if 0%{?rhel} < 9
 Requires: grub2-efi-ia32-modules
 Requires: shim-ia32
 %endif
@@ -74,6 +74,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Sat Nov 22 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 202506020000-2
+- Fix RPM build macro on non-RHEL
+
 * Mon Jun 02 2025 Leos Stejskal <lstejska@redhat.com> 202506020000-1
 - Add mmx64.efi to the list of files in grub2 directory
 
