@@ -1,10 +1,12 @@
+%bcond bootstrap 0
+
 %global homedir %{_datadir}/%{name}
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -24,6 +26,7 @@ Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
 BuildArch:  noarch
 
+%if %{without bootstrap}
 # Plugin was removed in Foreman 3.3, 3.5 includes DB cleanup
 Obsoletes: rubygem-foreman_docker < 5.0.0-4
 
@@ -351,6 +354,8 @@ Meta package with support for plugins.
 %{_sysconfdir}/rpm/macros.%{name}-plugin
 %{_datadir}/%{name}/schema.rb.nulldb
 %{_datadir}/%{name}/bundler.d/nulldb.rb
+# endif without bootstrap
+%endif
 
 %package build
 Summary: Foreman package RPM support
@@ -362,6 +367,7 @@ Meta package with support for building RPMs in the Foreman release cycle.
 %files build
 %{_sysconfdir}/rpm/macros.%{name}-dist
 
+%if %{without bootstrap}
 %package console
 Summary: Foreman console support
 Group:  Applications/System
@@ -496,6 +502,8 @@ Configuration files for the Performance Co-Pilot integration
 %files pcp
 %{_sysconfdir}/pcp/proc/%{name}-hotproc.conf
 %{_sharedstatedir}/pcp/config/pmlogconf/%{name}-hotproc
+# endif without bootstrap
+%endif
 
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
@@ -504,15 +512,19 @@ plugins required for Foreman to work.
 
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
+%if %{without bootstrap}
 %generate_buildrequires
 # Generate rubygem BuildRequires with a script that uses bundler
 %{SOURCE1}
 # Generate NPM BuildRequires
 /usr/libexec/platform-python script/filter-package-json.py
 %{SOURCE2}
+# endif without bootstrap
+%endif
 
 
 %build
+%if %{without bootstrap}
 #build man pages
 %{rake} -f Rakefile.dist build \
   PREFIX=%{_prefix} \
@@ -535,10 +547,13 @@ export NODE_ENV=production
 %{rake} webpack:compile DATABASE_URL=nulldb://nohost
 %{rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
 rm db/schema.rb
+# endif without bootstrap
+%endif
 
 %install
 rm -rf %{buildroot}
 
+%if %{without bootstrap}
 #install man pages
 %{rake} -f Rakefile.dist install \
   PREFIX=%{buildroot}%{_prefix} \
@@ -632,7 +647,15 @@ ln -sv %{_sysconfdir}/%{name}/plugins %{buildroot}%{_datadir}/%{name}/config/set
 install -pm0644 VERSION %{buildroot}%{_datadir}/%{name}/VERSION
 
 # Create RPM macros for plugin packages to use at build time
+# endif without bootstrap
+%endif
 mkdir -p %{buildroot}%{_sysconfdir}/rpm
+cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-dist << EOF
+# Version to use like a dist tag
+%%%{name}dist .fm$(echo %{version} | awk -F. '{print $1 "_" $2}')
+EOF
+
+%if %{without bootstrap}
 cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 # Common locations
 %%%{name}_dir %{_datadir}/%{name}
@@ -641,11 +664,6 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 
 # Common commands
 %%%{name}_rake         %{foreman_rake}
-EOF
-
-cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-dist << EOF
-# Version to use like a dist tag
-%%%{name}dist .fm$(echo %{version} | awk -F. '{print $1 "_" $2}')
 EOF
 
 cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
@@ -719,11 +737,15 @@ rm -rf ./usr \\
 %%{?-s:rm -rf %%{buildroot}%%{gem_instdir}/public/webpack/fonts} \\
 %%{?-s:rm -rf %%{buildroot}%%{gem_instdir}/public/webpack/images}
 EOF
+# endif without bootstrap
+%endif
 
 
 %clean
 rm -rf %{buildroot}
 
+
+%if %{without bootstrap}
 %files
 %defattr(-,root,root,0755)
 %doc CHANGELOG Contributors README.md VERSION
@@ -836,8 +858,13 @@ exit 0
 %postun service
 %systemd_postun_with_restart %{name}.service
 %systemd_postun %{name}.socket
+# endif without bootstrap
+%endif
 
 %changelog
+* Tue Feb 17 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.19.0-0.2.develop
+- Allow bootstrapping the package
+
 * Tue Feb 10 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-0.1.develop
 - Bump version to 3.19-develop
 
