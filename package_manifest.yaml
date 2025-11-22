@@ -71,10 +71,10 @@ copr_projects:
       copr_project_name: "client-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'client-nightly-staging' if foreman_version != 'nightly' else False }}"
       copr_project_chroots:
-        - name: "centos-stream-{{ rhel_10 }}-x86_64"
+        - name: "rhel-{{ rhel_10 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_10 }}.xml"
           external_repos:
-            - "{{ client_staging }}/centos-stream-{{ rhel_10 }}-x86_64"
+            - "{{ client_staging }}/rhel-{{ rhel_10 }}-x86_64"
         - name: "rhel-{{ rhel_9 }}-x86_64"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_9 }}.xml"
           external_repos:
