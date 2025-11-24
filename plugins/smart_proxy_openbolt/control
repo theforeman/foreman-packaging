@@ -12,6 +12,6 @@ Rules-Requires-Root: no
 Package: ruby-smart-proxy-openbolt
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${ruby:Depends}, ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.15.0~rc1)
+Depends: ruby-concurrent (>= 1.1.6), ruby-concurrent (<< 2.0.0), ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.15.0~rc1)
 Description: Smart Proxy plugin for OpenBolt integration
  Uses the OpenBolt CLI tool to run tasks and plans in Foreman
