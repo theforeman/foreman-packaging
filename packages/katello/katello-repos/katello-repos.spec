@@ -7,7 +7,7 @@
 %global release 2
 
 Name:           katello-repos
-Version:        4.19.0.rc1
+Version:        4.19.0.rc2
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -71,6 +71,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Wed Nov 26 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.19.0.rc2-2
+- Release katello-repos 4.19.0.rc2
+
 * Wed Nov 12 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.19.0.rc1-2
 - Update pulpcore version to 3.85
 
