@@ -1,3 +1,9 @@
+ruby-smart-proxy-monitoring (0.4.0-1) stable; urgency=low
+
+  * 0.4.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Nov 2025 13:52:00 +0000
+
 ruby-smart-proxy-monitoring (0.2.0) stable; urgency=low
 
   * 0.2.0 released
