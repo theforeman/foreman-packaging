@@ -4,7 +4,7 @@
 %global foreman_min_version 3.15
 %global foreman_max_version 3.16
 
-%global mainver 4.17.1
+%global mainver 4.17.2
 %global release 1
 
 Name: rubygem-%{gem_name}
@@ -165,6 +165,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 26 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.17.2-1
+- Release rubygem-katello 4.17.2
+
 * Fri Aug 01 2025 Patrick Creech <pcreech@redhat.com> - 4.17.1-1
 - Release rubygem-katello 4.17.1
 
