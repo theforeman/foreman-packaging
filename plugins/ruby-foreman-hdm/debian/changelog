@@ -1,3 +1,9 @@
+ruby-foreman-hdm (1.1.0-3) stable; urgency=medium
+
+  * Add missing postinst
+
+ --  Tim Meusel <tim@bastelfreak.de>  Wed, 26 Nov 2025 18:56:22 +0100
+
 ruby-foreman-hdm (1.1.0-2) stable; urgency=low
 
   * Rebuild for removal of theforeman/vendor
