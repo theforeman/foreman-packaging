@@ -1,7 +1,7 @@
 %global pypi_name obsah
 
 Name:           python-%{pypi_name}
-Version:        1.7.0
+Version:        1.7.1
 Release:        1%{?dist}
 Summary:        easily build CLI applications using ansible playbooks
 
@@ -43,6 +43,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Nov 27 2025 Evgeni Golov - 1.7.1-1
+- Release python-obsah 1.7.1
+
 * Thu Nov 27 2025 Evgeni Golov - 1.7.0-1
 - Release python-obsah 1.7.0
 
