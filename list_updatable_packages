@@ -15,6 +15,7 @@ import tempfile
 
 SUPPORTED_TEMPLATES = ('foreman_plugin', 'hammer_plugin', 'smart_proxy_plugin')
 EXTRA_SUPPORTED_GEMS = ('foreman_maintain',)
+EXTRA_SUPPORTED_PYTHON = ('obsah', )
 EXCLUDED_GEMS = ()
 SESSION = requests.Session()
 DEBUG = False
@@ -72,7 +73,7 @@ class Spec:
 
     @property
     def is_supported(self) -> bool:
-        return self.template in SUPPORTED_TEMPLATES or self.gem_name in EXTRA_SUPPORTED_GEMS
+        return self.template in SUPPORTED_TEMPLATES or self.gem_name in EXTRA_SUPPORTED_GEMS or self.pypi_name in EXTRA_SUPPORTED_PYTHON
 
     @property
     def gem_name(self) -> Optional[str]:
@@ -88,6 +89,10 @@ class Spec:
             return 'bundle'
         else:
             return 'single'
+
+    @property
+    def pypi_name(self) -> Optional[str]:
+        return self.globals.get('pypi_name')
 
     @property
     def version(self) -> str:
@@ -187,6 +192,11 @@ def latest_version(spec: Spec) -> str:
         response = SESSION.get(url)
         response.raise_for_status()
         return response.json()['version']
+    elif spec.pypi_name:
+        url = f'https://pypi.org/pypi/{spec.pypi_name}/json'
+        response = SESSION.get(url)
+        response.raise_for_status()
+        return response.json()['info']['version']
     raise ValueError('Unable to determine latest version', spec)
 
 
