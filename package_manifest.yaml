@@ -445,7 +445,6 @@ foreman_nodejs_packages:
     nodejs-patternfly-react-templates: {}
     nodejs-patternfly-react-tokens: {}
     nodejs-patternfly-react-table: {}
-    nodejs-performance-now: {}
     nodejs-prop-types: {}
     nodejs-rc-input-number: {}
     nodejs-react: {}
