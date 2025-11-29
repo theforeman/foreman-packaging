@@ -414,7 +414,6 @@ foreman_nodejs_packages:
     nodejs-formik: {}
     nodejs-graphql: {}
     nodejs-graphql-tag: {}
-    nodejs-harmony-reflect: {}
     nodejs-history: {}
     nodejs-humanize-duration: {}
     nodejs-intl: {}
