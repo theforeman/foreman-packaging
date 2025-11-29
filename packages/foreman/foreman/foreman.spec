@@ -863,7 +863,7 @@ exit 0
 - Remove Obsoletes entry to fix migration to new ovirt plugin
 
 * Tue Sep 30 2025 Odilon Sousa <osousa@redhat.com> - 3.17.0-0.2.develop
-- Update %generate_buildrequires macro section after the %prep phase
+- Update generate_buildrequires macro section after the prep phase
 
 * Wed Aug 13 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.17.0-0.1.develop
 - Bump version to 3.17-develop
