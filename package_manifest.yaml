@@ -427,7 +427,6 @@ foreman_nodejs_packages:
     nodejs-jstz: {}
     nodejs-lodash: {}
     nodejs-lodash.debounce: {}
-    nodejs-loose-envify: {}
     nodejs-mini-css-extract-plugin: {}
     nodejs-module-federation-utilities: {}
     nodejs-multiselect: {}
