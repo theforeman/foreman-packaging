@@ -1,17 +1,15 @@
 %define debug_package %{nil}
 
-%global go_arches x86_64 s390x ppc64le
-
 Name:    dynflow-utils
 Version: 1.6.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Supplemental Dynflow utilities
 License: GPLv3
 URL:     https://github.com/dynflow/dynflow
 
 Source0: https://github.com/dynflow/dynflow/releases/download/v%{version}/dynflow-expand-%{version}.tar.gz
 
-ExclusiveArch: %{go_arches}
+ExclusiveArch: %{golang_arches}
 
 BuildRequires: git
 BuildRequires: golang
@@ -41,5 +39,8 @@ install -D -m755 dynflow-expand %{buildroot}%{_libexecdir}/dynflow-expand
 %{_libexecdir}/dynflow-expand
 
 %changelog
+* Sun Nov 30 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.6.3-2
+- Use OS provided golang_arches macro
+
 * Thu Jan 20 2022 Adam Ruzicka <aruzicka@redhat.com> - 1.6.3-1
 - Initial release

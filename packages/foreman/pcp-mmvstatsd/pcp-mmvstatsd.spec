@@ -2,7 +2,7 @@
 
 Name:    pcp-mmvstatsd
 Version: 0.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Statsd to PCP MMV aggregator
 License: MIT and BSD
 URL:     https://github.com/lzap/%{name}
@@ -11,7 +11,7 @@ Source0: https://codeload.github.com/lzap/%{name}/tar.gz/%{version}#/%{name}-%{v
 Source1: %{name}.service
 Source2: %{name}.default
 
-ExclusiveArch: %{ix86} x86_64 %{arm}
+ExclusiveArch: %{golang_arches}
 
 %{?systemd_requires}
 BuildRequires: systemd
@@ -68,6 +68,9 @@ exit 0
 %attr(755, %{name}, %{name})%{_sharedstatedir}/%{name}
 
 %changelog
+* Sun Nov 30 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.4-3
+- Use OS provided golang_arches macro
+
 * Fri Sep 14 2018 Lukas Zapletal <lzap+rpm@redhat.com> 0.4-2
 - Added debuginfo stripping
 
