@@ -63,6 +63,9 @@
 /packages/plugins/*_remote_execution*/ @theforeman/packaging @theforeman/remote-execution
 /packages/client/foreman_ygg*/ @theforeman/packaging @theforeman/remote-execution
 
+# rh_cloud
+/packages/katello/rubygem-foreman_rh_cloud/ @theforeman/packaging @theforeman/rh-cloud
+
 # theme_satellite
 /packages/plugins/rubygem-foreman_theme_satellite/ @theforeman/packaging @theforeman/foreman_theme_satellite
 
