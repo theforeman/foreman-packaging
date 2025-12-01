@@ -1,3 +1,9 @@
+ruby-foreman-hdm (1.1.0-4) stable; urgency=medium
+
+  * Add dependency to foreman-tasks
+
+ --  Tim Meusel <tim@bastelfreak.de>  Wed, 01 Dec 2025 18:56:22 +0100
+
 ruby-foreman-hdm (1.1.0-3) stable; urgency=medium
 
   * Add missing postinst
