@@ -4,8 +4,8 @@
 %global foreman_min_version 3.17
 
 Name: rubygem-%{gem_name}
-Version: 13.0.8
-Release: 2%{?foremandist}%{?dist}
+Version: 13.0.9
+Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Dec 01 2025 Chris Roberts <chrobert@redhat.com> - 13.0.9-1
+- Update to 13.0.9
+
 * Mon Nov 17 2025 Evgeni Golov - 13.0.8-2
 - Rebuild to drop tabbable webpack dep
 
