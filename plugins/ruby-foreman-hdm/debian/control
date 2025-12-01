@@ -18,6 +18,7 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${misc:Depends}, bundler, foreman (>= 3.4.0~rc1),
          ${ruby:Depends},
-         ${shlibs:Depends}
+         ${shlibs:Depends},
+         ruby-foreman-tasks
 Description: Display hiera data in Foreman using HDM
  Get hiera data from HDM and display alongside hosts in Foreman
