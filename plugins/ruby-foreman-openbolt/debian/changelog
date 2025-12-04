@@ -1,4 +1,4 @@
-ruby-foreman-hdm (1.1.0-3) stable; urgency=medium
+ruby-foreman-openbolt (0.1.1-3) stable; urgency=medium
 
   * Add dependency to foreman-tasks
 
