@@ -19,7 +19,8 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${misc:Depends}, bundler, foreman (>= 3.4.0~rc1),
          ${ruby:Depends},
-         ${shlibs:Depends}
+         ${shlibs:Depends},
+         ruby-foreman-tasks (>= 11.0)
 Description: Foreman OpenBolt integration
  This plugin adds OpenBolt integration into Foreman, allowing users to run
  tasks and plans present in their environment.
