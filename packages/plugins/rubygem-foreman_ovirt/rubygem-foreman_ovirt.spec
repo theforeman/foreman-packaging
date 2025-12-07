@@ -4,7 +4,7 @@
 %global foreman_min_version 3.16
 
 Name: rubygem-%{gem_name}
-Version: 2.0.2
+Version: 2.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: oVirt as a compute resource for The Foreman
 License: GPLv3
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Dec 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.3-1
+- Update to 2.0.3
+
 * Sun Nov 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.2-1
 - Update to 2.0.2
 
