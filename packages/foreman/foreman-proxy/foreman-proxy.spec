@@ -2,8 +2,6 @@
 %global confdir config
 
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
 Version:        3.17.0
@@ -239,6 +237,9 @@ exit 0
 
 
 %changelog
+* Tue Dec 09 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.17.0-1
+- Release foreman-proxy 3.17.0
+
 * Wed Nov 26 2025 Patrick Creech <pcreech@redhat.com> - 3.17.0-0.1.rc2
 - Release foreman-proxy 3.17.0rc2
 
