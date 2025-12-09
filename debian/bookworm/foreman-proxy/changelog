@@ -1,3 +1,9 @@
+foreman-proxy (3.17.0-1) stable; urgency=low
+
+  * 3.17.0 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 09 Dec 2025 15:20:04 +0100
+
 foreman-proxy (3.17.0~rc2-1) stable; urgency=low
 
   * 3.17.0-rc2 released
