@@ -1,6 +1,4 @@
-%global release 2
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:       foreman-installer
 Epoch:      1
@@ -126,6 +124,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Dec 09 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 1:3.17.0-1
+- Release foreman-installer 3.17.0
+
 * Wed Nov 26 2025 Patrick Creech <pcreech@redhat.com> - 1:3.17.0-0.2.rc2
 - Release foreman-installer 3.17.0rc2
 
