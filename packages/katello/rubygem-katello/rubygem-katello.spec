@@ -3,8 +3,8 @@
 %global plugin_name katello
 %global foreman_min_version 3.17
 %global foreman_max_version 3.18
-%global mainver 4.19.0.rc2
-%global release 2
+%global mainver 4.19.0.1
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -164,6 +164,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Dec 10 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.19.0.1-1
+- Release rubygem-katello 4.19.0.1
+
 * Fri Dec 5 2025 Ian Ballou <ianballou67@gmail.com> - 4.19.0.rc2-2
 - Temporarily pin Pulp bindings to known working versions due to https://github.com/pulp/pulp_rpm/issues/4178
 

@@ -4,10 +4,10 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        4.19.0.rc2
+Version:        4.19.0.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -71,6 +71,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Wed Dec 10 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.19.0.1-1
+- Release katello-repos 4.19.0.1
+
 * Wed Nov 26 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.19.0.rc2-2
 - Release katello-repos 4.19.0.rc2
 
