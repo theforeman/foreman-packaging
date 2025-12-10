@@ -2,7 +2,7 @@
 %global gem_name friendly_id
 
 Name: rubygem-%{gem_name}
-Version: 5.5.1
+Version: 5.6.0
 Release: 1%{?dist}
 Summary: A comprehensive slugging and pretty-URL plugin
 License: MIT
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Dec 10 2025 Foreman Packaging Automation <packaging@theforeman.org> - 5.6.0-1
+- Update to 5.6.0
+
 * Thu Nov 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 5.5.1-1
 - Update to 5.5.1
 
