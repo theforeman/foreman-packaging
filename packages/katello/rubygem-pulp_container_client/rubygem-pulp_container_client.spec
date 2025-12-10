@@ -4,6 +4,7 @@
 Name: rubygem-%{gem_name}
 Version: 2.26.2
 Release: 1%{?dist}
+Epoch: 1
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_container
@@ -61,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Dec 10 2025 ianballou <ianballou67@gmail.com> - 1:2.26.2-1
+- Add Epoch for https://projects.theforeman.org/issues/38832
+
 * Fri Dec 05 2025 ianballou <ianballou67@gmail.com> - 2.26.2-1
 - Decrement to 2.26.2 temporarily for https://projects.theforeman.org/issues/38832
 
