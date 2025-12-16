@@ -45,6 +45,7 @@
       <packagereq type="default">rubygem-robotex</packagereq>
       <packagereq type="default">rubygem-spidr</packagereq>
       <!-- other katello related packages -->
+      <packagereq type="default">python3.12-tzdata</packagereq>
       <packagereq type="default">rhel8-kickstart-setup</packagereq>
     </packagelist>
   </group>
