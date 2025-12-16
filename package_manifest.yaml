@@ -681,6 +681,8 @@ nodejs_plugin_packages:
       strategy: bundle
     nodejs-types-react-router:
       strategy: bundle
+    nodejs-types-react-router-dom:
+      strategy: bundle
     nodejs-types-node:
       strategy: bundle
 
