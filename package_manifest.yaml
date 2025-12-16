@@ -675,6 +675,8 @@ nodejs_plugin_packages:
   hosts:
     nodejs-react-json-tree:
       strategy: bundle
+    nodejs-types-react:
+      strategy: bundle
     nodejs-types-node:
       strategy: bundle
 
