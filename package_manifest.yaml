@@ -652,6 +652,7 @@ katello_common_packages:
     katello-client-bootstrap: {}
     katello-repos: {}
     katello-selinux: {}
+    python-onigurumacffi: {}
     python-tzdata: {}
     rhel8-kickstart-setup: {}
 
