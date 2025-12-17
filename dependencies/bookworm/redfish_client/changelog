@@ -1,3 +1,9 @@
+ruby-redfish-client (0.7.0-1) stable; urgency=low
+
+  * 0.7.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 17 Dec 2025 04:18:13 +0000
+
 ruby-redfish-client (0.6.2-1) stable; urgency=low
 
   * 0.6.2 released
