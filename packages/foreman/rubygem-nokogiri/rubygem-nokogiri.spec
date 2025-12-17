@@ -3,8 +3,8 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.15.7
-Release: 2%{?dist}
+Version: 1.17.2
+Release: 1%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 # MIT: see LICENSE.md
 # ASL 2.0
@@ -20,8 +20,8 @@ Patch0:	%{name}-1.11.0.rc4-shutdown-libxml2-warning.patch
 Provides:	bundled(gumbo-parser) = 0.10.1
 
 # start specfile generated dependencies
-Requires: ruby >= 2.7.0
-BuildRequires: ruby-devel >= 2.7.0
+Requires: ruby >= 3.0.0
+BuildRequires: ruby-devel >= 3.0.0
 BuildRequires: rubygems-devel
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
@@ -78,7 +78,7 @@ sed -i -e '\@mini_portile@d' ../%{gem_name}-%{version}.gemspec
 sed -i \
 	ext/nokogiri/extconf.rb \
 	-e "s@^\(def process_recipe.*\)\$@\1 ; return true@" \
-	-e "s@^\(append_cppflags\).*gumbo.*\$@\1(\"-I$(pwd)/gumbo-parser/src\")@" \
+	-e "s@^\([ \t]*append_cppflags\).*gumbo.*\$@\1(\"-I$(pwd)/gumbo-parser/src\")@" \
 	-e "\@libs.*gumbo@s@File\.join.*@\"$(pwd)/gumbo-parser/src/libgumbo.a\"@" \
 	-e "\@LIBPATH.*gumbo@s|^\(.*\)\$|# \1|" \
 	%{nil}
@@ -186,6 +186,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/gumbo-parser/src/README.md
 
 %changelog
+* Wed Dec 17 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 1.17.2-1
+- Update to 1.17.2
+
 * Sat Nov 22 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.15.7-2
 - Replace use of deprecated PatchN macro
 
