@@ -160,7 +160,6 @@ other_core_packages:
     dynflow-utils: {}
     foreman-bootloaders-redhat: {}
     foreman-obsolete-packages: {}
-    pcp-mmvstatsd: {}
     python-websockify: {}
 
 hammer_core_packages:
