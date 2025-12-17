@@ -2,7 +2,7 @@
 %global gem_name loofah
 
 Name: rubygem-%{gem_name}
-Version: 2.24.1
+Version: 2.25.0
 Release: 1%{?dist}
 Summary: Loofah is a general library for manipulating and transforming HTML/XML documents and fragments, built on top of Nokogiri
 License: MIT
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Dec 17 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.25.0-1
+- Update to 2.25.0
+
 * Wed May 14 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.24.1-1
 - Update to 2.24.1
 
