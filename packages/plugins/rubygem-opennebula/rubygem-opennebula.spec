@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OpenNebula Client API
 License: Apache-2.0
 URL: https://opennebula.io
@@ -31,6 +31,11 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Remove overly restrictive nokogiri version constraint
+# See: https://github.com/OpenNebula/one/issues/7419
+%gemspec_remove_dep -g nokogiri ['< 1.16']
+%gemspec_add_dep -g nokogiri
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -57,6 +62,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Wed Dec 17 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 7.0.0-2
+- Remove overly restrictive nokogiri version constraint
+
 * Mon Sep 29 2025 Evgeni Golov - 7.0.0-1
 - Update to 7.0.0
 
