@@ -386,6 +386,7 @@ foreman_nodejs_packages:
     nodejs-babel-preset-env:
       strategy: bundle
     nodejs-babel-runtime: {}
+    nodejs-base64-js: {}
     nodejs-bootstrap-sass: {}
     nodejs-buffer: {}
     nodejs-c3: {}
