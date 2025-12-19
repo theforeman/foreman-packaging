@@ -417,6 +417,7 @@ foreman_nodejs_packages:
     nodejs-harmony-reflect: {}
     nodejs-history: {}
     nodejs-humanize-duration: {}
+    nodejs-ieee754: {}
     nodejs-intl: {}
     nodejs-ipaddr.js: {}
     nodejs-jed: {}
