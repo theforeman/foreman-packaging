@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.21.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A ruby parser written in pure ruby
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -19,8 +19,6 @@ BuildArch: noarch
 # end specfile generated dependencies
 
 # Prefer to consume racc as a default gem
-Requires: ruby-default-gems < 3.3
-BuildRequires: ruby-default-gems < 3.3
 Requires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
 BuildRequires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
 
@@ -88,6 +86,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Fri Dec 19 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.21.1-2
+- Drop EL8 requirement workaround
+
 * Sun Jul 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.21.1-1
 - Update to 3.21.1
 
