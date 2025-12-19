@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.4.4
+Version: 1.7.3
 Release: 1%{?dist}
 Summary: This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org)
 License: BSD-3-Clause
@@ -11,9 +11,9 @@ URL: https://github.com/sparklemotion/sqlite3-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.8.7
-BuildRequires: ruby-devel >= 1.8.7
-BuildRequires: rubygems-devel >= 1.3.5
+Requires: ruby >= 2.7.0
+BuildRequires: ruby-devel >= 2.7.0
+BuildRequires: rubygems-devel
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
@@ -38,9 +38,20 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Remove bundled SQLite right away.
+rm -rf ports
+%gemspec_remove_file "ports/archives/sqlite-autoconf-3450200.tar.gz"
+
+# This is not really runtime dependency, neither it is needed by official
+# prebuild platform specific packages.
+%gemspec_remove_dep -g mini_portile2 "~> 2.8.0"
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
+
+# Build against system SQLite3.
+CONFIGURE_ARGS="--enable-system-libraries"
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
@@ -74,26 +85,31 @@ rm -rf gem_ext_test
 %{gem_extdir_mri}
 %exclude %{gem_instdir}/.gemtest
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/Manifest.txt
-%exclude %{gem_instdir}/appveyor.yml
-%{gem_instdir}/faq
+# This does not apply because it does not bundle the SQLite3
+# library.
+%exclude %license %{gem_instdir}/LICENSE-DEPENDENCIES
 %{gem_libdir}
-%{gem_instdir}/rakelib
-%{gem_instdir}/setup.rb
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/API_CHANGES.rdoc
-%doc %{gem_instdir}/CHANGELOG.rdoc
+%doc %{gem_instdir}/API_CHANGES.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/ChangeLog.cvs
+%doc %{gem_instdir}/FAQ.md
 %{gem_instdir}/Gemfile
-%doc %{gem_instdir}/README.rdoc
-%{gem_instdir}/Rakefile
+%doc %{gem_instdir}/INSTALLATION.md
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/dependencies.yml
 %{gem_instdir}/test
 
 %changelog
+* Fri Dec 19 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.3-1
+- Update to 1.7.3
+
 * Mon Dec 18 2023 Evgeni Golov 1.4.4-1
 - Update to 1.4.4
 
