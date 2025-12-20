@@ -384,8 +384,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-babel-loader:
       strategy: bundle
-    nodejs-babel-plugin-transform-class-properties:
-      strategy: bundle
     nodejs-babel-preset-env:
       strategy: bundle
     nodejs-babel-preset-react:
