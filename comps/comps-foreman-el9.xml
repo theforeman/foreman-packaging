@@ -88,6 +88,7 @@
       <packagereq type="default">nodejs-mini-css-extract-plugin</packagereq>
       <packagereq type="default">nodejs-module-federation-utilities</packagereq>
       <packagereq type="default">nodejs-multiselect</packagereq>
+      <packagereq type="default">nodejs-neo-async</packagereq>
       <packagereq type="default">nodejs-novnc-novnc</packagereq>
       <packagereq type="default">nodejs-number_helpers</packagereq>
       <packagereq type="default">nodejs-openshift-dynamic-plugin-sdk</packagereq>
