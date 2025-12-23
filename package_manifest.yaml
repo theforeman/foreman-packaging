@@ -431,6 +431,7 @@ foreman_nodejs_packages:
     nodejs-mini-css-extract-plugin: {}
     nodejs-module-federation-utilities: {}
     nodejs-multiselect: {}
+    nodejs-neo-async: {}
     nodejs-novnc-novnc: {}
     nodejs-number_helpers: {}
     nodejs-openshift-dynamic-plugin-sdk: {}
