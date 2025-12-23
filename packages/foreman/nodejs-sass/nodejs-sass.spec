@@ -5,30 +5,29 @@
 
 Name: %{?scl_prefix}nodejs-sass
 Version: 1.60.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A pure JavaScript implementation of Sass
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/sass/dart-sass
 Source0: https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz
-Source1: https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz
-Source2: https://registry.npmjs.org/braces/-/braces-3.0.2.tgz
-Source3: https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz
-Source4: https://registry.npmjs.org/fill-range/-/fill-range-7.0.1.tgz
-Source5: https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz
-Source6: https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz
-Source7: https://registry.npmjs.org/immutable/-/immutable-4.3.5.tgz
-Source8: https://registry.npmjs.org/is-binary-path/-/is-binary-path-2.1.0.tgz
-Source9: https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz
-Source10: https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz
-Source11: https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz
-Source12: https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz
-Source13: https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz
-Source14: https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz
-Source15: https://registry.npmjs.org/sass/-/sass-1.60.0.tgz
-Source16: https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz
-Source17: https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz
-Source18: nodejs-sass-%{version}-registry.npmjs.org.tgz
+Source1: https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.3.0.tgz
+Source2: https://registry.npmjs.org/braces/-/braces-3.0.3.tgz
+Source3: https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz
+Source4: https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz
+Source5: https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz
+Source6: https://registry.npmjs.org/immutable/-/immutable-4.3.7.tgz
+Source7: https://registry.npmjs.org/is-binary-path/-/is-binary-path-2.1.0.tgz
+Source8: https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz
+Source9: https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz
+Source10: https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz
+Source11: https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz
+Source12: https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz
+Source13: https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz
+Source14: https://registry.npmjs.org/sass/-/sass-1.60.0.tgz
+Source15: https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz
+Source16: https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz
+Source17: nodejs-sass-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
@@ -38,13 +37,12 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled(npm(anymatch)) = 3.1.3
-Provides: bundled(npm(binary-extensions)) = 2.2.0
-Provides: bundled(npm(braces)) = 3.0.2
-Provides: bundled(npm(chokidar)) = 3.5.3
-Provides: bundled(npm(fill-range)) = 7.0.1
-Provides: bundled(npm(fsevents)) = 2.3.3
+Provides: bundled(npm(binary-extensions)) = 2.3.0
+Provides: bundled(npm(braces)) = 3.0.3
+Provides: bundled(npm(chokidar)) = 3.6.0
+Provides: bundled(npm(fill-range)) = 7.1.1
 Provides: bundled(npm(glob-parent)) = 5.1.2
-Provides: bundled(npm(immutable)) = 4.3.5
+Provides: bundled(npm(immutable)) = 4.3.7
 Provides: bundled(npm(is-binary-path)) = 2.1.0
 Provides: bundled(npm(is-extglob)) = 2.1.1
 Provides: bundled(npm(is-glob)) = 4.0.3
@@ -53,7 +51,7 @@ Provides: bundled(npm(normalize-path)) = 3.0.0
 Provides: bundled(npm(picomatch)) = 2.3.1
 Provides: bundled(npm(readdirp)) = 3.6.0
 Provides: bundled(npm(sass)) = 1.60.0
-Provides: bundled(npm(source-map-js)) = 1.0.2
+Provides: bundled(npm(source-map-js)) = 1.2.1
 Provides: bundled(npm(to-regex-range)) = 5.0.1
 AutoReq: no
 AutoProv: no
@@ -75,7 +73,7 @@ for tgz in %{sources}; do
 done
 %{?scl:end_of_scl}
 
-%setup -T -q -a 18 -D -n %{npm_cache_dir}
+%setup -T -q -a 17 -D -n %{npm_cache_dir}
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
@@ -105,6 +103,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Dec 23 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.60.0-3
+- Rebuild vendor cache for NodeJS 22
+
 * Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 1.60.0-2
 - Use --legacy-peer-deps during npm install
 
