@@ -10,7 +10,6 @@
       <packagereq type="default">dynflow-utils</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
-      <packagereq type="default">foremanctl</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat-tftpboot</packagereq>
@@ -39,6 +38,7 @@
       <packagereq type="default">foreman-service</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
+      <packagereq type="default">foremanctl</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
       <packagereq type="default">libsass</packagereq>
       <packagereq type="default">libsass-devel</packagereq>
