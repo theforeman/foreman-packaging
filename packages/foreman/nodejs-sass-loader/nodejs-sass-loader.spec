@@ -5,66 +5,46 @@
 
 Name: %{?scl_prefix}nodejs-sass-loader
 Version: 13.3.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Sass loader for webpack
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/webpack-contrib/sass-loader
-Source0: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz
-Source1: https://registry.npmjs.org/sass-loader/-/sass-loader-13.3.3.tgz
-Source2: nodejs-sass-loader-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+Source0: https://registry.npmjs.org/sass-loader/-/sass-loader-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
+Requires: npm(neo-async) >= 2.6.2
+Requires: npm(neo-async) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(neo-async)) = 2.6.2
-Provides: bundled(npm(sass-loader)) = 13.3.3
-AutoReq: no
-AutoProv: no
-
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
 
 %description
 %{summary}
 
 %prep
-mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
-done
-%{?scl:end_of_scl}
-
-%setup -T -q -a 2 -D -n %{npm_cache_dir}
-
-%build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+%setup -q -n package
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-%clean
-rm -rf %{buildroot} %{npm_cache_dir}
+%nodejs_symlink_deps
+
+%check
+%{nodejs_symlink_deps} --check
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%license node_modules/%{npm_name}/LICENSE
-%doc node_modules/%{npm_name}/README.md
+%license LICENSE
+%doc README.md
 
 %changelog
+* Tue Dec 23 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 13.3.3-3
+- Unbundle dependencies
+
 * Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 13.3.3-2
 - Use --legacy-peer-deps during npm install
 
