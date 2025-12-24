@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-style-loader
 Version: 1.3.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: style loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -90,6 +90,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Dec 24 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-3
+- Rebuild vendor cache for NodeJS 22
+
 * Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-2
 - Use --legacy-peer-deps during npm install
 
