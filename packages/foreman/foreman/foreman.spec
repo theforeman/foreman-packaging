@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -123,7 +123,6 @@ BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
 Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
 BuildRequires: nodejs-packaging
-BuildRequires: http-parser
 BuildRequires: systemd
 
 %package cli
@@ -862,6 +861,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Feb 17 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.19.0-0.3.develop
+- Drop dependency on http-parser
+
 * Tue Feb 17 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.19.0-0.2.develop
 - Allow bootstrapping the package
 
