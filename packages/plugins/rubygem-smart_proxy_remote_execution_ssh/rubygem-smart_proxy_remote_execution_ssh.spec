@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 License: GPLv3
@@ -90,6 +90,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 06 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.1-1
+- Update to 1.0.1
+
 * Fri Dec 19 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.0-1
 - Update to 1.0.0
 
