@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.9.4
+Version: 1.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Dynflow runtime for Foreman smart proxy
 License: GPLv3
@@ -20,10 +20,8 @@ Requires: rubygem(logging)
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: ruby >= 2.7
-Requires: ruby < 4
-BuildRequires: ruby >= 2.7
-BuildRequires: ruby < 4
+Requires: ruby >= 3.0
+BuildRequires: ruby >= 3.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
@@ -86,6 +84,9 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue Jan 06 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.0-1
+- Update to 1.0.0
+
 * Sun Nov 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.4-1
 - Update to 0.9.4
 
