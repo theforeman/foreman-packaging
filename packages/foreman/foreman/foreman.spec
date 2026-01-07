@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -83,7 +83,7 @@ Requires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
 Requires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
 Requires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
 Requires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
-Requires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
+Requires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 3.0.0)
 Requires: rubygem(daemons)
 Requires: (rubygem(bcrypt) >= 3.1 with rubygem(bcrypt) < 4.0)
 Requires: rubygem(get_process_mem)
@@ -839,6 +839,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jan 07 2026 Adam Ruzicka - 3.18.0-0.3.develop
+- Allow dynflow-2.y.z
+
 * Thu Nov 20 2025 Evgeni Golov - 3.18.0-0.2.develop
 - Support limiting loaded plugins via FOREMAN_ENABLED_PLUGINS
 
