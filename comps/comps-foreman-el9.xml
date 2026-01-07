@@ -106,6 +106,7 @@
       <packagereq type="default">nodejs-patternfly-react-icons</packagereq>
       <packagereq type="default">nodejs-patternfly-react-styles</packagereq>
       <packagereq type="default">nodejs-patternfly-react-table</packagereq>
+      <packagereq type="default">nodejs-patternfly-react-templates</packagereq>
       <packagereq type="default">nodejs-patternfly-react-tokens</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
