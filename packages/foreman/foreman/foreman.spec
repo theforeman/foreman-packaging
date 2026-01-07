@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -240,11 +240,12 @@ Requires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federatio
 Requires: npm(@novnc/novnc) = 1.3.0
 Requires: (npm(@patternfly/patternfly) >= 5.4.2 with npm(@patternfly/patternfly) < 6.0.0)
 Requires: (npm(@patternfly/react-charts) >= 7.4.5 with npm(@patternfly/react-charts) < 7.5.0)
-Requires: (npm(@patternfly/react-core) >= 5.2.0 with npm(@patternfly/react-core) < 6.0.0)
-Requires: (npm(@patternfly/react-icons) >= 5.2.0 with npm(@patternfly/react-icons) < 6.0.0)
-Requires: (npm(@patternfly/react-styles) >= 5.2.0 with npm(@patternfly/react-styles) < 6.0.0)
-Requires: (npm(@patternfly/react-table) >= 5.2.0 with npm(@patternfly/react-table) < 6.0.0)
-Requires: (npm(@patternfly/react-tokens) >= 5.2.0 with npm(@patternfly/react-tokens) < 6.0.0)
+Requires: (npm(@patternfly/react-core) >= 5.4.8 with npm(@patternfly/react-core) < 6.0.0)
+Requires: (npm(@patternfly/react-icons) >= 5.4.2 with npm(@patternfly/react-icons) < 6.0.0)
+Requires: (npm(@patternfly/react-styles) >= 5.4.1 with npm(@patternfly/react-styles) < 6.0.0)
+Requires: (npm(@patternfly/react-table) >= 5.4.8 with npm(@patternfly/react-table) < 6.0.0)
+Requires: (npm(@patternfly/react-templates) >= 1.1.8 with npm(@patternfly/react-templates) < 2.0.0)
+Requires: (npm(@patternfly/react-tokens) >= 5.4.1 with npm(@patternfly/react-tokens) < 6.0.0)
 Requires: (npm(@reduxjs/toolkit) >= 1.6.0 with npm(@reduxjs/toolkit) < 2.0.0)
 Requires: (npm(@scalprum/core) >= 0.8.1 with npm(@scalprum/core) < 1.0.0)
 Requires: (npm(@scalprum/react-core) >= 0.9.3 with npm(@scalprum/react-core) < 1.0.0)
@@ -261,7 +262,7 @@ Requires: (npm(core-js) >= 2.5.7 with npm(core-js) < 3.0.0)
 Requires: npm(datatables.net) = 1.13.5
 Requires: npm(datatables.net-bs) = 1.13.5
 Requires: npm(datatables.net-dt) = 1.13.5
-Requires: (npm(diff) >= 5.1.0 with npm(diff) < 6.0.0)
+Requires: npm(diff) = 5.2.0
 Requires: (npm(dsmorse-gridster) >= 0.8.0 with npm(dsmorse-gridster) < 1.0.0)
 Requires: (npm(file-saver) >= 2.0.1 with npm(file-saver) < 3.0.0)
 Requires: (npm(formik) >= 1.5.8 with npm(formik) < 2.0.0)
@@ -287,13 +288,11 @@ Requires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
 Requires: (npm(rc-input-number) >= 6.0.0 with npm(rc-input-number) < 7.0.0)
 Requires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
 Requires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
-Requires: (npm(react-bootstrap) >= 0.32.0 with npm(react-bootstrap) < 1.0.0)
 Requires: (npm(react-debounce-input) >= 3.2.0 with npm(react-debounce-input) < 4.0.0)
 Requires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
 Requires: (npm(react-dnd) >= 14.0.2 with npm(react-dnd) < 15.0.0)
 Requires: (npm(react-dnd-html5-backend) >= 14.0.0 with npm(react-dnd-html5-backend) < 15.0.0)
 Requires: (npm(react-dom) >= 16.8.1 with npm(react-dom) < 17.0.0)
-Requires: (npm(react-ellipsis-with-tooltip) >= 1.0.8 with npm(react-ellipsis-with-tooltip) < 2.0.0)
 Requires: (npm(react-helmet) >= 6.1.0 with npm(react-helmet) < 7.0.0)
 Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 Requires: (npm(react-loading-skeleton) >= 1.1.2 with npm(react-loading-skeleton) < 2.0.0)
@@ -306,7 +305,7 @@ Requires: (npm(react-router-dom) >= 5.1.2 with npm(react-router-dom) < 6.0.0)
 Requires: (npm(redux) >= 4.0.4 with npm(redux) < 5.0.0)
 Requires: (npm(redux-logger) >= 2.8.1 with npm(redux-logger) < 3.0.0)
 Requires: (npm(redux-thunk) >= 2.2.0 with npm(redux-thunk) < 3.0.0)
-Requires: (npm(regenerator-runtime) >= 0.13.3 with npm(regenerator-runtime) < 1.0.0)
+Requires: npm(regenerator-runtime) = 0.14.1
 Requires: (npm(reselect) >= 3.0.1 with npm(reselect) < 4.0.0)
 Requires: npm(sanitize-html) = 2.3.2
 Requires: (npm(seamless-immutable) >= 7.1.2 with npm(seamless-immutable) < 8.0.0)
@@ -839,6 +838,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jan 14 2026 MariaAga - 3.18.0-0.5.develop
+- Add nodejs-patternfly-react-templates package
+
 * Thu Jan 08 2026 Adam Lazik - 3.18.0-0.4.develop
 - Require NodeJS 22
 

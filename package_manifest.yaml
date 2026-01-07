@@ -444,6 +444,7 @@ foreman_nodejs_packages:
     nodejs-patternfly-react-extensions: {}
     nodejs-patternfly-react-icons: {}
     nodejs-patternfly-react-styles: {}
+    nodejs-patternfly-react-templates: {}
     nodejs-patternfly-react-tokens: {}
     nodejs-patternfly-react-table: {}
     nodejs-performance-now: {}
