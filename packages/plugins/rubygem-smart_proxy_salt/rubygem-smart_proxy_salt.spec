@@ -14,7 +14,7 @@
 %global salt_state_grains_dir %{foreman_proxy_statedir}/salt/grains
 
 Name: rubygem-%{gem_name}
-Version: 6.1.0
+Version: 7.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: SaltStack Plug-In for Foreman's Smart Proxy
 License: GPLv3
@@ -28,9 +28,9 @@ BuildRequires: python3-rpm-macros
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: ruby >= 2.7
+Requires: ruby >= 3.0
 Requires: ruby < 4
-BuildRequires: ruby >= 2.7
+BuildRequires: ruby >= 3.0
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
@@ -142,6 +142,9 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Thu Jan 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.0-1
+- Update to 7.0.0
+
 * Mon Dec 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 6.1.0-1
 - Update to 6.1.0
 
