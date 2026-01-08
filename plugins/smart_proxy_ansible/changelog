@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.7.1-2) stable; urgency=low
+
+  * Loosen dependency on smart_proxy_dynflow
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 08 Jan 2026 11:57:00 +0100
+
 ruby-smart-proxy-ansible (3.7.1-1) stable; urgency=low
 
   * 3.7.1 released
