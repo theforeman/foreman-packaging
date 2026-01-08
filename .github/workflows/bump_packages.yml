@@ -53,7 +53,7 @@ jobs:
       if: ${{ matrix.npm_name != null }}
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 22
     - name: Install npm2rpm
       if: ${{ matrix.npm_name != null }}
       run: npm install --global npm2rpm
