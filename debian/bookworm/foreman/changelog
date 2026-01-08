@@ -1,3 +1,9 @@
+foreman (3.18.0-2) stable; urgency=low
+
+  * Require NodeJS 22
+
+  -- Adam Lazik <alazik@redhat.com> Thu, 08 Jan 2026 12:56:00 +0100
+
 foreman (3.18.0-1) stable; urgency=low
 
   * Bump changelog to 3.18.0 to match VERSION
