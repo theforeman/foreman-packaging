@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -211,7 +211,7 @@ Meta package to install requirements for VMware compute resource support.
 Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
-Requires: nodejs >= 14
+Requires: nodejs >= 22
 Requires: /usr/bin/npx
 
 # start package.json devDependencies Requires
@@ -839,6 +839,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Jan 08 2026 Adam Lazik - 3.18.0-0.4.develop
+- Require NodeJS 22
+
 * Wed Jan 07 2026 Adam Ruzicka - 3.18.0-0.3.develop
 - Allow dynflow-2.y.z
 
