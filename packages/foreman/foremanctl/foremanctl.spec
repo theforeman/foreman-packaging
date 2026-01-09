@@ -1,8 +1,8 @@
 %global __brp_mangle_shebangs_exclude_from ^%{_datadir}/%{name}/collections/.*$
 
 Name:      foremanctl
-Version:   1.0.0
-Release:   2%{?dist}
+Version:   1.1.0
+Release:   1%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -61,6 +61,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Fri Jan 09 2026 Evgeni Golov - 1.1.0-1
+- Release foremanctl 1.1.0
+
 * Mon Dec 01 2025 Evgeni Golov - 1.0.0-2
 - spec with a folder for logging
 
