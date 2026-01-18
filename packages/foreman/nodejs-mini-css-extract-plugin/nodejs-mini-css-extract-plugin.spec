@@ -4,23 +4,23 @@
 %global npm_name mini-css-extract-plugin
 
 Name: %{?scl_prefix}nodejs-mini-css-extract-plugin
-Version: 2.9.4
+Version: 2.10.0
 Release: 1%{?dist}
 Summary: extracts CSS into separate files
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/webpack-contrib/mini-css-extract-plugin
+URL: https://github.com/webpack/mini-css-extract-plugin
 Source0: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
 Source1: https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz
 Source2: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source3: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
 Source4: https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz
-Source5: https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.6.tgz
+Source5: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz
 Source6: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
-Source7: https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-2.9.4.tgz
+Source7: https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-2.10.0.tgz
 Source8: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
-Source9: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.2.tgz
-Source10: https://registry.npmjs.org/tapable/-/tapable-2.2.2.tgz
+Source9: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
+Source10: https://registry.npmjs.org/tapable/-/tapable-2.3.0.tgz
 Source11: nodejs-mini-css-extract-plugin-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %if 0%{!?scl:1}
@@ -35,12 +35,12 @@ Provides: bundled(npm(ajv)) = 8.17.1
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
 Provides: bundled(npm(fast-deep-equal)) = 3.1.3
-Provides: bundled(npm(fast-uri)) = 3.0.6
+Provides: bundled(npm(fast-uri)) = 3.1.0
 Provides: bundled(npm(json-schema-traverse)) = 1.0.0
-Provides: bundled(npm(mini-css-extract-plugin)) = 2.9.4
+Provides: bundled(npm(mini-css-extract-plugin)) = 2.10.0
 Provides: bundled(npm(require-from-string)) = 2.0.2
-Provides: bundled(npm(schema-utils)) = 4.3.2
-Provides: bundled(npm(tapable)) = 2.2.2
+Provides: bundled(npm(schema-utils)) = 4.3.3
+Provides: bundled(npm(tapable)) = 2.3.0
 AutoReq: no
 AutoProv: no
 
@@ -84,6 +84,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sun Jan 18 2026 Foreman Packaging Automation <packaging@theforeman.org> 2.10.0-1
+- Update to 2.10.0
+
 * Wed Aug 13 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.9.4-1
 - Update to 2.9.4
 
