@@ -5,6 +5,10 @@
 # ansible
 /packages/plugins/*_ansible/ @theforeman/packaging @theforeman/ansible
 
+# ansible-collections
+/packages/plugins/ansible-collection-*/ @theforeman/packaging @theforeman/ansible-modules
+/packages/satellite/ansible-collection-*/ @theforeman/packaging @theforeman/ansible-modules
+
 # atix
 /packages/katello/*_scc_manager/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_resource_quota/ @theforeman/packaging @theforeman/atix
