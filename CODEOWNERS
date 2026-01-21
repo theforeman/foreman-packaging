@@ -6,6 +6,9 @@
 /plugins/*ansible/ @theforeman/packaging @theforeman/ansible
 /dependencies/*/*ansible/ @theforeman/packaging @theforeman/ansible
 
+# ansible-collections
+/plugins/ansible-collection-*/ @theforeman/packaging @theforeman/ansible-modules
+
 # atix
 /plugins/*snapshot-management/ @theforeman/packaging @theforeman/atix
 
