@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-remote-execution (0.4.1-1) stable; urgency=low
+
+  * 0.4.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 22 Jan 2026 08:56:31 +0000
+
 ruby-hammer-cli-foreman-remote-execution (0.3.4-1) stable; urgency=low
 
   * 0.3.4 released
