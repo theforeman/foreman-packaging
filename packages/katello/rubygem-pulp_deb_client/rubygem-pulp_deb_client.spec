@@ -2,7 +2,7 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 3.7.0
+Version: 3.8.0
 Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 23 2026 Quirin Pamp <pamp@atix.de> 3.8.0-1
+- Update to 3.8.0
+
 * Thu Oct 02 2025 ianballou <ianballou67@gmail.com> - 3.7.0-1
 - Update to 3.7.0
 
