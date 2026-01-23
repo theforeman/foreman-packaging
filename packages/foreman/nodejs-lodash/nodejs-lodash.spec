@@ -4,7 +4,7 @@
 %global npm_name lodash
 
 Name: %{?scl_prefix}nodejs-lodash
-Version: 4.17.21
+Version: 4.17.23
 Release: 1%{?dist}
 Summary: Lodash modular utilities
 License: MIT
@@ -401,8 +401,6 @@ cp -pfr findLast.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr findLastIndex.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr findLastKey.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr first.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr flake.lock %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr flake.nix %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMap.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMapDeep.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flatMapDepth.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -673,9 +671,11 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
 %doc README.md
-%doc release.md
 
 %changelog
+* Fri Jan 23 2026 Foreman Packaging Automation <packaging@theforeman.org> 4.17.23-1
+- Update to 4.17.23
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.17.21-1
 - Update to 4.17.21
 
