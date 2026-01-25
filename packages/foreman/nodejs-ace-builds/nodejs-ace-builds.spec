@@ -4,7 +4,7 @@
 %global npm_name ace-builds
 
 Name: %{?scl_prefix}nodejs-ace-builds
-Version: 1.43.5
+Version: 1.43.6
 Release: 1%{?dist}
 Summary: Ace (Ajax
 License: BSD-3-Clause
@@ -55,6 +55,9 @@ cp -pfr webpack-resolver.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sun Jan 25 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.43.6-1
+- Update to 1.43.6
+
 * Wed Dec 10 2025 Foreman Packaging Automation <packaging@theforeman.org> 1.43.5-1
 - Update to 1.43.5
 
