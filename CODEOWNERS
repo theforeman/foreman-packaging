@@ -57,7 +57,7 @@
 /packages/plugins/*ovirt*/ @theforeman/packaging @theforeman/ovirt
 
 # proxmox
-/packages/plugins/*_fog_proxmox/ @theforeman/packaging @theforeman/proxmox
+/packages/plugins/*proxmox/ @theforeman/packaging @theforeman/proxmox
 
 # puppet
 /packages/plugins/*_puppet/ @theforeman/packaging @theforeman/puppet
