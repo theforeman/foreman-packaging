@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.4.1
+Version: 0.4.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 License: GPLv3
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jan 28 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.2-1
+- Update to 0.4.2
+
 * Thu Feb 20 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.1-1
 - Update to 0.4.1
 
