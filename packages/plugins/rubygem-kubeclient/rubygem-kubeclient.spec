@@ -2,7 +2,7 @@
 %global gem_name kubeclient
 
 Name: rubygem-%{gem_name}
-Version: 4.12.0
+Version: 4.13.0
 Release: 1%{?dist}
 Summary: A client for Kubernetes REST api
 License: MIT
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/kubeclient.gemspec
 
 %changelog
+* Wed Jan 28 2026 Evgeni Golov - 4.13.0-1
+- Update to 4.13.0
+
 * Wed May 14 2025 Evgeni Golov - 4.12.0-1
 - Update to 4.12.0
 
