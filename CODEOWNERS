@@ -46,6 +46,10 @@
 # foreman_templates
 /packages/plugins/*foreman_templates/ @theforeman/packaging @theforeman/foreman_templates
 
+# kubevirt
+/packages/plugins/*kubevirt/ @theforeman/packaging @theforeman/kubevirt
+/packages/plugins/*kubeclient/ @theforeman/packaging @theforeman/kubevirt
+
 # ldap-fluff
 /packages/foreman/rubygem-ldap_fluff/ @theforeman/packaging @theforeman/ldap-fluff
 
