@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_deb
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jan 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.0-2
+- Rebuild to force copr to reload the right version
+
 * Thu Oct 02 2025 ianballou <ianballou67@gmail.com> - 3.7.0-1
 - Update to 3.7.0
 
