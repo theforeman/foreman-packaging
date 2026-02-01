@@ -2,7 +2,7 @@
 %global gem_name hashie
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
+Version: 5.1.0
 Release: 1%{?dist}
 Summary: Your friendly neighborhood hash library
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/hashie/hashie
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/hashie.gemspec
 
 %changelog
+* Sun Feb 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.1.0-1
+- Update to 5.1.0
+
 * Sun Sep 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 5.0.0-1
 - Update to 5.0.0
 
