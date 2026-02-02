@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.28.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_ansible
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Feb 02 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.28.0-2
+- Bumping to rebuild for COPR after being reverted.
+
 * Thu Oct 02 2025 ianballou <ianballou67@gmail.com> - 0.28.0-1
 - Update to 0.28.0
 
