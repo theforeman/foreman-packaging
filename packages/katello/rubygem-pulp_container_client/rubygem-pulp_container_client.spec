@@ -2,7 +2,7 @@
 %global gem_name pulp_container_client
 
 Name: rubygem-%{gem_name}
-Version: 2.26.5
+Version: 2.26.2
 Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
@@ -62,9 +62,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
-* Wed Jan 28 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:2.26.5-1
-- Update to 2.26.5
-
 * Wed Dec 10 2025 ianballou <ianballou67@gmail.com> - 1:2.26.2-1
 - Add Epoch for https://projects.theforeman.org/issues/38832
 
