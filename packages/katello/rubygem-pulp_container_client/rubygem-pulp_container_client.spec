@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.26.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
 License: GPLv2+
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Feb 02 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:2.26.2-2
+- Bumping to rebuild for COPR after being reverted.
+
 * Wed Dec 10 2025 ianballou <ianballou67@gmail.com> - 1:2.26.2-1
 - Add Epoch for https://projects.theforeman.org/issues/38832
 

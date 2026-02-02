@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.85.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp-certguard
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Feb 02 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.85.3-2
+- Bumping to rebuild for COPR after being reverted.
+
 * Wed Dec 10 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.85.3-1
 - Update to 3.85.3
 
