@@ -1,16 +1,15 @@
 # template: foreman_plugin
 %global gem_name foreman_expire_hosts
 %global plugin_name expire_hosts
-%global foreman_min_version 3.13.0
+%global foreman_min_version 3.18.0
 
 Name: rubygem-%{gem_name}
 Version: 9.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 License: GPLv3
 URL: https://github.com/theforeman/foreman_expire_hosts
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Source1: %{gem_name}.cron.d
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -51,8 +50,6 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
-mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 %foreman_bundlerd_file
 
 %files
@@ -66,7 +63,6 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{g
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%config(noreplace) %{_sysconfdir}/cron.d/%{gem_name}
 
 %files doc
 %doc %{gem_docdir}
@@ -77,6 +73,10 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{g
 %{foreman_plugin_log}
 
 %changelog
+* Wed Feb 04 2026 Archana Kumari <akumari@redhat.com> - 9.0.1-2
+- Migrate to Foreman::Cron framework, require Foreman >= 3.18
+- Remove cron.d file as task now runs via cron:daily
+
 * Wed Jun 18 2025 David Ochner <ochnerd@yahoo.de> - 9.0.1-1
 - Update to 9.0.1
 
