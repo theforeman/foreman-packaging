@@ -16,6 +16,9 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+# Allow to consume logger as a default gem
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
+
 %description
 Hashie is a collection of classes and mixins that make hashes more powerful.
 
@@ -30,6 +33,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g logger
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -64,6 +69,7 @@ cp -a .%{gem_dir}/* \
 %changelog
 * Sun Feb 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.1.0-1
 - Update to 5.1.0
+- Add rich dependency for logger gem
 
 * Sun Sep 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 5.0.0-1
 - Update to 5.0.0
