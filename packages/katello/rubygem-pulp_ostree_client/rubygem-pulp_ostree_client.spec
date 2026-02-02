@@ -23,7 +23,7 @@ Fetch, Upload, Organize, and Distribute Software Packages.
 
 %package doc
 Summary: Documentation for %{name}
-Requires: %{name} = %{epoch}:%{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
