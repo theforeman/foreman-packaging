@@ -2,7 +2,7 @@
 %global gem_name rubyipmi
 
 Name: rubygem-%{gem_name}
-Version: 0.12.1
+Version: 0.13.0
 Release: 1%{?dist}
 Summary: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
 License: LGPLv2.1
@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/rubyipmi.gemspec
 
 %changelog
+* Thu Feb 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.13.0-1
+- Update to 0.13.0
+
 * Tue Jan 20 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.12.1-1
 - Update to 0.12.1
 
