@@ -36,6 +36,10 @@
 /plugins/ruby-foreman-templates/ @theforeman/packaging @theforeman/foreman_templates
 /dependencies/*/hammer_cli_foreman_templates @theforeman/packaging @theforeman/foreman_templates
 
+# google
+/dependencies/*/hammer_cli_foreman_google/ @theforeman/packaging @theforeman/google
+/plugins/ruby-foreman-google/ @theforeman/packaging @theforeman/google
+
 # HDM integration
 /plugins/*hdm @theforeman/packaging @theforeman/betadots
 
