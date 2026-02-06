@@ -688,6 +688,7 @@ foreman_plugin_packages_tier2:
     rubygem-foreman_openbolt: {}
     rubygem-foreman_opennebula: {}
     rubygem-foreman_openscap: {}
+    rubygem-foreman_opentofu: {}
     rubygem-foreman_ovirt: {}
     rubygem-foreman_puppet: {}
     rubygem-foreman_rescue: {}
