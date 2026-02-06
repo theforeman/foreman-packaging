@@ -11,6 +11,7 @@
 
 # atix
 /packages/katello/*_scc_manager/ @theforeman/packaging @theforeman/atix
+/packages/plugins/rubygem-foreman_opentofu/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_resource_quota/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_snapshot_management/ @theforeman/packaging @theforeman/atix
 /packages/plugins/rubygem-smart_proxy_request_forwarder/ @theforeman/packaging @theforeman/atix
