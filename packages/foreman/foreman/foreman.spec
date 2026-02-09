@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -861,6 +861,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Mar 05 2026 Archana Kumari <akumari@redhat.com> - 3.19.0-0.4.develop
+- Fixes #39089 - Migrate Foreman cron.d to use Foreman::Cron framework
+
 * Tue Feb 17 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.19.0-0.3.develop
 - Drop dependency on http-parser
 
