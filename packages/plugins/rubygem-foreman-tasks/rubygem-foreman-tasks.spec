@@ -1,7 +1,7 @@
 # template: foreman_plugin
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 3.15
+%global foreman_min_version 3.18.0
 
 Name: rubygem-%{gem_name}
 Version: 11.0.6
@@ -152,6 +152,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Mon Feb 10 2026 Archana Kumari <akumari@redhat.com> - 11.0.6-2
+- Migrate to Foreman::Cron framework, require Foreman >= 3.18
+
 * Sun Nov 02 2025 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.6-1
 - Update to 11.0.6
 
