@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.21.0
@@ -21,7 +21,6 @@ Source11:   katello-change-hostname
 Source13:   katello-change-hostname.8.asciidoc
 Source16:   hostname-change.rb
 Source17:   helper.rb
-Source18:   katello.cron
 
 BuildRequires: asciidoc
 BuildRequires: util-linux
@@ -53,10 +52,6 @@ popd
 %install
 mkdir -p %{buildroot}/%{_mandir}/man8
 
-#copy cron scripts to be scheduled
-install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
-install -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
-
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello
 install -m 644 %{SOURCE16} %{buildroot}%{_datarootdir}/katello/hostname-change.rb
@@ -79,7 +74,6 @@ install -m 644 ./manpages/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/m
 %{__rm} -rf %{buildroot}
 
 %files
-%config(missingok) %{_sysconfdir}/cron.d/katello
 
 # ------ Common ------------------
 
@@ -129,6 +123,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Mar 05 2026 Archana Kumari <akumari@redhat.com> - 4.21.0-0.2.master
+- Remove katello.cron, tasks now run via Foreman::Cron framework
+
 * Tue Feb 10 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.21.0-0.1.master
 - Bump version to 4.21.0
 
