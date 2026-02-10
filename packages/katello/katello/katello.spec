@@ -8,7 +8,7 @@
 %global release 1
 
 Name:       katello
-Version:    4.20.0
+Version:    4.21.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -129,6 +129,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Feb 10 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.21.0-0.1.master
+- Bump version to 4.21.0
+
 * Tue Nov 11 2025 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-0.1.master
 - Bump version to 4.20.0
 
