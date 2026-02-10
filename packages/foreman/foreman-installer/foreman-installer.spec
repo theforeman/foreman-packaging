@@ -4,7 +4,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    3.18.0
+Version:    3.19.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Feb 10 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1:3.19.0-0.1.develop
+- Bump version to 3.19-develop
+
 * Tue Nov 11 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 1:3.18.0-0.1.develop
 - Bump version to 3.18-develop
 
