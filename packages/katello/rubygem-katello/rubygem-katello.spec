@@ -1,12 +1,12 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.18
-%global foreman_max_version 3.19
+%global foreman_min_version 3.19
+%global foreman_max_version 3.20
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.20.0
-%global release 3
+%global mainver 4.21.0
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -166,6 +166,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Feb 10 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.21.0-0.1.pre.master
+- Bump version to 4.21.0
+
 * Tue Nov 25 2025 Ian Ballou <ianballou67@gmail.com> - 4.20.0-0.3.pre.master
 - Temporarily pin Pulp bindings to known working versions due to https://github.com/pulp/pulp_rpm/issues/4178
 
