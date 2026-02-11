@@ -3,8 +3,6 @@
 %global plugin_name katello
 
 %global release 1
-%global prereleasesource pre.main
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
@@ -73,6 +71,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Feb 11 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.20.0-1
+- Release rubygem-hammer_cli_katello 1.20.0
+
 * Tue Nov 11 2025 Zach Huntington-Meath <zhunting@redhat.com> - 1.20.0-0.1.pre.main
 - Bump version to 1.20.0
 
