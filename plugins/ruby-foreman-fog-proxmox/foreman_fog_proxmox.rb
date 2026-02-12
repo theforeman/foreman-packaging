@@ -1,1 +1,1 @@
-gem 'foreman_fog_proxmox', '0.20.0'
+gem 'foreman_fog_proxmox', '0.20.1'
