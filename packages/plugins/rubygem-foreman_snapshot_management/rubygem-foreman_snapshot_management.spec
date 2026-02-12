@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 4.1.1
+Version: 4.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for machines on virtualization-platforms
 License: GPLv3
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Feb 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 4.2.0-1
+- Update to 4.2.0
+
 * Thu Oct 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.1.1-1
 - Update to 4.1.1
 
