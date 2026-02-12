@@ -1,0 +1,24 @@
+Source: ruby-foreman-opentofu
+Section: ruby
+Priority: optional
+Maintainer: ATIX AG <info@atix.de>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb (>= 1),
+               rake,
+               foreman (>= 3.0.0),
+               ruby-foreman-deface (<<2.0.0),
+               foreman-assets (>= 3.0.0),
+               foreman-nulldb (>= 3.0.0)
+Standards-Version: 4.6.1
+Homepage: https://github.com/ATIX-AG/foreman_opentofu
+
+Package: ruby-foreman-opentofu
+Architecture: all
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends},
+         foreman (>= 3.0.0),
+         ruby-foreman-deface (<<2.0.0)
+Recommends: tofu
+Description: Plugin to provision host using opentofu
+ Plugin to provision host using opentofu with different compute resources
