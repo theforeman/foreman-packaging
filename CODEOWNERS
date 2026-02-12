@@ -10,6 +10,7 @@
 /plugins/ansible-collection-*/ @theforeman/packaging @theforeman/ansible-modules
 
 # atix
+/plugins/*opentofu/ @theforeman/packaging @theforeman/atix
 /plugins/*snapshot-management/ @theforeman/packaging @theforeman/atix
 
 # bootdisk
