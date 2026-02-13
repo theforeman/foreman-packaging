@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -279,7 +279,7 @@ Requires: (npm(jquery) >= 3.7.1 with npm(jquery) < 4.0.0)
 Requires: (npm(jquery-ujs) >= 1.2.0 with npm(jquery-ujs) < 1.3.0)
 Requires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
 Requires: (npm(jstz) >= 1.0.7 with npm(jstz) < 1.1.0)
-Requires: (npm(lodash) >= 4.17.14 with npm(lodash) < 5.0.0)
+Requires: (npm(lodash) >= 4.17.23 with npm(lodash) < 5.0.0)
 Requires: (npm(multiselect) >= 0.9.12 with npm(multiselect) < 0.10.0)
 Requires: (npm(number_helpers) >= 0.1.1 with npm(number_helpers) < 1.0.0)
 Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
@@ -861,6 +861,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Feb 20 2026 Maximilian Kolb <kolb@atix.com> 3.19.0-0.4.develop
+- Rebuild to require lodash 4.17.23 to fix CVE-2025-13465
+
 * Tue Feb 17 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.19.0-0.3.develop
 - Drop dependency on http-parser
 

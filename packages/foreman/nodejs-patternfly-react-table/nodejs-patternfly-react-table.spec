@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-patternfly-react-table
 Version: 5.4.16
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This library provides a set of React table components for use with the PatternFly 4
 License: MIT
 Group: Development/Libraries
@@ -22,7 +22,7 @@ Requires: npm(@patternfly/react-styles) >= 5.4.1
 Requires: npm(@patternfly/react-styles) < 6.0.0
 Requires: npm(@patternfly/react-tokens) >= 5.4.1
 Requires: npm(@patternfly/react-tokens) < 6.0.0
-Requires: npm(lodash) >= 4.17.21
+Requires: npm(lodash) >= 4.17.23
 Requires: npm(lodash) < 5.0.0
 Requires: npm(tslib) >= 2.7.0
 Requires: npm(tslib) < 3.0.0
@@ -55,6 +55,9 @@ cp -pfr subpaths.config.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Feb 13 2026 Maximilian Kolb <kolb@atix.com> 5.4.16-2
+- Rebuild to require lodash 4.17.23 to fix CVE-2025-13465
+
 * Sun Aug 31 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.4.16-1
 - Update to 5.4.16
 
