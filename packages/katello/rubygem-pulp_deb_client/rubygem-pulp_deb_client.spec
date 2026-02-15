@@ -2,8 +2,8 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 3.7.0
-Release: 2%{?dist}
+Version: 3.8.1
+Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_deb
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Feb 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.8.1-1
+- Update to 3.8.1
+
 * Thu Jan 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.0-2
 - Rebuild to force copr to reload the right version
 
