@@ -2,8 +2,8 @@
 %global gem_name pulp_rpm_client
 
 Name: rubygem-%{gem_name}
-Version: 3.32.2
-Release: 2%{?dist}
+Version: 3.32.6
+Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_rpm
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Feb 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.32.6-1
+- Update to 3.32.6
+
 * Mon Feb 02 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.32.2-2
 - Bumping to rebuild for COPR after being reverted.
 
