@@ -2,8 +2,8 @@
 %global gem_name pulp_ostree_client
 
 Name: rubygem-%{gem_name}
-Version: 2.5.0
-Release: 3%{?dist}
+Version: 2.5.3
+Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
 License: GPL-2.0+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Feb 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:2.5.3-1
+- Update to 2.5.3
+
 * Mon Feb 02 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:2.5.0-3
 - Bumping to rebuild for COPR after being reverted.
 
