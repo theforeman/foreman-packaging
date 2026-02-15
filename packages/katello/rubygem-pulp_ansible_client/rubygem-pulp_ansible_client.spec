@@ -2,8 +2,8 @@
 %global gem_name pulp_ansible_client
 
 Name: rubygem-%{gem_name}
-Version: 0.28.0
-Release: 2%{?dist}
+Version: 0.28.4
+Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_ansible
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Feb 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.28.4-1
+- Update to 0.28.4
+
 * Mon Feb 02 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.28.0-2
 - Bumping to rebuild for COPR after being reverted.
 
