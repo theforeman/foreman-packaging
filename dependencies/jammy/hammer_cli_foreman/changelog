@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (3.18.0-2) stable; urgency=low
+
+  * Dependency update ruby-hammer-cli (>= 3.18.0)
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 17 Feb 2026 16:09:39 +0100
+
 ruby-hammer-cli-foreman (3.18.0-1) stable; urgency=low
 
   * 3.18.0 released
