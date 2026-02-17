@@ -275,6 +275,7 @@ ruby_core_packages_tier1:
     rubygem-ldap_fluff: {}
     rubygem-little-plugger: {}
     rubygem-locale: {}
+    rubygem-logger: {}
     rubygem-logging: {}
     rubygem-logging-journald: {}
     rubygem-loofah: {}
