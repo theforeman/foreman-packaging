@@ -4,8 +4,8 @@
 %global foreman_min_version 3.16.0
 
 Name: rubygem-%{gem_name}
-Version: 17.0.2
-Release: 2%{?foremandist}%{?dist}
+Version: 17.0.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
 URL: https://github.com/theforeman/foreman_ansible
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Feb 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 17.0.3-1
+- Update to 17.0.3
+
 * Mon Nov 17 2025 Evgeni Golov - 17.0.2-2
 - Rebuild to drop tabbable webpack dep
 
