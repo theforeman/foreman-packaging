@@ -2,7 +2,7 @@
 %global gem_name fog-proxmox
 
 Name: rubygem-%{gem_name}
-Version: 0.15.4
+Version: 0.16.0
 Release: 1%{?dist}
 Summary: Module for the 'Fog' gem to support Proxmox VE
 License: GPLv3
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Feb 18 2026 Manisha Singhal <singhal@atix.de> - 0.16.0-1
+- Update to 0.16.0
+
 * Fri Feb 06 2026 Manisha Singhal <singhal@atix.de> - 0.15.4-1
 - Update to 0.15.4
 
