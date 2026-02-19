@@ -1,3 +1,9 @@
+ruby-kafo-wizards (1.0.0-1) stable; urgency=low
+
+  * 1.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 19 Feb 2026 10:49:49 +0000
+
 ruby-kafo-wizards (0.0.2-1) stable; urgency=low
 
   * 0.0.2 released
