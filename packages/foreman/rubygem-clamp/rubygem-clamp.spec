@@ -51,9 +51,9 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.autotest
 %exclude %{gem_instdir}/.editorconfig
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.travis.yml
 %doc %{gem_instdir}/CHANGES.md
 %exclude %{gem_instdir}/CODEOWNERS
 %exclude %{gem_instdir}/Guardfile
