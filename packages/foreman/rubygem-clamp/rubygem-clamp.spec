@@ -2,7 +2,7 @@
 %global gem_name clamp
 
 Name: rubygem-%{gem_name}
-Version: 1.3.3
+Version: 1.4.0
 Release: 1%{?dist}
 Summary: a minimal framework for command-line utilities
 License: MIT
@@ -11,9 +11,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: ruby >= 2.5
-Requires: ruby < 4
+Requires: ruby < 5
 BuildRequires: ruby >= 2.5
-BuildRequires: ruby < 4
+BuildRequires: ruby < 5
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Feb 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.0-1
+- Update to 1.4.0
+
 * Wed Aug 06 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.3-1
 - Update to 1.3.3
 
