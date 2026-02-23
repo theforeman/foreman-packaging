@@ -9,6 +9,7 @@ Summary: A Ruby interface for the the Kerberos library
 License: Artistic-2.0
 URL: https://github.com/domcleal/rkerberos
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0: rkerberos-0.2.0-gcc8-argnum-fix.patch
 
 # start specfile generated dependencies
 Requires: ruby
@@ -17,6 +18,7 @@ BuildRequires: rubygems-devel
 BuildRequires: rubygem(rake-compiler)
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
+BuildRequires: krb5-devel
 BuildRequires: gcc
 # end specfile generated dependencies
 
@@ -35,6 +37,7 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+%patch -P0 -p1
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -49,9 +52,11 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
-cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
+
+# rake-compiler isn't needed on the system itself
+sed -i '/rake-compiler/ s/runtime/development/' %{buildroot}/%{gem_spec}
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
@@ -70,9 +75,11 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
-%{gem_instdir}/Dockerfile
 %license %{gem_instdir}/LICENSE
+%exclude %{gem_instdir}/Dockerfile
 %exclude %{gem_instdir}/MANIFEST
+%exclude %{gem_instdir}/docker-compose.yml
+%exclude %{gem_instdir}/docker
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -82,8 +89,6 @@ rm -rf gem_ext_test
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%doc %{gem_instdir}/docker-compose.yml
-%doc %{gem_instdir}/docker
 %exclude %{gem_instdir}/rkerberos.gemspec
 %{gem_instdir}/spec
 
