@@ -17,7 +17,7 @@
 %endif
 
 %global release 1
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
@@ -84,6 +84,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Tue Feb 24 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.rc2
+- Release foreman-release 3.18.0rc2
+
 * Tue Feb 10 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.rc1
 - Release foreman-release 3.18.0rc1
 
