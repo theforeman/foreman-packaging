@@ -7,8 +7,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 1.20.0
-Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
+Version: 1.20.1
+Release: 1%{?dist}
 Summary: Katello commands for Hammer
 License: GPLv3
 URL: https://github.com/Katello/hammer-cli-katello
@@ -71,6 +71,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 24 2026 Chris Roberts <chrobert@redhat.com> - 1.20.1-1
+- Update to 1.20.1
+
 * Wed Feb 11 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.20.0-1
 - Release rubygem-hammer_cli_katello 1.20.0
 
