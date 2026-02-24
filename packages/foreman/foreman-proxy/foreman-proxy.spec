@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 1
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -239,6 +239,9 @@ exit 0
 
 
 %changelog
+* Tue Feb 24 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.rc2
+- Release foreman-proxy 3.18.0rc2
+
 * Tue Feb 10 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.rc1
 - Release foreman-proxy 3.18.0rc1
 
