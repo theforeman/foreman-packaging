@@ -1,3 +1,9 @@
+foreman-installer (3.17.1-1) stable; urgency=low
+
+  * 3.17.1 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 25 Feb 2026 09:46:46 +0100
+
 foreman-installer (3.17.0-1) stable; urgency=low
 
   * 3.17.0 released
