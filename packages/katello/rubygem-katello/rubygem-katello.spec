@@ -6,7 +6,7 @@
 %global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.20.0
-%global release 3
+%global release 4
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -50,7 +50,7 @@ BuildRequires: (rubygem(pulpcore_client) >= 3.85.0 with rubygem(pulpcore_client)
 BuildRequires: (rubygem(pulp_file_client) >= 3.85.0 with rubygem(pulp_file_client) < 3.85.4)
 BuildRequires: (rubygem(pulp_ansible_client) >= 0.28.0 with rubygem(pulp_ansible_client) < 0.28.1)
 BuildRequires: (rubygem(pulp_container_client) >= 2.26.0 with rubygem(pulp_container_client) < 2.26.3)
-BuildRequires: (rubygem(pulp_deb_client) >= 3.7.0 with rubygem(pulp_deb_client) < 3.7.1)
+BuildRequires: (rubygem(pulp_deb_client) >= 3.8.0 with rubygem(pulp_deb_client) < 3.9.0)
 BuildRequires: (rubygem(pulp_rpm_client) >= 3.32.0 with rubygem(pulp_rpm_client) < 3.32.3)
 BuildRequires: (rubygem(pulp_certguard_client) >= 3.85.0 with rubygem(pulp_certguard_client) < 3.85.4)
 BuildRequires: (rubygem(pulp_python_client) >= 3.19.0 with rubygem(pulp_python_client) < 3.19.2)
@@ -166,6 +166,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Feb 25 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-0.4.rc2
+- Fix pulp_deb_client requires
+
 * Wed Feb 25 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-0.3.rc2
 - Release rubygem-katello 4.20.0rc2
 
