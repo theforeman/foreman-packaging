@@ -1,3 +1,9 @@
+foreman (3.19.0-2) stable; urgency=low
+
+  * Add libffi-dev build and runtime dependency for locale gem 2.1.5 compatibility
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 25 Feb 2026 11:00:00 +0100
+
 foreman (3.19.0-1) stable; urgency=low
 
   * Bump changelog to 3.19.0 to match VERSION
