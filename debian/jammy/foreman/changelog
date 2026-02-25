@@ -1,6 +1,7 @@
 foreman (3.17.1-1) stable; urgency=low
 
   * 3.17.1 released
+  * Pin locale gem to 2.1.4 to avoid fiddle dependency
 
  -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 25 Feb 2026 09:46:46 +0100
 

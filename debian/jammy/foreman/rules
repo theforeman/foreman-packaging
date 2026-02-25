@@ -33,6 +33,8 @@ build:
 	# foreman_azure_rm uses faraday-cookie_jar, which needs http-cookie ~> 1.0.0
 	# so we pin it here so that core doesn't pull in a newer version
 	echo 'gem "http-cookie", "~> 1.0.0"' >> bundler.d/debian.rb
+	# Pin locale to 2.1.4 to avoid fiddle dependency introduced in 2.1.5
+	echo 'gem "locale", "2.1.4"' >> bundler.d/debian.rb
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	$(BUNDLE) install
