@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 3.4.2
+Version: 3.5.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Pulp 3 container registry support for Foreman/Katello Smart-Proxy
 License: GPLv3
@@ -79,6 +79,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/container_gateway.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Feb 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.0-1
+- Update to 3.5.0
+
 * Fri Dec 05 2025 Samir Jha <smirjha1525@gmail.com> - 3.4.2-1
 - Update to 3.4.2
 
