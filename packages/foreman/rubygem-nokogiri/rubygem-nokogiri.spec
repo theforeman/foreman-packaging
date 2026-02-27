@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.17.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 # MIT: see LICENSE.md
 # ASL 2.0
@@ -31,13 +31,11 @@ BuildRequires: gcc
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 
-# Prefer to consume racc as a default gem
-Requires: ruby-default-gems
-BuildRequires: ruby-default-gems
-# CI runs rpmlint on EL7 and doesn't understand rich dependencies
-%if 0%{?rhel} >= 8
+%if 0%{?rhel} == 9
 Requires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
 BuildRequires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
+%else
+BuildRequires: (rubygem(racc) >= 1.4 with rubygem(racc) < 2)
 %endif
 
 %description
@@ -58,9 +56,11 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
-# On EL8 rubygem-racc is bundled into ruby-libs package and
+%if 0%{?rhel} == 9
+# On EL9 rubygem-racc is bundled into ruby-libs package and
 # auto-generated dependencies will break dependency resolution
 %gemspec_remove_dep -g racc "~> 1.4"
+%endif
 
 # patches
 %patch -P0 -p1
@@ -186,6 +186,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/gumbo-parser/src/README.md
 
 %changelog
+* Fri Feb 27 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.17.2-2
+- Fix racc dependency on EL10
+
 * Wed Dec 17 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 1.17.2-1
 - Update to 1.17.2
 

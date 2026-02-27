@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.21.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A ruby parser written in pure ruby
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -18,9 +18,12 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
-# Prefer to consume racc as a default gem
+%if 0%{?rhel} == 9
 Requires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
 BuildRequires: (bundled(rubygem-racc) >= 1.4 with bundled(rubygem-racc) < 2)
+%else
+BuildRequires: (rubygem(racc) >= 1.4 with rubygem(racc) < 2)
+%endif
 
 %description
 ruby_parser (RP) is a ruby parser written in pure ruby (utilizing
@@ -40,9 +43,11 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+%if 0%{?rhel} == 9
 # rubygem-racc is bundled into ruby-libs package and
 # auto-generated dependencies will break dependency resolution
 %gemspec_remove_dep -g racc "~> 1.5"
+%endif
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -86,6 +91,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Fri Feb 27 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.21.1-3
+- Fix racc dependency on EL10
+
 * Fri Dec 19 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.21.1-2
 - Drop EL8 requirement workaround
 
