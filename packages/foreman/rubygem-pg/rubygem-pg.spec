@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.6.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pg is the Ruby interface to the PostgreSQL RDBMS
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -14,6 +14,8 @@ Summary: Pg is the Ruby interface to the PostgreSQL RDBMS
 License: (GPLv2 or Ruby) and PostgreSQL
 URL: https://github.com/ged/ruby-pg
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+# https://github.com/ged/ruby-pg/pull/699
+Patch: rubygem-pg-remove-rpath.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.7
@@ -41,7 +43,7 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-%setup -q -n  %{gem_name}-%{version}
+%autosetup -p1 -n %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -101,6 +103,9 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/pg.gemspec
 
 %changelog
+* Sat Feb 28 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.6.3-2
+- Add patch to remove rpath
+
 * Thu Jan 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.6.3-1
 - Update to 1.6.3
 
