@@ -4,8 +4,8 @@
 %global foreman_min_version 3.18.0
 
 Name: rubygem-%{gem_name}
-Version: 9.0.1
-Release: 2%{?foremandist}%{?dist}
+Version: 9.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 License: GPLv3
 URL: https://github.com/theforeman/foreman_expire_hosts
@@ -58,7 +58,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%{gem_instdir}/extra
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -73,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Mar 02 2026 Foreman Packaging Automation <packaging@theforeman.org> - 9.1.0-1
+- Update to 9.1.0
+
 * Wed Feb 04 2026 Archana Kumari <akumari@redhat.com> - 9.0.1-2
 - Migrate to Foreman::Cron framework, require Foreman >= 3.18
 - Remove cron.d file as task now runs via cron:daily
