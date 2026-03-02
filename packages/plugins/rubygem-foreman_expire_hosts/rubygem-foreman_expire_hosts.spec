@@ -58,7 +58,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%{gem_instdir}/extra
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
