@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-patternfly-react-charts
 Version: 7.4.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This library provides a set of React chart components for use with the PatternFly reference implementation
 License: MIT
 Group: Development/Libraries
@@ -13,19 +13,19 @@ URL: https://github.com/patternfly/patternfly-react#readme
 Source0: https://registry.npmjs.org/@patternfly/react-charts/-/react-charts-7.4.9.tgz
 Source1: https://registry.npmjs.org/@patternfly/react-styles/-/react-styles-5.4.1.tgz
 Source2: https://registry.npmjs.org/@patternfly/react-tokens/-/react-tokens-5.4.1.tgz
-Source3: https://registry.npmjs.org/@types/d3-array/-/d3-array-3.2.1.tgz
+Source3: https://registry.npmjs.org/@types/d3-array/-/d3-array-3.2.2.tgz
 Source4: https://registry.npmjs.org/@types/d3-color/-/d3-color-3.1.3.tgz
 Source5: https://registry.npmjs.org/@types/d3-ease/-/d3-ease-3.0.2.tgz
 Source6: https://registry.npmjs.org/@types/d3-interpolate/-/d3-interpolate-3.0.4.tgz
 Source7: https://registry.npmjs.org/@types/d3-path/-/d3-path-3.1.1.tgz
 Source8: https://registry.npmjs.org/@types/d3-scale/-/d3-scale-4.0.9.tgz
-Source9: https://registry.npmjs.org/@types/d3-shape/-/d3-shape-3.1.7.tgz
+Source9: https://registry.npmjs.org/@types/d3-shape/-/d3-shape-3.1.8.tgz
 Source10: https://registry.npmjs.org/@types/d3-time/-/d3-time-3.0.4.tgz
 Source11: https://registry.npmjs.org/@types/d3-timer/-/d3-timer-3.0.2.tgz
 Source12: https://registry.npmjs.org/d3-array/-/d3-array-3.2.4.tgz
 Source13: https://registry.npmjs.org/d3-color/-/d3-color-3.1.0.tgz
 Source14: https://registry.npmjs.org/d3-ease/-/d3-ease-3.0.1.tgz
-Source15: https://registry.npmjs.org/d3-format/-/d3-format-3.1.0.tgz
+Source15: https://registry.npmjs.org/d3-format/-/d3-format-3.1.2.tgz
 Source16: https://registry.npmjs.org/d3-interpolate/-/d3-interpolate-3.0.1.tgz
 Source17: https://registry.npmjs.org/d3-path/-/d3-path-3.1.0.tgz
 Source18: https://registry.npmjs.org/d3-scale/-/d3-scale-4.0.2.tgz
@@ -38,7 +38,7 @@ Source24: https://registry.npmjs.org/delaunay-find/-/delaunay-find-0.0.6.tgz
 Source25: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz
 Source26: https://registry.npmjs.org/internmap/-/internmap-2.0.3.tgz
 Source27: https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz
-Source28: https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz
+Source28: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
 Source29: https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz
 Source30: https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz
 Source31: https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz
@@ -76,19 +76,19 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@patternfly/react-charts)) = 7.4.9
 Provides: bundled(npm(@patternfly/react-styles)) = 5.4.1
 Provides: bundled(npm(@patternfly/react-tokens)) = 5.4.1
-Provides: bundled(npm(@types/d3-array)) = 3.2.1
+Provides: bundled(npm(@types/d3-array)) = 3.2.2
 Provides: bundled(npm(@types/d3-color)) = 3.1.3
 Provides: bundled(npm(@types/d3-ease)) = 3.0.2
 Provides: bundled(npm(@types/d3-interpolate)) = 3.0.4
 Provides: bundled(npm(@types/d3-path)) = 3.1.1
 Provides: bundled(npm(@types/d3-scale)) = 4.0.9
-Provides: bundled(npm(@types/d3-shape)) = 3.1.7
+Provides: bundled(npm(@types/d3-shape)) = 3.1.8
 Provides: bundled(npm(@types/d3-time)) = 3.0.4
 Provides: bundled(npm(@types/d3-timer)) = 3.0.2
 Provides: bundled(npm(d3-array)) = 3.2.4
 Provides: bundled(npm(d3-color)) = 3.1.0
 Provides: bundled(npm(d3-ease)) = 3.0.1
-Provides: bundled(npm(d3-format)) = 3.1.0
+Provides: bundled(npm(d3-format)) = 3.1.2
 Provides: bundled(npm(d3-interpolate)) = 3.0.1
 Provides: bundled(npm(d3-path)) = 3.1.0
 Provides: bundled(npm(d3-scale)) = 4.0.2
@@ -101,7 +101,7 @@ Provides: bundled(npm(delaunay-find)) = 0.0.6
 Provides: bundled(npm(hoist-non-react-statics)) = 3.3.2
 Provides: bundled(npm(internmap)) = 2.0.3
 Provides: bundled(npm(json-stringify-safe)) = 5.0.1
-Provides: bundled(npm(lodash)) = 4.17.21
+Provides: bundled(npm(lodash)) = 4.17.23
 Provides: bundled(npm(react-fast-compare)) = 3.2.2
 Provides: bundled(npm(react-is)) = 16.13.1
 Provides: bundled(npm(tslib)) = 2.8.1
@@ -172,6 +172,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 03 2026 Evgeni Golov 7.4.9-2
+- Rebuild @patternfly/react-charts to update vendored dependencies
+
 * Thu Jul 17 2025 Evgeni Golov 7.4.9-1
 - Update to 7.4.9
 
