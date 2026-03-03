@@ -4,7 +4,7 @@
 %global foreman_min_version 3.17
 
 Name: rubygem-%{gem_name}
-Version: 13.2.0
+Version: 13.2.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Mar 03 2026 Chris Roberts <chrobert@redhat.com> - 13.2.2-1
+- Release rubygem-foreman_rh_cloud 13.2.2
+
 * Fri Feb 06 2026 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.0-1
 - Update to 13.2.0
 
