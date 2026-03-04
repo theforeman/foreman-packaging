@@ -794,7 +794,6 @@ ruby_plugin_packages:
     rubygem-http-form_data: {}
     rubygem-http_parser.rb: {}
     rubygem-interactor: {}
-    rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
     rubygem-jsonpath: {}
     rubygem-kubeclient: {}
