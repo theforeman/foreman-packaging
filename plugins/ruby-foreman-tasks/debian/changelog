@@ -1,3 +1,9 @@
+ruby-foreman-tasks (12.0.0-2) stable; urgency=low
+
+  * Bump required foreman version in control
+
+ -- Adam Lazik <alazik@redhat.com>  Wed, 04 Mar 2026 12:15:00 +0000
+
 ruby-foreman-tasks (12.0.0-1) stable; urgency=low
 
   * 12.0.0 released
