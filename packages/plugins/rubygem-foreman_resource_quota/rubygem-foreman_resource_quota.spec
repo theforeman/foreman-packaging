@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.6.1
-Release: 2%{?foremandist}%{?dist}
+Version: 0.6.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for resource quota
 License: GPLv3
 URL: https://github.com/ATIX-AG/foreman_resource_quota
@@ -18,7 +18,7 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(foreman-tasks) >= 10.0 with rubygem(foreman-tasks) < 12)
+BuildRequires: (rubygem(foreman-tasks) >= 10.0 with rubygem(foreman-tasks) < 13)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Mar 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.2-1
+- Update to 0.6.2
+
 * Mon Nov 17 2025 Evgeni Golov - 0.6.1-2
 - Rebuild to drop tabbable webpack dep
 
