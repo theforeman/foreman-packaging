@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.5.28
+Version: 0.5.29
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 License: GPLv3
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Mar 05 2026 Chris Roberts <chrobert@redhat.com> - 0.5.29-1
+- Release rubygem-foreman_virt_who_configure 0.5.29
+
 * Mon Jan 19 2026 Chris Roberts <chrobert@redhat.com> - 0.5.28-1
 - Update to 0.5.28
 
