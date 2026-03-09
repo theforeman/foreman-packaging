@@ -9,7 +9,6 @@ Summary: A Ruby interface for the the Kerberos library
 License: Artistic-2.0
 URL: https://github.com/domcleal/rkerberos
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Patch0: rkerberos-0.2.0-gcc8-argnum-fix.patch
 
 # start specfile generated dependencies
 Requires: ruby
@@ -35,7 +34,6 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
-%patch -P0 -p1
 
 %build
 # Create the gem as gem install only works on a gem file
