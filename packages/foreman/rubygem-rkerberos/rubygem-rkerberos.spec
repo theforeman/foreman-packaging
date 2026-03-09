@@ -19,6 +19,10 @@ BuildRequires: rubygems-devel
 BuildRequires: gcc
 # end specfile generated dependencies
 
+# Manual BuildRequires for native extensions
+BuildRequires: krb5-devel
+BuildRequires: rubygem(rake-compiler)
+
 %description
 The rkerberos library is an interface for the Kerberos 5 network
 authentication protocol. It wraps the Kerberos C API.
