@@ -72,16 +72,13 @@ rm -rf gem_ext_test
 %dir %{gem_instdir}
 %{gem_extdir_mri}
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/Dockerfile
-%exclude %{gem_instdir}/MANIFEST
-%exclude %{gem_instdir}/docker-compose.yml
-%exclude %{gem_instdir}/docker
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CHANGES
+%doc %{gem_instdir}/CHANGES.md
+%doc %{gem_instdir}/MANIFEST.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
