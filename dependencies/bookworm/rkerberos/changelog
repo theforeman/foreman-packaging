@@ -1,3 +1,9 @@
+ruby-rkerberos (0.2.3-1) stable; urgency=low
+
+  * 0.2.3 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 11 Mar 2026 04:40:47 +0000
+
 ruby-rkerberos (0.2.2-1) stable; urgency=low
 
   * 0.2.2 released
