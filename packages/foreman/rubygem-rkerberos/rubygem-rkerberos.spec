@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 0.2.0
+Version: 0.2.3
 Release: 1%{?dist}
 Summary: A Ruby interface for the the Kerberos library
 License: Artistic-2.0
@@ -15,10 +15,8 @@ Patch0: rkerberos-0.2.0-gcc8-argnum-fix.patch
 Requires: ruby
 BuildRequires: ruby-devel
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(rake-compiler)
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
-BuildRequires: krb5-devel
 BuildRequires: gcc
 # end specfile generated dependencies
 
@@ -93,6 +91,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Wed Mar 11 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.3-1
+- Update to 0.2.3
+
 * Sun Feb 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.0-1
 - Update to 0.2.0
 
