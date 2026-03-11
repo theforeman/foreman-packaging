@@ -3,10 +3,8 @@
 %global plugin_name katello
 %global foreman_min_version 3.18
 %global foreman_max_version 3.19
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.20.0
-%global release 4
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -166,6 +164,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Mar 11 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-1
+- Release rubygem-katello 4.20.0
+
 * Wed Feb 25 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-0.4.rc2
 - Fix pulp_deb_client requires
 

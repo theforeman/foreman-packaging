@@ -3,8 +3,6 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 1
 
 Name:       katello
@@ -129,6 +127,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Mar 11 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-1
+- Release katello 4.20.0
+
 * Wed Feb 25 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.20.0-0.1.rc2
 - Release katello 4.20.0rc2
 
