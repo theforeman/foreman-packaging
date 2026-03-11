@@ -4,7 +4,7 @@
 %global foreman_min_version 3.18
 
 Name: rubygem-%{gem_name}
-Version: 5.0.1
+Version: 5.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Mar 11 2026 Oleh Fedorenko <ofedoren@redhat.com> - 5.0.2-1
+- Update to 5.0.2
+
 * Tue Mar 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.1-1
 - Update to 5.0.1
 
