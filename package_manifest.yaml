@@ -912,6 +912,7 @@ repoclosures:
           - el9-appstream
           - "el9-puppet-{{ puppet_version }}"
           - "el9-candlepin-{{ candlepin_version }}-staging"
+          - "el9-foreman-plugins-{{ foreman_version }}-staging"
     plugins-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
