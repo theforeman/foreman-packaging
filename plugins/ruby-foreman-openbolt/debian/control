@@ -5,8 +5,8 @@ Maintainer: Tim <tim@bastelfreak.de>
 Build-Depends: debhelper-compat (= 13),
                gem2deb (>= 1),
                rake,
-               foreman-assets (>= 3.4.0~rc1),
-               foreman-nulldb (>= 3.4.0~rc1),
+               foreman-assets (>= 3.14.0~rc1),
+               foreman-nulldb (>= 3.14.0~rc1),
                ruby-foreman-tasks (>= 11.0)
 Standards-Version: 4.6.1
 Homepage: https://github.com/overlookinfra/foreman_openbolt
@@ -17,7 +17,7 @@ Rules-Requires-Root: no
 Package: ruby-foreman-openbolt
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${misc:Depends}, bundler, foreman (>= 3.4.0~rc1),
+Depends: ${misc:Depends}, bundler, foreman (>= 3.14.0~rc1),
          ${ruby:Depends},
          ${shlibs:Depends},
          ruby-foreman-tasks (>= 11.0)
