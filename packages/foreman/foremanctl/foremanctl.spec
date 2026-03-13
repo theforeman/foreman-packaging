@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   1.1.0
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -10,7 +10,7 @@ URL:       https://github.com/theforeman/foremanctl
 Source:    https://github.com/theforeman/foremanctl/releases/download/%{version}/%{name}-%{version}.tar.gz
 
 BuildArch: noarch
-Requires:  python3-obsah >= 1.7.1
+Requires:  python3.12-obsah >= 1.7.1
 
 # These are needed on the target host, which is usually localhost
 Recommends:  podman
@@ -61,6 +61,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Fri Mar 13 2026 Evgeni Golov - 1.1.0-2
+- Use Obsah built with Python 3.12
+
 * Fri Jan 09 2026 Evgeni Golov - 1.1.0-1
 - Release foremanctl 1.1.0
 
