@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.6.2
+Version: 0.6.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for resource quota
 License: GPLv3
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Mar 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.3-1
+- Update to 0.6.3
+
 * Thu Mar 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.2-1
 - Update to 0.6.2
 
