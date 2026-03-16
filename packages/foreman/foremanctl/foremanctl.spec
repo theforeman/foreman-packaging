@@ -1,8 +1,8 @@
 %global __brp_mangle_shebangs_exclude_from ^%{_datadir}/%{name}/collections/.*$
 
 Name:      foremanctl
-Version:   1.1.0
-Release:   2%{?dist}
+Version:   1.2.0
+Release:   1%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -61,6 +61,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Mon Mar 16 2026 Evgeni Golov - 1.2.0-1
+- Release foremanctl 1.2.0
+
 * Fri Mar 13 2026 Evgeni Golov - 1.1.0-2
 - Use Obsah built with Python 3.12
 
