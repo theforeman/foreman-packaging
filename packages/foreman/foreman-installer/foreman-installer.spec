@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -16,13 +16,13 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   hostname
-Requires:   (openvox-agent >= 7.35.0 or puppet-agent >= 7.0.0)
+Requires:   (openvox-agent >= 8.23.1 or puppet-agent >= 8.0.0)
 Requires:   rubygem(kafo) >= 7.6.0
 Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
-BuildRequires: (openvox-agent >= 7.35.0 or puppet-agent >= 7.0.0)
+BuildRequires: (openvox-agent >= 8.23.1 or puppet-agent >= 8.0.0)
 BuildRequires: rubygem(rake)
 BuildRequires: rubygem(kafo) >= 7.6.0
 BuildRequires: rubygem(kafo) < 8.0.0
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Mar 17 2026 Evgeni Golov - 1:3.19.0-0.2.develop
+- Require puppet/openvox >= 8
+
 * Tue Feb 10 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1:3.19.0-0.1.develop
 - Bump version to 3.19-develop
 
