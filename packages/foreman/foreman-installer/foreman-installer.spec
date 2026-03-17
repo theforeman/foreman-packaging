@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -14,13 +14,13 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   hostname
-Requires:   (openvox-agent >= 7.35.0 or puppet-agent >= 7.0.0)
+Requires:   (openvox-agent >= 8.23.1 or puppet-agent >= 8.0.0)
 Requires:   rubygem(kafo) >= 7.6.0
 Requires:   rubygem(kafo) < 8.0.0
 Requires:   ruby(release)
 
 BuildRequires: asciidoc
-BuildRequires: (openvox-agent >= 7.35.0 or puppet-agent >= 7.0.0)
+BuildRequires: (openvox-agent >= 8.23.1 or puppet-agent >= 8.0.0)
 BuildRequires: rubygem(rake)
 BuildRequires: rubygem(kafo) >= 7.6.0
 BuildRequires: rubygem(kafo) < 8.0.0
@@ -124,6 +124,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Mar 17 2026 Evgeni Golov <ogajduse@redhat.com> - 1:3.18.0-2
+- Require puppet/openvox >= 8
+
 * Tue Mar 10 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1:3.18.0-1
 - Release foreman-installer 3.18.0
 
