@@ -1,3 +1,9 @@
+foreman-installer (3.17.1-2) stable; urgency=low
+
+  * Require puppet 8
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 17 Mar 2026 12:18:06 +0100
+
 foreman-installer (3.17.1-1) stable; urgency=low
 
   * 3.17.1 released
