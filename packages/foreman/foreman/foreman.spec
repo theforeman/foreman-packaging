@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -155,7 +155,6 @@ Requires: rubygem(fog-libvirt) >= 0.13.0
 Requires: (rubygem(ruby-libvirt) >= 0.5 with rubygem(ruby-libvirt) < 1.0)
 # end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
-Requires: genisoimage
 Requires: /usr/bin/websockify
 Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
@@ -861,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Mar 17 2026 Evgeni Golov - 3.19.0-0.5.develop
+- Drop genisoimage requirement, that now lives in fog-libvirt
+
 * Thu Mar 05 2026 Archana Kumari <akumari@redhat.com> - 3.19.0-0.4.develop
 - Fixes #39089 - Migrate Foreman cron.d to use Foreman::Cron framework
 
