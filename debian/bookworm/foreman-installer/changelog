@@ -1,3 +1,9 @@
+foreman-installer (3.19.0-3) stable; urgency=low
+
+  * Require kafo 7.7
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 17 Mar 2026 12:51:47 +0100
+
 foreman-installer (3.19.0-2) stable; urgency=low
 
   * Require puppet 8
