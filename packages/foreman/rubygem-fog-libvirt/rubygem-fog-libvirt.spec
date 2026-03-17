@@ -2,7 +2,7 @@
 %global gem_name fog-libvirt
 
 Name: rubygem-%{gem_name}
-Version: 0.14.0
+Version: 0.15.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support libvirt
 License: MIT
@@ -15,6 +15,7 @@ BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+Requires: /usr/bin/xorrisofs
 
 %description
 This library can be used as a module for 'fog' or as standalone libvirt
@@ -63,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Tue Mar 17 2026 Evgeni Golov - 0.15.0-1
+- Update to 0.15.0
+
 * Wed Nov 05 2025 Leos Stejskal <lstejska@redhat.com> - 0.14.0-1
 - Update to 0.14.0
 
