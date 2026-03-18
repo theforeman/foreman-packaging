@@ -1,1 +1,1 @@
-gem 'foreman_google', '3.0.6'
+gem 'foreman_google', '3.0.7'
