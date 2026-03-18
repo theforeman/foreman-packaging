@@ -4,13 +4,13 @@
 %global npm_name @apollo/client
 
 Name: %{?scl_prefix}nodejs-apollo-client
-Version: 3.14.0
+Version: 3.14.1
 Release: 1%{?dist}
 Summary: A fully-featured caching GraphQL client
 License: MIT
 Group: Development/Libraries
 URL: https://www.apollographql.com/docs/react/
-Source0: https://registry.npmjs.org/@apollo/client/-/client-3.14.0.tgz
+Source0: https://registry.npmjs.org/@apollo/client/-/client-3.14.1.tgz
 Source1: https://registry.npmjs.org/@graphql-typed-document-node/core/-/core-3.2.0.tgz
 Source2: https://registry.npmjs.org/@wry/caches/-/caches-1.0.1.tgz
 Source3: https://registry.npmjs.org/@wry/context/-/context-0.7.4.tgz
@@ -39,7 +39,7 @@ BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@apollo/client)) = 3.14.0
+Provides: bundled(npm(@apollo/client)) = 3.14.1
 Provides: bundled(npm(@graphql-typed-document-node/core)) = 3.2.0
 Provides: bundled(npm(@wry/caches)) = 1.0.1
 Provides: bundled(npm(@wry/context)) = 0.7.4
@@ -127,6 +127,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Mar 18 2026 Foreman Packaging Automation <packaging@theforeman.org> 3.14.1-1
+- Update to 3.14.1
+
 * Wed Aug 27 2025 Foreman Packaging Automation <packaging@theforeman.org> 3.14.0-1
 - Update to 3.14.0
 
