@@ -1,3 +1,9 @@
+foreman (3.19.0-3) stable; urgency=low
+
+  * Migrate Foreman DEB packaging to use consolidated cron entrypoints
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 19 Mar 2026 15:21:35 +0100
+
 foreman (3.19.0-2) stable; urgency=low
 
   * Add libffi-dev build and runtime dependency for locale gem 2.1.5 compatibility
