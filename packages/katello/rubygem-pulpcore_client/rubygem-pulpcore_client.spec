@@ -2,8 +2,8 @@
 %global gem_name pulpcore_client
 
 Name: rubygem-%{gem_name}
-Version: 3.85.3
-Release: 2%{?dist}
+Version: 3.85.11
+Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Feb 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:3.85.11-1
+- Update to 3.85.11
+
 * Mon Feb 02 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:3.85.3-2
 - Bumping to rebuild for COPR after being reverted.
 
