@@ -4,8 +4,6 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 Name: rubygem-%{gem_name}
 Version: 3.18.0
@@ -97,6 +95,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Mar 20 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-1
+- Release rubygem-hammer_cli 3.18.0
+
 * Tue Nov 11 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 3.18.0-0.1.pre.develop
 - Bump version to 3.18-develop
 
