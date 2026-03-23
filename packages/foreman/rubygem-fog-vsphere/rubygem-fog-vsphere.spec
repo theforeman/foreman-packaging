@@ -2,7 +2,7 @@
 %global gem_name fog-vsphere
 
 Name: rubygem-%{gem_name}
-Version: 3.7.2
+Version: 3.7.3
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 License: MIT
@@ -15,6 +15,9 @@ BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
+
+Requires: (rubygem(base64) or ruby-default-gems < 3.4)
+Requires: (rubygem(ostruct) or ruby-default-gems < 3.5)
 
 %description
 This library can be used as a module for `fog` or as standalone provider to
@@ -31,6 +34,9 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g base64
+%gemspec_remove_dep -g ostruct
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -63,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/fog-vsphere.gemspec
 
 %changelog
+* Mon Mar 23 2026 Leos Stejskal <lstejska@redhat.com> - 3.7.3-1
+- Update to 3.7.3
+
 * Wed Oct 22 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.7.2-1
 - Update to 3.7.2
 
