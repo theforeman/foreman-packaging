@@ -492,6 +492,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-theforeman-vendor:
       name: "@theforeman/vendor"
+    nodejs-ts-loader: {}
     nodejs-tslib: {}
     nodejs-typescript: {}
     nodejs-unleash-proxy-client: {}
