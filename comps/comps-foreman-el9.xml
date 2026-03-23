@@ -146,6 +146,7 @@
       <packagereq type="default">nodejs-theforeman-builder</packagereq>
       <packagereq type="default">nodejs-theforeman-vendor</packagereq>
       <packagereq type="default">nodejs-tslib</packagereq>
+      <packagereq type="default">nodejs-typescript</packagereq>
       <packagereq type="default">nodejs-unidiff</packagereq>
       <packagereq type="default">nodejs-unleash-proxy-client</packagereq>
       <packagereq type="default">nodejs-unleash-proxy-client-react</packagereq>
