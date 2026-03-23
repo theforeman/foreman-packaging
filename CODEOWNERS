@@ -96,3 +96,6 @@
 
 # OpenBolt integration
 /packages/plugins/rubygem-*_openbolt @theforeman/packaging @theforeman/betadots @theforeman/overlookinfra
+
+# VSphere integration
+/packages/foreman/rubygem-fog-vsphere @theforeman/packaging @theforeman/vsphere
