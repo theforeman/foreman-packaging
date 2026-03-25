@@ -4,7 +4,7 @@
 %global foreman_min_version 3.0
 
 Name: rubygem-%{gem_name}
-Version: 0.0.2
+Version: 0.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to provision host using opentofu
 License: GPL-3.0-only
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Mar 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.3-1
+- Update to 0.0.3
+
 * Wed Feb 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.2-1
 - Update to 0.0.2
 
