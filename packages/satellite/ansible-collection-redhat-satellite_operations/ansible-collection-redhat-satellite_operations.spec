@@ -7,7 +7,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    3.0.1
+Version:    4.0.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Red Hat Satellite Ansible operations collection
 
@@ -37,6 +37,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 %changelog
+* Wed Mar 25 2026 Evgeni Golov - 4.0.0-1
+- Release ansible-collection-redhat-satellite_operations 4.0.0
+
 * Thu Sep 11 2025 Evgeni Golov - 3.0.1-1
 - Release ansible-collection-redhat-satellite_operations 3.0.1
 
