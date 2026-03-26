@@ -7,7 +7,7 @@
 %global release 1
 
 Name:    foreman
-Version: 3.17.1
+Version: 3.17.2
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -837,6 +837,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Mar 26 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.17.2-1
+- Release foreman 3.17.2
+
 * Wed Feb 25 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.17.1-1
 - Release foreman 3.17.1
 
