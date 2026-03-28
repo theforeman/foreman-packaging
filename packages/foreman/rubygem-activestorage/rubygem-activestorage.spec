@@ -3,11 +3,12 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Local and cloud file storage framework
 License: MIT
 URL: https://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0: CVE-2026-33658-limit-range-requests.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.7.0
@@ -29,7 +30,7 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-%setup -q -n  %{gem_name}-%{version}
+%autosetup -p1 -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -60,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sat Mar 28 2026 Jakub Duchek <jakduch@seznam.cz> - 7.0.10-2
+- Backport fix for CVE-2026-33658 (Active Storage DoS via HTTP Range header)
+
 * Wed Oct 29 2025 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.10-1
 - Update to 7.0.10
 
