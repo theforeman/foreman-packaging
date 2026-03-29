@@ -3,11 +3,13 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 License: MIT
 URL: https://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Patch0: cve-2026-33176-number-converter-dos.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.7.0
@@ -39,7 +41,7 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-%setup -q -n  %{gem_name}-%{version}
+%autosetup -p1 -n %{gem_name}-%{version}
 
 %gemspec_remove_dep -g base64
 %gemspec_remove_dep -g drb
@@ -48,6 +50,7 @@ Documentation for %{name}.
 %gemspec_remove_dep -g logger ">= 1.4.2"
 %gemspec_remove_dep -g securerandom ">= 0.3"
 %gemspec_remove_dep -g benchmark ">= 0.3"
+
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -75,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Sun Mar 29 2026 Jakub Duchek <jakduch@seznam.cz> - 7.0.10-2
+- Apply CVE-2026-33176 patch for number converter DoS
+
 * Wed Oct 29 2025 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.10-1
 - Update to 7.0.10
 
