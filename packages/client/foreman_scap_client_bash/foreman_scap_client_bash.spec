@@ -4,7 +4,7 @@
 %global config_dir %{_sysconfdir}/%{client_name}
 
 Name: foreman_scap_client_bash
-Version: 0.2.1
+Version: 0.2.2
 Release: 1%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 
@@ -46,6 +46,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc config
 
 %changelog
+* Wed Apr 01 2026 Oleh Fedorenko <ofedoren@redhat.com> - 0.2.2-1
+- Update to 0.2.2
+
 * Thu Sep 04 2025 Oleh Fedorenko <ofedoren@redhat.com> - 0.2.1-1
 - Update to 0.2.1
 
