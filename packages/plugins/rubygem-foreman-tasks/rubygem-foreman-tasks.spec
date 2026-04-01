@@ -4,7 +4,7 @@
 %global foreman_min_version 3.19
 
 Name: rubygem-%{gem_name}
-Version: 12.0.0
+Version: 12.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
@@ -16,10 +16,12 @@ Source1: %{gem_name}.logrotate
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby
-BuildRequires: ruby
+Requires: ruby >= 3.0
+Requires: ruby < 4
+BuildRequires: ruby >= 3.0
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(dynflow) >= 1.9.0
+BuildRequires: rubygem(dynflow) >= 2.0.0
 BuildRequires: (rubygem(fugit) >= 1.8 with rubygem(fugit) < 2)
 BuildRequires: rubygem(get_process_mem)
 BuildRequires: rubygem(sinatra)
@@ -152,6 +154,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Wed Apr 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 12.1.0-1
+- Update to 12.1.0
+
 * Wed Mar 04 2026 Foreman Packaging Automation <packaging@theforeman.org> - 12.0.0-1
 - Update to 12.0.0
 
