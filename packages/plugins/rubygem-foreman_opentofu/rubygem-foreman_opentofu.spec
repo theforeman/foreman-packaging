@@ -58,6 +58,11 @@ cp -a .%{gem_dir}/* \
 
 %foreman_bundlerd_file
 
+# Create these directories in which tofu will run and store files
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/plugin-cache
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/tmp
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
@@ -69,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%dir %attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/
+%dir %attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/plugin-cache
+%dir %attr(0700,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/tmp
 
 %files doc
 %doc %{gem_docdir}
@@ -82,6 +90,7 @@ cp -a .%{gem_dir}/* \
 %changelog
 * Thu Apr 09 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.4-1
 - Update to 0.0.4
+- Setup directory for tofu and set correct permissions
 
 * Wed Mar 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.3-1
 - Update to 0.0.3
