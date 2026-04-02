@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Plugin to provision host using opentofu
 License: GPL-3.0-only
 URL: https://github.com/ATIX-AG/foreman_opentofu
@@ -58,6 +58,11 @@ cp -a .%{gem_dir}/* \
 
 %foreman_bundlerd_file
 
+# Create these directories in which tofu will run and store files
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/plugin-cache
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/tmp
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
@@ -69,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/
+%attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/plugin-cache
+%attr(0700,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/tmp
 
 %files doc
 %doc %{gem_docdir}
@@ -80,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Apr 02 2026 Bernhard Suttner <suttner@atix.de> 0.0.3-2
+- Setup directory for tofu and set correct permissions
+
 * Wed Mar 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.3-1
 - Update to 0.0.3
 
