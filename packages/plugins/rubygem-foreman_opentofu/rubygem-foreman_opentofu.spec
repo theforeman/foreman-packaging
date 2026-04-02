@@ -25,6 +25,7 @@ BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+Requires: (foreman-opentofu-selinux if selinux-policy-targeted)
 BuildRequires: rubygem(deface) < 2.0
 Recommends: tofu
 
@@ -40,6 +41,28 @@ BuildArch: noarch
 %description doc
 Documentation for %{name}.
 
+
+###################################
+%package -n foreman-opentofu-selinux
+Summary: SELinux policy for %{name}
+BuildArch: noarch
+BuildRequires:  checkpolicy
+BuildRequires:  selinux-policy-devel
+BuildRequires:  policycoreutils
+Requires:           foreman-selinux
+Requires:           selinux-policy
+Requires(post):     /usr/sbin/semodule
+Requires(post):     /sbin/restorecon
+Requires(post):     /usr/sbin/setsebool
+Requires(post):     /usr/sbin/selinuxenabled
+Requires(post):     /usr/sbin/semanage
+Requires(post):     selinux-policy-targeted
+Requires(postun):   /usr/sbin/semodule
+Requires(postun):   /sbin/restorecon
+
+%description -n foreman-opentofu-selinux
+Documentation for the SELinux policy for %{name}.
+
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
@@ -51,17 +74,28 @@ gem build ../%{gem_name}-%{version}.gemspec
 # by default, so that we can move it into the buildroot in %%install
 %gem_install
 
+# build selinux
+cd selinux
+make clean && make all
+
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# clean selinux source files from buildroot
+find %{buildroot}%{gem_dir} -type d -name selinux | xargs rm -rf
+
 %foreman_bundlerd_file
 
 # Create these directories in which tofu will run and store files
-mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu
 mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/plugin-cache
 mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/tmp
+
+# install selinux
+cd selinux
+mkdir -p %{buildroot}/%{_datadir}/selinux/targeted/
+install -m 0600 foreman_opentofu.pp %{buildroot}/%{_datadir}/selinux/targeted/
 
 %files
 %dir %{gem_instdir}
@@ -86,6 +120,22 @@ mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/tmp
 
 %posttrans
 %{foreman_plugin_log}
+
+%posttrans -n foreman-opentofu-selinux
+if /usr/sbin/selinuxenabled; then
+  /usr/sbin/semodule -r foreman_opentofu 2>/dev/null || :
+  /usr/sbin/semodule -i %{_datadir}/selinux/targeted/foreman_opentofu.pp
+  /sbin/restorecon -ri %{_localstatedir}/lib/foreman-opentofu/
+fi
+
+%preun -n foreman-opentofu-selinux
+if /usr/sbin/selinuxenabled; then
+  /usr/sbin/semodule -r foreman_opentofu 2>/dev/null || :
+  /sbin/restorecon -ri %{_localstatedir}/lib/foreman-opentofu/
+fi
+
+%files -n foreman-opentofu-selinux
+%attr(0600,root,root) %{_datadir}/selinux/targeted/*.pp
 
 %changelog
 * Thu Apr 09 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.4-1
