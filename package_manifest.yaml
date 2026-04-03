@@ -45,6 +45,14 @@ copr_projects:
             - "{{ foreman_staging }}"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_9 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
+        - name: "rhel-{{ rhel_10 }}-x86_64"
+          rpmbuild_with: "{{ ['bootstrap'] if bootstrap|bool else []}}"
+          external_repos:
+            - "{{ puppet_baseurl }}/el/$releasever/$basearch/"
+            - "{{ foreman_staging }}"
+          # TODO: does EL10 need its own comps?
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_9 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
     plugins-copr:
       copr_project_name: "plugins-{{ foreman_version }}-staging"
       copr_project_fork_from: "{{ 'plugins-nightly-staging' if foreman_version != 'nightly' else False }}"
