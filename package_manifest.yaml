@@ -64,6 +64,13 @@ copr_projects:
             - "{{ plugins_staging }}"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_9 }}.xml"
           buildroot_packages: "{{ core_buildroot_packages }}"
+        - name: "rhel-{{ rhel_10 }}-x86_64"
+          external_repos:
+            - "{{ foreman_staging }}"
+            - "{{ plugins_staging }}"
+          # TODO: does EL10 need its own comps?
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_9 }}.xml"
+          buildroot_packages: "{{ core_buildroot_packages }}"
     katello-copr:
       copr_project_name: "katello-{{ katello_version }}-staging"
       copr_project_fork_from: "{{ 'katello-nightly-staging' if foreman_version != 'nightly' else False }}"
