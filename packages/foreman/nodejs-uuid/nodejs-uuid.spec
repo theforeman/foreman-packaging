@@ -4,9 +4,9 @@
 %global npm_name uuid
 
 Name: %{?scl_prefix}nodejs-uuid
-Version: 3.4.0
-Release: 2%{?dist}
-Summary: RFC4122 (v1, v4, and v5) UUIDs
+Version: 13.0.0
+Release: 1%{?dist}
+Summary: RFC9562 UUIDs (v1, v3, v4, v5, v6, v7)
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/uuidjs/uuid#readme
@@ -26,18 +26,9 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr bin %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist-node %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr v1.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr v3.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr v4.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr v5.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-
-mkdir -p %{buildroot}%{_bindir}
-chmod 0755 %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin/uuid
-ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 
 %nodejs_symlink_deps
 
@@ -46,13 +37,13 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%exclude %{_bindir}/uuid
 %license LICENSE.md
-%doc AUTHORS
-%doc CHANGELOG.md
 %doc README.md
 
 %changelog
+* Tue Apr 07 2026 Jakub Duchek <jakduch@seznam.cz> - 13.0.0-1
+- Update to 13.0.0 (pure ESM, RFC 9562 support including v6 and v7)
+
 * Tue Aug 19 2025 Odilon Sousa <osousa@redhat.com> - 3.4.0-2
 - Exclude uuid bin to avoid upgrade issues with the binary from other packages
 
