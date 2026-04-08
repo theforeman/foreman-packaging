@@ -2,7 +2,7 @@
 %global gem_name parallel
 
 Name: rubygem-%{gem_name}
-Version: 1.27.0
+Version: 1.28.0
 Release: 1%{?dist}
 Summary: Run any kind of code in parallel processes
 License: MIT
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Wed Apr 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.28.0-1
+- Update to 1.28.0
+
 * Wed Apr 23 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.27.0-1
 - Update to 1.27.0
 
