@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.21.0
-%global release 3
+%global release 4
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -38,7 +38,6 @@ BuildRequires: rubygem(foreman-tasks) >= 5.0
 BuildRequires: rubygem(foreman_remote_execution) >= 7.1.0
 BuildRequires: rubygem(dynflow) >= 1.6.1
 BuildRequires: rubygem(activerecord-import)
-BuildRequires: rubygem(stomp)
 BuildRequires: rubygem(scoped_search) >= 4.1.9
 BuildRequires: rubygem(gettext_i18n_rails)
 BuildRequires: rubygem(apipie-rails) >= 0.5.14
@@ -166,6 +165,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Tue Feb 24 2026 Jonathon Turel <jturel@gmail.com> - 4.21.0-0.4.pre.master
+- Remove stomp dependency
+
 * Mon Feb 16 2026 Ian Ballou <ianballou67@gmail.com> - 4.21.0-0.3.pre.master
 - Unpin Pulp bindings
 
