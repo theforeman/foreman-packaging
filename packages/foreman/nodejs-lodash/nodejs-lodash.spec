@@ -4,7 +4,7 @@
 %global npm_name lodash
 
 Name: %{?scl_prefix}nodejs-lodash
-Version: 4.17.23
+Version: 4.18.1
 Release: 1%{?dist}
 Summary: Lodash modular utilities
 License: MIT
@@ -673,6 +673,9 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Apr 08 2026 Foreman Packaging Automation <packaging@theforeman.org> 4.18.1-1
+- Update to 4.18.1
+
 * Fri Jan 23 2026 Foreman Packaging Automation <packaging@theforeman.org> 4.17.23-1
 - Update to 4.17.23
 
