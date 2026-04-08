@@ -626,7 +626,6 @@ katello_ruby_packages:
     rubygem-pulpcore_client: {}
     rubygem-robotex: {}
     rubygem-spidr: {}
-    rubygem-stomp: {}
 
 katello_common_packages:
   hosts:
