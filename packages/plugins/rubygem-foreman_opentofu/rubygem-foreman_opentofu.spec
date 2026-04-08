@@ -83,10 +83,12 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# clean selinux source files from buildroot
+find %{buildroot}%{gem_dir} -type d -name selinux | xargs rm -rf
+
 %foreman_bundlerd_file
 
 # Create these directories in which tofu will run and store files
-mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu
 mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/plugin-cache
 mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-opentofu/tmp
 
