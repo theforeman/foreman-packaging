@@ -108,9 +108,9 @@ install -m 0600 foreman_opentofu.pp %{buildroot}/%{_datadir}/selinux/targeted/
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/
-%attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/plugin-cache
-%attr(0700,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/tmp
+%dir %attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/
+%dir %attr(0750,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/plugin-cache
+%dir %attr(0700,foreman,foreman) %{_localstatedir}/lib/foreman-opentofu/tmp
 
 %files doc
 %doc %{gem_docdir}
