@@ -8,4 +8,14 @@ PLUGIN_HAS_ASSETS = true
 PLUGIN_HAS_WEBPACK = false
 PLUGIN_HAS_PACKAGE_JSON = false
 
+OPENTOFU_MAIN_PATH=/var/lib/foreman-opentofu
+OPENTOFU_TMP_PATH="${OPENTOFU_MAIN_PATH}/tmp"
+OPENTOFU_PLUGIN_CACHE_PATH="${OPENTOFU_MAIN_PATH}/plugin-cache"
+
 include /usr/share/foreman/foreman-plugin.mk
+
+override_dh_auto_install:
+	install -d -m 0750 -o foreman -g foreman ./${OPENTOFU_MAIN_PATH}
+	install -d -m 0700 -o foreman -g foreman ./${OPENTOFU_TMP_PATH}
+	install -d -m 0750 -o foreman -g foreman ./${OPENTOFU_PLUGIN_CACHE_PATH}
+	dh_auto_install
