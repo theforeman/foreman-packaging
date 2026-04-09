@@ -1,3 +1,9 @@
+ruby-foreman-opentofu (0.0.4-1) stable; urgency=low
+
+  * 0.0.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 09 Apr 2026 09:19:40 +0000
+
 ruby-foreman-opentofu (0.0.3-1) stable; urgency=low
 
   * 0.0.3 released
