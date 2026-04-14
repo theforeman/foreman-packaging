@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-formik
 Version: 1.5.8
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Forms in React, without tears
 License: MIT
 Group: Development/Libraries
@@ -23,8 +23,8 @@ Source9: https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz
 Source10: https://registry.npmjs.org/is-stream/-/is-stream-1.1.0.tgz
 Source11: https://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz
 Source12: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
-Source13: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
-Source14: https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.23.tgz
+Source13: https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz
+Source14: https://registry.npmjs.org/lodash-es/-/lodash-es-4.18.1.tgz
 Source15: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
 Source16: https://registry.npmjs.org/node-fetch/-/node-fetch-1.7.3.tgz
 Source17: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
@@ -60,8 +60,8 @@ Provides: bundled(npm(iconv-lite)) = 0.6.3
 Provides: bundled(npm(is-stream)) = 1.1.0
 Provides: bundled(npm(isomorphic-fetch)) = 2.2.1
 Provides: bundled(npm(js-tokens)) = 4.0.0
-Provides: bundled(npm(lodash)) = 4.17.23
-Provides: bundled(npm(lodash-es)) = 4.17.23
+Provides: bundled(npm(lodash)) = 4.18.1
+Provides: bundled(npm(lodash-es)) = 4.18.1
 Provides: bundled(npm(loose-envify)) = 1.4.0
 Provides: bundled(npm(node-fetch)) = 1.7.3
 Provides: bundled(npm(object-assign)) = 4.1.1
@@ -117,6 +117,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> 1.5.8-3
+- Rebuild to update bundled lodash to 4.18.1
+
 * Tue Mar 03 2026 Evgeni Golov 1.5.8-2
 - Rebuild nodejs-formik with updated vendored dependencies
 
