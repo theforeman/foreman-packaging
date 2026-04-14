@@ -4,7 +4,7 @@
 %global npm_name diff
 
 Name: %{?scl_prefix}nodejs-diff
-Version: 5.2.0
+Version: 5.2.2
 Release: 1%{?dist}
 Summary: A JavaScript text diff implementation
 License: BSD-3-Clause
@@ -44,6 +44,9 @@ cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc release-notes.md
 
 %changelog
+* Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.2.2-1
+- Update to 5.2.2
+
 * Wed Jul 09 2025 root <root> 5.2.0-1
 - Update to 5.2.0
 
