@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-patternfly-react-charts
 Version: 7.4.9
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: This library provides a set of React chart components for use with the PatternFly reference implementation
 License: MIT
 Group: Development/Libraries
@@ -38,7 +38,7 @@ Source24: https://registry.npmjs.org/delaunay-find/-/delaunay-find-0.0.6.tgz
 Source25: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz
 Source26: https://registry.npmjs.org/internmap/-/internmap-2.0.3.tgz
 Source27: https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz
-Source28: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
+Source28: https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz
 Source29: https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz
 Source30: https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz
 Source31: https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz
@@ -101,7 +101,7 @@ Provides: bundled(npm(delaunay-find)) = 0.0.6
 Provides: bundled(npm(hoist-non-react-statics)) = 3.3.2
 Provides: bundled(npm(internmap)) = 2.0.3
 Provides: bundled(npm(json-stringify-safe)) = 5.0.1
-Provides: bundled(npm(lodash)) = 4.17.23
+Provides: bundled(npm(lodash)) = 4.18.1
 Provides: bundled(npm(react-fast-compare)) = 3.2.2
 Provides: bundled(npm(react-is)) = 16.13.1
 Provides: bundled(npm(tslib)) = 2.8.1
@@ -172,6 +172,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> 7.4.9-3
+- Rebuild to update bundled lodash to 4.18.1
+
 * Tue Mar 03 2026 Evgeni Golov 7.4.9-2
 - Rebuild @patternfly/react-charts to update vendored dependencies
 
