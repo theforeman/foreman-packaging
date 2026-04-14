@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -263,7 +263,7 @@ Requires: (npm(core-js) >= 2.5.7 with npm(core-js) < 3.0.0)
 Requires: npm(datatables.net) = 1.13.5
 Requires: npm(datatables.net-bs) = 1.13.5
 Requires: npm(datatables.net-dt) = 1.13.5
-Requires: npm(diff) = 5.2.0
+Requires: npm(diff) = 5.2.2
 Requires: (npm(dsmorse-gridster) >= 0.8.0 with npm(dsmorse-gridster) < 1.0.0)
 Requires: (npm(file-saver) >= 2.0.1 with npm(file-saver) < 3.0.0)
 Requires: (npm(formik) >= 1.5.8 with npm(formik) < 2.0.0)
@@ -860,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.19.0-0.6.develop
+- Update nodejs-diff requirement to 5.2.2
+
 * Tue Mar 17 2026 Evgeni Golov - 3.19.0-0.5.develop
 - Drop genisoimage requirement, that now lives in fog-libvirt
 
