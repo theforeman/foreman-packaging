@@ -5,15 +5,15 @@
 
 Name: %{?scl_prefix}nodejs-yup
 Version: 0.29.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Dead simple Object schema validation
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/jquense/yup
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.6.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.2.tgz
 Source1: https://registry.npmjs.org/fn-name/-/fn-name-3.0.0.tgz
-Source2: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
-Source3: https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.23.tgz
+Source2: https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz
+Source3: https://registry.npmjs.org/lodash-es/-/lodash-es-4.18.1.tgz
 Source4: https://registry.npmjs.org/property-expr/-/property-expr-2.0.6.tgz
 Source5: https://registry.npmjs.org/synchronous-promise/-/synchronous-promise-2.0.17.tgz
 Source6: https://registry.npmjs.org/toposort/-/toposort-2.0.2.tgz
@@ -27,10 +27,10 @@ BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.28.6
+Provides: bundled(npm(@babel/runtime)) = 7.29.2
 Provides: bundled(npm(fn-name)) = 3.0.0
-Provides: bundled(npm(lodash)) = 4.17.23
-Provides: bundled(npm(lodash-es)) = 4.17.23
+Provides: bundled(npm(lodash)) = 4.18.1
+Provides: bundled(npm(lodash-es)) = 4.18.1
 Provides: bundled(npm(property-expr)) = 2.0.6
 Provides: bundled(npm(synchronous-promise)) = 2.0.17
 Provides: bundled(npm(toposort)) = 2.0.2
@@ -79,6 +79,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> 0.29.3-3
+- Rebuild to update bundled lodash to 4.18.1
+
 * Tue Mar 03 2026 Evgeni Golov 0.29.3-2
 - Rebuild to update vendored deps
 
