@@ -860,7 +860,7 @@ exit 0
 %endif
 
 %changelog
-* Mon Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.19.0-0.6.develop
+* Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.19.0-0.6.develop
 - Update nodejs-diff requirement to 5.2.2
 
 * Tue Mar 17 2026 Evgeni Golov - 3.19.0-0.5.develop
