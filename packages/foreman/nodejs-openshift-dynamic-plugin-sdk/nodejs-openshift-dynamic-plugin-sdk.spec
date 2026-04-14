@@ -5,16 +5,16 @@
 
 Name: %{?scl_prefix}nodejs-openshift-dynamic-plugin-sdk
 Version: 5.0.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Allows loading, managing and interpreting dynamic plugins
 License: Apache-2.0
 Group: Development/Libraries
 URL: https://github.com/openshift/dynamic-plugin-sdk#readme
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.6.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.2.tgz
 Source1: https://registry.npmjs.org/@openshift/dynamic-plugin-sdk/-/dynamic-plugin-sdk-5.0.1.tgz
 Source2: https://registry.npmjs.org/@types/lodash/-/lodash-4.17.24.tgz
-Source3: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
-Source4: https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.23.tgz
+Source3: https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz
+Source4: https://registry.npmjs.org/lodash-es/-/lodash-es-4.18.1.tgz
 Source5: https://registry.npmjs.org/nanoclone/-/nanoclone-0.2.1.tgz
 Source6: https://registry.npmjs.org/property-expr/-/property-expr-2.0.6.tgz
 Source7: https://registry.npmjs.org/semver/-/semver-7.7.4.tgz
@@ -30,11 +30,11 @@ BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.28.6
+Provides: bundled(npm(@babel/runtime)) = 7.29.2
 Provides: bundled(npm(@openshift/dynamic-plugin-sdk)) = 5.0.1
 Provides: bundled(npm(@types/lodash)) = 4.17.24
-Provides: bundled(npm(lodash)) = 4.17.23
-Provides: bundled(npm(lodash-es)) = 4.17.23
+Provides: bundled(npm(lodash)) = 4.18.1
+Provides: bundled(npm(lodash-es)) = 4.18.1
 Provides: bundled(npm(nanoclone)) = 0.2.1
 Provides: bundled(npm(property-expr)) = 2.0.6
 Provides: bundled(npm(semver)) = 7.7.4
@@ -83,6 +83,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.0.1-3
+- Rebuild to update bundled lodash to 4.18.1
+
 * Tue Mar 03 2026 Evgeni Golov 5.0.1-2
 - Rebuild to update vendored dependencies
 
