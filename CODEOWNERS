@@ -32,6 +32,10 @@
 /packages/plugins/rubygem-foreman_vault/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 /packages/plugins/rubygem-foreman_wreckingball/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 
+# foremanctl
+/packages/foreman/foremanctl/ @theforeman/packaging @theforeman/foremanctl
+/packages/foreman/python-obsah/ @theforeman/packaging @theforeman/foremanctl
+
 # foreman_kernel_care
 /packages/katello/*_kernel_care/ @theforeman/packaging @theforeman/foreman_kernel_care
 
