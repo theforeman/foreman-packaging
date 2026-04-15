@@ -1,7 +1,7 @@
 %global __brp_mangle_shebangs_exclude_from ^%{_datadir}/%{name}/collections/.*$
 
 Name:      foremanctl
-Version:   1.2.0
+Version:   2.0.0
 Release:   1%{?dist}
 Summary:   Install Foreman using containers
 
@@ -10,7 +10,7 @@ URL:       https://github.com/theforeman/foremanctl
 Source:    https://github.com/theforeman/foremanctl/releases/download/%{version}/%{name}-%{version}.tar.gz
 
 BuildArch: noarch
-Requires:  python3.12-obsah >= 1.7.1
+Requires:  python3.12-obsah >= 1.8.0
 
 # These are needed on the target host, which is usually localhost
 Recommends:  podman
@@ -61,6 +61,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Wed Apr 15 2026 Evgeni Golov - 2.0.0-1
+- Release foremanctl 2.0.0
+
 * Mon Mar 16 2026 Evgeni Golov - 1.2.0-1
 - Release foremanctl 1.2.0
 
