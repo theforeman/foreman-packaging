@@ -1,3 +1,9 @@
+ruby-smart-proxy-openbolt (1.1.0-1) stable; urgency=low
+
+  * 1.1.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 16 Apr 2026 20:33:57 +0000
+
 ruby-smart-proxy-openbolt (0.1.1-1) stable; urgency=low
 
   * 0.1.1 released
