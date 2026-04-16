@@ -101,6 +101,7 @@
       <packagereq type="default">rubygem-foreman_opennebula</packagereq>
       <packagereq type="default">rubygem-foreman_openscap</packagereq>
       <packagereq type="default">rubygem-foreman_opentofu</packagereq>
+      <packagereq type="default">foreman-opentofu-selinux</packagereq>
       <packagereq type="default">rubygem-foreman_ovirt</packagereq>
       <packagereq type="default">rubygem-foreman_puppet</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution</packagereq>
