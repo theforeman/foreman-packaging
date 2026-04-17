@@ -9,7 +9,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.1.1
+Version: 1.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart Proxy plugin for OpenBolt integration
 License: GPL-3.0-only
@@ -79,6 +79,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/openbolt.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 16 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.0-1
+- Update to 1.1.0
+
 * Tue Nov 25 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.1-1
 - Update to 0.1.1
 
