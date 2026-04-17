@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_openbolt
 %global plugin_name openbolt
-%global foreman_min_version 3.14.0
+%global foreman_min_version 3.17.0
 
 Name: rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman OpenBolt integration
 License: GPL-3.0-only
@@ -15,9 +15,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.7
+Requires: ruby >= 3.0
 Requires: ruby < 5
-BuildRequires: ruby >= 2.7
+BuildRequires: ruby >= 3.0
 BuildRequires: ruby < 5
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(foreman-tasks) >= 11.0.0 with rubygem(foreman-tasks) < 13)
@@ -27,7 +27,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: npm(@theforeman/builder) >= 6.0.0
+BuildRequires: npm(@theforeman/builder) >= 15.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Apr 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.1-1
+- Update to 1.1.1
+
 * Thu Mar 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.0-1
 - Update to 1.0.0
 
