@@ -17,6 +17,8 @@
 /packages/plugins/rubygem-smart_proxy_request_forwarder/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_cve_scanner/ @theforeman/packaging @theforeman/atix
 /packages/plugins/*_bootdisk/ @theforeman/packaging @theforeman/bootdisk
+/packages/foreman/nodejs-ts-loader/ @theforeman/packaging @theforeman/atix
+/packages/foreman/nodejs-typescript/ @theforeman/packaging @theforeman/atix
 
 # cli
 /packages/foreman/rubygem-apipie-* @theforeman/packaging @theforeman/cli
