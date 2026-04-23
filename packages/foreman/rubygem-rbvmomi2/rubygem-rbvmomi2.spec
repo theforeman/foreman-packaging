@@ -2,7 +2,7 @@
 %global gem_name rbvmomi2
 
 Name: rubygem-%{gem_name}
-Version: 3.9.0
+Version: 3.10.0
 Release: 1%{?dist}
 Summary: Ruby interface to the VMware vSphere API
 License: MIT
@@ -67,6 +67,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 23 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.10.0-1
+- Update to 3.10.0
+
 * Sun Apr 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.9.0-1
 - Update to 3.9.0
 
