@@ -4,7 +4,7 @@
 %global npm_name follow-redirects
 
 Name: %{?scl_prefix}nodejs-follow-redirects
-Version: 1.15.11
+Version: 1.16.0
 Release: 1%{?dist}
 Summary: HTTP and HTTPS modules that follow redirects
 License: MIT
@@ -43,6 +43,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Apr 23 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.16.0-1
+- Update to 1.16.0
+
 * Sun Aug 03 2025 Foreman Packaging Automation <packaging@theforeman.org> 1.15.11-1
 - Update to 1.15.11
 
