@@ -4,7 +4,7 @@
 %global npm_name webpack
 
 Name: %{?scl_prefix}nodejs-webpack
-Version: 5.106.1
+Version: 5.106.2
 Release: 1%{?dist}
 Summary: Packs ECMAScript/CommonJs/AMD modules for the browser
 License: MIT
@@ -42,13 +42,13 @@ Source28: https://registry.npmjs.org/acorn-import-phases/-/acorn-import-phases-1
 Source29: https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz
 Source30: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source31: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
-Source32: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.18.tgz
+Source32: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.21.tgz
 Source33: https://registry.npmjs.org/browserslist/-/browserslist-4.28.2.tgz
 Source34: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
-Source35: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001787.tgz
+Source35: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001790.tgz
 Source36: https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz
 Source37: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
-Source38: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.335.tgz
+Source38: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz
 Source39: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.20.1.tgz
 Source40: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.0.0.tgz
 Source41: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
@@ -63,29 +63,27 @@ Source49: https://registry.npmjs.org/glob-to-regexp/-/glob-to-regexp-0.4.1.tgz
 Source50: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz
 Source51: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
 Source52: https://registry.npmjs.org/jest-worker/-/jest-worker-27.5.1.tgz
-Source53: https://registry.npmjs.org/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz
-Source54: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
-Source55: https://registry.npmjs.org/loader-runner/-/loader-runner-4.3.1.tgz
-Source56: https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz
-Source57: https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz
-Source58: https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz
-Source59: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz
-Source60: https://registry.npmjs.org/node-releases/-/node-releases-2.0.37.tgz
-Source61: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
-Source62: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
-Source63: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
-Source64: https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz
-Source65: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz
-Source66: https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz
-Source67: https://registry.npmjs.org/tapable/-/tapable-2.3.2.tgz
-Source68: https://registry.npmjs.org/terser/-/terser-5.46.1.tgz
-Source69: https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plugin-5.4.0.tgz
-Source70: https://registry.npmjs.org/undici-types/-/undici-types-7.19.2.tgz
-Source71: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz
-Source72: https://registry.npmjs.org/watchpack/-/watchpack-2.5.1.tgz
-Source73: https://registry.npmjs.org/webpack/-/webpack-5.106.1.tgz
-Source74: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.3.4.tgz
-Source75: nodejs-webpack-%{version}-registry.npmjs.org.tgz
+Source53: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
+Source54: https://registry.npmjs.org/loader-runner/-/loader-runner-4.3.1.tgz
+Source55: https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz
+Source56: https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz
+Source57: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz
+Source58: https://registry.npmjs.org/node-releases/-/node-releases-2.0.38.tgz
+Source59: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
+Source60: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
+Source61: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
+Source62: https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz
+Source63: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz
+Source64: https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz
+Source65: https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz
+Source66: https://registry.npmjs.org/terser/-/terser-5.46.1.tgz
+Source67: https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plugin-5.4.0.tgz
+Source68: https://registry.npmjs.org/undici-types/-/undici-types-7.19.2.tgz
+Source69: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz
+Source70: https://registry.npmjs.org/watchpack/-/watchpack-2.5.1.tgz
+Source71: https://registry.npmjs.org/webpack/-/webpack-5.106.2.tgz
+Source72: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.3.4.tgz
+Source73: nodejs-webpack-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
@@ -126,13 +124,13 @@ Provides: bundled(npm(acorn-import-phases)) = 1.0.4
 Provides: bundled(npm(ajv)) = 8.18.0
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
-Provides: bundled(npm(baseline-browser-mapping)) = 2.10.18
+Provides: bundled(npm(baseline-browser-mapping)) = 2.10.21
 Provides: bundled(npm(browserslist)) = 4.28.2
 Provides: bundled(npm(buffer-from)) = 1.1.2
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001787
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001790
 Provides: bundled(npm(chrome-trace-event)) = 1.0.4
 Provides: bundled(npm(commander)) = 2.20.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.335
+Provides: bundled(npm(electron-to-chromium)) = 1.5.344
 Provides: bundled(npm(enhanced-resolve)) = 5.20.1
 Provides: bundled(npm(es-module-lexer)) = 2.0.0
 Provides: bundled(npm(escalade)) = 3.2.0
@@ -147,27 +145,25 @@ Provides: bundled(npm(glob-to-regexp)) = 0.4.1
 Provides: bundled(npm(graceful-fs)) = 4.2.11
 Provides: bundled(npm(has-flag)) = 4.0.0
 Provides: bundled(npm(jest-worker)) = 27.5.1
-Provides: bundled(npm(json-parse-even-better-errors)) = 2.3.1
 Provides: bundled(npm(json-schema-traverse)) = 1.0.0
 Provides: bundled(npm(loader-runner)) = 4.3.1
 Provides: bundled(npm(merge-stream)) = 2.0.0
-Provides: bundled(npm(mime-db)) = 1.52.0
-Provides: bundled(npm(mime-types)) = 2.1.35
+Provides: bundled(npm(mime-db)) = 1.54.0
 Provides: bundled(npm(neo-async)) = 2.6.2
-Provides: bundled(npm(node-releases)) = 2.0.37
+Provides: bundled(npm(node-releases)) = 2.0.38
 Provides: bundled(npm(picocolors)) = 1.1.1
 Provides: bundled(npm(require-from-string)) = 2.0.2
 Provides: bundled(npm(schema-utils)) = 4.3.3
 Provides: bundled(npm(source-map)) = 0.6.1
 Provides: bundled(npm(source-map-support)) = 0.5.21
 Provides: bundled(npm(supports-color)) = 8.1.1
-Provides: bundled(npm(tapable)) = 2.3.2
+Provides: bundled(npm(tapable)) = 2.3.3
 Provides: bundled(npm(terser)) = 5.46.1
 Provides: bundled(npm(terser-webpack-plugin)) = 5.4.0
 Provides: bundled(npm(undici-types)) = 7.19.2
 Provides: bundled(npm(update-browserslist-db)) = 1.2.3
 Provides: bundled(npm(watchpack)) = 2.5.1
-Provides: bundled(npm(webpack)) = 5.106.1
+Provides: bundled(npm(webpack)) = 5.106.2
 Provides: bundled(npm(webpack-sources)) = 3.3.4
 AutoReq: no
 AutoProv: no
@@ -189,7 +185,7 @@ for tgz in %{sources}; do
 done
 %{?scl:end_of_scl}
 
-%setup -T -q -a 75 -D -n %{npm_cache_dir}
+%setup -T -q -a 73 -D -n %{npm_cache_dir}
 
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
@@ -221,6 +217,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Apr 23 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.106.2-1
+- Update to 5.106.2
+
 * Sun Apr 12 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.106.1-1
 - Update to 5.106.1
 
