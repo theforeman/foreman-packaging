@@ -1,73 +1,75 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name fog-json
 
+Name: rubygem-%{gem_name}
+Version: 1.3.0
+Release: 1%{?dist}
 Summary: JSON parsing for fog providers
-Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 1.2.0
-Release: 5%{?dist}
-Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-json
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix}rubygem(multi_json) < 2
-Requires: %{?scl_prefix}rubygem(fog-core)
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
-%define gembuilddir %{buildroot}%{gem_dir}
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
+BuildArch: noarch
+# end specfile generated dependencies
 
 %description
-Extraction of the JSON parsing tools shared between a number of providers in
-the 'fog' gem.
+Extraction of the JSON parsing tools shared between a
+number of providers in the 'fog' gem.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -T -c
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%license %{gem_instdir}/LICENSE.md
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{gem_instdir}/LICENSE.md
-%exclude %{gem_instdir}/.*
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/CHANGELOG.md
-%{gem_instdir}/CONTRIBUTING.md
-%{gem_instdir}/CONTRIBUTORS.md
-%{gem_instdir}/README.md
-%{gem_instdir}/test
-%{gem_instdir}/Gemfile*
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%doc %{gem_instdir}/SECURITY.md
 %exclude %{gem_instdir}/fog-json.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Thu Apr 23 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.0-1
+- Update to 1.3.0
+
 * Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-5
 - Removed unversioned obsoletes
 
