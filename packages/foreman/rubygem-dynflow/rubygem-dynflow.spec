@@ -2,7 +2,7 @@
 %global gem_name dynflow
 
 Name: rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.0.1
 Release: 1%{?dist}
 Summary: DYNamic workFLOW engine
 License: MIT
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.1-1
+- Update to 2.0.1
+
 * Tue Jan 06 2026 Adam Ruzicka <aruzicka@redhat.com> - 2.0.0-1
 - Update to 2.0.0
 
