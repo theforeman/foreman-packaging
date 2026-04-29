@@ -79,10 +79,10 @@ end
 
 gemfile = ARGV[0]
 # Download gem if not available locally
-if not File::exists?(gemfile) and gemfile !~ /.gem$/
+if not File.exist?(gemfile) and gemfile !~ /.gem$/
   puts "#{gemfile} doesn't seem to exist. Let's try to download it with 'gem fetch #{ARGV[0]}'"
   run("gem fetch #{gemfile}")
-  gemfile = Dir::glob("#{gemfile}-*.gem")[0]
+  gemfile = Dir.glob("#{gemfile}-*.gem")[0]
 end
 
 puts "-- Creating source tarball from #{gemfile} ..."
@@ -93,7 +93,7 @@ exit(0) if $only_tarball
 
 puts
 puts "-- Creating Debian source package from #{tarball} ..."
-dmr = Gem2Deb::DhMakeRuby::new(tarball, dh_make_ruby_options)
+dmr = Gem2Deb::DhMakeRuby.new(tarball, dh_make_ruby_options)
 dmr.build
 puts "-- Generated Debian source tree in #{dmr.source_dirname}"
 
