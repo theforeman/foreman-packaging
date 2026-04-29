@@ -1,3 +1,9 @@
+ansible-collection-theforeman-foreman (5.11.0-2) stable; urgency=low
+
+  * test rebuild
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 29 Apr 2026 10:40:55 +0200
+
 ansible-collection-theforeman-foreman (5.11.0-1) stable; urgency=low
 
   * 5.11.0 released
