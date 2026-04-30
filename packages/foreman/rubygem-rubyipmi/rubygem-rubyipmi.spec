@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/rubyipmi.gemspec
 
 %changelog
+* Thu Apr 30 2026 Arvind Jangir <ajangir@redhat.com> 0.13.0-2
+- Add which as dependency
+
 * Thu Feb 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.13.0-1
 - Update to 0.13.0
 
