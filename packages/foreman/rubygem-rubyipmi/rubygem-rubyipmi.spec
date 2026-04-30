@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.13.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
 License: LGPLv2.1
 URL: https://github.com/logicminds/rubyipmi
@@ -20,6 +20,7 @@ Requires: (rubygem(logger) or ruby-default-gems < 3.5)
 Requires: (rubygem(observer) or ruby-default-gems < 3.4)
 
 Requires: ipmitool
+Requires: which
 
 %description
 Controls IPMI devices via command line wrapper for ipmitool and freeipmi.
