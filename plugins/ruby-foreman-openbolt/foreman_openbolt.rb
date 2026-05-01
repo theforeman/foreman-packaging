@@ -1,1 +1,1 @@
-gem 'foreman_openbolt', '1.1.1'
+gem 'foreman_openbolt', '1.2.0'
