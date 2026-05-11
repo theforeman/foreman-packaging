@@ -1,3 +1,9 @@
+ruby-hammer-cli (3.19.0-1) stable; urgency=low
+
+  * 3.19.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 11 May 2026 18:27:57 +0000
+
 ruby-hammer-cli (3.18.0-1) stable; urgency=low
 
   * 3.18.0 released
