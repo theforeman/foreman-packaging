@@ -6,12 +6,12 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 6
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 3.19.0
+Version: 3.20.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -860,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Tue May 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.20.0-0.1.develop
+- Bump version to 3.20-develop
+
 * Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.19.0-0.6.develop
 - Update nodejs-diff requirement to 5.2.2
 
