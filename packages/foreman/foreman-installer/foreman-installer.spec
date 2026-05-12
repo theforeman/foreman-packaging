@@ -1,10 +1,10 @@
-%global release 3
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
 Epoch:      1
-Version:    3.19.0
+Version:    3.20.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue May 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1:3.20.0-0.1.develop
+- Bump version to 3.20-develop
+
 * Tue Mar 17 2026 Evgeni Golov - 1:3.19.0-0.3.develop
 - Require kafo >= 7.7
 
