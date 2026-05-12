@@ -1,3 +1,9 @@
+foreman-installer (3.20.0-1) stable; urgency=low
+
+  * Bump changelog to 3.20.0 to match VERSION
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 12 May 2026 14:12:11 +0200
+
 foreman-installer (3.19.0-3) stable; urgency=low
 
   * Require kafo 7.7
