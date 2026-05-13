@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.5.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Run CVE scan on host and collect report
 License: GPLv3
@@ -13,12 +13,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
+BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.7
 Requires: ruby < 4
 BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
+BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 17)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -72,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 13 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.5.0-1
+- Update to 0.5.0
+
 * Thu Aug 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.3-1
 - Update to 0.0.3
 
