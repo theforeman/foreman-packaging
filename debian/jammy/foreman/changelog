@@ -1,3 +1,9 @@
+foreman (3.19.0~rc1-1) stable; urgency=low
+
+  * 3.19.0-rc1 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 13 May 2026 13:16:38 +0200
+
 foreman (3.19.0-3) stable; urgency=low
 
   * Migrate Foreman DEB packaging to use consolidated cron entrypoints
