@@ -7,7 +7,7 @@
 %global rake /usr/bin/rake
 
 %global release 6
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -860,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Wed May 13 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-0.6.rc1
+- Release foreman 3.19.0rc1
+
 * Tue Apr 14 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.19.0-0.6.develop
 - Update nodejs-diff requirement to 5.2.2
 
