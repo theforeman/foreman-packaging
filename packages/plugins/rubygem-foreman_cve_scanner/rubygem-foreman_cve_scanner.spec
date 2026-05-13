@@ -1,27 +1,35 @@
 # template: foreman_plugin
 %global gem_name foreman_cve_scanner
 %global plugin_name cve_scanner
-%global foreman_min_version 3.13
+%global foreman_min_version 3.16
 
 Name: rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.5.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Run CVE scan on host and collect report
 License: GPLv3
-URL: https://atix.de
+URL: https://github.com/ATIX-AG/foreman_cve_scanner
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
+BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.7
 Requires: ruby < 4
 BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
+BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 17)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+
+# start package.json devDependencies BuildRequires
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+# end package.json dependencies BuildRequires
 
 %description
 Run CVE scan on host and collect report.
@@ -52,15 +60,24 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
+%{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_assets_plugin}
+%{foreman_assets_foreman}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -72,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 13 2026 Bernhard Suttner <suttner@atix.de> 0.5.1-1
+- Update to 0.5.1
+
 * Thu Aug 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.3-1
 - Update to 0.0.3
 
