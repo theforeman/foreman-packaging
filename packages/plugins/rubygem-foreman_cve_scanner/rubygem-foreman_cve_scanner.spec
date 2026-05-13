@@ -92,9 +92,6 @@ cp -a .%{gem_dir}/* \
 * Wed May 13 2026 Bernhard Suttner <suttner@atix.de> 0.5.1-1
 - Update to 0.5.1
 
-* Wed May 13 2026 Bernhard Suttner <suttner@atix.de> 0.5.0-1
-- Update to 0.5.0
-
 * Thu Aug 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.3-1
 - Update to 0.0.3
 
