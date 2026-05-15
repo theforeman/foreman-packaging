@@ -4,7 +4,7 @@
 %global foreman_min_version 3.18
 
 Name: rubygem-%{gem_name}
-Version: 5.0.3
+Version: 5.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
@@ -15,8 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.7.0
-BuildRequires: ruby >= 2.7.0
+Requires: ruby >= 3.0
+Requires: ruby < 4
+BuildRequires: ruby >= 3.0
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -90,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.1.0-1
+- Update to 5.1.0
+
 * Thu Apr 09 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.3-1
 - Update to 5.0.3
 
