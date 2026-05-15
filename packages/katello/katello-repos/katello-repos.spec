@@ -1,15 +1,15 @@
-%global pulpcore_version nightly
+%global pulpcore_version 3.105
 %global candlepin_version 4.7
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource nightly
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        4.21
+Version:        4.21.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Fri May 15 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.21.0-0.1.rc1
+- Release katello-repos 4.21.0rc1
+
 * Thu Feb 12 2026 Eric D. Helms <ericdhelms@gmail.com> - 4.21-0.2.nightly
 - Update Candlepin to 4.7
 

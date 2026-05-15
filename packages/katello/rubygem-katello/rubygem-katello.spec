@@ -3,10 +3,10 @@
 %global plugin_name katello
 %global foreman_min_version 3.19
 %global foreman_max_version 3.20
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.21.0
-%global release 5
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -165,6 +165,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 15 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.21.0-0.1.rc1
+- Release rubygem-katello 4.21.0rc1
+
 * Tue Apr 21 2026 Samir Jha <samirjha1525@gmail.com> - 4.21.0-0.5.pre.master
 - Bump Pulp binding requirements to 3.105 versions
 
