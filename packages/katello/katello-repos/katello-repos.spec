@@ -1,4 +1,4 @@
-%global pulpcore_version nightly
+%global pulpcore_version 3.105
 %global candlepin_version 4.7
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
