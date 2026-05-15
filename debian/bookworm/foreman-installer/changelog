@@ -1,3 +1,9 @@
+foreman-installer (4.21.0~rc1-1) stable; urgency=low
+
+  * 4.21.0-rc1 released
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Fri, 15 May 2026 13:57:01 -0400
+
 foreman-installer (3.19.0~rc1-1) stable; urgency=low
 
   * 3.19.0-rc1 released
