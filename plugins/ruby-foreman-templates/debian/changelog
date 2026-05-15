@@ -1,3 +1,9 @@
+ruby-foreman-templates (11.0.2-1) stable; urgency=low
+
+  * 11.0.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 15 May 2026 00:49:32 +0000
+
 ruby-foreman-templates (11.0.1-1) stable; urgency=low
 
   * 11.0.1 released
