@@ -4,7 +4,7 @@
 %global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 11.0.1
+Version: 11.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Template-syncing engine for Foreman
 License: GPLv3
@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.2-1
+- Update to 11.0.2
+
 * Wed Mar 11 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.1-1
 - Update to 11.0.1
 
