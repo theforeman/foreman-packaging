@@ -1,22 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name ace-builds
 
-Name: %{?scl_prefix}nodejs-ace-builds
-Version: 1.43.6
+Name: nodejs-ace-builds
+Version: 1.44.0
 Release: 1%{?dist}
 Summary: Ace (Ajax
 License: BSD-3-Clause
-Group: Development/Libraries
 URL: https://github.com/ajaxorg/ace-builds
 Source0: https://registry.npmjs.org/ace-builds/-/ace-builds-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -55,6 +49,9 @@ cp -pfr webpack-resolver.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sun May 17 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.44.0-1
+- Update to 1.44.0
+
 * Sun Jan 25 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.43.6-1
 - Update to 1.43.6
 
