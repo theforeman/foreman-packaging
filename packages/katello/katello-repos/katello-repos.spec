@@ -4,10 +4,10 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        4.20.0
+Version:        4.20.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -71,6 +71,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Mon May 18 2026 Ian Ballou <ianballou67@gmail.com> - 4.20.1-1
+- Release katello-repos 4.20.1
+
 * Thu Mar 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 4.20.0-2
 - Update Candlepin GPG key to 4.7
 
