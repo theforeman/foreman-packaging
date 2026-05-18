@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.11
+Version: 1.12
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -21,6 +21,8 @@ Obsoletes: rubygem-unf_ext < 0.0.8.2-2
 Obsoletes: rubygem-anemone < 0.7.2-2
 Obsoletes: rubygem-fog-ovirt < 2.0.3-1
 Obsoletes: rubygem-ovirt-engine-sdk < 4.6.0-1
+Obsoletes: rubygem-hammer_cli_foreman_admin < 1.2.2
+Obsoletes: rubygem-hammer_cli_foreman_admin-doc < 1.2.2
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -35,6 +37,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Mon May 18 2026 Archana Kumari <akumari@redhat.com> - 1.12-1
+- Obsolete rubygem-hammer_cli_foreman_admin
+
 * Tue Apr 01 2025 Leos Stejskal - 1.11-1
 - Obsolete oVirt
 
