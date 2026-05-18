@@ -725,7 +725,6 @@ other_plugin_packages:
 
 hammer_plugin_packages:
   hosts:
-    rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
     rubygem-hammer_cli_foreman_azure_rm: {}
     rubygem-hammer_cli_foreman_bootdisk: {}
