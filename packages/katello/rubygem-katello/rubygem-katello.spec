@@ -3,8 +3,8 @@
 %global plugin_name katello
 %global foreman_min_version 3.18
 %global foreman_max_version 3.19
-%global mainver 4.20.0
-%global release 2
+%global mainver 4.20.1
+%global release 1
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -164,6 +164,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Mon May 18 2026 Ian Ballou <ianballou67@gmail.com> - 4.20.1-1
+- Release rubygem-katello 4.20.1
+
 * Thu Mar 19 2026 Ian Ballou <ianballou67@gmail.com> - 4.20.0-2
 - Unpin Pulp bindings
 
