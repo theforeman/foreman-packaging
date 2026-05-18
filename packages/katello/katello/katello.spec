@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:       katello
-Version:    4.21.0
+Version:    4.22.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -123,6 +123,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon May 18 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 4.22.0-0.1.master
+- Bump version to 4.22.0
+
 * Thu Mar 05 2026 Archana Kumari <akumari@redhat.com> - 4.21.0-0.2.master
 - Remove katello.cron, tasks now run via Foreman::Cron framework
 
