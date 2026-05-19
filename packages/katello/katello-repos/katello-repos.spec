@@ -6,7 +6,7 @@
 
 %global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.21.0
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Tue May 19 2026 Odilon Sousa <osousa@redhat.com> - 4.21.0-0.2.rc1
+- Release rubygem-katello 4.21.0rc1
+
 * Fri May 15 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.21.0-0.1.rc1
 - Release katello-repos 4.21.0rc1
 
