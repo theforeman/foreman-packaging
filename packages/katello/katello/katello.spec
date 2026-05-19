@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.21.0
@@ -123,6 +123,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue May 19 2026 Odilon Sousa <osousa@redhat.com> - 4.21.0-0.2.rc1
+- Release rubygem-katello 4.21.0rc1
+
 * Fri May 15 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.21.0-0.1.rc1
 - Release katello 4.21.0rc1
 
