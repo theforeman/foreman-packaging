@@ -21,7 +21,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
-Version:  3.20.0
+Version:  5.0.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -84,6 +84,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.develop
+- Bump version to 5.0-develop
+
 * Tue May 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.20.0-0.1.develop
 - Bump version to 3.20-develop
 

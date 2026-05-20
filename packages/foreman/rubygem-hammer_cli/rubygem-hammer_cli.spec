@@ -8,7 +8,7 @@
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 Name: rubygem-%{gem_name}
-Version: 3.20.0
+Version: 5.0.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 License: GPLv3
@@ -97,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.pre.develop
+- Bump version to 5.0-develop
+
 * Tue May 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.20.0-0.1.pre.develop
 - Bump version to 3.20-develop
 
