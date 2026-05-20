@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name katello
 %global plugin_name katello
-%global foreman_min_version 3.20
-%global foreman_max_version 3.21
+%global foreman_min_version 5.0
+%global foreman_max_version 5.1
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.22.0
+%global mainver 5.0.0
 %global release 1
 
 Name: rubygem-%{gem_name}
@@ -165,6 +165,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.pre.master
+- Bump version to 5.0.0
+
 * Mon May 18 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 4.22.0-0.1.pre.master
 - Bump version to 4.22.0
 
