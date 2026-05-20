@@ -14,7 +14,7 @@ Package: ruby-hammer-cli-foreman-puppet
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ruby | ruby-interpreter,
-         ruby-hammer-cli-foreman (<< 4.0.0),
+         ruby-hammer-cli-foreman (<< 6.0.0),
          ruby-hammer-cli-foreman (>> 2.6.0)
          ${misc:Depends},
          ${shlibs:Depends}
