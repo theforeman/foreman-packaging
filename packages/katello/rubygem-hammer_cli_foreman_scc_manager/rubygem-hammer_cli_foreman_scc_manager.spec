@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.6.0
+Version: 0.7.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman SCC Manager plugin for Hammer CLI
 License: GPLv3
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Sun May 24 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.7.0-1
+- Update to 0.7.0
+
 * Thu Mar 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.0-1
 - Update to 0.6.0
 
