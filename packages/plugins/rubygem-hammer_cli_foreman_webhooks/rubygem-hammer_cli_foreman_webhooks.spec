@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.2.2
+Version: 0.2.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Webhooks plugin for Hammer CLI
 License: GPL-3.0-only
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 25 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 0.2.3-1
+- Update to 0.2.3
+
 * Tue Mar 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.2-1
 - Update to 0.2.2
 
