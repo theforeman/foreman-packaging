@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman kubevirt commands for Hammer CLI
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-kubevirt
@@ -69,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon May 25 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 0.3.0-1
+- Update to 0.3.0
+
 * Mon Jun 16 2025 Evgeni Golov 0.2.0-2
 - Update based on latest template
 
