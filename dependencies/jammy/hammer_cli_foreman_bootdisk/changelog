@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-bootdisk (0.4.3-1) stable; urgency=low
+
+  * 0.4.3 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Mon, 25 May 2026 16:23:56 +0200
+
 ruby-hammer-cli-foreman-bootdisk (0.4.2-1) stable; urgency=low
 
   * 0.4.2 released
