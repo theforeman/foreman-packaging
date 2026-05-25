@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.0.24
+Version: 0.0.25
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman CLI plugin for showing tasks information for resoruces and users
 License: GPLv3
@@ -68,6 +68,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Mon May 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.25-1
+- Update to 0.0.25
+
 * Wed Oct 08 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.24-1
 - Update to 0.0.24
 
