@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.1.2
+Version: 0.1.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin for configuring Virt Who
 License: GPLv3+
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 25 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 0.1.3-1
+- Update to 0.1.3
+
 * Thu Feb 20 2025 Chris Roberts <chrobert@redhat.com> - 0.1.2-1
 - Update to 0.1.2
 
