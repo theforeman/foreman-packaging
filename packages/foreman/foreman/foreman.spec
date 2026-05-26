@@ -7,7 +7,7 @@
 %global rake /usr/bin/rake
 
 %global release 6
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -860,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Tue May 26 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-0.6.rc2
+- Release foreman 3.19.0rc2
+
 * Wed May 13 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-0.6.rc1
 - Release foreman 3.19.0rc1
 
