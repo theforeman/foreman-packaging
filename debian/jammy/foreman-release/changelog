@@ -1,3 +1,9 @@
+foreman-release (3.19.0~rc2-1) stable; urgency=low
+
+  * 3.19.0-rc2 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 26 May 2026 15:07:12 +0200
+
 foreman-release (3.19.0~rc1-1) stable; urgency=low
 
   * 3.19.0-rc1 released
