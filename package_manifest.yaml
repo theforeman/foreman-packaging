@@ -332,7 +332,6 @@ ruby_core_packages_tier1:
     rubygem-ruby-libvirt: {}
     rubygem-ruby2_keywords: {}
     rubygem-ruby2ruby: {}
-    rubygem-ruby_parser: {}
     rubygem-safemode: {}
     rubygem-sass-rails: {}
     rubygem-sassc-rails: {}
