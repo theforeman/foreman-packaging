@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -68,7 +68,7 @@ Requires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
 Requires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
 Requires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
 Requires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 8)
-Requires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
+Requires: (rubygem(safemode) >= 2.0 with rubygem(safemode) < 3)
 Requires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
 Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
 Requires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
@@ -860,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Thu May 28 2026 Oleh Fedorenko <ofedoren@redhat.com> - 5.0.0-0.2.develop
+- Bump safemode to 2.0.0
+
 * Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.develop
 - Bump version to 5.0-develop
 
