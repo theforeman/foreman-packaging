@@ -307,6 +307,7 @@ ruby_core_packages_tier1:
     rubygem-pg: {}
     rubygem-powerbar: {}
     rubygem-po_to_json: {}
+    rubygem-prism: {}
     rubygem-prometheus-client: {}
     rubygem-promise.rb: {}
     rubygem-public_suffix: {}

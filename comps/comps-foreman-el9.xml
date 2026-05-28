@@ -47,10 +47,10 @@
       <packagereq type="default">nodejs-argv-parse</packagereq>
       <packagereq type="default">nodejs-axios</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
-      <packagereq type="default">nodejs-base64-js</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
       <packagereq type="default">nodejs-babel-runtime</packagereq>
+      <packagereq type="default">nodejs-base64-js</packagereq>
       <packagereq type="default">nodejs-bootstrap-sass</packagereq>
       <packagereq type="default">nodejs-buffer</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
@@ -164,8 +164,8 @@
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-rgen</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
-      <packagereq type="default">python3.12-obsah</packagereq>
       <packagereq type="default">python3-websockify</packagereq>
+      <packagereq type="default">python3.12-obsah</packagereq>
       <packagereq type="default">rubygem-actioncable</packagereq>
       <packagereq type="default">rubygem-actionmailbox</packagereq>
       <packagereq type="default">rubygem-actionmailer</packagereq>
@@ -311,6 +311,7 @@
       <packagereq type="default">rubygem-pg</packagereq>
       <packagereq type="default">rubygem-po_to_json</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
+      <packagereq type="default">rubygem-prism</packagereq>
       <packagereq type="default">rubygem-prometheus-client</packagereq>
       <packagereq type="default">rubygem-promise.rb</packagereq>
       <packagereq type="default">rubygem-public_suffix</packagereq>
@@ -531,6 +532,7 @@
       <packagereq type="default">rubygem-pg-doc</packagereq>
       <packagereq type="default">rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">rubygem-powerbar-doc</packagereq>
+      <packagereq type="default">rubygem-prism-doc</packagereq>
       <packagereq type="default">rubygem-prometheus-client-doc</packagereq>
       <packagereq type="default">rubygem-promise.rb-doc</packagereq>
       <packagereq type="default">rubygem-public_suffix-doc</packagereq>
