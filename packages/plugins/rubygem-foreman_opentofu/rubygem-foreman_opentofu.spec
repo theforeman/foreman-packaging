@@ -4,7 +4,7 @@
 %global foreman_min_version 3.0
 
 Name: rubygem-%{gem_name}
-Version: 0.0.4
+Version: 0.0.5
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to provision host using opentofu
 License: GPL-3.0-only
@@ -138,6 +138,9 @@ fi
 %attr(0600,root,root) %{_datadir}/selinux/targeted/*.pp
 
 %changelog
+* Fri May 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.5-1
+- Update to 0.0.5
+
 * Thu Apr 09 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.4-1
 - Update to 0.0.4
 - Setup directory for tofu and set correct permissions
