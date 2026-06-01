@@ -181,6 +181,14 @@ depend on each other, `mockchain` can be very helpful. To do this use Obal `mock
 
     copr-cli delete-package --name rubygem-example @theforeman/$PROJECT-nightly-staging
 
+1. If the package could be installed on user systems — either directly (e.g.
+   listed in a comps group or installed standalone) or pulled in as a runtime
+   dependency (`Requires`, auto-generated from gemspec/pyproject) — add it to
+   `packages/foreman/foreman-obsolete-packages/foreman-obsolete-packages.spec`.
+   This ensures the stale RPM gets removed on upgrade. Packages that were only
+   `BuildRequires`, only bundled as sources inside other packages, or were
+   never shipped on a release branch do not need an obsolete entry.
+
 ## Handle gems that are default Ruby gems
 
 Look at https://stdgems.org/ and see if a gem is listed as a default gem. The [development release notes](https://docs.ruby-lang.org/en/master/NEWS_md.html) can also help in determining what will or is default and for the next version of Ruby.
