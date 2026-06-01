@@ -4,7 +4,7 @@
 Name: rubygem-%{gem_name}
 Version: 2.0.0
 Release: 1%{?dist}
-Summary: A library for safe evaluation of Ruby code based on ParseTree/RubyParser and Ruby2Ruby
+Summary: A library for safe evaluation of Ruby code based on Prism and Ruby2Ruby
 License: MIT
 URL: https://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
