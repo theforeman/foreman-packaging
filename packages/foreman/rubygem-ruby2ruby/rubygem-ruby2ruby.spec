@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
 License: MIT
 URL: https://github.com/seattlerb/ruby2ruby
@@ -33,6 +33,11 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# ruby2ruby 2.5.x declares ruby_parser as a runtime dep, but only the
+# bin/r2r_show CLI uses it — the library itself does not.
+# ruby_parser was removed from the repo with safemode 2.0 migration.
+%gemspec_remove_dep -g ruby_parser "~> 3.1"
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -46,18 +51,11 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_bindir}
-cp -a .%{_bindir}/* \
-        %{buildroot}%{_bindir}/
-
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
-
 %files
 %dir %{gem_instdir}
-%{_bindir}/r2r_show
 %exclude %{gem_instdir}/.autotest
 %exclude %{gem_instdir}/Manifest.txt
-%{gem_instdir}/bin
+%exclude %{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -70,6 +68,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Tue Jun 02 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 2.5.2-2
+- Drop ruby_parser dependency and r2r_show binary
+
 * Wed Mar 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.5.2-1
 - Update to 2.5.2
 
