@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_cve_scanner
 %global plugin_name cve_scanner
-%global foreman_min_version 3.16
+%global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.5.1
+Version: 0.6.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Run CVE scan on host and collect report
 License: GPLv3
@@ -26,6 +26,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
+BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
+BuildRequires: (npm(@theforeman/builder) >= 15.0.0 with npm(@theforeman/builder) < 16.0.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -89,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jun 03 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.0-1
+- Update to 0.6.0
+
 * Wed May 13 2026 Bernhard Suttner <suttner@atix.de> 0.5.1-1
 - Update to 0.5.1
 
