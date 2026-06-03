@@ -6,7 +6,7 @@
 %global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat")
 
 Name: rubygem-%{gem_name}
-Version: 16.2.4
+Version: 16.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
@@ -22,8 +22,10 @@ Requires: satellite-lifecycle
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.7
-BuildRequires: ruby >= 2.7
+Requires: ruby >= 3.0
+Requires: ruby < 4.0
+BuildRequires: ruby >= 3.0
+BuildRequires: ruby < 4.0
 BuildRequires: rubygems-devel
 BuildRequires: rubygem(activesupport)
 BuildRequires: rubygem(deface)
@@ -102,6 +104,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jun 03 2026 Foreman Packaging Automation <packaging@theforeman.org> - 16.3.0-1
+- Update to 16.3.0
+
 * Wed Apr 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 16.2.4-1
 - Update to 16.2.4
 
