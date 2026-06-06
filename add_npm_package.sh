@@ -112,6 +112,19 @@ npm_info() {
   curl -s https://api.npms.io/v2/package/$name
 }
 
+suggest_strategy() {
+  ensure_program curl
+  ensure_program jq
+
+  DEPENDENCIES=$(npm_info | jq -r '.collected.metadata.dependencies|length')
+  if [[ $DEPENDENCIES -gt 2 ]] ; then
+    STRATEGY="bundle"
+  else
+    STRATEGY="single"
+  fi
+  echo "Found $DEPENDENCIES dependencies - using $STRATEGY strategy"
+}
+
 # Main script
 
 if [[ -z $NPM_MODULE_NAME ]]; then
@@ -137,19 +150,6 @@ if [[ $VERSION == "auto" ]] ; then
   fi
 fi
 
-if [[ -z $STRATEGY ]] ; then
-  ensure_program curl
-  ensure_program jq
-
-  DEPENDENCIES=$(npm_info | jq -r '.collected.metadata.dependencies|length')
-  if [[ $DEPENDENCIES -gt 2 ]] ; then
-    STRATEGY="bundle"
-  else
-    STRATEGY="single"
-  fi
-  echo "Found $DEPENDENCIES dependencies - using $STRATEGY strategy"
-fi
-
 if [[ -f "${SPEC_FILE}" ]]; then
   echo -n "Detected update..."
   UPDATE=true
@@ -159,13 +159,29 @@ fi
 
 if [[ $UPDATE == true ]] ; then
   EXISTING_VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' "$SPEC_FILE")
-  if [[ $REWRITE_ON_SAME_VERSION == true ]] || [[ $VERSION != $EXISTING_VERSION ]]; then
+  if [[ $VERSION == "$EXISTING_VERSION" ]] ; then
+    echo "$PACKAGE_NAME is already at version $VERSION"
+    if [[ $REWRITE_ON_SAME_VERSION == true ]] ; then
+      if [[ -z $STRATEGY ]] ; then
+        if grep -q 'bundled(npm(' "$SPEC_FILE" ; then
+          STRATEGY="bundle"
+        else
+          STRATEGY="single"
+        fi
+      fi
+      generate_npm_package
+    fi
+  else
+    if [[ -z $STRATEGY ]] ; then
+      suggest_strategy
+    fi
     generate_npm_package
     git commit -m "Bump $PACKAGE_NAME to $VERSION"
-  else
-    echo "$PACKAGE_NAME is already at version $VERSION"
   fi
 else
+  if [[ -z $STRATEGY ]] ; then
+    suggest_strategy
+  fi
   generate_npm_package
   echo -e "Updating comps... - "
   add_to_comps
