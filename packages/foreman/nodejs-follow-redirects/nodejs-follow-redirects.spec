@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name follow-redirects
 
-Name: %{?scl_prefix}nodejs-follow-redirects
+Name: nodejs-follow-redirects
 Version: 1.16.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP and HTTPS modules that follow redirects
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/follow-redirects/follow-redirects
 Source0: https://registry.npmjs.org/follow-redirects/-/follow-redirects-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -43,6 +41,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.16.0-2
+- Regenerate spec file
+
 * Thu Apr 23 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.16.0-1
 - Update to 1.16.0
 

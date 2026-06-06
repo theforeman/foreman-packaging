@@ -1,24 +1,22 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name axios
 
-Name: %{?scl_prefix}nodejs-axios
+Name: nodejs-axios
 Version: 0.21.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Promise based HTTP client for the browser and node
 License: MIT
-Group: Development/Libraries
 URL: https://axios-http.com
 Source0: https://registry.npmjs.org/axios/-/axios-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(follow-redirects) >= 1.14.0
 Requires: npm(follow-redirects) < 2.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -48,6 +46,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc UPGRADE_GUIDE.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.21.4-2
+- Regenerate spec file
+
 * Wed Jul 16 2025 Foreman Packaging Automation <packaging@theforeman.org> 0.21.4-1
 - Update to 0.21.4
 

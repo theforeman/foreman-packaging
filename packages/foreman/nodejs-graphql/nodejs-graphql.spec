@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name graphql
 
-Name: %{?scl_prefix}nodejs-graphql
+Name: nodejs-graphql
 Version: 15.10.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A Query Language and Runtime which can target any service
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/graphql/graphql-js
 Source0: https://registry.npmjs.org/graphql/-/graphql-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -60,6 +58,9 @@ cp -pfr version.mjs %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 15.10.2-2
+- Regenerate spec file
+
 * Sun Apr 12 2026 Foreman Packaging Automation <packaging@theforeman.org> 15.10.2-1
 - Update to 15.10.2
 

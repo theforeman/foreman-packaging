@@ -1,20 +1,17 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name react-redux
 
-Name: %{?scl_prefix}nodejs-react-redux
+Name: nodejs-react-redux
 Version: 7.2.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Official React bindings for Redux
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/reduxjs/react-redux
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.3.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz
 Source1: https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.7.tgz
-Source2: https://registry.npmjs.org/@types/react/-/react-19.1.11.tgz
+Source2: https://registry.npmjs.org/@types/react/-/react-19.2.17.tgz
 Source3: https://registry.npmjs.org/@types/react-redux/-/react-redux-7.1.34.tgz
-Source4: https://registry.npmjs.org/csstype/-/csstype-3.1.3.tgz
+Source4: https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz
 Source5: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz
 Source6: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
 Source7: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
@@ -25,19 +22,21 @@ Source11: https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz
 Source12: https://registry.npmjs.org/react-redux/-/react-redux-7.2.9.tgz
 Source13: https://registry.npmjs.org/redux/-/redux-4.2.1.tgz
 Source14: nodejs-react-redux-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.28.3
+Provides: npm(%{npm_name}) = %{version}
+Provides: bundled(npm(@babel/runtime)) = 7.29.7
 Provides: bundled(npm(@types/hoist-non-react-statics)) = 3.3.7
-Provides: bundled(npm(@types/react)) = 19.1.11
+Provides: bundled(npm(@types/react)) = 19.2.17
 Provides: bundled(npm(@types/react-redux)) = 7.1.34
-Provides: bundled(npm(csstype)) = 3.1.3
+Provides: bundled(npm(csstype)) = 3.2.3
 Provides: bundled(npm(hoist-non-react-statics)) = 3.3.2
 Provides: bundled(npm(js-tokens)) = 4.0.0
 Provides: bundled(npm(loose-envify)) = 1.4.0
@@ -50,29 +49,21 @@ Provides: bundled(npm(redux)) = 4.2.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 14 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -92,6 +83,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.2.9-2
+- Regenerate spec file
+
 * Wed Aug 27 2025 Foreman Packaging Automation <packaging@theforeman.org> 7.2.9-1
 - Update to 7.2.9
 

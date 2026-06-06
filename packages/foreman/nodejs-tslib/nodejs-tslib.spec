@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name tslib
 
-Name: %{?scl_prefix}nodejs-tslib
+Name: nodejs-tslib
 Version: 2.8.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Runtime library for TypeScript helper functions
 License: 0BSD
-Group: Development/Libraries
 URL: https://www.typescriptlang.org/
 Source0: https://registry.npmjs.org/tslib/-/tslib-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -48,6 +46,9 @@ cp -pfr tslib.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc SECURITY.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.8.1-2
+- Regenerate spec file
+
 * Sun Nov 03 2024 Foreman Packaging Automation <packaging@theforeman.org> 2.8.1-1
 - Update to 2.8.1
 

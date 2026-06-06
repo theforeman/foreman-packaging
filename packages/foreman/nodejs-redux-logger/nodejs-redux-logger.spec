@@ -1,23 +1,21 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name redux-logger
 
-Name: %{?scl_prefix}nodejs-redux-logger
+Name: nodejs-redux-logger
 Version: 2.10.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Logger for Redux
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/theaqua/redux-logger#readme
 Source0: https://registry.npmjs.org/redux-logger/-/redux-logger-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(deep-diff) = 0.3.4
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -44,6 +42,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.10.2-2
+- Regenerate spec file
+
 * Wed Jul 16 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.10.2-1
 - Update to 2.10.2
 

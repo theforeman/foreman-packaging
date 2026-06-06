@@ -1,72 +1,63 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name mini-css-extract-plugin
 
-Name: %{?scl_prefix}nodejs-mini-css-extract-plugin
+Name: nodejs-mini-css-extract-plugin
 Version: 2.10.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: extracts CSS into separate files
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/webpack/mini-css-extract-plugin
 Source0: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
-Source1: https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz
+Source1: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz
 Source2: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source3: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
 Source4: https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz
-Source5: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz
+Source5: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.2.tgz
 Source6: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
 Source7: https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-2.10.2.tgz
 Source8: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
 Source9: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
-Source10: https://registry.npmjs.org/tapable/-/tapable-2.3.2.tgz
+Source10: https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz
 Source11: nodejs-mini-css-extract-plugin-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@types/json-schema)) = 7.0.15
-Provides: bundled(npm(ajv)) = 8.18.0
+Provides: bundled(npm(ajv)) = 8.20.0
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
 Provides: bundled(npm(fast-deep-equal)) = 3.1.3
-Provides: bundled(npm(fast-uri)) = 3.1.0
+Provides: bundled(npm(fast-uri)) = 3.1.2
 Provides: bundled(npm(json-schema-traverse)) = 1.0.0
 Provides: bundled(npm(mini-css-extract-plugin)) = 2.10.2
 Provides: bundled(npm(require-from-string)) = 2.0.2
 Provides: bundled(npm(schema-utils)) = 4.3.3
-Provides: bundled(npm(tapable)) = 2.3.2
+Provides: bundled(npm(tapable)) = 2.3.3
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 11 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -84,6 +75,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.10.2-2
+- Regenerate spec file
+
 * Sun Apr 19 2026 Foreman Packaging Automation <packaging@theforeman.org> 2.10.2-1
 - Update to 2.10.2
 

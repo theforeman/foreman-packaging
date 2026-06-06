@@ -1,30 +1,29 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name dnd-core
 
-Name: %{?scl_prefix}nodejs-dnd-core
+Name: nodejs-dnd-core
 Version: 14.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Drag and drop sans the GUI
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/react-dnd/react-dnd#readme
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.27.6.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz
 Source1: https://registry.npmjs.org/@react-dnd/asap/-/asap-4.0.1.tgz
 Source2: https://registry.npmjs.org/@react-dnd/invariant/-/invariant-2.0.0.tgz
 Source3: https://registry.npmjs.org/dnd-core/-/dnd-core-14.0.1.tgz
 Source4: https://registry.npmjs.org/redux/-/redux-4.2.1.tgz
 Source5: nodejs-dnd-core-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.27.6
+Provides: npm(%{npm_name}) = %{version}
+Provides: bundled(npm(@babel/runtime)) = 7.29.7
 Provides: bundled(npm(@react-dnd/asap)) = 4.0.1
 Provides: bundled(npm(@react-dnd/invariant)) = 2.0.0
 Provides: bundled(npm(dnd-core)) = 14.0.1
@@ -32,29 +31,21 @@ Provides: bundled(npm(redux)) = 4.2.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 5 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -72,6 +63,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 14.0.1-2
+- Regenerate spec file
+
 * Wed Jul 16 2025 Foreman Packaging Automation <packaging@theforeman.org> 14.0.1-1
 - Update to 14.0.1
 

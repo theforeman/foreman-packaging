@@ -1,30 +1,29 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name rc-input-number
 
-Name: %{?scl_prefix}nodejs-rc-input-number
+Name: nodejs-rc-input-number
 Version: 6.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: React input-number component
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/react-component/input-number
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.3.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz
 Source1: https://registry.npmjs.org/classnames/-/classnames-2.5.1.tgz
 Source2: https://registry.npmjs.org/rc-input-number/-/rc-input-number-6.2.0.tgz
 Source3: https://registry.npmjs.org/rc-util/-/rc-util-5.44.4.tgz
 Source4: https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz
 Source5: nodejs-rc-input-number-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.28.3
+Provides: npm(%{npm_name}) = %{version}
+Provides: bundled(npm(@babel/runtime)) = 7.29.7
 Provides: bundled(npm(classnames)) = 2.5.1
 Provides: bundled(npm(rc-input-number)) = 6.2.0
 Provides: bundled(npm(rc-util)) = 5.44.4
@@ -32,29 +31,21 @@ Provides: bundled(npm(react-is)) = 18.3.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 5 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -74,6 +65,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.2.0-2
+- Regenerate spec file
+
 * Thu Aug 28 2025 Foreman Packaging Automation <packaging@theforeman.org> 6.2.0-1
 - Update to 6.2.0
 

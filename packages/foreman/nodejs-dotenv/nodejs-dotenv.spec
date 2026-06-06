@@ -1,25 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name dotenv
 
-Name: %{?scl_prefix}nodejs-dotenv
+Name: nodejs-dotenv
 Version: 5.0.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Loads environment variables from
 License: BSD-2-Clause
-Group: Development/Libraries
 URL: https://github.com/motdotla/dotenv#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/dotenv/-/dotenv-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildRequires: npm
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -46,6 +41,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.0.1-5
+- Regenerate spec file
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.1-4
 - Bump packages to build for el8
 

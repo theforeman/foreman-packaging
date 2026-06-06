@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @webcomponents/webcomponentsjs
 
-Name: %{?scl_prefix}nodejs-webcomponents-webcomponentsjs
+Name: nodejs-webcomponents-webcomponentsjs
 Version: 2.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Web Components Polyfills
 License: BSD-3-Clause
-Group: Development/Libraries
 URL: https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs
 Source0: https://registry.npmjs.org/@webcomponents/webcomponentsjs/-/webcomponentsjs-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -43,6 +41,9 @@ cp -pfr webcomponents-loader.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.8.0-2
+- Regenerate spec file
+
 * Wed Aug 27 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.8.0-1
 - Update to 2.8.0
 

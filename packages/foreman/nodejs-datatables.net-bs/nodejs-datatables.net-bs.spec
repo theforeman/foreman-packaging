@@ -1,24 +1,22 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name datatables.net-bs
 
-Name: %{?scl_prefix}nodejs-datatables.net-bs
+Name: nodejs-datatables.net-bs
 Version: 1.13.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: DataTables for jQuery with styling for [Bootstrap](https://getbootstrap
 License: MIT
-Group: Development/Libraries
 URL: https://datatables.net
 Source0: https://registry.npmjs.org/datatables.net-bs/-/datatables.net-bs-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(datatables.net) >= 1.13.4
 Requires: npm(jquery) >= 1.7.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -45,6 +43,9 @@ cp -pfr types %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc Readme.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.13.5-3
+- Regenerate spec file
+
 * Mon Jul 07 2025 root <root> 1.13.5-2
 - Update to 1.13.5 to use single strategy
 

@@ -1,24 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name bootstrap-select
 
-Name: %{?scl_prefix}nodejs-bootstrap-select
+Name: nodejs-bootstrap-select
 Version: 1.13.18
-Release: 2%{?dist}
-Summary: Bootstrap-select is a jQuery plugin that utilizes Bootstrap's dropdown
+Release: 3%{?dist}
+Summary: The jQuery plugin that brings select elements into the 21st century with intuitive multiselection, searching, and much more
 License: MIT
-Group: Development/Libraries
 URL: https://developer.snapappointments.com/bootstrap-select
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?!scl:1}
+Source0: https://registry.npmjs.org/bootstrap-select/-/bootstrap-select-%{version}.tgz
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
-Requires: %{?scl_prefix}npm(jquery) >= 1.9.1
-Requires: %{?scl_prefix}npm(jquery) < 4
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -50,6 +46,9 @@ cp -pfr tests %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc docs
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.13.18-3
+- Regenerate spec file
+
 * Thu Feb 27 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.13.18-2
 - Bump jquery upper bound to allow version 3
 

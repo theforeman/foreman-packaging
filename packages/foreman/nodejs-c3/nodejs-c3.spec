@@ -1,24 +1,22 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name c3
 
-Name: %{?scl_prefix}nodejs-c3
+Name: nodejs-c3
 Version: 0.4.24
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: D3-based reusable chart library
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/c3js/c3#readme
 Source0: https://registry.npmjs.org/c3/-/c3-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(d3) >= 3.5.0
 Requires: npm(d3) < 3.6.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -53,6 +51,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc htdocs
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.24-2
+- Regenerate spec file
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.4.24-1
 - Update to 0.4.24
 

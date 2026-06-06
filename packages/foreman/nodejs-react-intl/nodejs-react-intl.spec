@@ -1,11 +1,8 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name react-intl
 
-Name: %{?scl_prefix}nodejs-react-intl
+Name: nodejs-react-intl
 Version: 2.9.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Internationalize React apps
 License: BSD-3-Clause
 Group: Development/Libraries
@@ -21,14 +18,16 @@ Source7: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
 Source8: https://registry.npmjs.org/react-intl/-/react-intl-2.9.0.tgz
 Source9: https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz
 Source10: nodejs-react-intl-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(hoist-non-react-statics)) = 3.3.2
 Provides: bundled(npm(intl-format-cache)) = 2.2.9
 Provides: bundled(npm(intl-messageformat)) = 2.2.0
@@ -42,29 +41,21 @@ Provides: bundled(npm(react-is)) = 16.13.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 10 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -85,6 +76,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.9.0-4
+- Regenerate spec file
+
 * Wed Dec 24 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.9.0-3
 - Rebuild vendor cache for NodeJS 22
 
