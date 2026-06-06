@@ -151,6 +151,8 @@ if [[ $VERSION == "auto" ]] ; then
     echo "Could not determine the version for $NPM_MODULE_NAME"
     exit 1
   fi
+elif [[ $VERSION == "current" ]] ; then
+  VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' "$SPEC_FILE")
 fi
 
 if [[ -f "${SPEC_FILE}" ]]; then
