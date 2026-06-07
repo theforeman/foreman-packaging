@@ -1,22 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @unleash/proxy-client-react
 
-Name: %{?scl_prefix}nodejs-unleash-proxy-client-react
-Version: 5.0.1
+Name: nodejs-unleash-proxy-client-react
+Version: 5.1.0
 Release: 1%{?dist}
 Summary: React interface for working with unleash
 License: Apache-2.0
-Group: Development/Libraries
-URL: https://github.com/Unleash/unleash-proxy-react#readme
+URL: https://github.com/Unleash/unleash-react-sdk#readme
 Source0: https://registry.npmjs.org/@unleash/proxy-client-react/-/proxy-client-react-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -36,6 +30,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.1.0-1
+- Update to 5.1.0
+
 * Sun Aug 03 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.0.1-1
 - Update to 5.0.1
 
