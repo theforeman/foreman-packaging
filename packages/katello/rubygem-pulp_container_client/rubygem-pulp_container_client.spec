@@ -2,7 +2,7 @@
 %global gem_name pulp_container_client
 
 Name: rubygem-%{gem_name}
-Version: 2.27.8
+Version: 2.27.9
 Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:2.27.9-1
+- Update to 2.27.9
+
 * Wed Apr 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:2.27.8-1
 - Update to 2.27.8
 
