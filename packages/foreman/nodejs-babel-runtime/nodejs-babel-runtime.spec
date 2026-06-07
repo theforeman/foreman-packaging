@@ -1,22 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @babel/runtime
 
-Name: %{?scl_prefix}nodejs-babel-runtime
-Version: 7.29.2
+Name: nodejs-babel-runtime
+Version: 7.29.7
 Release: 1%{?dist}
 Summary: babel's modular runtime helpers
 License: MIT
-Group: Development/Libraries
 URL: https://babel.dev/docs/en/next/babel-runtime
 Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -37,6 +31,9 @@ cp -pfr regenerator %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> 7.29.7-1
+- Update to 7.29.7
+
 * Wed Mar 18 2026 Foreman Packaging Automation <packaging@theforeman.org> 7.29.2-1
 - Update to 7.29.2
 
