@@ -2,7 +2,7 @@
 %global gem_name marcel
 
 Name: rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.2.1
 Release: 1%{?dist}
 Summary: Simple mime type detection using magic numbers, filenames, and extensions
 License: MIT and Apache-2.0
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.1-1
+- Update to 1.2.1
+
 * Wed Sep 17 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.0-1
 - Update to 1.1.0
 
