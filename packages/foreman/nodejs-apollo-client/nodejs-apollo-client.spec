@@ -1,11 +1,8 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @apollo/client
 
-Name: %{?scl_prefix}nodejs-apollo-client
+Name: nodejs-apollo-client
 Version: 3.14.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A fully-featured caching GraphQL client
 License: MIT
 Group: Development/Libraries
@@ -31,14 +28,16 @@ Source17: https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz
 Source18: https://registry.npmjs.org/zen-observable/-/zen-observable-0.8.15.tgz
 Source19: https://registry.npmjs.org/zen-observable-ts/-/zen-observable-ts-1.2.5.tgz
 Source20: nodejs-apollo-client-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@apollo/client)) = 3.14.1
 Provides: bundled(npm(@graphql-typed-document-node/core)) = 3.2.0
 Provides: bundled(npm(@wry/caches)) = 1.0.1
@@ -62,29 +61,21 @@ Provides: bundled(npm(zen-observable-ts)) = 1.2.5
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 20 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -127,6 +118,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.14.1-2
+- Regenerate spec file
+
 * Wed Mar 18 2026 Foreman Packaging Automation <packaging@theforeman.org> 3.14.1-1
 - Update to 3.14.1
 

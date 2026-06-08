@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name jquery-ujs
 
-Name: %{?scl_prefix}nodejs-jquery-ujs
+Name: nodejs-jquery-ujs
 Version: 1.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Unobtrusive scripting adapter for jQuery
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/rails/jquery-ujs#readme
 Source0: https://registry.npmjs.org/jquery-ujs/-/jquery-ujs-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -42,6 +40,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc RELEASE.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.3-2
+- Regenerate spec file
+
 * Sun Aug 31 2025 Foreman Packaging Automation <packaging@theforeman.org> 1.2.3-1
 - Update to 1.2.3
 

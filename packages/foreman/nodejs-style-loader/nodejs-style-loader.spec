@@ -1,17 +1,14 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name style-loader
 
-Name: %{?scl_prefix}nodejs-style-loader
+Name: nodejs-style-loader
 Version: 1.3.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: style loader module for webpack
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/webpack-contrib/style-loader
 Source0: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
-Source1: https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz
+Source1: https://registry.npmjs.org/ajv/-/ajv-6.15.0.tgz
 Source2: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz
 Source3: https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz
 Source4: https://registry.npmjs.org/emojis-list/-/emojis-list-3.0.0.tgz
@@ -25,16 +22,18 @@ Source11: https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz
 Source12: https://registry.npmjs.org/style-loader/-/style-loader-1.3.0.tgz
 Source13: https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz
 Source14: nodejs-style-loader-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@types/json-schema)) = 7.0.15
-Provides: bundled(npm(ajv)) = 6.12.6
+Provides: bundled(npm(ajv)) = 6.15.0
 Provides: bundled(npm(ajv-keywords)) = 3.5.2
 Provides: bundled(npm(big.js)) = 5.2.2
 Provides: bundled(npm(emojis-list)) = 3.0.0
@@ -50,29 +49,21 @@ Provides: bundled(npm(uri-js)) = 4.4.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 14 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -90,6 +81,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-4
+- Regenerate spec file
+
 * Wed Dec 24 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-3
 - Rebuild vendor cache for NodeJS 22
 

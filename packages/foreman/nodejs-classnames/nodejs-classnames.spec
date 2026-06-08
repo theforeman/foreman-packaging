@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name classnames
 
-Name: %{?scl_prefix}nodejs-classnames
+Name: nodejs-classnames
 Version: 2.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A simple utility for conditionally joining classNames together
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/JedWatson/classnames#readme
 Source0: https://registry.npmjs.org/classnames/-/classnames-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -46,6 +44,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.5.1-2
+- Regenerate spec file
+
 * Thu Aug 28 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.5.1-1
 - Update to 2.5.1
 

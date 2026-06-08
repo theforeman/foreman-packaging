@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name lodash
 
-Name: %{?scl_prefix}nodejs-lodash
+Name: nodejs-lodash
 Version: 4.18.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Lodash modular utilities
 License: MIT
-Group: Development/Libraries
 URL: https://lodash.com/
 Source0: https://registry.npmjs.org/lodash/-/lodash-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -673,6 +671,9 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.18.1-2
+- Regenerate spec file
+
 * Wed Apr 08 2026 Foreman Packaging Automation <packaging@theforeman.org> 4.18.1-1
 - Update to 4.18.1
 

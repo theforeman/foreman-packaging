@@ -1,16 +1,13 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name react-router-dom
 
-Name: %{?scl_prefix}nodejs-react-router-dom
+Name: nodejs-react-router-dom
 Version: 5.3.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: DOM bindings for React Router
 License: MIT
 Group: Development/Libraries
 URL: https://reactrouter.com/
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.3.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz
 Source1: https://registry.npmjs.org/history/-/history-4.10.1.tgz
 Source2: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz
 Source3: https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz
@@ -27,15 +24,17 @@ Source13: https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.3.3.tgz
 Source14: https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz
 Source15: https://registry.npmjs.org/value-equal/-/value-equal-1.0.1.tgz
 Source16: nodejs-react-router-dom-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.28.3
+Provides: npm(%{npm_name}) = %{version}
+Provides: bundled(npm(@babel/runtime)) = 7.29.7
 Provides: bundled(npm(history)) = 4.10.1
 Provides: bundled(npm(hoist-non-react-statics)) = 3.3.2
 Provides: bundled(npm(isarray)) = 0.0.1
@@ -54,29 +53,21 @@ Provides: bundled(npm(value-equal)) = 1.0.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 16 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -113,6 +104,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.3.4-2
+- Regenerate spec file
+
 * Sun Aug 31 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.3.4-1
 - Update to 5.3.4
 

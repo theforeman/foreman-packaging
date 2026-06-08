@@ -1,18 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name react-debounce-input
 
-Name: %{?scl_prefix}nodejs-react-debounce-input
+Name: nodejs-react-debounce-input
 Version: 3.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: React component that renders Input with debounced onChange
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/nkbt/react-debounce-input
 Source0: https://registry.npmjs.org/react-debounce-input/-/react-debounce-input-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(lodash.debounce) >= 4.0.0
 Requires: npm(lodash.debounce) < 5.0.0
@@ -20,7 +18,7 @@ Requires: npm(prop-types) >= 15.8.1
 Requires: npm(prop-types) < 16.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -46,6 +44,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.3.0-2
+- Regenerate spec file
+
 * Sun Aug 31 2025 Foreman Packaging Automation <packaging@theforeman.org> 3.3.0-1
 - Update to 3.3.0
 

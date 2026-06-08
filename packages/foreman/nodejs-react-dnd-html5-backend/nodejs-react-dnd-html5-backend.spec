@@ -1,23 +1,21 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name react-dnd-html5-backend
 
-Name: %{?scl_prefix}nodejs-react-dnd-html5-backend
+Name: nodejs-react-dnd-html5-backend
 Version: 14.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTML5 backend for React DnD
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/react-dnd/react-dnd#readme
 Source0: https://registry.npmjs.org/react-dnd-html5-backend/-/react-dnd-html5-backend-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(dnd-core) = 14.0.1
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -42,6 +40,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 14.1.0-2
+- Regenerate spec file
+
 * Wed Jul 16 2025 Foreman Packaging Automation <packaging@theforeman.org> 14.1.0-1
 - Update to 14.1.0
 

@@ -2,7 +2,7 @@
 
 Name: nodejs-ts-loader
 Version: 9.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: TypeScript loader for webpack
 License: MIT
 Group: Development/Libraries
@@ -12,14 +12,14 @@ Source1: https://registry.npmjs.org/braces/-/braces-3.0.3.tgz
 Source2: https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz
 Source3: https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz
 Source4: https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz
-Source5: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.22.1.tgz
+Source5: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.23.0.tgz
 Source6: https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz
 Source7: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz
 Source8: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
 Source9: https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz
 Source10: https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz
 Source11: https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz
-Source12: https://registry.npmjs.org/semver/-/semver-7.8.1.tgz
+Source12: https://registry.npmjs.org/semver/-/semver-7.8.2.tgz
 Source13: https://registry.npmjs.org/source-map/-/source-map-0.7.6.tgz
 Source14: https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz
 Source15: https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz
@@ -28,6 +28,10 @@ Source17: https://registry.npmjs.org/ts-loader/-/ts-loader-9.6.0.tgz
 Source18: nodejs-ts-loader-%{version}-registry.npmjs.org.tgz
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -37,14 +41,14 @@ Provides: bundled(npm(braces)) = 3.0.3
 Provides: bundled(npm(chalk)) = 4.1.2
 Provides: bundled(npm(color-convert)) = 2.0.1
 Provides: bundled(npm(color-name)) = 1.1.4
-Provides: bundled(npm(enhanced-resolve)) = 5.22.1
+Provides: bundled(npm(enhanced-resolve)) = 5.23.0
 Provides: bundled(npm(fill-range)) = 7.1.1
 Provides: bundled(npm(graceful-fs)) = 4.2.11
 Provides: bundled(npm(has-flag)) = 4.0.0
 Provides: bundled(npm(is-number)) = 7.0.0
 Provides: bundled(npm(micromatch)) = 4.0.8
 Provides: bundled(npm(picomatch)) = 2.3.2
-Provides: bundled(npm(semver)) = 7.8.1
+Provides: bundled(npm(semver)) = 7.8.2
 Provides: bundled(npm(source-map)) = 0.7.6
 Provides: bundled(npm(supports-color)) = 7.2.0
 Provides: bundled(npm(tapable)) = 2.3.3
@@ -92,6 +96,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/SECURITY.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 9.6.0-2
+- Regenerate spec file
+
 * Sun May 31 2026 Foreman Packaging Automation <packaging@theforeman.org> 9.6.0-1
 - Update to 9.6.0
 

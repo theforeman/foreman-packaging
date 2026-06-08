@@ -123,6 +123,11 @@ BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
 Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
+BuildRequires: nodejs >= 22
+%endif
 BuildRequires: systemd
 
 %package cli

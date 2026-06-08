@@ -1,18 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @patternfly/react-table
 
-Name: %{?scl_prefix}nodejs-patternfly-react-table
+Name: nodejs-patternfly-react-table
 Version: 5.4.16
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This library provides a set of React table components for use with the PatternFly 4
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react/tree/main/packages/react-table#readme
 Source0: https://registry.npmjs.org/@patternfly/react-table/-/react-table-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(@patternfly/react-core) >= 5.4.14
 Requires: npm(@patternfly/react-core) < 6.0.0
@@ -28,7 +26,7 @@ Requires: npm(tslib) >= 2.7.0
 Requires: npm(tslib) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -55,6 +53,9 @@ cp -pfr subpaths.config.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.4.16-2
+- Regenerate spec file
+
 * Sun Aug 31 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.4.16-1
 - Update to 5.4.16
 

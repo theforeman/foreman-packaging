@@ -2,12 +2,16 @@
 
 Name: nodejs-ace-builds
 Version: 1.44.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ace (Ajax
 License: BSD-3-Clause
 URL: https://github.com/ajaxorg/ace-builds
 Source0: https://registry.npmjs.org/ace-builds/-/ace-builds-%{version}.tgz
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: npm(%{npm_name}) = %{version}
@@ -49,6 +53,9 @@ cp -pfr webpack-resolver.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.44.0-2
+- Regenerate spec file
+
 * Sun May 17 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.44.0-1
 - Update to 1.44.0
 

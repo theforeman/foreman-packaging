@@ -1,11 +1,8 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @patternfly/react-core
 
-Name: %{?scl_prefix}nodejs-patternfly-react-core
+Name: nodejs-patternfly-react-core
 Version: 5.4.14
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: MIT
 Group: Development/Libraries
@@ -21,19 +18,21 @@ Source7: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
 Source8: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
 Source9: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
 Source10: https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz
-Source11: https://registry.npmjs.org/react-dropzone/-/react-dropzone-14.3.8.tgz
+Source11: https://registry.npmjs.org/react-dropzone/-/react-dropzone-14.4.1.tgz
 Source12: https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz
-Source13: https://registry.npmjs.org/tabbable/-/tabbable-6.2.0.tgz
+Source13: https://registry.npmjs.org/tabbable/-/tabbable-6.4.0.tgz
 Source14: https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz
 Source15: nodejs-patternfly-react-core-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@patternfly/react-core)) = 5.4.14
 Provides: bundled(npm(@patternfly/react-icons)) = 5.4.2
 Provides: bundled(npm(@patternfly/react-styles)) = 5.4.1
@@ -45,36 +44,28 @@ Provides: bundled(npm(js-tokens)) = 4.0.0
 Provides: bundled(npm(loose-envify)) = 1.4.0
 Provides: bundled(npm(object-assign)) = 4.1.1
 Provides: bundled(npm(prop-types)) = 15.8.1
-Provides: bundled(npm(react-dropzone)) = 14.3.8
+Provides: bundled(npm(react-dropzone)) = 14.4.1
 Provides: bundled(npm(react-is)) = 16.13.1
-Provides: bundled(npm(tabbable)) = 6.2.0
+Provides: bundled(npm(tabbable)) = 6.4.0
 Provides: bundled(npm(tslib)) = 2.8.1
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 15 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -102,6 +93,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.4.14-2
+- Regenerate spec file
+
 * Sun Aug 31 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.4.14-1
 - Update to 5.4.14
 

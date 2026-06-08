@@ -1,25 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name jed
 
-Name: %{?scl_prefix}nodejs-jed
+Name: nodejs-jed
 Version: 1.1.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Gettext Style i18n for Modern JavaScript Apps
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/SlexAxton/Jed#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/jed/-/jed-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildRequires: npm
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -45,6 +40,9 @@ cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.1-5
+- Regenerate spec file
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.1-4
 - Bump packages to build for el8
 

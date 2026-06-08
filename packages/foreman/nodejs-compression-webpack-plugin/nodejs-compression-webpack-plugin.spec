@@ -1,22 +1,19 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name compression-webpack-plugin
 
-Name: %{?scl_prefix}nodejs-compression-webpack-plugin
+Name: nodejs-compression-webpack-plugin
 Version: 10.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Prepare compressed versions of assets to serve them with Content-Encoding
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/webpack-contrib/compression-webpack-plugin
 Source0: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
-Source1: https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz
+Source1: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz
 Source2: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source3: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
 Source4: https://registry.npmjs.org/compression-webpack-plugin/-/compression-webpack-plugin-10.0.0.tgz
 Source5: https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz
-Source6: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz
+Source6: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.2.tgz
 Source7: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
 Source8: https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz
 Source9: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
@@ -24,21 +21,23 @@ Source10: https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz
 Source11: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
 Source12: https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-6.0.2.tgz
 Source13: nodejs-compression-webpack-plugin-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@types/json-schema)) = 7.0.15
-Provides: bundled(npm(ajv)) = 8.17.1
+Provides: bundled(npm(ajv)) = 8.20.0
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
 Provides: bundled(npm(compression-webpack-plugin)) = 10.0.0
 Provides: bundled(npm(fast-deep-equal)) = 3.1.3
-Provides: bundled(npm(fast-uri)) = 3.1.0
+Provides: bundled(npm(fast-uri)) = 3.1.2
 Provides: bundled(npm(json-schema-traverse)) = 1.0.0
 Provides: bundled(npm(randombytes)) = 2.1.0
 Provides: bundled(npm(require-from-string)) = 2.0.2
@@ -48,29 +47,21 @@ Provides: bundled(npm(serialize-javascript)) = 6.0.2
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 13 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -88,6 +79,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 10.0.0-3
+- Regenerate spec file
+
 * Tue Dec 23 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 10.0.0-2
 - Rebuild vendor cache for NodeJS 22
 

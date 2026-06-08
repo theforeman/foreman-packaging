@@ -1,26 +1,23 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name patternfly-react
 
-Name: %{?scl_prefix}nodejs-patternfly-react
+Name: nodejs-patternfly-react
 Version: 2.40.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.6.tgz
-Source1: https://registry.npmjs.org/@babel/runtime-corejs2/-/runtime-corejs2-7.28.6.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz
+Source1: https://registry.npmjs.org/@babel/runtime-corejs2/-/runtime-corejs2-7.29.7.tgz
 Source2: https://registry.npmjs.org/@hypnosphi/create-react-context/-/create-react-context-0.3.1.tgz
-Source3: https://registry.npmjs.org/@types/react/-/react-19.2.14.tgz
+Source3: https://registry.npmjs.org/@types/react/-/react-19.2.17.tgz
 Source4: https://registry.npmjs.org/async-function/-/async-function-1.0.0.tgz
 Source5: https://registry.npmjs.org/async-generator-function/-/async-generator-function-1.0.0.tgz
 Source6: https://registry.npmjs.org/bootstrap/-/bootstrap-3.4.1.tgz
 Source7: https://registry.npmjs.org/bootstrap-slider-without-jquery/-/bootstrap-slider-without-jquery-10.0.0.tgz
 Source8: https://registry.npmjs.org/breakjs/-/breakjs-1.0.0.tgz
 Source9: https://registry.npmjs.org/c3/-/c3-0.4.24.tgz
-Source10: https://registry.npmjs.org/call-bind/-/call-bind-1.0.8.tgz
+Source10: https://registry.npmjs.org/call-bind/-/call-bind-1.0.9.tgz
 Source11: https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz
 Source12: https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz
 Source13: https://registry.npmjs.org/change-emitter/-/change-emitter-0.1.6.tgz
@@ -37,7 +34,7 @@ Source23: https://registry.npmjs.org/dom-helpers/-/dom-helpers-3.4.0.tgz
 Source24: https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz
 Source25: https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz
 Source26: https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz
-Source27: https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz
+Source27: https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.2.tgz
 Source28: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz
 Source29: https://registry.npmjs.org/font-awesome/-/font-awesome-4.7.0.tgz
 Source30: https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz
@@ -50,7 +47,7 @@ Source36: https://registry.npmjs.org/gud/-/gud-1.0.0.tgz
 Source37: https://registry.npmjs.org/has-property-descriptors/-/has-property-descriptors-1.0.2.tgz
 Source38: https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz
 Source39: https://registry.npmjs.org/has-tostringtag/-/has-tostringtag-1.0.2.tgz
-Source40: https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz
+Source40: https://registry.npmjs.org/hasown/-/hasown-2.0.4.tgz
 Source41: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz
 Source42: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
 Source43: https://registry.npmjs.org/is-arguments/-/is-arguments-1.2.0.tgz
@@ -59,7 +56,7 @@ Source45: https://registry.npmjs.org/is-regex/-/is-regex-1.2.1.tgz
 Source46: https://registry.npmjs.org/jquery/-/jquery-3.4.1.tgz
 Source47: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
 Source48: https://registry.npmjs.org/keycode/-/keycode-2.2.1.tgz
-Source49: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
+Source49: https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz
 Source50: https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz
 Source51: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
 Source52: https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz
@@ -103,25 +100,27 @@ Source89: https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz
 Source90: https://registry.npmjs.org/warning/-/warning-3.0.0.tgz
 Source91: https://registry.npmjs.org/warning/-/warning-4.0.3.tgz
 Source92: nodejs-patternfly-react-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.28.6
-Provides: bundled(npm(@babel/runtime-corejs2)) = 7.28.6
+Provides: npm(%{npm_name}) = %{version}
+Provides: bundled(npm(@babel/runtime)) = 7.29.7
+Provides: bundled(npm(@babel/runtime-corejs2)) = 7.29.7
 Provides: bundled(npm(@hypnosphi/create-react-context)) = 0.3.1
-Provides: bundled(npm(@types/react)) = 19.2.14
+Provides: bundled(npm(@types/react)) = 19.2.17
 Provides: bundled(npm(async-function)) = 1.0.0
 Provides: bundled(npm(async-generator-function)) = 1.0.0
 Provides: bundled(npm(bootstrap)) = 3.4.1
 Provides: bundled(npm(bootstrap-slider-without-jquery)) = 10.0.0
 Provides: bundled(npm(breakjs)) = 1.0.0
 Provides: bundled(npm(c3)) = 0.4.24
-Provides: bundled(npm(call-bind)) = 1.0.8
+Provides: bundled(npm(call-bind)) = 1.0.9
 Provides: bundled(npm(call-bind-apply-helpers)) = 1.0.2
 Provides: bundled(npm(call-bound)) = 1.0.4
 Provides: bundled(npm(change-emitter)) = 0.1.6
@@ -138,7 +137,7 @@ Provides: bundled(npm(dom-helpers)) = 3.4.0
 Provides: bundled(npm(dunder-proto)) = 1.0.1
 Provides: bundled(npm(es-define-property)) = 1.0.1
 Provides: bundled(npm(es-errors)) = 1.3.0
-Provides: bundled(npm(es-object-atoms)) = 1.1.1
+Provides: bundled(npm(es-object-atoms)) = 1.1.2
 Provides: bundled(npm(escape-string-regexp)) = 1.0.5
 Provides: bundled(npm(font-awesome)) = 4.7.0
 Provides: bundled(npm(function-bind)) = 1.1.2
@@ -151,7 +150,7 @@ Provides: bundled(npm(gud)) = 1.0.0
 Provides: bundled(npm(has-property-descriptors)) = 1.0.2
 Provides: bundled(npm(has-symbols)) = 1.1.0
 Provides: bundled(npm(has-tostringtag)) = 1.0.2
-Provides: bundled(npm(hasown)) = 2.0.2
+Provides: bundled(npm(hasown)) = 2.0.4
 Provides: bundled(npm(hoist-non-react-statics)) = 2.5.5
 Provides: bundled(npm(invariant)) = 2.2.4
 Provides: bundled(npm(is-arguments)) = 1.2.0
@@ -160,7 +159,7 @@ Provides: bundled(npm(is-regex)) = 1.2.1
 Provides: bundled(npm(jquery)) = 3.4.1
 Provides: bundled(npm(js-tokens)) = 4.0.0
 Provides: bundled(npm(keycode)) = 2.2.1
-Provides: bundled(npm(lodash)) = 4.17.23
+Provides: bundled(npm(lodash)) = 4.18.1
 Provides: bundled(npm(lodash.debounce)) = 4.0.8
 Provides: bundled(npm(loose-envify)) = 1.4.0
 Provides: bundled(npm(math-intrinsics)) = 1.1.0
@@ -206,29 +205,21 @@ Provides: bundled(npm(warning)) = 4.0.3
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 92 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -247,6 +238,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.40.0-4
+- Regenerate spec file
+
 * Tue Mar 03 2026 Evgeni Golov 2.40.0-3
 - Rebuild to update vendored deps
 

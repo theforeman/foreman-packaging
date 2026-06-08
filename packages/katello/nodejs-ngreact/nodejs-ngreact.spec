@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name ngreact
 
-Name: %{?scl_prefix}nodejs-ngreact
+Name: nodejs-ngreact
 Version: 0.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Use React Components in Angular
 License: MIT
-Group: Development/Libraries
 URL: http://davidchang.github.io/ngReact/
 Source0: https://registry.npmjs.org/ngreact/-/ngreact-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -45,6 +43,9 @@ cp -pfr tests %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.5.2-2
+- Regenerate spec file
+
 * Sun Jan 28 2024 Foreman Packaging Automation <packaging@theforeman.org> 0.5.2-1
 - Update to 0.5.2
 

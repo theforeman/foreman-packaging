@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @patternfly/react-icons
 
-Name: %{?scl_prefix}nodejs-patternfly-react-icons
+Name: nodejs-patternfly-react-icons
 Version: 5.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: PatternFly 4 Icons as React Components
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
 Source0: https://registry.npmjs.org/@patternfly/react-icons/-/react-icons-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -40,6 +38,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.4.2-2
+- Regenerate spec file
+
 * Wed Jul 23 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.4.2-1
 - Update to 5.4.2
 

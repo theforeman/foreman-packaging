@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name urijs
 
-Name: %{?scl_prefix}nodejs-urijs
+Name: nodejs-urijs
 Version: 1.19.11
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: URI
 License: MIT
-Group: Development/Libraries
 URL: http://medialize.github.io/URI.js/
 Source0: https://registry.npmjs.org/urijs/-/urijs-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -40,6 +38,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.11-2
+- Regenerate spec file
+
 * Wed Jul 16 2025 Foreman Packaging Automation <packaging@theforeman.org> 1.19.11-1
 - Update to 1.19.11
 

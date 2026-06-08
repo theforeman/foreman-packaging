@@ -1,11 +1,8 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name formik
 
-Name: %{?scl_prefix}nodejs-formik
+Name: nodejs-formik
 Version: 1.5.8
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Forms in React, without tears
 License: MIT
 Group: Development/Libraries
@@ -23,8 +20,8 @@ Source9: https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz
 Source10: https://registry.npmjs.org/is-stream/-/is-stream-1.1.0.tgz
 Source11: https://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz
 Source12: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
-Source13: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
-Source14: https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.23.tgz
+Source13: https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz
+Source14: https://registry.npmjs.org/lodash-es/-/lodash-es-4.18.1.tgz
 Source15: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
 Source16: https://registry.npmjs.org/node-fetch/-/node-fetch-1.7.3.tgz
 Source17: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
@@ -39,14 +36,16 @@ Source25: https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz
 Source26: https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.41.tgz
 Source27: https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-3.6.20.tgz
 Source28: nodejs-formik-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(asap)) = 2.0.6
 Provides: bundled(npm(core-js)) = 1.2.7
 Provides: bundled(npm(create-react-context)) = 0.2.3
@@ -60,8 +59,8 @@ Provides: bundled(npm(iconv-lite)) = 0.6.3
 Provides: bundled(npm(is-stream)) = 1.1.0
 Provides: bundled(npm(isomorphic-fetch)) = 2.2.1
 Provides: bundled(npm(js-tokens)) = 4.0.0
-Provides: bundled(npm(lodash)) = 4.17.23
-Provides: bundled(npm(lodash-es)) = 4.17.23
+Provides: bundled(npm(lodash)) = 4.18.1
+Provides: bundled(npm(lodash-es)) = 4.18.1
 Provides: bundled(npm(loose-envify)) = 1.4.0
 Provides: bundled(npm(node-fetch)) = 1.7.3
 Provides: bundled(npm(object-assign)) = 4.1.1
@@ -78,29 +77,21 @@ Provides: bundled(npm(whatwg-fetch)) = 3.6.20
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-%{?scl:end_of_scl}
 
 %setup -T -q -a 28 -D -n %{npm_cache_dir}
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -117,6 +108,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.5.8-3
+- Regenerate spec file
+
 * Tue Mar 03 2026 Evgeni Golov 1.5.8-2
 - Rebuild nodejs-formik with updated vendored dependencies
 

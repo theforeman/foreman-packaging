@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name redux-thunk
 
-Name: %{?scl_prefix}nodejs-redux-thunk
+Name: nodejs-redux-thunk
 Version: 2.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Thunk middleware for Redux
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/reduxjs/redux-thunk
 Source0: https://registry.npmjs.org/redux-thunk/-/redux-thunk-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -44,6 +42,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Jun 06 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.4.2-2
+- Regenerate spec file
+
 * Wed Aug 27 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.4.2-1
 - Update to 2.4.2
 
