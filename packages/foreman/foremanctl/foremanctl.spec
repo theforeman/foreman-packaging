@@ -1,7 +1,7 @@
 %global __brp_mangle_shebangs_exclude_from ^%{_datadir}/%{name}/collections/.*$
 
 Name:      foremanctl
-Version:   2.2.0
+Version:   2.3.0
 Release:   1%{?dist}
 Summary:   Install Foreman using containers
 
@@ -63,6 +63,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Mon Jun 08 2026 Evgeni Golov - 2.3.0-1
+- Release foremanctl 2.3.0
+
 * Thu May 21 2026 Evgeni Golov - 2.2.0-1
 - Release foremanctl 2.2.0
 
