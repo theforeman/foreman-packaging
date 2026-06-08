@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.13
+Version: 1.14
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -25,6 +25,7 @@ Obsoletes: rubygem-hammer_cli_foreman_admin < 1.2.2
 Obsoletes: rubygem-hammer_cli_foreman_admin-doc < 1.2.2
 Obsoletes: rubygem-ruby_parser < 3.21.1-4
 Obsoletes: rubygem-ruby_parser-doc < 3.21.1-4
+Obsoletes: rubygem-hammer_cli_foreman_virt_who_configure < 0.1.4
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -39,6 +40,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Mon Jun 08 2026 Chris Roberts <chrobert@redhat.com> - 1.14-1
+- Obsolete rubygem-hammer_cli_foreman_virt_who_configure
+
 * Mon Jun 01 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1.13-1
 - Obsolete rubygem-ruby_parser
 

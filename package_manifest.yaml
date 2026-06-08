@@ -608,7 +608,6 @@ katello_hammer_packages:
   hosts:
     rubygem-hammer_cli_foreman_rh_cloud: {}
     rubygem-hammer_cli_foreman_scc_manager: {}
-    rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello:
       source_location: https://ci.theforeman.org/job/hammer-cli-katello-main-source-release
       source_system: jenkins
