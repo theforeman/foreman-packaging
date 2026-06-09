@@ -2,8 +2,6 @@
 %global confdir config
 
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
 Version:        3.19.0
@@ -239,6 +237,9 @@ exit 0
 
 
 %changelog
+* Tue Jun 09 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-1
+- Release foreman-proxy 3.19.0
+
 * Tue May 26 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-0.1.rc2
 - Release foreman-proxy 3.19.0rc2
 
