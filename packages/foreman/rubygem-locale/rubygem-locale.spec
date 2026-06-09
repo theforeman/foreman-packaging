@@ -1,6 +1,11 @@
 # template: default
 %global gem_name locale
 
+# fiddle is a Ruby stdlib gem only used by the Windows driver
+# (lib/locale/driver/win32.rb). On EL the fiddle library ships inside
+# the ruby package but does not advertise rubygem(fiddle), so filter it.
+%global __requires_exclude ^rubygem\\(fiddle\\)$
+
 Name: rubygem-%{gem_name}
 Version: 2.1.5
 Release: 1%{?dist}
