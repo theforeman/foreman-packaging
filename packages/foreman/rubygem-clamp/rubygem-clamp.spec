@@ -2,7 +2,7 @@
 %global gem_name clamp
 
 Name: rubygem-%{gem_name}
-Version: 1.4.0
+Version: 1.5.2
 Release: 1%{?dist}
 Summary: a minimal framework for command-line utilities
 License: MIT
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jun 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.2-1
+- Update to 1.5.2
+
 * Sun Feb 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.0-1
 - Update to 1.4.0
 
