@@ -4,7 +4,7 @@
 %global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 0.23.1
+Version: 0.24.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 License: GPLv3
@@ -104,6 +104,9 @@ fi
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jun 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.24.0-1
+- Update to 0.24.0
+
 * Wed Jun 03 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.23.1-1
 - Update to 0.23.1
 
