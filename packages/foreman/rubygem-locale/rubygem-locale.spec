@@ -1,11 +1,6 @@
 # template: default
 %global gem_name locale
 
-# fiddle is a Ruby stdlib gem only used by the Windows driver
-# (lib/locale/driver/win32.rb). On EL the fiddle library ships inside
-# the ruby package but does not advertise rubygem(fiddle), so filter it.
-%global __requires_exclude ^rubygem\\(fiddle\\)$
-
 Name: rubygem-%{gem_name}
 Version: 2.1.5
 Release: 1%{?dist}
@@ -36,6 +31,9 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+# fiddle is only needed on Windows (lib/locale/driver/win32.rb)
+sed -i ../%{gem_name}-%{version}.gemspec -e '\@runtime.*dependency.*fiddle@d'
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -72,6 +70,7 @@ cp -a .%{gem_dir}/* \
 %changelog
 * Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.5-1
 - Update to 2.1.5
+- Strip fiddle dependency from gemspec (Windows-only, not available on EL)
 
 * Sun May 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.4-1
 - Update to 2.1.4
