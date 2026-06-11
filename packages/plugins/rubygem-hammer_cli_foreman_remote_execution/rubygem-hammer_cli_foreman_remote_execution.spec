@@ -5,7 +5,7 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.4.3
+Version: 0.4.4
 Release: 1%{?foremandist}%{?dist}
 Summary: CLI for the Foreman remote execution plugin
 License: GPLv3+
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jun 11 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.4-1
+- Update to 0.4.4
+
 * Mon May 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.3-1
 - Update to 0.4.3
 
