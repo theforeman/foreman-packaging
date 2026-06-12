@@ -2,7 +2,7 @@
 %global gem_name clamp
 
 Name: rubygem-%{gem_name}
-Version: 1.4.0
+Version: 1.5.2
 Release: 1%{?dist}
 Summary: a minimal framework for command-line utilities
 License: MIT
@@ -49,14 +49,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.autotest
-%exclude %{gem_instdir}/.editorconfig
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
 %doc %{gem_instdir}/CHANGES.md
-%exclude %{gem_instdir}/CODEOWNERS
-%exclude %{gem_instdir}/Guardfile
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -64,15 +57,13 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%exclude %{gem_instdir}/.rspec
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/clamp.gemspec
 %{gem_instdir}/examples
-%{gem_instdir}/spec
 
 %changelog
+* Wed Jun 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.2-1
+- Update to 1.5.2
+
 * Sun Feb 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.0-1
 - Update to 1.4.0
 
