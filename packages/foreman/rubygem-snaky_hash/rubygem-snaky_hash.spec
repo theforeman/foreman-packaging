@@ -2,7 +2,7 @@
 %global gem_name snaky_hash
 
 Name: rubygem-%{gem_name}
-Version: 2.0.3
+Version: 2.0.5
 Release: 1%{?dist}
 Summary: A very snaky hash
 License: MIT
@@ -46,20 +46,28 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%{gem_instdir}/certs
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
-%license %{gem_instdir}/LICENSE.txt
+%license %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/SECURITY.md
 %{gem_libdir}
+%{gem_instdir}/sig
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CITATION.cff
 %doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/FUNDING.md
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/RUBOCOP.md
 
 %changelog
+* Wed Jun 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.5-1
+- Update to 2.0.5
+
 * Wed May 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.3-1
 - Update to 2.0.3
 
