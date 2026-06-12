@@ -152,6 +152,21 @@ On the repository host, create the directories:
 As `freight` doesn't publish repositories that have no content, we need to drop *some* `.deb` package in each of these directories.
 Ideally the package will have an older version, so it will be automatically cleaned up when we build the real package.
 
+All of the above can be done by the following script:
+
+```bash
+for SUITE in trixie noble resolute; do
+  mkdir -p /var/www/freight/apt/$SUITE/nightly/;
+  mkdir -p /var/www/freightstage/apt/$SUITE/theforeman-nightly/;
+
+  cp -a $(ls -t /var/www/freight/apt/*/nightly/foreman-cli* | tail -n1) /var/www/freight/apt/$SUITE/nightly/;
+  cp -a $(ls -t /var/www/freightstage/apt/*/theforeman-nightly/foreman-cli* | tail -n1) /var/www/freightstage/apt/$SUITE/theforeman-nightly/;
+
+  chown -R freight:freight /var/www/freight/apt/$SUITE/;
+  chown -R freightstage:freightstage /var/www/freightstage/apt/$SUITE/;
+done
+```
+
 Once done, manually publish both repositories once:
 
 ```console
