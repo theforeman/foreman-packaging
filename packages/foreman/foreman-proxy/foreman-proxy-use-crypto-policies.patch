@@ -1,0 +1,25 @@
+--- a/lib/launcher.rb
++++ b/lib/launcher.rb
+@@ -5,7 +5,6 @@
+ require 'proxy/log_buffer/trace_decorator'
+ require 'sd_notify'
+
+-CRYPTO_POLICIES_CONFIG = '/etc/crypto-policies/back-ends/opensslcnf.config'.freeze
+ TLS_MIN_VERSION_MAP = {
+   '1.0' => OpenSSL::SSL::TLS1_VERSION,
+   '1.1' => OpenSSL::SSL::TLS1_1_VERSION,
+@@ -117,13 +116,7 @@
+       return nil if configured&.empty?
+       return configured unless configured.nil?
+
+-      if File.exist?(CRYPTO_POLICIES_CONFIG)
+-        logger.info "Crypto-policies detected, using PROFILE=SYSTEM for TLS ciphers."
+-        'PROFILE=SYSTEM'
+-      else
+-        logger.debug "No crypto-policies detected, using HIGH cipher string as default."
+-        'HIGH'
+-      end
++      'PROFILE=SYSTEM'
+     end
+
+     def validate_tls_ciphers!(ciphers)

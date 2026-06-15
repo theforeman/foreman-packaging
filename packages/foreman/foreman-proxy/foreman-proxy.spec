@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -16,6 +16,8 @@ URL:            https://theforeman.org/projects/smart-proxy
 Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 Source1:        %{name}.tmpfiles
 Source2:        logrotate.conf
+
+Patch0:         %{name}-use-crypto-policies.patch
 
 BuildArch:      noarch
 BuildRequires:  /usr/bin/rename
@@ -83,7 +85,7 @@ Manages DNS, DHCP, TFTP and puppet settings though HTTP Restful API
 Mainly used by the foreman project (https://theforeman.org)
 
 %prep
-%setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
+%autosetup -p1 -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
 #build man pages
@@ -239,6 +241,9 @@ exit 0
 
 
 %changelog
+* Mon Jun 15 2026 Adam Lazik <alazik@redhat.com> - 5.0.0-0.2.develop
+- Apply crypto-policies patch for tls_ciphers and tls_min_version
+
 * Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.develop
 - Bump version to 5.0-develop
 
