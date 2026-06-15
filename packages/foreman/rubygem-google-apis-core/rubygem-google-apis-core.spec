@@ -35,10 +35,6 @@ Documentation for %{name}.
 # May also be not required: https://github.com/googleapis/google-api-ruby-client/pull/11024
 %gemspec_remove_dep -g rexml
 
-# Should not be a hard requirement
-# https://github.com/googleapis/google-api-ruby-client/issues/9560
-%gemspec_remove_dep -g webrick
-
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
