@@ -2,7 +2,7 @@
 %global gem_name google-apis-core
 
 Name: rubygem-%{gem_name}
-Version: 0.9.1
+Version: 0.15.0
 Release: 1%{?dist}
 Summary: Common utility and base classes for legacy Google REST clients
 License: Apache-2.0
@@ -10,8 +10,8 @@ URL: https://github.com/google/google-api-ruby-client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Mon Jun 15 2026 Leos Stejskal <lstejska@redhat.com> - 0.15.0-1
+- Update to 0.15.0
+
 * Sun Oct 23 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.9.1-1
 - Update to 0.9.1
 
