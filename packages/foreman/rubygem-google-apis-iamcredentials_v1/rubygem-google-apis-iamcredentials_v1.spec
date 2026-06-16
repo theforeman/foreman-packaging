@@ -2,7 +2,7 @@
 %global gem_name google-apis-iamcredentials_v1
 
 Name: rubygem-%{gem_name}
-Version: 0.16.0
+Version: 0.23.0
 Release: 1%{?dist}
 Summary: Simple REST client for IAM Service Account Credentials API V1
 License: Apache-2.0
@@ -10,8 +10,8 @@ URL: https://github.com/google/google-api-ruby-client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Tue Jun 16 2026 Leos Stejskal <lstejska@redhat.com> - 0.23.0-1
+- Update to 0.23.0
+
 * Thu Nov 03 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.16.0-1
 - Update to 0.16.0
 
