@@ -7,7 +7,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    4.0.0
+Version:    4.0.1
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible operations collection
 
@@ -43,6 +43,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 %changelog
+* Tue Jun 16 2026 Evgeni Golov - 4.0.1-1
+- Release ansible-collection-theforeman-operations 4.0.1
+
 * Mon Mar 23 2026 Evgeni Golov - 4.0.0-1
 - Release ansible-collection-theforeman-operations 4.0.0
 
