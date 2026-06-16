@@ -5,21 +5,19 @@
 %global debug_package %{nil}
 
 Name: rubygem-%{gem_name}
-Version: 1.58.0
-Release: 2%{?dist}
+Version: 1.73.0
+Release: 1%{?dist}
 Summary: GRPC system in Ruby
 License: Apache-2.0
 URL: https://github.com/google/grpc/tree/master/src/ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5.0
-BuildRequires: ruby-devel >= 2.5.0
+Requires: ruby >= 3.0
+BuildRequires: ruby-devel >= 3.0
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(google-protobuf) >= 3.23
-BuildRequires: rubygem(google-protobuf) < 4
-BuildRequires: rubygem(googleapis-common-protos-types) >= 1.0
-BuildRequires: rubygem(googleapis-common-protos-types) < 2
+BuildRequires: (rubygem(google-protobuf) >= 3.25 with rubygem(google-protobuf) < 5.0)
+BuildRequires: (rubygem(googleapis-common-protos-types) >= 1.0 with rubygem(googleapis-common-protos-types) < 2)
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
@@ -88,6 +86,9 @@ rm -rf gem_ext_test
 
 
 %changelog
+* Tue Jun 16 2026 Leos Stejskal <lstejska@redhat.com> - 1.73.0-1
+- Update to 1.73.0
+
 * Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
 - Explicitly BuildRequire gcc-c++
 
