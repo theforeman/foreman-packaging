@@ -17,6 +17,7 @@ BuildRequires: rubygems-devel
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
+BuildRequires: rubygem(rake)
 # end specfile generated dependencies
 
 %description
@@ -34,6 +35,8 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 sed -i '/wrap,memcpy/d' ext/google/protobuf_c/extconf.rb
+# TODO: Should not be needed
+#sed -i 's/rb_raise(\([^,]*\), upb_Status_ErrorMessage(\&status))/rb_raise(\1, "%%s", upb_Status_ErrorMessage(\&status))/g' ext/google/protobuf_c/*.c
 
 %build
 # Create the gem as gem install only works on a gem file
