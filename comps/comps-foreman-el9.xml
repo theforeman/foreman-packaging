@@ -189,6 +189,7 @@
       <packagereq type="default">rubygem-apipie-params</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
       <packagereq type="default">rubygem-audited</packagereq>
+      <packagereq type="default">rubygem-auth-sanitizer</packagereq>
       <packagereq type="default">rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">rubygem-bcrypt</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
@@ -409,6 +410,7 @@
       <packagereq type="default">rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">rubygem-audited-doc</packagereq>
+      <packagereq type="default">rubygem-auth-sanitizer-doc</packagereq>
       <packagereq type="default">rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">rubygem-bcrypt-doc</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
