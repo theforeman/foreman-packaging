@@ -2,7 +2,7 @@
 %global gem_name googleauth
 
 Name: rubygem-%{gem_name}
-Version: 1.9.1
+Version: 1.13.1
 Release: 1%{?dist}
 Summary: Google Auth Library for Ruby
 License: Apache-2.0
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Tue Jun 16 2026 Leos Stejskal <lstejska@redhat.com> - 1.13.1-1
+- Update to 1.13.1
+
 * Tue Jun 16 2026 Leos Stejskal <lstejska@redhat.com> - 1.9.1-1
 - Update to 1.9.1
 
