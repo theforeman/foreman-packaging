@@ -2,7 +2,7 @@
 %global gem_name googleauth
 
 Name: rubygem-%{gem_name}
-Version: 1.3.0
+Version: 1.9.1
 Release: 1%{?dist}
 Summary: Google Auth Library for Ruby
 License: Apache-2.0
@@ -10,8 +10,8 @@ URL: https://github.com/googleapis/google-auth-library-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.6
-BuildRequires: ruby >= 2.6
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Tue Jun 16 2026 Leos Stejskal <lstejska@redhat.com> - 1.9.1-1
+- Update to 1.9.1
+
 * Sun Oct 23 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.3.0-1
 - Update to 1.3.0
 
