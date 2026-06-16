@@ -2,7 +2,7 @@
 %global gem_name google-cloud-env
 
 Name: rubygem-%{gem_name}
-Version: 1.6.0
+Version: 2.2.2
 Release: 1%{?dist}
 Summary: Google Cloud Platform hosting environment information
 License: Apache-2.0
@@ -10,8 +10,8 @@ URL: https://github.com/googleapis/ruby-cloud-env
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5
-BuildRequires: ruby >= 2.5
+Requires: ruby >= 3.0
+BuildRequires: ruby >= 3.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Tue Jun 16 2026 Leos Stejskal <lstejska@redhat.com> - 2.2.2-1
+- Update to 2.2.2
+
 * Tue Jul 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.6.0-1
 - Update to 1.6.0
 
