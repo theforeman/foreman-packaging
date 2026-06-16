@@ -2,7 +2,7 @@
 %global gem_name signet
 
 Name: rubygem-%{gem_name}
-Version: 0.17.0
+Version: 0.19.0
 Release: 1%{?dist}
 Summary: Signet is an OAuth 1.0 / OAuth 2.0 implementation
 License: Apache-2.0
@@ -10,8 +10,8 @@ URL: https://github.com/googleapis/signet
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.6
-BuildRequires: ruby >= 2.6
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel >= 1.3.5
 BuildArch: noarch
 # end specfile generated dependencies
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Tue Jun 16 2026 Leos Stejskal <lstejska@redhat.com> - 0.19.0-1
+- Update to 0.19.0
+
 * Wed Jul 13 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.17.0-1
 - Update to 0.17.0
 
