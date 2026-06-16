@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_webhooks
 %global plugin_name webhooks
-%global foreman_min_version 3.18
+%global foreman_min_version 5.0
 
 Name: rubygem-%{gem_name}
-Version: 5.1.0
+Version: 6.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jun 16 2026 Foreman Packaging Automation <packaging@theforeman.org> - 6.0.0-1
+- Update to 6.0.0
+
 * Fri May 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.1.0-1
 - Update to 5.1.0
 
