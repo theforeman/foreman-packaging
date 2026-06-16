@@ -18,6 +18,7 @@
       <packagereq type="default">cjson-devel</packagereq>
       <packagereq type="default">foreman-discovery-image-service</packagereq>
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
+      <packagereq type="default">foreman-opentofu-selinux</packagereq>
       <packagereq type="default">mosquitto</packagereq>
       <packagereq type="default">nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
@@ -101,7 +102,6 @@
       <packagereq type="default">rubygem-foreman_opennebula</packagereq>
       <packagereq type="default">rubygem-foreman_openscap</packagereq>
       <packagereq type="default">rubygem-foreman_opentofu</packagereq>
-      <packagereq type="default">foreman-opentofu-selinux</packagereq>
       <packagereq type="default">rubygem-foreman_ovirt</packagereq>
       <packagereq type="default">rubygem-foreman_puppet</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution</packagereq>
@@ -125,6 +125,7 @@
       <packagereq type="default">rubygem-google-cloud-compute-v1</packagereq>
       <packagereq type="default">rubygem-google-cloud-core</packagereq>
       <packagereq type="default">rubygem-google-cloud-errors</packagereq>
+      <packagereq type="default">rubygem-google-logging-utils</packagereq>
       <packagereq type="default">rubygem-google-protobuf</packagereq>
       <packagereq type="default">rubygem-googleapis-common-protos</packagereq>
       <packagereq type="default">rubygem-googleapis-common-protos-types</packagereq>
@@ -306,6 +307,7 @@
       <packagereq type="default">rubygem-google-cloud-compute-v1-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-core-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-errors-doc</packagereq>
+      <packagereq type="default">rubygem-google-logging-utils-doc</packagereq>
       <packagereq type="default">rubygem-google-protobuf-doc</packagereq>
       <packagereq type="default">rubygem-graphite-api-doc</packagereq>
       <packagereq type="default">rubygem-grpc-doc</packagereq>
