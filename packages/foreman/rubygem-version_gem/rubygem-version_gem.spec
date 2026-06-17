@@ -2,7 +2,7 @@
 %global gem_name version_gem
 
 Name: rubygem-%{gem_name}
-Version: 1.1.9
+Version: 1.1.12
 Release: 1%{?dist}
 Summary: Enhance your VERSION! Sugar for Version modules
 License: MIT
@@ -10,8 +10,8 @@ URL: https://gitlab.com/oauth-xx/version_gem
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.2
-BuildRequires: ruby >= 2.2
+Requires: ruby >= 2.2.0
+BuildRequires: ruby >= 2.2.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/RUBOCOP.md
 
 %changelog
+* Wed Jun 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.12-1
+- Update to 1.1.12
+
 * Wed Sep 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.9-1
 - Update to 1.1.9
 
