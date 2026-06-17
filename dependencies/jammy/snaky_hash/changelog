@@ -1,3 +1,9 @@
+ruby-snaky-hash (2.0.6-1) stable; urgency=low
+
+  * 2.0.6 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 17 Jun 2026 05:52:04 +0000
+
 ruby-snaky-hash (2.0.4-1) stable; urgency=low
 
   * 2.0.4 released
