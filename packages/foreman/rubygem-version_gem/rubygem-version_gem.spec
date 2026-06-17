@@ -47,7 +47,8 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
-%license %{gem_instdir}/LICENSE.txt
+%exclude %{gem_instdir}/certs
+%license %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/SECURITY.md
 %exclude %{gem_instdir}/sig/
 %{gem_libdir}
@@ -61,12 +62,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %exclude %{gem_instdir}/CITATION.cff
 %exclude %{gem_instdir}/FUNDING.md
-%exclude %{gem_instdir}/REEK
 %exclude %{gem_instdir}/RUBOCOP.md
 
 %changelog
 * Wed Jun 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.12-1
 - Update to 1.1.12
+- Fix file list: LICENSE.txt renamed to LICENSE.md, remove REEK, exclude certs
 
 * Wed Sep 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.9-1
 - Update to 1.1.9
