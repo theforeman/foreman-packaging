@@ -2,7 +2,7 @@
 %global gem_name snaky_hash
 
 Name: rubygem-%{gem_name}
-Version: 2.0.5
+Version: 2.0.6
 Release: 1%{?dist}
 Summary: A very snaky hash
 License: MIT
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/RUBOCOP.md
 
 %changelog
+* Wed Jun 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.6-1
+- Update to 2.0.6
+
 * Wed Jun 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.5-1
 - Update to 2.0.5
 
