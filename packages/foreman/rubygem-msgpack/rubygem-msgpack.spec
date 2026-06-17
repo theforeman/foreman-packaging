@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.8.1
+Version: 1.8.3
 Release: 1%{?dist}
 Summary: MessagePack, a binary-based efficient data interchange format
 License: Apache 2.0
@@ -82,6 +82,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/msgpack.gemspec
 
 %changelog
+* Wed Jun 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.8.3-1
+- Update to 1.8.3
+
 * Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.8.1-1
 - Update to 1.8.1
 
