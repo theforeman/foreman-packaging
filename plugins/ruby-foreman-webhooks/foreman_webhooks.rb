@@ -1,1 +1,1 @@
-gem 'foreman_webhooks', '5.1.0'
+gem 'foreman_webhooks', '6.0.0'
