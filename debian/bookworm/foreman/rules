@@ -33,6 +33,9 @@ build:
 	# foreman_azure_rm uses faraday-cookie_jar, which needs http-cookie ~> 1.0.0
 	# so we pin it here so that core doesn't pull in a newer version
 	echo 'gem "http-cookie", "~> 1.0.0"' >> bundler.d/debian.rb
+	# i18n 1.15.0 declares compatibility with Ruby 3.1, but uses 3.2 features
+	# https://github.com/ruby-i18n/i18n/issues/735
+	echo 'gem "i18n", "< 1.15.0"' >> bundler.d/debian.rb
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	$(BUNDLE) install
