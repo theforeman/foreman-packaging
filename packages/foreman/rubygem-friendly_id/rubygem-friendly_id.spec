@@ -63,14 +63,9 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/Changelog.md
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/UPGRADING.md
-%{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/friendly_id.gemspec
-%{gem_instdir}/test
 
 %changelog
 * Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.7.0-1
