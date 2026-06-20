@@ -9,6 +9,8 @@ License: MIT
 URL: https://github.com/twitter/secureheaders
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+Requires: (rubygem(cgi) or ruby-default-gems < 3.4)
+
 # start specfile generated dependencies
 Requires: ruby
 BuildRequires: ruby
@@ -30,6 +32,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g cgi
 
 %build
 # Create the gem as gem install only works on a gem file
