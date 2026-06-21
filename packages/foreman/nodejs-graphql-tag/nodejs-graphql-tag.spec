@@ -1,24 +1,22 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name graphql-tag
 
-Name: %{?scl_prefix}nodejs-graphql-tag
-Version: 2.12.6
+Name: nodejs-graphql-tag
+Version: 2.12.7
 Release: 1%{?dist}
 Summary: A JavaScript template literal tag that parses GraphQL queries
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/apollographql/graphql-tag#readme
 Source0: https://registry.npmjs.org/graphql-tag/-/graphql-tag-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(tslib) >= 2.1.0
 Requires: npm(tslib) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -42,10 +40,12 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %files
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
-%doc CHANGELOG.md
 %doc README.md
 
 %changelog
+* Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> 2.12.7-1
+- Update to 2.12.7
+
 * Sun Sep 10 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.12.6-1
 - Update to 2.12.6
 
