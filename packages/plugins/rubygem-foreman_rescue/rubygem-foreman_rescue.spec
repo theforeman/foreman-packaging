@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
+Version: 5.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Provides the ability to boot a host into a rescue system
 License: GPLv3
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.1.0-1
+- Update to 5.1.0
+
 * Sun May 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.0-1
 - Update to 5.0.0
 
