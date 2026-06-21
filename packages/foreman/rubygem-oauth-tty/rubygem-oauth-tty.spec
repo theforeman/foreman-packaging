@@ -2,11 +2,11 @@
 %global gem_name oauth-tty
 
 Name: rubygem-%{gem_name}
-Version: 1.0.6
+Version: 1.0.12
 Release: 1%{?dist}
 Summary: OAuth 1.0 TTY CLI
 License: MIT
-URL: https://gitlab.com/oauth-xx/oauth-tty
+URL: https://github.com/ruby-oauth/oauth-tty
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -53,12 +53,12 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %files
 %dir %{gem_instdir}
 %{_bindir}/oauth
+%exclude %{gem_instdir}/certs
+%license %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
-%license %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/SECURITY.md
 %exclude %{gem_instdir}/CITATION.cff
 %exclude %{gem_instdir}/FUNDING.md
-%exclude %{gem_instdir}/REEK
 %exclude %{gem_instdir}/RUBOCOP.md
 %exclude %{gem_instdir}/sig/
 %{gem_instdir}/exe
@@ -73,6 +73,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.12-1
+- Update to 1.0.12
+
 * Wed Sep 24 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.6-1
 - Update to 1.0.6
 
