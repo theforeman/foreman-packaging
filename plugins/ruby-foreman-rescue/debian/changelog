@@ -1,3 +1,9 @@
+ruby-foreman-rescue (5.1.0-1) stable; urgency=low
+
+  * 5.1.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 21 Jun 2026 05:48:18 +0000
+
 ruby-foreman-rescue (5.0.0-1) stable; urgency=low
 
   * 5.0.0 released
