@@ -1,6 +1,6 @@
 Name: foreman-obsolete-packages
 Version: 1.11
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
 URL: https://github.com/theforeman/foreman-packaging
@@ -21,6 +21,8 @@ Obsoletes: rubygem-unf_ext < 0.0.8.2-2
 Obsoletes: rubygem-anemone < 0.7.2-2
 Obsoletes: rubygem-fog-ovirt < 2.0.3-1
 Obsoletes: rubygem-ovirt-engine-sdk < 4.6.0-1
+Obsoletes: rubygem-stomp < 1.4.10-2
+Obsoletes: rubygem-stomp-doc < 1.4.10-2
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -35,6 +37,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Mon Jun 22 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1.11-2
+- Obsolete rubygem-stomp
+
 * Tue Apr 01 2025 Leos Stejskal - 1.11-1
 - Obsolete oVirt
 
