@@ -2,7 +2,7 @@
 %global gem_name addressable
 
 Name: rubygem-%{gem_name}
-Version: 2.8.8
+Version: 2.9.0
 Release: 1%{?dist}
 Summary: URI Implementation
 License: Apache-2.0
@@ -20,7 +20,6 @@ BuildArch: noarch
 Addressable is an alternative implementation to the URI implementation that is
 part of Ruby's standard library. It is flexible, offers heuristic parsing, and
 additionally provides extensive support for IRIs and URI templates.
-
 
 %package doc
 Summary: Documentation for %{name}
@@ -50,20 +49,18 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE.txt
 %{gem_libdir}
-%{gem_instdir}/tasks
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/spec
-%exclude %{gem_instdir}/addressable.gemspec
 
 %changelog
+* Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.9.0-1
+- Update to 2.9.0
+
 * Wed Dec 17 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.8.8-1
 - Update to 2.8.8
 
