@@ -2,7 +2,7 @@
 %global gem_name oauth
 
 Name: rubygem-%{gem_name}
-Version: 1.1.3
+Version: 1.1.7
 Release: 1%{?dist}
 Summary: OAuth Core Ruby implementation
 License: MIT
@@ -49,12 +49,13 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/certs
+%exclude %{gem_instdir}/sig
+%license %{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
 %exclude %{gem_instdir}/CITATION.cff
 %exclude %{gem_instdir}/FUNDING.md
-%exclude %{gem_instdir}/REEK
 %exclude %{gem_instdir}/RUBOCOP.md
-%license %{gem_instdir}/LICENSE.txt
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -67,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.7-1
+- Update to 1.1.7
+
 * Sun Nov 09 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.3-1
 - Update to 1.1.3
 
