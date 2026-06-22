@@ -2,7 +2,7 @@
 %global python3_pkgversion 3.12
 
 Name:           python-%{pypi_name}
-Version:        1.9.0
+Version:        1.9.1
 Release:        1%{?dist}
 Summary:        easily build CLI applications using ansible playbooks
 
@@ -44,6 +44,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jun 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.9.1-1
+- Update to 1.9.1
+
 * Thu Jun 18 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.9.0-1
 - Update to 1.9.0
 
