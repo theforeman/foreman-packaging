@@ -2,12 +2,14 @@
 %global gem_name secure_headers
 
 Name: rubygem-%{gem_name}
-Version: 7.1.0
+Version: 7.3.0
 Release: 1%{?dist}
 Summary: Manages application of security headers with many safe defaults.
 License: MIT
 URL: https://github.com/twitter/secureheaders
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: (rubygem(cgi) or ruby-default-gems < 3.4)
 
 # start specfile generated dependencies
 Requires: ruby
@@ -30,6 +32,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g cgi
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -59,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/secure_headers.gemspec
 
 %changelog
+* Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 7.3.0-1
+- Update to 7.3.0
+
 * Sun Apr 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 7.1.0-1
 - Update to 7.1.0
 
