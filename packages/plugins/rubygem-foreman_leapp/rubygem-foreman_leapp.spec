@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_leapp
 %global plugin_name leapp
-%global foreman_min_version 3.16
+%global foreman_min_version 5.0
 
 Name: rubygem-%{gem_name}
-Version: 3.4.0
+Version: 4.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 License: GPLv3
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Jun 23 2026 Foreman Packaging Automation <packaging@theforeman.org> - 4.0.0-1
+- Update to 4.0.0
+
 * Fri May 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.4.0-1
 - Update to 3.4.0
 
