@@ -187,6 +187,7 @@ ruby_core_packages_tier1:
     rubygem-algebrick: {}
     rubygem-amazing_print: {}
     rubygem-ancestry: {}
+    rubygem-anonymous_loader: {}
     rubygem-apipie-bindings: {}
     rubygem-apipie-dsl: {}
     rubygem-apipie-params: {}
