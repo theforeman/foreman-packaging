@@ -1,31 +1,22 @@
 %global npm_name ts-loader
 
 Name: nodejs-ts-loader
-Version: 9.6.1
+Version: 9.6.2
 Release: 1%{?dist}
 Summary: TypeScript loader for webpack
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/TypeStrong/ts-loader
 Source0: https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz
-Source1: https://registry.npmjs.org/braces/-/braces-3.0.3.tgz
-Source2: https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz
-Source3: https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz
-Source4: https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz
-Source5: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.24.0.tgz
-Source6: https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz
-Source7: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz
-Source8: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
-Source9: https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz
-Source10: https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz
-Source11: https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz
-Source12: https://registry.npmjs.org/semver/-/semver-7.8.4.tgz
-Source13: https://registry.npmjs.org/source-map/-/source-map-0.7.6.tgz
-Source14: https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz
-Source15: https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz
-Source16: https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz
-Source17: https://registry.npmjs.org/ts-loader/-/ts-loader-9.6.1.tgz
-Source18: nodejs-ts-loader-%{version}-registry.npmjs.org.tgz
+Source1: https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz
+Source2: https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz
+Source3: https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz
+Source4: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
+Source5: https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz
+Source6: https://registry.npmjs.org/source-map/-/source-map-0.7.6.tgz
+Source7: https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz
+Source8: https://registry.npmjs.org/ts-loader/-/ts-loader-9.6.2.tgz
+Source9: nodejs-ts-loader-%{version}-registry.npmjs.org.tgz
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
 %if 0%{?rhel} == 10
@@ -37,23 +28,14 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(ansi-styles)) = 4.3.0
-Provides: bundled(npm(braces)) = 3.0.3
 Provides: bundled(npm(chalk)) = 4.1.2
 Provides: bundled(npm(color-convert)) = 2.0.1
 Provides: bundled(npm(color-name)) = 1.1.4
-Provides: bundled(npm(enhanced-resolve)) = 5.24.0
-Provides: bundled(npm(fill-range)) = 7.1.1
-Provides: bundled(npm(graceful-fs)) = 4.2.11
 Provides: bundled(npm(has-flag)) = 4.0.0
-Provides: bundled(npm(is-number)) = 7.0.0
-Provides: bundled(npm(micromatch)) = 4.0.8
-Provides: bundled(npm(picomatch)) = 2.3.2
-Provides: bundled(npm(semver)) = 7.8.4
+Provides: bundled(npm(picomatch)) = 4.0.4
 Provides: bundled(npm(source-map)) = 0.7.6
 Provides: bundled(npm(supports-color)) = 7.2.0
-Provides: bundled(npm(tapable)) = 2.3.3
-Provides: bundled(npm(to-regex-range)) = 5.0.1
-Provides: bundled(npm(ts-loader)) = 9.6.1
+Provides: bundled(npm(ts-loader)) = 9.6.2
 AutoReq: no
 AutoProv: no
 
@@ -68,7 +50,7 @@ for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
 
-%setup -T -q -a 18 -D -n %{npm_cache_dir}
+%setup -T -q -a 9 -D -n %{npm_cache_dir}
 
 %build
 npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
@@ -96,6 +78,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/SECURITY.md
 
 %changelog
+* Wed Jun 24 2026 Foreman Packaging Automation <packaging@theforeman.org> 9.6.2-1
+- Update to 9.6.2
+
 * Wed Jun 17 2026 Foreman Packaging Automation <packaging@theforeman.org> 9.6.1-1
 - Update to 9.6.1
 
