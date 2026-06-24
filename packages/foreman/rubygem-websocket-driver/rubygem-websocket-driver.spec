@@ -14,7 +14,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby
 BuildRequires: ruby-devel
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(base64)
 BuildRequires: rubygem(websocket-extensions) >= 0.1.0
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
