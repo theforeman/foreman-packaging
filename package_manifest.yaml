@@ -219,6 +219,7 @@ ruby_core_packages_tier1:
     rubygem-excon: {}
     rubygem-facter: {}
     rubygem-faraday: {}
+    rubygem-faraday2: {}
     rubygem-faraday-em_http: {}
     rubygem-faraday-em_synchrony: {}
     rubygem-faraday-excon: {}
@@ -226,6 +227,7 @@ ruby_core_packages_tier1:
     rubygem-faraday-multipart: {}
     rubygem-faraday-net_http: {}
     rubygem-faraday-net_http_persistent: {}
+    rubygem-faraday-net_http_persistent2: {}
     rubygem-faraday-patron: {}
     rubygem-faraday-rack: {}
     rubygem-faraday-retry: {}
