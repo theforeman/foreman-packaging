@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   2.3.0
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -14,6 +14,7 @@ Requires:  python3.12-obsah >= 1.8.1
 
 # These are needed on the target host, which is usually localhost
 Recommends:  podman
+Recommends:  skopeo
 Recommends:  python3-libsemanage
 Recommends:  python3-psycopg2
 Recommends:  python3-requests
@@ -63,6 +64,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Thu Jun 25 2026 Stejskal Leos - 2.3.0-2
+- Add skopeo to the Recommends list
+
 * Mon Jun 08 2026 Evgeni Golov - 2.3.0-1
 - Release foremanctl 2.3.0
 
