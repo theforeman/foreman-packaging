@@ -1,3 +1,9 @@
+ruby-foreman-ansible (17.0.9-2) stable; urgency=low
+
+  * Drop foreman-tasks upper bound
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Mon, 29 Jun 2026 14:32:23 +0000
+
 ruby-foreman-ansible (17.0.9-1) stable; urgency=low
 
   * 17.0.9 released
