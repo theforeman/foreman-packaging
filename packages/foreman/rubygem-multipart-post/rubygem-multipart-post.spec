@@ -46,6 +46,9 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/license.md
+%doc %{gem_instdir}/changelog.md
+%doc %{gem_instdir}/readme.md
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -58,7 +61,7 @@ cp -a .%{gem_dir}/* \
 * Wed Jul 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.4.1-1
 - Update to 2.4.1
 
-* Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.2.3-1
+* Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.3-1
 - Update to 2.2.3
 
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-3
@@ -67,25 +70,25 @@ cp -a .%{gem_dir}/* \
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-2
 - Bump to release for EL8
 
-* Thu Mar 14 2019 kgaikwad <kavitagaikwad103@gmail.com> 2.0.0-1
+* Thu Mar 14 2019 kgaikwad <kavitagaikwad103@gmail.com> - 2.0.0-1
 - Update to 2.0.0
 
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.2.0-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 
-* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.0-5
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.2.0-5
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
 
-* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-4
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> - 1.2.0-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
-* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-3
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> - 1.2.0-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
-* Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 1.2.0-2
+* Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> - 1.2.0-2
 - Fix missing .gem (dcleal@redhat.com)
 
-* Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 1.2.0-1
+* Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> - 1.2.0-1
 - new package built with tito
