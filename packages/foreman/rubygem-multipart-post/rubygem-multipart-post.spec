@@ -2,7 +2,7 @@
 %global gem_name multipart-post
 
 Name: rubygem-%{gem_name}
-Version: 2.2.3
+Version: 2.4.1
 Release: 1%{?dist}
 Summary: A multipart form post accessory for Net::HTTP
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/socketry/multipart-post
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.3.0
-BuildRequires: ruby >= 2.3.0
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -55,6 +55,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Wed Jul 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.4.1-1
+- Update to 2.4.1
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.2.3-1
 - Update to 2.2.3
 
