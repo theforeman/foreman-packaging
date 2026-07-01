@@ -19,7 +19,7 @@
 %global release 1
 
 Name:     foreman-release
-Version:  3.19.0
+Version:  3.19.1
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -82,6 +82,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed Jul 01 2026 Odilon Sousa <osousa@redhat.com> - 3.19.1-1
+- Release foreman-release 3.19.1
+
 * Tue Jun 09 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-1
 - Release foreman-release 3.19.0
 

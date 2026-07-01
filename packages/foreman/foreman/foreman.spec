@@ -9,7 +9,7 @@
 %global release 1
 
 Name:    foreman
-Version: 3.19.0
+Version: 3.19.1
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -858,6 +858,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Jul 01 2026 Odilon Sousa <osousa@redhat.com> - 3.19.1-1
+- Release foreman 3.19.1
+
 * Tue Jun 09 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-1
 - Release foreman 3.19.0
 
