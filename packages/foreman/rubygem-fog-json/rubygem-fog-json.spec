@@ -2,7 +2,7 @@
 %global gem_name fog-json
 
 Name: rubygem-%{gem_name}
-Version: 1.3.0
+Version: 1.4.0
 Release: 1%{?dist}
 Summary: JSON parsing for fog providers
 License: MIT
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jul 02 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.0-1
+- Update to 1.4.0
+
 * Thu Apr 23 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.0-1
 - Update to 1.3.0
 
