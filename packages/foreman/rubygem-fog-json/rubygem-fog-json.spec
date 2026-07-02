@@ -16,6 +16,8 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(json) or ruby-default-gems < 4.1)
+
 %description
 Extraction of the JSON parsing tools shared between a
 number of providers in the 'fog' gem.
@@ -31,6 +33,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g json
 
 %build
 # Create the gem as gem install only works on a gem file
