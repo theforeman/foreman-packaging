@@ -1,7 +1,7 @@
 %global npm_name webpack
 
 Name: nodejs-webpack
-Version: 5.108.3
+Version: 5.108.4
 Release: 1%{?dist}
 Summary: Packs ECMAScript/CommonJs/AMD modules for the browser
 License: MIT
@@ -14,7 +14,7 @@ Source3: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-code
 Source4: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz
 Source5: https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz
 Source6: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
-Source7: https://registry.npmjs.org/@types/node/-/node-26.0.1.tgz
+Source7: https://registry.npmjs.org/@types/node/-/node-26.1.0.tgz
 Source8: https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.14.1.tgz
 Source9: https://registry.npmjs.org/@webassemblyjs/floating-point-hex-parser/-/floating-point-hex-parser-1.13.2.tgz
 Source10: https://registry.npmjs.org/@webassemblyjs/helper-api-error/-/helper-api-error-1.13.2.tgz
@@ -37,15 +37,15 @@ Source26: https://registry.npmjs.org/acorn-import-phases/-/acorn-import-phases-1
 Source27: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz
 Source28: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source29: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
-Source30: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.40.tgz
+Source30: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.42.tgz
 Source31: https://registry.npmjs.org/browserslist/-/browserslist-4.28.4.tgz
 Source32: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
 Source33: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001800.tgz
 Source34: https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz
 Source35: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
-Source36: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.383.tgz
+Source36: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.387.tgz
 Source37: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.24.1.tgz
-Source38: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.2.0.tgz
+Source38: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.0.tgz
 Source39: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
 Source40: https://registry.npmjs.org/eslint-scope/-/eslint-scope-5.1.1.tgz
 Source41: https://registry.npmjs.org/esrecurse/-/esrecurse-4.3.0.tgz
@@ -75,7 +75,7 @@ Source64: https://registry.npmjs.org/terser/-/terser-5.48.0.tgz
 Source65: https://registry.npmjs.org/undici-types/-/undici-types-8.3.0.tgz
 Source66: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz
 Source67: https://registry.npmjs.org/watchpack/-/watchpack-2.5.2.tgz
-Source68: https://registry.npmjs.org/webpack/-/webpack-5.108.3.tgz
+Source68: https://registry.npmjs.org/webpack/-/webpack-5.108.4.tgz
 Source69: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.5.0.tgz
 Source70: nodejs-webpack-%{version}-registry.npmjs.org.tgz
 BuildRequires: npm >= 7
@@ -95,7 +95,7 @@ Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.5.5
 Provides: bundled(npm(@jridgewell/trace-mapping)) = 0.3.31
 Provides: bundled(npm(@types/estree)) = 1.0.9
 Provides: bundled(npm(@types/json-schema)) = 7.0.15
-Provides: bundled(npm(@types/node)) = 26.0.1
+Provides: bundled(npm(@types/node)) = 26.1.0
 Provides: bundled(npm(@webassemblyjs/ast)) = 1.14.1
 Provides: bundled(npm(@webassemblyjs/floating-point-hex-parser)) = 1.13.2
 Provides: bundled(npm(@webassemblyjs/helper-api-error)) = 1.13.2
@@ -118,15 +118,15 @@ Provides: bundled(npm(acorn-import-phases)) = 1.0.4
 Provides: bundled(npm(ajv)) = 8.20.0
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
-Provides: bundled(npm(baseline-browser-mapping)) = 2.10.40
+Provides: bundled(npm(baseline-browser-mapping)) = 2.10.42
 Provides: bundled(npm(browserslist)) = 4.28.4
 Provides: bundled(npm(buffer-from)) = 1.1.2
 Provides: bundled(npm(caniuse-lite)) = 1.0.30001800
 Provides: bundled(npm(chrome-trace-event)) = 1.0.4
 Provides: bundled(npm(commander)) = 2.20.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.383
+Provides: bundled(npm(electron-to-chromium)) = 1.5.387
 Provides: bundled(npm(enhanced-resolve)) = 5.24.1
-Provides: bundled(npm(es-module-lexer)) = 2.2.0
+Provides: bundled(npm(es-module-lexer)) = 2.3.0
 Provides: bundled(npm(escalade)) = 3.2.0
 Provides: bundled(npm(eslint-scope)) = 5.1.1
 Provides: bundled(npm(esrecurse)) = 4.3.0
@@ -156,7 +156,7 @@ Provides: bundled(npm(terser)) = 5.48.0
 Provides: bundled(npm(undici-types)) = 8.3.0
 Provides: bundled(npm(update-browserslist-db)) = 1.2.3
 Provides: bundled(npm(watchpack)) = 2.5.2
-Provides: bundled(npm(webpack)) = 5.108.3
+Provides: bundled(npm(webpack)) = 5.108.4
 Provides: bundled(npm(webpack-sources)) = 3.5.0
 AutoReq: no
 AutoProv: no
@@ -202,6 +202,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sun Jul 05 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.108.4-1
+- Update to 5.108.4
+
 * Wed Jul 01 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.108.3-1
 - Update to 5.108.3
 
