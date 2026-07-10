@@ -2,13 +2,13 @@
 %global python3_pkgversion 3.12
 
 Name:           python-%{pypi_name}
-Version:        1.9.1
+Version:        1.10.0
 Release:        1%{?dist}
 Summary:        easily build CLI applications using ansible playbooks
 
 License:        None
 URL:            https://github.com/theforeman/obsah
-Source0:        %{pypi_source}
+Source0:        https://files.pythonhosted.org/packages/source/o/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python%{python3_pkgversion}-devel
@@ -44,6 +44,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Jul 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.10.0-1
+- Update to 1.10.0
+
 * Mon Jun 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.9.1-1
 - Update to 1.9.1
 
