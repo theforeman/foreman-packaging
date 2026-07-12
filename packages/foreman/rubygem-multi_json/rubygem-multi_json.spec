@@ -2,7 +2,7 @@
 %global gem_name multi_json
 
 Name: rubygem-%{gem_name}
-Version: 1.15.0
+Version: 1.19.1
 Release: 1%{?dist}
 Summary: A common interface to multiple JSON libraries
 License: MIT
@@ -10,9 +10,9 @@ URL: https://github.com/intridea/multi_json
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby
-BuildRequires: ruby
-BuildRequires: rubygems-devel >= 1.3.5
+Requires: ruby >= 3.0
+BuildRequires: ruby >= 3.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.19.1-1
+- Update to 1.19.1
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.15.0-1
 - Update to 1.15.0
 
