@@ -3,8 +3,8 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.16.3
-Release: 2%{?dist}
+Version: 1.17.4
+Release: 1%{?dist}
 Summary: Ruby FFI
 License: BSD-3-Clause
 URL: https://github.com/ffi/ffi/wiki
@@ -87,6 +87,9 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/ffi.gemspec
 
 %changelog
+* Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.17.4-1
+- Update to 1.17.4
+
 * Sat Sep 20 2025 Evgeni Golov - 1.16.3-2
 - Use system libffi
 
