@@ -2,7 +2,7 @@
 %global gem_name amazing_print
 
 Name: rubygem-%{gem_name}
-Version: 1.6.0
+Version: 1.7.2
 Release: 1%{?dist}
 Summary: Pretty print Ruby objects with proper indentation and colors
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/amazing-print/amazing_print
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.5.0
-BuildRequires: ruby >= 2.5.0
+Requires: ruby >= 3.0.0
+BuildRequires: ruby >= 3.0.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.7.2-1
+- Update to 1.7.2
+
 * Sun May 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.6.0-1
 - Update to 1.6.0
 
