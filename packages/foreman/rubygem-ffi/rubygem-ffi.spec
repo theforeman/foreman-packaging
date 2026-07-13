@@ -84,6 +84,8 @@ rm -rf gem_ext_test
 %{gem_instdir}/Rakefile
 %{gem_instdir}/samples
 %exclude %{gem_instdir}/ffi.gemspec
+%exclude %{gem_instdir}/Steepfile
+%exclude %{gem_instdir}/sig
 
 %changelog
 * Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.17.4-1
