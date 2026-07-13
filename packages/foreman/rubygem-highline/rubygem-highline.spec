@@ -55,6 +55,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.simplecov
+%exclude %{gem_instdir}/bin
 %license %{gem_instdir}/COPYING
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/TODO
