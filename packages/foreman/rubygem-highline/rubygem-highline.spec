@@ -16,6 +16,8 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
 
+Requires: (rubygem(reline) or ruby-default-gems < 3.5)
+
 %description
 A high-level IO library that provides validation, type conversion, and more
 for
@@ -35,6 +37,8 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+%gemspec_remove_dep -g reline
 
 %build
 # Create the gem as gem install only works on a gem file
