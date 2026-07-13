@@ -82,7 +82,6 @@ rm -rf gem_ext_test
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/rakelib
 %{gem_instdir}/samples
 %exclude %{gem_instdir}/ffi.gemspec
 
