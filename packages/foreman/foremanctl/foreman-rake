@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$(id -u)" -ne 0 ]; then
+    exec sudo "$0" "$@"
+fi
+
+cat >&2 <<'EOF'
+NOTICE: Files created by rake tasks are stored inside the foreman container.
+        Copy them to the host with: podman cp foreman:<container-path> <host-path>
+EOF
+
+TTY_ARGS=()
+if [ -t 0 ]; then
+    TTY_ARGS=(-it)
+fi
+
+exec podman exec "${TTY_ARGS[@]}" foreman foreman-rake "$@"

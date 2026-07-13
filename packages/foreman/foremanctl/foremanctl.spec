@@ -2,12 +2,13 @@
 
 Name:      foremanctl
 Version:   2.3.0
-Release:   2%{?dist}
+Release:   3%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
 URL:       https://github.com/theforeman/foremanctl
-Source:    https://github.com/theforeman/foremanctl/releases/download/%{version}/%{name}-%{version}.tar.gz
+Source0:    https://github.com/theforeman/foremanctl/releases/download/%{version}/%{name}-%{version}.tar.gz
+Source1:   foreman-rake
 
 BuildArch: noarch
 Requires:  python3.12-obsah >= 1.8.1
@@ -48,12 +49,12 @@ install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_bindir}
 install -d -m0750 %{buildroot}%{_sharedstatedir}/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
+install -D -m0755 %{SOURCE1} %{buildroot}%{_sbindir}/foreman-rake
 
 cp inventories/quadlet %{buildroot}%{_sysconfdir}/%{name}/inventory
 cp -r src %{buildroot}%{_datadir}/%{name}
 cp -r %{name} %{buildroot}%{_bindir}/%{name}
 cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
-
 
 %files
 %{_bindir}/%{name}
@@ -61,9 +62,13 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 %config(noreplace) %{_sysconfdir}/%{name}
 %{_sharedstatedir}/%{name}
 %{_localstatedir}/log/%{name}
+%attr(0755, root, root) %{_sbindir}/foreman-rake
 
 
 %changelog
+* Mon Jul 13 2026 Shim Shtein - 2.3.0-3
+- Add foreman-rake wrapper script
+
 * Thu Jun 25 2026 Stejskal Leos - 2.3.0-2
 - Add skopeo to the Recommends list
 
