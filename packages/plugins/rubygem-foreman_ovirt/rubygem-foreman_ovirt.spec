@@ -4,7 +4,7 @@
 %global foreman_min_version 3.16
 
 Name: rubygem-%{gem_name}
-Version: 2.0.3
+Version: 2.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: oVirt as a compute resource for The Foreman
 License: GPLv3
@@ -20,9 +20,7 @@ Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.7
-Requires: ruby < 4
 BuildRequires: ruby >= 2.7
-BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildRequires: rubygem(fog-ovirt) >= 2.0.3
 BuildRequires: rubygem(ovirt-engine-sdk) >= 4.6.0
@@ -99,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Jul 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.4-1
+- Update to 2.0.4
+
 * Sun Dec 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.3-1
 - Update to 2.0.3
 
