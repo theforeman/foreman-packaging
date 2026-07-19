@@ -2,7 +2,7 @@
 %global gem_name anonymous_loader
 
 Name: rubygem-%{gem_name}
-Version: 0.1.2
+Version: 0.1.3
 Release: 1%{?dist}
 Summary: Load Ruby source files inside anonymous namespaces
 License: MIT
@@ -50,6 +50,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %{gem_instdir}/CITATION.cff
 %license %{gem_instdir}/LICENSE.md
+%license %{gem_instdir}/MIT.md
 %{gem_instdir}/certs
 %{gem_libdir}
 %{gem_instdir}/sig
@@ -67,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.3-1
+- Update to 0.1.3
+
 * Wed Jun 24 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.2-1
 - Update to 0.1.2
 
