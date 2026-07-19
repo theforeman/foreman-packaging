@@ -2,7 +2,7 @@
 %global gem_name oauth-tty
 
 Name: rubygem-%{gem_name}
-Version: 1.0.12
+Version: 1.0.13
 Release: 1%{?dist}
 Summary: OAuth 1.0 TTY CLI
 License: MIT
@@ -55,6 +55,7 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %{_bindir}/oauth
 %exclude %{gem_instdir}/certs
 %license %{gem_instdir}/LICENSE.md
+%license %{gem_instdir}/MIT.md
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %doc %{gem_instdir}/SECURITY.md
 %exclude %{gem_instdir}/CITATION.cff
@@ -73,6 +74,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.13-1
+- Update to 1.0.13
+
 * Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.12-1
 - Update to 1.0.12
 
