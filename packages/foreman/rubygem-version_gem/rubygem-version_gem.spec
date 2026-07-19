@@ -2,7 +2,7 @@
 %global gem_name version_gem
 
 Name: rubygem-%{gem_name}
-Version: 1.1.13
+Version: 1.1.14
 Release: 1%{?dist}
 Summary: Enhance your VERSION! Sugar for Version modules
 License: MIT
@@ -49,6 +49,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/CODE_OF_CONDUCT.md
 %exclude %{gem_instdir}/certs
 %license %{gem_instdir}/LICENSE.md
+%license %{gem_instdir}/MIT.md
 %doc %{gem_instdir}/SECURITY.md
 %exclude %{gem_instdir}/sig/
 %{gem_libdir}
@@ -65,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/RUBOCOP.md
 
 %changelog
+* Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.14-1
+- Update to 1.1.14
+
 * Wed Jun 24 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.13-1
 - Update to 1.1.13
 
