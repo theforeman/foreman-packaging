@@ -2,7 +2,7 @@
 %global gem_name auth-sanitizer
 
 Name: rubygem-%{gem_name}
-Version: 0.2.2
+Version: 0.2.3
 Release: 1%{?dist}
 Summary: Configurable KV output redaction
 License: MIT
@@ -49,6 +49,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/CITATION.cff
 %exclude %{gem_instdir}/certs
 %license %{gem_instdir}/LICENSE.md
+%license %{gem_instdir}/MIT.md
 %{gem_libdir}
 %exclude %{gem_instdir}/sig
 %exclude %{gem_cache}
@@ -65,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.3-1
+- Update to 0.2.3
+
 * Tue Jun 23 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.2-1
 - Update to 0.2.2
 
