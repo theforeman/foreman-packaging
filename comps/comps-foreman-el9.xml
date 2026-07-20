@@ -187,7 +187,6 @@
       <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-apipie-dsl</packagereq>
-      <packagereq type="default">rubygem-apipie-params</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
       <packagereq type="default">rubygem-audited</packagereq>
       <packagereq type="default">rubygem-auth-sanitizer</packagereq>
@@ -197,7 +196,6 @@
       <packagereq type="default">rubygem-builder</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
-      <packagereq type="default">rubygem-colorize</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">rubygem-connection_pool</packagereq>
@@ -206,7 +204,6 @@
       <packagereq type="default">rubygem-daemons</packagereq>
       <packagereq type="default">rubygem-deacon</packagereq>
       <packagereq type="default">rubygem-declarative</packagereq>
-      <packagereq type="default">rubygem-declarative-option</packagereq>
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
       <packagereq type="default">rubygem-domain_name</packagereq>
       <packagereq type="default">rubygem-dynflow</packagereq>
@@ -247,12 +244,6 @@
       <packagereq type="default">rubygem-globalid</packagereq>
       <packagereq type="default">rubygem-google-apis-compute_v1</packagereq>
       <packagereq type="default">rubygem-google-apis-core</packagereq>
-      <packagereq type="default">rubygem-google-apis-dns_v1</packagereq>
-      <packagereq type="default">rubygem-google-apis-iamcredentials_v1</packagereq>
-      <packagereq type="default">rubygem-google-apis-monitoring_v3</packagereq>
-      <packagereq type="default">rubygem-google-apis-pubsub_v1</packagereq>
-      <packagereq type="default">rubygem-google-apis-sqladmin_v1beta4</packagereq>
-      <packagereq type="default">rubygem-google-apis-storage_v1</packagereq>
       <packagereq type="default">rubygem-google-cloud-env</packagereq>
       <packagereq type="default">rubygem-googleauth</packagereq>
       <packagereq type="default">rubygem-graphql</packagereq>
@@ -284,7 +275,6 @@
       <packagereq type="default">rubygem-mail</packagereq>
       <packagereq type="default">rubygem-marcel</packagereq>
       <packagereq type="default">rubygem-memoist</packagereq>
-      <packagereq type="default">rubygem-method_source</packagereq>
       <packagereq type="default">rubygem-mime-types</packagereq>
       <packagereq type="default">rubygem-mime-types-data</packagereq>
       <packagereq type="default">rubygem-mini_mime</packagereq>
@@ -370,7 +360,6 @@
       <packagereq type="default">rubygem-trailblazer-option</packagereq>
       <packagereq type="default">rubygem-tzinfo</packagereq>
       <packagereq type="default">rubygem-uber</packagereq>
-      <packagereq type="default">rubygem-uglifier</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">rubygem-version_gem</packagereq>
@@ -406,7 +395,6 @@
       <packagereq type="default">rubygem-ansi-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-apipie-dsl-doc</packagereq>
-      <packagereq type="default">rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">rubygem-audited-doc</packagereq>
       <packagereq type="default">rubygem-auth-sanitizer-doc</packagereq>
@@ -416,7 +404,6 @@
       <packagereq type="default">rubygem-builder-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
-      <packagereq type="default">rubygem-colorize-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">rubygem-connection_pool-doc</packagereq>
@@ -425,7 +412,6 @@
       <packagereq type="default">rubygem-daemons-doc</packagereq>
       <packagereq type="default">rubygem-deacon-doc</packagereq>
       <packagereq type="default">rubygem-declarative-doc</packagereq>
-      <packagereq type="default">rubygem-declarative-option-doc</packagereq>
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">rubygem-domain_name-doc</packagereq>
       <packagereq type="default">rubygem-dynflow-doc</packagereq>
@@ -466,12 +452,6 @@
       <packagereq type="default">rubygem-globalid-doc</packagereq>
       <packagereq type="default">rubygem-google-apis-compute_v1-doc</packagereq>
       <packagereq type="default">rubygem-google-apis-core-doc</packagereq>
-      <packagereq type="default">rubygem-google-apis-dns_v1-doc</packagereq>
-      <packagereq type="default">rubygem-google-apis-iamcredentials_v1-doc</packagereq>
-      <packagereq type="default">rubygem-google-apis-monitoring_v3-doc</packagereq>
-      <packagereq type="default">rubygem-google-apis-pubsub_v1-doc</packagereq>
-      <packagereq type="default">rubygem-google-apis-sqladmin_v1beta4-doc</packagereq>
-      <packagereq type="default">rubygem-google-apis-storage_v1-doc</packagereq>
       <packagereq type="default">rubygem-googleauth-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">rubygem-graphql-batch-doc</packagereq>
@@ -503,7 +483,6 @@
       <packagereq type="default">rubygem-mail-doc</packagereq>
       <packagereq type="default">rubygem-marcel-doc</packagereq>
       <packagereq type="default">rubygem-memoist-doc</packagereq>
-      <packagereq type="default">rubygem-method_source-doc</packagereq>
       <packagereq type="default">rubygem-mime-types-data-doc</packagereq>
       <packagereq type="default">rubygem-mime-types-doc</packagereq>
       <packagereq type="default">rubygem-mini_mime-doc</packagereq>
@@ -589,7 +568,6 @@
       <packagereq type="default">rubygem-trailblazer-option-doc</packagereq>
       <packagereq type="default">rubygem-tzinfo-doc</packagereq>
       <packagereq type="default">rubygem-uber-doc</packagereq>
-      <packagereq type="default">rubygem-uglifier-doc</packagereq>
       <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">rubygem-version_gem-doc</packagereq>
