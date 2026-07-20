@@ -190,7 +190,6 @@ ruby_core_packages_tier1:
     rubygem-anonymous_loader: {}
     rubygem-apipie-bindings: {}
     rubygem-apipie-dsl: {}
-    rubygem-apipie-params: {}
     rubygem-apipie-rails: {}
     rubygem-audited: {}
     rubygem-autoprefixer-rails: {}
@@ -199,7 +198,6 @@ ruby_core_packages_tier1:
     rubygem-builder: {}
     rubygem-bundler_ext: {}
     rubygem-clamp: {}
-    rubygem-colorize: {}
     rubygem-concurrent-ruby: {}
     rubygem-concurrent-ruby-edge: {}
     rubygem-connection_pool: {}
@@ -208,7 +206,6 @@ ruby_core_packages_tier1:
     rubygem-daemons: {}
     rubygem-deacon: {}
     rubygem-declarative: {}
-    rubygem-declarative-option: {}
     rubygem-deep_cloneable: {}
     rubygem-domain_name: {}
     rubygem-dynflow: {}
@@ -249,12 +246,6 @@ ruby_core_packages_tier1:
     rubygem-globalid: {}
     rubygem-google-apis-compute_v1: {}
     rubygem-google-apis-core: {}
-    rubygem-google-apis-dns_v1: {}
-    rubygem-google-apis-iamcredentials_v1: {}
-    rubygem-google-apis-monitoring_v3: {}
-    rubygem-google-apis-pubsub_v1: {}
-    rubygem-google-apis-sqladmin_v1beta4: {}
-    rubygem-google-apis-storage_v1: {}
     rubygem-google-cloud-env: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}
@@ -280,7 +271,6 @@ ruby_core_packages_tier1:
     rubygem-mail: {}
     rubygem-marcel: {}
     rubygem-memoist: {}
-    rubygem-method_source: {}
     rubygem-mime-types: {}
     rubygem-mime-types-data: {}
     rubygem-mini_mime: {}
@@ -356,7 +346,6 @@ ruby_core_packages_tier1:
     rubygem-trailblazer-option: {}
     rubygem-tzinfo: {}
     rubygem-uber: {}
-    rubygem-uglifier: {}
     rubygem-unicode-display_width: {}
     rubygem-validates_lengths_from_database: {}
     rubygem-version_gem: {}
