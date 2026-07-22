@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.15
+Version: 1.16
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -28,6 +28,12 @@ Obsoletes: rubygem-ruby_parser-doc < 3.21.1-4
 Obsoletes: rubygem-hammer_cli_foreman_virt_who_configure < 0.1.4
 Obsoletes: rubygem-stomp < 1.4.10-2
 Obsoletes: rubygem-stomp-doc < 1.4.10-2
+Obsoletes: rubygem-coffee-rails < 5.0.1
+Obsoletes: rubygem-coffee-rails-doc < 5.0.1
+Obsoletes: rubygem-coffee-script < 2.4.2
+Obsoletes: rubygem-coffee-script-doc < 2.4.2
+Obsoletes: rubygem-coffee-script-source < 1.12.3
+Obsoletes: rubygem-coffee-script-source-doc < 1.12.3
 
 %description
 This package exists only to obsolete other packages which need to be removed
@@ -42,6 +48,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Tue Jul 14 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.16-1
+- Obsolete rubygem-coffee-rails, rubygem-coffee-script, rubygem-coffee-script-source
+
 * Mon Jun 22 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1.15-1
 - Obsolete rubygem-stomp
 
