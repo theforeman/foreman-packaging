@@ -42,7 +42,7 @@ copr_projects:
             - "{{ puppet_baseurl }}/el/$releasever/$basearch/"
             - "{{ foreman_staging }}"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-el{{ rhel_10 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
+          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
         - name: "rhel-{{ rhel_9 }}-x86_64"
           modules: "{{ core_modules_el9 }}"
           rpmbuild_with: "{{ ['bootstrap'] if bootstrap|bool else []}}"
@@ -60,7 +60,7 @@ copr_projects:
             - "{{ foreman_staging }}"
             - "{{ plugins_staging }}"
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-plugins-el{{ rhel_10 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
+          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
         - name: "rhel-{{ rhel_9 }}-x86_64"
           modules: "{{ core_modules_el9 }}"
           external_repos:
@@ -78,7 +78,7 @@ copr_projects:
             - "{{ plugins_staging }}"
             - "{{ katello_staging }}"
           comps_file: "{{ inventory_dir }}/comps/comps-katello-el{{ rhel_10 }}.xml"
-          buildroot_packages: "{{ core_buildroot_packages }}"
+          buildroot_packages: [] # needs to be "{{ core_buildroot_packages }}" once foreman is built
         - name: "rhel-{{ rhel_9 }}-x86_64"
           modules: "{{ core_modules_el9 }}"
           external_repos:
