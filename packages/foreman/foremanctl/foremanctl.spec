@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   2.3.0
-Release:   2%{?dist}
+Release:   3%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -31,8 +31,11 @@ Install Foreman using containers. They are deployed as podman quadlets.
 %setup -q -n %{name}-%{version}
 
 %build
-cat > inventories/quadlet <<INVENTORY
+cat > inventories/inventory <<INVENTORY
 [quadlet]
+localhost ansible_connection=local
+
+[proxy]
 localhost ansible_connection=local
 INVENTORY
 
@@ -49,7 +52,7 @@ install -d -m0755 %{buildroot}%{_bindir}
 install -d -m0750 %{buildroot}%{_sharedstatedir}/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 
-cp inventories/quadlet %{buildroot}%{_sysconfdir}/%{name}/inventory
+cp inventories/inventory %{buildroot}%{_sysconfdir}/%{name}/inventory
 cp -r src %{buildroot}%{_datadir}/%{name}
 cp -r %{name} %{buildroot}%{_bindir}/%{name}
 cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
@@ -64,6 +67,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Wed Jul 22 2026 Arvind Jangir <ajangir@redhat.com> 2.3.0-3
+- Add proxy inventory group
+
 * Thu Jun 25 2026 Stejskal Leos - 2.3.0-2
 - Add skopeo to the Recommends list
 
