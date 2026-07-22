@@ -199,9 +199,6 @@ ruby_core_packages_tier1:
     rubygem-builder: {}
     rubygem-bundler_ext: {}
     rubygem-clamp: {}
-    rubygem-coffee-script: {}
-    rubygem-coffee-script-source: {}
-    rubygem-coffee-rails: {}
     rubygem-colorize: {}
     rubygem-concurrent-ruby: {}
     rubygem-concurrent-ruby-edge: {}
