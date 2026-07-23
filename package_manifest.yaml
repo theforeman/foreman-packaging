@@ -198,6 +198,7 @@ ruby_core_packages_tier1:
     rubygem-builder: {}
     rubygem-bundler_ext: {}
     rubygem-clamp: {}
+    rubygem-colorize: {}
     rubygem-concurrent-ruby: {}
     rubygem-concurrent-ruby-edge: {}
     rubygem-connection_pool: {}
@@ -271,6 +272,7 @@ ruby_core_packages_tier1:
     rubygem-mail: {}
     rubygem-marcel: {}
     rubygem-memoist: {}
+    rubygem-method_source: {}
     rubygem-mime-types: {}
     rubygem-mime-types-data: {}
     rubygem-mini_mime: {}
