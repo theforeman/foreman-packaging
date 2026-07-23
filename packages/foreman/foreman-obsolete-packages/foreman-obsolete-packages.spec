@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.17
+Version: 1.18
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -36,8 +36,6 @@ Obsoletes: rubygem-coffee-script-source < 1.12.3
 Obsoletes: rubygem-coffee-script-source-doc < 1.12.3
 Obsoletes: rubygem-apipie-params < 0.0.6
 Obsoletes: rubygem-apipie-params-doc < 0.0.6
-Obsoletes: rubygem-colorize < 0.8.2
-Obsoletes: rubygem-colorize-doc < 0.8.2
 Obsoletes: rubygem-declarative-option < 0.1.1
 Obsoletes: rubygem-declarative-option-doc < 0.1.1
 Obsoletes: rubygem-google-apis-dns_v1 < 0.28.1
@@ -52,8 +50,6 @@ Obsoletes: rubygem-google-apis-sqladmin_v1beta4 < 0.39.1
 Obsoletes: rubygem-google-apis-sqladmin_v1beta4-doc < 0.39.1
 Obsoletes: rubygem-google-apis-storage_v1 < 0.20.1
 Obsoletes: rubygem-google-apis-storage_v1-doc < 0.20.1
-Obsoletes: rubygem-method_source < 1.1.1
-Obsoletes: rubygem-method_source-doc < 1.1.1
 Obsoletes: rubygem-uglifier < 4.2.1
 Obsoletes: rubygem-uglifier-doc < 4.2.1
 
@@ -70,6 +66,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Wed Jul 22 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.18-1
+- Re-add rubygem-colorize and rubygem-method_source (still needed)
+
 * Wed Jul 22 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.17-1
 - Obsolete orphaned packages: google-apis-dns_v1, google-apis-iamcredentials_v1,
   google-apis-monitoring_v3, google-apis-pubsub_v1, google-apis-sqladmin_v1beta4,
