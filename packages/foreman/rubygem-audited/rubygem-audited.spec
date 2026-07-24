@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 5.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Log all changes to your models
 License: MIT
 URL: https://github.com/collectiveidea/audited
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/audited.gemspec
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.8.0-2
+- Rebuild for EL10
+
 * Tue Nov 12 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.8.0-1
 - Update to 5.8.0
 

@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: a minimal framework for command-line utilities
 License: MIT
 URL: https://github.com/mdub/clamp
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/examples
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.2-2
+- Rebuild for EL10
+
 * Wed Jun 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.2-1
 - Update to 1.5.2
 

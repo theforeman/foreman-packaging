@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Builders for MarkUp
 License: MIT
 URL: https://github.com/rails/builder
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.0-2
+- Rebuild for EL10
+
 * Thu Jul 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.3.0-1
 - Update to 3.3.0
 

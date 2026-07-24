@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Summary: Modern concurrency tools for Ruby
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.1.10-2
+- Rebuild for EL10
+
 * Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.1.10-1
 - Update to 1.1.10
 
