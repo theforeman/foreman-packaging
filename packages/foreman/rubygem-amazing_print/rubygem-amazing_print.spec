@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.7.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pretty print Ruby objects with proper indentation and colors
 License: MIT
 URL: https://github.com/amazing-print/amazing_print
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.2-2
+- Rebuild for EL10
+
 * Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.7.2-1
 - Update to 1.7.2
 
