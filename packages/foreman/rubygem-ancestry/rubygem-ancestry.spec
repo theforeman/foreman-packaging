@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.3.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Organize ActiveRecord model into a tree structure
 License: MIT
 URL: https://github.com/stefankroes/ancestry
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.3-2
+- Rebuild for EL10
+
 * Sun Apr 16 2023 Foreman Packaging Automation <packaging@theforeman.org> 4.3.3-1
 - Update to 4.3.3
 

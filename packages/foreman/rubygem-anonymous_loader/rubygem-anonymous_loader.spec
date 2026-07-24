@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Load Ruby source files inside anonymous namespaces
 License: MIT
 URL: https://github.com/ruby-oauth/anonymous_loader
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.3-2
+- Rebuild for EL10
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.3-1
 - Update to 0.1.3
 
