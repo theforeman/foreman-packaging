@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: An Action Dispatch session store backed by an Active Record class
 License: MIT
 URL: https://github.com/rails/activerecord-session_store
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-2
+- Rebuild for EL10
+
 * Thu Mar 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.0-1
 - Update to 2.2.0
 
