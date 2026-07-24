@@ -6,7 +6,7 @@
 %endif
 
 Name: yggdrasil-worker-forwarder
-Version: 0.0.4
+Version: 0.1.0
 Summary: Worker service for Yggdrasil that can forward requests to an API endpoint
 Release: 1%{?dist}
 License: GPLv3
@@ -53,6 +53,9 @@ mkdir -p %{buildroot}%{_libexecdir}
 %doc README.md
 
 %changelog
+* Fri Jul 24 2026 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-1
+- Release yggdrasil-worker-forwarder 0.1.0
+
 * Thu Jul 02 2026 Eric D. Helms <ericdhelms@gmail.com> - 0.0.4-1
 - Release yggdrasil-worker-forwarder 0.0.4
 
