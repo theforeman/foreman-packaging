@@ -124,12 +124,9 @@ foreman_packages:
     copr_projects:
       - "{{ hostvars['foreman-copr'] }}"
     repoclosure_target_repos:
-      el10:
-        - "el10-foreman-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el10: "{{ hostvars['foreman-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['foreman-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     foreman_core_packages: {}
@@ -143,12 +140,9 @@ plugin_packages:
       - "{{ hostvars['plugins-copr'] }}"
     package_base_dir: 'packages/plugins/'
     repoclosure_target_repos:
-      el10:
-        - "el10-foreman-plugins-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-plugins-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el10: "{{ hostvars['plugins-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['plugins-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     foreman_plugin_packages: {}
@@ -569,14 +563,11 @@ foreman_client_packages:
       - "{{ hostvars['client-copr'] }}"
     package_base_dir: 'packages/client/'
     repoclosure_target_repos:
-      el10:
-        - "el10-foreman-client-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-client-{{ foreman_version }}-staging"
       el8:
         - "el8-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el10: "{{ hostvars['foreman-client-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
       leap156:
@@ -600,12 +591,9 @@ katello_packages:
       - "{{ hostvars['katello-copr'] }}"
     package_base_dir: 'packages/katello/'
     repoclosure_target_repos:
-      el10:
-        - "el10-katello-{{ katello_version }}-staging"
       el9:
         - "el9-katello-{{ katello_version }}-staging"
     repoclosure_lookaside_repos:
-      el10: "{{ hostvars['katello-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['katello-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
   children:
     satellite_packages: {}
@@ -916,15 +904,6 @@ foreman_proxy_other_plugin_packages_tier2:
 
 repoclosures:
   hosts:
-    foreman-staging-repoclosure-el10:
-      repoclosure_target_repos:
-        el10:
-          - "el10-foreman-{{ foreman_version }}-staging"
-      repoclosure_target_dist: el10
-      repoclosure_lookaside_repos:
-        el10:
-          - el10-baseos
-          - el10-appstream
     foreman-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -937,15 +916,6 @@ repoclosures:
           - "el9-openvox-{{ puppet_version }}"
           - "el9-candlepin-{{ candlepin_version }}-staging"
           - "el9-foreman-plugins-{{ foreman_version }}-staging"
-    plugins-staging-repoclosure-el10:
-      repoclosure_target_repos:
-        el10:
-          - "el10-foreman-plugins-{{ foreman_version }}-staging"
-      repoclosure_target_dist: el10
-      repoclosure_lookaside_repos:
-        el10:
-          - el10-baseos
-          - el10-appstream
     plugins-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -958,15 +928,6 @@ repoclosures:
           - el9-configmanagement-salt
           - "el9-openvox-{{ puppet_version }}"
           - "el9-foreman-{{ foreman_version }}-staging"
-    katello-staging-repoclosure-el10:
-      repoclosure_target_repos:
-        el10:
-          - "el10-katello-{{ katello_version }}-staging"
-      repoclosure_target_dist: el10
-      repoclosure_lookaside_repos:
-        el10:
-          - el10-baseos
-          - el10-appstream
     katello-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -980,15 +941,6 @@ repoclosures:
           - "el9-foreman-{{ foreman_version }}-staging"
           - "el9-foreman-plugins-{{ foreman_version }}-staging"
           - "el9-candlepin-{{ candlepin_version }}-staging"
-    foreman-client-staging-repoclosure-el10:
-      repoclosure_target_repos:
-        el10:
-          - "el10-foreman-client-{{ foreman_version }}-staging"
-      repoclosure_target_dist: el10
-      repoclosure_lookaside_repos:
-        el10:
-          - el10-baseos
-          - el10-appstream
     foreman-client-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -1020,14 +972,11 @@ foreman_release_packages:
       - "{{ hostvars['client-copr'] }}"
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
-      el10:
-        - "el10-foreman-client-{{ foreman_version }}-staging"
       el9:
         - "el9-foreman-client-{{ foreman_version }}-staging"
       el8:
         - "el8-foreman-client-{{ foreman_version }}-staging"
     repoclosure_lookaside_repos:
-      el10: "{{ hostvars['foreman-client-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
   hosts:
