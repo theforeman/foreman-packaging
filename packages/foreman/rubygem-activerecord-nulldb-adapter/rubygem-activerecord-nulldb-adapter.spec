@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The Null Object pattern as applied to ActiveRecord database adapters
 License: MIT
 URL: https://github.com/nulldb/nulldb
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.2-2
+- Rebuild for EL10
+
 * Wed Dec 10 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.2-1
 - Update to 1.2.2
 
