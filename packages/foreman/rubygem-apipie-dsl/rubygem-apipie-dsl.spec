@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.6.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby DSL documentation tool
 License: MIT
 URL: https://github.com/Apipie/apipie-dsl
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.3-2
+- Rebuild for EL10
+
 * Fri Jun 26 2026 Oleh Fedorenko <ofedoren@redhat.com> - 2.6.3-1
 - Update to 2.6.3
 
