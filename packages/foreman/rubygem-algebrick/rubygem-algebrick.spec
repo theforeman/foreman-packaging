@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.7.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Algebraic types and pattern matching for Ruby
 License: Apache-2.0
 URL: https://github.com/pitr-ch/algebrick
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.5-2
+- Rebuild for EL10
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.7.5-1
 - Update to 0.7.5
 
