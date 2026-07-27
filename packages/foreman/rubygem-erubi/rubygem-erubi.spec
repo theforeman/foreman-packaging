@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.13.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Small ERB Implementation
 License: MIT
 URL: https://github.com/jeremyevans/erubi
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.13.1-2
+- Rebuild for EL10
+
 * Sun Dec 22 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.1-1
 - Update to 1.13.1
 
