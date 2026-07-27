@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: LDAP querying tools for Active Directory, FreeIPA and POSIX-style
 License: GPL-2.0-only
 URL: https://github.com/theforeman/ldap_fluff
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-2
+- Rebuild for EL10
+
 * Wed May 07 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.0-1
 - Update to 0.9.0
 
