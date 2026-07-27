@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: JSON parsing for fog providers
 License: MIT
 URL: https://github.com/fog/fog-json
@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.0-2
+- Rebuild for EL10
+
 * Thu Jul 02 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.0-1
 - Update to 1.4.0
 
