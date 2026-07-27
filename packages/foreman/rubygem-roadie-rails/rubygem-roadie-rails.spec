@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Making HTML emails comfortable for the Rails rockstars
 License: MIT
 URL: https://github.com/Mange/roadie-rails
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/roadie-rails.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.0-2
+- rebuilt
+
 * Sun Oct 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.4.0-1
 - Update to 3.4.0
 
