@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.2.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A suite of instrumentation metric primitivesthat can be exposed through a web services interface
 License: Apache-2.0
 URL: https://github.com/prometheus/client_ruby
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.5-2
+- rebuilt
+
 * Sun Jul 06 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.2.5-1
 - Update to 4.2.5
 
