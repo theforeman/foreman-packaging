@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Catches exceptions and retries each request a limited number of times
 License: MIT
 URL: https://github.com/lostisland/faraday-retry
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.4-2
+- Rebuild for EL10
+
 * Mon Jun 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.4-1
 - Update to 1.0.4
 
