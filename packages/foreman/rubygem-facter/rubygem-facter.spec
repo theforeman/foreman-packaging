@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.10.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Facter, a system inventory tool
 License: ASL 2.0
 URL: https://github.com/puppetlabs/facter
@@ -84,6 +84,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.10.0-2
+- Rebuild for EL10
+
 * Sun Nov 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 4.10.0-1
 - Update to 4.10.0
 
