@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Convert gettext PO files to JSON
 License: MIT
 URL: https://github.com/webhippie/po_to_json
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
+- rebuilt
+
 * Fri May 05 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.1.0-1
 - Update to 1.1.0
 
