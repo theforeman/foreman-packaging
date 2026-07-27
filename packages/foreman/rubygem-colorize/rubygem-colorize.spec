@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.8.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Ruby gem for colorizing text using ANSI escape sequences
 License: GPL-2.0
 URL: http://github.com/fazibear/colorize
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.1-4
+- Rebuild for EL10
+
 * Wed Jul 22 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.1-3
 - Re-add package, convert from SCL to default template
 
