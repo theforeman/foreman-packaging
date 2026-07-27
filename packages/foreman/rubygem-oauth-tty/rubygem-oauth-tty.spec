@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.13
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OAuth 1.0 TTY CLI
 License: MIT
 URL: https://github.com/ruby-oauth/oauth-tty
@@ -74,6 +74,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.13-2
+- rebuilt
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.13-1
 - Update to 1.0.13
 
