@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Sprockets Rails integration
 License: MIT
 URL: https://github.com/rails/sprockets-rails
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.5.2-2
+- rebuilt
+
 * Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.2-1
 - Update to 3.5.2
 
