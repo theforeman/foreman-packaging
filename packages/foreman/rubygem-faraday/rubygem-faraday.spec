@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.10.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP/REST API client library
 License: MIT
 URL: https://lostisland.github.io/faraday
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.10.6-2
+- Rebuild for EL10
+
 * Mon Jun 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.10.6-1
 - Update to 1.10.6
 
