@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.6.18
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Efficient and thread-safe constant autoloader
 License: MIT
 URL: https://github.com/fxn/zeitwerk
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.18-2
+- rebuilt
+
 * Wed Sep 04 2024 Foreman Packaging Automation <packaging@theforeman.org> - 2.6.18-1
 - Update to 2.6.18
 
