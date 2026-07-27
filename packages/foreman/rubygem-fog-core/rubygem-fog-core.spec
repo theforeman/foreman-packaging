@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Shared classes and tests for fog providers and services
 License: MIT
 URL: https://github.com/fog/fog-core
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/changelog.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-2
+- Rebuild for EL10
+
 * Tue Mar 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.6.0-1
 - Update to 2.6.0
 
