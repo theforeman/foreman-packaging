@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A query batching executor for the graphql gem
 License: MIT
 URL: https://github.com/Shopify/graphql-batch
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/graphql-batch.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.1-2
+- Rebuild for EL10
+
 * Sun Sep 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.1-1
 - Update to 0.6.1
 
