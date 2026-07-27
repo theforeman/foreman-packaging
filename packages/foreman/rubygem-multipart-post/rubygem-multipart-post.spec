@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A multipart form post accessory for Net::HTTP
 License: MIT
 URL: https://github.com/socketry/multipart-post
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.1-2
+- rebuilt
+
 * Wed Jul 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.4.1-1
 - Update to 2.4.1
 
