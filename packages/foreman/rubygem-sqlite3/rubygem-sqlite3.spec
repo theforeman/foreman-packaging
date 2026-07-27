@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.7.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org)
 License: BSD-3-Clause
 URL: https://github.com/sparklemotion/sqlite3-ruby
@@ -107,6 +107,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.3-2
+- rebuilt
+
 * Fri Dec 19 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.3-1
 - Update to 1.7.3
 
