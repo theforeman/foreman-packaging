@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.6.2
-Release: 10%{?dist}
+Release: 11%{?dist}
 Summary: Font-Awesome SASS
 License: MIT
 URL: https://github.com/FortAwesome/font-awesome-sass
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.6.2-11
+- Rebuild for EL10
+
 * Fri Feb 14 2025 Adam Ruzicka <aruzicka@redhat.com> - 4.6.2-10
 - Do not use obsolete form of patch macro
 
