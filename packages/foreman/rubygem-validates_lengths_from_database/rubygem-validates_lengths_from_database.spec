@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Automatic maximum-length validations
 License: MIT
 URL: https://github.com/rubiety/validates_lengths_from_database
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.0-2
+- rebuilt
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.8.0-1
 - Update to 0.8.0
 
