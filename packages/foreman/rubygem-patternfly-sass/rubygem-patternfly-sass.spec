@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.59.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 License: ASL 2.0
 URL: https://github.com/Patternfly/patternfly
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/patternfly-sass.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.59.5-2
+- rebuilt
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.59.5-1
 - Update to 3.59.5
 
