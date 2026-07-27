@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Common locale data and translations for Rails i18n
 License: MIT
 URL: https://github.com/svenfuchs/rails-i18n
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.0.10-2
+- rebuilt
+
 * Wed Oct 30 2024 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.10-1
 - Update to 7.0.10
 
