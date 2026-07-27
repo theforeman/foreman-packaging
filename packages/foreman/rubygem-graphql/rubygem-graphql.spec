@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.13.25
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A GraphQL language and runtime for Ruby
 License: MIT
 URL: https://github.com/rmosolgo/graphql-ruby
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.13.25-2
+- Rebuild for EL10
+
 * Wed Mar 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.25-1
 - Update to 1.13.25
 
