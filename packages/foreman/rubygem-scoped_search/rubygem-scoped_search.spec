@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Easily search you ActiveRecord models with a simple query language using a named scope
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.1-2
+- rebuilt
+
 * Wed Oct 01 2025 Adam Ruzicka <aruzicka@redhat.com> - 4.3.1-1
 - Update to 4.3.1
 
