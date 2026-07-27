@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A Ruby client library for Redis
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.5.1-2
+- rebuilt
+
 * Mon Mar 21 2022 Evgeni Golov 4.5.1-1
 - Update to 4.5.1
 
