@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.16.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: memoize methods invocation
 License: MIT
 URL: https://github.com/matthewrudy/memoist
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.16.2-2
+- rebuilt
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.16.2-1
 - Update to 0.16.2
 
