@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.0.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A ping interface for Ruby
 License: Artistic 2.0
 URL: https://github.com/chernesk/net-ping
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.8-2
+- rebuilt
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.0.8-1
 - Update to 2.0.8
 
