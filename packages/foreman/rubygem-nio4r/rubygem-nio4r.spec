@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.7.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: New IO for Ruby
 License: MIT
 URL: https://github.com/socketry/nio4r
@@ -79,6 +79,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/releases.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.7.5-2
+- rebuilt
+
 * Mon Nov 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.7.5-1
 - Update to 2.7.5
 
