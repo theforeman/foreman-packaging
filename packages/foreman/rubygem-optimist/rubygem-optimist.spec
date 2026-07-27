@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Optimist is a commandline option parser for Ruby that just gets out of your way
 License: MIT
 URL: https://manageiq.github.io/optimist/
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.1-2
+- rebuilt
+
 * Thu Mar 20 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.2.1-1
 - Update to 3.2.1
 
