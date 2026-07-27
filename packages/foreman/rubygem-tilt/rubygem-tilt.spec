@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Generic interface to multiple Ruby template engines
 License: MIT
 URL: https://github.com/jeremyevans/tilt
@@ -64,6 +64,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.8.0-2
+- rebuilt
+
 * Wed Jul 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.8.0-1
 - Update to 2.8.0
 
