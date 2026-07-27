@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A collection of text algorithms
 License: MIT
 URL: https://github.com/threedaymonk/text
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.1-2
+- rebuilt
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.3.1-1
 - Update to 1.3.1
 
