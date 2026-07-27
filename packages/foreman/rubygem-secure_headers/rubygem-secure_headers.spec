@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Manages application of security headers with many safe defaults.
 License: MIT
 URL: https://github.com/twitter/secureheaders
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/secure_headers.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.3.0-2
+- rebuilt
+
 * Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 7.3.0-1
 - Update to 7.3.0
 
