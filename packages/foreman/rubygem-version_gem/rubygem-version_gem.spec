@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.14
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Enhance your VERSION! Sugar for Version modules
 License: MIT
 URL: https://gitlab.com/oauth-xx/version_gem
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/RUBOCOP.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.14-2
+- rebuilt
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.14-1
 - Update to 1.1.14
 
