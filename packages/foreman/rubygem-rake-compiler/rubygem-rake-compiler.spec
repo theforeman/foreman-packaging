@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Rake-based Ruby Extension (C, Java) task generator
 License: MIT
 URL: https://github.com/rake-compiler/rake-compiler
@@ -72,6 +72,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/features
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.1-2
+- rebuilt
+
 * Wed Dec 17 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.1-1
 - Update to 1.3.1
 
