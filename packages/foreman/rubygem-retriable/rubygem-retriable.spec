@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Retriable is a simple DSL to retry failed code blocks with randomized exponential backoff
 Group: Development/Languages
 License: MIT
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.2-4
+- rebuilt
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.2-3
 - Rebuild against rh-ruby27
 
