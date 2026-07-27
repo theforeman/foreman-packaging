@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HighLine is a high-level command-line IO library
 License: Ruby
 URL: https://github.com/JEG2/highline
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/highline.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.2-2
+- Rebuild for EL10
+
 * Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.1.2-1
 - Update to 3.1.2
 
