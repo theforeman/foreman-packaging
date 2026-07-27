@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.17.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 # MIT: see LICENSE.md
 # ASL 2.0
@@ -188,6 +188,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/gumbo-parser/src/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.17.2-4
+- rebuilt
+
 * Mon Jun 29 2026 Eric D. Helms <ericdhelms@gmail.com> - 1.17.2-3
 - Add CVE-2026-57236 patch for use-after-free in document encoding setter
 
