@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Refer to any model with a URI: gid://app/class/id
 License: MIT
 URL: https://www.rubyonrails.org
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.0-2
+- Rebuild for EL10
+
 * Wed Jun 24 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.0-1
 - Update to 1.4.0
 

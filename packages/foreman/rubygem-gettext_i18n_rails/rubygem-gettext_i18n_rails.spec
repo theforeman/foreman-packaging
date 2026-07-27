@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.13.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Simple FastGettext Rails integration
 License: MIT
 URL: https://github.com/grosser/gettext_i18n_rails
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.13.0-2
+- Rebuild for EL10
+
 * Sun Aug 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.0-1
 - Update to 1.13.0
 

@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.54.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Simple REST client for Compute Engine API V1
 License: Apache-2.0
 URL: https://github.com/google/google-api-ruby-client
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.54.0-2
+- Rebuild for EL10
+
 * Thu Nov 03 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.54.0-1
 - Update to 0.54.0
 

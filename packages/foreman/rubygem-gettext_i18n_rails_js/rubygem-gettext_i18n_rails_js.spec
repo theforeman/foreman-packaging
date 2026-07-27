@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Extends gettext_i18n_rails making your .po files available to client side javascript as JSON
 License: MIT
 URL: https://github.com/webhippie/gettext_i18n_rails_js
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.0-2
+- Rebuild for EL10
+
 * Wed May 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.4.0-1
 - Update to 1.4.0
 

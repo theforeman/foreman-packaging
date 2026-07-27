@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Common utility and base classes for legacy Google REST clients
 License: Apache-2.0
 URL: https://github.com/google/google-api-ruby-client
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.1-2
+- Rebuild for EL10
+
 * Sun Oct 23 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.9.1-1
 - Update to 0.9.1
 
