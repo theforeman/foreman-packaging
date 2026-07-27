@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.5.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
 License: MIT
 URL: https://github.com/seattlerb/ruby2ruby
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.5.2-3
+- rebuilt
+
 * Tue Jun 02 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 2.5.2-2
 - Drop ruby_parser dependency and r2r_show binary
 
