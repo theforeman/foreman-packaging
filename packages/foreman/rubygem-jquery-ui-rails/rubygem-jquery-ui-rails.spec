@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: jQuery UI packaged for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.1-3
+- Rebuild for EL10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.1-2
 - Rebuild against rh-ruby27
 
