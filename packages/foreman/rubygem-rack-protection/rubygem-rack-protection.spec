@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.2.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Protect against typical web attacks, works with all Rack apps, including Rails
 License: MIT
 URL: http://sinatrarb.com/protection/
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/rack-protection.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.4-2
+- rebuilt
+
 * Wed Jan 04 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.2.4-1
 - Update to 2.2.4
 
