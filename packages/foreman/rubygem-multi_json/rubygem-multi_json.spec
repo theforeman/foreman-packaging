@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.19.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A common interface to multiple JSON libraries
 License: MIT
 URL: https://github.com/intridea/multi_json
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.19.1-2
+- rebuilt
+
 * Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.19.1-1
 - Update to 1.19.1
 
