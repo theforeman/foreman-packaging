@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Rails REST API documentation tool
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.1-2
+- Rebuild for EL10
+
 * Fri Jun 26 2026 Oleh Fedorenko <ofedoren@redhat.com> - 1.5.1-1
 - Update to 1.5.1
 
