@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Wrapper around Net::HTTP with AF_UNIX support
 Group: Development/Languages
 License: Apache 2.0
@@ -92,6 +92,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.2-3
+- rebuilt
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.2-2
 - Rebuild against rh-ruby27
 
