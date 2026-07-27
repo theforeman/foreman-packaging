@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Perform multipart-post requests using Faraday
 License: MIT
 URL: https://github.com/lostisland/faraday-multipart
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-2
+- Rebuild for EL10
+
 * Mon Jun 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.0-1
 - Update to 1.2.0
 
