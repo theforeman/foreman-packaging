@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.0.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Time Zone Library
 License: MIT
 URL: https://tzinfo.github.io
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.6-2
+- rebuilt
+
 * Wed Feb 01 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.0.6-1
 - Update to 2.0.6
 
