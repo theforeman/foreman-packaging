@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Terminal painter!
 License: MIT
 URL: https://github.com/janlelis/paint
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/paint.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.0-2
+- rebuilt
+
 * Sun Jul 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.3.0-1
 - Update to 2.3.0
 
