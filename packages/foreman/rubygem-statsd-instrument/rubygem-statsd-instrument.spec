@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.9.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A StatsD client for Ruby apps
 License: MIT
 URL: https://github.com/Shopify/statsd-instrument
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.9.2-2
+- rebuilt
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.9.2-1
 - Update to 2.9.2
 
