@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Ruby/EventMachine library
 License: Ruby and GPL-2.0
 URL: https://rubyeventmachine.com
@@ -95,6 +95,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/tests
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.7-3
+- Rebuild for EL10
+
 * Mon Dec 18 2023 Evgeni Golov - 1.2.7-2
 - Explicitly BuildRequire gcc-c++
 
