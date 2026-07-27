@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Renders and parses JSON/XML/YAML documents from and to Ruby objects
 License: MIT
 URL: https://github.com/trailblazer/representable/
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.0-2
+- rebuilt
+
 * Tue Sep 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.2.0-1
 - Update to 3.2.0
 
