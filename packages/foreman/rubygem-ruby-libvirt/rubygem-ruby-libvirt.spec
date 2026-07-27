@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.8.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby bindings for LIBVIRT
 License: LGPLv2+
 URL: https://libvirt.org/ruby/
@@ -88,6 +88,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/tests
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.4-2
+- rebuilt
+
 * Sun Nov 24 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.4-1
 - Update to 0.8.4
 
