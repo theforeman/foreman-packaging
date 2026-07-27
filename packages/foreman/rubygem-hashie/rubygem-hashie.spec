@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 5.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Your friendly neighborhood hash library
 License: MIT
 URL: https://github.com/hashie/hashie
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/hashie.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.0-2
+- Rebuild for EL10
+
 * Sun Feb 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.1.0-1
 - Update to 5.1.0
 - Add rich dependency for logger gem
