@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.14.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: New wave Internationalization support for Ruby
 License: MIT
 URL: https://github.com/ruby-i18n/i18n
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.14.8-2
+- Rebuild for EL10
+
 * Thu Jan 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.14.8-1
 - Update to 1.14.8
 
