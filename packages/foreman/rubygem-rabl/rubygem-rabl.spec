@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.17.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: General ruby templating with json, bson, xml and msgpack support
 License: MIT
 URL: https://github.com/nesquena/rabl
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.17.0-2
+- rebuilt
+
 * Wed Nov 27 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.17.0-1
 - Update to 0.17.0
 
