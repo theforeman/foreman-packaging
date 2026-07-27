@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Command-line tool for puma to display information about running request/process
 License: MIT
 URL: https://github.com/ylecuyer/puma-status
@@ -65,6 +65,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.6-2
+- rebuilt
+
 * Thu May 04 2023 Evgeni Golov 1.6-1
 - Update to 1.6-1
 
