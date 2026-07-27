@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemd-journal native logger
 License: MIT
 URL: https://github.com/theforeman/journald-logger
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.0-2
+- Rebuild for EL10
+
 * Sun Jul 24 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.1.0-1
 - Update to 3.1.0
 
