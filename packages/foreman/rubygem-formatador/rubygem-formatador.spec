@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby STDOUT text formatting
 License: MIT
 URL: https://github.com/geemus/formatador
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.3-2
+- Rebuild for EL10
+
 * Wed Nov 12 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.3-1
 - Update to 1.2.3
 

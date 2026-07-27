@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OpenStack fog provider gem
 License: MIT
 URL: https://github.com/fog/fog-openstack
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-openstack.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.5-2
+- Rebuild for EL10
+
 * Wed Mar 19 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.5-1
 - Update to 1.1.5
 

@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Gettext is a pure Ruby libary and tools to localize messages
 License: Ruby and LGPLv3+
 URL: https://ruby-gettext.github.io/
@@ -96,6 +96,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.5.2-2
+- Rebuild for EL10
+
 * Sun Mar 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.5.2-1
 - Update to 3.5.2
 

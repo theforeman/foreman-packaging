@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 5.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A comprehensive slugging and pretty-URL plugin
 License: MIT
 URL: https://github.com/norman/friendly_id
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/friendly_id.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.7.0-2
+- Rebuild for EL10
+
 * Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.7.0-1
 - Update to 5.7.0
 
