@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Shim library for Ruby Module ruby2_keywords
 License: Ruby and BSD-2-Clause
 URL: https://github.com/ruby/ruby2_keywords
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/logs
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.5-2
+- rebuilt
+
 * Sun Jul 24 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.0.5-1
 - Update to 0.0.5
 
