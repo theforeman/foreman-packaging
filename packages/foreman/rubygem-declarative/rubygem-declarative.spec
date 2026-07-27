@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.20
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: DSL for nested schemas
 License: MIT
 URL: https://github.com/apotonick/declarative
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/declarative.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.20-2
+- Rebuild for EL10
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.0.20-1
 - Update to 0.0.20
 
