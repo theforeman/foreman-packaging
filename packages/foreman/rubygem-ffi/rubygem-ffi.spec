@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.17.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby FFI
 License: BSD-3-Clause
 URL: https://github.com/ffi/ffi/wiki
@@ -88,6 +88,9 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/sig
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.17.4-2
+- Rebuild for EL10
+
 * Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.17.4-1
 - Update to 1.17.4
 
