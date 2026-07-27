@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.6.20240107
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Domain Name manipulation library for Ruby
 License: BSD-2-Clause and BSD-3-Clause and MPL-2.0
 URL: https://github.com/knu/ruby-domain_name
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.20240107-2
+- Rebuild for EL10
+
 * Wed Jan 31 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.20240107-1
 - Update to 0.6.20240107
 
