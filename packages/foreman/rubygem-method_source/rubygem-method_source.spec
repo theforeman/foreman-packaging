@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: retrieve the sourcecode for a method
 License: MIT
 URL: https://banisterfiend.wordpress.com
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-3
+- rebuilt
+
 * Thu Jul 23 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
 - Re-add package, convert from SCL to default template
 
