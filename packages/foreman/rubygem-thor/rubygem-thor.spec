@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Thor is a toolkit for building powerful command-line interfaces
 License: MIT
 URL: https://whatisthor.com/
@@ -67,6 +67,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/thor.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.0-2
+- rebuilt
+
 * Sun Dec 17 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.3.0-1
 - Update to 1.3.0
 
