@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A minimal mime type library
 License: MIT
 URL: https://github.com/discourse/mini_mime
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/mini_mime.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.5-2
+- rebuilt
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.1.5-1
 - Update to 1.1.5
 
