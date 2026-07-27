@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 5.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Making HTML emails comfortable for the Ruby rockstars
 License: MIT
 URL: https://github.com/Mange/roadie
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-2
+- rebuilt
+
 * Wed Feb 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 5.2.1-1
 - Update to 5.2.1
 
