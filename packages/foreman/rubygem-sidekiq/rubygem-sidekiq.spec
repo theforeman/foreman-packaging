@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.5.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Simple, efficient background processing for Ruby
 License: LGPL-3.0
 URL: https://sidekiq.org
@@ -68,6 +68,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/sidekiq.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.5.12-2
+- rebuilt
+
 * Thu Oct 12 2023 Foreman Packaging Automation <packaging@theforeman.org> 6.5.12-1
 - Update to 6.5.12
 
