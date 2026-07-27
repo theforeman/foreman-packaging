@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 5.106.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The Database Toolkit for Ruby
 License: MIT
 URL: https://sequel.jeremyevans.net
@@ -66,6 +66,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.106.0-2
+- rebuilt
+
 * Thu Jul 02 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.106.0-1
 - Update to 5.106.0
 
