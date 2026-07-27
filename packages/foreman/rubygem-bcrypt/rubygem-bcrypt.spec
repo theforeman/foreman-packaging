@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.1.22
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OpenBSD's bcrypt() password hashing algorithm
 License: MIT
 URL: https://github.com/bcrypt-ruby/bcrypt-ruby
@@ -82,6 +82,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.22-2
+- Rebuild for EL10
+
 * Sun Apr 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.1.22-1
 - Update to 3.1.22
 
