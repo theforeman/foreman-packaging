@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Domain name parser based on the Public Suffix List
 License: MIT
 URL: https://simonecarletti.com/code/publicsuffix-ruby
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2-2
+- rebuilt
+
 * Sun Oct 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 6.0.2-1
 - Update to 6.0.2
 

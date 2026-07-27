@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Ruby implementation of the Promises/A+ spec
 Group: Development/Languages
 License: Public Domain
@@ -88,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.4-4
+- rebuilt
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.4-3
 - Rebuild against rh-ruby27
 

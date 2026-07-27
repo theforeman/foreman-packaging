@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Simple and easy way to know if you're on windows or not (reliably), as well as how many bits the OS is, etc
 License: MIT
 URL: https://github.com/rdp/os
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.4-2
+- rebuilt
+
 * Sun Jul 24 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.1.4-1
 - Update to 1.1.4
 

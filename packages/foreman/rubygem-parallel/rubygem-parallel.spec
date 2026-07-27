@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.28.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Run any kind of code in parallel processes
 License: MIT
 URL: https://github.com/grosser/parallel
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.28.0-2
+- rebuilt
+
 * Wed Apr 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.28.0-1
 - Update to 1.28.0
 

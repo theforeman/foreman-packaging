@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.6.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Pg is the Ruby interface to the PostgreSQL RDBMS
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -103,6 +103,9 @@ rm -rf gem_ext_test
 %exclude %{gem_instdir}/pg.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.6.3-3
+- rebuilt
+
 * Sat Feb 28 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.6.3-2
 - Add patch to remove rpath
 
