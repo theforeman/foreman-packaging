@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.5.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Generic connection pool for Ruby
 License: MIT
 URL: https://github.com/mperham/connection_pool
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/connection_pool.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.5.5-2
+- Rebuild for EL10
+
 * Wed Dec 10 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.5.5-1
 - Update to 2.5.5
 
