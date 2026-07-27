@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Use GetProcessMem to find out the amount of RAM used by any process
 License: MIT
 URL: https://github.com/schneems/get_process_mem
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
+- Rebuild for EL10
+
 * Fri Jul 26 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.0-1
 - Update to 1.0.0
 
