@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.4.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 License: MIT and Ruby
 URL: https://github.com/grosser/fast_gettext
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/Readme.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.0-3
+- Rebuild for EL10
+
 * Sat Sep 20 2025 Evgeni Golov - 2.4.0-2
 - Correct dependency on prime for Ruby >= 3.1
 
