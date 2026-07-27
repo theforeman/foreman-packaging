@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pure ruby library which provides basic APIs for localization
 License: Ruby and LGPLv3+
 URL: https://github.com/ruby-gettext/locale
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.5-2
+- Rebuild for EL10
+
 * Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.5-1
 - Update to 2.1.5
 - Strip fiddle dependency from gemspec (Windows-only, not available on EL)
