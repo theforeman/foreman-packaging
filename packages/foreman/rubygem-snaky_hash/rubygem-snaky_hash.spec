@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.0.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A very snaky hash
 License: MIT
 URL: https://gitlab.com/oauth-xx/snaky_hash
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/RUBOCOP.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.7-2
+- rebuilt
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.7-1
 - Update to 2.0.7
 
