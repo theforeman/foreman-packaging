@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.2.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 License: MIT
 URL: https://github.com/moiristo/deep_cloneable
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.2-2
+- Rebuild for EL10
+
 * Sun Feb 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.2.2-1
 - Update to 3.2.2
 
