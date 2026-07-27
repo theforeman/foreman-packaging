@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.2.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: WIRB Interactive Ruby
 License: MIT
 URL: https://github.com/janlelis/wirb
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/wirb.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-2
+- rebuilt
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.2.2-1
 - Update to 2.2.2
 
