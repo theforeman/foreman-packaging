@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.8.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: IPv4/IPv6 address manipulation library
 License: MIT
 URL: https://github.com/bluemonk/ipaddress
@@ -78,6 +78,9 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.3-4
+- Rebuild for EL10
+
 * Sat Nov 22 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.8.3-3
 - Regenerate spec file based on the current template
 - Backport upstream fix for ruby3.2 Fixnum removal
