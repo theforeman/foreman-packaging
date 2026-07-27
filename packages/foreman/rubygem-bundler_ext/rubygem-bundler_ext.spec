@@ -7,7 +7,7 @@
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/bundlerext/bundler_ext
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-8
+- Rebuild for EL10
+
 * Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-7
 - Removed unversioned obsoletes
 
