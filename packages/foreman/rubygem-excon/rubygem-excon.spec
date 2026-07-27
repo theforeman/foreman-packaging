@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: speed, persistence, http(s)
 License: MIT
 URL: https://github.com/excon/excon
@@ -70,6 +70,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %exclude %{gem_instdir}/excon.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.5-2
+- Rebuild for EL10
+
 * Tue Mar 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.5-1
 - Update to 1.2.5
 
