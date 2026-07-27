@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemd-journal logging native lib wrapper
 License: LGPLv2+
 URL: https://github.com/theforeman/journald-native
@@ -80,6 +80,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.12-2
+- Rebuild for EL10
+
 * Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.12-1
 - Update to 1.0.12
 
