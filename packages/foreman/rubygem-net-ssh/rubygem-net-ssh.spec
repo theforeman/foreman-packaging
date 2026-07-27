@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.3.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 License: MIT
 URL: https://github.com/net-ssh/net-ssh
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/net-ssh.gemspec
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.3.3-2
+- rebuilt
+
 * Mon Jun 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 7.3.3-1
 - Update to 7.3.3
 
