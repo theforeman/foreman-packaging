@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Determines the monospace display width of a string in Ruby
 License: MIT
 URL: https://github.com/janlelis/unicode-display_width
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.2-2
+- rebuilt
+
 * Tue Aug 01 2023 Eric D. Helms <ericdhelms@gmail.com> 2.4.2-1
 - Update to 2.4.2-1
 
