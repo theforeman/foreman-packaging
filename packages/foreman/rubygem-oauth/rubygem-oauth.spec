@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OAuth Core Ruby implementation
 License: MIT
 URL: https://github.com/oauth-xx/oauth-ruby
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.8-2
+- rebuilt
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.8-1
 - Update to 1.1.8
 
