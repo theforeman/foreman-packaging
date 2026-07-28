@@ -462,7 +462,6 @@ foreman_nodejs_packages:
     nodejs-patternfly-react-tokens: {}
     nodejs-patternfly-react-table: {}
     nodejs-prop-types: {}
-    nodejs-rc-input-number: {}
     nodejs-react: {}
     nodejs-react-ace: {}
     nodejs-react-bootstrap:

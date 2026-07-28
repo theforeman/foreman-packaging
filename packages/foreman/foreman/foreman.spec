@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -286,7 +286,6 @@ Requires: (npm(patternfly) >= 3.59.5 with npm(patternfly) < 4.0.0)
 Requires: (npm(patternfly-react) >= 2.40.0 with npm(patternfly-react) < 3.0.0)
 Requires: (npm(patternfly-react-extensions) >= 3.0.15 with npm(patternfly-react-extensions) < 4.0.0)
 Requires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
-Requires: (npm(rc-input-number) >= 6.0.0 with npm(rc-input-number) < 7.0.0)
 Requires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
 Requires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
 Requires: (npm(react-debounce-input) >= 3.2.0 with npm(react-debounce-input) < 4.0.0)
@@ -860,6 +859,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Jul 31 2026 Titani Labaj <tlabaj@redhat.com> - 5.0.0-0.4.develop
+- Drop unused npm(rc-input-number) dependency
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.3.develop
 - Rebuild for EL10
 
