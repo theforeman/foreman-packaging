@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.7.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The official Elastic APM agent for Ruby
 License: Apache-2.0
 URL: https://github.com/elastic/apm-agent-ruby
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/elastic-apm.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.7.3-2
+- Rebuild for EL10
+
 * Wed Aug 21 2024 Manuel Laug - 4.7.3-1
 - Update elastic-apm to 4.7.3
 

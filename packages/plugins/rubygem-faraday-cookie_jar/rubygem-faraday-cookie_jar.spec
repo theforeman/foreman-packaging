@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Manages client-side cookie jar for Faraday HTTP client
 License: MIT
 URL: https://github.com/miyagawa/faraday-cookie_jar
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.8-2
+- Rebuild for EL10
+
 * Tue Nov 18 2025 Evgeni Golov - 0.0.8-1
 - Update to 0.0.8
 
