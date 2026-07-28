@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.8.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Validation library
 License: MIT
 URL: https://dry-rb.org/gems/dry-validation
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/dry-validation.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.1-2
+- Rebuild for EL10
+
 * Tue Aug 22 2023 Dirk Goetz <dirk.goetz@netways.de> 1.8.1-1
 - Update to 1.8.1
 

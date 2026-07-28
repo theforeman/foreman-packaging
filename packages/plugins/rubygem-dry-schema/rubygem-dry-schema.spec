@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.10.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Coercion and validation for data structures
 License: MIT
 URL: https://dry-rb.org/gems/dry-schema
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/dry-schema.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.10.6-2
+- Rebuild for EL10
+
 * Tue Aug 22 2023 Dirk Goetz <dirk.goetz@netways.de> 1.10.6-1
 - Update to 1.10.6
 

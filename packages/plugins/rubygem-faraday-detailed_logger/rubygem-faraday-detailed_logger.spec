@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.5.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A detailed request and response logger for Faraday
 License: MIT
 URL: https://github.com/envylabs/faraday-detailed_logger
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/faraday-detailed_logger.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.5.0-2
+- Rebuild for EL10
+
 * Thu Jul 14 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.5.0-1
 - Update to 2.5.0
 

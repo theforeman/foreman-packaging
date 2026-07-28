@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: An efficient digital signature library providing the Ed25519 algorithm
 Group: Development/Languages
 License: MIT
@@ -114,6 +114,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/ed25519.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.4-3
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 1.2.4-2
 - Explicitly BuildRequire gcc
 
