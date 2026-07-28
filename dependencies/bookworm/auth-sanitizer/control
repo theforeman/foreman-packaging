@@ -4,7 +4,8 @@ Priority: optional
 Maintainer: Ondřej Gajdušek <ondrej@gajdusek.dev>
 Build-Depends: debhelper-compat (= 12),
                gem2deb,
-               rake
+               rake,
+               ruby-version-gem (>= 1.1.14)
 Standards-Version: 4.5.0
 Homepage: https://github.com/ruby-oauth/auth-sanitizer
 Testsuite: autopkgtest-pkg-ruby
