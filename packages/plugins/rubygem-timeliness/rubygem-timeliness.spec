@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.10
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Date/time parsing for the control freak
 Group: Development/Languages
 License: MIT
@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/timeliness.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.10-3
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.10-2
 - Rebuild for Ruby 2.7
 
