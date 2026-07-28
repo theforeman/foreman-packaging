@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.13.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A client for Kubernetes REST api
 License: MIT
 URL: https://github.com/abonas/kubeclient
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/kubeclient.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.13.0-2
+- Rebuild for EL10
+
 * Wed Jan 28 2026 Evgeni Golov - 4.13.0-1
 - Update to 4.13.0
 
