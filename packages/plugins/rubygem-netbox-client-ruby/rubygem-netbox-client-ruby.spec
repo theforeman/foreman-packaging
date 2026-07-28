@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A read/write client for Netbox v2
 License: MIT
 URL: https://github.com/ninech/netbox-client-ruby
@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/netbox-client-ruby.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-2
+- Rebuild for EL10
+
 * Tue Aug 22 2023 Dirk Goetz <dirk.goetz@netways.de> 0.6.0-1
 - Update to 0.6.0
 
