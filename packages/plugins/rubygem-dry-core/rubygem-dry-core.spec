@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.8.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A toolset of small support modules used throughout the dry-rb ecosystem
 License: MIT
 URL: https://dry-rb.org/gems/dry-core
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/dry-core.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.1-2
+- Rebuild for EL10
+
 * Tue Aug 22 2023 Dirk Goetz <dirk.goetz@netways.de> 0.8.1-1
 - Update to 0.8.1
 

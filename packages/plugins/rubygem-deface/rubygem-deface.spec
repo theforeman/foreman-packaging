@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Deface is a library that allows you to customize ERB, Haml and Slim views in Rails
 License: MIT
 URL: https://github.com/spree/deface#readme
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.9.0-2
+- Rebuild for EL10
+
 * Thu Feb 08 2024 Evgeni Golov - 1.9.0-1
 - Update to 1.9.0
 

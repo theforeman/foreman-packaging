@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.13.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A mixin to add configuration functionality to your classes
 License: MIT
 URL: https://dry-rb.org/gems/dry-configurable
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/dry-configurable.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.13.0-2
+- Rebuild for EL10
+
 * Tue Aug 22 2023 Dirk Goetz <dirk.goetz@netways.de> 0.13.0-1
 - Update to 0.13.0
 
