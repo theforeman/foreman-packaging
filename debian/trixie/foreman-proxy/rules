@@ -9,12 +9,12 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-build:
+override_dh_auto_build:
 	cp -a config foreman-proxy # dh_install doesn't rename things
 	rename 's/.example//' foreman-proxy/* foreman-proxy/settings.d/*
 	touch foreman-proxy/migration_state
 	mv Gemfile Gemfile.in
-	dh $@
+	dh_auto_build
 
 %:
 	dh $@ --with=systemd
