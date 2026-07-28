@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: PDF::Core is used by Prawn to render PDF documents
 License: GPLv2 or GPLv3 or Ruby
 URL: https://prawnpdf.org
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/pdf-core.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-2
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 0.9.0-1
 - Update to 0.9.0
 
