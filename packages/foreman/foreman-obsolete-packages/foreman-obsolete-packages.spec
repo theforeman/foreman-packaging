@@ -1,11 +1,12 @@
 Name: foreman-obsolete-packages
-Version: 1.18
-Release: 2%{?dist}
+Version: 1.19
+Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
 URL: https://github.com/theforeman/foreman-packaging
 BuildArch: noarch
 
+Obsoletes: nodejs-rc-input-number < 6.2.0-2
 Obsoletes: rubygem-dalli < 2.7.6-4
 Obsoletes: rubygem-fog-google < 1.19.0-2
 Obsoletes: rubygem-foreman_column_view < 0.4.0-7
@@ -66,6 +67,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Thu Jul 30 2026 Titani Labaj <tlabaj@redhat.com> - 1.19-1
+- Obsolete nodejs-rc-input-number
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.18-2
 - Rebuild for EL10
 

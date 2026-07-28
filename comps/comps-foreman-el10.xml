@@ -108,7 +108,6 @@
       <packagereq type="default">nodejs-patternfly-react-templates</packagereq>
       <packagereq type="default">nodejs-patternfly-react-tokens</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
-      <packagereq type="default">nodejs-rc-input-number</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-ace</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
