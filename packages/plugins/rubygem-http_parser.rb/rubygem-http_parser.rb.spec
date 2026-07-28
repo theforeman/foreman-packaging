@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Simple callback-based HTTP request/response parser
 Group: Development/Languages
 License: MIT
@@ -111,6 +111,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-5
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 0.6.0-4
 - Explicitly BuildRequire gcc
 

@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 5.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP should be easy
 License: MIT
 URL: https://github.com/httprb/http
@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.0-2
+- Rebuild for EL10
+
 * Sun May 11 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.2.0-1
 - Update to 5.2.0-1
 

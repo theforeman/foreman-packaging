@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: http-form_data-2.3.0
 License: MIT
 URL: https://github.com/httprb/form_data.rb
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.0-2
+- Rebuild for EL10
+
 * Fri Aug 23 2024 David Ochner <ochnerd@yahoo.de> 2.3.0-1
 - Update to 2.3.0-1
 
