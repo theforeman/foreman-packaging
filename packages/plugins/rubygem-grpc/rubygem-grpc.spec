@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.58.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: GRPC system in Ruby
 License: Apache-2.0
 URL: https://github.com/google/grpc/tree/master/src/ruby
@@ -88,6 +88,9 @@ rm -rf gem_ext_test
 
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.58.0-3
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
 - Explicitly BuildRequire gcc-c++
 
