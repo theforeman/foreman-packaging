@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: DYNamic workFLOW engine
 License: MIT
 URL: https://github.com/Dynflow/dynflow
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.1-2
+- Rebuild for EL10
+
 * Wed Apr 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.1-1
 - Update to 2.0.1
 
