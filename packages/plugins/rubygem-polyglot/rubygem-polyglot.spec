@@ -6,7 +6,7 @@
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Augment 'require' to load non-Ruby file types
 Group:   Development/Languages
 License: MIT
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.5-4
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.5-3
 - Rebuild for Ruby 2.7
 
