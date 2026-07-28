@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.18.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: An API to create, read, and manipulate Git repositories
 License: MIT
 URL: https://github.com/ruby-git/ruby-git
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/git.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.18.0-2
+- Rebuild for EL10
+
 * Thu May 18 2023 Evgeni Golov 1.18.0-1
 - Update to 1.18.0
 

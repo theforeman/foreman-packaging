@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.13.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: time tools for flor
 License: MIT
 URL: https://github.com/floraison/fugit
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fugit.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.13.0-2
+- Rebuild for EL10
+
 * Sun Jul 12 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.13.0-1
 - Update to 1.13.0
 
