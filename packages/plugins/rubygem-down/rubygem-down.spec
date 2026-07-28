@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.5.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Robust streaming downloads using Net::HTTP, HTTP.rb or wget
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.5.0-3
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.5.0-2
 - Rebuild for Ruby 2.7
 

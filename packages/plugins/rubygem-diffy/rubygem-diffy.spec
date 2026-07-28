@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A convenient way to diff string in ruby
 License: MIT
 URL: https://github.com/samg/diffy
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.2-2
+- Rebuild for EL10
+
 * Thu May 18 2023 Evgeni Golov 3.4.2-1
 - Update to 3.4.2
 
