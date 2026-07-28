@@ -6,7 +6,7 @@
 Summary: Cron expression parser
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.4
-Release: 5%{?foremandist}%{?dist}
+Release: 6%{?foremandist}%{?dist}
 Group: Development/Languages
 
 License: MIT
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.4-6
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.4-5
 - Rebuild for Ruby 2.7
 
