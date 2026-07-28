@@ -6,7 +6,7 @@
 Summary: Minimalistic scheduler on top of eventmachine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.6
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: LGPLv3
 URL: https://github.com/eranb/zscheduler
@@ -61,6 +61,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.6-8
+- Rebuild for EL10
+
 * Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.6-7
 - Removed unversioned obsoletes
 
