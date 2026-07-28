@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Colorize printed text on ANSI terminals
 License: MIT
 URL: https://github.com/sickill/rainbow
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.markdown
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.1-2
+- Rebuild for EL10
+
 * Mon Jun 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.1.1-1
 - Update to 3.1.1
 
