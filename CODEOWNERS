@@ -27,6 +27,9 @@
 # dm-drogeriemarkt
 /plugins/ruby-foreman-rescue/ @theforeman/packaging @theforeman/dm-drogeriemarkt
 
+# foreman_maintain
+/dependencies/*/foreman_maintain/ @theforeman/packaging @theforeman/foreman_maintain
+
 # foreman-tasks
 /dependencies/*/dynflow/ @theforeman/packaging @theforeman/foreman-tasks
 /dependencies/*/hammer_cli_foreman_tasks/ @theforeman/packaging @theforeman/foreman-tasks
