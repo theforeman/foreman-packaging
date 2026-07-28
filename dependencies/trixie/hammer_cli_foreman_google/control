@@ -1,0 +1,20 @@
+Source: ruby-hammer-cli-foreman-google
+Section: ruby
+Priority: optional
+Maintainer: Oleh Fedorenko <ofedoren@redhat.com>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb (>= 1),
+               ruby-hammer-cli-foreman (>= 3.4.0)
+Standards-Version: 4.5.0
+Homepage: https://github.com/theforeman/hammer-cli-foreman-google
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-hammer-cli-foreman-google
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: Foreman Google plugin for Hammer CLI
