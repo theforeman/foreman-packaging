@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: AWS Signature Version 4 library
 Group: Development/Languages
 License: ASL 2.0
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-3
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
 - Rebuild for Ruby 2.7
 

@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: OpenBSD's bcrypt_pbkdf (a variant of PBKDF2 with bcrypt-based PRF)
 Group: Development/Languages
 License: MIT
@@ -109,6 +109,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-3
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 1.1.0-2
 - Explicitly BuildRequire gcc
 

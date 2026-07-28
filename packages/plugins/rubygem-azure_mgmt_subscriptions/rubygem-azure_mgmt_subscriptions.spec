@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.18.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Official ruby client library to consume Microsoft Azure Subscription Management services
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.18.5-2
+- Rebuild for EL10
+
 * Thu Apr 08 2021 Amit Upadhye <upadhyeammit@gmail.com> 0.18.5-1
 - Update to 0.18.5
 

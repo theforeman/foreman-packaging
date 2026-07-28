@@ -3,7 +3,7 @@
 
 Name:      rubygem-%{gem_name}
 Version:   1.4.0
-Release:   1%{?dist}
+Release:   2%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 License:   MIT
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.4.0-2
+- Rebuild for EL10
+
 * Mon Jun 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.4.0-1
 - Update to 1.4.0
 

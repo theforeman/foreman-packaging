@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A gem adding sorting, reordering capabilities to an active_record model, allowing it to act as a list
 License: MIT
 URL: https://github.com/brendon/acts_as_list
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.4-2
+- Rebuild for EL10
+
 * Tue Mar 18 2025 Evgeni Golov - 1.2.4-1
 - Update to 1.2.4
 
