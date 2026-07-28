@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: oVirt SDK
 License: Apache-2.0
 URL: https://ovirt.org
@@ -83,6 +83,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.adoc
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.6.1-2
+- Rebuild for EL10
+
 * Wed Mar 04 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.6.1-1
 - Update to 4.6.1
 
