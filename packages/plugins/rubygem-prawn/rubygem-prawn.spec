@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A fast and nimble PDF generator for Ruby
 License: (GPLv2 or GPLv3 or Ruby) and APAFML
 URL: https://prawnpdf.org
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.0-2
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 2.4.0-1
 - Update to 2.4.0
 
