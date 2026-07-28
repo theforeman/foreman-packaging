@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: The last progressbar-library you'll ever need
 Group: Development/Languages
 License: MIT
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/powerbar.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.1-4
+- Rebuild for EL10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-3
 - Rebuild against rh-ruby27
 

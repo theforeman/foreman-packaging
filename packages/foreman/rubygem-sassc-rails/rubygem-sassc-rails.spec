@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Integrate SassC-Ruby into Rails
 Group: Development/Languages
 License: MIT
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.2-4
+- Rebuild for EL10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-3
 - Rebuild against rh-ruby27
 

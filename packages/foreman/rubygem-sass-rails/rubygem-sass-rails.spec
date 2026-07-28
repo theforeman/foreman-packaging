@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Sass adapter for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.0-3
+- Rebuild for EL10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.0-2
 - Rebuild against rh-ruby27
 
