@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.24.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Protocol Buffers
 License: BSD-3-Clause
 URL: https://developers.google.com/protocol-buffers
@@ -77,6 +77,9 @@ rm -rf gem_ext_test
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.24.3-3
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 3.24.3-2
 - Disable memcpy wrapper, it breaks on EL9
 
