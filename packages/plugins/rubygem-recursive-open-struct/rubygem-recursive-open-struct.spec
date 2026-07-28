@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OpenStruct subclass that returns nested hash attributes as RecursiveOpenStructs
 License: MIT
 URL: https://github.com/aetherknight/recursive-open-struct
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.3-2
+- Rebuild for EL10
+
 * Thu Dec 15 2022 Dirk Goetz <dirk.goetz@netways.de> 1.1.3-1
 - Update to 1.1.3
 

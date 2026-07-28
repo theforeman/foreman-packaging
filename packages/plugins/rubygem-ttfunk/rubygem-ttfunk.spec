@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: TrueType Font Metrics Parser
 License: GPLv2 or GPLv3 or Ruby
 URL: https://prawnpdf.org
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.0-2
+- Rebuild for EL10
+
 * Tue Jan 16 2024 Evgeni Golov - 1.7.0-1
 - Update to 1.7.0
 

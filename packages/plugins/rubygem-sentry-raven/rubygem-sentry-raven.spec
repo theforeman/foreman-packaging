@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A gem that provides a client interface for the Sentry error logger
 License: Apache-2.0
 URL: https://github.com/getsentry/raven-ruby
@@ -71,6 +71,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %exclude %{gem_instdir}/sentry-raven.gemspec
 
 %changelog
+* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.2-2
+- Rebuild for EL10
+
 * Thu Jul 14 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.1.2-1
 - Update to 3.1.2
 
