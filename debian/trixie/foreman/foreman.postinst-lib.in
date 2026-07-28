@@ -1,0 +1,17 @@
+foreman_postinst() {
+  LOGFILE='/var/log/foreman-install.log'
+  BUNDLE=@BUNDLE@
+  [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby @BUNDLE@"
+
+  # Update gems
+  export HOME=/usr/share/foreman
+  cd /usr/share/foreman
+  if [ ! -z "${DEBUG}" ]; then
+    $BUNDLE update --jobs 4 --local
+  else
+    $BUNDLE update --jobs 4 --local 2>&1 >> $LOGFILE
+  fi
+
+  # Own all the core files
+  chown -Rf foreman:foreman '/usr/share/foreman'
+}

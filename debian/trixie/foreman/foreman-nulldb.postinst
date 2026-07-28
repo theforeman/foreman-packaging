@@ -1,0 +1,22 @@
+#!/bin/sh
+# postinst script for foreman-*
+#
+# see: dh_installdeb(1)
+
+[ -n "${DEBUG}" ] && set -x
+set -e
+
+. /usr/share/debconf/confmodule
+. /usr/share/foreman/foreman.postinst-lib
+
+# if this script aborts with an error dpkg can
+# hang if daemons have been started
+trap db_stop EXIT
+
+foreman_postinst
+
+mv db/schema.rb.nulldb db/schema.rb
+
+#DEBHELPER#
+
+exit 0
