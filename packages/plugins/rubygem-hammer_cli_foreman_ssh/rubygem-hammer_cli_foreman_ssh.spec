@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.3
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Adds Remote SSH support to Hammer Foreman CLI
 License: GPLv3+
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -65,6 +65,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.3-3
+- Rebuild for EL10
+
 * Mon Jun 16 2025 Evgeni Golov 0.0.3-2
 - Update based on latest template
 
