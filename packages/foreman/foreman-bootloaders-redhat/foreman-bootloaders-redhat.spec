@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
 Version: 202506020000
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -74,6 +74,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 202506020000-3
+- Rebuild for EL10
+
 * Sat Nov 22 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 202506020000-2
 - Fix RPM build macro on non-RHEL
 
