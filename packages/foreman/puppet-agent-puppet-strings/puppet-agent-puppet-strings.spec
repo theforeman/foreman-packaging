@@ -4,7 +4,7 @@
 Summary: Puppet documentation via YARD
 Name: puppet-agent-%{gem_name}
 Version: 4.1.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: ASL-2.0
 URL: https://github.com/puppetlabs/puppetlabs-strings
@@ -49,6 +49,9 @@ else  # upgrade
 fi
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.2-3
+- Rebuild for EL10
+
 * Tue Sep 30 2025 Bernhard Suttner <suttner@atix.de> - 4.1.2-2
 - Build with openvox-agent
 
