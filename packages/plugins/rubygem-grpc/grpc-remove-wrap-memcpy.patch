@@ -19,11 +19,10 @@ diff --git a/src/ruby/ext/grpc/extconf.rb b/src/ruby/ext/grpc/extconf.rb
 index 502793d..18e8a91 100644
 --- a/src/ruby/ext/grpc/extconf.rb
 +++ b/src/ruby/ext/grpc/extconf.rb
-@@ -170,7 +170,6 @@ end
- if grpc_config == 'dbg'
+@@ -171,7 +171,6 @@
    $CFLAGS << ' -O0 -ggdb3'
  end
-
+ 
 -$LDFLAGS << ' -Wl,-wrap,memcpy' if linux
  # Do not statically link standard libraries on TruffleRuby as this does not work when compiling to bitcode
  if linux && RUBY_ENGINE != 'truffleruby'
