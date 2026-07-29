@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.17.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python 2 and 3 compatibility utilities
 
 License:        MIT
@@ -57,6 +57,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.17.0-2
+- Rebuild for EL10
+
 * Wed Dec 11 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.17.0-1
 - Update to 1.17.0
 
