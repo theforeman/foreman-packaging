@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server for Ruby/Rack applications
 License: BSD-3-Clause
 URL: https://puma.io
@@ -97,6 +97,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/docs
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.6.1-2
+- Rebuild for EL10
+
 * Sun Aug 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 6.6.1-1
 - Update to 6.6.1
 
