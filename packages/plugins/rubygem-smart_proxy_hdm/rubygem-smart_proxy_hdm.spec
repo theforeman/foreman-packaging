@@ -10,7 +10,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: An HDM Plugin for Foreman's smart proxy
 License: GPLv3
 URL: https://github.com/betadots/smart_proxy_hdm
@@ -80,6 +80,9 @@ mv %{buildroot}%{gem_instdir}/config/hdm.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
+- Rebuild for EL10
+
 * Sun May 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.0-1
 - Update to 1.0.0
 
