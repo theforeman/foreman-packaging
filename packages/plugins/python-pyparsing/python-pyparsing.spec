@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.4.7
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Python parsing module
 
 License:        MIT License
@@ -65,6 +65,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.7-6
+- Rebuild for EL10
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 2.4.7-5
 - Rebuild against python 3.12
 
