@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Library for dealing with server-sent events
 License: Apache-2.0
 URL: https://github.com/xlab-si/server-sent-events-ruby
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/server_sent_events.gemspec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.3-2
+- Rebuild for EL10
+
 * Tue Aug 16 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.1.3-1
 - Update to 0.1.3
 
