@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 Summary: A Ruby wrapper to the Infoblox WAPI.
 License: MIT
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-5
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-4
 - Rebuild for Ruby 2.7
 
