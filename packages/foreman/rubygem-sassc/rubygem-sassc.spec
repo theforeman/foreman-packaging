@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.4.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Use libsass with Ruby!
 License: MIT
 URL: https://github.com/sass/sassc-ruby
@@ -81,6 +81,9 @@ ruby -I "%{buildroot}%{gem_libdir}" -e "require '%{gem_require_name}'"
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.0-5
+- Rebuild for EL10
+
 * Fri Feb 02 2024 Patrick Creech <pcreech@redhat.com> - 2.4.0-4
 - Drop noarch
 - Set debug_package to nil
