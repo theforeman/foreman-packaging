@@ -10,7 +10,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.4.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Monitoring plug-in for Foreman's smart proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_monitoring
@@ -91,6 +91,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.0-2
+- Rebuild for EL10
+
 * Tue Dec 03 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.0-1
 - Update to 0.4.0
 
