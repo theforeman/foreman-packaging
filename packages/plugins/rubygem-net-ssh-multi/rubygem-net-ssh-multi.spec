@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Control multiple Net::SSH connections via a single interface
 License: MIT
 URL: https://github.com/net-ssh/net-ssh-multi
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.1-2
+- Rebuild for EL10
+
 * Wed Oct 19 2022 Evgeni Golov 1.2.1-1
 - Update to 1.2.1-1
 
