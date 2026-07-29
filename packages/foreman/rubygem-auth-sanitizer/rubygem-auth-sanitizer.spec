@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Configurable KV output redaction
 License: MIT
 URL: https://github.com/ruby-oauth/auth-sanitizer
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.3-2
+- Rebuild for EL10
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.3-1
 - Update to 0.2.3
 
