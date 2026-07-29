@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Library for Amazon's Route 53 service
 Group: Development/Languages
 License: GPLv3
@@ -97,6 +97,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.0-6
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-5
 - Rebuild for Ruby 2.7
 
