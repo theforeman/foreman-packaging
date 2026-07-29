@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        21.3
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Core utilities for Python packages
 
 License:        BSD-2-Clause or Apache-2.0
@@ -65,6 +65,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 21.3-5
+- Rebuild for EL10
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 21.3-4
 - Rebuild against python 3.12
 
