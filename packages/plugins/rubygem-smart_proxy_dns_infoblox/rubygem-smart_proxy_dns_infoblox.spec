@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Infoblox DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -104,6 +104,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-2
+- Rebuild for EL10
+
 * Tue Jul 02 2024 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.0-1
 - Update to 1.2.0
 
