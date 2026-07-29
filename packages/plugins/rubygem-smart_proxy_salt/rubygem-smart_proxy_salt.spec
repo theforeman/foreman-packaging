@@ -15,7 +15,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: SaltStack Plug-In for Foreman's Smart Proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -142,6 +142,9 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.0.0-2
+- Rebuild for EL10
+
 * Thu Jan 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.0-1
 - Update to 7.0.0
 
