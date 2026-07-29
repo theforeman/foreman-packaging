@@ -2,7 +2,7 @@
 %global gem_name pulp_ostree_client
 
 Name: rubygem-%{gem_name}
-Version: 2.6.0
+Version: 2.6.1
 Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:2.6.1-1
+- Update to 2.6.1
+
 * Wed Apr 22 2026 Samir Jha <samirjha1525@gmail.com> - 1:2.6.0-1
 - Update to 2.6.0
 
