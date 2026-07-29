@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: OpenNebula Client API
 License: Apache-2.0
 URL: https://opennebula.io
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.0.0-3
+- Rebuild for EL10
+
 * Wed Dec 17 2025 Ondřej Gajdušek <ogajduse@redhat.com> - 7.0.0-2
 - Remove overly restrictive nokogiri version constraint
 
