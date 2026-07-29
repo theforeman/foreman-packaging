@@ -21,7 +21,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 7%{?foremandist}%{?dist}
+Release: 8%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -133,6 +133,9 @@ mkdir -p %{buildroot}%{content_dir}
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.0-8
+- Rebuild for EL10
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-7
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
