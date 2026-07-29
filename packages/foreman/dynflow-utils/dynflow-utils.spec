@@ -2,7 +2,7 @@
 
 Name:    dynflow-utils
 Version: 2.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Supplemental Dynflow utilities
 License: GPLv3
 URL:     https://github.com/dynflow/dynflow
@@ -39,6 +39,9 @@ install -D -m755 dynflow-expand %{buildroot}%{_libexecdir}/dynflow-expand
 %{_libexecdir}/dynflow-expand
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.1-2
+- Rebuild for EL10
+
 * Tue Apr 28 2026 Adam Ruzicka <aruzicka@redhat.com> - 2.0.1-1
 - Rebuild with newer go 
 
