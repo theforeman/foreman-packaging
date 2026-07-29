@@ -1,0 +1,47 @@
+foreman_plugin_install() {
+  PLUGIN="${1}"
+  PREVIOUS_VERSION="${2}"
+  PLUGIN_HAS_APIPIE="${3:-true}"
+  PLUGIN_HAS_WEBPACK="${4:-true}"
+  LOGFILE="${5:-/var/log/foreman-install.log}"
+
+  BUNDLE=@BUNDLE@
+  [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby @BUNDLE@"
+
+  # Update gems
+  export HOME=/usr/share/foreman
+  cd /usr/share/foreman
+  if [ ! -z "${DEBUG}" ]; then
+    if [ -n "${PREVIOUS_VERSION}" ] ; then
+      $BUNDLE update $PLUGIN --local
+    else
+      $BUNDLE install --local --no-prune
+    fi
+  else
+    if [ -n "${PREVIOUS_VERSION}" ] ; then
+      $BUNDLE update $PLUGIN --local 2>&1 >> $LOGFILE
+    else
+      $BUNDLE install --local --no-prune 2>&1 >> $LOGFILE
+    fi
+  fi
+
+  if [ "${PLUGIN_HAS_WEBPACK}" = "true" ]; then
+    # The output sometimes contain additional data like the following line:
+    #    Found no changes, using resolution from the lockfile
+    # But we really just want the path, so lets grep
+    PLUGIN_ROOT="$(${BUNDLE} show ${PLUGIN} | grep '/usr/share/foreman')"
+    # Make sure we got a path
+    if [ -n "${PLUGIN_ROOT}" ]; then
+      mkdir -p $PLUGIN_ROOT/public
+      ln -snf /var/lib/foreman/public/webpack/ $PLUGIN_ROOT/public/webpack
+    fi
+  fi
+
+  # log plugin installation
+  echo "${PLUGIN}" >> /usr/share/foreman/tmp/restart_required_changed_plugins
+  # explicit chown, as the one below does not apply due to tmp symlink
+  chown foreman:foreman /usr/share/foreman/tmp/restart_required_changed_plugins
+
+  # Own all the core files
+  chown -Rf foreman:foreman '/usr/share/foreman'
+}

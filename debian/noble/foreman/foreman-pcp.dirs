@@ -1,0 +1,2 @@
+etc/pcp/proc
+var/lib/pcp/config/pmlogconf/foreman-hotproc
