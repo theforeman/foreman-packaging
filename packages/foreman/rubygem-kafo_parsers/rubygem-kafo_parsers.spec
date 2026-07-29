@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Puppet module parsers
 Group: Development/Languages
 License: GPLv3+
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.1-2
+- Rebuild for EL10
+
 * Mon Jul 26 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.2.1-1
 - Release rubygem-kafo_parsers 1.2.1
 
