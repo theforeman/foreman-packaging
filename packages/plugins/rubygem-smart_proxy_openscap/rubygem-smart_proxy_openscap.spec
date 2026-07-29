@@ -22,7 +22,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.12.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
 License: GPLv3+
@@ -148,6 +148,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.12.1-2
+- Rebuild for EL10
+
 * Mon Apr 14 2025 Adam Ruzicka <aruzicka@redhat.com> - 0.12.1-1
 - Update to 0.12.1
 
