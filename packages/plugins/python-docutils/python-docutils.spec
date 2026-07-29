@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.19
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Docutils -- Python Documentation Utilities
 
 License:        public domain, Python, 2-Clause BSD, GPL 3 (see COPYING.txt)
@@ -78,6 +78,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.19-4
+- Rebuild for EL10
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 0.19-3
 - Rebuild against python 3.12
 
