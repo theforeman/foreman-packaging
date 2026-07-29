@@ -16,7 +16,7 @@
 
 Name:           python-%{srcname}
 Version:        3.0.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Safely add untrusted strings to HTML/XML markup
 
 License:        BSD-3-Clause
@@ -89,6 +89,9 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 %endif
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.2-3
+- Rebuild for EL10
+
 * Mon Feb 03 2025 Odilon Sousa <osousa@redhat.com> - 3.0.2-2
 - Rebuild against python 3.12
 
