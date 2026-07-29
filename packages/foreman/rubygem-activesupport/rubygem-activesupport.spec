@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.10
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 License: MIT
 URL: https://rubyonrails.org
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.0.10-3
+- Rebuild for EL10
+
 * Sun Mar 29 2026 Jakub Duchek <jakduch@seznam.cz> - 7.0.10-2
 - Apply CVE-2026-33176 patch for number converter DoS
 
