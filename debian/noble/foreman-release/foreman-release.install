@@ -1,0 +1,2 @@
+debian/foreman.list                              etc/apt/sources.list.d/
+debian/theforeman-archive-keyring.asc            usr/share/keyrings/
