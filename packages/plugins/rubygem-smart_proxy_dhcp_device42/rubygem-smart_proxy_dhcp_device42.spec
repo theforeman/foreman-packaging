@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.7
-Release: 10%{?foremandist}%{?dist}
+Release: 11%{?foremandist}%{?dist}
 Summary: Device42 DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.7-11
+- Rebuild for EL10
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.0.7-10
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
