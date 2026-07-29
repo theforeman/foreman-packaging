@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.11.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A Ruby wrapper for Linux inotify, using FFI
 License: MIT
 URL: https://github.com/guard/rb-inotify
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.1-2
+- Rebuild for EL10
+
 * Sun Jul 07 2024 Foreman Packaging Automation <packaging@theforeman.org> - 0.11.1-1
 - Update to 0.11.1
 
