@@ -74,11 +74,6 @@ generate_npm_package() {
   spectool --list-files $SPEC_FILE | awk '/https?:/ { print $2 }' | xargs --no-run-if-empty wget --directory-prefix=$PACKAGE_DIR --no-verbose
   echo "FINISHED"
 
-  if [ "$STRATEGY" = "bundle" ]; then
-    echo -e "Adding npmjs cache binary... - "
-    git add $PACKAGE_DIR/*-registry.npmjs.org.tgz
-    echo "FINISHED"
-  fi
   echo -e "Adding spec to git... - "
   git add $SPEC_FILE
   echo "FINISHED"
