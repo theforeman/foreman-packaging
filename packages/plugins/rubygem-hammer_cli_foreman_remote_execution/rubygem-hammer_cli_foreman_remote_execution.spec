@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.4.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: CLI for the Foreman remote execution plugin
 License: GPLv3+
 URL: https://github.com/theforeman/hammer_cli_foreman_remote_execution
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.4-2
+- Rebuild for EL10
+
 * Thu Jun 11 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.4.4-1
 - Update to 0.4.4
 
