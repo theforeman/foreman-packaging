@@ -12,9 +12,10 @@ License: Apache-2.0
 URL: https://github.com/google/grpc/tree/master/src/ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# Fix GCC 14 incompatible-pointer-types errors and remove -Wl,-wrap,memcpy
-# (unnecessary on glibc >= 2.17, causes undefined symbol on EL10)
-Patch0: grpc-gcc14-compat.patch
+# Backport from upstream c637a9f: fix clang 16 / GCC 14 incompatible-pointer-types
+Patch0: grpc-clang16-compat.patch
+# Backport from upstream 34be0d8: remove -Wl,-wrap,memcpy (undefined symbol on EL10)
+Patch1: grpc-remove-wrap-memcpy.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.5.0
@@ -47,6 +48,7 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 %patch -P0 -p1
+%patch -P1 -p1
 
 %build
 export CXXFLAGS="${CXXFLAGS} -Wno-register"
@@ -98,8 +100,8 @@ rm -rf gem_ext_test
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.58.0-3
 - Rebuild for EL10
 - Add -Wno-register for GCC 14 on EL10 (vendored abseil-cpp C++17 compat)
-- Fix incompatible-pointer-types in rb_compression_options, rb_channel, rb_event_thread
-- Remove -Wl,-wrap,memcpy (undefined symbol __wrap_memcpy on EL10 glibc 2.39)
+- Backport upstream c637a9f: fix incompatible-pointer-types (clang 16 / GCC 14)
+- Backport upstream 34be0d8: remove -Wl,-wrap,memcpy (undefined symbol on EL10)
 
 * Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
 - Explicitly BuildRequire gcc-c++
