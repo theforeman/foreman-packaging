@@ -1,6 +1,6 @@
 Name: foreman-obsolete-packages
 Version: 1.18
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
 URL: https://github.com/theforeman/foreman-packaging
@@ -66,6 +66,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.18-2
+- Rebuild for EL10
+
 * Wed Jul 22 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.18-1
 - Re-add rubygem-colorize and rubygem-method_source (still needed)
 
