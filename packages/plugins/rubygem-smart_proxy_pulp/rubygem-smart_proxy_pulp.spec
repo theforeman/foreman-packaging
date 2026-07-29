@@ -10,7 +10,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.4.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart-proxy-pulp-plugin
@@ -81,6 +81,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpcore.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.0-2
+- Rebuild for EL10
+
 * Mon Oct 14 2024 Foreman Packaging Automation <packaging@theforeman.org> - 3.4.0-1
 - Update to 3.4.0
 
