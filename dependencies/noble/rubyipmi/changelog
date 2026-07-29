@@ -1,0 +1,35 @@
+ruby-rubyipmi (0.13.0-1) stable; urgency=low
+
+  * 0.13.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 05 Feb 2026 06:52:53 +0000
+
+ruby-rubyipmi (0.12.1-1) stable; urgency=low
+
+  * 0.12.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Tue, 20 Jan 2026 10:27:33 +0000
+
+ruby-rubyipmi (0.12.0-1) stable; urgency=low
+
+  * 0.12.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 18 Jun 2025 04:15:46 +0000
+
+ruby-rubyipmi (0.11.1-1) stable; urgency=low
+
+  * 0.11.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 26 Oct 2022 14:37:07 +0000
+
+ruby-rubyipmi (0.11.0-1) stable; urgency=low
+
+  * Update to version 0.11.0
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Mon, 04 Oct 2021 12:13:55 +0200
+
+ruby-rubyipmi (0.10.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
