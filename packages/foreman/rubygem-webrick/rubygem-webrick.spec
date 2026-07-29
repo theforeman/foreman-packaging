@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.9.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP server toolkit
 License: Ruby and BSD-2-Clause
 URL: https://github.com/ruby/webrick
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/webrick.gemspec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.9.2-2
+- Rebuild for EL10
+
 * Wed Dec 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 1.9.2-1
 - Update to 1.9.2
 
