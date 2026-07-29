@@ -101,6 +101,7 @@ rm -rf gem_ext_test
 - Rebuild for EL10
 - Add -Wno-register for GCC 14 on EL10 (vendored abseil-cpp C++17 compat)
 - Backport upstream c637a9f: fix incompatible-pointer-types (clang 16 / GCC 14)
+- Fix char* vs const char* in rb_compression_options.c (GCC 14)
 - Backport upstream 34be0d8: remove -Wl,-wrap,memcpy (undefined symbol on EL10)
 
 * Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
