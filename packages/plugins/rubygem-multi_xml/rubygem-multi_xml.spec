@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A generic swappable back-end for XML parsing
 Group: Development/Languages
 License: MIT
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/multi_xml.gemspec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-3
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-2
 - Rebuild for Ruby 2.7
 
