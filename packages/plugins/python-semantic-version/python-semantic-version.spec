@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.10.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        A library implementing the 'SemVer' scheme
 
 License:        BSD
@@ -57,6 +57,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.10.0-7
+- Rebuild for EL10
+
 * Fri Jan 31 2025 Odilon Sousa <osousa@redhat.com> - 2.10.0-6
 - Rebuild against python 3.12
 
