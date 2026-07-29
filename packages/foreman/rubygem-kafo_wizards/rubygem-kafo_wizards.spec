@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Wizard like interfaces in terminal
 License: GPLv3+
 URL: https://github.com/theforeman/kafo_wizards
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
+- Rebuild for EL10
+
 * Tue Feb 17 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1.0.0-1
 - Update to 1.0.0
 
