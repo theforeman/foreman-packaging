@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.8.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 License: Apache-2.0
 URL: https://github.com/faye/websocket-driver-ruby
@@ -84,6 +84,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.2-2
+- Rebuild for EL10
+
 * Wed Jun 24 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.2-1
 - Update to 0.8.2
 
