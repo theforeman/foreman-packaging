@@ -12,6 +12,10 @@ License: Apache-2.0
 URL: https://github.com/google/grpc/tree/master/src/ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# Fix GCC 14 incompatible-pointer-types errors and remove -Wl,-wrap,memcpy
+# (unnecessary on glibc >= 2.17, causes undefined symbol on EL10)
+Patch0: grpc-gcc14-compat.patch
+
 # start specfile generated dependencies
 Requires: ruby >= 2.5.0
 BuildRequires: ruby-devel >= 2.5.0
@@ -42,9 +46,10 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+%patch -P0 -p1
 
 %build
-export EXTRA_CXXFLAGS="-Wno-register"
+export CXXFLAGS="${CXXFLAGS} -Wno-register"
 
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -93,6 +98,8 @@ rm -rf gem_ext_test
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.58.0-3
 - Rebuild for EL10
 - Add -Wno-register for GCC 14 on EL10 (vendored abseil-cpp C++17 compat)
+- Fix incompatible-pointer-types in rb_compression_options, rb_channel, rb_event_thread
+- Remove -Wl,-wrap,memcpy (undefined symbol __wrap_memcpy on EL10 glibc 2.39)
 
 * Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
 - Explicitly BuildRequire gcc-c++
