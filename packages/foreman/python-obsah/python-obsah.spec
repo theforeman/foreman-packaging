@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.10.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        easily build CLI applications using ansible playbooks
 
 License:        None
@@ -44,6 +44,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.10.0-2
+- Rebuild for EL10
+
 * Fri Jul 10 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.10.0-1
 - Update to 1.10.0
 
