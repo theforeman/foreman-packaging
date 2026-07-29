@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: ANSI at your fingertips!
 Group: Development/Languages
 License: BSD-2-Clause
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.0-4
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.5.0-3
 - Rebuild for Ruby 2.7
 
