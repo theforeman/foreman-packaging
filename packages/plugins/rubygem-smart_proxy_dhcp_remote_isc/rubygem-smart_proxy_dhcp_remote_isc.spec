@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Summary: Smart-Proxy dhcp module provider for NFS-accessible ISC dhcpd installations
 Group: Applications/Internet
 License: GPLv3
@@ -108,6 +108,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_remote_isc.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.5-7
+- Rebuild for EL10
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.0.5-6
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
