@@ -10,7 +10,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.5
-Release: 10%{?foremandist}%{?dist}
+Release: 11%{?foremandist}%{?dist}
 Summary: Discovery plugin for Foreman's smart proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_discovery
@@ -81,6 +81,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.5-11
+- Rebuild for EL10
+
 * Thu Mar 07 2024 nofaralfasi <nalfassi@redhat.com> 1.0.5-10
 - Regenerate spec file based on the latest template
 
