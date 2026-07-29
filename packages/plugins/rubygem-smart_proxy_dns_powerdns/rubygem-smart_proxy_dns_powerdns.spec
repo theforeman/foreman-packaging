@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 8%{?foremandist}%{?dist}
+Release: 9%{?foremandist}%{?dist}
 Summary: PowerDNS DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -108,6 +108,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_powerdns.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-9
+- Rebuild for EL10
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-8
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
