@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Rendering framework putting the V in MVC (part of Rails)
 License: MIT
 URL: https://rubyonrails.org
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.0.10-2
+- Rebuild for EL10
+
 * Wed Oct 29 2025 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.10-1
 - Update to 7.0.10
 
