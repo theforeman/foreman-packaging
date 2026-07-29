@@ -1,6 +1,6 @@
 Name:           cjson
 Version:        1.7.18
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Ultralightweight JSON parser in ANSI C
 
 License:        MIT and ASL 2.0
@@ -55,6 +55,9 @@ rm -f %{buildroot}%{_libdir}/*.{la,a}
 %{_includedir}/cjson/
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.18-3
+- Rebuild for EL10
+
 * Tue Sep 09 2025 Odilon Sousa <osousa@redhat.com> - 1.7.18-2
 - Add patch to close CVE-2025-57052
 
