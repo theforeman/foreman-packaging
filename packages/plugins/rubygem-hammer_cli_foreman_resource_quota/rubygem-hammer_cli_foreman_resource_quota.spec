@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Resource Quota plugin for Hammer CLI
 License: GPL-3.0-only
 URL: https://www.orcharhino.com/
@@ -69,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.0-2
+- Rebuild for EL10
+
 * Sun May 24 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.3.0-1
 - Update to 0.3.0
 
