@@ -10,14 +10,11 @@ and GCC 14 similarly defaults -Wincompatible-pointer-types to error.
 This fixes implicit conversions between void * and VALUE types in
 Ruby C extension function signatures.
 
-Also fixes rb_compression_options.c char* vs const char* mismatch.
-
 Upstream PR: https://github.com/grpc/grpc/pull/34481
 ---
- src/ruby/ext/grpc/rb_channel.c              | 16 +++++++++++-----
- src/ruby/ext/grpc/rb_compression_options.c  |  2 +-
- src/ruby/ext/grpc/rb_event_thread.c         | 12 +++++++++---
- 3 files changed, 22 insertions(+), 8 deletions(-)
+ src/ruby/ext/grpc/rb_channel.c      | 16 +++++++++++-----
+ src/ruby/ext/grpc/rb_event_thread.c | 12 +++++++++---
+ 2 files changed, 20 insertions(+), 8 deletions(-)
 
 diff --git a/src/ruby/ext/grpc/rb_channel.c b/src/ruby/ext/grpc/rb_channel.c
 index c8b4af07b998d..165708e6951c3 100644
@@ -78,19 +75,6 @@ index c8b4af07b998d..165708e6951c3 100644
    rb_funcall(g_channel_polling_thread, rb_intern("join"), 0);
    // state associated with the channel polling thread is destroyed, reset so
    // we can start again later
-diff --git a/src/ruby/ext/grpc/rb_compression_options.c b/src/ruby/ext/grpc/rb_compression_options.c
-index 1234567..abcdefg 100644
---- a/src/ruby/ext/grpc/rb_compression_options.c
-+++ b/src/ruby/ext/grpc/rb_compression_options.c
-@@ -160,7 +160,7 @@ static VALUE grpc_rb_compression_options_is_algorithm_supported(
- void grpc_rb_compression_options_algorithm_name_to_value_internal(
-     grpc_compression_algorithm* algorithm_value, VALUE algorithm_name) {
-   grpc_slice name_slice;
--  char* algorithm_name_str;
-+  const char* algorithm_name_str;
-   VALUE algorithm_name_as_string = Qnil;
-
-   Check_Type(algorithm_name, T_SYMBOL);
 diff --git a/src/ruby/ext/grpc/rb_event_thread.c b/src/ruby/ext/grpc/rb_event_thread.c
 index 49ac61c52f08a..b22ca4c7f5d3e 100644
 --- a/src/ruby/ext/grpc/rb_event_thread.c
