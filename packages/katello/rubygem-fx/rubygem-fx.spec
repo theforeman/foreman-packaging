@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Support for database functions and triggers in Rails migrations
 License: MIT
 URL: https://github.com/teoljungberg/fx
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-2
+- Rebuild for EL10
+
 * Sun Oct 26 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.0-1
 - Update to 0.9.0
 
