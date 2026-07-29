@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 License: GPLv3+
 URL: https://github.com/theforeman/kafo
@@ -71,6 +71,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.8.0-2
+- Rebuild for EL10
+
 * Tue Jul 14 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 7.8.0-1
 - Release rubygem-kafo 7.8.0
 
