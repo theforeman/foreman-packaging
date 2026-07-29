@@ -44,6 +44,8 @@ Documentation for %{name}.
 %setup -q -n  %{gem_name}-%{version}
 
 %build
+export EXTRA_CXXFLAGS="-Wno-register"
+
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
 
@@ -88,8 +90,9 @@ rm -rf gem_ext_test
 
 
 %changelog
-* Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.58.0-3
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.58.0-3
 - Rebuild for EL10
+- Add -Wno-register for GCC 14 on EL10 (vendored abseil-cpp C++17 compat)
 
 * Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
 - Explicitly BuildRequire gcc-c++
