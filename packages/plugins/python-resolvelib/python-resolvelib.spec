@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.0.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Resolve abstract dependencies into concrete ones
 
 License:        ISC License
@@ -16,7 +16,6 @@ BuildArch:      noarch
 
 BuildRequires:  pyproject-rpm-macros
 BuildRequires:  python%{python3_pkgversion}-devel
-BuildRequires:  python%{python3_pkgversion}-rpm-macros
 BuildRequires:  python%{python3_pkgversion}-setuptools
 BuildRequires:  python%{python3_pkgversion}-wheel
 BuildRequires:  python%{python3_pkgversion}-pip
@@ -51,6 +50,11 @@ Summary:        %{summary}
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-4
+- Rebuild for EL10
+- Drop redundant python3.12-rpm-macros BuildRequires; not available on EL10 and
+  already satisfied transitively via python3.12-devel/pyproject-rpm-macros
+
 * Mon Feb 03 2025 Odilon Sousa <osousa@redhat.com> - 1.0.1-3
 - Provides python3.12-resolvelib
 
