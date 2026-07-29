@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Extreme Fast Parser Combinator for Ruby
 Group: Development/Languages
 License: Ruby or BSD
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.3-6
+- Rebuild for EL10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.3-5
 - Rebuild against rh-ruby27
 
