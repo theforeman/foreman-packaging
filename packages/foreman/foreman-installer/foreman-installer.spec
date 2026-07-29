@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:5.0.0-0.2.develop
+- Rebuild for EL10
+
 * Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:5.0.0-0.1.develop
 - Bump version to 5.0-develop
 
