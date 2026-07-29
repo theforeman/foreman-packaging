@@ -1,0 +1,17 @@
+ruby-version-gem (1.1.14-1~tfm+1) stable; urgency=low
+
+  * 1.1.14 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 26 Jul 2026 05:14:25 +0000
+
+ruby-version-gem (1.1.9-1~tfm+1) stable; urgency=low
+
+  * 1.1.9 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 24 Sep 2025 09:57:01 +0200
+
+ruby-version-gem (1.1.1-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 15 May 2025 08:57:29 +0200
