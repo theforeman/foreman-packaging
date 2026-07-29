@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.13.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
 License: LGPLv2.1
 URL: https://github.com/logicminds/rubyipmi
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/rubyipmi.gemspec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.13.0-3
+- Rebuild for EL10
+
 * Thu Apr 30 2026 Arvind Jangir <ajangir@redhat.com> 0.13.0-2
 - Add which as dependency
 
