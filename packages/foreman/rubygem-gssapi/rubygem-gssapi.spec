@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A FFI wrapper around the system GSSAPI library
 License: MIT
 URL: https://github.com/zenchild/gssapi
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.1-2
+- Rebuild for EL10
+
 * Sun Aug 28 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.3.1-1
 - Update to 1.3.1
 
