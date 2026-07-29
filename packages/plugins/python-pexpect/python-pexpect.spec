@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        4.8.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Pexpect allows easy control of interactive console applications
 
 License:        ISC license
@@ -64,6 +64,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.8.0-5
+- Rebuild for EL10
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 4.8.0-4
 - Rebuild against python 3.12
 
