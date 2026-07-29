@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Various middleware for Faraday
 License: MIT
 URL: https://github.com/lostisland/faraday_middleware
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-2
+- Rebuild for EL10
+
 * Wed Jul 13 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.0-1
 - Update to 1.2.0
 
