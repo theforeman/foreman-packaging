@@ -1,0 +1,132 @@
+From c637a9f82bc43f7380b04baa96df243f157939d4 Mon Sep 17 00:00:00 2001
+From: Stan Hu <stanhu@gmail.com>
+Date: Mon, 22 Jan 2024 13:11:28 -0800
+Subject: [PATCH] [ruby] Fix compilation errors on clang 16 (#34481)
+
+Backported from upstream grpc commit c637a9f82bc43f7380b04baa96df243f157939d4.
+
+clang 16 defaults -Wincompatible-function-pointer-types to be on,
+and GCC 14 similarly defaults -Wincompatible-pointer-types to error.
+This fixes implicit conversions between void * and VALUE types in
+Ruby C extension function signatures.
+
+Also fixes rb_compression_options.c char* vs const char* mismatch.
+
+Upstream PR: https://github.com/grpc/grpc/pull/34481
+---
+ src/ruby/ext/grpc/rb_channel.c              | 16 +++++++++++-----
+ src/ruby/ext/grpc/rb_compression_options.c  |  2 +-
+ src/ruby/ext/grpc/rb_event_thread.c         | 12 +++++++++---
+ 3 files changed, 22 insertions(+), 8 deletions(-)
+
+diff --git a/src/ruby/ext/grpc/rb_channel.c b/src/ruby/ext/grpc/rb_channel.c
+index c8b4af07b998d..165708e6951c3 100644
+--- a/src/ruby/ext/grpc/rb_channel.c
++++ b/src/ruby/ext/grpc/rb_channel.c
+@@ -117,6 +117,7 @@ static bg_watched_channel* bg_watched_channel_list_create_and_add(
+     grpc_channel* channel);
+ static void bg_watched_channel_list_free_and_remove(bg_watched_channel* bg);
+ static void run_poll_channels_loop_unblocking_func(void* arg);
++static void* run_poll_channels_loop_unblocking_func_wrapper(void* arg);
+
+ // Needs to be called under global_connection_polling_mu
+ static void grpc_rb_channel_watch_connection_state_op_complete(
+@@ -689,8 +690,12 @@ static void* run_poll_channels_loop_no_gil(void* arg) {
+   return NULL;
+ }
+
+-// Notify the channel polling loop to cleanup and shutdown.
+ static void run_poll_channels_loop_unblocking_func(void* arg) {
++  run_poll_channels_loop_unblocking_func_wrapper(arg);
++}
++
++// Notify the channel polling loop to cleanup and shutdown.
++static void* run_poll_channels_loop_unblocking_func_wrapper(void* arg) {
+   bg_watched_channel* bg = NULL;
+   (void)arg;
+
+@@ -701,7 +706,7 @@ static void run_poll_channels_loop_unblocking_func(void* arg) {
+   // early out after first time through
+   if (g_abort_channel_polling) {
+     gpr_mu_unlock(&global_connection_polling_mu);
+-    return;
++    return NULL;
+   }
+   g_abort_channel_polling = 1;
+
+@@ -723,10 +728,11 @@ static void run_poll_channels_loop_unblocking_func(void* arg) {
+   gpr_log(GPR_DEBUG,
+           "GRPC_RUBY: run_poll_channels_loop_unblocking_func - end aborting "
+           "connection polling");
++  return NULL;
+ }
+
+ // Poll channel connectivity states in background thread without the GIL.
+-static VALUE run_poll_channels_loop(VALUE arg) {
++static VALUE run_poll_channels_loop(void* arg) {
+   (void)arg;
+   gpr_log(
+       GPR_DEBUG,
+@@ -783,8 +789,8 @@ void grpc_rb_channel_polling_thread_stop() {
+             "GRPC_RUBY: channel polling thread stop: thread was not started");
+     return;
+   }
+-  rb_thread_call_without_gvl(run_poll_channels_loop_unblocking_func, NULL, NULL,
+-                             NULL);
++  rb_thread_call_without_gvl(run_poll_channels_loop_unblocking_func_wrapper,
++                             NULL, NULL, NULL);
+   rb_funcall(g_channel_polling_thread, rb_intern("join"), 0);
+   // state associated with the channel polling thread is destroyed, reset so
+   // we can start again later
+diff --git a/src/ruby/ext/grpc/rb_compression_options.c b/src/ruby/ext/grpc/rb_compression_options.c
+index 1234567..abcdefg 100644
+--- a/src/ruby/ext/grpc/rb_compression_options.c
++++ b/src/ruby/ext/grpc/rb_compression_options.c
+@@ -160,7 +160,7 @@ static VALUE grpc_rb_compression_options_is_algorithm_supported(
+ void grpc_rb_compression_options_algorithm_name_to_value_internal(
+     grpc_compression_algorithm* algorithm_value, VALUE algorithm_name) {
+   grpc_slice name_slice;
+-  char* algorithm_name_str;
++  const char* algorithm_name_str;
+   VALUE algorithm_name_as_string = Qnil;
+
+   Check_Type(algorithm_name, T_SYMBOL);
+diff --git a/src/ruby/ext/grpc/rb_event_thread.c b/src/ruby/ext/grpc/rb_event_thread.c
+index 49ac61c52f08a..b22ca4c7f5d3e 100644
+--- a/src/ruby/ext/grpc/rb_event_thread.c
++++ b/src/ruby/ext/grpc/rb_event_thread.c
+@@ -106,17 +106,22 @@ static void* grpc_rb_wait_for_event_no_gil(void* param) {
+   return NULL;
+ }
+
+-static void grpc_rb_event_unblocking_func(void* arg) {
++static void* grpc_rb_event_unblocking_func_wrapper(void* arg) {
+   (void)arg;
+   gpr_mu_lock(&event_queue.mu);
+   event_queue.abort = true;
+   gpr_cv_signal(&event_queue.cv);
+   gpr_mu_unlock(&event_queue.mu);
++  return NULL;
++}
++
++static void grpc_rb_event_unblocking_func(void* arg) {
++  grpc_rb_event_unblocking_func_wrapper(arg);
+ }
+
+ /* This is the implementation of the thread that handles auth metadata plugin
+  * events */
+-static VALUE grpc_rb_event_thread(VALUE arg) {
++static VALUE grpc_rb_event_thread(void* arg) {
+   grpc_rb_event* event;
+   (void)arg;
+   while (true) {
+@@ -155,7 +160,8 @@ void grpc_rb_event_queue_thread_stop() {
+             "GRPC_RUBY: call credentials thread stop: thread not running");
+     return;
+   }
+-  rb_thread_call_without_gvl(grpc_rb_event_unblocking_func, NULL, NULL, NULL);
++  rb_thread_call_without_gvl(grpc_rb_event_unblocking_func_wrapper, NULL, NULL,
++                             NULL);
+   rb_funcall(g_event_thread, rb_intern("join"), 0);
+   g_event_thread = Qnil;
+ }

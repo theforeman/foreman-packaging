@@ -1,0 +1,29 @@
+From 34be0d84a99a6b313cef48b4c80e14a0d115d864 Mon Sep 17 00:00:00 2001
+From: Esun Kim <veblush@google.com>
+Date: Thu, 15 Feb 2024 16:51:37 -0800
+Subject: [PATCH] [Core] Remove wrap_memcpy (#35826)
+
+Backported from upstream grpc commit 34be0d84a99a6b313cef48b4c80e14a0d115d864.
+
+The -Wl,-wrap,memcpy workaround handled a breaking change of memcpy
+on glibc 2.14. This is no longer necessary since manylinux2014 images
+are used for building artifacts. On EL10 (glibc 2.39) the wrapped
+symbol causes undefined symbol errors at runtime.
+
+Upstream PR: https://github.com/grpc/grpc/pull/35826
+---
+ src/ruby/ext/grpc/extconf.rb | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/ruby/ext/grpc/extconf.rb b/src/ruby/ext/grpc/extconf.rb
+index 502793d9198fe..18e8a919c532e 100644
+--- a/src/ruby/ext/grpc/extconf.rb
++++ b/src/ruby/ext/grpc/extconf.rb
+@@ -171,7 +171,6 @@ if grpc_config == 'dbg'
+   $CFLAGS << ' -O0'
+ end
+
+-$LDFLAGS << ' -Wl,-wrap,memcpy' if linux
+ # Do not statically link standard libraries on TruffleRuby as this does not work when compiling to bitcode
+ if linux && RUBY_ENGINE != 'truffleruby'
+   $LDFLAGS << ' -static-libgcc -static-libstdc++'
