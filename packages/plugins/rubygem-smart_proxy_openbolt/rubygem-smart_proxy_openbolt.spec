@@ -10,7 +10,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Smart Proxy plugin for OpenBolt integration
 License: GPL-3.0-only
 URL: https://github.com/overlookinfra/smart_proxy_openbolt
@@ -79,6 +79,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/openbolt.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-2
+- Rebuild for EL10
+
 * Fri May 01 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.2.0-1
 - Update to 1.2.0
 
