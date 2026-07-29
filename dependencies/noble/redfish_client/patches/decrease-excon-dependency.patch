@@ -1,0 +1,12 @@
+Pick any version of HTTP library.
+--- a/redfish_client.gemspec
++++ b/redfish_client.gemspec
+@@ -29,7 +29,7 @@
+ 
+   spec.required_ruby_version = "~> 2.1"
+ 
+-  spec.add_runtime_dependency "excon", "~> 0.71"
++  spec.add_runtime_dependency "excon"
+   spec.add_runtime_dependency "server_sent_events", "~> 0.1"
+ 
+   spec.add_development_dependency "rake", ">= 11.0"
