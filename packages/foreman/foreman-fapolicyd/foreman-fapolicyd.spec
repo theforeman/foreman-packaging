@@ -1,6 +1,6 @@
 Name:     foreman-fapolicyd
 Version:  1.1.0
-Release:  1%{?dist}
+Release:  2%{?dist}
 Summary:  Foreman fapolicyd rules
 
 Group:    System Environment/Base
@@ -69,6 +69,9 @@ Foreman Proxy fapolicyd rules
 %attr(0644,root,fapolicyd) %{_sysconfdir}/fapolicyd/rules.d/61-foreman-proxy.rules
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
+- Rebuild for EL10
+
 * Wed Sep 24 2025 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-1
 - Release foreman-fapolicyd 1.1.0
 
