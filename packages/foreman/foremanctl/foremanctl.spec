@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   2.3.0
-Release:   3%{?dist}
+Release:   4%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -67,6 +67,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.0-4
+- Rebuild for EL10
+
 * Wed Jul 22 2026 Arvind Jangir <ajangir@redhat.com> 2.3.0-3
 - Add proxy inventory group
 
