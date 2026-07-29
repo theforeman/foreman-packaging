@@ -7,7 +7,7 @@
 Summary: A simple library to assist in establishing tunneled Net::SSH connections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-scp
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-9
+- Rebuild for EL10
+
 * Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-8
 - Removed unversioned obsoletes
 
