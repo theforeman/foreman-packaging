@@ -10,7 +10,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.7.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
@@ -114,6 +114,9 @@ ln -sv %{gem_instdir}/bin/ansible-runner-environment.sh %{buildroot}%{_libexecdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.1-2
+- Rebuild for EL10
+
 * Tue Jan 06 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.7.1-1
 - Update to 3.7.1
 
