@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        5.8.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Python Build Reasonableness
 
 License:        None
@@ -58,6 +58,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.8.0-7
+- Rebuild for EL10
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 5.8.0-6
 - Rebuild against python 3.12
 
