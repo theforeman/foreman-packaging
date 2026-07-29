@@ -75,8 +75,8 @@ generate_npm_package() {
   echo "FINISHED"
 
   if [ "$STRATEGY" = "bundle" ]; then
-    echo -e "Adding npmjs cache binary... - "
-    git add $PACKAGE_DIR/*-registry.npmjs.org.tgz
+    echo -e "Adding package lockfile... - "
+    git add $PACKAGE_DIR/*-package-lock.json
     echo "FINISHED"
   fi
   echo -e "Adding spec to git... - "
