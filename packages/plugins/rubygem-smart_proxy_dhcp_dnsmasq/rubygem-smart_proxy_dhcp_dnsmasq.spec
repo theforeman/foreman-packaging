@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: dnsmasq DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -108,6 +108,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_dnsmasq.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0-3
+- Rebuild for EL10
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.0-2
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
