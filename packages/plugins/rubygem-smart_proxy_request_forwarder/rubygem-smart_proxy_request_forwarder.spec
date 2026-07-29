@@ -10,7 +10,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Request forwarder for Foreman smart proxy
 License: GPL-3.0-only
 URL: https://github.com/ATIX-AG/smart_proxy_request_forwarder
@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/request_forwarder.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.3-2
+- Rebuild for EL10
+
 * Mon Jul 07 2025 Nadja Heitmann <nadjah@atix.de> - 0.0.3-1
 - Update to 0.0.3
 
