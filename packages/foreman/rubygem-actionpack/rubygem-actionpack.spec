@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.0.10
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Web-flow and rendering framework putting the VC in MVC (part of Rails)
 License: MIT
 URL: https://rubyonrails.org
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.0.10-3
+- Rebuild for EL10
+
 * Fri Feb 27 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7.0.10-2
 - Fix racc dependency on EL10
 
