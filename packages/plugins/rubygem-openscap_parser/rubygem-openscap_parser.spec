@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Parse OpenSCAP content
 Group: Development/Languages
 License: MIT
@@ -96,6 +96,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/openscap_parser.gemspec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.2-3
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.2-2
 - Rebuild for Ruby 2.7
 
