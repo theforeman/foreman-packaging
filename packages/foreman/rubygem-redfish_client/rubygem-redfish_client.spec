@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Simple Redfish client library
 License: Apache-2.0
 URL: https://github.com/xlab-steampunk/redfish-client-ruby
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/redfish_client.gemspec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-2
+- Rebuild for EL10
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.0-1
 - Update to 0.9.0
 
