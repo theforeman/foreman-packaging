@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.1.7
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Leapp plugin for Hammer CLI
 License: GPLv3
 URL: https://github.com/stejskalleos/hammer-cli-foreman-leapp
@@ -69,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.7-2
+- Rebuild for EL10
+
 * Mon May 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.7-1
 - Update to 0.1.7
 
