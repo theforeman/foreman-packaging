@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A Ruby interface to Nmap
 Group: Development/Languages
 License: MIT
@@ -93,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.3-5
+- Rebuild for EL10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.9.3-4
 - Rebuild for Ruby 2.7
 
