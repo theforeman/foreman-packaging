@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Execute scripts via REST API from Foreman Webhooks plugin
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/examples/* %{buildroot}%{foreman_proxy_statedir}/%
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.3-2
+- Rebuild for EL10
+
 * Wed May 15 2024 Adam Ruzicka <aruzicka@redhat.com> - 0.9.3-1
 - Release rubygem-smart_proxy_shellhooks 0.9.3
 
