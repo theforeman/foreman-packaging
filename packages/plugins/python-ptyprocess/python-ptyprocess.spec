@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.7.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Run a subprocess in a pseudo terminal
 
 License:        None
@@ -62,6 +62,9 @@ set -ex
 
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-5
+- Rebuild for EL10
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 0.7.0-4
 - Add python3.12 macro
 
