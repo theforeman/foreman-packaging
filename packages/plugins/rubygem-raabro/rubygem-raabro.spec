@@ -2,8 +2,8 @@
 %global gem_name raabro
 
 Name: rubygem-%{gem_name}
-Version: 1.4.0
-Release: 2%{?dist}
+Version: 1.5.0
+Release: 1%{?dist}
 Summary: a very dumb PEG parser library
 License: MIT
 URL: https://github.com/floraison/raabro
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/raabro.gemspec
 
 %changelog
+* Wed Jul 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.5.0-1
+- Update to 1.5.0
+
 * Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.0-2
 - Rebuild for EL10
 
