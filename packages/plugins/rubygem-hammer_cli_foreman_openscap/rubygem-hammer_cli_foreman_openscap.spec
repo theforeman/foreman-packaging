@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.2.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman OpenSCAP commands for Hammer
 License: GPLv3
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -69,6 +69,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.5-2
+- Rebuild for EL10
+
 * Mon May 25 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.5-1
 - Update to 0.2.5
 
