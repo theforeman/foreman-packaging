@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Bulk insert extension for ActiveRecord
 License: MIT
 URL: https://github.com/zdennis/activerecord-import
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-2
+- Rebuild for EL10
+
 * Wed May 28 2025 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.0-1
 - Update to 2.2.0
 
