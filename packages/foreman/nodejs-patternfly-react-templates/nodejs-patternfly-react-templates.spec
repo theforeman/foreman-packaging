@@ -1,18 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @patternfly/react-templates
 
-Name: %{?scl_prefix}nodejs-patternfly-react-templates
+Name: nodejs-patternfly-react-templates
 Version: 1.1.16
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This package provides wrapped component demos for ease of use
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react/tree/main/packages/react-templates#readme
 Source0: https://registry.npmjs.org/@patternfly/react-templates/-/react-templates-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(@patternfly/react-core) >= 5.4.14
 Requires: npm(@patternfly/react-core) < 6.0.0
@@ -26,7 +24,7 @@ Requires: npm(tslib) >= 2.7.0
 Requires: npm(tslib) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -52,6 +50,9 @@ cp -pfr subpaths.config.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 1.1.16-2
+- Update to 1.1.16
+
 * Sun Jan 18 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.1.16-1
 - Update to 1.1.16
 
