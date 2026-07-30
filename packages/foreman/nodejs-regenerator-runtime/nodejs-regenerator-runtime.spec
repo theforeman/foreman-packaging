@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name regenerator-runtime
 
-Name: %{?scl_prefix}nodejs-regenerator-runtime
+Name: nodejs-regenerator-runtime
 Version: 0.14.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Runtime for Regenerator-compiled generator and async functions
 License: MIT
-Group: Development/Libraries
-URL: https://github.com/facebook/regenerator/tree/main/packages/runtime
+URL: https://github.com/facebook/regenerator/tree/main#readme
 Source0: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -41,6 +39,9 @@ cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 0.14.1-2
+- Update to 0.14.1
+
 * Sun Dec 31 2023 Foreman Packaging Automation <packaging@theforeman.org> 0.14.1-1
 - Update to 0.14.1
 
