@@ -1,0 +1,30 @@
+From f55bf225da0eafeeebffd507dcb57c625933d105 Mon Sep 17 00:00:00 2001
+From: alto-ruby <altorubys@gmail.com>
+Date: Wed, 18 Sep 2024 01:09:05 +0000
+Subject: [PATCH] [Ruby] fix incompatible pointer type of grpc_compression_algorithm_name (#37741)
+
+Backported from upstream grpc commit f55bf225da0eafeeebffd507dcb57c625933d105.
+
+grpc_compression_algorithm_name() takes a const char** out parameter, so
+the local must be const-qualified. GCC 14 turns -Wincompatible-pointer-types
+into an error.
+
+This is a separate upstream commit from c637a9f and first appears in
+grpc 1.68.0, so it can only be dropped once the gem is bumped to >= 1.68.0.
+
+Upstream PR: https://github.com/grpc/grpc/pull/37741
+---
+ src/ruby/ext/grpc/rb_compression_options.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/src/ruby/ext/grpc/rb_compression_options.c
++++ b/src/ruby/ext/grpc/rb_compression_options.c
+@@ -296,7 +296,7 @@
+  * Fails if the enum value is invalid. */
+ VALUE grpc_rb_compression_options_algorithm_value_to_name_internal(
+     grpc_compression_algorithm internal_value) {
+-  char* algorithm_name = NULL;
++  const char* algorithm_name = NULL;
+ 
+   if (!grpc_compression_algorithm_name(internal_value, &algorithm_name)) {
+     rb_raise(rb_eArgError, "Failed to convert algorithm value to name");

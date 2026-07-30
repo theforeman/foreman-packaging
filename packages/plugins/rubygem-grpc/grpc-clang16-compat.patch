@@ -10,16 +10,11 @@ and GCC 14 similarly defaults -Wincompatible-pointer-types to error.
 This fixes implicit conversions between void * and VALUE types in
 Ruby C extension function signatures.
 
-Additionally fixes char* vs const char* mismatch in
-rb_compression_options.c (same -Wincompatible-pointer-types error
-with GCC 14).
-
 Upstream PR: https://github.com/grpc/grpc/pull/34481
 ---
- src/ruby/ext/grpc/rb_channel.c              | 16 +++++++++++-----
- src/ruby/ext/grpc/rb_compression_options.c  |  2 +-
- src/ruby/ext/grpc/rb_event_thread.c         | 12 +++++++++---
- 3 files changed, 21 insertions(+), 9 deletions(-)
+ src/ruby/ext/grpc/rb_channel.c      | 16 +++++++++++-----
+ src/ruby/ext/grpc/rb_event_thread.c | 12 +++++++++---
+ 2 files changed, 20 insertions(+), 8 deletions(-)
 
 --- a/src/ruby/ext/grpc/rb_channel.c
 +++ b/src/ruby/ext/grpc/rb_channel.c
@@ -116,15 +111,3 @@ Upstream PR: https://github.com/grpc/grpc/pull/34481
    rb_funcall(g_event_thread, rb_intern("join"), 0);
    g_event_thread = Qnil;
  }
-
---- a/src/ruby/ext/grpc/rb_compression_options.c
-+++ b/src/ruby/ext/grpc/rb_compression_options.c
-@@ -296,7 +296,7 @@
-  * Fails if the enum value is invalid. */
- VALUE grpc_rb_compression_options_algorithm_value_to_name_internal(
-     grpc_compression_algorithm internal_value) {
--  char* algorithm_name = NULL;
-+  const char* algorithm_name = NULL;
- 
-   if (!grpc_compression_algorithm_name(internal_value, &algorithm_name)) {
-     rb_raise(rb_eArgError, "Failed to convert algorithm value to name");
