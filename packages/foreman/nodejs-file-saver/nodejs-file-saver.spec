@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name file-saver
 
-Name: %{?scl_prefix}nodejs-file-saver
+Name: nodejs-file-saver
 Version: 2.0.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: An HTML5 saveAs() FileSaver implementation
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/eligrey/FileSaver.js#readme
 Source0: https://registry.npmjs.org/file-saver/-/file-saver-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -42,6 +40,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 2.0.5-2
+- Update to 2.0.5
+
 * Wed Jul 23 2025 Foreman Packaging Automation <packaging@theforeman.org> 2.0.5-1
 - Update to 2.0.5
 
