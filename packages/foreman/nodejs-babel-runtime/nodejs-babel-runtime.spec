@@ -2,12 +2,16 @@
 
 Name: nodejs-babel-runtime
 Version: 7.29.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: babel's modular runtime helpers
 License: MIT
 URL: https://babel.dev/docs/en/next/babel-runtime
 Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-%{version}.tgz
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: npm(%{npm_name}) = %{version}
@@ -31,6 +35,9 @@ cp -pfr regenerator %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 7.29.7-2
+- Update to 7.29.7
+
 * Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> 7.29.7-1
 - Update to 7.29.7
 
