@@ -1,11 +1,8 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name css-loader
 
-Name: %{?scl_prefix}nodejs-css-loader
+Name: nodejs-css-loader
 Version: 6.11.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: css loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -13,72 +10,86 @@ URL: https://github.com/webpack-contrib/css-loader
 Source0: https://registry.npmjs.org/css-loader/-/css-loader-6.11.0.tgz
 Source1: https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz
 Source2: https://registry.npmjs.org/icss-utils/-/icss-utils-5.1.0.tgz
-Source3: https://registry.npmjs.org/nanoid/-/nanoid-3.3.8.tgz
+Source3: https://registry.npmjs.org/nanoid/-/nanoid-3.3.16.tgz
 Source4: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
-Source5: https://registry.npmjs.org/postcss/-/postcss-8.4.49.tgz
+Source5: https://registry.npmjs.org/postcss/-/postcss-8.5.25.tgz
 Source6: https://registry.npmjs.org/postcss-modules-extract-imports/-/postcss-modules-extract-imports-3.1.0.tgz
 Source7: https://registry.npmjs.org/postcss-modules-local-by-default/-/postcss-modules-local-by-default-4.2.0.tgz
 Source8: https://registry.npmjs.org/postcss-modules-scope/-/postcss-modules-scope-3.2.1.tgz
 Source9: https://registry.npmjs.org/postcss-modules-values/-/postcss-modules-values-4.0.0.tgz
-Source10: https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.0.0.tgz
+Source10: https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.1.4.tgz
 Source11: https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz
-Source12: https://registry.npmjs.org/semver/-/semver-7.6.3.tgz
+Source12: https://registry.npmjs.org/semver/-/semver-7.8.5.tgz
 Source13: https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz
 Source14: https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz
-Source15: nodejs-css-loader-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+Source15: nodejs-css-loader-%{version}-package-lock.json
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
-%endif
+# The prep section runs node directly, so this is needed unconditionally. It
+# also works around https://issues.redhat.com/browse/RHEL-137712 on RHEL 10
+# before 10.3, where the nodejs major version macro does not resolve without
+# node in the buildroot.
+BuildRequires: /usr/bin/node
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(css-loader)) = 6.11.0
 Provides: bundled(npm(cssesc)) = 3.0.0
 Provides: bundled(npm(icss-utils)) = 5.1.0
-Provides: bundled(npm(nanoid)) = 3.3.8
+Provides: bundled(npm(nanoid)) = 3.3.16
 Provides: bundled(npm(picocolors)) = 1.1.1
-Provides: bundled(npm(postcss)) = 8.4.49
+Provides: bundled(npm(postcss)) = 8.5.25
 Provides: bundled(npm(postcss-modules-extract-imports)) = 3.1.0
 Provides: bundled(npm(postcss-modules-local-by-default)) = 4.2.0
 Provides: bundled(npm(postcss-modules-scope)) = 3.2.1
 Provides: bundled(npm(postcss-modules-values)) = 4.0.0
-Provides: bundled(npm(postcss-selector-parser)) = 7.0.0
+Provides: bundled(npm(postcss-selector-parser)) = 7.1.4
 Provides: bundled(npm(postcss-value-parser)) = 4.2.0
-Provides: bundled(npm(semver)) = 7.6.3
+Provides: bundled(npm(semver)) = 7.8.5
 Provides: bundled(npm(source-map-js)) = 1.2.1
 Provides: bundled(npm(util-deprecate)) = 1.0.2
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
+# npm ci installs the tree recorded in the lockfile: every entry carries a
+# resolved URL and an integrity hash, and npm serves the tarballs from the
+# cache primed here by content hash. No registry access is needed.
+for src in %{sources}; do
+  case "$src" in
+    *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
+    *-package-lock.json) cp "$src" package-lock.json ;;
+  esac
 done
-%{?scl:end_of_scl}
 
-%setup -T -q -a 15 -D -n %{npm_cache_dir}
+# Derive package.json from the lockfile so the two cannot disagree.
+node -e '
+const fs = require("fs");
+const lock = JSON.parse(fs.readFileSync("package-lock.json"));
+fs.writeFileSync("package.json", JSON.stringify({
+  name: lock.name,
+  version: lock.version,
+  dependencies: lock.packages[""].dependencies
+}, null, 2) + "\n");
+'
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm ci --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --omit optional
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+# npm creates a scope directory for every scope named in the lockfile, including
+# scopes whose packages were all omitted, which leaves empty dirs behind.
+# -delete implies -depth, so nested empties go bottom-up in a single pass.
+find %{buildroot}%{nodejs_sitelib}/%{npm_name} -type d -empty -delete
 cp -pfr node_modules/%{npm_name}/dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -91,6 +102,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 6.11.0-2
+- Update to 6.11.0
+
 * Fri Dec 13 2024 Foreman Packaging Automation <packaging@theforeman.org> 6.11.0-1
 - Update to 6.11.0
 
