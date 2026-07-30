@@ -671,6 +671,9 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.18.1-2
+- Regenerate with correct npm2rpm strategy
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 4.18.1-1
 - Update to 4.18.1
 

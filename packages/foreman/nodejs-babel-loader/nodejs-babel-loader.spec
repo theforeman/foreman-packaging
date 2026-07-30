@@ -123,6 +123,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 8.4.1-2
+- Regenerate with correct npm2rpm strategy
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 8.4.1-1
 - Update to 8.4.1
 
