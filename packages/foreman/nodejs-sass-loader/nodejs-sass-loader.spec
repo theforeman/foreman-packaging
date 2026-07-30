@@ -1,24 +1,22 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name sass-loader
 
-Name: %{?scl_prefix}nodejs-sass-loader
+Name: nodejs-sass-loader
 Version: 13.3.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Sass loader for webpack
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/webpack-contrib/sass-loader
 Source0: https://registry.npmjs.org/sass-loader/-/sass-loader-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(neo-async) >= 2.6.2
 Requires: npm(neo-async) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -42,6 +40,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 13.3.3-4
+- Update to 13.3.3
+
 * Tue Dec 23 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 13.3.3-3
 - Unbundle dependencies
 
