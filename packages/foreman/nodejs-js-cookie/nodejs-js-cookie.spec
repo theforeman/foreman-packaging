@@ -2,12 +2,16 @@
 
 Name: nodejs-js-cookie
 Version: 3.0.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A simple, lightweight JavaScript API for handling cookies
 License: MIT
 URL: https://github.com/js-cookie/js-cookie#readme
 Source0: https://registry.npmjs.org/js-cookie/-/js-cookie-%{version}.tgz
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: npm(%{npm_name}) = %{version}
@@ -35,6 +39,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 3.0.8-2
+- Update to 3.0.8
+
 * Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> 3.0.8-1
 - Update to 3.0.8
 
