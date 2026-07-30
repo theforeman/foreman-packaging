@@ -2,12 +2,16 @@
 
 Name: nodejs-typescript
 Version: 5.9.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: TypeScript is a language for application scale JavaScript development
 License: Apache-2.0
 URL: https://www.typescriptlang.org/
 Source0: https://registry.npmjs.org/typescript/-/typescript-%{version}.tgz
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: npm(%{npm_name}) = %{version}
@@ -45,6 +49,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/tsserver %{buildroot}%{_bindir}/tsserve
 %doc ThirdPartyNoticeText.txt
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.9.3-2
+- Update to 5.9.3
+
 * Sun May 17 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.9.3-1
 - Update to 5.9.3
 
