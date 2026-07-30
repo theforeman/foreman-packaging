@@ -124,6 +124,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.3.4-2
+- Regenerate with correct npm2rpm strategy
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.3.4-1
 - Update to 5.3.4
 

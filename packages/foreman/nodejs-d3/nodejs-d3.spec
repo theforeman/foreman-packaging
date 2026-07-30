@@ -43,6 +43,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.5.17-5
+- Regenerate with correct npm2rpm strategy
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 3.5.17-1
 - Update to 3.5.17
 

@@ -53,6 +53,9 @@ cp -pfr subpaths.config.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.4.16-2
+- Regenerate with correct npm2rpm strategy
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.4.16-1
 - Update to 5.4.16
 
