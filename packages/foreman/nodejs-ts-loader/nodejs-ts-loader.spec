@@ -2,7 +2,7 @@
 
 Name: nodejs-ts-loader
 Version: 9.6.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: TypeScript loader for webpack
 License: MIT
 Group: Development/Libraries
@@ -12,17 +12,18 @@ Source1: https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz
 Source2: https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz
 Source3: https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz
 Source4: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
-Source5: https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz
+Source5: https://registry.npmjs.org/picomatch/-/picomatch-4.0.5.tgz
 Source6: https://registry.npmjs.org/source-map/-/source-map-0.7.6.tgz
 Source7: https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz
 Source8: https://registry.npmjs.org/ts-loader/-/ts-loader-9.6.2.tgz
-Source9: nodejs-ts-loader-%{version}-registry.npmjs.org.tgz
+Source9: nodejs-ts-loader-%{version}-package-lock.json
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
-%if 0%{?rhel} == 10
-# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+# The prep section runs node directly, so this is needed unconditionally. It
+# also works around https://issues.redhat.com/browse/RHEL-137712 on RHEL 10
+# before 10.3, where the nodejs major version macro does not resolve without
+# node in the buildroot.
 BuildRequires: /usr/bin/node
-%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -32,7 +33,7 @@ Provides: bundled(npm(chalk)) = 4.1.2
 Provides: bundled(npm(color-convert)) = 2.0.1
 Provides: bundled(npm(color-name)) = 1.1.4
 Provides: bundled(npm(has-flag)) = 4.0.0
-Provides: bundled(npm(picomatch)) = 4.0.4
+Provides: bundled(npm(picomatch)) = 4.0.5
 Provides: bundled(npm(source-map)) = 0.7.6
 Provides: bundled(npm(supports-color)) = 7.2.0
 Provides: bundled(npm(ts-loader)) = 9.6.2
@@ -46,18 +47,37 @@ AutoProv: no
 
 %prep
 mkdir -p %{npm_cache_dir}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
+# npm ci installs the tree recorded in the lockfile: every entry carries a
+# resolved URL and an integrity hash, and npm serves the tarballs from the
+# cache primed here by content hash. No registry access is needed.
+for src in %{sources}; do
+  case "$src" in
+    *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
+    *-package-lock.json) cp "$src" package-lock.json ;;
+  esac
 done
 
-%setup -T -q -a 9 -D -n %{npm_cache_dir}
+# Derive package.json from the lockfile so the two cannot disagree.
+node -e '
+const fs = require("fs");
+const lock = JSON.parse(fs.readFileSync("package-lock.json"));
+fs.writeFileSync("package.json", JSON.stringify({
+  name: lock.name,
+  version: lock.version,
+  dependencies: lock.packages[""].dependencies
+}, null, 2) + "\n");
+'
 
 %build
-npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
+npm ci --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --omit optional
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+# npm creates a scope directory for every scope named in the lockfile, including
+# scopes whose packages were all omitted, which leaves empty dirs behind.
+# -delete implies -depth, so nested empties go bottom-up in a single pass.
+find %{buildroot}%{nodejs_sitelib}/%{npm_name} -type d -empty -delete
 cp -pfr node_modules/%{npm_name}/dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/eslint.config.mjs %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -78,6 +98,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/SECURITY.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 9.6.2-2
+- Update to 9.6.2
+
 * Wed Jun 24 2026 Foreman Packaging Automation <packaging@theforeman.org> 9.6.2-1
 - Update to 9.6.2
 
