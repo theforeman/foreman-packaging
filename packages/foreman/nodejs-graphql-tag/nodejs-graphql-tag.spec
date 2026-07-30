@@ -2,7 +2,7 @@
 
 Name: nodejs-graphql-tag
 Version: 2.12.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A JavaScript template literal tag that parses GraphQL queries
 License: MIT
 URL: https://github.com/apollographql/graphql-tag#readme
@@ -43,6 +43,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 2.12.7-2
+- Update to 2.12.7
+
 * Sun Jun 21 2026 Foreman Packaging Automation <packaging@theforeman.org> 2.12.7-1
 - Update to 2.12.7
 
