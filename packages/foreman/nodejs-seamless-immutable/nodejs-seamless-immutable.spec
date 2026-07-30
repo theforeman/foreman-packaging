@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name seamless-immutable
 
-Name: %{?scl_prefix}nodejs-seamless-immutable
+Name: nodejs-seamless-immutable
 Version: 7.1.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Immutable data structures for JavaScript which are backwards-compatible with normal JS Arrays and Objects
 License: BSD-3-Clause
-Group: Development/Libraries
 URL: https://github.com/rtfeldman/seamless-immutable
 Source0: https://registry.npmjs.org/seamless-immutable/-/seamless-immutable-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -43,6 +41,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 7.1.4-2
+- Update to 7.1.4
+
 * Wed Aug 27 2025 Foreman Packaging Automation <packaging@theforeman.org> 7.1.4-1
 - Update to 7.1.4
 
