@@ -1,25 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name d3
 
-Name: %{?scl_prefix}nodejs-d3
+Name: nodejs-d3
 Version: 3.5.17
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A JavaScript visualization library for HTML and SVG
 License: BSD-3-Clause
-Group: Development/Libraries
 URL: http://d3js.org
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/d3/-/d3-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildRequires: npm
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -48,6 +43,12 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 3.5.17-1
+- Update to 3.5.17
+
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 3.5.17-5
+- Update to 3.5.17
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.5.17-4
 - Bump packages to build for el8
 
