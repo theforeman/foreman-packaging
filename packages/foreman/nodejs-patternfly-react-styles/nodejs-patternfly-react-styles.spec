@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @patternfly/react-styles
 
-Name: %{?scl_prefix}nodejs-patternfly-react-styles
+Name: nodejs-patternfly-react-styles
 Version: 5.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: CSS-in-JS class maps and utilities for PatternFly
 License: MIT
-Group: Development/Libraries
 URL: https://www.npmjs.com/package/@patternfly/react-styles
 Source0: https://registry.npmjs.org/@patternfly/react-styles/-/react-styles-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -41,6 +39,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.4.1-2
+- Update to 5.4.1
+
 * Wed Jul 23 2025 Foreman Packaging Automation <packaging@theforeman.org> 5.4.1-1
 - Update to 5.4.1
 
