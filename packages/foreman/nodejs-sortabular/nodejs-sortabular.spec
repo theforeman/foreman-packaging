@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name sortabular
 
-Name: %{?scl_prefix}nodejs-sortabular
+Name: nodejs-sortabular
 Version: 1.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Sort utilities
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/reactabular/sortabular#readme
 Source0: https://registry.npmjs.org/sortabular/-/sortabular-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -42,6 +40,9 @@ cp -pfr style.css %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 1.6.0-2
+- Update to 1.6.0
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 1.6.0-1
 - Update to 1.6.0
 
