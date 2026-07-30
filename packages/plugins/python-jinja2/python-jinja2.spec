@@ -7,7 +7,7 @@
 
 Name:           python-%{srcname}
 Version:        3.1.5
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A very fast and expressive template engine
 
 License:        BSD-3-Clause
@@ -17,7 +17,6 @@ BuildArch:      noarch
 
 BuildRequires:  pyproject-rpm-macros
 BuildRequires:  python%{python3_pkgversion}-devel
-BuildRequires:  python%{python3_pkgversion}-rpm-macros
 BuildRequires:  python%{python3_pkgversion}-flit-core
 BuildRequires:  python%{python3_pkgversion}-wheel
 BuildRequires:  python%{python3_pkgversion}-pip
@@ -57,6 +56,11 @@ set -ex
 
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.5-3
+- Rebuild for EL10
+- Drop redundant python3.12-rpm-macros BuildRequires; not available on EL10 and
+  already satisfied transitively via python3.12-devel/pyproject-rpm-macros
+
 * Thu Jan 30 2025 Odilon Sousa <osousa@redhat.com> - 3.1.5-2
 - Rebuild against python 3.12
 
