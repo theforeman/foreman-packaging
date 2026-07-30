@@ -1,83 +1,53 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name use-deep-compare-effect
 
-Name: %{?scl_prefix}nodejs-use-deep-compare-effect
+Name: nodejs-use-deep-compare-effect
 Version: 1.6.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: It's react's useEffect hook, except using deep comparison on the inputs, not reference equality
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/kentcdodds/use-deep-compare-effect#readme
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.14.6.tgz
-Source1: https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.3.tgz
-Source2: https://registry.npmjs.org/@types/react/-/react-17.0.13.tgz
-Source3: https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.1.tgz
-Source4: https://registry.npmjs.org/csstype/-/csstype-3.0.8.tgz
-Source5: https://registry.npmjs.org/dequal/-/dequal-2.0.2.tgz
-Source6: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.8.tgz
-Source7: https://registry.npmjs.org/use-deep-compare-effect/-/use-deep-compare-effect-1.6.1.tgz
-Source8: nodejs-use-deep-compare-effect-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+Source0: https://registry.npmjs.org/use-deep-compare-effect/-/use-deep-compare-effect-%{version}.tgz
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
+Requires: npm(@babel/runtime) >= 7.12.5
+Requires: npm(@babel/runtime) < 8.0.0
+Requires: npm(@types/react) >= 17.0.0
+Requires: npm(@types/react) < 18.0.0
+Requires: npm(dequal) >= 2.0.2
+Requires: npm(dequal) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.14.6
-Provides: bundled(npm(@types/prop-types)) = 15.7.3
-Provides: bundled(npm(@types/react)) = 17.0.13
-Provides: bundled(npm(@types/scheduler)) = 0.16.1
-Provides: bundled(npm(csstype)) = 3.0.8
-Provides: bundled(npm(dequal)) = 2.0.2
-Provides: bundled(npm(regenerator-runtime)) = 0.13.8
-Provides: bundled(npm(use-deep-compare-effect)) = 1.6.1
-AutoReq: no
-AutoProv: no
-
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
 
 %prep
-mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
-done
-%{?scl:end_of_scl}
-
-%setup -T -q -a 8 -D -n %{npm_cache_dir}
-
-%build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+%setup -q -n package
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-%clean
-rm -rf %{buildroot} %{npm_cache_dir}
+%nodejs_symlink_deps
+
+%check
+%{nodejs_symlink_deps} --check
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%license node_modules/%{npm_name}/LICENSE
-%doc node_modules/%{npm_name}/CHANGELOG.md
-%doc node_modules/%{npm_name}/README.md
+%license LICENSE
+%doc CHANGELOG.md
+%doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 1.6.1-3
+- Update to 1.6.1
+
 * Thu Feb 01 2024 Eric D. Helms <ericdhelms@gmail.com> - 1.6.1-2
 - Use --legacy-peer-deps during npm install
 
