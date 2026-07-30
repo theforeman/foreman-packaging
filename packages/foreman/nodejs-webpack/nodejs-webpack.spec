@@ -2,7 +2,7 @@
 
 Name: nodejs-webpack
 Version: 5.108.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Packs ECMAScript/CommonJs/AMD modules for the browser
 License: MIT
 Group: Development/Libraries
@@ -14,7 +14,7 @@ Source3: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-code
 Source4: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz
 Source5: https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz
 Source6: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
-Source7: https://registry.npmjs.org/@types/node/-/node-26.1.0.tgz
+Source7: https://registry.npmjs.org/@types/node/-/node-26.1.2.tgz
 Source8: https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.14.1.tgz
 Source9: https://registry.npmjs.org/@webassemblyjs/floating-point-hex-parser/-/floating-point-hex-parser-1.13.2.tgz
 Source10: https://registry.npmjs.org/@webassemblyjs/helper-api-error/-/helper-api-error-1.13.2.tgz
@@ -32,20 +32,20 @@ Source21: https://registry.npmjs.org/@webassemblyjs/wasm-parser/-/wasm-parser-1.
 Source22: https://registry.npmjs.org/@webassemblyjs/wast-printer/-/wast-printer-1.14.1.tgz
 Source23: https://registry.npmjs.org/@xtuc/ieee754/-/ieee754-1.2.0.tgz
 Source24: https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz
-Source25: https://registry.npmjs.org/acorn/-/acorn-8.17.0.tgz
+Source25: https://registry.npmjs.org/acorn/-/acorn-8.18.0.tgz
 Source26: https://registry.npmjs.org/acorn-import-phases/-/acorn-import-phases-1.0.4.tgz
 Source27: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz
 Source28: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source29: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
-Source30: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.42.tgz
-Source31: https://registry.npmjs.org/browserslist/-/browserslist-4.28.4.tgz
+Source30: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.8.tgz
+Source31: https://registry.npmjs.org/browserslist/-/browserslist-4.28.7.tgz
 Source32: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
-Source33: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001800.tgz
+Source33: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001806.tgz
 Source34: https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz
 Source35: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
-Source36: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.387.tgz
-Source37: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.24.1.tgz
-Source38: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.0.tgz
+Source36: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.398.tgz
+Source37: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.24.5.tgz
+Source38: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.1.tgz
 Source39: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
 Source40: https://registry.npmjs.org/eslint-scope/-/eslint-scope-5.1.1.tgz
 Source41: https://registry.npmjs.org/esrecurse/-/esrecurse-4.3.0.tgz
@@ -53,7 +53,7 @@ Source42: https://registry.npmjs.org/estraverse/-/estraverse-4.3.0.tgz
 Source43: https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz
 Source44: https://registry.npmjs.org/events/-/events-3.3.0.tgz
 Source45: https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz
-Source46: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.3.tgz
+Source46: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.4.tgz
 Source47: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz
 Source48: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
 Source49: https://registry.npmjs.org/jest-worker/-/jest-worker-27.5.1.tgz
@@ -63,7 +63,7 @@ Source52: https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz
 Source53: https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz
 Source54: https://registry.npmjs.org/minimizer-webpack-plugin/-/minimizer-webpack-plugin-5.6.1.tgz
 Source55: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz
-Source56: https://registry.npmjs.org/node-releases/-/node-releases-2.0.50.tgz
+Source56: https://registry.npmjs.org/node-releases/-/node-releases-2.0.51.tgz
 Source57: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
 Source58: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
 Source59: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
@@ -71,19 +71,20 @@ Source60: https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz
 Source61: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz
 Source62: https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz
 Source63: https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz
-Source64: https://registry.npmjs.org/terser/-/terser-5.48.0.tgz
+Source64: https://registry.npmjs.org/terser/-/terser-5.49.0.tgz
 Source65: https://registry.npmjs.org/undici-types/-/undici-types-8.3.0.tgz
 Source66: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz
 Source67: https://registry.npmjs.org/watchpack/-/watchpack-2.5.2.tgz
 Source68: https://registry.npmjs.org/webpack/-/webpack-5.108.4.tgz
-Source69: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.5.0.tgz
-Source70: nodejs-webpack-%{version}-registry.npmjs.org.tgz
+Source69: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.5.1.tgz
+Source70: nodejs-webpack-%{version}-package-lock.json
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
-%if 0%{?rhel} == 10
-# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+# The prep section runs node directly, so this is needed unconditionally. It
+# also works around https://issues.redhat.com/browse/RHEL-137712 on RHEL 10
+# before 10.3, where the nodejs major version macro does not resolve without
+# node in the buildroot.
 BuildRequires: /usr/bin/node
-%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -95,7 +96,7 @@ Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.5.5
 Provides: bundled(npm(@jridgewell/trace-mapping)) = 0.3.31
 Provides: bundled(npm(@types/estree)) = 1.0.9
 Provides: bundled(npm(@types/json-schema)) = 7.0.15
-Provides: bundled(npm(@types/node)) = 26.1.0
+Provides: bundled(npm(@types/node)) = 26.1.2
 Provides: bundled(npm(@webassemblyjs/ast)) = 1.14.1
 Provides: bundled(npm(@webassemblyjs/floating-point-hex-parser)) = 1.13.2
 Provides: bundled(npm(@webassemblyjs/helper-api-error)) = 1.13.2
@@ -113,20 +114,20 @@ Provides: bundled(npm(@webassemblyjs/wasm-parser)) = 1.14.1
 Provides: bundled(npm(@webassemblyjs/wast-printer)) = 1.14.1
 Provides: bundled(npm(@xtuc/ieee754)) = 1.2.0
 Provides: bundled(npm(@xtuc/long)) = 4.2.2
-Provides: bundled(npm(acorn)) = 8.17.0
+Provides: bundled(npm(acorn)) = 8.18.0
 Provides: bundled(npm(acorn-import-phases)) = 1.0.4
 Provides: bundled(npm(ajv)) = 8.20.0
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
-Provides: bundled(npm(baseline-browser-mapping)) = 2.10.42
-Provides: bundled(npm(browserslist)) = 4.28.4
+Provides: bundled(npm(baseline-browser-mapping)) = 2.11.8
+Provides: bundled(npm(browserslist)) = 4.28.7
 Provides: bundled(npm(buffer-from)) = 1.1.2
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001800
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001806
 Provides: bundled(npm(chrome-trace-event)) = 1.0.4
 Provides: bundled(npm(commander)) = 2.20.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.387
-Provides: bundled(npm(enhanced-resolve)) = 5.24.1
-Provides: bundled(npm(es-module-lexer)) = 2.3.0
+Provides: bundled(npm(electron-to-chromium)) = 1.5.398
+Provides: bundled(npm(enhanced-resolve)) = 5.24.5
+Provides: bundled(npm(es-module-lexer)) = 2.3.1
 Provides: bundled(npm(escalade)) = 3.2.0
 Provides: bundled(npm(eslint-scope)) = 5.1.1
 Provides: bundled(npm(esrecurse)) = 4.3.0
@@ -134,7 +135,7 @@ Provides: bundled(npm(estraverse)) = 4.3.0
 Provides: bundled(npm(estraverse)) = 5.3.0
 Provides: bundled(npm(events)) = 3.3.0
 Provides: bundled(npm(fast-deep-equal)) = 3.1.3
-Provides: bundled(npm(fast-uri)) = 3.1.3
+Provides: bundled(npm(fast-uri)) = 3.1.4
 Provides: bundled(npm(graceful-fs)) = 4.2.11
 Provides: bundled(npm(has-flag)) = 4.0.0
 Provides: bundled(npm(jest-worker)) = 27.5.1
@@ -144,7 +145,7 @@ Provides: bundled(npm(merge-stream)) = 2.0.0
 Provides: bundled(npm(mime-db)) = 1.54.0
 Provides: bundled(npm(minimizer-webpack-plugin)) = 5.6.1
 Provides: bundled(npm(neo-async)) = 2.6.2
-Provides: bundled(npm(node-releases)) = 2.0.50
+Provides: bundled(npm(node-releases)) = 2.0.51
 Provides: bundled(npm(picocolors)) = 1.1.1
 Provides: bundled(npm(require-from-string)) = 2.0.2
 Provides: bundled(npm(schema-utils)) = 4.3.3
@@ -152,12 +153,12 @@ Provides: bundled(npm(source-map)) = 0.6.1
 Provides: bundled(npm(source-map-support)) = 0.5.21
 Provides: bundled(npm(supports-color)) = 8.1.1
 Provides: bundled(npm(tapable)) = 2.3.3
-Provides: bundled(npm(terser)) = 5.48.0
+Provides: bundled(npm(terser)) = 5.49.0
 Provides: bundled(npm(undici-types)) = 8.3.0
 Provides: bundled(npm(update-browserslist-db)) = 1.2.3
 Provides: bundled(npm(watchpack)) = 2.5.2
 Provides: bundled(npm(webpack)) = 5.108.4
-Provides: bundled(npm(webpack-sources)) = 3.5.0
+Provides: bundled(npm(webpack-sources)) = 3.5.1
 AutoReq: no
 AutoProv: no
 
@@ -168,18 +169,37 @@ AutoProv: no
 
 %prep
 mkdir -p %{npm_cache_dir}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
+# npm ci installs the tree recorded in the lockfile: every entry carries a
+# resolved URL and an integrity hash, and npm serves the tarballs from the
+# cache primed here by content hash. No registry access is needed.
+for src in %{sources}; do
+  case "$src" in
+    *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
+    *-package-lock.json) cp "$src" package-lock.json ;;
+  esac
 done
 
-%setup -T -q -a 70 -D -n %{npm_cache_dir}
+# Derive package.json from the lockfile so the two cannot disagree.
+node -e '
+const fs = require("fs");
+const lock = JSON.parse(fs.readFileSync("package-lock.json"));
+fs.writeFileSync("package.json", JSON.stringify({
+  name: lock.name,
+  version: lock.version,
+  dependencies: lock.packages[""].dependencies
+}, null, 2) + "\n");
+'
 
 %build
-npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
+npm ci --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --omit optional
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+# npm creates a scope directory for every scope named in the lockfile, including
+# scopes whose packages were all omitted, which leaves empty dirs behind.
+# -delete implies -depth, so nested empties go bottom-up in a single pass.
+find %{buildroot}%{nodejs_sitelib}/%{npm_name} -type d -empty -delete
 cp -pfr node_modules/%{npm_name}/bin %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/hot %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -202,6 +222,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.108.4-2
+- Update to 5.108.4
+
 * Sun Jul 05 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.108.4-1
 - Update to 5.108.4
 
