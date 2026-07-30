@@ -2,7 +2,7 @@
 
 Name: nodejs-babel-core
 Version: 7.29.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Babel compiler core
 License: MIT
 Group: Development/Libraries
@@ -28,12 +28,12 @@ Source17: https://registry.npmjs.org/@jridgewell/remapping/-/remapping-2.3.5.tgz
 Source18: https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz
 Source19: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz
 Source20: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz
-Source21: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.34.tgz
-Source22: https://registry.npmjs.org/browserslist/-/browserslist-4.28.2.tgz
-Source23: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001797.tgz
+Source21: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.8.tgz
+Source22: https://registry.npmjs.org/browserslist/-/browserslist-4.28.7.tgz
+Source23: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001806.tgz
 Source24: https://registry.npmjs.org/convert-source-map/-/convert-source-map-2.0.0.tgz
 Source25: https://registry.npmjs.org/debug/-/debug-4.4.3.tgz
-Source26: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.368.tgz
+Source26: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.398.tgz
 Source27: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
 Source28: https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz
 Source29: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
@@ -41,14 +41,19 @@ Source30: https://registry.npmjs.org/jsesc/-/jsesc-3.1.0.tgz
 Source31: https://registry.npmjs.org/json5/-/json5-2.2.3.tgz
 Source32: https://registry.npmjs.org/lru-cache/-/lru-cache-5.1.1.tgz
 Source33: https://registry.npmjs.org/ms/-/ms-2.1.3.tgz
-Source34: https://registry.npmjs.org/node-releases/-/node-releases-2.0.47.tgz
+Source34: https://registry.npmjs.org/node-releases/-/node-releases-2.0.51.tgz
 Source35: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
 Source36: https://registry.npmjs.org/semver/-/semver-6.3.1.tgz
 Source37: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz
 Source38: https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz
-Source39: nodejs-babel-core-%{version}-registry.npmjs.org.tgz
+Source39: nodejs-babel-core-%{version}-package-lock.json
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
+# The prep section runs node directly, so this is needed unconditionally. It
+# also works around https://issues.redhat.com/browse/RHEL-137712 on RHEL 10
+# before 10.3, where the nodejs major version macro does not resolve without
+# node in the buildroot.
+BuildRequires: /usr/bin/node
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -74,12 +79,12 @@ Provides: bundled(npm(@jridgewell/remapping)) = 2.3.5
 Provides: bundled(npm(@jridgewell/resolve-uri)) = 3.1.2
 Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.5.5
 Provides: bundled(npm(@jridgewell/trace-mapping)) = 0.3.31
-Provides: bundled(npm(baseline-browser-mapping)) = 2.10.34
-Provides: bundled(npm(browserslist)) = 4.28.2
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001797
+Provides: bundled(npm(baseline-browser-mapping)) = 2.11.8
+Provides: bundled(npm(browserslist)) = 4.28.7
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001806
 Provides: bundled(npm(convert-source-map)) = 2.0.0
 Provides: bundled(npm(debug)) = 4.4.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.368
+Provides: bundled(npm(electron-to-chromium)) = 1.5.398
 Provides: bundled(npm(escalade)) = 3.2.0
 Provides: bundled(npm(gensync)) = 1.0.0-beta.2
 Provides: bundled(npm(js-tokens)) = 4.0.0
@@ -87,7 +92,7 @@ Provides: bundled(npm(jsesc)) = 3.1.0
 Provides: bundled(npm(json5)) = 2.2.3
 Provides: bundled(npm(lru-cache)) = 5.1.1
 Provides: bundled(npm(ms)) = 2.1.3
-Provides: bundled(npm(node-releases)) = 2.0.47
+Provides: bundled(npm(node-releases)) = 2.0.51
 Provides: bundled(npm(picocolors)) = 1.1.1
 Provides: bundled(npm(semver)) = 6.3.1
 Provides: bundled(npm(update-browserslist-db)) = 1.2.3
@@ -102,18 +107,37 @@ AutoProv: no
 
 %prep
 mkdir -p %{npm_cache_dir}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
+# npm ci installs the tree recorded in the lockfile: every entry carries a
+# resolved URL and an integrity hash, and npm serves the tarballs from the
+# cache primed here by content hash. No registry access is needed.
+for src in %{sources}; do
+  case "$src" in
+    *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
+    *-package-lock.json) cp "$src" package-lock.json ;;
+  esac
 done
 
-%setup -T -q -a 39 -D -n %{npm_cache_dir}
+# Derive package.json from the lockfile so the two cannot disagree.
+node -e '
+const fs = require("fs");
+const lock = JSON.parse(fs.readFileSync("package-lock.json"));
+fs.writeFileSync("package.json", JSON.stringify({
+  name: lock.name,
+  version: lock.version,
+  dependencies: lock.packages[""].dependencies
+}, null, 2) + "\n");
+'
 
 %build
-npm install --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --package-lock false --omit optional --install-strategy shallow %{npm_name}@%{version}
+npm ci --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --omit optional
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+# npm creates a scope directory for every scope named in the lockfile, including
+# scopes whose packages were all omitted, which leaves empty dirs behind.
+# -delete implies -depth, so nested empties go bottom-up in a single pass.
+find %{buildroot}%{nodejs_sitelib}/%{npm_name} -type d -empty -delete
 cp -pfr node_modules/%{npm_name}/lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/src %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -127,6 +151,15 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 7.29.7-1
+- Update to 7.29.7
+
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 7.29.7-1
+- Update to 7.29.7
+
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 7.29.7-2
+- Update to 7.29.7
+
 * Sun Jun 07 2026 Foreman Packaging Automation <packaging@theforeman.org> 7.29.7-1
 - Update to 7.29.7
 
