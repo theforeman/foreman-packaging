@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name core-js
 
-Name: %{?scl_prefix}nodejs-core-js
+Name: nodejs-core-js
 Version: 2.6.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Standard library
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/zloirock/core-js#readme
 Source0: https://registry.npmjs.org/core-js/-/core-js-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -54,6 +52,9 @@ cp -pfr web %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 2.6.12-2
+- Update to 2.6.12
+
 * Fri Aug 11 2023 Foreman Packaging Automation <packaging@theforeman.org> 2.6.12-1
 - Update to 2.6.12
 
