@@ -1,70 +1,81 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name yup
 
-Name: %{?scl_prefix}nodejs-yup
+Name: nodejs-yup
 Version: 0.29.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Dead simple Object schema validation
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/jquense/yup
-Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.6.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz
 Source1: https://registry.npmjs.org/fn-name/-/fn-name-3.0.0.tgz
-Source2: https://registry.npmjs.org/lodash/-/lodash-4.17.23.tgz
-Source3: https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.23.tgz
+Source2: https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz
+Source3: https://registry.npmjs.org/lodash-es/-/lodash-es-4.18.1.tgz
 Source4: https://registry.npmjs.org/property-expr/-/property-expr-2.0.6.tgz
-Source5: https://registry.npmjs.org/synchronous-promise/-/synchronous-promise-2.0.17.tgz
+Source5: https://registry.npmjs.org/synchronous-promise/-/synchronous-promise-2.0.18.tgz
 Source6: https://registry.npmjs.org/toposort/-/toposort-2.0.2.tgz
 Source7: https://registry.npmjs.org/yup/-/yup-0.29.3.tgz
-Source8: nodejs-yup-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+Source8: nodejs-yup-%{version}-package-lock.json
+BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
-%endif
+# The prep section runs node directly, so this is needed unconditionally. It
+# also works around https://issues.redhat.com/browse/RHEL-137712 on RHEL 10
+# before 10.3, where the nodejs major version macro does not resolve without
+# node in the buildroot.
+BuildRequires: /usr/bin/node
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.28.6
+Provides: npm(%{npm_name}) = %{version}
+Provides: bundled(npm(@babel/runtime)) = 7.29.7
 Provides: bundled(npm(fn-name)) = 3.0.0
-Provides: bundled(npm(lodash)) = 4.17.23
-Provides: bundled(npm(lodash-es)) = 4.17.23
+Provides: bundled(npm(lodash)) = 4.18.1
+Provides: bundled(npm(lodash-es)) = 4.18.1
 Provides: bundled(npm(property-expr)) = 2.0.6
-Provides: bundled(npm(synchronous-promise)) = 2.0.17
+Provides: bundled(npm(synchronous-promise)) = 2.0.18
 Provides: bundled(npm(toposort)) = 2.0.2
 Provides: bundled(npm(yup)) = 0.29.3
 AutoReq: no
 AutoProv: no
 
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+%define npm_cache_dir npm_cache_%{name}-%{version}-%{release}
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
+# npm ci installs the tree recorded in the lockfile: every entry carries a
+# resolved URL and an integrity hash, and npm serves the tarballs from the
+# cache primed here by content hash. No registry access is needed.
+for src in %{sources}; do
+  case "$src" in
+    *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
+    *-package-lock.json) cp "$src" package-lock.json ;;
+  esac
 done
-%{?scl:end_of_scl}
 
-%setup -T -q -a 8 -D -n %{npm_cache_dir}
+# Derive package.json from the lockfile so the two cannot disagree.
+node -e '
+const fs = require("fs");
+const lock = JSON.parse(fs.readFileSync("package-lock.json"));
+fs.writeFileSync("package.json", JSON.stringify({
+  name: lock.name,
+  version: lock.version,
+  dependencies: lock.packages[""].dependencies
+}, null, 2) + "\n");
+'
 
 %build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+npm ci --legacy-peer-deps --offline --cache %{_builddir}/%{npm_cache_dir} --omit optional
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+# npm creates a scope directory for every scope named in the lockfile, including
+# scopes whose packages were all omitted, which leaves empty dirs behind.
+# -delete implies -depth, so nested empties go bottom-up in a single pass.
+find %{buildroot}%{nodejs_sitelib}/%{npm_name} -type d -empty -delete
 cp -pfr node_modules/%{npm_name}/es %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -79,6 +90,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 0.29.3-3
+- Update to 0.29.3
+
 * Tue Mar 03 2026 Evgeni Golov 0.29.3-2
 - Rebuild to update vendored deps
 
