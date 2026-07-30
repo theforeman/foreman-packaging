@@ -12,10 +12,15 @@ License: Apache-2.0
 URL: https://github.com/google/grpc/tree/master/src/ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# Backport from upstream c637a9f: fix clang 16 / GCC 14 incompatible-pointer-types
+# Backport from upstream c637a9f (grpc 1.62.0): fix clang 16 / GCC 14
+# incompatible-pointer-types in rb_channel.c and rb_event_thread.c
 Patch0: grpc-clang16-compat.patch
-# Backport from upstream 34be0d8: remove -Wl,-wrap,memcpy (undefined symbol on EL10)
-Patch1: grpc-remove-wrap-memcpy.patch
+# Backport from upstream f55bf22 (grpc 1.68.0): fix incompatible pointer type
+# of grpc_compression_algorithm_name() in rb_compression_options.c
+Patch1: grpc-compression-const.patch
+# Backport from upstream 34be0d8 (grpc 1.62.0): remove -Wl,-wrap,memcpy
+# (undefined symbol on EL10)
+Patch2: grpc-remove-wrap-memcpy.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.5.0
@@ -46,9 +51,7 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-%setup -q -n  %{gem_name}-%{version}
-%patch -P0 -p1
-%patch -P1 -p1
+%autosetup -p1 -n %{gem_name}-%{version}
 
 %build
 export CXXFLAGS="${CXXFLAGS} -Wno-register"
@@ -101,7 +104,8 @@ rm -rf gem_ext_test
 - Rebuild for EL10
 - Add -Wno-register for GCC 14 on EL10 (vendored abseil-cpp C++17 compat)
 - Backport upstream c637a9f: fix incompatible-pointer-types (clang 16 / GCC 14)
-- Fix char* vs const char* in rb_compression_options.c (GCC 14)
+- Backport upstream f55bf22: fix incompatible pointer type of
+  grpc_compression_algorithm_name (GCC 14)
 - Backport upstream 34be0d8: remove -Wl,-wrap,memcpy (undefined symbol on EL10)
 
 * Tue Jan 16 2024 Evgeni Golov - 1.58.0-2
