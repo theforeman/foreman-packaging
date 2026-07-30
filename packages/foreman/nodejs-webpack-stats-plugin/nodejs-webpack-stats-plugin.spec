@@ -1,22 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name webpack-stats-plugin
 
-Name: %{?scl_prefix}nodejs-webpack-stats-plugin
+Name: nodejs-webpack-stats-plugin
 Version: 1.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Webpack stats plugin
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/FormidableLabs/webpack-stats-plugin#readme
 Source0: https://registry.npmjs.org/webpack-stats-plugin/-/webpack-stats-plugin-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -41,6 +39,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 1.1.3-2
+- Update to 1.1.3
+
 * Wed Dec 13 2023 Evgeni Golov 1.1.3-1
 - Update to 1.1.3
 
