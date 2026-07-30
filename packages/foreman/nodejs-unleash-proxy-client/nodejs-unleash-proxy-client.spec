@@ -1,72 +1,50 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name unleash-proxy-client
 
-Name: %{?scl_prefix}nodejs-unleash-proxy-client
+Name: nodejs-unleash-proxy-client
 Version: 3.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A browser client that can be used together with Unleash Edge or the Unleash Frontend API
 License: Apache-2.0
-Group: Development/Libraries
 URL: https://github.com/unleash/unleash-js-sdk#readme
-Source0: https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz
-Source1: https://registry.npmjs.org/unleash-proxy-client/-/unleash-proxy-client-3.8.0.tgz
-Source2: nodejs-unleash-proxy-client-%{version}-registry.npmjs.org.tgz
-BuildRequires: %{?scl_prefix_nodejs}npm
-%if 0%{!?scl:1}
+Source0: https://registry.npmjs.org/unleash-proxy-client/-/unleash-proxy-client-%{version}.tgz
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
+Requires: npm(tiny-emitter) >= 2.1.0
+Requires: npm(tiny-emitter) < 3.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
-Provides: bundled(npm(tiny-emitter)) = 2.1.0
-Provides: bundled(npm(unleash-proxy-client)) = 3.8.0
-AutoReq: no
-AutoProv: no
-
-%if 0%{?scl:1}
-%define npm_cache_dir npm_cache
-%else
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
-%endif
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
 
 %prep
-mkdir -p %{npm_cache_dir}
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
-done
-%{?scl:end_of_scl}
-
-%setup -T -q -a 2 -D -n %{npm_cache_dir}
-
-%build
-%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
-npm install --legacy-peer-deps --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-%{?scl:end_of_scl}
+%setup -q -n package
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/build %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/examples %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr node_modules/%{npm_name}/src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr build %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr examples %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-%clean
-rm -rf %{buildroot} %{npm_cache_dir}
+%nodejs_symlink_deps
+
+%check
+%{nodejs_symlink_deps} --check
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%license node_modules/%{npm_name}/LICENSE
-%doc node_modules/%{npm_name}/README.md
+%license LICENSE
+%doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 3.8.0-2
+- Update to 3.8.0
+
 * Wed Apr 29 2026 Foreman Packaging Automation <packaging@theforeman.org> 3.8.0-1
 - Update to 3.8.0
 
