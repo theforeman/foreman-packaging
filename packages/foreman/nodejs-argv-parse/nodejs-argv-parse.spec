@@ -1,25 +1,20 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name argv-parse
 
-Name: %{?scl_prefix}nodejs-argv-parse
+Name: nodejs-argv-parse
 Version: 1.0.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Parse command line arguments
 License: ISC
-Group: Development/Libraries
 URL: https://github.com/paulcpederson/argv-parse
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source0: https://registry.npmjs.org/argv-parse/-/argv-parse-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildRequires: npm
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -45,6 +40,9 @@ cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 1.0.1-5
+- Update to 1.0.1
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-4
 - Bump packages to build for el8
 
