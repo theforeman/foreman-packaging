@@ -1,18 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name buffer
 
-Name: %{?scl_prefix}nodejs-buffer
+Name: nodejs-buffer
 Version: 5.7.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Node
 License: MIT
-Group: Development/Libraries
 URL: https://github.com/feross/buffer
 Source0: https://registry.npmjs.org/buffer/-/buffer-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+%if 0%{?rhel} == 10
+# https://issues.redhat.com/browse/RHEL-137712 is fixed in RHEL 10.3
+BuildRequires: /usr/bin/node
 %endif
 Requires: npm(base64-js) >= 1.3.1
 Requires: npm(base64-js) < 2.0.0
@@ -20,7 +18,7 @@ Requires: npm(ieee754) >= 1.1.13
 Requires: npm(ieee754) < 2.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -46,6 +44,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 5.7.1-4
+- Update to 5.7.1
+
 * Fri Dec 19 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.7.1-3
 - Rewrite to use single style packaging
 
