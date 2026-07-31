@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.1.0
-Release: 4%{?foremandist}%{?dist}
+Release: 5%{?foremandist}%{?dist}
 Summary: Add Statistics and Trends
 License: GPLv3
 URL: https://theforeman.org
@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-5
+- Rebuild for EL10
+
 * Tue Jul 15 2025 Evgeni Golov - 2.1.0-4
 - Rebuild for removal of theforeman/vendor
 
