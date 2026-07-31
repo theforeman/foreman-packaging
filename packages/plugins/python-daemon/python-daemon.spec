@@ -7,7 +7,7 @@
 
 Name:           python%{python3_pkgversion}-%{srcname}
 Version:        2.3.1
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Library to implement a well-behaved Unix daemon process
 
 License:        Apache-2
@@ -56,6 +56,9 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.1-7
+- Rebuild for EL10
+
 * Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 2.3.1-6
 - Rebuild for EL10
 
