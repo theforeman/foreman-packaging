@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        8.1.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        the blessed package to manage your versions by scm tags
 
 License:        MIT
@@ -71,6 +71,9 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 8.1.0-3
+- Rebuild for EL10
+
 * Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 8.1.0-2
 - Rebuild for EL10
 - Drop redundant python3.12-rpm-macros BuildRequires; not available on EL10 and
