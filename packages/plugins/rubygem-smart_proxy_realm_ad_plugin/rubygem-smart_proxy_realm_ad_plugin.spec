@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1
-Release: 10%{?foremandist}%{?dist}
+Release: 11%{?foremandist}%{?dist}
 Summary: A realm ad provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -110,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/config/realm_ad.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1-11
+- Rebuild for EL10
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.1-10
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
