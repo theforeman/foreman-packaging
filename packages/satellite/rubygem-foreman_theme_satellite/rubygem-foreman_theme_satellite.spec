@@ -7,7 +7,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 16.3.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
 URL: https://github.com/RedHatSatellite/foreman_theme_satellite
@@ -104,6 +104,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 16.3.0-2
+- Rebuild for EL10
+
 * Wed Jun 03 2026 Foreman Packaging Automation <packaging@theforeman.org> - 16.3.0-1
 - Update to 16.3.0
 
