@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A Ruby interface for the adcli library
 License: Artistic-2.0
 URL: https://github.com/martencassel/radcli
@@ -53,8 +53,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_instdir}/ext/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
 # rake-compiler isn't needed on the system itself
 sed -i '/rake-compiler/ s/runtime/development/' %{buildroot}/%{gem_spec}
@@ -94,6 +93,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
+- Fix .so install path for EL10 Ruby 3.3 compatibility
+
 * Wed Jul 24 2024 Evgeni Golov - 1.1.0-1
 - Update to 1.1.0
 
