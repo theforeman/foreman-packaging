@@ -9,7 +9,7 @@
 Summary:    This plugin adds extra validations to a host
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.2
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_host_extra_validator
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.2-3
+- Rebuild for EL10
+
 * Wed May 21 2025 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.2-2
 - Removed unversioned obsoletes
 
