@@ -6,7 +6,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.7.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman SCC Manager plugin for Hammer CLI
 License: GPLv3
 URL: https://github.com/ATIX-AG/hammer-cli-foreman-scc-manager
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-2
+- Rebuild for EL10
+
 * Sun May 24 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.7.0-1
 - Update to 0.7.0
 
