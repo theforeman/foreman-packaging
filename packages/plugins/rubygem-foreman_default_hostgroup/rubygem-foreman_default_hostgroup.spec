@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 7.1.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Default Hostgroup Plugin for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_default_hostgroup
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.1.0-2
+- Rebuild for EL10
+
 * Thu Apr 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 7.1.0-1
 - Update to 7.1.0
 
