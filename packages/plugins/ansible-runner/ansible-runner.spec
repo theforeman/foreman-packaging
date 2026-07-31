@@ -4,7 +4,7 @@
 
 Name:           %{pypi_name}
 Version:        2.3.6
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A tool and python library to interface with Ansible
 
 License:        ASL 2.0
@@ -16,7 +16,6 @@ BuildArch:      noarch
 BuildRequires: python%{python3_pkgversion}-devel
 BuildRequires: python%{python3_pkgversion}-setuptools
 BuildRequires: python%{python3_pkgversion}-pbr
-BuildRequires: python%{python3_pkgversion}-rpm-macros
 Requires:      python%{python3_pkgversion}-%{pypi_name} = %{version}-%{release}
 Obsoletes:     python3-%{pypi_name} < %{version}
 Obsoletes:     python38-%{pypi_name} < %{version}
@@ -73,6 +72,11 @@ ln -s %{_bindir}/ansible-runner-%{python3_version} %{buildroot}/%{_bindir}/ansib
 %{python3_sitelib}/*
 
 %changelog
+* Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 2.3.6-3
+- Rebuild for EL10
+- Drop redundant python3.12-rpm-macros BuildRequires; not available on EL10 and
+  already satisfied transitively via python3.12-devel
+
 * Wed Jan 29 2025 Odilon Sousa <osousa@redhat.com> - 2.3.6-2
 - Rebuild against python 3.12
 
