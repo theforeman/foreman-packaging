@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.0.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: oVirt as a compute resource for The Foreman
 License: GPLv3
 URL: https://github.com/markt-de/foreman_ovirt
@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.4-2
+- Rebuild for EL10
+
 * Wed Jul 15 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.4-1
 - Update to 2.0.4
 
