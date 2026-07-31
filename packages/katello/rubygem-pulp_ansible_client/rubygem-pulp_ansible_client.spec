@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.29.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_ansible
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.29.9-2
+- Rebuild for EL10
+
 * Sun Jul 19 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.29.9-1
 - Update to 0.29.9
 
