@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This Foreman plug-in integrates with Elastic APM
 License: GPLv3
 URL: https://github.com/theforeman/foreman_supervisory_authority
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.0-2
+- Rebuild for EL10
+
 * Wed Aug 21 2024 Manuel Laug - 0.2.0-1
 - Update foreman_supervisory_authority to 0.2.0
 
