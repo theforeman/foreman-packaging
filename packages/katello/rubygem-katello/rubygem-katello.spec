@@ -25,9 +25,9 @@ Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 Requires: ruby >= 2.7
-Requires: ruby < 3.1
+Requires: ruby < 4
 BuildRequires: ruby >= 2.7
-BuildRequires: ruby < 3.1
+BuildRequires: ruby < 4
 BuildRequires: rubygems-devel > 1.3.1
 BuildRequires: rubygem(rails)
 BuildRequires: rubygem(json)
