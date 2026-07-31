@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.6.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_kubevirt
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-2
+- Rebuild for EL10
+
 * Tue Mar 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.0-1
 - Update to 0.6.0
 
