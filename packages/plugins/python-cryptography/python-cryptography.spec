@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        43.0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        cryptography is a package which provides cryptographic recipes and primitives to Python developers
 
 License:        BSD or Apache License, Version 2.0
@@ -66,6 +66,9 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 43.0.1-3
+- Rebuild for EL10
+
 * Mon Feb 03 2025 Odilon Sousa <osousa@redhat.com> - 43.0.1-2
 - Rebuild against python 3.12
 
