@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.6.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Run CVE scan on host and collect report
 License: GPLv3
 URL: https://github.com/ATIX-AG/foreman_cve_scanner
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-2
+- Rebuild for EL10
+
 * Wed Jun 03 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.0-1
 - Update to 0.6.0
 
