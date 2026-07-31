@@ -6,7 +6,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 5.0.0
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -165,6 +165,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.pre.master
+- Rebuild for EL10
+
 * Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.pre.master
 - Bump version to 5.0.0
 
