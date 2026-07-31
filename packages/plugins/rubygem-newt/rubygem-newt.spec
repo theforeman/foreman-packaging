@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby bindings for newt
 License: MIT
 URL: https://github.com/theforeman/ruby-newt
@@ -79,6 +79,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/examples
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-2
+- Rebuild for EL10
+
 * Tue Sep 24 2024 Leos Stejskal <lstejska@redhat.com> - 1.0.1-1
 - Update to 1.0.1
 
