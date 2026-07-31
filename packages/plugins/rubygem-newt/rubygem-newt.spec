@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby bindings for newt
 License: MIT
 URL: https://github.com/theforeman/ruby-newt
@@ -48,9 +48,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}/ruby_newt
-cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_instdir}/ext/ruby_newt/*.so %{buildroot}%{gem_extdir_mri}/ruby_newt/
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/{gem.build_complete,ruby_newt} %{buildroot}%{gem_extdir_mri}/
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
@@ -79,6 +78,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/examples
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-2
+- Fix .so install path for EL10 Ruby 3.3 compatibility
+
 * Tue Sep 24 2024 Leos Stejskal <lstejska@redhat.com> - 1.0.1-1
 - Update to 1.0.1
 
