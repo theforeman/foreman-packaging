@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.12.2
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Platform-independent file locking module
 
 License:        None
@@ -65,6 +65,9 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.12.2-5
+- Rebuild for EL10
+
 * Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 0.12.2-4
 - Rebuild for EL10
 
