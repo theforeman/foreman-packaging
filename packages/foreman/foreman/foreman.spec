@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -860,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.3.develop
+- Rebuild for EL10
+
 * Thu May 28 2026 Oleh Fedorenko <ofedoren@redhat.com> - 5.0.0-0.2.develop
 - Bump safemode to 2.0.0
 
