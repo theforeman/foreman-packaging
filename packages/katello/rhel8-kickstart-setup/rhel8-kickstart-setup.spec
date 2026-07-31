@@ -1,6 +1,6 @@
 Name:     rhel8-kickstart-setup
 Version:  0.0.2
-Release:  3%{?dist}
+Release:  4%{?dist}
 Summary:  Adjust RHEL8 Kickstart ISOs for Katello/Satellite
 
 Group:    Applications/System
@@ -29,6 +29,9 @@ install -D %{name}.py %{buildroot}%{_bindir}/%{name}
 %license LICENSE
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.2-4
+- Rebuild for EL10
+
 * Wed Mar 22 2023 Evgeni Golov - 0.0.2-3
 - Use Python3 explicitly
 
