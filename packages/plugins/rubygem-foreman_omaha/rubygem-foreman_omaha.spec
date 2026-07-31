@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -102,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.1-3
+- Rebuild for EL10
+
 * Wed Aug 24 2022 Evgeni Golov - 5.0.1-2
 - Refs #35409 - Include sprockets assets
 
