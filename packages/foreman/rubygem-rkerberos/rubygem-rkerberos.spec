@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A Ruby interface for the the Kerberos library
 License: Artistic-2.0
 URL: https://github.com/domcleal/rkerberos
@@ -90,6 +90,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.3-2
+- Rebuild for EL10
+
 * Wed Mar 11 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.3-1
 - Update to 0.2.3
 
