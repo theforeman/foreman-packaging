@@ -1,6 +1,6 @@
 Name: foreman-discovery-image-service
 Version: 1.0.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Metapackage with dependencies for FDI
 
 Group: Applications/System
@@ -39,6 +39,9 @@ Metapackage with dependencies for FDI text-user interface
 %files tui
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-6
+- Rebuild for EL10
+
 * Wed Sep 25 2024 Leos Stejskal <lstejska@redhat.com - 1.0.0-5
 - Update spec file
 
