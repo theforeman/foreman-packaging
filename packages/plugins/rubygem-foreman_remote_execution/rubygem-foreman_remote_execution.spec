@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 16.7.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -132,6 +132,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 16.7.0-3
+- Rebuild for EL10
+
 * Wed Jul 22 2026 Maximilian Kolb <kolb@atix.de> - 16.7.0-2
 - Add provides to subpackage cockpit
 
