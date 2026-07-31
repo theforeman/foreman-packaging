@@ -2,7 +2,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 1
+%global release 2
 %global prereleasesource pre.main
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -73,6 +73,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.pre.main
+- Rebuild for EL10
+
 * Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.pre.main
 - Bump version to 5.0.0
 
