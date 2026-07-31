@@ -8,7 +8,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.7.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Build and publish crates with pyo3, cffi and uniffi bindings as well as rust binaries as python packages
 
 License:        MIT OR Apache-2.0
@@ -68,6 +68,9 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 1.7.1-3
+- Rebuild for EL10
+
 * Mon Feb 03 2025 Odilon Sousa <osousa@redhat.com> - 1.7.1-2
 - Rebuild against python 3.12
 
