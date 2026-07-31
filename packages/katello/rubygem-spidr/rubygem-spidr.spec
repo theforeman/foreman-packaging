@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.7.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A versatile Ruby web spidering library
 License: MIT
 URL: https://github.com/postmodern/spidr#readme
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/spidr.gemspec
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.2-2
+- Rebuild for EL10
+
 * Tue Feb 25 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.7.2-1
 - Update to 0.7.2
 
