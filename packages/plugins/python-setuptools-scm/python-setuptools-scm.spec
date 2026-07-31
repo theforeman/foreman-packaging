@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        8.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        the blessed package to manage your versions by scm tags
 
 License:        MIT
@@ -16,7 +16,6 @@ BuildArch:      noarch
 
 BuildRequires:  pyproject-rpm-macros
 BuildRequires:  python%{python3_pkgversion}-devel
-BuildRequires:  python%{python3_pkgversion}-rpm-macros
 BuildRequires:  python%{python3_pkgversion}-setuptools
 BuildRequires:  python%{python3_pkgversion}-packaging >= 20.0
 BuildRequires:  python%{python3_pkgversion}-wheel
@@ -72,6 +71,11 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 8.1.0-2
+- Rebuild for EL10
+- Drop redundant python3.12-rpm-macros BuildRequires; not available on EL10 and
+  already satisfied transitively via python3.12-devel/pyproject-rpm-macros
+
 * Fri Jan 31 2025 Odilon Sousa <osousa@redhat.com> - 8.1.0-1
 - Release python-setuptools-scm 8.1.0
 
