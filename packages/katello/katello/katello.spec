@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    5.0.0
@@ -123,6 +123,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.master
+- Rebuild for EL10
+
 * Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.master
 - Bump version to 5.0.0
 
