@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.35.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_rpm
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.35.3-2
+- Rebuild for EL10
+
 * Wed Jun 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.35.3-1
 - Update to 3.35.3
 
