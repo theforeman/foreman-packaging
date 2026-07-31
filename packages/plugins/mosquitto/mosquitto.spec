@@ -3,7 +3,7 @@
 
 Name:           mosquitto
 Version:        2.0.19
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Open Source MQTT v5/v3.1.x Broker
 
 License:        EPL-2.0
@@ -120,6 +120,9 @@ exit 0
 %{_mandir}/man3/libmosquitto.3.*
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.19-2
+- Rebuild for EL10
+
 * Mon Oct 14 2024 Eric D. Helms <ericdhelms@gmail.com> - 2.0.19-1
 - Build 2.0.19
 
