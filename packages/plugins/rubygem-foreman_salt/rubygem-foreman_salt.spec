@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 17.0.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Plug-in for Salt
 License: GPLv3
 URL: https://github.com/theforeman/foreman_salt
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 17.0.5-2
+- Rebuild for EL10
+
 * Sun Mar 08 2026 Foreman Packaging Automation <packaging@theforeman.org> - 17.0.5-1
 - Update to 17.0.5
 
