@@ -2,7 +2,7 @@
 
 Name: nodejs-react-json-tree
 Version: 0.18.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: React JSON Viewer Component, Extracted from redux-devtools
 License: MIT
 Group: Development/Libraries
@@ -101,6 +101,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.18.0-2
+- Rebuild for EL10
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 0.18.0-1
 - Update to 0.18.0
 
