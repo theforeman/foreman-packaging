@@ -6,7 +6,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        5.0
@@ -73,6 +73,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0-0.3.nightly
+- Rebuild for EL10
+
 * Wed Jun 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0-0.2.nightly
 - Update Candlepin to 4.8
 
