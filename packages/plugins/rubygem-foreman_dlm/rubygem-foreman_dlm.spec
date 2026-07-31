@@ -8,7 +8,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 License: GPLv3
 URL: https://github.com/dm-drogeriemarkt/foreman_dlm
@@ -100,6 +100,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.ti
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-2
+- Rebuild for EL10
+
 * Sun May 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 4.0.0-1
 - Update to 4.0.0
 
