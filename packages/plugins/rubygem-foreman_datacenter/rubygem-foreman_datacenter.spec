@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.3.0
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Summary: A plugin that lets you document your servers in a datacenter
 Group: Applications/Systems
 License: GPLv3
@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.0-7
+- Rebuild for EL10
+
 * Wed Aug 24 2022 Evgeni Golov - 2.3.0-6
 - Refs #35409 - Include sprockets assets
 
