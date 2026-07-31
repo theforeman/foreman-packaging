@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
 License: GPL-2.0+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:2.6.1-2
+- Rebuild for EL10
+
 * Wed Jul 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:2.6.1-1
 - Update to 2.6.1
 
