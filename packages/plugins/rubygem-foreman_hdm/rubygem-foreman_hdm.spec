@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Display hiera data in Foreman using HDM
 License: GPLv3
 URL: https://github.com/betadots/foreman_hdm
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-3
+- Rebuild for EL10
+
 * Tue Jul 15 2025 Evgeni Golov - 1.1.0-2
 - Rebuild for removal of theforeman/vendor
 
