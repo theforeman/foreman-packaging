@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Plugin to provision host using opentofu
 License: GPL-3.0-only
 URL: https://github.com/ATIX-AG/foreman_opentofu
@@ -138,6 +138,9 @@ fi
 %attr(0600,root,root) %{_datadir}/selinux/targeted/*.pp
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.5-2
+- Rebuild for EL10
+
 * Fri May 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.5-1
 - Update to 0.0.5
 
