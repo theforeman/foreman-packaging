@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A Ruby interface for the adcli library
 License: Artistic-2.0
 URL: https://github.com/martencassel/radcli
@@ -94,6 +94,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
+- Rebuild for EL10
+
 * Wed Jul 24 2024 Evgeni Golov - 1.1.0-1
 - Update to 1.1.0
 
