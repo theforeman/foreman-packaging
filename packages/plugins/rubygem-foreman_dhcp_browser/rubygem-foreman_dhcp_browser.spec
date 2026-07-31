@@ -6,7 +6,7 @@
 Summary:    DHCP browser plugin for Foreman
 Name:       rubygem-%{gem_name}
 Version:    0.1.2
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_dhcp_browser
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.2-2
+- Rebuild for EL10
+
 * Mon Jan 27 2025 Foreman Packaging Automation <packaging@theforeman.org> - 0.1.2-1
 - Update to 0.1.2
 
