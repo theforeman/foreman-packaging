@@ -7,7 +7,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.9.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Setuptools Rust extension plugin
 
 License:        MIT
@@ -59,6 +59,9 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 1.9.0-3
+- Rebuild for EL10
+
 * Fri Jan 31 2025 Odilon Sousa <osousa@redhat.com> - 1.9.0-2
 - Rebuild against python 3.12
 
