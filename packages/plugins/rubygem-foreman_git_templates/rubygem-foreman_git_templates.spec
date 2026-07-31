@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds support for using templates from Git repositories
 Group: Applications/Systems
 License: GPLv3
@@ -103,6 +103,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-2
+- Rebuild for EL10
+
 * Tue May 14 2024 Manuel Laug <laugmanuel@gmail.com> - 2.0.0-1
 - Update foreman_git_templates to 2.0.0
 
