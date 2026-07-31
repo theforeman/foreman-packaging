@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 3.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Plugin for KernelCare
 License: GPLv3
 URL: https://github.com/maccelf/foreman_kernel_care
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-2
+- Rebuild for EL10
+
 * Thu Jul 31 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
 - Update to 3.0.0
 
