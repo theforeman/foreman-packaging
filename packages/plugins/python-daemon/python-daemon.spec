@@ -7,7 +7,7 @@
 
 Name:           python%{python3_pkgversion}-%{srcname}
 Version:        2.3.1
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Library to implement a well-behaved Unix daemon process
 
 License:        Apache-2
@@ -56,6 +56,9 @@ set -ex
 
 
 %changelog
+* Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 2.3.1-6
+- Rebuild for EL10
+
 * Wed Apr 30 2025 Odilon Sousa <osousa@redhat.com> - 2.3.1-5
 - Obsolete python3.11 package for better upgrade
 
