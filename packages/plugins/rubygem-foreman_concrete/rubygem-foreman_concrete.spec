@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.0
-Release: 4%{?foremandist}%{?dist}
+Release: 5%{?foremandist}%{?dist}
 Summary: Foreman plug-in to send exceptions to sentry
 License: GPLv3
 URL: https://github.com/timogoebel/foreman_concrete
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-5
+- Rebuild for EL10
+
 * Thu Jul 14 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-4
 - Regenerate spec
 - Allow a newer sentry-raven
