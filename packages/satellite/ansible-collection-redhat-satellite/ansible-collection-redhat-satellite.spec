@@ -4,7 +4,7 @@
 %global collection_name satellite
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    5.11.0
@@ -51,6 +51,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Mon Aug 03 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.11.0-2
+- Rebuild for EL10
+
 * Fri Apr 17 2026 Evgeni Golov - 5.11.0-1
 - Release ansible-collection-redhat-satellite 5.11.0
 
