@@ -4,7 +4,7 @@
 %global collection_name satellite_operations
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    4.0.0
@@ -37,6 +37,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 %changelog
+* Mon Aug 03 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-2
+- Rebuild for EL10
+
 * Wed Mar 25 2026 Evgeni Golov - 4.0.0-1
 - Release ansible-collection-redhat-satellite_operations 4.0.0
 
