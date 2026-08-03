@@ -1,3 +1,9 @@
+ruby-foreman-tasks (13.2.0-1) stable; urgency=low
+
+  * 13.2.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 03 Aug 2026 10:06:45 +0000
+
 ruby-foreman-tasks (13.1.0-2) stable; urgency=low
 
   * Depend on tzdata-legacy on Debian 13+/Ubuntu 24.04+
