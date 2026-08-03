@@ -1,12 +1,16 @@
 %global pulpcore_version nightly
+%if 0%{?rhel} >= 10
+%global candlepin_version 5.0
+%else
 %global candlepin_version 4.8
+%endif
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        5.0
@@ -17,7 +21,8 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
-Source1:        candlepin.gpg
+Source1:        candlepin-4.8.gpg
+Source2:        candlepin-5.0.gpg
 
 BuildArch:      noarch
 
@@ -40,7 +45,11 @@ install -d -m 0755 %{buildroot}%{repo_dir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/pki/rpm-gpg/
 
 install -m 644 %{SOURCE0} %{buildroot}%{repo_dir}/
+%if 0%{?rhel} >= 10
+install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
+%else
 install -Dpm0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
+%endif
 
 if [[ '%{release}' == *"nightly"* ]];then
     REPO_VERSION='nightly'
@@ -73,6 +82,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Mon Aug 03 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0-0.4.nightly
+- Add Candlepin 5.0 GPG key for EL10, keep 4.8 for EL9
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0-0.3.nightly
 - Rebuild for EL10
 
