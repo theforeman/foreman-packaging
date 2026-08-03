@@ -1,3 +1,9 @@
+ruby-smart-proxy-shellhooks (0.9.4-1) stable; urgency=low
+
+  * 0.9.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 03 Aug 2026 17:26:34 +0000
+
 ruby-smart-proxy-shellhooks (0.9.3-1) stable; urgency=low
 
   * 0.9.3 released
