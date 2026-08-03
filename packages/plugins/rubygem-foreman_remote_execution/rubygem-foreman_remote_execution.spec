@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 3.17
+%global foreman_min_version 5.0
 
 Name: rubygem-%{gem_name}
-Version: 16.7.0
-Release: 3%{?foremandist}%{?dist}
+Version: 17.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -132,6 +132,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Mon Aug 03 2026 Adam Lazík <alazik@redhat.com> - 17.0.0-1
+- Update to 17.0.0
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 16.7.0-3
 - Rebuild for EL10
 
