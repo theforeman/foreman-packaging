@@ -926,6 +926,7 @@ repoclosures:
         el10:
           - el10-baseos
           - el10-appstream
+          - "el10-openvox-{{ puppet_version }}"
     foreman-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -947,6 +948,8 @@ repoclosures:
         el10:
           - el10-baseos
           - el10-appstream
+          - el10-configmanagement-salt
+          - "el10-foreman-{{ foreman_version }}-staging"
     plugins-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
