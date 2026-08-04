@@ -927,6 +927,8 @@ repoclosures:
           - el10-baseos
           - el10-appstream
           - "el10-openvox-{{ puppet_version }}"
+          - el10-candlepin-5.0-staging
+          - "el10-foreman-plugins-{{ foreman_version }}-staging"
     foreman-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -949,6 +951,7 @@ repoclosures:
           - el10-baseos
           - el10-appstream
           - el10-configmanagement-salt
+          - "el10-openvox-{{ puppet_version }}"
           - "el10-foreman-{{ foreman_version }}-staging"
     plugins-staging-repoclosure-el9:
       repoclosure_target_repos:
@@ -971,6 +974,10 @@ repoclosures:
         el10:
           - el10-baseos
           - el10-appstream
+          - "el10-openvox-{{ puppet_version }}"
+          - "el10-foreman-{{ foreman_version }}-staging"
+          - "el10-foreman-plugins-{{ foreman_version }}-staging"
+          - el10-candlepin-5.0-staging
     katello-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -993,6 +1000,7 @@ repoclosures:
         el10:
           - el10-baseos
           - el10-appstream
+          - "el10-openvox-{{ puppet_version }}"
     foreman-client-staging-repoclosure-el9:
       repoclosure_target_repos:
         el9:
