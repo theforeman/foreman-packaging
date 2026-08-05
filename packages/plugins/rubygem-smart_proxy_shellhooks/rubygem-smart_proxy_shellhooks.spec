@@ -2,7 +2,7 @@
 %global gem_name smart_proxy_shellhooks
 %global plugin_name shellhooks
 
-%global foreman_proxy_min_version 1.24
+%global foreman_proxy_min_version 2.3
 %global foreman_proxy_dir %{_datadir}/foreman-proxy
 %global foreman_proxy_statedir %{_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
@@ -63,6 +63,10 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/shellhooks.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/shellhooks.yml
 
+# example scripts
+install -d -m755 %{buildroot}%{foreman_proxy_statedir}/%{plugin_name}
+mv %{buildroot}%{gem_instdir}/examples/* %{buildroot}%{foreman_proxy_statedir}/%{plugin_name}
+
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/shellhooks.yml
@@ -73,11 +77,11 @@ mv %{buildroot}%{gem_instdir}/settings.d/shellhooks.yml.example \
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
+%{foreman_proxy_statedir}/%{plugin_name}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/examples
 
 %changelog
 * Wed Aug 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.4-1
