@@ -96,6 +96,9 @@
 # salt
 /packages/plugins/*_salt/ @theforeman/packaging @theforeman/salt
 
+# scoped_search
+/packages/foreman/rubygem-scoped_search/ @theforeman/packaging @theforeman/scoped_search
+
 # webhooks
 /packages/plugins/*_webhooks/ @theforeman/packaging @theforeman/webhooks
 /packages/plugins/rubygem-smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
