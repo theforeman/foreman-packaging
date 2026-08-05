@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 4.2.2
-Release: 2%{?foremandist}%{?dist}
+Version: 4.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for machines on virtualization-platforms
 License: GPLv3
 URL: https://www.orcharhino.com
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 4.3.0-1
+- Update to 4.3.0
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.2-2
 - Rebuild for EL10
 
