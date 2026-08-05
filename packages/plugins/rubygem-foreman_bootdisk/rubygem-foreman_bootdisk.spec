@@ -10,6 +10,7 @@ Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0:  switch-genisoimage-to-xorrisofs.patch
 
 # used in app/services/foreman_bootdisk/iso_generator.rb
 Requires:   dosfstools
@@ -54,7 +55,8 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
-%setup -q -n  %{gem_name}-%{version}
+%setup -q -n %{gem_name}-%{version}
+%autopatch -p1
 
 %build
 # Create the gem as gem install only works on a gem file
