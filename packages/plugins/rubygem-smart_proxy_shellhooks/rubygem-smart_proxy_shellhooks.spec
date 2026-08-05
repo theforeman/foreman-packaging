@@ -60,8 +60,8 @@ mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
 
 # sample config
 mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
-mv %{buildroot}%{gem_instdir}/settings.d/shellhooks.yml.example \
-   %{buildroot}%{foreman_proxy_settingsd_dir}/shellhooks.yml
+mv %{buildroot}%{gem_instdir}/settings.d/%{plugin_name}.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/%{plugin_name}.yml
 
 # example scripts
 install -d -m755 %{buildroot}%{foreman_proxy_statedir}/%{plugin_name}
@@ -69,7 +69,7 @@ mv %{buildroot}%{gem_instdir}/examples/* %{buildroot}%{foreman_proxy_statedir}/%
 
 %files
 %dir %{gem_instdir}
-%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/shellhooks.yml
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/%{plugin_name}.yml
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/bundler.d
 %{gem_libdir}
