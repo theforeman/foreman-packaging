@@ -16,6 +16,7 @@ Requires:   dosfstools
 Requires:   grub2-efi-x64
 Requires:   ipxe-bootimgs
 Requires:   /usr/bin/xorriso
+Requires:   /usr/bin/isohybrid
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
