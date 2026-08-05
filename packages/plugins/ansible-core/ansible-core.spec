@@ -26,9 +26,9 @@
 
 Name: ansible-core
 Summary: SSH-based configuration management, deployment, and task execution system
-Version: 2.16.14
+Version: 2.16.19
 %global uversion %{version_no_tilde %{quote:%nil}}
-Release: 4%{?dist}
+Release: 1%{?dist}
 Epoch:   1
 
 Group: Development/Libraries
@@ -169,6 +169,9 @@ cp -p lib/ansible_core.egg-info/PKG-INFO .
 %{python3_sitelib}/ansible_test
 
 %changelog
+* Wed Aug 05 2026 Odilon Sousa <osousa@redhat.com> - 1:2.16.19-1
+- Update to 2.16.19
+
 * Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 1:2.16.14-4
 - Rebuild for EL10
 - Drop redundant python3.12-rpm-macros BuildRequires; not available on EL10 and
