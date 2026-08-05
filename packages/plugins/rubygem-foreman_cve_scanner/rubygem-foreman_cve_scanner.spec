@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.6.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.6.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Run CVE scan on host and collect report
 License: GPLv3
 URL: https://github.com/ATIX-AG/foreman_cve_scanner
@@ -20,7 +20,7 @@ Requires: ruby < 4
 BuildRequires: ruby >= 2.7
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
-BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 17)
+BuildRequires: (rubygem(foreman_remote_execution) >= 9.0 with rubygem(foreman_remote_execution) < 18)
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.1-1
+- Update to 0.6.1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-2
 - Rebuild for EL10
 
