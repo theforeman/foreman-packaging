@@ -6,19 +6,26 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.9
-Release: 10%{?dist}
+Release: 11%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
 URL: https://github.com/OpenSCAP/ruby-openscap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0: add-support-el10.patch
 
-# CI runs rpmlint on EL7
-%if 0%{?rhel} >= 8
+
+%if 0%{?rhel} == 9
 # Loaded via FFI
 Requires: (libopenscap.so.25()(64bit) if libc.so.6()(64bit))
 Requires: (libopenscap.so.25 if libc.so.6)
 %endif
+
+%if 0%{?rhel} == 10
+# Loaded via FFI
+Requires: (libopenscap.so.33()(64bit) if libc.so.6()(64bit))
+%endif
+
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -52,6 +59,7 @@ gem unpack %{SOURCE0}
 %{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
+%autopatch -p1
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -88,6 +96,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Aug 05 2026 Odilon Sousa <osousa@redhat.com> - 0.4.9-11
+- Update libopenscap.so requirement to match EL10 released version
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.9-10
 - Rebuild for EL10
 
