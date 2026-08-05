@@ -2,20 +2,20 @@ Source: ruby-foreman-ansible
 Section: ruby
 Priority: extra
 Maintainer: Daniel Lobato Garcia <elobatocs@gmail.com>
-Build-Depends: debhelper, git | git-core, foreman (>= 3.16.0~rc1),
-  foreman-assets (>= 3.16.0~rc1),
-  foreman-nulldb (>= 3.16.0~rc1),
+Build-Depends: debhelper, git | git-core, foreman (>= 5.0.0~rc1),
+  foreman-assets (>= 5.0.0~rc1),
+  foreman-nulldb (>= 5.0.0~rc1),
   ruby-foreman-deface (<<2.0.0),
-  ruby-foreman-remote-execution (>= 4.4.0-1),
+  ruby-foreman-remote-execution (>= 14.0.0-1),
   ruby-foreman-tasks (>= 10.0.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_ansible
 
 Package: ruby-foreman-ansible
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 3.16.0~rc1),
+Depends: ${misc:Depends}, bundler, foreman (>= 5.0.0~rc1),
   ruby-foreman-deface (<<2.0.0),
-  ruby-foreman-remote-execution (>= 4.4.0-1),
+  ruby-foreman-remote-execution (>= 14.0.0-1),
   ruby-foreman-tasks (>= 10.0.0)
 Description: Foreman Ansible plugin
  Integration with Ansible in Foreman.
