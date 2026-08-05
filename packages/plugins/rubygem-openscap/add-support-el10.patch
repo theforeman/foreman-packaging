@@ -1,0 +1,22 @@
+From cbfe5ba67dfd726278da6cd2bd483c1e89fdd0c8 Mon Sep 17 00:00:00 2001
+From: Odilon Sousa <osousa@redhat.com>
+Date: Wed, 5 Aug 2026 08:56:07 -0300
+Subject: [PATCH] Add support to EL10
+
+---
+ lib/openscap/openscap.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/openscap/openscap.rb b/lib/openscap/openscap.rb
+index 966ea80..5806da5 100644
+--- a/lib/openscap/openscap.rb
++++ b/lib/openscap/openscap.rb
+@@ -4,7 +4,7 @@
+ 
+ module OpenSCAP
+   extend FFI::Library
+-  ffi_lib ['libopenscap.so.8', 'libopenscap.so.25', 'openscap']
++  ffi_lib ['libopenscap.so.8', 'libopenscap.so.25', 'libopenscap.so.33', 'openscap']
+ 
+   def self.error?
+     oscap_err
