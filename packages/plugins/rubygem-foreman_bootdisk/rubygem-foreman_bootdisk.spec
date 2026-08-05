@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 23.2.4
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
@@ -15,8 +15,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires:   dosfstools
 Requires:   grub2-efi-x64
 Requires:   ipxe-bootimgs
-Requires:   /usr/bin/isohybrid
-Requires:   /usr/bin/genisoimage
+Requires:   /usr/bin/xorriso
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -99,6 +98,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 05 2026 Odilon Sousa <osousa@redhat.com> - 23.2.4-3
+- Switch to xoriso to allow EL10 installation
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 23.2.4-2
 - Rebuild for EL10
 
