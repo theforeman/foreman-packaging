@@ -1,14 +1,14 @@
 %global npm_name unleash-proxy-client
 
 Name: nodejs-unleash-proxy-client
-Version: 3.8.0
-Release: 2%{?dist}
+Version: 3.8.2
+Release: 1%{?dist}
 Summary: A browser client that can be used together with Unleash Edge or the Unleash Frontend API
 License: Apache-2.0
 Group: Development/Libraries
 URL: https://github.com/unleash/unleash-js-sdk#readme
 Source0: https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz
-Source1: https://registry.npmjs.org/unleash-proxy-client/-/unleash-proxy-client-3.8.0.tgz
+Source1: https://registry.npmjs.org/unleash-proxy-client/-/unleash-proxy-client-3.8.2.tgz
 Source2: nodejs-unleash-proxy-client-%{version}-package-lock.json
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
@@ -22,7 +22,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(tiny-emitter)) = 2.1.0
-Provides: bundled(npm(unleash-proxy-client)) = 3.8.0
+Provides: bundled(npm(unleash-proxy-client)) = 3.8.2
 AutoReq: no
 AutoProv: no
 
@@ -32,6 +32,11 @@ AutoProv: no
 %{summary}
 
 %prep
+# There is deliberately no setup section: every Source is consumed explicitly
+# below, so the build runs in the top-level build directory. Do not name the
+# setup macro here even in a comment - rpm expands macros inside comments, and
+# on rpm 6 that runs it, unpacking Source0 and cd-ing into a directory that
+# does not exist.
 mkdir -p %{npm_cache_dir}
 # npm ci installs the tree recorded in the lockfile: every entry carries a
 # resolved URL and an integrity hash, and npm serves the tarballs from the
@@ -40,6 +45,7 @@ for src in %{sources}; do
   case "$src" in
     *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
     *-package-lock.json) cp "$src" package-lock.json ;;
+    *) echo "unexpected Source, do not know how to handle it: $src" >&2; exit 1 ;;
   esac
 done
 
@@ -78,6 +84,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Aug 06 2026 Foreman Packaging Automation <packaging@theforeman.org> 3.8.2-1
+- Update to 3.8.2
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.8.0-2
 - Regenerate with correct npm2rpm strategy
 
