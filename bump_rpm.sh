@@ -130,9 +130,8 @@ if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
 
 		echo "Bumping NPM package"
 		SKIP_GIT_COMMIT=1
-		SOURCES=$(spectool --list-files "$1"/$SPEC_FILE)
 
-		if [[ $SOURCES == *registry.npmjs.org.tgz* ]]; then
+		if grep -q 'bundled(npm(' "$1"/$SPEC_FILE; then
 			NPM_STRATEGY='bundle'
 		else
 			NPM_STRATEGY='single'
