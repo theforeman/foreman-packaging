@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -57,7 +57,7 @@ Requires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
 Requires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 Requires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
 Requires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
-Requires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
+Requires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 6)
 Requires: (rubygem(ldap_fluff) >= 0.7.0 with rubygem(ldap_fluff) < 1.0)
 Requires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
 Requires: rubygem(apipie-dsl) >= 2.6.2
@@ -859,6 +859,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Aug 06 2026 Adam Ruzicka <aruzicka@redhat.com> - 5.0.0-0.5.develop
+- Allow running with 5.y.z line of rubygem-scoped_search
+
 * Fri Jul 31 2026 Titani Labaj <tlabaj@redhat.com> - 5.0.0-0.4.develop
 - Drop unused npm(rc-input-number) dependency
 
