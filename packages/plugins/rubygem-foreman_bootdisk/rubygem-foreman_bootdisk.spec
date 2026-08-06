@@ -4,8 +4,8 @@
 %global foreman_min_version 3.15
 
 Name: rubygem-%{gem_name}
-Version: 23.2.4
-Release: 3%{?foremandist}%{?dist}
+Version: 24.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_bootdisk
@@ -23,9 +23,9 @@ Requires:   /usr/bin/isohybrid
 Requires: foreman >= %{foreman_min_version}
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-Requires: ruby >= 2.7
+Requires: ruby >= 3.0
 Requires: ruby < 4
-BuildRequires: ruby >= 2.7
+BuildRequires: ruby >= 3.0
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 06 2026 Leos Stejskal <lstejska@redhat.com> - 24.0.0-1
+- Update to 24.0.0
+
 * Wed Aug 05 2026 Odilon Sousa <osousa@redhat.com> - 23.2.4-3
 - Switch to xoriso to allow EL10 installation
 
