@@ -46,11 +46,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/CODE_OF_CONDUCT.md
-%exclude %{gem_instdir}/certs
 %license %{gem_instdir}/LICENSE.md
-%license %{gem_instdir}/MIT.md
-%doc %{gem_instdir}/SECURITY.md
 %exclude %{gem_instdir}/sig/
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -59,15 +55,14 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
-%exclude %{gem_instdir}/CITATION.cff
-%exclude %{gem_instdir}/FUNDING.md
-%exclude %{gem_instdir}/RUBOCOP.md
 
 %changelog
 * Wed Aug 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.1.15-1
 - Update to 1.1.15
+- Fix %%files: drop MIT.md, SECURITY.md, CODE_OF_CONDUCT.md, CITATION.cff,
+  FUNDING.md, RUBOCOP.md, certs/ and CONTRIBUTING.md, none of which are
+  shipped in the 1.1.15 gem anymore
 
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.14-2
 - rebuilt
