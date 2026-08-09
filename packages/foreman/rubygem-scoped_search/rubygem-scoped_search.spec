@@ -2,16 +2,16 @@
 %global gem_name scoped_search
 
 Name: rubygem-%{gem_name}
-Version: 4.3.1
-Release: 2%{?dist}
+Version: 5.0.0
+Release: 1%{?dist}
 Summary: Easily search you ActiveRecord models with a simple query language using a named scope
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.0.0
-BuildRequires: ruby >= 2.0.0
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/Appraisals
+%exclude %{gem_instdir}/appraisal.gemfile
+%exclude %{gem_instdir}/gemfiles
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_libdir}
@@ -73,21 +76,15 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.rdoc
 %doc %{gem_instdir}/CONTRIBUTING.rdoc
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile.activerecord42
-%{gem_instdir}/Gemfile.activerecord50
-%{gem_instdir}/Gemfile.activerecord51
-%{gem_instdir}/Gemfile.activerecord52
-%{gem_instdir}/Gemfile.activerecord52_with_activesupport52
-%{gem_instdir}/Gemfile.activerecord60
-%{gem_instdir}/Gemfile.activerecord60_with_activesupport60
-%{gem_instdir}/Gemfile.activerecord61
-%{gem_instdir}/Gemfile.activerecord61_with_activesupport61
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/scoped_search.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Sun Aug 09 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.0-1
+- Update to 5.0.0
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.1-2
 - rebuilt
 
