@@ -2,8 +2,8 @@
 %global gem_name jwt
 
 Name: rubygem-%{gem_name}
-Version: 2.10.1
-Release: 2%{?dist}
+Version: 2.10.3
+Release: 1%{?dist}
 Summary: JSON Web Token implementation in Ruby
 License: MIT
 URL: https://github.com/jwt/ruby-jwt
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/ruby-jwt.gemspec
 
 %changelog
+* Tue Aug 11 2026 Odilon Sousa <osousa@redhat.com> - 2.10.3-1
+- Release rubygem-jwt 2.10.3
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.10.1-2
 - Rebuild for EL10
 
