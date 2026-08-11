@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.3
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
@@ -24,6 +24,8 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+
+Requires: sshpass
 
 %description
 Ssh remote execution provider for Foreman Smart-Proxy.
@@ -90,6 +92,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 11 2026 Evgeni Golov - 1.0.3-3
+- Add Requires on sshpass for password authentication
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.3-2
 - Rebuild for EL10
 
