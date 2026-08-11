@@ -1,3 +1,10 @@
+foreman (5.0.0-3) stable; urgency=low
+
+  * Add libcap-dev to Build-Depends (needed to compile the cap2 gem
+    pulled in by net-ping >= 2.1.0)
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 11 Aug 2026 09:24:00 +0200
+
 foreman (5.0.0-2) stable; urgency=low
 
   * Pin i18n gem to a compatible version
