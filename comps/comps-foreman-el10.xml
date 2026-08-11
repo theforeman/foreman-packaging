@@ -20,8 +20,6 @@
       <packagereq type="default">foreman-dynflow-sidekiq</packagereq>
       <packagereq type="default">foreman-ec2</packagereq>
       <packagereq type="default">foreman-fapolicyd</packagereq>
-      <packagereq type="default">foreman-installer</packagereq>
-      <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">foreman-journald</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-obsolete-packages</packagereq>
