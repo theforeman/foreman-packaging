@@ -1,3 +1,10 @@
+foreman (5.0.0-4) stable; urgency=low
+
+  * Add libcap-dev to Depends (postinst runs bundle update --local,
+    which recompiles the cap2 native extension on the target host)
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 11 Aug 2026 14:44:54 +0200
+
 foreman (5.0.0-3) stable; urgency=low
 
   * Add libcap-dev to Build-Depends (needed to compile the cap2 gem
