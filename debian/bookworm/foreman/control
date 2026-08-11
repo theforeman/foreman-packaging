@@ -14,7 +14,7 @@ Package: foreman
 Architecture: any
 Section: web
 Priority: extra
-Depends: ruby (>= 1:2.7), ruby-dev, zlib1g-dev,
+Depends: ruby (>= 1:2.7), ruby-dev, zlib1g-dev, libcap-dev,
          build-essential, tzdata, libyaml-dev, libffi-dev,
          rake (>=0.8.4), gawk, ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug (= ${binary:Version})
