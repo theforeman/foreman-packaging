@@ -104,10 +104,10 @@ copr_projects:
           comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-el{{ rhel_8 }}.xml"
           external_repos:
             - "{{ client_staging }}"
-        - name: "opensuse-leap-15.6-x86_64"
+        - name: "opensuse-leap-16.0-x86_64"
           external_repos:
             - "{{ client_staging }}"
-          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-sles156.xml"
+          comps_file: "{{ inventory_dir }}/comps/comps-foreman-client-sles160.xml"
 
 packages:
   vars:
@@ -579,9 +579,9 @@ foreman_client_packages:
       el10: "{{ hostvars['foreman-client-staging-repoclosure-el10']['repoclosure_lookaside_repos']['el10'] }}"
       el9: "{{ hostvars['foreman-client-staging-repoclosure-el9']['repoclosure_lookaside_repos']['el9'] }}"
       el8: "{{ hostvars['foreman-client-staging-repoclosure-el8']['repoclosure_lookaside_repos']['el8'] }}"
-      leap156:
-        - leap156-oss
-        - atix-sles156
+      leap160:
+        - leap160-oss
+        - atix-sles160
   children:
     yggdrasil_client_packages: {}
   hosts:
