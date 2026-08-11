@@ -13,7 +13,8 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.11.0~rc3),
   ruby-smart-proxy-dynflow (>= 0.5.0), ruby-smart-proxy-dynflow (<< 2.0.0), ruby-net-ssh (>= 4.2.0),
   ruby-mqtt, ruby-ed25519 (>= 1.2), ruby-ed25519 (<< 2.0),
-  ruby-bcrypt-pbkdf (>= 1.0), ruby-bcrypt-pbkdf (<< 2.0)
+  ruby-bcrypt-pbkdf (>= 1.0), ruby-bcrypt-pbkdf (<< 2.0),
+  sshpass
 Breaks: ruby-foreman-remote-execution-core (<<1.5.1)
 Replaces: ruby-foreman-remote-execution-core (<<1.5.1)
 Description: SSH remote execution provider for Foreman smart proxy
