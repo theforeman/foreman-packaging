@@ -2,7 +2,7 @@
 %global gem_name net-ping
 
 Name: rubygem-%{gem_name}
-Version: 2.0.9
+Version: 2.1.0
 Release: 1%{?dist}
 Summary: A ping interface for Ruby
 License: Artistic 2.0
@@ -57,16 +57,24 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGES
 %doc %{gem_instdir}/CHANGES.out_of_date
+%exclude %{gem_instdir}/CLAUDE.md
 %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/doc
+%exclude %{gem_instdir}/docs
 %{gem_instdir}/examples
 %exclude %{gem_instdir}/net-ping.gemspec
+%exclude %{gem_instdir}/net-ping-universal-linux.gemspec
+%exclude %{gem_instdir}/net-ping-universal-mingw-ucrt.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 11 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.0-1
+- Update to 2.1.0
+- Exclude non-runtime files added in 2.1.0 (CLAUDE.md, docs/, alternate platform gemspecs)
+
 * Wed Jul 29 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.9-1
 - Update to 2.0.9
 
