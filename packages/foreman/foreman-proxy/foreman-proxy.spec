@@ -1,12 +1,12 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        5.0.0
+Version:        5.1.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -239,6 +239,9 @@ exit 0
 
 
 %changelog
+* Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.develop
+- Bump version to 5.1-develop
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.develop
 - Rebuild for EL10
 

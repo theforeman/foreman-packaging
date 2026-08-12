@@ -2,7 +2,7 @@
 all:
   vars:
     bootstrap: false
-    foremandist: .fm5_0
+    foremandist: .fm5_1
     foreman_version: 'nightly'
     katello_version: 'nightly'
     candlepin_version: '4.4'

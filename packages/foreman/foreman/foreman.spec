@@ -6,12 +6,12 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 5.0.0
+Version: 5.1.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -859,6 +859,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.develop
+- Bump version to 5.1-develop
+
 * Thu Aug 06 2026 Adam Ruzicka <aruzicka@redhat.com> - 5.0.0-0.5.develop
 - Allow running with 5.y.z line of rubygem-scoped_search
 
