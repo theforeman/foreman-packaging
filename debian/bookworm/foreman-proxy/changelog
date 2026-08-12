@@ -1,3 +1,9 @@
+foreman-proxy (5.1.0-1) stable; urgency=low
+
+  * Bump changelog to 5.1.0 to match VERSION
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 12 Aug 2026 09:56:00 +0200
+
 foreman-proxy (5.0.0-1) stable; urgency=low
 
   * Bump changelog to 5.0.0 to match VERSION

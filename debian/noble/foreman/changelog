@@ -1,3 +1,9 @@
+foreman (5.1.0-1) stable; urgency=low
+
+  * Bump changelog to 5.1.0 to match VERSION
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 12 Aug 2026 09:56:00 +0200
+
 foreman (5.0.0-4) stable; urgency=low
 
   * Add libcap-dev to Depends (postinst runs bundle update --local,
