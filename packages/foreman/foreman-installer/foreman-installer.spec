@@ -1,5 +1,5 @@
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -126,6 +126,9 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1:5.0.0-0.1.rc1
+- Release foreman-installer 5.0.0rc1
+
 * Wed May 20 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:5.0.0-0.1.develop
 - Bump version to 5.0-develop
 
