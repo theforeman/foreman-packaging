@@ -1,3 +1,9 @@
+ruby-foreman-fog-proxmox (0.25.1-1) stable; urgency=low
+
+  * 0.25.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 12 Aug 2026 10:13:06 +0000
+
 ruby-foreman-fog-proxmox (0.25.0-2) stable; urgency=low
 
   * Update fog-proxmox dependency to 0.16.2
