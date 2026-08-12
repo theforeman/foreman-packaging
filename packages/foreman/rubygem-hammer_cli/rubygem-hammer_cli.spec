@@ -3,12 +3,12 @@
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
-%global release 2
+%global release 1
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
+Version: 5.1.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 License: GPLv3
@@ -97,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.pre.develop
+- Bump version to 5.1-develop
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.pre.develop
 - Rebuild for EL10
 
