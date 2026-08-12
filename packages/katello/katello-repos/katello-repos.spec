@@ -8,12 +8,12 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource nightly
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 4
 
 Name:           katello-repos
-Version:        5.0
+Version:        5.0.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Wed Aug 12 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.4.rc1
+- Release katello-repos 5.0.0rc1
+
 * Mon Aug 03 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0-0.4.nightly
 - Add Candlepin 5.0 GPG key for EL10, keep 4.8 for EL9
 

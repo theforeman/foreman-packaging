@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -123,6 +123,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Aug 12 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.rc1
+- Release katello 5.0.0rc1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.master
 - Rebuild for EL10
 

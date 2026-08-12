@@ -3,7 +3,7 @@
 %global plugin_name katello
 %global foreman_min_version 5.0
 %global foreman_max_version 5.1
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 5.0.0
 %global release 2
@@ -165,6 +165,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 12 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.rc1
+- Release rubygem-katello 5.0.0rc1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.pre.master
 - Rebuild for EL10
 
