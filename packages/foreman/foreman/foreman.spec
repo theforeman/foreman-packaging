@@ -7,7 +7,7 @@
 %global rake /usr/bin/rake
 
 %global release 5
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -859,6 +859,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.0-0.5.rc1
+- Release foreman 5.0.0rc1
+
 * Thu Aug 06 2026 Adam Ruzicka <aruzicka@redhat.com> - 5.0.0-0.5.develop
 - Allow running with 5.y.z line of rubygem-scoped_search
 
