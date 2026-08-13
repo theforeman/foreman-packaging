@@ -6,13 +6,13 @@
 %global pkg_name setuptools_rust
 
 Name:           python-%{pypi_name}
-Version:        1.9.0
-Release:        3%{?dist}
+Version:        1.11.1
+Release:        1%{?dist}
 Summary:        Setuptools Rust extension plugin
 
 License:        MIT
 URL:            https://github.com/PyO3/setuptools-rust
-Source0:        %{pypi_source}
+Source0:        https://files.pythonhosted.org/packages/source/s/%{pypi_name}/%{pkg_name}-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python%{python3_pkgversion}-devel
@@ -40,7 +40,7 @@ Requires:       python%{python3_pkgversion}-setuptools >= 62.4
 
 %prep
 set -ex
-%autosetup -n %{pypi_name}-%{version}
+%autosetup -n %{pkg_name}-%{version}
 
 
 %build
@@ -59,6 +59,9 @@ set -ex
 
 
 %changelog
+* Thu Aug 13 2026 Odilon Sousa <osousa@redhat.com> - 1.11.1-1
+- Release python-setuptools-rust 1.11.1
+
 * Fri Jul 31 2026 Odilon Sousa <osousa@redhat.com> - 1.9.0-3
 - Rebuild for EL10
 
