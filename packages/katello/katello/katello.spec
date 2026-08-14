@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    5.1.0
@@ -27,7 +27,9 @@ BuildRequires: util-linux
 
 Requires: %{name}-common = %{version}-%{release}
 
+%if 0%{?rhel} < 10
 Requires: foreman-installer-%{name}
+%endif
 
 Requires: %{?scl_prefix}rubygem-katello
 
@@ -112,7 +114,9 @@ Useful utilities for debug info collecting
 Summary: Provides a federation of katello services
 BuildArch: noarch
 Requires: findutils
+%if 0%{?rhel} < 10
 Requires: foreman-installer-%{name}
+%endif
 Requires: rubygem-foreman_maintain >= 0.2.2
 Requires: %{name}-common = %{version}-%{release}
 
@@ -123,6 +127,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Aug 14 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.0-0.2.master
+- Do not require foreman-installer-katello on EL10
+
 * Wed Aug 12 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.0-0.1.master
 - Bump version to 5.1.0
 
