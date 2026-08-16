@@ -2,8 +2,8 @@
 %global gem_name sprockets
 
 Name: rubygem-%{gem_name}
-Version: 4.2.2
-Release: 2%{?dist}
+Version: 4.3.0
+Release: 1%{?dist}
 Summary: Rack-based asset packaging system
 License: MIT
 URL: https://github.com/rails/sprockets
@@ -70,6 +70,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Aug 16 2026 Foreman Packaging Automation <packaging@theforeman.org> - 4.3.0-1
+- Update to 4.3.0
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.2-2
 - rebuilt
 
