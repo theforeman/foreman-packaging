@@ -209,10 +209,11 @@ def merge_specs(specs: Iterable[Tuple[Spec, Optional[str], Optional[str]]]) -> M
     result: Dict[Spec, Dict[Optional[str], Optional[str]]] = {}
     for spec, new_version, project in specs:
         existing_spec = result.get(spec)
-        if existing_spec and existing_spec['new_version'] != new_version:
+        if existing_spec and existing_spec['new_version'] not in (None, new_version):
             # TODO: GH annotation?
-            print(f'Found conflict for {spec.package_name}: {result[spec]["new_version"]} ({result[spec]["project"]}) != {new_version} ({project})', file=sys.stderr)
-            result[spec] = {'new_version': 'CONFLICT', 'project': project}
+            detail = f'{result[spec]["new_version"]} ({result[spec]["project"]}) != {new_version} ({project})'
+            print(f'Found conflict for {spec.package_name}: {detail}', file=sys.stderr)
+            result[spec] = {'new_version': 'CONFLICT', 'project': project, 'detail': detail}
         else:
             result[spec] = {'new_version': new_version, 'project': project}
     return result
@@ -246,6 +247,8 @@ def build_matrix(specs: Mapping[Spec, Dict[Optional[str], Optional[str]]], packa
                     'current_version': current_version,
                     'new_version': new_version,
                 }
+                if new_version == 'CONFLICT':
+                    entry['detail'] = metadata.get('detail', '')
                 yield entry
 
 
