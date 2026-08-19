@@ -71,7 +71,12 @@ else
 
 	if [[ $NEW_VERSION == "CONFLICT" ]] ; then
 		echo "${PACKAGE_NAME}: requested with a conflict."
-		echo "This means multiple packages requested different versions"
+		echo "This means multiple packages requested different versions:"
+		if [[ -n $DETAIL ]] ; then
+			echo "  ${DETAIL}"
+		else
+			echo "  (no details available)"
+		fi
 		exit 1
 	fi
 fi
