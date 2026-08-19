@@ -4,10 +4,10 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 3
+%global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    5.11.0
+Version:    5.12.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -57,6 +57,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Wed Aug 19 2026 Gaurav Talreja <gtalreja@redhat.com> - 5.12.0-1
+- Release ansible-collection-theforeman-foreman 5.12.0
+
 * Wed Aug 05 2026 Odilon Sousa <osousa@redhat.com> - 5.11.0-3
 - Fix conditions for ansible-core to be installed on EL10
 
