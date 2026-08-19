@@ -67,6 +67,7 @@ jobs:
       run: ./bump_rpm.sh "${{ matrix.directory }}" "${{ matrix.new_version }}"
       env:
         SKIP_GIT_COMMIT: 1
+        DETAIL: ${{ matrix.detail }}
     - name: Open a PR
       uses: peter-evans/create-pull-request@v7
       with:
