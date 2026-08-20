@@ -79,6 +79,12 @@ else
 		fi
 		exit 1
 	fi
+
+	if [[ $NEW_VERSION == "DOWNGRADE" ]] ; then
+		echo "${PACKAGE_NAME}: requested version would be a downgrade."
+		echo "This means the detected version is older than what is currently packaged."
+		exit 1
+	fi
 fi
 
 if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
