@@ -2,8 +2,8 @@
 %global gem_name activerecord-import
 
 Name: rubygem-%{gem_name}
-Version: 2.2.0
-Release: 2%{?dist}
+Version: 2.3.0
+Release: 1%{?dist}
 Summary: Bulk insert extension for ActiveRecord
 License: MIT
 URL: https://github.com/zdennis/activerecord-import
@@ -46,16 +46,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.github
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.rubocop_todo.yml
-%{gem_instdir}/Brewfile
-%exclude %{gem_instdir}/Dockerfile
-%exclude %{gem_instdir}/docker-compose.yml
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/benchmarks
-%exclude %{gem_instdir}/gemfiles
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -63,13 +54,12 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.markdown
-%{gem_instdir}/Rakefile
-%{gem_instdir}/activerecord-import.gemspec
-%{gem_instdir}/test
 
 %changelog
+* Sun Aug 16 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.3.0-1
+- Update to 2.3.0
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-2
 - Rebuild for EL10
 
