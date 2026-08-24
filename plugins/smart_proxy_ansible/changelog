@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.7.2-1) stable; urgency=low
+
+  * 3.7.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 24 Aug 2026 17:36:11 +0000
+
 ruby-smart-proxy-ansible (3.7.1-3) stable; urgency=low
 
   * Loosen dependency on smart_proxy_remote_execution_ssh
