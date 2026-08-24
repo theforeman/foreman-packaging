@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_puppet
 %global plugin_name puppet
-%global foreman_min_version 3.19
+%global foreman_min_version 5.0
 
 Name: rubygem-%{gem_name}
-Version: 10.1.3
+Version: 11.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Aug 24 17:36:37 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.0-1
+- Update to 11.0.0
+
 * Mon Aug 03 2026 Foreman Packaging Automation <packaging@theforeman.org> - 10.1.3-1
 - Update to 10.1.3
 
