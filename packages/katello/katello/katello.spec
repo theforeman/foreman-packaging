@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -127,6 +127,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Aug 25 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.rc2
+- Release katello 5.0.0rc2
+
 * Thu Aug 13 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.2.rc1
 - Do not require foreman-installer-katello on EL10
 
