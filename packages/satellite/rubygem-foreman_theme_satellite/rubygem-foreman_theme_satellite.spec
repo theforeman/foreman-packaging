@@ -3,11 +3,11 @@
 %global plugin_name theme_satellite
 %global foreman_min_version 3.15.0
 
-%global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat")
+%global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat" || "%{?dist}" == ".el10sat")
 
 Name: rubygem-%{gem_name}
 Version: 16.5.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
 URL: https://github.com/RedHatSatellite/foreman_theme_satellite
@@ -104,6 +104,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 16.5.0-2
+- Include el10sat in downstream_build condition to use Satellite-branded assets
+
 * Mon Aug 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 16.5.0-1
 - Update to 16.5.0
 
