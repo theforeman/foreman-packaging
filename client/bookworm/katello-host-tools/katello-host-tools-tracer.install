@@ -1,0 +1,5 @@
+#!/usr/bin/dh-exec
+usr/bin/katello-tracer-upload
+usr/lib/python*/dist-packages/katello/tracer/
+katello/contrib/extra/81-tracer-upload-apt => /etc/apt/apt.conf.d/81-tracer-upload
+katello/contrib/extra/katello-tracer-upload.cron => /etc/cron.d/katello-host-tools

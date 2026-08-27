@@ -1,0 +1,11 @@
+usr/bin/katello-enabled-repos-upload
+usr/bin/katello-package-upload
+usr/lib/python*/dist-packages/katello_host_tools-*.egg-info
+usr/lib/python*/dist-packages/katello/__init__.py
+usr/lib/python*/dist-packages/katello/constants.py
+usr/lib/python*/dist-packages/katello/enabled_report.py
+usr/lib/python*/dist-packages/katello/packages.py
+usr/lib/python*/dist-packages/katello/repos.py
+usr/lib/python*/dist-packages/katello/scripts.py
+usr/lib/python*/dist-packages/katello/uep.py
+usr/lib/python*/dist-packages/katello/utils.py
