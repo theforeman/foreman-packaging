@@ -9,8 +9,8 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.3
-Release: 2%{?foremandist}%{?dist}
+Version: 0.0.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Request forwarder for Foreman smart proxy
 License: GPL-3.0-only
 URL: https://github.com/ATIX-AG/smart_proxy_request_forwarder
@@ -18,9 +18,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: ruby >= 2.7
+Requires: ruby >= 3.0
 Requires: ruby < 4
-BuildRequires: ruby >= 2.7
+BuildRequires: ruby >= 3.0
 BuildRequires: ruby < 4
 BuildRequires: rubygems-devel
 BuildArch: noarch
@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/request_forwarder.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 27 12:13:47 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.0.4-1
+- Update to 0.0.4
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.3-2
 - Rebuild for EL10
 
