@@ -306,6 +306,7 @@ ruby_core_packages_tier1:
     rubygem-multipart-post: {}
     rubygem-multi_json: {}
     rubygem-mustermann: {}
+    rubygem-net-http-persistent: {}
     rubygem-net-ldap: {}
     rubygem-net-ping: {}
     rubygem-net-scp: {}
