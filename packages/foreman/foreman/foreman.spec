@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -41,6 +41,7 @@ Requires: wget
 Requires: /etc/cron.d
 Requires: gawk
 Requires: /usr/sbin/sendmail
+Requires: openssh-clients
 Requires: sshpass
 
 Requires(pre):  shadow-utils
@@ -859,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Sep 01 2026 Lukas Zapletal - 5.1.0-0.2.develop
+- Add openssh-clients dependency (ssh client invoked by sshpass)
+
 * Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.develop
 - Bump version to 5.1-develop
 
