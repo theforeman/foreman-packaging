@@ -1,3 +1,9 @@
+foreman (5.1.0-2) stable; urgency=low
+
+  * Add openssh-client and sshpass to Depends (ssh client invoked by sshpass)
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Tue, 01 Sep 2026 14:41:28 +0200
+
 foreman (5.1.0-1) stable; urgency=low
 
   * Bump changelog to 5.1.0 to match VERSION
