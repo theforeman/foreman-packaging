@@ -2,8 +2,8 @@
 %global gem_name responders
 
 Name: rubygem-%{gem_name}
-Version: 3.2.0
-Release: 2%{?dist}
+Version: 3.2.1
+Release: 1%{?dist}
 Summary: A set of Rails responders to dry up your application
 License: MIT
 URL: https://github.com/heartcombo/responders
@@ -57,6 +57,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep  2 04:26:39 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.2.1-1
+- Update to 3.2.1
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.0-2
 - rebuilt
 
