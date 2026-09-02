@@ -4,8 +4,8 @@
 %global foreman_min_version 3.17.0
 
 Name: rubygem-%{gem_name}
-Version: 1.2.1
-Release: 2%{?foremandist}%{?dist}
+Version: 1.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman OpenBolt integration
 License: GPL-3.0-only
 URL: https://github.com/overlookinfra/foreman_openbolt
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Sep  1 18:16:20 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.3.0-1
+- Update to 1.3.0
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.1-2
 - Rebuild for EL10
 
