@@ -9,8 +9,8 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.3
-Release: 3%{?foremandist}%{?dist}
+Version: 1.0.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
@@ -92,6 +92,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep  3 10:43:59 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.4-1
+- Update to 1.0.4
+
 * Tue Aug 11 2026 Evgeni Golov - 1.0.3-3
 - Add Requires on sshpass for password authentication
 
