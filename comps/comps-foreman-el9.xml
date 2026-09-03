@@ -49,6 +49,7 @@
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
+      <packagereq type="default">nodejs-babel-preset-react</packagereq>
       <packagereq type="default">nodejs-babel-runtime</packagereq>
       <packagereq type="default">nodejs-base64-js</packagereq>
       <packagereq type="default">nodejs-bootstrap-sass</packagereq>
