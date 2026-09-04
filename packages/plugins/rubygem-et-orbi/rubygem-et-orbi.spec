@@ -2,7 +2,7 @@
 %global gem_name et-orbi
 
 Name: rubygem-%{gem_name}
-Version: 1.4.1
+Version: 1.4.2
 Release: 1%{?dist}
 Summary: time with zones
 License: MIT
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/et-orbi.gemspec
 
 %changelog
+* Fri Sep  4 13:15:21 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.2-1
+- Update to 1.4.2
+
 * Wed Aug 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.4.1-1
 - Update to 1.4.1
 
