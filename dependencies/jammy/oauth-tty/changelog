@@ -1,3 +1,9 @@
+ruby-oauth-tty (1.0.13-1) stable; urgency=low
+
+  * 1.0.13 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 04 Sep 2026 13:15:04 +0000
+
 ruby-oauth-tty (1.0.6-1) stable; urgency=low
 
   * 1.0.6 released
