@@ -2,16 +2,16 @@
 %global gem_name mustermann
 
 Name: rubygem-%{gem_name}
-Version: 2.0.2
-Release: 2%{?dist}
+Version: 3.1.1
+Release: 1%{?dist}
 Summary: Your personal string matching expert
 License: MIT
 URL: https://github.com/sinatra/mustermann
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.2.0
-BuildRequires: ruby >= 2.2.0
+Requires: ruby >= 2.7.0
+BuildRequires: ruby >= 2.7.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Sep  4 13:15:34 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.1.1-1
+- Update to 3.1.1
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.2-2
 - rebuilt
 
