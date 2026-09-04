@@ -1,8 +1,8 @@
 %global npm_name graphql
 
 Name: nodejs-graphql
-Version: 15.10.2
-Release: 2%{?dist}
+Version: 15.10.3
+Release: 1%{?dist}
 Summary: A Query Language and Runtime which can target any service
 License: MIT
 URL: https://github.com/graphql/graphql-js
@@ -58,6 +58,9 @@ cp -pfr version.mjs %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Sep 04 2026 Foreman Packaging Automation <packaging@theforeman.org> 15.10.3-1
+- Update to 15.10.3
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 15.10.2-2
 - Update to 15.10.2
 
