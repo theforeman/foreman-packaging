@@ -1,3 +1,9 @@
+ruby-oauth (1.1.8-1) stable; urgency=low
+
+  * 1.1.8 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 04 Sep 2026 13:15:06 +0000
+
 ruby-oauth (1.1.3-1) stable; urgency=low
 
   * 1.1.3 released
