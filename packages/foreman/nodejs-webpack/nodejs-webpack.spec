@@ -1,7 +1,7 @@
 %global npm_name webpack
 
 Name: nodejs-webpack
-Version: 5.109.2
+Version: 5.110.3
 Release: 1%{?dist}
 Summary: Packs ECMAScript/CommonJs/AMD modules for the browser
 License: MIT
@@ -10,11 +10,11 @@ URL: https://github.com/webpack/webpack
 Source0: https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz
 Source1: https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz
 Source2: https://registry.npmjs.org/@jridgewell/source-map/-/source-map-0.3.11.tgz
-Source3: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz
+Source3: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz
 Source4: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz
 Source5: https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz
 Source6: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
-Source7: https://registry.npmjs.org/@types/node/-/node-26.1.2.tgz
+Source7: https://registry.npmjs.org/@types/node/-/node-26.4.1.tgz
 Source8: https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.14.1.tgz
 Source9: https://registry.npmjs.org/@webassemblyjs/floating-point-hex-parser/-/floating-point-hex-parser-1.13.2.tgz
 Source10: https://registry.npmjs.org/@webassemblyjs/helper-api-error/-/helper-api-error-1.13.2.tgz
@@ -36,46 +36,42 @@ Source25: https://registry.npmjs.org/acorn/-/acorn-8.18.0.tgz
 Source26: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz
 Source27: https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.1.1.tgz
 Source28: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
-Source29: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.12.tgz
-Source30: https://registry.npmjs.org/browserslist/-/browserslist-4.28.7.tgz
+Source29: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.21.tgz
+Source30: https://registry.npmjs.org/browserslist/-/browserslist-4.28.8.tgz
 Source31: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
-Source32: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001807.tgz
+Source32: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001810.tgz
 Source33: https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz
 Source34: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
-Source35: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.402.tgz
+Source35: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.422.tgz
 Source36: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.24.5.tgz
-Source37: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.1.tgz
+Source37: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.2.tgz
 Source38: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
-Source39: https://registry.npmjs.org/eslint-scope/-/eslint-scope-5.1.1.tgz
-Source40: https://registry.npmjs.org/esrecurse/-/esrecurse-4.3.0.tgz
-Source41: https://registry.npmjs.org/estraverse/-/estraverse-4.3.0.tgz
-Source42: https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz
-Source43: https://registry.npmjs.org/events/-/events-3.3.0.tgz
-Source44: https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz
-Source45: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.5.tgz
-Source46: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz
-Source47: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
-Source48: https://registry.npmjs.org/jest-worker/-/jest-worker-27.5.1.tgz
-Source49: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
-Source50: https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz
-Source51: https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz
-Source52: https://registry.npmjs.org/minimizer-webpack-plugin/-/minimizer-webpack-plugin-5.6.1.tgz
-Source53: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz
-Source54: https://registry.npmjs.org/node-releases/-/node-releases-2.0.53.tgz
-Source55: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
-Source56: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
-Source57: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
-Source58: https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz
-Source59: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz
-Source60: https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz
-Source61: https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz
-Source62: https://registry.npmjs.org/terser/-/terser-5.49.2.tgz
-Source63: https://registry.npmjs.org/undici-types/-/undici-types-8.3.0.tgz
-Source64: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz
-Source65: https://registry.npmjs.org/watchpack/-/watchpack-2.5.2.tgz
-Source66: https://registry.npmjs.org/webpack/-/webpack-5.109.2.tgz
-Source67: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.5.1.tgz
-Source68: nodejs-webpack-%{version}-package-lock.json
+Source39: https://registry.npmjs.org/events/-/events-3.3.0.tgz
+Source40: https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz
+Source41: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.7.tgz
+Source42: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz
+Source43: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
+Source44: https://registry.npmjs.org/jest-worker/-/jest-worker-27.5.1.tgz
+Source45: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz
+Source46: https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz
+Source47: https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz
+Source48: https://registry.npmjs.org/minimizer-webpack-plugin/-/minimizer-webpack-plugin-5.9.0.tgz
+Source49: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz
+Source50: https://registry.npmjs.org/node-releases/-/node-releases-2.0.54.tgz
+Source51: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
+Source52: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
+Source53: https://registry.npmjs.org/schema-utils/-/schema-utils-4.3.3.tgz
+Source54: https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz
+Source55: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz
+Source56: https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz
+Source57: https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz
+Source58: https://registry.npmjs.org/terser/-/terser-5.51.2.tgz
+Source59: https://registry.npmjs.org/undici-types/-/undici-types-8.3.0.tgz
+Source60: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.3.2.tgz
+Source61: https://registry.npmjs.org/watchpack/-/watchpack-2.5.2.tgz
+Source62: https://registry.npmjs.org/webpack/-/webpack-5.110.3.tgz
+Source63: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.5.1.tgz
+Source64: nodejs-webpack-%{version}-package-lock.json
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
 # The prep section runs node directly, so this is needed unconditionally. It
@@ -90,11 +86,11 @@ Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@jridgewell/gen-mapping)) = 0.3.13
 Provides: bundled(npm(@jridgewell/resolve-uri)) = 3.1.2
 Provides: bundled(npm(@jridgewell/source-map)) = 0.3.11
-Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.5.5
+Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.6.0
 Provides: bundled(npm(@jridgewell/trace-mapping)) = 0.3.31
 Provides: bundled(npm(@types/estree)) = 1.0.9
 Provides: bundled(npm(@types/json-schema)) = 7.0.15
-Provides: bundled(npm(@types/node)) = 26.1.2
+Provides: bundled(npm(@types/node)) = 26.4.1
 Provides: bundled(npm(@webassemblyjs/ast)) = 1.14.1
 Provides: bundled(npm(@webassemblyjs/floating-point-hex-parser)) = 1.13.2
 Provides: bundled(npm(@webassemblyjs/helper-api-error)) = 1.13.2
@@ -116,32 +112,28 @@ Provides: bundled(npm(acorn)) = 8.18.0
 Provides: bundled(npm(ajv)) = 8.20.0
 Provides: bundled(npm(ajv-formats)) = 2.1.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
-Provides: bundled(npm(baseline-browser-mapping)) = 2.11.12
-Provides: bundled(npm(browserslist)) = 4.28.7
+Provides: bundled(npm(baseline-browser-mapping)) = 2.11.21
+Provides: bundled(npm(browserslist)) = 4.28.8
 Provides: bundled(npm(buffer-from)) = 1.1.2
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001807
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001810
 Provides: bundled(npm(chrome-trace-event)) = 1.0.4
 Provides: bundled(npm(commander)) = 2.20.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.402
+Provides: bundled(npm(electron-to-chromium)) = 1.5.422
 Provides: bundled(npm(enhanced-resolve)) = 5.24.5
-Provides: bundled(npm(es-module-lexer)) = 2.3.1
+Provides: bundled(npm(es-module-lexer)) = 2.3.2
 Provides: bundled(npm(escalade)) = 3.2.0
-Provides: bundled(npm(eslint-scope)) = 5.1.1
-Provides: bundled(npm(esrecurse)) = 4.3.0
-Provides: bundled(npm(estraverse)) = 4.3.0
-Provides: bundled(npm(estraverse)) = 5.3.0
 Provides: bundled(npm(events)) = 3.3.0
 Provides: bundled(npm(fast-deep-equal)) = 3.1.3
-Provides: bundled(npm(fast-uri)) = 3.1.5
+Provides: bundled(npm(fast-uri)) = 3.1.7
 Provides: bundled(npm(graceful-fs)) = 4.2.11
 Provides: bundled(npm(has-flag)) = 4.0.0
 Provides: bundled(npm(jest-worker)) = 27.5.1
 Provides: bundled(npm(json-schema-traverse)) = 1.0.0
 Provides: bundled(npm(merge-stream)) = 2.0.0
 Provides: bundled(npm(mime-db)) = 1.54.0
-Provides: bundled(npm(minimizer-webpack-plugin)) = 5.6.1
+Provides: bundled(npm(minimizer-webpack-plugin)) = 5.9.0
 Provides: bundled(npm(neo-async)) = 2.6.2
-Provides: bundled(npm(node-releases)) = 2.0.53
+Provides: bundled(npm(node-releases)) = 2.0.54
 Provides: bundled(npm(picocolors)) = 1.1.1
 Provides: bundled(npm(require-from-string)) = 2.0.2
 Provides: bundled(npm(schema-utils)) = 4.3.3
@@ -149,11 +141,11 @@ Provides: bundled(npm(source-map)) = 0.6.1
 Provides: bundled(npm(source-map-support)) = 0.5.21
 Provides: bundled(npm(supports-color)) = 8.1.1
 Provides: bundled(npm(tapable)) = 2.3.3
-Provides: bundled(npm(terser)) = 5.49.2
+Provides: bundled(npm(terser)) = 5.51.2
 Provides: bundled(npm(undici-types)) = 8.3.0
-Provides: bundled(npm(update-browserslist-db)) = 1.2.3
+Provides: bundled(npm(update-browserslist-db)) = 1.3.2
 Provides: bundled(npm(watchpack)) = 2.5.2
-Provides: bundled(npm(webpack)) = 5.109.2
+Provides: bundled(npm(webpack)) = 5.110.3
 Provides: bundled(npm(webpack-sources)) = 3.5.1
 AutoReq: no
 AutoProv: no
@@ -224,6 +216,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Sep 04 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.110.3-1
+- Update to 5.110.3
+
 * Thu Aug 06 2026 Ondřej Gajdušek <ogajduse@redhat.com> 5.109.2-1
 - Update to 5.109.2
 
