@@ -726,6 +726,7 @@ foreman_plugin_packages_tier2:
     rubygem-llhttp: {}
     rubygem-opennebula: {}
     rubygem-puppetdb_foreman: {}
+    rubygem-smart_proxy_ansible_director: {}
     rubygem-treetop: {}
 
 fdi_plugin_packages:
@@ -911,7 +912,10 @@ foreman_proxy_other_plugin_packages_tier2:
   hosts:
     mosquitto: {}
     ansible-runner: {}
+    python-ansible-navigator: {}
     python-lockfile: {}
+    python-onigurumacffi: {}
+    python-tzdata: {}
     ansible-core: {}
 
 repoclosures:
