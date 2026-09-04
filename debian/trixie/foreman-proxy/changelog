@@ -1,3 +1,9 @@
+foreman-proxy (5.1.0-2) stable; urgency=low
+
+  * Rebuild
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 04 Sep 2026 12:06:37 +0200
+
 foreman-proxy (5.1.0-1) stable; urgency=low
 
   * Bump changelog to 5.1.0 to match VERSION
