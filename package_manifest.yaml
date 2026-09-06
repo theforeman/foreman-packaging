@@ -183,6 +183,7 @@ foreman_core_packages:
       source_system: jenkins
 
     rubygem-auth-sanitizer: {}
+    rubygem-bootsnap: {}
 other_core_packages:
   hosts:
     dynflow-utils: {}
