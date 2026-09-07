@@ -26,3 +26,15 @@ Contributing
 
 It's generally best to contribute to `rpm/develop` or `deb/develop` unless something
 is specifically broken for an older release. Please fork and send a PR.
+
+Setup
+=====
+
+You can use `git worktree` to maintain two working directories with a shared `.git`:
+
+```bash
+git clone https://github.com/theforeman/foreman-packaging
+cd foreman-packaging
+git worktree add rpm-develop upstream/rpm/develop
+git worktree add deb-develop upstream/deb/develop
+```
