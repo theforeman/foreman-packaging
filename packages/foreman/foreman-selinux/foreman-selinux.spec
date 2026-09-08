@@ -21,9 +21,7 @@
 
 %define moduletype apps
 
-%global release 2
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:           foreman-selinux
 Version:        5.0.0
@@ -173,6 +171,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Sep 08 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.0-1
+- Release foreman-selinux 5.0.0
+
 * Tue Aug 25 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.0-0.2.rc2
 - Release foreman-selinux 5.0.0rc2
 
