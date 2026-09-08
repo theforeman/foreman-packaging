@@ -352,7 +352,6 @@
       <packagereq type="default">rubygem-sprockets</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-sqlite3</packagereq>
-      <packagereq type="default">rubygem-sshkey</packagereq>
       <packagereq type="default">rubygem-statsd-instrument</packagereq>
       <packagereq type="default">rubygem-terser</packagereq>
       <packagereq type="default">rubygem-text</packagereq>
@@ -562,7 +561,6 @@
       <packagereq type="default">rubygem-sprockets-doc</packagereq>
       <packagereq type="default">rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">rubygem-sqlite3-doc</packagereq>
-      <packagereq type="default">rubygem-sshkey-doc</packagereq>
       <packagereq type="default">rubygem-statsd-instrument-doc</packagereq>
       <packagereq type="default">rubygem-terser-doc</packagereq>
       <packagereq type="default">rubygem-text-doc</packagereq>

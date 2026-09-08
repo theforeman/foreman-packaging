@@ -364,7 +364,6 @@ ruby_core_packages_tier1:
     rubygem-snaky_hash: {}
     rubygem-sprockets: {}
     rubygem-sprockets-rails: {}
-    rubygem-sshkey: {}
     rubygem-statsd-instrument: {}
     rubygem-sqlite3: {}
     rubygem-terser: {}
