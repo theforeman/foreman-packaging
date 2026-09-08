@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -86,7 +86,6 @@ Requires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
 Requires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
 Requires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
 Requires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
-Requires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
 Requires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 3.0.0)
 Requires: rubygem(daemons)
 Requires: (rubygem(bcrypt) >= 3.1 with rubygem(bcrypt) < 4.0)
@@ -860,6 +859,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Sep 08 2026 Lukas Zapletal <lzap+git@redhat.com> - 5.1.0-0.3.develop
+- Drop obsolete rubygem-sshkey dependency
+
 * Tue Sep 01 2026 Lukas Zapletal - 5.1.0-0.2.develop
 - Add openssh-clients dependency (ssh client invoked by sshpass)
 

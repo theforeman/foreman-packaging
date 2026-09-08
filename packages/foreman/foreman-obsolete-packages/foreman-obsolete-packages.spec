@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.19
+Version: 1.20
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -26,6 +26,8 @@ Obsoletes: rubygem-hammer_cli_foreman_admin < 1.2.2
 Obsoletes: rubygem-hammer_cli_foreman_admin-doc < 1.2.2
 Obsoletes: rubygem-ruby_parser < 3.21.1-4
 Obsoletes: rubygem-ruby_parser-doc < 3.21.1-4
+Obsoletes: rubygem-sshkey < 2.0.0-3
+Obsoletes: rubygem-sshkey-doc < 2.0.0-3
 Obsoletes: rubygem-hammer_cli_foreman_virt_who_configure < 0.1.4
 Obsoletes: rubygem-stomp < 1.4.10-2
 Obsoletes: rubygem-stomp-doc < 1.4.10-2
@@ -67,6 +69,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Tue Sep 08 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.20-1
+- Obsolete rubygem-sshkey and rubygem-sshkey-doc
+
 * Thu Jul 30 2026 Titani Labaj <tlabaj@redhat.com> - 1.19-1
 - Obsolete nodejs-rc-input-number
 
