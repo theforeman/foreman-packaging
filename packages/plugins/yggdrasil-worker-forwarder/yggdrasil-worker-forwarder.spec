@@ -8,7 +8,7 @@
 Name: yggdrasil-worker-forwarder
 Version: 0.1.0
 Summary: Worker service for Yggdrasil that can forward requests to an API endpoint
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv3
 
 Source0: https://github.com/theforeman/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
@@ -56,6 +56,9 @@ mkdir -p %{buildroot}%{_libexecdir}
 %doc README.md
 
 %changelog
+* Tue Sep 08 2026 Odilon Sousa <osousa@redhat.com> - 0.1.0-2
+- Rebuild against new golang version
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.0-1
 - Release yggdrasil-worker-forwarder 0.1.0
 
