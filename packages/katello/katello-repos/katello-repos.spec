@@ -8,8 +8,6 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 1
 
 Name:           katello-repos
@@ -82,6 +80,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Tue Sep 08 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-1
+- Release katello-repos 5.0.0
+
 * Tue Aug 25 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-0.1.rc2
 - Release katello-repos 5.0.0rc2
 
