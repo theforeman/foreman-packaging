@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -859,6 +859,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Sep 08 2026 Lukas Zapletal <lzap+git@redhat.com> - 5.1.0-0.3.develop
+- Drop obsolete rubygem-sshkey dependency
+
 * Tue Sep 01 2026 Lukas Zapletal - 5.1.0-0.2.develop
 - Add openssh-clients dependency (ssh client invoked by sshpass)
 
