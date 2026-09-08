@@ -1,3 +1,9 @@
+foreman-installer (5.0.0-1) stable; urgency=low
+
+  * 5.0.0 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 08 Sep 2026 17:46:45 +0200
+
 foreman-installer (5.0.0~rc2-1) stable; urgency=low
 
   * 5.0.0-rc2 released
