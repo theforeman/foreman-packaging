@@ -4,6 +4,7 @@ import argparse
 import itertools
 import json
 import os
+import sys
 from collections import namedtuple
 from pathlib import Path
 from typing import Generator, Iterable, Optional, Tuple
@@ -14,6 +15,16 @@ from debian.debian_support import NativeVersion  # type: ignore
 import requests
 
 SESSION = requests.Session()
+
+DISTRO_RUBY_VERSIONS = {
+    'jammy': (3, 0),
+    'bookworm': (3, 1),
+    'noble': (3, 2),
+    'trixie': (3, 3),
+    'resolute': (3, 4),
+}
+
+MIN_RUBY_VERSION = min(DISTRO_RUBY_VERSIONS.values())
 
 
 Package = namedtuple('Package', ['package_name', 'version', 'gem_name', 'directory'])
@@ -52,6 +63,13 @@ def find_packages() -> Generator[Package, None, None]:
             yield Package(str(changelog.package), version, gem_name, directory.as_posix())
 
 
+def gem_version_info(gem_name: str, version: str) -> dict:
+    url = f'https://rubygems.org/api/v2/rubygems/{gem_name}/versions/{version}.json'
+    response = SESSION.get(url, timeout=10)
+    response.raise_for_status()
+    return response.json()
+
+
 def latest_version(spec: Package) -> str:
     if spec.gem_name:
         url = f'https://rubygems.org/api/v1/versions/{spec.gem_name}/latest.json'
@@ -61,12 +79,54 @@ def latest_version(spec: Package) -> str:
     raise ValueError('Unable to determine latest version', spec)
 
 
+def parse_ruby_minimum(constraint: str) -> Optional[Tuple[int, int]]:
+    """Extract minimum Ruby version (major, minor) from a gem's ruby_version constraint."""
+    if not constraint:
+        return None
+    for part in constraint.split(','):
+        part = part.strip()
+        if part.startswith('>=') or part.startswith('~>'):
+            segments = [int(x) for x in part[2:].strip().split('.')]
+            return (segments[0], segments[1] if len(segments) > 1 else 0)
+    return None
+
+
+def is_ruby_compatible(gem_name: str, version: str) -> bool:
+    """Check if a gem version is compatible with the oldest supported distro Ruby."""
+    try:
+        info = gem_version_info(gem_name, version)
+        constraint = info.get('ruby_version', '')
+        min_ruby = parse_ruby_minimum(constraint)
+        if min_ruby and min_ruby > MIN_RUBY_VERSION:
+            min_ruby_str = '.'.join(str(x) for x in min_ruby)
+            min_ver_str = '.'.join(str(x) for x in MIN_RUBY_VERSION)
+            oldest_distro = min(DISTRO_RUBY_VERSIONS, key=DISTRO_RUBY_VERSIONS.get)
+            compatible_distros = [
+                f"{name} ({ver[0]}.{ver[1]})"
+                for name, ver in sorted(DISTRO_RUBY_VERSIONS.items(), key=lambda x: x[1])
+                if ver >= min_ruby
+            ]
+            print(
+                f"SKIP {gem_name} {version}: requires Ruby >= {min_ruby_str}, "
+                f"oldest distro ({oldest_distro}) has {min_ver_str}. "
+                f"Compatible distros: {', '.join(compatible_distros)}",
+                file=sys.stderr,
+            )
+            return False
+    except Exception as exc:
+        print(f"WARNING: could not check Ruby version for {gem_name} {version}: {exc}", file=sys.stderr)
+    return True
+
+
 def build_matrix(specs: Iterable[Package], gem_filter: Optional[str] = None) -> Generator[dict, None, None]:
     for spec in specs:
         current_version = spec.version
         new_version = latest_version(spec)
         if current_version != new_version:
             if gem_filter and gem_filter not in spec.gem_name:
+                continue
+
+            if not is_ruby_compatible(spec.gem_name, new_version):
                 continue
 
             entry = {
