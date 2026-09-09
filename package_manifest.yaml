@@ -402,6 +402,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-babel-preset-env:
       strategy: bundle
+    nodejs-babel-preset-react: {}
     nodejs-babel-runtime: {}
     nodejs-base64-js: {}
     nodejs-bootstrap-sass: {}
