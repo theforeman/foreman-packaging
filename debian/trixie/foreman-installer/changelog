@@ -1,3 +1,21 @@
+foreman-installer (5.0.0-1) stable; urgency=low
+
+  * 5.0.0 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 08 Sep 2026 17:46:45 +0200
+
+foreman-installer (5.0.0~rc2-1) stable; urgency=low
+
+  * 5.0.0-rc2 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 25 Aug 2026 18:05:28 +0200
+
+foreman-installer (5.0.0~rc1-1) stable; urgency=low
+
+  * 5.0.0-rc1 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 12 Aug 2026 16:27:15 +0200
+
 foreman-installer (5.0.0-2) stable; urgency=low
 
   * Add support for OpenVox agent
