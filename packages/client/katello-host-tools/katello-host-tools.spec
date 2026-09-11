@@ -4,6 +4,16 @@
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
 %if 0%{?suse_version}
+%define pkg_systemd_post()    %service_add_post %{*}
+%define pkg_systemd_preun()   %service_del_preun %{*}
+%define pkg_systemd_postun()  %service_del_postun %{*}
+%else
+%define pkg_systemd_post()    %systemd_post %{*}
+%define pkg_systemd_preun()   %systemd_preun %{*}
+%define pkg_systemd_postun()  %systemd_postun %{*}
+%endif
+
+%if 0%{?suse_version}
 %define dist suse%{?suse_version}
 %endif
 
@@ -33,8 +43,8 @@
 %global katello_libdir %{python_libdir}/katello
 
 Name: katello-host-tools
-Version: 4.5.0
-Release: 2%{?dist}
+Version: 4.6.0
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -54,6 +64,8 @@ BuildArch: noarch
 %endif
 
 Requires: subscription-manager
+Requires: systemd
+BuildRequires: systemd-rpm-macros systemd
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
 Obsoletes: katello-agent < %{version}-%{release}
 
@@ -98,11 +110,6 @@ BuildArch:  noarch
 Summary:    Adds Tracer functionality to a client managed by katello-host-tools
 Group:      Development/Languages
 Requires: %{name} = %{version}-%{release}
-%if 0%{?suse_version}
-Requires: cronie
-%else
-Requires: crontabs
-%endif
 %if %{yum_install}
 Requires: python2-tracer >= 0.6.12
 %endif
@@ -208,9 +215,12 @@ mkdir -p %{buildroot}%{_sbindir}
 cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %endif
 
-# crontab
-mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
-cp extra/katello-tracer-upload.cron %{buildroot}%{_sysconfdir}/cron.d/katello-tracer-upload
+# tracer systemd service and timer
+install -Dp -m0644 extra/katello-tracer-upload.service.in %{buildroot}%{_unitdir}/katello-tracer-upload.service
+install -Dp -m0644 extra/katello-tracer-upload.timer %{buildroot}%{_unitdir}/katello-tracer-upload.timer
+
+# replace @SBIN_PATH@ in the service file with the actual path to the executable
+sed -i "s|@SBIN_PATH@|%{_sbindir}|" %{buildroot}%{_unitdir}/katello-tracer-upload.service
 %endif
 
 %clean
@@ -221,6 +231,25 @@ rm -rf %{buildroot}
 katello-package-upload 2> /dev/null
 katello-enabled-repos-upload 2> /dev/null
 exit 0
+%endif
+
+%if %{build_tracer}
+%post tracer
+%pkg_systemd_post katello-tracer-upload.timer
+
+if [ "$1" -eq 1 ]; then
+    systemctl enable --now katello-tracer-upload.timer >/dev/null 2>&1 || :
+fi
+
+%preun tracer
+%pkg_systemd_preun katello-tracer-upload.timer
+
+if [ "$1" -eq 0 ]; then
+    systemctl disable --now katello-tracer-upload.timer >/dev/null 2>&1 || :
+fi
+
+%postun tracer
+%pkg_systemd_postun katello-tracer-upload.timer
 %endif
 
 %files
@@ -273,7 +302,6 @@ exit 0
 %dir %{_usr}/lib/zypp
 %dir %{_usr}/lib/zypp/plugins
 %dir %{plugins_dir}
-%dir %{_sysconfdir}/cron.d/
 %{plugins_dir}/tracer_upload.py
 %else
 %if %{yum_install}
@@ -284,12 +312,17 @@ exit 0
 %endif
 %{katello_libdir}/tracer
 %{plugins_confdir}/tracer_upload.conf
-%config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
+%{_unitdir}/katello-tracer-upload.service
+%{_unitdir}/katello-tracer-upload.timer
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif
 
 
 %changelog
+* Tue Jun 09 2026 Bernhard Suttner <suttner@atix.de> - 4.6.0-1
+- Use systemd timer implementation instead of cron based
+  solution for tracer upload
+
 * Wed Nov 05 2025 Bernhard Suttner <suttner@atix.de> - 4.5.0-2
 - Fix missing /etc/cron.d/ dir for SLES / OBS build.
 
