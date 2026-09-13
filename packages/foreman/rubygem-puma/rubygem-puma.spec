@@ -3,16 +3,16 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 6.6.1
-Release: 2%{?dist}
+Version: 8.0.2
+Release: 1%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server for Ruby/Rack applications
 License: BSD-3-Clause
 URL: https://puma.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.4
-BuildRequires: ruby-devel >= 2.4
+Requires: ruby >= 3.0
+BuildRequires: ruby-devel >= 3.0
 BuildRequires: rubygems-devel
 BuildRequires: (rubygem(nio4r) >= 2.0 with rubygem(nio4r) < 3)
 # Compiler is required for build of gem binary extension.
@@ -97,6 +97,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/docs
 
 %changelog
+* Sun Sep 13 04:23:30 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 8.0.2-1
+- Update to 8.0.2
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.6.1-2
 - Rebuild for EL10
 
