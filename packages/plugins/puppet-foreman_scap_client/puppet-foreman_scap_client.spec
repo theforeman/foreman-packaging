@@ -3,14 +3,14 @@
 %global puppet_foreman_scap_client_dir %{_datadir}/puppet/modules/%{puppet_module}
 
 Name:       puppet-%{puppet_module}
-Version:    1.0.0
-Release:    3%{?dist}
+Version:    2.0.0
+Release:    1%{?dist}
 Summary:    Puppet module to configure foreman_scap_client
 License:    GPLv2
 URL:        https://github.com/theforeman/%{name}
 Source0:    https://forgeapi.puppetlabs.com/v3/files/%{puppet_full_name}-%{version}.tar.gz
 BuildArch:  noarch
-Requires:   (puppet-agent >= 7 or puppet >= 7)
+Requires:   openvox-agent >= 8
 Requires:   puppetlabs-stdlib >= 4.25.0
 
 %description
@@ -28,19 +28,22 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 
 
 %files
-%doc NEWS README.md REFERENCE.md
-%license COPYING
+%doc README.md REFERENCE.md CHANGELOG.md
+%license LICENSE
 %dir %{puppet_foreman_scap_client_dir}
-%exclude %{puppet_foreman_scap_client_dir}/COPYING
-%exclude %{puppet_foreman_scap_client_dir}/NEWS
+%exclude %{puppet_foreman_scap_client_dir}/LICENSE
 %exclude %{puppet_foreman_scap_client_dir}/README.md
 %exclude %{puppet_foreman_scap_client_dir}/REFERENCE.md
+%exclude %{puppet_foreman_scap_client_dir}/CHANGELOG.md
 %{puppet_foreman_scap_client_dir}/metadata.json
 %{puppet_foreman_scap_client_dir}/lib
 %{puppet_foreman_scap_client_dir}/manifests
 %{puppet_foreman_scap_client_dir}/templates
 
 %changelog
+* Wed Sep 09 2026 Lukas Hellebrandt <lhellebr@redhat.com> - 2.0.0-1
+- Update to 2.0.0
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-3
 - Rebuild for EL10
 
