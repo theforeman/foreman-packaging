@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -474,7 +474,7 @@ Meta Package to install dynflow sidekiq executor support
 Summary: Foreman systemd service support
 Group:  Applications/System
 # start specfile service Requires
-Requires: (rubygem(puma) >= 5.1 with rubygem(puma) < 7)
+Requires: (rubygem(puma) >= 5.1 with rubygem(puma) < 9)
 Requires: (rubygem(sd_notify) >= 0.1.0 with rubygem(sd_notify) < 0.2.0)
 # end specfile service Requires
 Requires: rubygem(puma-status)
@@ -859,6 +859,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Sep 15 2026 Eric D. Helms <ericdhelms@gmail.com> - 5.1.0-0.4.develop
+- Bump rubygem-puma maximum
+
 * Tue Sep 08 2026 Lukas Zapletal <lzap+git@redhat.com> - 5.1.0-0.3.develop
 - Drop obsolete rubygem-sshkey dependency
 
