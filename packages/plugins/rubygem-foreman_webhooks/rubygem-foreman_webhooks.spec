@@ -4,8 +4,8 @@
 %global foreman_min_version 5.0
 
 Name: rubygem-%{gem_name}
-Version: 6.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 6.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Configure webhooks for Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_webhooks
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Sep 15 14:18:23 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 6.0.1-1
+- Update to 6.0.1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.0-2
 - Rebuild for EL10
 
