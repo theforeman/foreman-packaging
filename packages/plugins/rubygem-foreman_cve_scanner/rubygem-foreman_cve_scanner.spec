@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 0.6.1
+Version: 0.7.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Run CVE scan on host and collect report
 License: GPLv3
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Sep 16 04:24:58 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.7.0-1
+- Update to 0.7.0
+
 * Wed Aug 05 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.1-1
 - Update to 0.6.1
 
