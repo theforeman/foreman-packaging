@@ -1,3 +1,9 @@
+ruby-foreman-azure-rm (3.1.0-1) stable; urgency=low
+
+  * 3.1.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 21 Sep 2026 12:53:38 +0000
+
 ruby-foreman-azure-rm (3.0.4-2) stable; urgency=low
 
   * Update faraday-cookie_jar to 0.0.8, allowing for new http-cookie
