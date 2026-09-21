@@ -47,7 +47,6 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/bench
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -55,8 +54,6 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
-%exclude %{gem_instdir}/mustermann.gemspec
-%{gem_instdir}/spec
 
 %changelog
 * Wed Oct 14 19:59:52 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.1.1-1
