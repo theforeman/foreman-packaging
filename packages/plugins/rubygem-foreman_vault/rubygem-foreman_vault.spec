@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_vault
 %global plugin_name vault
-%global foreman_min_version 3.13
+%global foreman_min_version 3.19
 
 Name: rubygem-%{gem_name}
-Version: 3.0.0
+Version: 4.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 License: GPLv3
@@ -75,6 +75,12 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Sep 20 04:24:07 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 4.0.0-1
+- Update to 4.0.0
+
+* Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-2
+- Rebuild for EL10
+
 * Sun May 18 2025 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
 - Update to 3.0.0
 
