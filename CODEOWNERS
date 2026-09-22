@@ -20,6 +20,11 @@
 /packages/foreman/nodejs-ts-loader/ @theforeman/packaging @theforeman/atix
 /packages/foreman/nodejs-typescript/ @theforeman/packaging @theforeman/atix
 
+# azure
+/packages/plugins/*_azure_rm/ @theforeman/packaging @theforeman/azure
+/packages/plugins/rubygem-azure_mgmt_* @theforeman/packaging @theforeman/azure
+/packages/plugins/rubygem-ms_rest* @theforeman/packaging @theforeman/azure
+
 # cli
 /packages/foreman/rubygem-apipie-* @theforeman/packaging @theforeman/cli
 
