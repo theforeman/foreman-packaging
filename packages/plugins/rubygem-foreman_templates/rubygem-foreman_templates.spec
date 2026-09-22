@@ -93,7 +93,7 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
-* Tue Sep 22 15:15:44 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.4-1
+* Tue Sep 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.4-1
 - Update to 11.0.4
 
 * Mon Aug 17 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.3-1
