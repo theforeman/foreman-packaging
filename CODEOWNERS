@@ -13,6 +13,9 @@
 /plugins/*opentofu/ @theforeman/packaging @theforeman/atix
 /plugins/*snapshot-management/ @theforeman/packaging @theforeman/atix
 
+# azure
+/plugins/ruby-foreman-azure-rm/ @theforeman/packaging @theforeman/azure
+
 # bootdisk
 /plugins/*bootdisk/ @theforeman/packaging @theforeman/bootdisk
 /dependencies/*/*bootdisk/ @theforeman/packaging @theforeman/bootdisk
