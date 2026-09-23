@@ -1,11 +1,11 @@
 # template: foreman_plugin
 %global gem_name foreman_wreckingball
 %global plugin_name wreckingball
-%global foreman_min_version 3.13
+%global foreman_min_version 3.19
 
 Name: rubygem-%{gem_name}
-Version: 6.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 7.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 License: GPLv3
 URL: https://github.com/dm-drogeriemarkt/foreman_wreckingball
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Sep 23 04:25:39 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 7.0.0-1
+- Update to 7.0.0
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.0-2
 - Rebuild for EL10
 
