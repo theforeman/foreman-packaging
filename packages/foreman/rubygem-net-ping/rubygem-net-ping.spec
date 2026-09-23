@@ -2,7 +2,7 @@
 %global gem_name net-ping
 
 Name: rubygem-%{gem_name}
-Version: 2.1.1
+Version: 2.2.0
 Release: 1%{?dist}
 Summary: A ping interface for Ruby
 License: Artistic 2.0
@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 23 04:25:30 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.0-1
+- Update to 2.2.0
+
 * Thu Aug 20 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.1.1-1
 - Update to 2.1.1
 
