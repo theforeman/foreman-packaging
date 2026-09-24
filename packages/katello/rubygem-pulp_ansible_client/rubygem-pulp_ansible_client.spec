@@ -2,8 +2,8 @@
 %global gem_name pulp_ansible_client
 
 Name: rubygem-%{gem_name}
-Version: 0.29.9
-Release: 2%{?dist}
+Version: 0.30.1
+Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_ansible
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Sep 24 2026 Samir Jha <samirjha1525@gmail.com> - 0.30.1-1
+- Update to 0.30.1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.29.9-2
 - Rebuild for EL10
 
