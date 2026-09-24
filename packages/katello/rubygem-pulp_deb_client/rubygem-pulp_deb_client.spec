@@ -2,8 +2,8 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 3.8.2
-Release: 2%{?dist}
+Version: 3.11.1
+Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_deb
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Sep 24 2026 Samir Jha <samirjha1525@gmail.com> - 3.11.1-1
+- Update to 3.11.1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.8.2-2
 - Rebuild for EL10
 
