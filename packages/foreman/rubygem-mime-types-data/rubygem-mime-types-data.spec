@@ -2,8 +2,8 @@
 %global gem_name mime-types-data
 
 Name: rubygem-%{gem_name}
-Version: 3.2026.0701
-Release: 2%{?dist}
+Version: 3.2026.0922
+Release: 1%{?dist}
 Summary: mime-types-data provides a registry for information about MIME media type definitions
 License: MIT
 URL: https://github.com/mime-types/mime-types-data/
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Sep 24 18:47:25 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.2026.0922-1
+- Update to 3.2026.0922
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.2026.0701-2
 - rebuilt
 
