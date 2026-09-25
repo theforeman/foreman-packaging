@@ -20,6 +20,11 @@
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">mosquitto</packagereq>
       <packagereq type="default">nodejs-react-json-tree</packagereq>
+      <packagereq type="default">nodejs-types-node</packagereq>
+      <packagereq type="default">nodejs-types-react</packagereq>
+      <packagereq type="default">nodejs-types-react-redux</packagereq>
+      <packagereq type="default">nodejs-types-react-router</packagereq>
+      <packagereq type="default">nodejs-types-react-router-dom</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>
       <packagereq type="default">python3.12-ansible-runner</packagereq>
@@ -76,6 +81,7 @@
       <packagereq type="default">rubygem-fog-proxmox</packagereq>
       <packagereq type="default">rubygem-foreman-tasks</packagereq>
       <packagereq type="default">rubygem-foreman_ansible</packagereq>
+      <packagereq type="default">rubygem-foreman_ansible_director</packagereq>
       <packagereq type="default">rubygem-foreman_azure_rm</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-foreman_concrete</packagereq>
@@ -256,6 +262,7 @@
       <packagereq type="default">rubygem-fog-ovirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_ansible_director-doc</packagereq>
       <packagereq type="default">rubygem-foreman_azure_rm-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_concrete-doc</packagereq>

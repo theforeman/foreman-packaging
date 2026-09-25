@@ -675,6 +675,16 @@ nodejs_plugin_packages:
   hosts:
     nodejs-react-json-tree:
       strategy: bundle
+    nodejs-types-react:
+      strategy: bundle
+    nodejs-types-react-redux:
+      strategy: bundle
+    nodejs-types-react-router:
+      strategy: bundle
+    nodejs-types-react-router-dom:
+      strategy: bundle
+    nodejs-types-node:
+      strategy: bundle
 
 foreman_plugin_packages_tier1:
   hosts:
@@ -685,6 +695,7 @@ foreman_plugin_packages_tier2:
   hosts:
     rubygem-fog-opennebula: {}
     rubygem-foreman_ansible: {}
+    rubygem-foreman_ansible_director: {}
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_concrete: {}
