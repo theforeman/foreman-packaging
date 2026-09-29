@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -288,7 +288,6 @@ Requires: (npm(patternfly-react-extensions) >= 3.0.15 with npm(patternfly-react-
 Requires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
 Requires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
 Requires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
-Requires: (npm(react-debounce-input) >= 3.2.0 with npm(react-debounce-input) < 4.0.0)
 Requires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
 Requires: (npm(react-dnd) >= 14.0.2 with npm(react-dnd) < 15.0.0)
 Requires: (npm(react-dnd-html5-backend) >= 14.0.0 with npm(react-dnd-html5-backend) < 15.0.0)
@@ -859,6 +858,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Sep 29 2026 Lukas Jezek <lukas-jezek@seznam.cz> - 5.1.0-0.5.develop
+- Drop unused npm(react-debounce-input) dependency
+
 * Tue Sep 15 2026 Eric D. Helms <ericdhelms@gmail.com> - 5.1.0-0.4.develop
 - Bump rubygem-puma maximum
 
