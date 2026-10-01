@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   3.3.1
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -47,6 +47,7 @@ sed -i '/^OBSAH_INVENTORY=/ s|=.\+|=%{_sysconfdir}/%{name}/inventory|' %{name}
 sed -i '/^OBSAH_STATE=/ s|=.\+|=%{_sharedstatedir}/%{name}|' %{name}
 sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.\+|=%{_datadir}/%{name}/collections|' %{name}
 sed -i '/^ANSIBLE_LOG_PATH=/ s|=.\+|=%{_localstatedir}/log/%{name}/%{name}.log|' %{name}
+sed -i '/^export ANSIBLE_LOG_PATH/ a ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH=ignore\nexport ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH' %{name}
 
 %install
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
@@ -70,6 +71,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Thu Oct 01 2026 Shubham Ganar <shubhamsg123m@gmail.com> - 3.3.1-2
+- Disable collection warnings on ansible version mismatch
+
 * Thu Sep 24 2026 Arvind Jangir <arvindjangirlpu@gmail.com> - 3.3.1-1
 - Release foremanctl 3.3.1
 
