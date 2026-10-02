@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (16.6.6-1) stable; urgency=low
+
+  * 16.6.6 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 02 Oct 2026 19:42:42 +0000
+
 ruby-foreman-remote-execution (16.6.4-1) stable; urgency=low
 
   * 16.6.4 released
