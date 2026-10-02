@@ -1,3 +1,9 @@
+ruby-amazing-print (3.0.0-1) stable; urgency=low
+
+  * 3.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 02 Oct 2026 18:57:06 +0000
+
 ruby-amazing-print (1.7.2-1) stable; urgency=low
 
   * 1.7.2 released
