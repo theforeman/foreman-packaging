@@ -6,7 +6,7 @@
 %global release 1
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
+Version: 5.0.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 License: GPLv3
@@ -95,6 +95,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct 02 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.1-1
+- Release rubygem-hammer_cli 5.0.1
+
 * Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.0-1
 - Release rubygem-hammer_cli 5.0.0
 
