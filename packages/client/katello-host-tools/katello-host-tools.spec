@@ -237,7 +237,9 @@ exit 0
 
 %if %{build_tracer}
 %exclude %{katello_libdir}/tracer
+%if %{yum_install}
 %exclude %{plugins_dir}
+%endif
 %endif
 
 %if %{yum_install} || %{zypper_install}
