@@ -6,7 +6,7 @@
 %global release 1
 
 Name: rubygem-%{gem_name}
-Version: 3.19.0
+Version: 3.19.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 License: GPLv3
@@ -95,6 +95,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct 02 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.19.1-1
+- Release rubygem-hammer_cli 3.19.1
+
 * Tue May 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 3.19.0-1
 - Release rubygem-hammer_cli 3.19.0
 
