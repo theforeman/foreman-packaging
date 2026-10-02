@@ -19,7 +19,7 @@
 %global release 1
 
 Name:     foreman-release
-Version:  5.0.0
+Version:  5.0.1
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -82,6 +82,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Fri Oct 02 2026 Odilon Sousa <osousa@redhat.com> - 5.0.1-1
+- Release foreman-release 5.0.1
+
 * Tue Sep 08 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.0-1
 - Release foreman-release 5.0.0
 
