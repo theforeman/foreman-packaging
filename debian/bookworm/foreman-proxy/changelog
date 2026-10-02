@@ -1,3 +1,9 @@
+foreman-proxy (3.19.2-1) stable; urgency=low
+
+  * 3.19.2 released
+
+ -- Odilon Sousa <osousa@redhat.com>  Fri, 02 Oct 2026 18:23:02 +0000
+
 foreman-proxy (3.19.1-1) stable; urgency=low
 
   * 3.19.1 released
