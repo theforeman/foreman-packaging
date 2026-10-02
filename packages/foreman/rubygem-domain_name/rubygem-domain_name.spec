@@ -2,7 +2,7 @@
 %global gem_name domain_name
 
 Name: rubygem-%{gem_name}
-Version: 0.6.20260907
+Version: 0.6.20260921
 Release: 1%{?dist}
 Summary: Domain Name manipulation library for Ruby
 License: BSD-2-Clause and BSD-3-Clause and MPL-2.0
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct  2 18:57:27 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.20260921-1
+- Update to 0.6.20260921
+
 * Wed Sep 16 04:24:57 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.6.20260907-1
 - Update to 0.6.20260907
 
