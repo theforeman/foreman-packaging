@@ -1,11 +1,12 @@
 Name: foreman-obsolete-packages
-Version: 1.20
+Version: 1.21
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
 URL: https://github.com/theforeman/foreman-packaging
 BuildArch: noarch
 
+Obsoletes: nodejs-react-debounce-input < 3.3.0-2
 Obsoletes: nodejs-rc-input-number < 6.2.0-2
 Obsoletes: rubygem-dalli < 2.7.6-4
 Obsoletes: rubygem-fog-google < 1.19.0-2
@@ -69,6 +70,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Tue Sep 29 2026 Lukas Jezek <lukas-jezek@seznam.cz> - 1.21-1
+- Obsolete nodejs-react-debounce-input
+
 * Tue Sep 08 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.20-1
 - Obsolete rubygem-sshkey and rubygem-sshkey-doc
 
