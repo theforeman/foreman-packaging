@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 5.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Rh Cloud plugin for Hammer CLI
 License: GPLv3+
 URL: https://github.com/theforeman/hammer-cli-foreman-rh-cloud
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct  2 18:57:38 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.1-1
+- Update to 5.0.1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-2
 - Rebuild for EL10
 
