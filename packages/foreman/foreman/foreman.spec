@@ -9,7 +9,7 @@
 %global release 1
 
 Name:    foreman
-Version: 5.0.0
+Version: 5.0.1
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -857,6 +857,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Oct 02 2026 Odilon Sousa <osousa@redhat.com> - 5.0.1-1
+- Release foreman 5.0.1
+
 * Tue Sep 08 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.0-1
 - Release foreman 5.0.0
 

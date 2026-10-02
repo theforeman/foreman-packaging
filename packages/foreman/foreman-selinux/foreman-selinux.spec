@@ -24,7 +24,7 @@
 %global release 1
 
 Name:           foreman-selinux
-Version:        5.0.0
+Version:        5.0.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -171,6 +171,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Fri Oct 02 2026 Odilon Sousa <osousa@redhat.com> - 5.0.1-1
+- Release foreman-selinux 5.0.1
+
 * Tue Sep 08 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.0-1
 - Release foreman-selinux 5.0.0
 
