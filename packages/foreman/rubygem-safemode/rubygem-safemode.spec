@@ -2,8 +2,8 @@
 %global gem_name safemode
 
 Name: rubygem-%{gem_name}
-Version: 2.0.0
-Release: 2%{?dist}
+Version: 2.0.2
+Release: 1%{?dist}
 Summary: A library for safe evaluation of Ruby code based on Prism and Ruby2Ruby
 License: MIT
 URL: https://github.com/svenfuchs/safemode
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct  2 18:57:28 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.0.2-1
+- Update to 2.0.2
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-2
 - rebuilt
 
