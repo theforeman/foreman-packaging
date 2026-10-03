@@ -186,6 +186,7 @@
       <packagereq type="default">rubygem-ruby-nmap</packagereq>
       <packagereq type="default">rubygem-sentry-raven</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_ansible_director</packagereq>
       <packagereq type="default">rubygem-smart_proxy_container_gateway</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42</packagereq>
@@ -365,6 +366,7 @@
       <packagereq type="default">rubygem-ruby-nmap-doc</packagereq>
       <packagereq type="default">rubygem-sentry-raven-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_ansible_director-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_container_gateway-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42-doc</packagereq>
