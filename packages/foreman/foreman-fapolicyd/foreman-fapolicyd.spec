@@ -1,6 +1,6 @@
 Name:     foreman-fapolicyd
 Version:  1.1.0
-Release:  2%{?dist}
+Release:  3%{?dist}
 Summary:  Foreman fapolicyd rules
 
 Group:    System Environment/Base
@@ -12,6 +12,7 @@ BuildArch: noarch
 
 Requires: fapolicyd
 Requires: systemd
+Supplements: (foremanctl and fapolicyd)
 
 BuildRequires: systemd-rpm-macros
 
@@ -69,6 +70,9 @@ Foreman Proxy fapolicyd rules
 %attr(0644,root,fapolicyd) %{_sysconfdir}/fapolicyd/rules.d/61-foreman-proxy.rules
 
 %changelog
+* Sun Oct 04 2026 Shimon Shtein - 1.1.0-3
+- Add a Supplements statement
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
 - Rebuild for EL10
 
