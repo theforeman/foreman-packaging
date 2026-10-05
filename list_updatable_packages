@@ -14,7 +14,7 @@ import requests
 import tempfile
 
 SUPPORTED_TEMPLATES = ('foreman_plugin', 'hammer_plugin', 'smart_proxy_plugin')
-EXTRA_SUPPORTED_GEMS = ('foreman_maintain',)
+EXTRA_SUPPORTED_GEMS = ('foreman_maintain', 'dynflow')
 EXTRA_SUPPORTED_PYTHON = ('obsah', )
 EXCLUDED_GEMS = ()
 SESSION = requests.Session()
