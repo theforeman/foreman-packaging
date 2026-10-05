@@ -2,8 +2,8 @@
 %global gem_name dynflow
 
 Name: rubygem-%{gem_name}
-Version: 2.0.1
-Release: 2%{?dist}
+Version: 2.0.2
+Release: 1%{?dist}
 Summary: DYNamic workFLOW engine
 License: MIT
 URL: https://github.com/Dynflow/dynflow
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Oct 05 2026 Adam Lazík <alazik@redhat.com> - 2.0.2-1
+- Update to 2.0.2
+
 * Tue Jul 28 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.1-2
 - Rebuild for EL10
 
