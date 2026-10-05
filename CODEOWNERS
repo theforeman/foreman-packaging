@@ -104,6 +104,10 @@
 # scoped_search
 /packages/foreman/rubygem-scoped_search/ @theforeman/packaging @theforeman/scoped_search
 
+# selinux
+/packages/foreman/foreman-fapolicyd/ @theforeman/packaging @theforeman/selinux
+/packages/foreman/foreman-selinux/ @theforeman/packaging @theforeman/selinux
+
 # webhooks
 /packages/plugins/*_webhooks/ @theforeman/packaging @theforeman/webhooks
 /packages/plugins/rubygem-smart_proxy_shellhooks/ @theforeman/packaging @theforeman/webhooks
