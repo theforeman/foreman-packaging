@@ -1,3 +1,9 @@
+ruby-foreman-puppet (11.2.0-1) stable; urgency=low
+
+  * 11.2.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 05 Oct 2026 07:06:08 +0000
+
 ruby-foreman-puppet (11.1.0-1) stable; urgency=low
 
   * 11.1.0 released
