@@ -1,3 +1,9 @@
+ruby-foreman-ansible (18.0.4-1) stable; urgency=low
+
+  * 18.0.4 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 05 Oct 2026 13:05:27 +0000
+
 ruby-foreman-ansible (18.0.3-1) stable; urgency=low
 
   * 18.0.3 released
