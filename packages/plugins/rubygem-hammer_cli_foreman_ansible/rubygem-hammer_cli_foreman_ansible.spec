@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.8.3
-Release: 2%{?foremandist}%{?dist}
+Version: 0.8.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Ansible plugin for Hammer CLI
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-ansible
@@ -70,6 +70,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Oct  5 13:08:25 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.8.4-1
+- Update to 0.8.4
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.3-2
 - Rebuild for EL10
 
