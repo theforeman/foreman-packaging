@@ -5,8 +5,8 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 Name: rubygem-%{gem_name}
-Version: 0.0.25
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman CLI plugin for showing tasks information for resoruces and users
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-tasks
@@ -68,6 +68,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Tue Oct 06 2026 Adam Lazík <alazik@redhat.com> - 0.1.0-1
+- Update to 0.1.0
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.25-2
 - Rebuild for EL10
 
