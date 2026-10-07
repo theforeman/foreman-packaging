@@ -1,59 +1,50 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name concurrent-ruby-edge
 
-Summary: Edge concepts for the modern concurrency tools for Ruby
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.0
-Release: 5%{?foremandist}%{?dist}
+Name: rubygem-%{gem_name}
+Version: 0.7.2
+Release: 1%{?dist}
 Epoch: 1
-Group: Development/Languages
-
+Summary: Edge features and additions to the concurrent-ruby gem
 License: MIT
-URL: https://github.com/ruby-concurrency/concurrent-ruby
+URL: https://www.concurrent-ruby.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.1.6
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 1.2.0
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+# start specfile generated dependencies
+Requires: ruby >= 2.3
+BuildRequires: ruby >= 2.3
+BuildRequires: rubygems-devel
 BuildArch: noarch
-
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Edge concepts for modern concurrency tools including agents, futures,
-promises, thread pools, actors, supervisors, and more. Inspired by
-Erlang, Clojure, Go, JavaScript, actors, and classic concurrency
-patterns.
+These features are under active development and may change frequently. They
+are expected not to
+keep backward compatibility (there may also lack tests and documentation).
+Semantic versions will
+be obeyed though. Features developed in `concurrent-ruby-edge` are expected to
+move to `concurrent-ruby` when final.
+Please see http://concurrent-ruby.com for more information.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -62,18 +53,20 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%license %{gem_instdir}/LICENSE.md
-%doc %{gem_instdir}/CHANGELOG.md
-%{gem_libdir}/concurrent-ruby-edge
-
+%license %{gem_instdir}/LICENSE.txt
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%doc %{gem_instdir}/README.md
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 07 2026 Adam Lazík <alazik@redhat.com> - 1:0.7.2-1
+- Update to 0.7.2
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:0.6.0-5
 - Rebuild for EL10
 
