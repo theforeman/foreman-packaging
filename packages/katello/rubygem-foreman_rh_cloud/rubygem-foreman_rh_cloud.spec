@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 14.7.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
@@ -26,6 +26,7 @@ BuildRequires: rubygem(katello) >= 4.18
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+Requires: /usr/bin/xz
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
@@ -97,6 +98,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Oct 07 2026 Lucy Fu <lufu@redhat.com> - 14.7.0-2
+- Add xz package requirement
+
 * Mon Sep 28 16:07:14 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 14.7.0-1
 - Update to 14.7.0
 
