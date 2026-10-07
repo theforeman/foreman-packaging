@@ -2,8 +2,8 @@
 %global gem_name concurrent-ruby
 
 Name: rubygem-%{gem_name}
-Version: 1.1.10
-Release: 3%{?dist}
+Version: 1.3.8
+Release: 1%{?dist}
 Epoch: 1
 Summary: Modern concurrency tools for Ruby
 License: MIT
@@ -11,8 +11,8 @@ URL: https://www.concurrent-ruby.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.2
-BuildRequires: ruby >= 2.2
+Requires: ruby >= 2.3
+BuildRequires: ruby >= 2.3
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Oct  7 04:27:56 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1:1.3.8-1
+- Update to 1.3.8
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.1.10-3
 - Rebuild for EL10
 
