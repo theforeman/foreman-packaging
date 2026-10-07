@@ -106,10 +106,14 @@ if [[ $CURRENT_VERSION != "$NEW_VERSION" ]] ; then
 			CHANGELOG=$(mktemp)
 			trap "rm -f $CHANGELOG" EXIT
 			sed -e '1,/%changelog/ d' $SPEC_FILE > "$CHANGELOG"
+			SPECFILE_EPOCH=$(grep '^Epoch:' $SPEC_FILE | awk '{print $2}')
+			[[ -n $SPECFILE_EPOCH ]] && export SPECFILE_EPOCH
 			gem2rpm -t "$ROOT/gem2rpm/$TEMPLATE.spec.erb" -o $SPEC_FILE ./*.gem
 			cat "$CHANGELOG" >> $SPEC_FILE
 		elif [[ -n $TEMPLATE ]] ; then
 			echo "* Updating requirements"
+			SPECFILE_EPOCH=$(grep '^Epoch:' $SPEC_FILE | awk '{print $2}')
+			[[ -n $SPECFILE_EPOCH ]] && export SPECFILE_EPOCH
 			gem2rpm -t "$ROOT/gem2rpm/$TEMPLATE.spec.erb" ./*.gem | "$SCRIPT_DIR"/update-requirements specfile - $SPEC_FILE
 		fi
 		if [[ $TEMPLATE == foreman_plugin ]]; then
