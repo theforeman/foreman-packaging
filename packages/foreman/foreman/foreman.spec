@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -75,8 +75,6 @@ Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) <
 Requires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
 Requires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
 Requires: (rubygem(fog-core) >= 2.1 with rubygem(fog-core) < 3.0)
-Requires: rubygem(net-scp)
-Requires: rubygem(net-ssh)
 Requires: rubygem(net-ldap) >= 0.16.0
 Requires: rubygem(net-ping)
 Requires: (rubygem(activerecord-session_store) >= 2.0.0 with rubygem(activerecord-session_store) < 3)
@@ -859,6 +857,12 @@ exit 0
 %endif
 
 %changelog
+* Wed Oct 07 2026 Lukas Zapletal <lzap+git@redhat.com> - 5.1.0-0.6.develop
+- Drop rubygem-net-ssh dependency
+
+* Wed Oct 07 2026 Lukas Zapletal <lzap+git@redhat.com> - 5.1.0-0.5.develop
+- Drop rubygem-net-scp dependency
+
 * Tue Sep 15 2026 Eric D. Helms <ericdhelms@gmail.com> - 5.1.0-0.4.develop
 - Bump rubygem-puma maximum
 

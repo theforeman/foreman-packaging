@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.20
+Version: 1.22
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -28,6 +28,10 @@ Obsoletes: rubygem-ruby_parser < 3.21.1-4
 Obsoletes: rubygem-ruby_parser-doc < 3.21.1-4
 Obsoletes: rubygem-sshkey < 2.0.0-3
 Obsoletes: rubygem-sshkey-doc < 2.0.0-3
+Obsoletes: rubygem-net-scp < 4.1.0-3
+Obsoletes: rubygem-net-scp-doc < 4.1.0-3
+Obsoletes: rubygem-net-ssh < 7.3.3-3
+Obsoletes: rubygem-net-ssh-doc < 7.3.3-3
 Obsoletes: rubygem-hammer_cli_foreman_virt_who_configure < 0.1.4
 Obsoletes: rubygem-stomp < 1.4.10-2
 Obsoletes: rubygem-stomp-doc < 1.4.10-2
@@ -69,6 +73,12 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Wed Oct 07 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.22-1
+- Obsolete rubygem-net-ssh and rubygem-net-ssh-doc
+
+* Wed Oct 07 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.21-1
+- Obsolete rubygem-net-scp and rubygem-net-scp-doc
+
 * Tue Sep 08 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.20-1
 - Obsolete rubygem-sshkey and rubygem-sshkey-doc
 
