@@ -1,8 +1,8 @@
 %global __brp_mangle_shebangs_exclude_from ^%{_datadir}/%{name}/collections/.*$
 
 Name:      foremanctl
-Version:   3.3.1
-Release:   2%{?dist}
+Version:   3.3.2
+Release:   1%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -71,6 +71,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Thu Oct 08 2026 akumari <akumari@redhat.com> - 3.3.2-1
+- Release foremanctl 3.3.2
+
 * Thu Oct 01 2026 Shubham Ganar <shubhamsg123m@gmail.com> - 3.3.1-2
 - Disable collection warnings on ansible version mismatch
 
