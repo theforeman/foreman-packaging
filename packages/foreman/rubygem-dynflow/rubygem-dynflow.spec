@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: DYNamic workFLOW engine
 License: MIT
 URL: https://github.com/Dynflow/dynflow
@@ -17,6 +17,8 @@ BuildArch: noarch
 # end specfile generated dependencies
 
 Requires: (rubygem(csv) or ruby-default-gems < 3.4)
+# Allow to consume logger as a default gem
+Requires: (rubygem(logger) or ruby-default-gems < 3.5)
 
 # Optional dependency that we always pull in
 Requires: %{?scl_prefix}rubygem(statsd-instrument)
@@ -38,6 +40,7 @@ Documentation for %{name}.
 %setup -q -n  %{gem_name}-%{version}
 
 %gemspec_remove_dep -g csv
+%gemspec_remove_dep -g logger
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -79,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct 09 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 2.0.2-2
+- Add rich dependency for logger gem
+
 * Mon Oct 05 2026 Adam Lazík <alazik@redhat.com> - 2.0.2-1
 - Update to 2.0.2
 
