@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.7.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Summary: Edge features and additions to the concurrent-ruby gem
 License: MIT
@@ -29,7 +29,7 @@ Please see http://concurrent-ruby.com for more information.
 
 %package doc
 Summary: Documentation for %{name}
-Requires: %{name} = %{version}-%{release}
+Requires: %{name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Oct 09 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1:0.7.2-2
+- Fix missing epoch in doc subpackage Requires
+
 * Wed Oct 07 2026 Adam Lazík <alazik@redhat.com> - 1:0.7.2-1
 - Update to 0.7.2
 
