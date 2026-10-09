@@ -2,7 +2,7 @@
 %global gem_name sequel
 
 Name: rubygem-%{gem_name}
-Version: 5.108.0
+Version: 5.109.0
 Release: 1%{?dist}
 Summary: The Database Toolkit for Ruby
 License: MIT
@@ -10,8 +10,8 @@ URL: https://sequel.jeremyevans.net
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9.2
-BuildRequires: ruby >= 1.9.2
+Requires: ruby >= 2.0
+BuildRequires: ruby >= 2.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -66,6 +66,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Fri Oct  9 11:36:41 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.109.0-1
+- Update to 5.109.0
+
 * Wed Sep 23 04:25:25 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.108.0-1
 - Update to 5.108.0
 
