@@ -1,8 +1,8 @@
 %global npm_name @babel/runtime
 
 Name: nodejs-babel-runtime
-Version: 7.29.7
-Release: 2%{?dist}
+Version: 7.29.10
+Release: 1%{?dist}
 Summary: babel's modular runtime helpers
 License: MIT
 URL: https://babel.dev/docs/en/next/babel-runtime
@@ -35,6 +35,9 @@ cp -pfr regenerator %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Oct 09 2026 Foreman Packaging Automation <packaging@theforeman.org> 7.29.10-1
+- Update to 7.29.10
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 7.29.7-2
 - Update to 7.29.7
 
