@@ -220,6 +220,7 @@ ruby_core_packages_tier1:
     rubygem-apipie-rails: {}
     rubygem-audited: {}
     rubygem-autoprefixer-rails: {}
+    rubygem-aws-sdk-core: {}
     rubygem-bcrypt: {}
     rubygem-bootstrap-sass: {}
     rubygem-builder: {}
