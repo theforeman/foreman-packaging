@@ -89,7 +89,7 @@ BuildArch: noarch
 <% if doc_subpackage -%>
 %package doc
 Summary: Documentation for %{name}
-Requires: %{name} = %{version}-%{release}
+Requires: %{name} = <%= '%{epoch}:' if ENV['SPECFILE_EPOCH']&.strip %>%{version}-%{release}
 BuildArch: noarch
 
 %description doc
