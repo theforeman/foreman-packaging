@@ -4,7 +4,7 @@
 %global foreman_min_version 5.0
 
 Name: rubygem-%{gem_name}
-Version: 13.2.3
+Version: 13.2.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 License: GPLv3
@@ -154,6 +154,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Fri Oct 09 2026 alazik <alazik@redhat.com> - 13.2.4-1
+- Update to 13.2.4
+
 * Mon Oct  5 07:06:30 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 13.2.3-1
 - Update to 13.2.3
 
