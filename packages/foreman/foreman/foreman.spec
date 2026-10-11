@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 
 Name:    foreman
 Version: 5.0.1
@@ -93,6 +93,10 @@ Requires: (rubygem(jwt) >= 2.2.2 with rubygem(jwt) < 3.0)
 Requires: (rubygem(graphql) >= 1.13.0 with rubygem(graphql) < 1.14.0)
 Requires: rubygem(graphql-batch)
 # end specfile default Requires
+
+# Require ed25519 and bcrypt_pbkdf manually, according to the net-ssh installation readme: https://github.com/net-ssh/net-ssh/tree/d82cbd511e0a4130f8b945c5fc105e63d980f07d#install
+Requires: (rubygem(ed25519) >= 1.2 with rubygem(ed25519) < 2.0)
+Requires: (rubygem(bcrypt_pbkdf) >= 1.0 with rubygem(bcrypt_pbkdf) < 2.0)
 
 Requires: rubygem(bigdecimal)
 
@@ -857,6 +861,9 @@ exit 0
 %endif
 
 %changelog
+* Sun Oct 11 2026 Shimon Shtein <sshtein@redhat.com> - 5.0.1-2
+- Add ed25519 and bcrypt_pbkdf gem reference
+
 * Fri Oct 02 2026 Odilon Sousa <osousa@redhat.com> - 5.0.1-1
 - Release foreman 5.0.1
 
