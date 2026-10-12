@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -529,8 +529,8 @@ plugins required for Foreman to work.
   SYSCONFDIR=%{_sysconfdir} \
   --trace
 
-# sidekiq service SELinux helper path update
-sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|%{_libexecdir}/%{name}/sidekiq-selinux \1|' extras/systemd/%{dynflow_sidekiq_service_name}.service
+# Use the packaged worker entry point for Sidekiq services
+sed -i '/^ExecStart=/ c\ExecStart=%{_libexecdir}/%{name}/%{name}-worker %%i' extras/systemd/%{dynflow_sidekiq_service_name}.service
 
 #build locale files
 make -C locale all-mo
@@ -575,6 +575,7 @@ install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
 install -Dp -m0755 script/%{name}-puma-status %{buildroot}%{_sbindir}/%{name}-puma-status
+install -Dp -m0755 script/%{name}-worker %{buildroot}%{_libexecdir}/%{name}/%{name}-worker
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
@@ -584,7 +585,7 @@ install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}
 install -Dp -m0644 extras/pcp/%{name}-hotproc.conf %{buildroot}%{_sysconfdir}/pcp/proc/%{name}-hotproc.conf
 install -Dp -m0644 extras/pcp/%{name}-hotproc.summary %{buildroot}%{_sharedstatedir}/pcp/config/pmlogconf/%{name}-hotproc/summary
 
-# SELinux libexec wrappers
+# Compatibility wrapper for callers that still pass the full Sidekiq command
 cat > %{buildroot}%{_libexecdir}/%{name}/sidekiq-selinux <<EOF
 #!/bin/bash
 # Shell wrapper with SELinux transition into foreman_rails_t domain.
@@ -859,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Sat Oct 03 2026 Jakub Duchek <jakduch@seznam.cz> - 5.1.0-0.5.develop
+- Package the common Dynflow worker entry point
+
 * Tue Sep 15 2026 Eric D. Helms <ericdhelms@gmail.com> - 5.1.0-0.4.develop
 - Bump rubygem-puma maximum
 
