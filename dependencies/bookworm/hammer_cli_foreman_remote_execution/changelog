@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-remote-execution (0.4.6-2) stable; urgency=low
+
+  * Update ruby-hammer-cli-foreman-tasks dependency version range
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Tue, 13 Oct 2026 13:26:50 +0200
+
 ruby-hammer-cli-foreman-remote-execution (0.4.6-1) stable; urgency=low
 
   * 0.4.6 released
