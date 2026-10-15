@@ -42,7 +42,6 @@
       <packagereq type="default">python3.12-six</packagereq>
       <packagereq type="default">rubygem-acts_as_list</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates</packagereq>
-      <packagereq type="default">rubygem-aws-eventstream</packagereq>
       <packagereq type="default">rubygem-aws-sigv4</packagereq>
       <packagereq type="default">rubygem-azure_mgmt_compute</packagereq>
       <packagereq type="default">rubygem-azure_mgmt_network</packagereq>
@@ -223,7 +222,6 @@
       <!--RGD-START-->
       <packagereq type="default">rubygem-acts_as_list-doc</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates-doc</packagereq>
-      <packagereq type="default">rubygem-aws-eventstream-doc</packagereq>
       <packagereq type="default">rubygem-aws-sigv4-doc</packagereq>
       <packagereq type="default">rubygem-azure_mgmt_compute-doc</packagereq>
       <packagereq type="default">rubygem-azure_mgmt_network-doc</packagereq>
