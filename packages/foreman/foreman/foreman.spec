@@ -99,7 +99,7 @@ Requires: rubygem(graphql-batch)
 Requires: rubygem(bigdecimal)
 
 # start specfile facter Requires
-Requires: rubygem(facter)
+Requires: rubygem(openfact)
 # end specfile facter Requires
 
 # start specfile jsonp Requires
