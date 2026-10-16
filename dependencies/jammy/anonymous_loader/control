@@ -1,0 +1,24 @@
+Source: ruby-anonymous-loader
+Section: ruby
+Priority: optional
+Maintainer: Ondřej Gajdušek <ondrej@gajdusek.dev>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               rake,
+               ruby-version-gem (>= 1.1.14)
+Standards-Version: 4.5.0
+Homepage: https://github.com/ruby-oauth/anonymous_loader
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-anonymous-loader
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: Load Ruby source files inside anonymous namespaces
+ AnonymousLoader resolves Ruby files from paths, gem metadata, or $LOAD_PATH
+ and evaluates them inside anonymous modules to avoid top-level namespace
+ collisions.
