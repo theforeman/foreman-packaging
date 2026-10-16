@@ -5,6 +5,8 @@ Maintainer: Evgeni Golov <evgeni@debian.org>
 Build-Depends: debhelper-compat (= 12),
                gem2deb,
                rake,
+               ruby-anonymous-loader,
+               ruby-auth-sanitizer,
                ruby-oauth-tty,
                ruby-rspec,
                ruby-snaky-hash,
