@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -217,6 +217,8 @@ Requires: /usr/bin/npx
 
 # start package.json devDependencies Requires
 Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
+Requires: (npm(@babel/preset-env) >= 7.29.7 with npm(@babel/preset-env) < 7.30.0)
+Requires: (npm(@babel/preset-react) >= 7.29.7 with npm(@babel/preset-react) < 7.30.0)
 Requires: (npm(@theforeman/builder) >= 15.0.0 with npm(@theforeman/builder) < 16.0.0)
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
@@ -858,6 +860,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Oct 20 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.6.develop
+- Add missing npm(@babel/preset-env) and npm(@babel/preset-react) Requires
+
 * Tue Sep 29 2026 Lukas Jezek <lukas-jezek@seznam.cz> - 5.1.0-0.5.develop
 - Drop unused npm(react-debounce-input) dependency
 
