@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -58,8 +58,8 @@ Requires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
 Requires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
 Requires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
 Requires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
-Requires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 6)
-Requires: (rubygem(ldap_fluff) >= 0.7.0 with rubygem(ldap_fluff) < 1.0)
+Requires: (rubygem(scoped_search) >= 4.3.1 with rubygem(scoped_search) < 6)
+Requires: (rubygem(ldap_fluff) >= 0.9.0 with rubygem(ldap_fluff) < 1.0)
 Requires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
 Requires: rubygem(apipie-dsl) >= 2.6.2
 Requires: rubygem(rdoc)
@@ -75,8 +75,6 @@ Requires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) <
 Requires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
 Requires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
 Requires: (rubygem(fog-core) >= 2.1 with rubygem(fog-core) < 3.0)
-Requires: rubygem(net-scp)
-Requires: rubygem(net-ssh)
 Requires: rubygem(net-ldap) >= 0.16.0
 Requires: rubygem(net-ping)
 Requires: (rubygem(activerecord-session_store) >= 2.0.0 with rubygem(activerecord-session_store) < 3)
@@ -151,7 +149,7 @@ Useful utilities for debug info collection
 Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
-Requires: rubygem(fog-libvirt) >= 0.13.0
+Requires: rubygem(fog-libvirt) >= 0.14.0
 Requires: (rubygem(ruby-libvirt) >= 0.5 with rubygem(ruby-libvirt) < 1.0)
 # end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
@@ -197,7 +195,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: (rubygem(fog-vsphere) >= 3.7.0 with rubygem(fog-vsphere) < 4.0)
+Requires: (rubygem(fog-vsphere) >= 3.7.1 with rubygem(fog-vsphere) < 4.0)
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 Requires: /usr/bin/websockify
@@ -216,8 +214,9 @@ Requires: nodejs >= 22
 Requires: /usr/bin/npx
 
 # start package.json devDependencies Requires
-Requires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-Requires: (npm(@theforeman/builder) >= 15.0.0 with npm(@theforeman/builder) < 16.0.0)
+Requires: (npm(@babel/core) >= 7.29.7 with npm(@babel/core) < 7.30.0)
+Requires: (npm(@babel/preset-env) >= 7.29.7 with npm(@babel/preset-env) < 7.30.0)
+Requires: (npm(@babel/preset-react) >= 7.29.7 with npm(@babel/preset-react) < 7.30.0)
 Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
 Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
 Requires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
@@ -230,6 +229,8 @@ Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
 Requires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
 Requires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
 Requires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
+Requires: (npm(ts-loader) >= 9.5.2 with npm(ts-loader) < 10.0.0)
+Requires: (npm(typescript) >= 5.8.2 with npm(typescript) < 6.0.0)
 Requires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
 Requires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
 Requires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
@@ -284,7 +285,6 @@ Requires: (npm(number_helpers) >= 0.1.1 with npm(number_helpers) < 1.0.0)
 Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 Requires: (npm(patternfly) >= 3.59.5 with npm(patternfly) < 4.0.0)
 Requires: (npm(patternfly-react) >= 2.40.0 with npm(patternfly-react) < 3.0.0)
-Requires: (npm(patternfly-react-extensions) >= 3.0.15 with npm(patternfly-react-extensions) < 4.0.0)
 Requires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
 Requires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
 Requires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
@@ -473,8 +473,7 @@ Meta Package to install dynflow sidekiq executor support
 Summary: Foreman systemd service support
 Group:  Applications/System
 # start specfile service Requires
-Requires: (rubygem(puma) >= 5.1 with rubygem(puma) < 9)
-Requires: (rubygem(sd_notify) >= 0.1.0 with rubygem(sd_notify) < 0.2.0)
+Requires: (rubygem(puma) >= 8.0 with rubygem(puma) < 9)
 # end specfile service Requires
 Requires: rubygem(puma-status)
 Requires: %{name} = %{version}-%{release}
@@ -858,6 +857,9 @@ exit 0
 %endif
 
 %changelog
+* Tue Oct 20 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.1.0-0.6.develop
+- Update Gem and NPM dependencies
+
 * Tue Sep 29 2026 Lukas Jezek <lukas-jezek@seznam.cz> - 5.1.0-0.5.develop
 - Drop unused npm(react-debounce-input) dependency
 
