@@ -1,8 +1,8 @@
 %global npm_name ace-builds
 
 Name: nodejs-ace-builds
-Version: 1.44.0
-Release: 2%{?dist}
+Version: 1.45.0
+Release: 1%{?dist}
 Summary: Ace (Ajax
 License: BSD-3-Clause
 URL: https://github.com/ajaxorg/ace-builds
@@ -53,6 +53,9 @@ cp -pfr webpack-resolver.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Oct 21 2026 Foreman Packaging Automation <packaging@theforeman.org> 1.45.0-1
+- Update to 1.45.0
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 1.44.0-2
 - Update to 1.44.0
 
