@@ -6,9 +6,9 @@
 %endif
 
 Name: yggdrasil-worker-forwarder
-Version: 0.1.0
+Version: 0.2.0
 Summary: Worker service for Yggdrasil that can forward requests to an API endpoint
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: GPLv3
 
 Source0: https://github.com/theforeman/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
@@ -23,6 +23,8 @@ ExclusiveArch: %{go_arches}
 BuildRequires: golang
 BuildRequires: go-srpm-macros
 BuildRequires: go-rpm-macros
+BuildRequires: make
+BuildRequires: systemd-rpm-macros
 
 %description
 Worker service for Yggdrasil that can forward requests to an API endpoint
@@ -43,19 +45,32 @@ cp %{name}-%{version} %{_builddir}/%{name}-%{version}/%{name}
 popd
 %else
 export GO111MODULE=on
-%{gobuild}
+%{gobuild -o %{name} .}
 %endif
+make data LIBEXECDIR=%{_libexecdir}
 
 %install
 mkdir -p %{buildroot}%{_libexecdir}
 %{__install} -m 755 %{_builddir}/%{name}-%{version}/%{name} %{buildroot}/%{_libexecdir}
+%{__install} -D -m 644 _build/data/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.conf %{buildroot}%{_datadir}/dbus-1/system.d/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.conf
+%{__install} -D -m 644 data/dbus_com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service %{buildroot}%{_datadir}/dbus-1/system-services/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
+%{__install} -D -m 644 _build/data/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service %{buildroot}%{_unitdir}/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
+install -d %{buildroot}%{_sysconfdir}/rhc/workers
 
 %files
 %{_libexecdir}/%{name}
+%{_datadir}/dbus-1/system.d/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.conf
+%{_datadir}/dbus-1/system-services/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
+%{_unitdir}/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
+%dir %{_sysconfdir}/rhc
+%dir %{_sysconfdir}/rhc/workers
 %license LICENSE
 %doc README.md
 
 %changelog
+* Wed Oct 14 2026 Lucy Fu <lufu@redhat.com> - 0.2.0-1
+- Package the D-Bus activated Foreman RH Cloud worker
+
 * Tue Sep 08 2026 Odilon Sousa <osousa@redhat.com> - 0.1.0-2
 - Rebuild against new golang version
 
