@@ -5,8 +5,8 @@
 %global foreman_min_version 3.13.0
 
 Name: rubygem-%{gem_name}
-Version: 3.0.8
-Release: 2%{?foremandist}%{?dist}
+Version: 3.0.9
+Release: 1%{?foremandist}%{?dist}
 Summary: Google Compute Engine plugin for the Foreman
 License: GPLv3
 URL: https://github.com/theforeman/foreman_google
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Oct 22 2026 Leos Stejskal <lstejska@redhat.com> - 3.0.9-1
+- Update to 3.0.9
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.8-2
 - Rebuild for EL10
 
