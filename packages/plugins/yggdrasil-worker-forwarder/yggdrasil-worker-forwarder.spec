@@ -12,6 +12,7 @@ Release: 1%{?dist}
 License: GPLv3
 
 Source0: https://github.com/theforeman/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
+Source1: %{name}.sysusers
 Url: https://github.com/theforeman/%{name}/
 
 # EL7 doesn't define go_arche (it is available in go-srpm-macros which is EL8+)s
@@ -25,6 +26,9 @@ BuildRequires: go-srpm-macros
 BuildRequires: go-rpm-macros
 BuildRequires: make
 BuildRequires: systemd-rpm-macros
+%if 0%{?rhel} >= 9
+%{?sysusers_requires_compat}
+%endif
 
 %description
 Worker service for Yggdrasil that can forward requests to an API endpoint
@@ -56,12 +60,23 @@ mkdir -p %{buildroot}%{_libexecdir}
 %{__install} -D -m 644 data/dbus_com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service %{buildroot}%{_datadir}/dbus-1/system-services/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
 %{__install} -D -m 644 _build/data/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service %{buildroot}%{_unitdir}/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
 install -d %{buildroot}%{_sysconfdir}/rhc/workers
+%if 0%{?rhel} >= 9
+install -D -m 0644 %{SOURCE1} %{buildroot}%{_sysusersdir}/%{name}.conf
+%endif
+
+%if 0%{?rhel} >= 9
+%pre
+%sysusers_create_compat %{SOURCE1}
+%endif
 
 %files
 %{_libexecdir}/%{name}
 %{_datadir}/dbus-1/system.d/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.conf
 %{_datadir}/dbus-1/system-services/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
 %{_unitdir}/com.redhat.Yggdrasil1.Worker1.foreman_rh_cloud.service
+%if 0%{?rhel} >= 9
+%{_sysusersdir}/%{name}.conf
+%endif
 %dir %{_sysconfdir}/rhc
 %dir %{_sysconfdir}/rhc/workers
 %license LICENSE
@@ -70,6 +85,7 @@ install -d %{buildroot}%{_sysconfdir}/rhc/workers
 %changelog
 * Thu Oct 22 2026 Odilon Sousa <osousa@redhat.com> - 0.2.1-1
 - Update to 0.2.1 with grpc-go 1.82.2 (CVE-2026-84445)
+- Provision the yggdrasil-worker group on EL9+ for D-Bus activation
 
 * Tue Sep 08 2026 Odilon Sousa <osousa@redhat.com> - 0.1.0-2
 - Rebuild against new golang version
