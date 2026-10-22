@@ -104,7 +104,7 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.eslintrc
+%exclude %{gem_instdir}/eslint.spelling.config.js
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.prettierrc
@@ -115,7 +115,7 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %exclude %{gem_instdir}/.yo-rc.json
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
-%exclude %{gem_instdir}/babel.config.js
+%exclude %{gem_instdir}/.babelrc.js
 %{gem_instdir}/bin
 %{gem_instdir}/config
 %{gem_instdir}/db
