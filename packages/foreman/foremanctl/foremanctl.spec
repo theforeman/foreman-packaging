@@ -1,4 +1,4 @@
-%global __brp_mangle_shebangs_exclude_from ^%{_datadir}/%{name}/collections/.*$
+%global __brp_mangle_shebangs_exclude_from ^%{_datadir}/(%{name}|forge)/collections/.*$
 
 Name:      foremanctl
 Version:   3.4.0
@@ -57,15 +57,15 @@ sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.\+|=%{_datadir}/%{name}/collections|' %
 sed -i '/^ANSIBLE_LOG_PATH=/ s|=.\+|=%{_localstatedir}/log/%{name}/%{name}.log|' %{name}
 sed -i '/^export ANSIBLE_LOG_PATH/ a ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH=ignore\nexport ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH' %{name}
 
-sed -i '/^OBSAH_BASE=/ s|=.*|=%{_datadir}/%{name}|' forge
-sed -i '/^OBSAH_DATA=/ s|=.*|=%{_datadir}/%{name}/development|' forge
-sed -i '/^OBSAH_INVENTORY=/ s|=.*|=%{_sysconfdir}/%{name}|' forge
-sed -i '/^OBSAH_STATE=/ s|=.*|=%{_sharedstatedir}/forge|' forge
-sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.*|=%{_datadir}/%{name}/collections/%{name}|' forge
+sed -i '/^OBSAH_BASE=/ s|=.\+|=%{_datadir}/%{name}|' forge
+sed -i '/^OBSAH_INVENTORY=/ s|=.\+|=%{_sysconfdir}/%{name}/inventory|' forge
+sed -i '/^OBSAH_STATE=/ s|=.\+|=%{_sharedstatedir}/%{name}|' forge
+sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.*|=%{_datadir}/forge/collections|' forge
 
 %install
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}
+install -d -m0755 %{buildroot}%{_datadir}/forge
 install -d -m0755 %{buildroot}%{_bindir}
 install -d -m0750 %{buildroot}%{_sharedstatedir}/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
@@ -77,14 +77,14 @@ cp -r development %{buildroot}%{_datadir}/%{name}
 cp -r %{name} %{buildroot}%{_bindir}/%{name}
 cp -r forge %{buildroot}%{_bindir}/forge
 cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
+cp -r build/collections/forge %{buildroot}%{_datadir}/forge/collections
 
 
 %files
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
-%dir %{_datadir}/%{name}/collections
+%{_datadir}/%{name}/collections
 %{_datadir}/%{name}/src
-%{_datadir}/%{name}/collections/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
 %{_sharedstatedir}/%{name}
 %{_localstatedir}/log/%{name}
@@ -92,6 +92,7 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 %files forge
 %{_bindir}/forge
 %{_datadir}/%{name}/development
+%{_datadir}/forge/collections
 %{_sharedstatedir}/forge
 
 
