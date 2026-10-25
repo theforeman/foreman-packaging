@@ -1,3 +1,9 @@
+ruby-auth-sanitizer (0.2.5-1) stable; urgency=low
+
+  * 0.2.5 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 25 Oct 2026 10:32:03 +0000
+
 ruby-auth-sanitizer (0.2.3-1) stable; urgency=low
 
   * 0.2.3 released
