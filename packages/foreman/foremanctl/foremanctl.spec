@@ -56,11 +56,10 @@ sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.\+|=%{_datadir}/%{name}/collections|' %
 sed -i '/^ANSIBLE_LOG_PATH=/ s|=.\+|=%{_localstatedir}/log/%{name}/%{name}.log|' %{name}
 sed -i '/^export ANSIBLE_LOG_PATH/ a ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH=ignore\nexport ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH' %{name}
 
-sed -i '/^OBSAH_BASE=/ s|=.*|=%{_datadir}/%{name}|' forge
-sed -i '/^OBSAH_DATA=/ s|=.*|=%{_datadir}/%{name}/development|' forge
-sed -i '/^OBSAH_INVENTORY=/ s|=.*|=%{_sysconfdir}/%{name}|' forge
-sed -i '/^OBSAH_STATE=/ s|=.*|=%{_sharedstatedir}/forge|' forge
-sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.*|=%{_datadir}/%{name}/collections/%{name}|' forge
+sed -i '/^OBSAH_BASE=/ s|=.\+|=%{_datadir}/%{name}|' forge
+sed -i '/^OBSAH_INVENTORY=/ s|=.\+|=%{_sysconfdir}/%{name}/inventory|' forge
+sed -i '/^OBSAH_STATE=/ s|=.\+|=%{_sharedstatedir}/%{name}|' %{name}
+sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.*|=%{_datadir}/forge/collections|' forge
 
 %install
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
@@ -95,7 +94,7 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
-* Sun Oct 28 2026 Shimon Shtein - 3.3.5-2
+* Wed Oct 28 2026 Shimon Shtein - 3.3.5-2
 - Add the forge development CLI as an optional subpackage
 
 * Tue Oct 27 2026 Evgeni Golov - 3.3.5-1
