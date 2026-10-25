@@ -1,7 +1,7 @@
 %global npm_name webpack
 
 Name: nodejs-webpack
-Version: 5.112.0
+Version: 5.112.2
 Release: 1%{?dist}
 Summary: Packs ECMAScript/CommonJs/AMD modules for the browser
 License: MIT
@@ -36,13 +36,13 @@ Source25: https://registry.npmjs.org/acorn/-/acorn-8.19.0.tgz
 Source26: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz
 Source27: https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz
 Source28: https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-5.1.0.tgz
-Source29: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.30.tgz
+Source29: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.32.tgz
 Source30: https://registry.npmjs.org/browserslist/-/browserslist-4.29.4.tgz
 Source31: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
-Source32: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001817.tgz
+Source32: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001819.tgz
 Source33: https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz
 Source34: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
-Source35: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.462.tgz
+Source35: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.464.tgz
 Source36: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.26.0.tgz
 Source37: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.2.tgz
 Source38: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
@@ -56,7 +56,7 @@ Source45: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse
 Source46: https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz
 Source47: https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz
 Source48: https://registry.npmjs.org/minimizer-webpack-plugin/-/minimizer-webpack-plugin-5.13.1.tgz
-Source49: https://registry.npmjs.org/node-releases/-/node-releases-2.0.59.tgz
+Source49: https://registry.npmjs.org/node-releases/-/node-releases-2.0.60.tgz
 Source50: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
 Source51: https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz
 Source52: https://registry.npmjs.org/schema-utils/-/schema-utils-4.8.1.tgz
@@ -68,7 +68,7 @@ Source57: https://registry.npmjs.org/terser/-/terser-5.51.2.tgz
 Source58: https://registry.npmjs.org/undici-types/-/undici-types-8.9.0.tgz
 Source59: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.3.4.tgz
 Source60: https://registry.npmjs.org/watchpack/-/watchpack-2.6.3.tgz
-Source61: https://registry.npmjs.org/webpack/-/webpack-5.112.0.tgz
+Source61: https://registry.npmjs.org/webpack/-/webpack-5.112.2.tgz
 Source62: https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.6.0.tgz
 Source63: nodejs-webpack-%{version}-package-lock.json
 BuildRequires: npm >= 7
@@ -111,13 +111,13 @@ Provides: bundled(npm(acorn)) = 8.19.0
 Provides: bundled(npm(ajv)) = 8.20.0
 Provides: bundled(npm(ajv-formats)) = 3.0.1
 Provides: bundled(npm(ajv-keywords)) = 5.1.0
-Provides: bundled(npm(baseline-browser-mapping)) = 2.11.30
+Provides: bundled(npm(baseline-browser-mapping)) = 2.11.32
 Provides: bundled(npm(browserslist)) = 4.29.4
 Provides: bundled(npm(buffer-from)) = 1.1.2
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001817
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001819
 Provides: bundled(npm(chrome-trace-event)) = 1.0.4
 Provides: bundled(npm(commander)) = 2.20.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.462
+Provides: bundled(npm(electron-to-chromium)) = 1.5.464
 Provides: bundled(npm(enhanced-resolve)) = 5.26.0
 Provides: bundled(npm(es-module-lexer)) = 2.3.2
 Provides: bundled(npm(escalade)) = 3.2.0
@@ -131,7 +131,7 @@ Provides: bundled(npm(json-schema-traverse)) = 1.0.0
 Provides: bundled(npm(merge-stream)) = 2.0.0
 Provides: bundled(npm(mime-db)) = 1.54.0
 Provides: bundled(npm(minimizer-webpack-plugin)) = 5.13.1
-Provides: bundled(npm(node-releases)) = 2.0.59
+Provides: bundled(npm(node-releases)) = 2.0.60
 Provides: bundled(npm(picocolors)) = 1.1.1
 Provides: bundled(npm(require-from-string)) = 2.0.2
 Provides: bundled(npm(schema-utils)) = 4.8.1
@@ -143,7 +143,7 @@ Provides: bundled(npm(terser)) = 5.51.2
 Provides: bundled(npm(undici-types)) = 8.9.0
 Provides: bundled(npm(update-browserslist-db)) = 1.3.4
 Provides: bundled(npm(watchpack)) = 2.6.3
-Provides: bundled(npm(webpack)) = 5.112.0
+Provides: bundled(npm(webpack)) = 5.112.2
 Provides: bundled(npm(webpack-sources)) = 3.6.0
 AutoReq: no
 AutoProv: no
@@ -214,6 +214,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sun Oct 25 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.112.2-1
+- Update to 5.112.2
+
 * Wed Oct 21 2026 Foreman Packaging Automation <packaging@theforeman.org> 5.112.0-1
 - Update to 5.112.0
 
