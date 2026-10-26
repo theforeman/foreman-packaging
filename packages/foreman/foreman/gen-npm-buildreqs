@@ -29,6 +29,7 @@ Metadata parsed from package.json.  See `man npm-json` for details.
 import json
 import operator
 import re
+import sys
 from collections import namedtuple
 from itertools import takewhile
 
@@ -565,7 +566,16 @@ def rpm_format(requirement, version_spec="*"):
     Returns:
         str: Formatted requirement.
     """
-    boundary_tuple = unify_range(parse_range(version_spec))
+    try:
+        boundary_tuple = unify_range(parse_range(version_spec))
+    except UnsupportedVersionToken:
+        print(
+            f"WARNING: The {requirement} dependency contains an OR (||) "
+            f"specifier: '{version_spec}'. Please manually include a "
+            "versioned dependency in your spec file if necessary.",
+            file=sys.stderr,
+        )
+        return requirement
 
     formatted = [
         f"{requirement} {boundary.operator} {boundary.version!s}"
@@ -626,7 +636,17 @@ def extract_dependencies(metadata_path):
 
 
 if __name__ == "__main__":
-    dependencies = extract_dependencies('package.json')
+    if "--requires" in sys.argv:
+        # Invoked as a %_local_file_attrs dependency generator: paths of
+        # matched files arrive one per line on stdin (see foreman.spec).
+        dependencies = (
+            dependency
+            for path in sys.stdin
+            for dependency in extract_dependencies(path.strip())
+        )
+    else:
+        dependencies = extract_dependencies('package.json')
+
     # Ignore parentheses around the requirements when sorting
     ordered = sorted(dependencies, key=lambda s: s.strip("()"))
 

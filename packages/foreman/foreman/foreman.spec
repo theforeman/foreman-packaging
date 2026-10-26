@@ -6,7 +6,15 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 6
+# Auto-generate the -assets subpackage's npm Requires from the actual
+# installed (filtered) package.json, instead of hand-maintaining a static
+# list that silently drifts out of sync with it. Reuses the same script
+# that already generates the dynamic NPM BuildRequires below.
+%global _local_file_attrs foreman_npm
+%global __foreman_npm_requires /usr/bin/python3 %{SOURCE2} --requires
+%global __foreman_npm_path ^%{_datadir}/%{name}/package[.]json$
+
+%global release 7
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -122,6 +130,14 @@ Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
 
 BuildRequires: nodejs-packaging
 BuildRequires: systemd
+# %%_local_file_attrs (used for the -assets npm Requires, see the %%global
+# block near the top of this spec) needs this RHEL backport.
+%if 0%{?rhel} == 9
+BuildRequires: rpm-build >= 4.16.1.3-38
+%endif
+%if 0%{?rhel} >= 10
+BuildRequires: rpm-build >= 4.19.1.1-15
+%endif
 
 %package cli
 Summary: Foreman CLI
@@ -212,109 +228,9 @@ Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 Requires: nodejs >= 22
 Requires: /usr/bin/npx
-
-# start package.json devDependencies Requires
-Requires: (npm(@babel/core) >= 7.29.7 with npm(@babel/core) < 7.30.0)
-Requires: (npm(@babel/preset-env) >= 7.29.7 with npm(@babel/preset-env) < 7.30.0)
-Requires: (npm(@babel/preset-react) >= 7.29.7 with npm(@babel/preset-react) < 7.30.0)
-Requires: (npm(argv-parse) >= 1.0.1 with npm(argv-parse) < 2.0.0)
-Requires: (npm(babel-loader) >= 8.0.0 with npm(babel-loader) < 9.0.0)
-Requires: (npm(buffer) >= 5.7.1 with npm(buffer) < 6.0.0)
-Requires: (npm(compression-webpack-plugin) >= 10.0.0 with npm(compression-webpack-plugin) < 11.0.0)
-Requires: (npm(css-loader) >= 6.8.1 with npm(css-loader) < 7.0.0)
-Requires: (npm(dotenv) >= 5.0.0 with npm(dotenv) < 6.0.0)
-Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-Requires: (npm(mini-css-extract-plugin) >= 2.9.1 with npm(mini-css-extract-plugin) < 3.0.0)
-Requires: (npm(path-browserify) >= 1.0.1 with npm(path-browserify) < 2.0.0)
-Requires: (npm(sass) >= 1.60.0 with npm(sass) < 1.61.0)
-Requires: (npm(sass-loader) >= 13.3.2 with npm(sass-loader) < 14.0.0)
-Requires: (npm(style-loader) >= 1.3.0 with npm(style-loader) < 2.0.0)
-Requires: (npm(ts-loader) >= 9.5.2 with npm(ts-loader) < 10.0.0)
-Requires: (npm(typescript) >= 5.8.2 with npm(typescript) < 6.0.0)
-Requires: (npm(webpack) >= 5.75.0 with npm(webpack) < 6.0.0)
-Requires: (npm(webpack-cli) >= 5.0.1 with npm(webpack-cli) < 6.0.0)
-Requires: (npm(webpack-stats-plugin) >= 1.0.3 with npm(webpack-stats-plugin) < 2.0.0)
-# end package.json devDependencies Requires
-
-# start package.json dependencies Requires
-Requires: (npm(@apollo/client) >= 3.3.7 with npm(@apollo/client) < 4.0.0)
-Requires: (npm(@module-federation/utilities) >= 1.7.0 with npm(@module-federation/utilities) < 2.0.0)
-Requires: npm(@novnc/novnc) = 1.3.0
-Requires: (npm(@patternfly/patternfly) >= 5.4.2 with npm(@patternfly/patternfly) < 6.0.0)
-Requires: (npm(@patternfly/react-charts) >= 7.4.5 with npm(@patternfly/react-charts) < 7.5.0)
-Requires: (npm(@patternfly/react-core) >= 5.4.8 with npm(@patternfly/react-core) < 6.0.0)
-Requires: (npm(@patternfly/react-icons) >= 5.4.2 with npm(@patternfly/react-icons) < 6.0.0)
-Requires: (npm(@patternfly/react-styles) >= 5.4.1 with npm(@patternfly/react-styles) < 6.0.0)
-Requires: (npm(@patternfly/react-table) >= 5.4.8 with npm(@patternfly/react-table) < 6.0.0)
-Requires: (npm(@patternfly/react-templates) >= 1.1.8 with npm(@patternfly/react-templates) < 2.0.0)
-Requires: (npm(@patternfly/react-tokens) >= 5.4.1 with npm(@patternfly/react-tokens) < 6.0.0)
-Requires: (npm(@reduxjs/toolkit) >= 1.6.0 with npm(@reduxjs/toolkit) < 2.0.0)
-Requires: (npm(@scalprum/core) >= 0.8.1 with npm(@scalprum/core) < 1.0.0)
-Requires: (npm(@scalprum/react-core) >= 0.9.3 with npm(@scalprum/react-core) < 1.0.0)
-Requires: (npm(@spice-project/spice-html5) >= 0.2.1 with npm(@spice-project/spice-html5) < 1.0.0)
-Requires: (npm(@theforeman/vendor) >= 15.0.0 with npm(@theforeman/vendor) < 16.0.0)
-Requires: (npm(@unleash/proxy-client-react) >= 5.0.0 with npm(@unleash/proxy-client-react) < 6.0.0)
-Requires: (npm(@webcomponents/webcomponentsjs) >= 2.2.10 with npm(@webcomponents/webcomponentsjs) < 3.0.0)
-Requires: (npm(ace-builds) >= 1.4.13 with npm(ace-builds) < 2.0.0)
-Requires: (npm(axios) >= 0.21.1 with npm(axios) < 1.0.0)
-Requires: (npm(bootstrap-sass) >= 3.4.3 with npm(bootstrap-sass) < 4.0.0)
-Requires: (npm(classnames) >= 2.2.5 with npm(classnames) < 3.0.0)
-Requires: npm(connected-react-router) = 6.6.1
-Requires: (npm(core-js) >= 2.5.7 with npm(core-js) < 3.0.0)
-Requires: npm(datatables.net) = 1.13.5
-Requires: npm(datatables.net-bs) = 1.13.5
-Requires: npm(datatables.net-dt) = 1.13.5
-Requires: npm(diff) = 5.2.2
-Requires: (npm(dsmorse-gridster) >= 0.8.0 with npm(dsmorse-gridster) < 1.0.0)
-Requires: (npm(file-saver) >= 2.0.1 with npm(file-saver) < 3.0.0)
-Requires: (npm(formik) >= 1.5.8 with npm(formik) < 2.0.0)
-Requires: (npm(graphql) >= 15.5.0 with npm(graphql) < 16.0.0)
-Requires: (npm(graphql-tag) >= 2.11.0 with npm(graphql-tag) < 3.0.0)
-Requires: (npm(history) >= 4.7.2 with npm(history) < 5.0.0)
-Requires: npm(humanize-duration) = 3.27.0
-Requires: (npm(intl) >= 1.2.5 with npm(intl) < 1.3.0)
-Requires: (npm(ipaddr.js) >= 1.2.0 with npm(ipaddr.js) < 1.3.0)
-Requires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
-Requires: (npm(jquery) >= 3.7.1 with npm(jquery) < 4.0.0)
-Requires: (npm(jquery-ujs) >= 1.2.0 with npm(jquery-ujs) < 1.3.0)
-Requires: (npm(js-cookie) >= 3.0.5 with npm(js-cookie) < 4.0.0)
-Requires: (npm(jstz) >= 1.0.7 with npm(jstz) < 1.1.0)
-Requires: (npm(lodash) >= 4.17.14 with npm(lodash) < 5.0.0)
-Requires: (npm(multiselect) >= 0.9.12 with npm(multiselect) < 0.10.0)
-Requires: (npm(number_helpers) >= 0.1.1 with npm(number_helpers) < 1.0.0)
-Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
-Requires: (npm(patternfly) >= 3.59.5 with npm(patternfly) < 4.0.0)
-Requires: (npm(patternfly-react) >= 2.40.0 with npm(patternfly-react) < 3.0.0)
-Requires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
-Requires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
-Requires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
-Requires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
-Requires: (npm(react-dnd) >= 14.0.2 with npm(react-dnd) < 15.0.0)
-Requires: (npm(react-dnd-html5-backend) >= 14.0.0 with npm(react-dnd-html5-backend) < 15.0.0)
-Requires: (npm(react-dom) >= 16.8.1 with npm(react-dom) < 17.0.0)
-Requires: (npm(react-helmet) >= 6.1.0 with npm(react-helmet) < 7.0.0)
-Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
-Requires: (npm(react-loading-skeleton) >= 1.1.2 with npm(react-loading-skeleton) < 2.0.0)
-Requires: (npm(react-onclickoutside) >= 6.6.2 with npm(react-onclickoutside) < 7.0.0)
-Requires: (npm(react-password-strength) >= 2.4.0 with npm(react-password-strength) < 3.0.0)
-Requires: (npm(react-redux) >= 7.1.0 with npm(react-redux) < 8.0.0)
-Requires: (npm(react-router) >= 5.3.4 with npm(react-router) < 6.0.0)
-Requires: (npm(react-router-bootstrap) >= 0.25.0 with npm(react-router-bootstrap) < 1.0.0)
-Requires: (npm(react-router-dom) >= 5.1.2 with npm(react-router-dom) < 6.0.0)
-Requires: (npm(redux) >= 4.0.4 with npm(redux) < 5.0.0)
-Requires: (npm(redux-logger) >= 2.8.1 with npm(redux-logger) < 3.0.0)
-Requires: (npm(redux-thunk) >= 2.2.0 with npm(redux-thunk) < 3.0.0)
-Requires: npm(regenerator-runtime) = 0.14.1
-Requires: (npm(reselect) >= 3.0.1 with npm(reselect) < 4.0.0)
-Requires: npm(sanitize-html) = 2.3.2
-Requires: (npm(seamless-immutable) >= 7.1.2 with npm(seamless-immutable) < 8.0.0)
-Requires: npm(select2) = 4.0.12
-Requires: (npm(unidiff) >= 1.0.0 with npm(unidiff) < 2.0.0)
-Requires: (npm(unleash-proxy-client) >= 3.7.6 with npm(unleash-proxy-client) < 4.0.0)
-Requires: (npm(urijs) >= 1.19.4 with npm(urijs) < 2.0.0)
-Requires: (npm(uuid) >= 3.3.2 with npm(uuid) < 4.0.0)
-Requires: (npm(yup) >= 0.29.3 with npm(yup) < 1.0.0)
-# end package.json dependencies Requires
+# npm Requires for this subpackage are generated dynamically from the
+# installed package.json by %%_local_file_attrs (see the %%global block
+# near the top of this spec) - no static list to keep in sync here.
 
 # start specfile assets Requires
 Requires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
@@ -857,6 +773,10 @@ exit 0
 %endif
 
 %changelog
+* Wed Oct 21 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.7.develop
+- Generate -assets npm Requires dynamically via %%_local_file_attrs instead of
+  a static list
+
 * Tue Oct 20 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.1.0-0.6.develop
 - Update Gem and NPM dependencies
 
