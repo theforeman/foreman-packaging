@@ -29,6 +29,7 @@
       <packagereq type="default">nodejs-types-node</packagereq>
       <packagereq type="default">nodejs-types-react</packagereq>
       <packagereq type="default">nodejs-types-react-redux</packagereq>
+      <packagereq type="default">nodejs-types-react-router</packagereq>
       <!-- katello thirdparty rubygem packages -->
       <packagereq type="default">rubygem-foreman_kernel_care</packagereq>
       <packagereq type="default">rubygem-foreman_rh_cloud</packagereq>
