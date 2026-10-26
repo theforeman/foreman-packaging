@@ -660,6 +660,7 @@ katello_nodejs_packages:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-ngreact: {}
+    nodejs-types-js-yaml: {}
     nodejs-types-node: {}
     nodejs-types-react: {}
     nodejs-types-react-redux: {}
