@@ -4,8 +4,8 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 5.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 5.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 License: GPLv3
 URL: https://github.com/theforeman/foreman_virt_who_configure
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Oct 26 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.1-1
+- Update to 5.0.1
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.0-2
 - Rebuild for EL10
 
