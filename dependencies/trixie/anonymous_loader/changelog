@@ -1,3 +1,9 @@
+ruby-anonymous-loader (0.1.5-1) stable; urgency=low
+
+  * 0.1.5 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 26 Oct 2026 14:45:29 +0000
+
 ruby-anonymous-loader (0.1.4-1) stable; urgency=low
 
   * 0.1.4 released
