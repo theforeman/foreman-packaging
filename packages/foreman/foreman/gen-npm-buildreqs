@@ -590,11 +590,17 @@ def rpm_format(requirement, version_spec="*"):
         return requirement
 
 
-def extract_dependencies(metadata_path):
+def extract_dependencies(metadata_path, include_engine=True):
     """Extract all dependencies in RPM format from package metadata.
 
     Arguments:
         metadata_path (str): Path to package metadata (``package.json``).
+        include_engine (bool): Whether to also yield a ``nodejs(engine)``
+            requirement derived from ``engines.node``. Skipped for the
+            per-subpackage runtime Requires generator (``--requires``
+            mode): unlike BuildRequires, a runtime Requires on this exact
+            version range can be unresolvable on EL9, where newer nodejs
+            is only available as a non-default module stream.
 
     Yields:
         RPM-formatted dependencies.
@@ -611,10 +617,11 @@ def extract_dependencies(metadata_path):
         return  # skip
 
     # Report required NodeJS version with required dependencies
-    try:
-        yield rpm_format("nodejs(engine)", metadata["engines"]["node"])
-    except KeyError:  # NodeJS engine version unspecified
-        yield rpm_format("nodejs(engine)")
+    if include_engine:
+        try:
+            yield rpm_format("nodejs(engine)", metadata["engines"]["node"])
+        except KeyError:  # NodeJS engine version unspecified
+            yield rpm_format("nodejs(engine)")
 
     # Report listed dependencies
     for kind in ("dependencies", "devDependencies"):
@@ -639,10 +646,15 @@ if __name__ == "__main__":
     if "--requires" in sys.argv:
         # Invoked as a %_local_file_attrs dependency generator: paths of
         # matched files arrive one per line on stdin (see foreman.spec).
+        # Skip the nodejs(engine) bound here: on EL9 the only nodejs
+        # providing nodejs(engine) without a module explicitly enabled is
+        # 16.x, so this capability-based constraint is unresolvable via
+        # repoclosure even though the existing `Requires: nodejs >= 22`
+        # (name-based) resolves fine and already covers the real need.
         dependencies = (
             dependency
             for path in sys.stdin
-            for dependency in extract_dependencies(path.strip())
+            for dependency in extract_dependencies(path.strip(), include_engine=False)
         )
     else:
         dependencies = extract_dependencies('package.json')
