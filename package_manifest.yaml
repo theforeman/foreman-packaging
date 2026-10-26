@@ -664,6 +664,7 @@ katello_nodejs_packages:
     nodejs-types-react: {}
     nodejs-types-react-redux: {}
     nodejs-types-react-router: {}
+    nodejs-types-react-router-dom: {}
 
 foreman_plugin_packages:
   children:
