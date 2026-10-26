@@ -1,3 +1,9 @@
+ruby-version-gem (1.1.17-1) stable; urgency=low
+
+  * 1.1.17 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 26 Oct 2026 14:45:30 +0000
+
 ruby-version-gem (1.1.16-1) stable; urgency=low
 
   * 1.1.16 released
