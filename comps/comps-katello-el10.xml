@@ -13,6 +13,7 @@
       <packagereq type="default">nodejs-types-node</packagereq>
       <packagereq type="default">nodejs-types-react</packagereq>
       <packagereq type="default">nodejs-types-react-redux</packagereq>
+      <packagereq type="default">nodejs-types-react-router</packagereq>
       <packagereq type="default">rubygem-foreman_ansible_director</packagereq>
       <!-- katello core packages -->
       <packagereq type="default">foreman-proxy-content</packagereq>
