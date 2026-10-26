@@ -659,6 +659,7 @@ katello_nodejs_packages:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-ngreact: {}
+    nodejs-types-node: {}
 
 foreman_plugin_packages:
   children:
