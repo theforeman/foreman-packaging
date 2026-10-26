@@ -46,10 +46,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/CITATION.cff
-%exclude %{gem_instdir}/certs
 %license %{gem_instdir}/LICENSE.md
-%license %{gem_instdir}/MIT.md
 %{gem_libdir}
 %exclude %{gem_instdir}/sig
 %exclude %{gem_cache}
@@ -58,12 +55,7 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CODE_OF_CONDUCT.md
-%doc %{gem_instdir}/CONTRIBUTING.md
-%doc %{gem_instdir}/FUNDING.md
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/RUBOCOP.md
-%doc %{gem_instdir}/SECURITY.md
 
 %changelog
 * Mon Oct 26 14:51:22 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.2.5-1
