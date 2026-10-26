@@ -662,6 +662,7 @@ katello_nodejs_packages:
     nodejs-ngreact: {}
     nodejs-types-node: {}
     nodejs-types-react: {}
+    nodejs-types-react-redux: {}
 
 foreman_plugin_packages:
   children:
