@@ -656,6 +656,7 @@ katello_nodejs_packages:
   hosts:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
+    nodejs-js-yaml: {}
     nodejs-ngreact: {}
     nodejs-types-node: {}
     nodejs-types-react: {}
