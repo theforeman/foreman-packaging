@@ -2,8 +2,8 @@
 %global gem_name crass
 
 Name: rubygem-%{gem_name}
-Version: 1.0.7
-Release: 2%{?dist}
+Version: 1.0.8
+Release: 1%{?dist}
 Summary: CSS parser based on the CSS Syntax Level 3 spec
 License: MIT
 URL: https://github.com/rgrove/crass/
@@ -59,10 +59,14 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/HISTORY.md
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/crass.gemspec
 
 %changelog
+* Mon Oct 26 14:46:03 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.8-1
+- Update to 1.0.8
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.7-2
 - Rebuild for EL10
 
