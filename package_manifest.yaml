@@ -614,7 +614,6 @@ katello_packages:
     katello_ruby_packages: {}
     katello_hammer_packages: {}
   hosts:
-    rubygem-foreman_ansible_director: {}
     rubygem-foreman_kernel_care: {}
     rubygem-foreman_rh_cloud: {}
     rubygem-foreman_scc_manager: {}
