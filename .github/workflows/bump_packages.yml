@@ -126,7 +126,7 @@ jobs:
     if: failure()
     steps:
     - name: Send email to Discourse on failure
-      uses: dawidd6/action-send-mail@v3
+      uses: dawidd6/action-send-mail@v23
       with:
         server_address: community.theforeman.org
         server_port: 25
