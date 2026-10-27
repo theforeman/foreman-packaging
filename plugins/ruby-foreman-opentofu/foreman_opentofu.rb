@@ -1,1 +1,1 @@
-gem 'foreman_opentofu', '0.0.7'
+gem 'foreman_opentofu', '0.0.8'
