@@ -20,7 +20,7 @@ Provides: npm(%{npm_name}) = %{version}
 %{summary}
 
 %prep
-%setup -q -n package
+%setup -q -n js-yaml
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
