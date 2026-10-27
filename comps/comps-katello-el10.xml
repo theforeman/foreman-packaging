@@ -27,6 +27,7 @@
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-js-yaml</packagereq>
       <packagereq type="default">nodejs-ngreact</packagereq>
+      <packagereq type="default">nodejs-types-js-yaml</packagereq>
       <packagereq type="default">nodejs-types-node</packagereq>
       <packagereq type="default">nodejs-types-react</packagereq>
       <packagereq type="default">nodejs-types-react-redux</packagereq>
