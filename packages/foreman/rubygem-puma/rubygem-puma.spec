@@ -4,11 +4,12 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server for Ruby/Rack applications
 License: BSD-3-Clause
 URL: https://puma.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0: CVE-2026-68006-puma-underscore-framing.patch
 
 # start specfile generated dependencies
 Requires: ruby >= 2.4
@@ -40,6 +41,7 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+%patch -P0 -p1
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -97,6 +99,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/docs
 
 %changelog
+* Sat Oct 24 2026 Eric D. Helms <ericdhelms@gmail.com> - 6.6.1-2
+- Backport CVE-2026-68006 fix for underscore framing headers
+
 * Sun Aug 03 2025 Foreman Packaging Automation <packaging@theforeman.org> - 6.6.1-1
 - Update to 6.6.1
 
