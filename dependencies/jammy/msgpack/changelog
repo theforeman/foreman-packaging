@@ -1,3 +1,9 @@
+ruby-msgpack (1.8.6-1) stable; urgency=low
+
+  * 1.8.6 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 28 Oct 2026 04:17:51 +0000
+
 ruby-msgpack (1.8.5-1) stable; urgency=low
 
   * 1.8.5 released
