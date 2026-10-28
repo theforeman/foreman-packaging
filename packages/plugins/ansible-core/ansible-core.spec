@@ -28,13 +28,15 @@ Name: ansible-core
 Summary: SSH-based configuration management, deployment, and task execution system
 Version: 2.16.19
 %global uversion %{version_no_tilde %{quote:%nil}}
-Release: 1%{?dist}
+Release: 4%{?dist}
 Epoch:   1
 
 Group: Development/Libraries
 License: GPL-3.0-or-later
 Source0: https://github.com/ansible/ansible/archive/v%{uversion}/%{name}-%{uversion}.tar.gz
 Source1: https://github.com/ansible/ansible-documentation/archive/v%{uversion}/ansible-documentation-%{uversion}.tar.gz
+Patch0: 0001-CVE-2026-105929-ansible-galaxy-role-path.patch
+Patch1: 0002-CVE-2026-84503-git-module-argv.patch
 BuildArch: noarch
 
 URL: http://ansible.com
@@ -90,7 +92,7 @@ This package installs the ansible-test command for testing modules and plugins
 developed for ansible.
 
 %prep
-%autosetup -n ansible-%{version} -a1
+%autosetup -p1 -n ansible-%{version} -a1
 
 sed -i -s 's|/usr/bin/env python|%{python3}|' \
     bin/ansible-test \
@@ -169,6 +171,10 @@ cp -p lib/ansible_core.egg-info/PKG-INFO .
 %{python3_sitelib}/ansible_test
 
 %changelog
+* Wed Oct 28 2026 Odilon Sousa <osousa@redhat.com> - 1:2.16.19-4
+- Fix ansible-galaxy role path validation (CVE-2026-105929).
+- Fix git module command argument handling (CVE-2026-84503).
+
 * Wed Aug 05 2026 Odilon Sousa <osousa@redhat.com> - 1:2.16.19-1
 - Update to 2.16.19
 
