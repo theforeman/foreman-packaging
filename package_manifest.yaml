@@ -658,7 +658,14 @@ katello_nodejs_packages:
   hosts:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
+    nodejs-js-yaml: {}
     nodejs-ngreact: {}
+    nodejs-types-js-yaml: {}
+    nodejs-types-node: {}
+    nodejs-types-react: {}
+    nodejs-types-react-redux: {}
+    nodejs-types-react-router: {}
+    nodejs-types-react-router-dom: {}
 
 foreman_plugin_packages:
   children:
