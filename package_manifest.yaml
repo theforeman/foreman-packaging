@@ -644,6 +644,7 @@ katello_ruby_packages:
     rubygem-pulp_rpm_client: {}
     rubygem-pulpcore_client: {}
     rubygem-robotex: {}
+    rubygem-smart_proxy_ansible_director: {}
     rubygem-spidr: {}
 
 katello_common_packages:
@@ -652,6 +653,9 @@ katello_common_packages:
     katello-client-bootstrap: {}
     katello-repos: {}
     katello-selinux: {}
+    python-ansible-navigator: {}
+    python-onigurumacffi: {}
+    python-tzdata: {}
     rhel8-kickstart-setup: {}
 
 katello_nodejs_packages:
