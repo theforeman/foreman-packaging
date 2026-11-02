@@ -2,7 +2,7 @@
 %global gem_name net-ping
 
 Name: rubygem-%{gem_name}
-Version: 2.2.0
+Version: 3.0.0
 Release: 1%{?dist}
 Summary: A ping interface for Ruby
 License: Artistic 2.0
@@ -10,8 +10,8 @@ URL: https://github.com/chernesk/net-ping
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 1.9.3
-BuildRequires: ruby >= 1.9.3
+Requires: ruby >= 2.7
+BuildRequires: ruby >= 2.7
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov  2 09:16:23 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 3.0.0-1
+- Update to 3.0.0
+
 * Wed Sep 23 04:25:30 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.2.0-1
 - Update to 2.2.0
 
