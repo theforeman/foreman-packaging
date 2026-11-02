@@ -2,8 +2,8 @@
 %global gem_name addressable
 
 Name: rubygem-%{gem_name}
-Version: 2.9.0
-Release: 2%{?dist}
+Version: 2.9.2
+Release: 1%{?dist}
 Summary: URI Implementation
 License: Apache-2.0
 URL: https://github.com/sporkmonger/addressable
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Nov  2 09:16:24 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.9.2-1
+- Update to 2.9.2
+
 * Fri Jul 24 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.9.0-2
 - Rebuild for EL10
 
