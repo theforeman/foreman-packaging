@@ -50,6 +50,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/MANIFEST
 %{gem_libdir}
+%{gem_instdir}/sig
 %exclude %{gem_cache}
 %{gem_spec}
 
