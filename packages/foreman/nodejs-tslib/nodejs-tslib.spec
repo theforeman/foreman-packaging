@@ -1,8 +1,8 @@
 %global npm_name tslib
 
 Name: nodejs-tslib
-Version: 2.8.1
-Release: 2%{?dist}
+Version: 2.9.1
+Release: 1%{?dist}
 Summary: Runtime library for TypeScript helper functions
 License: 0BSD
 URL: https://www.typescriptlang.org/
@@ -46,6 +46,9 @@ cp -pfr tslib.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc SECURITY.md
 
 %changelog
+* Mon Nov 02 2026 Foreman Packaging Automation <packaging@theforeman.org> 2.9.1-1
+- Update to 2.9.1
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 2.8.1-2
 - Update to 2.8.1
 
