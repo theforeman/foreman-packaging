@@ -912,7 +912,10 @@ foreman_proxy_other_plugin_packages_tier2:
     mosquitto: {}
     ansible-runner: {}
     python-lockfile: {}
-    ansible-core: {}
+    ansible-core:
+      copr_projects:
+        - copr_project_name: "{{ hostvars['plugins-copr']['copr_project_name'] }}"
+          copr_project_chroots: "{{ hostvars['plugins-copr']['copr_project_chroots'] | selectattr('name', 'equalto', 'rhel-' ~ hostvars['plugins-copr']['rhel_9'] ~ '-x86_64') | list }}"
 
 repoclosures:
   hosts:
