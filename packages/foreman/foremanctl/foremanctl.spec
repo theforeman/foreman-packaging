@@ -24,8 +24,8 @@ Recommends:  postgresql
 Recommends:  (foreman-fapolicyd if fapolicyd)
 
 # Tab completion is nice to have
-Suggests:  bash-completion
-Suggests:  python3-argcomplete
+Requires:  bash-completion
+Requires:  python3-argcomplete
 
 %description
 Install Foreman using containers. They are deployed as podman quadlets.
@@ -55,6 +55,8 @@ install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_bindir}
 install -d -m0750 %{buildroot}%{_sharedstatedir}/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
+install -d -m0755 %{buildroot}%{_datadir}/bash-completion/completions
+register-python-argcomplete foremanctl > %{buildroot}%{_datadir}/bash-completion/completions/foremanctl
 
 cp inventories/inventory %{buildroot}%{_sysconfdir}/%{name}/inventory
 cp -r src %{buildroot}%{_datadir}/%{name}
