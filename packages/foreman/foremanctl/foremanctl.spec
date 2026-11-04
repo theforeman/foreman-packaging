@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   3.3.5
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -24,8 +24,8 @@ Recommends:  postgresql
 Recommends:  (foreman-fapolicyd if fapolicyd)
 
 # Tab completion is nice to have
-Suggests:  bash-completion
-Suggests:  python3-argcomplete
+Recommends:  bash-completion
+Recommends:  python3-argcomplete
 
 %description
 Install Foreman using containers. They are deployed as podman quadlets.
@@ -71,6 +71,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Tue Nov 17 2026 amol patil <amolpati@redhat.com> - 3.3.5-2
+- Recommend bash-completion and python3-argcomplete
+
 * Tue Oct 27 2026 Evgeni Golov - 3.3.5-1
 - Release foremanctl 3.3.5
 
