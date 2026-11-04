@@ -6,7 +6,7 @@
 %global downstream_build ("%{?dist}" == ".el8sat" || "%{?dist}" == ".el9sat" || "%{?dist}" == ".el10sat")
 
 Name: rubygem-%{gem_name}
-Version: 16.4.2
+Version: 16.4.3
 Release: 1%{?foremandist}%{?dist}
 Summary: This is a plugin that enables building a theme for Foreman
 License: GPLv3
@@ -104,6 +104,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 04 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 16.4.3-1
+- Release rubygem-foreman_theme_satellite 16.4.3
+
 * Mon Oct 26 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 16.4.2-1
 - Update to 16.4.2
 
