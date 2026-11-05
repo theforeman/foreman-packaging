@@ -190,6 +190,7 @@
       <packagereq type="default">rubygem-audited</packagereq>
       <packagereq type="default">rubygem-auth-sanitizer</packagereq>
       <packagereq type="default">rubygem-autoprefixer-rails</packagereq>
+      <packagereq type="default">rubygem-aws-sdk-core</packagereq>
       <packagereq type="default">rubygem-bcrypt</packagereq>
       <packagereq type="default">rubygem-bootsnap</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
@@ -400,6 +401,7 @@
       <packagereq type="default">rubygem-audited-doc</packagereq>
       <packagereq type="default">rubygem-auth-sanitizer-doc</packagereq>
       <packagereq type="default">rubygem-autoprefixer-rails-doc</packagereq>
+      <packagereq type="default">rubygem-aws-sdk-core-doc</packagereq>
       <packagereq type="default">rubygem-bcrypt-doc</packagereq>
       <packagereq type="default">rubygem-bootsnap-doc</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
