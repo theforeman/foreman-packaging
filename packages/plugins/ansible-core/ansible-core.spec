@@ -28,7 +28,7 @@ Name: ansible-core
 Summary: SSH-based configuration management, deployment, and task execution system
 Version: 2.16.19
 %global uversion %{version_no_tilde %{quote:%nil}}
-Release: 4%{?dist}
+Release: 5%{?dist}
 Epoch:   1
 
 Group: Development/Libraries
@@ -37,6 +37,7 @@ Source0: https://github.com/ansible/ansible/archive/v%{uversion}/%{name}-%{uvers
 Source1: https://github.com/ansible/ansible-documentation/archive/v%{uversion}/ansible-documentation-%{uversion}.tar.gz
 Patch0: 0001-CVE-2026-105929-ansible-galaxy-role-path.patch
 Patch1: 0002-CVE-2026-84503-git-module-argv.patch
+Patch2: 0003-CVE-2026-89091-ansible-galaxy-symlink.patch
 BuildArch: noarch
 
 URL: http://ansible.com
@@ -171,6 +172,9 @@ cp -p lib/ansible_core.egg-info/PKG-INFO .
 %{python3_sitelib}/ansible_test
 
 %changelog
+* Thu Nov 05 2026 Maximilian Kolb <kolb@atix.de> - 1:2.16.19-5
+- Fix ansible-galaxy collection path symlink validation (CVE-2026-89091)
+
 * Wed Oct 28 2026 Odilon Sousa <osousa@redhat.com> - 1:2.16.19-4
 - Fix ansible-galaxy role path validation (CVE-2026-105929).
 - Fix git module command argument handling (CVE-2026-84503).
