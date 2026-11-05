@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   3.3.5
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -30,6 +30,13 @@ Suggests:  python3-argcomplete
 %description
 Install Foreman using containers. They are deployed as podman quadlets.
 
+%package forge
+Summary:   Development CLI for foremanctl
+Requires:  %{name} = %{version}-%{release}
+
+%description forge
+The forge command provides development and testing workflows for foremanctl.
+
 %prep
 %setup -q -n %{name}-%{version}
 
@@ -49,28 +56,47 @@ sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.\+|=%{_datadir}/%{name}/collections|' %
 sed -i '/^ANSIBLE_LOG_PATH=/ s|=.\+|=%{_localstatedir}/log/%{name}/%{name}.log|' %{name}
 sed -i '/^export ANSIBLE_LOG_PATH/ a ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH=ignore\nexport ANSIBLE_COLLECTIONS_ON_ANSIBLE_VERSION_MISMATCH' %{name}
 
+sed -i '/^OBSAH_BASE=/ s|=.\+|=%{_datadir}/%{name}|' forge
+sed -i '/^OBSAH_INVENTORY=/ s|=.\+|=%{_sysconfdir}/%{name}/inventory|' forge
+sed -i '/^OBSAH_STATE=/ s|=.\+|=%{_sharedstatedir}/%{name}|' %{name}
+sed -i '/^ANSIBLE_COLLECTIONS_PATH=/ s|=.*|=%{_datadir}/forge/collections|' forge
+
 %install
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_bindir}
 install -d -m0750 %{buildroot}%{_sharedstatedir}/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
+install -d -m0750 %{buildroot}%{_sharedstatedir}/forge
 
 cp inventories/inventory %{buildroot}%{_sysconfdir}/%{name}/inventory
 cp -r src %{buildroot}%{_datadir}/%{name}
+cp -r development %{buildroot}%{_datadir}/%{name}
 cp -r %{name} %{buildroot}%{_bindir}/%{name}
+cp -r forge %{buildroot}%{_bindir}/forge
 cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %files
 %{_bindir}/%{name}
-%{_datadir}/%{name}
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/collections
+%{_datadir}/%{name}/src
+%{_datadir}/%{name}/collections/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
 %{_sharedstatedir}/%{name}
 %{_localstatedir}/log/%{name}
 
+%files forge
+%{_bindir}/forge
+%{_datadir}/%{name}/development
+%{_sharedstatedir}/forge
+
 
 %changelog
+* Sun Oct 28 2026 Shimon Shtein - 3.3.5-2
+- Add the forge development CLI as an optional subpackage
+
 * Tue Oct 27 2026 Evgeni Golov - 3.3.5-1
 - Release foremanctl 3.3.5
 
