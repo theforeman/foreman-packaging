@@ -220,6 +220,8 @@ ruby_core_packages_tier1:
     rubygem-apipie-rails: {}
     rubygem-audited: {}
     rubygem-autoprefixer-rails: {}
+    rubygem-aws-eventstream: {}
+    rubygem-aws-partitions: {}
     rubygem-bcrypt: {}
     rubygem-bootstrap-sass: {}
     rubygem-builder: {}
@@ -286,6 +288,7 @@ ruby_core_packages_tier1:
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
     rubygem-i18n: {}
+    rubygem-jmespath: {}
     rubygem-journald-logger: {}
     rubygem-journald-native: {}
     rubygem-jquery-ui-rails: {}
@@ -346,6 +349,7 @@ ruby_core_packages_tier1:
     rubygem-responders: {}
     rubygem-rest-client: {}
     rubygem-retriable: {}
+    rubygem-rexml: {}
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
     rubygem-ruby-libvirt: {}
@@ -765,7 +769,6 @@ ruby_plugin_packages:
   hosts:
     rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
-    rubygem-aws-eventstream: {}
     rubygem-aws-sigv4: {}
     rubygem-azure_mgmt_compute: {}
     rubygem-azure_mgmt_network: {}
