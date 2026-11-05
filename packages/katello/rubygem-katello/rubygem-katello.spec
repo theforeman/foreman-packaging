@@ -4,7 +4,7 @@
 %global foreman_min_version 5.0
 %global foreman_max_version 5.1
 %global mainver 5.0.1
-%global release 1
+%global release 2
 
 Name: rubygem-%{gem_name}
 Version: %{mainver}
@@ -17,6 +17,9 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}
 Requires: (katello-selinux if selinux-policy-targeted)
+
+# Needed to compile the gettext catalogs in %%install
+BuildRequires: gettext
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -120,6 +123,40 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# Compile the gettext catalogs. Upstream Katello deliberately ships only .po
+# and expects a manual `make -C locale all-mo` before `gem build`, which no
+# automated build runs, so the RPM used to contain zero .mo and Foreman (which
+# reads .mo, not .po, in production) rendered all of Katello untranslated.
+#
+# This has to happen here, in %%install, and NOT in %%build: the gemspec that
+# %%setup unpacks alongside the sources carries a literal, frozen s.files list
+# with no .mo entries, so catalogs compiled before `gem build` are not part of
+# the gem and never reach the buildroot. Do not "simplify" this into %%build.
+#
+# locale/Makefile is not usable in the build root either (it derives DOMAIN
+# from a gemspec that is not inside the unpacked source dir, so it silently
+# matches no files), hence the direct msgfmt call.
+# Guard against a silent no-op: every .po must yield a non-empty catalog. The
+# check is per-file rather than a count comparison, so a gem that already
+# carries a catalog without its .po cannot fail the build for no reason.
+found_po=0
+for po in %{buildroot}%{gem_instdir}/locale/*/%{gem_name}.po; do
+  [ -f "${po}" ] || continue
+  found_po=1
+  lang_dir=$(dirname "${po}")
+  mkdir -p "${lang_dir}/LC_MESSAGES"
+  msgfmt --output-file "${lang_dir}/LC_MESSAGES/%{gem_name}.mo" "${po}"
+  if [ ! -s "${lang_dir}/LC_MESSAGES/%{gem_name}.mo" ]; then
+    echo "ERROR: no catalog produced for ${po}" >&2
+    exit 1
+  fi
+done
+
+if [ "${found_po}" -eq 0 ]; then
+  echo "ERROR: no .po files found under %{gem_instdir}/locale" >&2
+  exit 1
+fi
+
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
 
@@ -163,6 +200,9 @@ done
 %{foreman_plugin_log}
 
 %changelog
+* Fri Oct 30 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.1-2
+- Compile the gettext catalogs so the package ships .mo files
+
 * Tue Oct 06 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.1-1
 - Release rubygem-katello 5.0.1
 
