@@ -516,6 +516,7 @@ foreman_nodejs_packages:
     nodejs-urijs: {}
     nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
+    nodejs-uuid13: {}
     nodejs-webcomponents-webcomponentsjs: {}
     nodejs-webpack-cli: {}
     nodejs-webpack-stats-plugin: {}
