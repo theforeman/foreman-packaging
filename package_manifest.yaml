@@ -309,7 +309,6 @@ ruby_core_packages_tier1:
     rubygem-mustermann: {}
     rubygem-net-ldap: {}
     rubygem-net-ping: {}
-    rubygem-net-ssh: {}
     rubygem-net_http_unix: {}
     rubygem-netrc: {}
     rubygem-nio4r: {}
