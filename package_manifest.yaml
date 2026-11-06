@@ -756,7 +756,6 @@ hammer_plugin_packages:
     rubygem-hammer_cli_foreman_tasks: {}
     rubygem-hammer_cli_foreman_templates: {}
     rubygem-hammer_cli_foreman_webhooks: {}
-    rubygem-net-ssh-multi: {}
 
 ruby_plugin_packages:
   hosts:

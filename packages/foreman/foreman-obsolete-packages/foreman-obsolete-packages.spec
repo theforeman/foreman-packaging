@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.24
+Version: 1.25
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -35,6 +35,8 @@ Obsoletes: rubygem-net-ssh < 7.3.6-2
 Obsoletes: rubygem-net-ssh-doc < 7.3.6-2
 Obsoletes: rubygem-net-ssh-gateway < 1.2.0-10
 Obsoletes: rubygem-net-ssh-gateway-doc < 1.2.0-10
+Obsoletes: rubygem-net-ssh-multi < 1.2.1-3
+Obsoletes: rubygem-net-ssh-multi-doc < 1.2.1-3
 Obsoletes: rubygem-hammer_cli_foreman_virt_who_configure < 0.1.4
 Obsoletes: rubygem-stomp < 1.4.10-2
 Obsoletes: rubygem-stomp-doc < 1.4.10-2
@@ -76,6 +78,9 @@ from the distribution for some reason.
 %files
 
 %changelog
+* Fri Nov 06 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.25-1
+- Obsolete rubygem-net-ssh-multi and rubygem-net-ssh-multi-doc
+
 * Fri Nov 06 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.24-1
 - Obsolete rubygem-net-ssh-gateway and rubygem-net-ssh-gateway-doc
 
