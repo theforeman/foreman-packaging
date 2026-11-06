@@ -142,7 +142,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_remote_execution</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_resource_quota</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_templates</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_webhooks</packagereq>
@@ -319,7 +318,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_remote_execution-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_resource_quota-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt-doc</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_webhooks-doc</packagereq>
