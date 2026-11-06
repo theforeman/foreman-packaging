@@ -1,5 +1,5 @@
 Name: foreman-obsolete-packages
-Version: 1.26
+Version: 1.22
 Release: 1%{?dist}
 License: MIT
 Summary: A package to obsolete retired packages
@@ -80,20 +80,9 @@ from the distribution for some reason.
 %files
 
 %changelog
-* Fri Nov 06 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.26-1
-- Obsolete rubygem-hammer_cli_foreman_ssh and rubygem-hammer_cli_foreman_ssh-doc
-
-* Fri Nov 06 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.25-1
-- Obsolete rubygem-net-ssh-multi and rubygem-net-ssh-multi-doc
-
-* Fri Nov 06 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.24-1
-- Obsolete rubygem-net-ssh-gateway and rubygem-net-ssh-gateway-doc
-
-* Fri Nov 06 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.23-1
-- Obsolete rubygem-net-ssh and rubygem-net-ssh-doc
-
 * Fri Nov 06 2026 Lukas Zapletal <lzap+git@redhat.com> - 1.22-1
-- Obsolete rubygem-net-scp and rubygem-net-scp-doc
+- Obsolete rubygem-net-scp, rubygem-net-ssh, rubygem-net-ssh-gateway,
+  rubygem-net-ssh-multi, and rubygem-hammer_cli_foreman_ssh, including docs
 
 * Tue Sep 29 2026 Lukas Jezek <lukas-jezek@seznam.cz> - 1.21-1
 - Obsolete nodejs-react-debounce-input
