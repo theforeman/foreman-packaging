@@ -2,7 +2,7 @@
 %global gem_name rabl
 
 Name: rubygem-%{gem_name}
-Version: 0.19.0
+Version: 0.19.1
 Release: 1%{?dist}
 Summary: General ruby templating with json, bson, xml and msgpack support
 License: MIT
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/SECURITY.md
 
 %changelog
+* Sun Nov  8 04:14:49 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.19.1-1
+- Update to 0.19.1
+
 * Mon Nov  2 09:16:23 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.19.0-1
 - Update to 0.19.0
 
