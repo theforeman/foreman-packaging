@@ -1,39 +1,39 @@
 %global npm_name @babel/core
 
 Name: nodejs-babel-core
-Version: 7.29.7
-Release: 2%{?dist}
+Version: 7.29.13
+Release: 1%{?dist}
 Summary: Babel compiler core
 License: MIT
 Group: Development/Libraries
 URL: https://babel.dev/docs/en/next/babel-core
 Source0: https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.29.7.tgz
 Source1: https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.29.7.tgz
-Source2: https://registry.npmjs.org/@babel/core/-/core-7.29.7.tgz
-Source3: https://registry.npmjs.org/@babel/generator/-/generator-7.29.7.tgz
-Source4: https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.29.7.tgz
+Source2: https://registry.npmjs.org/@babel/core/-/core-7.29.13.tgz
+Source3: https://registry.npmjs.org/@babel/generator/-/generator-7.29.13.tgz
+Source4: https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.29.13.tgz
 Source5: https://registry.npmjs.org/@babel/helper-globals/-/helper-globals-7.29.7.tgz
 Source6: https://registry.npmjs.org/@babel/helper-module-imports/-/helper-module-imports-7.29.7.tgz
-Source7: https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.29.7.tgz
-Source8: https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz
+Source7: https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.29.13.tgz
+Source8: https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.13.tgz
 Source9: https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz
 Source10: https://registry.npmjs.org/@babel/helper-validator-option/-/helper-validator-option-7.29.7.tgz
-Source11: https://registry.npmjs.org/@babel/helpers/-/helpers-7.29.7.tgz
-Source12: https://registry.npmjs.org/@babel/parser/-/parser-7.29.7.tgz
+Source11: https://registry.npmjs.org/@babel/helpers/-/helpers-7.29.13.tgz
+Source12: https://registry.npmjs.org/@babel/parser/-/parser-7.29.13.tgz
 Source13: https://registry.npmjs.org/@babel/template/-/template-7.29.7.tgz
-Source14: https://registry.npmjs.org/@babel/traverse/-/traverse-7.29.7.tgz
-Source15: https://registry.npmjs.org/@babel/types/-/types-7.29.7.tgz
+Source14: https://registry.npmjs.org/@babel/traverse/-/traverse-7.29.13.tgz
+Source15: https://registry.npmjs.org/@babel/types/-/types-7.29.11.tgz
 Source16: https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz
 Source17: https://registry.npmjs.org/@jridgewell/remapping/-/remapping-2.3.5.tgz
 Source18: https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz
-Source19: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz
+Source19: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz
 Source20: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz
-Source21: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.8.tgz
-Source22: https://registry.npmjs.org/browserslist/-/browserslist-4.28.7.tgz
-Source23: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001806.tgz
+Source21: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.35.tgz
+Source22: https://registry.npmjs.org/browserslist/-/browserslist-4.29.5.tgz
+Source23: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001823.tgz
 Source24: https://registry.npmjs.org/convert-source-map/-/convert-source-map-2.0.0.tgz
 Source25: https://registry.npmjs.org/debug/-/debug-4.4.3.tgz
-Source26: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.398.tgz
+Source26: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.478.tgz
 Source27: https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz
 Source28: https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz
 Source29: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
@@ -41,10 +41,10 @@ Source30: https://registry.npmjs.org/jsesc/-/jsesc-3.1.0.tgz
 Source31: https://registry.npmjs.org/json5/-/json5-2.2.3.tgz
 Source32: https://registry.npmjs.org/lru-cache/-/lru-cache-5.1.1.tgz
 Source33: https://registry.npmjs.org/ms/-/ms-2.1.3.tgz
-Source34: https://registry.npmjs.org/node-releases/-/node-releases-2.0.51.tgz
+Source34: https://registry.npmjs.org/node-releases/-/node-releases-2.0.63.tgz
 Source35: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
-Source36: https://registry.npmjs.org/semver/-/semver-6.3.1.tgz
-Source37: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz
+Source36: https://registry.npmjs.org/semver/-/semver-6.3.2.tgz
+Source37: https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.3.4.tgz
 Source38: https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz
 Source39: nodejs-babel-core-%{version}-package-lock.json
 BuildRequires: npm >= 7
@@ -60,31 +60,31 @@ ExclusiveArch: %{nodejs_arches} noarch
 Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(@babel/code-frame)) = 7.29.7
 Provides: bundled(npm(@babel/compat-data)) = 7.29.7
-Provides: bundled(npm(@babel/core)) = 7.29.7
-Provides: bundled(npm(@babel/generator)) = 7.29.7
-Provides: bundled(npm(@babel/helper-compilation-targets)) = 7.29.7
+Provides: bundled(npm(@babel/core)) = 7.29.13
+Provides: bundled(npm(@babel/generator)) = 7.29.13
+Provides: bundled(npm(@babel/helper-compilation-targets)) = 7.29.13
 Provides: bundled(npm(@babel/helper-globals)) = 7.29.7
 Provides: bundled(npm(@babel/helper-module-imports)) = 7.29.7
-Provides: bundled(npm(@babel/helper-module-transforms)) = 7.29.7
-Provides: bundled(npm(@babel/helper-string-parser)) = 7.29.7
+Provides: bundled(npm(@babel/helper-module-transforms)) = 7.29.13
+Provides: bundled(npm(@babel/helper-string-parser)) = 7.29.13
 Provides: bundled(npm(@babel/helper-validator-identifier)) = 7.29.7
 Provides: bundled(npm(@babel/helper-validator-option)) = 7.29.7
-Provides: bundled(npm(@babel/helpers)) = 7.29.7
-Provides: bundled(npm(@babel/parser)) = 7.29.7
+Provides: bundled(npm(@babel/helpers)) = 7.29.13
+Provides: bundled(npm(@babel/parser)) = 7.29.13
 Provides: bundled(npm(@babel/template)) = 7.29.7
-Provides: bundled(npm(@babel/traverse)) = 7.29.7
-Provides: bundled(npm(@babel/types)) = 7.29.7
+Provides: bundled(npm(@babel/traverse)) = 7.29.13
+Provides: bundled(npm(@babel/types)) = 7.29.11
 Provides: bundled(npm(@jridgewell/gen-mapping)) = 0.3.13
 Provides: bundled(npm(@jridgewell/remapping)) = 2.3.5
 Provides: bundled(npm(@jridgewell/resolve-uri)) = 3.1.2
-Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.5.5
+Provides: bundled(npm(@jridgewell/sourcemap-codec)) = 1.6.0
 Provides: bundled(npm(@jridgewell/trace-mapping)) = 0.3.31
-Provides: bundled(npm(baseline-browser-mapping)) = 2.11.8
-Provides: bundled(npm(browserslist)) = 4.28.7
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001806
+Provides: bundled(npm(baseline-browser-mapping)) = 2.11.35
+Provides: bundled(npm(browserslist)) = 4.29.5
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001823
 Provides: bundled(npm(convert-source-map)) = 2.0.0
 Provides: bundled(npm(debug)) = 4.4.3
-Provides: bundled(npm(electron-to-chromium)) = 1.5.398
+Provides: bundled(npm(electron-to-chromium)) = 1.5.478
 Provides: bundled(npm(escalade)) = 3.2.0
 Provides: bundled(npm(gensync)) = 1.0.0-beta.2
 Provides: bundled(npm(js-tokens)) = 4.0.0
@@ -92,10 +92,10 @@ Provides: bundled(npm(jsesc)) = 3.1.0
 Provides: bundled(npm(json5)) = 2.2.3
 Provides: bundled(npm(lru-cache)) = 5.1.1
 Provides: bundled(npm(ms)) = 2.1.3
-Provides: bundled(npm(node-releases)) = 2.0.51
+Provides: bundled(npm(node-releases)) = 2.0.63
 Provides: bundled(npm(picocolors)) = 1.1.1
-Provides: bundled(npm(semver)) = 6.3.1
-Provides: bundled(npm(update-browserslist-db)) = 1.2.3
+Provides: bundled(npm(semver)) = 6.3.2
+Provides: bundled(npm(update-browserslist-db)) = 1.3.4
 Provides: bundled(npm(yallist)) = 3.1.1
 AutoReq: no
 AutoProv: no
@@ -106,6 +106,11 @@ AutoProv: no
 %{summary}
 
 %prep
+# There is deliberately no setup section: every Source is consumed explicitly
+# below, so the build runs in the top-level build directory. Do not name the
+# setup macro here even in a comment - rpm expands macros inside comments, and
+# on rpm 6 that runs it, unpacking Source0 and cd-ing into a directory that
+# does not exist.
 mkdir -p %{npm_cache_dir}
 # npm ci installs the tree recorded in the lockfile: every entry carries a
 # resolved URL and an integrity hash, and npm serves the tarballs from the
@@ -114,6 +119,7 @@ for src in %{sources}; do
   case "$src" in
     *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
     *-package-lock.json) cp "$src" package-lock.json ;;
+    *) echo "unexpected Source, do not know how to handle it: $src" >&2; exit 1 ;;
   esac
 done
 
@@ -151,6 +157,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sun Nov 08 2026 Foreman Packaging Automation <packaging@theforeman.org> 7.29.13-1
+- Update to 7.29.13
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 7.29.7-2
 - Regenerate with correct npm2rpm strategy
 
