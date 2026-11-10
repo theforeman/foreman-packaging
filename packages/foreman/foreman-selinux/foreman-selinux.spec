@@ -26,7 +26,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
-Version:        5.1.0
+Version:        5.2.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Nov 10 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.0-0.1.develop
+- Bump version to 5.2-develop
+
 * Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.develop
 - Bump version to 5.1-develop
 
