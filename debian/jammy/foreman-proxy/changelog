@@ -1,3 +1,9 @@
+foreman-proxy (5.2.0-1) stable; urgency=low
+
+  * Bump changelog to 5.2.0 to match VERSION
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Tue, 10 Nov 2026 15:02:04 -0500
+
 foreman-proxy (5.1.0-1) stable; urgency=low
 
   * Bump changelog to 5.1.0 to match VERSION
