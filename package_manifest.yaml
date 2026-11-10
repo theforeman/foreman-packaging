@@ -3,8 +3,8 @@ all:
   vars:
     bootstrap: false
     foremandist: .fm5_1
-    foreman_version: 'nightly'
-    katello_version: 'nightly'
+    foreman_version: '5.1'
+    katello_version: '5.1'
     candlepin_version: '4.4'
     puppet_version: 8
     copr_project_user: "@theforeman"
