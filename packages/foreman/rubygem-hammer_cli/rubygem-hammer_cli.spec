@@ -4,8 +4,6 @@
 %global hammer_confdir %{_sysconfdir}/hammer
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 Name: rubygem-%{gem_name}
 Version: 5.1.0
@@ -97,6 +95,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 10 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.0-1
+- Release rubygem-hammer_cli 5.1.0
+
 * Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.pre.develop
 - Bump version to 5.1-develop
 
