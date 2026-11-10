@@ -3,8 +3,6 @@
 %global plugin_name foreman
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %global hammer_confdir %{_sysconfdir}/hammer
 
@@ -74,6 +72,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 10 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.0-1
+- Release rubygem-hammer_cli_foreman 5.1.0
+
 * Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.pre.develop
 - Bump version to 5.1-develop
 
