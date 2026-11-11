@@ -7,7 +7,7 @@
 %global rake /usr/bin/rake
 
 %global release 6
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -857,6 +857,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Nov 11 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.0-0.6.rc1
+- Release foreman 5.1.0rc1
+
 * Tue Oct 20 2026 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.1.0-0.6.develop
 - Update Gem and NPM dependencies
 

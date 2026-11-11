@@ -2,7 +2,7 @@
 %global confdir config
 
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -239,6 +239,9 @@ exit 0
 
 
 %changelog
+* Wed Nov 11 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.0-0.1.rc1
+- Release foreman-proxy 5.1.0rc1
+
 * Wed Aug 12 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.develop
 - Bump version to 5.1-develop
 
