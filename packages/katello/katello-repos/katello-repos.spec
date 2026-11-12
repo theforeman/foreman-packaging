@@ -13,7 +13,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        5.1
+Version:        5.2
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Wed Nov 11 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.2-0.1.nightly
+- Bump version to 5.2
+
 * Wed Aug 12 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1-0.1.nightly
 - Bump version to 5.1.0
 
