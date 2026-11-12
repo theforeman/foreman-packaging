@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   3.3.5
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -21,6 +21,7 @@ Recommends:  python3-psycopg2
 Recommends:  python3-requests
 Recommends:  python3-requests-oauthlib
 Recommends:  postgresql
+Recommends:  policycoreutils-python-utils
 Recommends:  (foreman-fapolicyd if fapolicyd)
 
 # Tab completion is nice to have
@@ -71,6 +72,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Thu Nov 12 2026 Leos Stejskal <lstejska@redhat.com> - 3.3.5-2
+- Add Recommends on policycoreutils-python-utils
+
 * Tue Oct 27 2026 Evgeni Golov - 3.3.5-1
 - Release foremanctl 3.3.5
 
