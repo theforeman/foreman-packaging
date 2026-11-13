@@ -4,7 +4,7 @@
 %global foreman_min_version 5.0
 
 Name: rubygem-%{gem_name}
-Version: 18.0.6
+Version: 18.0.8
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 License: GPLv3
@@ -32,7 +32,7 @@ BuildRequires: npm(@theforeman/builder) >= 12.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: (npm(react-json-tree) >= 0.11.0 with npm(react-json-tree) < 1.0.0)
+BuildRequires: (npm(react-json-tree) >= 0.18.0 with npm(react-json-tree) < 1.0.0)
 # end package.json dependencies BuildRequires
 
 %description
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Nov 13 2026 Adam <aruzicka@redhat.com> - 18.0.8-1
+- Update to 18.0.8
+
 * Mon Oct 26 12:26:07 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 18.0.6-1
 - Update to 18.0.6
 
