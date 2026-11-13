@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (16.6.7-1) stable; urgency=low
+
+  * 16.6.7 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Fri, 13 Nov 2026 20:03:01 +0100
+
 ruby-foreman-remote-execution (16.6.6-1) stable; urgency=low
 
   * 16.6.6 released
