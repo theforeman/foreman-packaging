@@ -9,8 +9,8 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 1.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Dynflow runtime for Foreman smart proxy
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -84,6 +84,9 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Fri Nov 13 10:54:55 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.0.1-1
+- Update to 1.0.1
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
 - Rebuild for EL10
 
