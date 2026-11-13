@@ -1,3 +1,9 @@
+ruby-foreman-ansible (18.0.8-1) stable; urgency=low
+
+  * 18.0.8 released
+
+ -- Adam <aruzicka@redhat.com>  Fri, 13 Nov 2026 20:20:26 +0100
+
 ruby-foreman-ansible (18.0.6-1) stable; urgency=low
 
   * 18.0.6 released
