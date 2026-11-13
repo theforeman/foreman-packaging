@@ -1,1 +1,1 @@
-gem 'foreman_ansible', '18.0.7'
+gem 'foreman_ansible', '19.0.0'
