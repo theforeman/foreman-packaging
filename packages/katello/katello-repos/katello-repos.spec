@@ -1,4 +1,4 @@
-%global pulpcore_version nightly
+%global pulpcore_version 3.118
 %if 0%{?rhel} >= 10
 %global candlepin_version 5.0
 %else
@@ -8,12 +8,12 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource nightly
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 1
 
 Name:           katello-repos
-Version:        5.1
+Version:        5.1.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-candlepin
 
 %changelog
+* Mon Nov 16 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.1.0-0.1.rc1
+- Release katello-repos 5.1.0rc1
+
 * Wed Aug 12 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.1-0.1.nightly
 - Bump version to 5.1.0
 
