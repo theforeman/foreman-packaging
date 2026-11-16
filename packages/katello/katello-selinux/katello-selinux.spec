@@ -23,8 +23,8 @@
 
 
 Name:           katello-selinux
-Version:        5.2.0
-Release:        2%{?dotalphatag}%{?dist}
+Version:        5.3.0
+Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -117,6 +117,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Mon Nov 16 2026 Evgeni Golov - 5.3.0-1
+- Release katello-selinux 5.3.0
+
 * Fri Jul 31 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.0-2
 - Rebuild for EL10
 
