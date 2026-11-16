@@ -2,8 +2,8 @@ Name:      katello-certs-tools
 Summary:   Katello SSL Key/Cert Tool
 Group:     Applications/Internet
 License:   GPLv2
-Version:   2.10.0
-Release:   2%{?dist}
+Version:   2.11.0
+Release:   1%{?dist}
 URL:       https://github.com/katello/katello-certs-tools
 Source0:   https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 BuildArch: noarch
@@ -45,6 +45,9 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 %license LICENSE
 
 %changelog
+* Mon Nov 16 2026 Evgeni Golov - 2.11.0-1
+- Release katello-certs-tools 2.11.0
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.10.0-2
 - Rebuild for EL10
 
