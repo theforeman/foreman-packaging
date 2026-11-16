@@ -4,7 +4,7 @@
 %global foreman_min_version 3.13
 
 Name: rubygem-%{gem_name}
-Version: 5.0.1
+Version: 5.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 License: GPLv3
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Nov 16 17:47:52 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.2-1
+- Update to 5.0.2
+
 * Fri Oct 23 15:56:08 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 5.0.1-1
 - Update to 5.0.1
 
