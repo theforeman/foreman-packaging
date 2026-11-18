@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 3.17
+%global foreman_min_version 5.1
 
 Name: rubygem-%{gem_name}
-Version: 15.0.1
+Version: 15.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 License: GPLv3
@@ -30,7 +30,6 @@ Requires: /usr/bin/xz
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: npm(@theforeman/builder) >= 15.0.1
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 1.2.0)
 # end package.json devDependencies BuildRequires
 
@@ -98,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Nov 18 14:05:23 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.2-1
+- Update to 15.0.2
+
 * Wed Nov  4 04:15:52 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 15.0.1-1
 - Update to 15.0.1
 
