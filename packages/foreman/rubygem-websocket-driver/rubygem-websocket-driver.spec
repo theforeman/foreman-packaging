@@ -3,8 +3,8 @@
 %global gem_require_name websocket/driver
 
 Name: rubygem-%{gem_name}
-Version: 0.8.2
-Release: 2%{?dist}
+Version: 0.9.0
+Release: 1%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 License: Apache-2.0
 URL: https://github.com/faye/websocket-driver-ruby
@@ -14,7 +14,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby
 BuildRequires: ruby-devel
 BuildRequires: rubygems-devel
-BuildRequires: rubygem(websocket-extensions) >= 0.1.0
+BuildRequires: rubygem(base64)
+BuildRequires: rubygem(websocket-extensions) >= 0.2.0
 # Compiler is required for build of gem binary extension.
 # https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
 BuildRequires: gcc
@@ -84,6 +85,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 18 04:15:30 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.9.0-1
+- Update to 0.9.0
+
 * Wed Jul 29 2026 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.2-2
 - Rebuild for EL10
 
