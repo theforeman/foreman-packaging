@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 8.0.2
+Version: 8.1.2
 Release: 1%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server for Ruby/Rack applications
 License: BSD-3-Clause
@@ -97,6 +97,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/docs
 
 %changelog
+* Wed Nov 18 04:15:37 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 8.1.2-1
+- Update to 8.1.2
+
 * Sun Sep 20 04:24:04 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 8.0.2-1
 - Update to 8.0.2
 
