@@ -2,16 +2,16 @@
 %global gem_name rails-html-sanitizer
 
 Name: rubygem-%{gem_name}
-Version: 1.7.1
-Release: 2%{?dist}
+Version: 1.7.2
+Release: 1%{?dist}
 Summary: This gem is responsible to sanitize HTML fragments in Rails applications
 License: MIT
 URL: https://github.com/rails/rails-html-sanitizer
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.7.0
-BuildRequires: ruby >= 2.7.0
+Requires: ruby >= 3.2.0
+BuildRequires: ruby >= 3.2.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -57,6 +57,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 18 2026 Maximilian Kolb <kolb@atix.de> - 1.7.2-1
+- Update to 1.7.2 to fix CVE-2026-128068
+- Require Ruby 3.2 according to the upstream Ruby Gem
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.1-2
 - rebuilt
 
