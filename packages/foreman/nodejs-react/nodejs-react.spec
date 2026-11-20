@@ -1,19 +1,16 @@
 %global npm_name react
 
 Name: nodejs-react
-Version: 16.14.0
-Release: 2%{?dist}
+Version: 18.3.1
+Release: 1%{?dist}
 Summary: React is a JavaScript library for building user interfaces
 License: MIT
 Group: Development/Libraries
 URL: https://reactjs.org/
 Source0: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
 Source1: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
-Source2: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
-Source3: https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz
-Source4: https://registry.npmjs.org/react/-/react-16.14.0.tgz
-Source5: https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz
-Source6: nodejs-react-%{version}-package-lock.json
+Source2: https://registry.npmjs.org/react/-/react-18.3.1.tgz
+Source3: nodejs-react-%{version}-package-lock.json
 BuildRequires: npm >= 7
 BuildRequires: nodejs-packaging
 # The prep section runs node directly, so this is needed unconditionally. It
@@ -27,10 +24,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 Provides: npm(%{npm_name}) = %{version}
 Provides: bundled(npm(js-tokens)) = 4.0.0
 Provides: bundled(npm(loose-envify)) = 1.4.0
-Provides: bundled(npm(object-assign)) = 4.1.1
-Provides: bundled(npm(prop-types)) = 15.8.1
-Provides: bundled(npm(react)) = 16.14.0
-Provides: bundled(npm(react-is)) = 16.13.1
+Provides: bundled(npm(react)) = 18.3.1
 AutoReq: no
 AutoProv: no
 
@@ -40,6 +34,11 @@ AutoProv: no
 %{summary}
 
 %prep
+# There is deliberately no setup section: every Source is consumed explicitly
+# below, so the build runs in the top-level build directory. Do not name the
+# setup macro here even in a comment - rpm expands macros inside comments, and
+# on rpm 6 that runs it, unpacking Source0 and cd-ing into a directory that
+# does not exist.
 mkdir -p %{npm_cache_dir}
 # npm ci installs the tree recorded in the lockfile: every entry carries a
 # resolved URL and an integrity hash, and npm serves the tarballs from the
@@ -48,6 +47,7 @@ for src in %{sources}; do
   case "$src" in
     *.tgz) npm cache add --cache %{npm_cache_dir} "$src" ;;
     *-package-lock.json) cp "$src" package-lock.json ;;
+    *) echo "unexpected Source, do not know how to handle it: $src" >&2; exit 1 ;;
   esac
 done
 
@@ -72,12 +72,12 @@ cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{np
 # scopes whose packages were all omitted, which leaves empty dirs behind.
 # -delete implies -depth, so nested empties go bottom-up in a single pass.
 find %{buildroot}%{nodejs_sitelib}/%{npm_name} -type d -empty -delete
-cp -pfr node_modules/%{npm_name}/build-info.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/cjs %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/jsx-dev-runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/jsx-runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr node_modules/%{npm_name}/react.shared-subset.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/umd %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %clean
@@ -89,6 +89,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Nov 18 2026 Lukas Jezek <lukas-jezek@seznam.cz> 18.3.1-1
+- Update to 18.3.1
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> - 16.14.0-2
 - Regenerate with correct npm2rpm strategy
 
