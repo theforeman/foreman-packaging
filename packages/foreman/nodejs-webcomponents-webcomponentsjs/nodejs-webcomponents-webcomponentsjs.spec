@@ -1,8 +1,8 @@
 %global npm_name @webcomponents/webcomponentsjs
 
 Name: nodejs-webcomponents-webcomponentsjs
-Version: 2.8.0
-Release: 2%{?dist}
+Version: 2.8.1
+Release: 1%{?dist}
 Summary: Web Components Polyfills
 License: BSD-3-Clause
 URL: https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs
@@ -41,6 +41,9 @@ cp -pfr webcomponents-loader.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sun Nov 22 2026 Foreman Packaging Automation <packaging@theforeman.org> 2.8.1-1
+- Update to 2.8.1
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 2.8.0-2
 - Update to 2.8.0
 
