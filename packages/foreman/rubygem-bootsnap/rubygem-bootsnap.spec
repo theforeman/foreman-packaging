@@ -3,7 +3,7 @@
 %global gem_require_name %{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 1.26.1
+Version: 1.26.2
 Release: 1%{?dist}
 Summary: Boot large ruby/rails apps faster
 License: MIT
@@ -88,6 +88,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Nov 22 04:15:18 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.26.2-1
+- Update to 1.26.2
+
 * Wed Oct 28 04:18:10 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 1.26.1-1
 - Update to 1.26.1
 
