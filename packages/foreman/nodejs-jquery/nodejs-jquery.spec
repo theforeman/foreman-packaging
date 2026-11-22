@@ -1,8 +1,8 @@
 %global npm_name jquery
 
 Name: nodejs-jquery
-Version: 3.7.1
-Release: 2%{?dist}
+Version: 3.8.0
+Release: 1%{?dist}
 Summary: JavaScript library for DOM operations
 License: MIT
 URL: https://jquery.com
@@ -38,8 +38,12 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %license LICENSE.txt
 %doc AUTHORS.txt
 %doc README.md
+%doc changelog.md
 
 %changelog
+* Sun Nov 22 2026 Foreman Packaging Automation <packaging@theforeman.org> 3.8.0-1
+- Update to 3.8.0
+
 * Thu Jul 30 2026 Zach Huntington-Meath <zhunting@redhat.com> 3.7.1-2
 - Update to 3.7.1
 
