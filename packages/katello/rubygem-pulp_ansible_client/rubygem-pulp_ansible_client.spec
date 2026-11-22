@@ -2,7 +2,7 @@
 %global gem_name pulp_ansible_client
 
 Name: rubygem-%{gem_name}
-Version: 0.30.3
+Version: 0.30.4
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Nov 22 04:15:40 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.30.4-1
+- Update to 0.30.4
+
 * Sun Oct 25 04:23:24 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 0.30.3-1
 - Update to 0.30.3
 
