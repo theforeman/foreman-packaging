@@ -120,6 +120,7 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/deploy
+%exclude %{gem_instdir}/eslint.spelling.config.js
 %{gem_instdir}/extra
 %{_bindir}/foreman-tasks-cleanup
 %{_bindir}/foreman-tasks-export
