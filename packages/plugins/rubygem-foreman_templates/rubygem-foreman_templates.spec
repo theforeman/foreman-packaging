@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_templates
 %global plugin_name templates
-%global foreman_min_version 3.15
+%global foreman_min_version 5.1
 
 Name: rubygem-%{gem_name}
-Version: 11.0.4
+Version: 12.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Template-syncing engine for Foreman
 License: GPLv3
@@ -22,14 +22,13 @@ Requires: ruby
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildRequires: rubygem(diffy)
-BuildRequires: rubygem(git)
+BuildRequires: rubygem(git) < 4
 BuildArch: noarch
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: npm(@theforeman/builder) >= 12.0.1
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -93,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Nov 23 15:05:27 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 12.0.0-1
+- Update to 12.0.0
+
 * Tue Sep 22 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.0.4-1
 - Update to 11.0.4
 
