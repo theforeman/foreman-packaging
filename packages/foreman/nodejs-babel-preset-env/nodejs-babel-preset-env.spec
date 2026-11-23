@@ -176,7 +176,7 @@ Provides: bundled(npm(@babel/plugin-bugfix-safari-id-destructuring-collision-in-
 Provides: bundled(npm(@babel/plugin-bugfix-safari-rest-destructuring-rhs-array)) = 7.29.13
 Provides: bundled(npm(@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining)) = 7.29.7
 Provides: bundled(npm(@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly)) = 7.29.7
-Provides: bundled(npm(@babel/plugin-proposal-private-property-in-object)) = 7.21.0-placeholder-for-preset-env.2
+Provides: bundled(npm(@babel/plugin-proposal-private-property-in-object)) = 7.21.0^placeholder.for.preset.env.2
 Provides: bundled(npm(@babel/plugin-syntax-import-assertions)) = 7.29.7
 Provides: bundled(npm(@babel/plugin-syntax-import-attributes)) = 7.29.7
 Provides: bundled(npm(@babel/plugin-syntax-unicode-sets-regex)) = 7.18.6
