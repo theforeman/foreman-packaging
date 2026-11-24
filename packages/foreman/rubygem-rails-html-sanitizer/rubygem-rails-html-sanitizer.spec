@@ -2,8 +2,8 @@
 %global gem_name rails-html-sanitizer
 
 Name: rubygem-%{gem_name}
-Version: 1.7.1
-Release: 2%{?dist}
+Version: 1.7.2
+Release: 1%{?dist}
 Summary: This gem is responsible to sanitize HTML fragments in Rails applications
 License: MIT
 URL: https://github.com/rails/rails-html-sanitizer
@@ -31,6 +31,12 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Upstream requires Ruby >= 3.2 only because loofah 2.25.3 does. The code runs on
+# Ruby 3.0 (EL9); the rubygem-loofah package here relaxes its own limits.
+# NOTE: update-requirements regenerates the 'ruby' Requires in the block above from the
+# unmodified gem; keep it at >= 2.7.0 when bumping.
+sed -i 's/Gem::Requirement.new(">= 3.2.0"/Gem::Requirement.new(">= 2.7.0"/' ../%{gem_name}-%{version}.gemspec
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -57,6 +63,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 24 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1.7.2-1
+- Update to 1.7.2
+- Relax the Ruby gemspec limit to >= 2.7.0 (EL9 ships Ruby 3.0)
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.1-2
 - rebuilt
 
