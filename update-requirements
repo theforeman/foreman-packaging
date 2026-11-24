@@ -3,6 +3,8 @@
 
 import argparse
 import json
+import re
+import sys
 
 import requests
 import semver
@@ -104,6 +106,42 @@ def get_new_content(prefix, current_content, requires):
                 key = prefix.replace('start', 'end') + key
 
 
+GEMSPEC_DEP_MACRO = re.compile(r'^\s*%\{?gemspec_(remove|add)_dep\s+(.*)')
+GEMSPEC_DEP_GEM = re.compile(r'''(?:^|\s)-g\s+["']?([^\s"'}]+)''')
+GEMSPEC_DEP_DEVEL = re.compile(r'(?:^|\s)-d(?:\s|$)')
+RUBYGEM_DEP = re.compile(r'^(?:Build)?Requires:\s+\(?rubygem\(([^)]+)\)')
+
+
+def drop_removed_gem_deps(requires, spec_lines):
+    """Drop generated rubygem(X) deps when the spec does %gemspec_remove_dep -g X
+    without re-adding it: the spec then handles X by hand (e.g. default gems).
+
+    %if conditions are not evaluated: a macro that only applies on some distros
+    still drops the generated line for all of them, so the spec has to cover the
+    rest itself (see rubygem-nokogiri and racc)."""
+    gems = {'remove': set(), 'add': set()}
+    for line in spec_lines:
+        macro = GEMSPEC_DEP_MACRO.match(line)
+        if not macro or GEMSPEC_DEP_DEVEL.search(macro.group(2)):
+            continue  # not a macro call, or a development dependency
+        gem = GEMSPEC_DEP_GEM.search(macro.group(2))
+        if gem:
+            gems[macro.group(1)].add(gem.group(1))
+
+    skip = gems['remove'] - gems['add']
+    result = {}
+    for key, lines in requires.items():
+        result[key] = []
+        for line in lines:
+            match = RUBYGEM_DEP.match(line)
+            if match and match.group(1) in skip:
+                print('Dropping "{}": spec has %gemspec_remove_dep -g {}'.format(line.strip(), match.group(1)),
+                      file=sys.stderr)
+            else:
+                result[key].append(line)
+    return result
+
+
 def strip_prefix(line, prefix):
     return line[len(prefix):]
 
@@ -136,6 +174,9 @@ def main():
 
     current_content = args.specfile.readlines()
     args.specfile.close()
+
+    if args.requirementstype == 'specfile':
+        requires = drop_removed_gem_deps(requires, current_content)
 
     new_content = list(get_new_content(prefix, current_content, requires))
 

@@ -148,6 +148,14 @@ In order to update npm packages, first you will need to follow the [npm2rpm inst
    targeted platforms and required SCL + non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
+`update-requirements` rewrites only the block between the `# start specfile
+generated dependencies` markers. If the spec has `%gemspec_remove_dep -g X`
+(and no matching `%gemspec_add_dep -g X`), it assumes the spec deals with
+`rubygem(X)` on its own, for example `(rubygem(X) or ruby-default-gems < N)`,
+and leaves the generated `rubygem(X)` line out of the block. This does not look
+at `%if` conditions, so a dependency removed on one distro only needs a
+hand-written replacement for the others (as `rubygem-nokogiri` does for `racc`).
+
 ### Updating nightly dependencies
 
 The nightly packages are slightly special because we can't use a gem or npm
