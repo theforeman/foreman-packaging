@@ -4,7 +4,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.17.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 # MIT: see LICENSE.md
 # ASL 2.0
@@ -17,6 +17,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # Shut down libxml2 version unmatching warning
 Patch0:	%{name}-1.11.0.rc4-shutdown-libxml2-warning.patch
 Patch1:	CVE-2026-57236-nokogiri-encoding-uaf.patch
+Patch2:	GHSA-h6v6-rg66-fqj4-nokogiri-escape-lt-gt-in-attributes.patch
 
 Provides:	bundled(gumbo-parser) = 0.10.1
 
@@ -66,6 +67,7 @@ Documentation for %{name}.
 # patches
 %patch -P0 -p1
 %patch -P1 -p1
+%patch -P2 -p1
 
 # remove bundled external libraries
 sed -i \
@@ -188,6 +190,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/gumbo-parser/src/README.md
 
 %changelog
+* Tue Nov 24 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 1.17.2-5
+- Backport nokogiri#3741: escape < and > in HTML5 attribute values (GHSA-h6v6-rg66-fqj4)
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 1.17.2-4
 - rebuilt
 
