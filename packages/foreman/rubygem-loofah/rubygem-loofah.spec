@@ -2,12 +2,17 @@
 %global gem_name loofah
 
 Name: rubygem-%{gem_name}
-Version: 2.25.2
-Release: 2%{?dist}
+Version: 2.25.3
+Release: 1%{?dist}
 Summary: Loofah is a general library for manipulating and transforming HTML/XML documents and fragments, built on top of Nokogiri
 License: MIT
 URL: https://github.com/flavorjones/loofah
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# 2.25.3 declares nokogiri >= 1.19.5 (Ruby >= 3.2) to get GHSA-h6v6-rg66-fqj4. We ship
+# nokogiri 1.17.2 on EL9 (Ruby 3.0) and EL10 with that fix backported, so require
+# the patched build explicitly: the gemspec dependency is relaxed in %%prep.
+Requires: rubygem-nokogiri >= 1.17.2-5
 
 # start specfile generated dependencies
 Requires: ruby >= 2.5.0
@@ -39,6 +44,15 @@ Documentation for %{name}.
 %prep
 %setup -q -n  %{gem_name}-%{version}
 
+# Upstream requires Ruby >= 3.2 and nokogiri >= 1.19.5 only because nokogiri 1.19.5
+# carries the GHSA-h6v6-rg66-fqj4 fix. The code itself runs on Ruby 3.0 (EL9) and
+# our nokogiri 1.17.2-5 backports that fix; see the Requires above.
+# NOTE: update-requirements regenerates the 'ruby' Requires in the block above from the
+# unmodified gem; keep it at >= 2.5.0 when bumping.
+sed -i 's/Gem::Requirement.new(">= 3.2.0"/Gem::Requirement.new(">= 2.5.0"/' ../%{gem_name}-%{version}.gemspec
+%gemspec_remove_dep -g nokogiri ">= 1.19.5"
+%gemspec_add_dep -g nokogiri ">= 1.17.2"
+
 %build
 # Create the gem as gem install only works on a gem file
 gem build ../%{gem_name}-%{version}.gemspec
@@ -66,6 +80,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 24 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 2.25.3-1
+- Update to 2.25.3
+- Relax the nokogiri (>= 1.17.2) and Ruby (>= 2.5.0) gemspec limits; require nokogiri with the GHSA-h6v6-rg66-fqj4 backport
+
 * Mon Jul 27 2026 Zach Huntington-Meath <zhunting@redhat.com> - 2.25.2-2
 - Rebuild for EL10
 
