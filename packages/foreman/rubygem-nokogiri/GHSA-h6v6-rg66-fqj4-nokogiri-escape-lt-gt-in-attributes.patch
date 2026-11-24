@@ -1,0 +1,15 @@
+diff --git a/ext/nokogiri/xml_node.c b/ext/nokogiri/xml_node.c
+--- a/ext/nokogiri/xml_node.c
++++ b/ext/nokogiri/xml_node.c
+@@ -1830,9 +1830,9 @@
+       replaced_bytes = 2;
+     } else if (attr && ch == '"') {
+       replacement = "&quot;";
+-    } else if (!attr && ch == '<') {
++    } else if (ch == '<') {
+       replacement = "&lt;";
+-    } else if (!attr && ch == '>') {
++    } else if (ch == '>') {
+       replacement = "&gt;";
+     } else {
+       ++next;
