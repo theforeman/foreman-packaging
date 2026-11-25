@@ -1,3 +1,9 @@
+ruby-foreman-snapshot-management (4.4.0-1) stable; urgency=low
+
+  * 4.4.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 25 Nov 2026 12:34:09 +0000
+
 ruby-foreman-snapshot-management (4.3.0-1) stable; urgency=low
 
   * 4.3.0 released
