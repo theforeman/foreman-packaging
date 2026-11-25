@@ -2,7 +2,7 @@
 %global gem_name addressable
 
 Name: rubygem-%{gem_name}
-Version: 2.9.2
+Version: 2.10.0
 Release: 1%{?dist}
 Summary: URI Implementation
 License: Apache-2.0
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 25 12:34:30 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.10.0-1
+- Update to 2.10.0
+
 * Mon Nov  2 09:16:24 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 2.9.2-1
 - Update to 2.9.2
 
