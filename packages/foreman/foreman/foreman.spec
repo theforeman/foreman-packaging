@@ -6,10 +6,10 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 1
 
 Name:    foreman
-Version: 5.0.1
+Version: 5.0.2
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -861,6 +861,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Nov 25 2026 Ondřej Gajdušek <ogajduse@redhat.com> - 5.0.2-1
+- Release foreman 5.0.2
+
 * Sun Oct 11 2026 Shimon Shtein <sshtein@redhat.com> - 5.0.1-2
 - Add ed25519 and bcrypt_pbkdf gem reference
 
