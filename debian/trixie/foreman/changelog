@@ -1,3 +1,9 @@
+foreman (5.0.2-1) stable; urgency=low
+
+  * 5.0.2 released
+
+ -- Ondřej Gajdušek <ogajduse@redhat.com>  Wed, 25 Nov 2026 17:09:44 +0100
+
 foreman (5.0.1-1) stable; urgency=low
 
   * 5.0.1 released
