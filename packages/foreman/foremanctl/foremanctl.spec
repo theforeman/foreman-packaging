@@ -1,8 +1,8 @@
 %global __brp_mangle_shebangs_exclude_from ^%{_datadir}/%{name}/collections/.*$
 
 Name:      foremanctl
-Version:   3.3.5
-Release:   3%{?dist}
+Version:   3.4.0
+Release:   1%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -72,6 +72,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Wed Nov 25 2026 Evgeni Golov - 3.4.0-1
+- Release foremanctl 3.4.0
+
 * Wed Nov 18 2026 Leos Stejskal <lstejska@redhat.com> - 3.3.5-3
 - Add Recommends on policycoreutils-python-utils
 
