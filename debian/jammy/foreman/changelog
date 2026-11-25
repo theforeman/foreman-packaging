@@ -1,3 +1,9 @@
+foreman (5.1.0~rc2-1) stable; urgency=low
+
+  * 5.1.0-rc2 released
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Wed, 25 Nov 2026 13:25:59 -0500
+
 foreman (5.1.0~rc1-1) stable; urgency=low
 
   * 5.1.0-rc1 released
