@@ -1,0 +1,5 @@
+katello-host-tools (4.5.0-1) unstable; urgency=medium
+
+  * Initial packaging
+
+ -- Bernhard Suttner <suttner@atix.de>  Mon, 01 Sep 2025 16:40:42 +0100
