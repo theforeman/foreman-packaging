@@ -2,7 +2,7 @@
 
 Name:      foremanctl
 Version:   3.4.0
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   Install Foreman using containers
 
 License:   GPL-2-only
@@ -13,6 +13,7 @@ BuildArch: noarch
 Requires:  python3.12-obsah >= 1.11.1
 
 # These are needed on the target host, which is usually localhost
+Recommends:  iproute
 Recommends:  openssl
 Recommends:  podman
 Recommends:  skopeo
@@ -72,6 +73,9 @@ cp -r build/collections/%{name} %{buildroot}%{_datadir}/%{name}/collections
 
 
 %changelog
+* Fri Nov 27 2026 Evgeni Golov - 3.4.0-2
+- Add Recommends on iproute
+
 * Wed Nov 25 2026 Evgeni Golov - 3.4.0-1
 - Release foremanctl 3.4.0
 
