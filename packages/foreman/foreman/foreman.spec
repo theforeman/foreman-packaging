@@ -6,7 +6,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -286,12 +286,12 @@ Requires: (npm(os-browserify) >= 0.3.0 with npm(os-browserify) < 1.0.0)
 Requires: (npm(patternfly) >= 3.59.5 with npm(patternfly) < 4.0.0)
 Requires: (npm(patternfly-react) >= 2.40.0 with npm(patternfly-react) < 3.0.0)
 Requires: (npm(prop-types) >= 15.6.0 with npm(prop-types) < 16.0.0)
-Requires: (npm(react) >= 16.9.0 with npm(react) < 17.0.0)
+Requires: (npm(react) >= 18.3.1 with npm(react) < 19.0.0)
 Requires: (npm(react-ace) >= 9.5.0 with npm(react-ace) < 10.0.0)
 Requires: (npm(react-diff-view) >= 2.6.0 with npm(react-diff-view) < 3.0.0)
 Requires: (npm(react-dnd) >= 14.0.2 with npm(react-dnd) < 15.0.0)
 Requires: (npm(react-dnd-html5-backend) >= 14.0.0 with npm(react-dnd-html5-backend) < 15.0.0)
-Requires: (npm(react-dom) >= 16.8.1 with npm(react-dom) < 17.0.0)
+Requires: (npm(react-dom) >= 18.3.1 with npm(react-dom) < 19.0.0)
 Requires: (npm(react-helmet) >= 6.1.0 with npm(react-helmet) < 7.0.0)
 Requires: (npm(react-intl) >= 2.8.0 with npm(react-intl) < 3.0.0)
 Requires: (npm(react-loading-skeleton) >= 1.1.2 with npm(react-loading-skeleton) < 2.0.0)
@@ -857,6 +857,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Nov 18 2026 Lukas Jezek <lukas-jezek@seznam.cz> - 5.2.0-0.2.develop
+- Require React 18.3.1
+
 * Tue Nov 10 2026 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.0-0.1.develop
 - Bump version to 5.2-develop
 
