@@ -1,10 +1,10 @@
 # template: foreman_plugin
 %global gem_name foreman_puppet
 %global plugin_name puppet
-%global foreman_min_version 5.0
+%global foreman_min_version 5.1
 
 Name: rubygem-%{gem_name}
-Version: 11.3.0
+Version: 12.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Add Puppet features to Foreman
 License: GPLv3
@@ -26,8 +26,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 
 # start package.json devDependencies BuildRequires
 BuildRequires: (npm(@babel/core) >= 7.7.0 with npm(@babel/core) < 8.0.0)
-BuildRequires: npm(@theforeman/builder) >= 10.1.0
 BuildRequires: (npm(jed) >= 1.1.1 with npm(jed) < 2.0.0)
+BuildRequires: (npm(jquery) >= 3.7.1 with npm(jquery) < 3.8.0)
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Nov 27 09:02:25 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 12.0.0-1
+- Update to 12.0.0
+
 * Mon Oct 26 12:26:20 UTC 2026 Foreman Packaging Automation <packaging@theforeman.org> - 11.3.0-1
 - Update to 11.3.0
 
