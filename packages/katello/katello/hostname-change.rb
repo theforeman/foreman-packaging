@@ -143,8 +143,7 @@ module KatelloUtilities
   You will have to install the new bootstrap rpm and reregister all clients and #{@plural_proxy} with subscription-manager
   (update organization and environment arguments appropriately):
 
-  yum remove -y katello-ca-consumer*
-  rpm -Uvh http://#{@new_hostname}/pub/katello-ca-consumer-latest.noarch.rpm
+  set -o pipefail && curl -sS "http://#{@new_hostname}/unattended/public/foreman-ca-refresh" | bash
   subscription-manager register --org="Default_Organization" --environment="Library" --force
 
   Then reattach subscriptions to the client(s) and run:
