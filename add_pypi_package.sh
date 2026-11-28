@@ -64,7 +64,7 @@ generate_pypi_package() {
   else
     RPM_NAME_ARG=""
   fi
-  pyp2rpm --no-autonc --sclize --no-meta-runtime-dep --no-meta-buildtime-dep -s -t $TEMPLATE -o epel7 -b $BASE_PYTHON -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
+  pyp2rpm --no-autonc -s -t $TEMPLATE -o epel7 -b $BASE_PYTHON -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
   # pyp2rpm does not create a newline at the end of the file, which breaks our changelog append script
   echo >> $PACKAGE_DIR/*.spec
   sed -i '/BuildRequires:.*sphinx/d' $PACKAGE_DIR/*.spec
@@ -121,7 +121,6 @@ if [[ -z $PYPI_NAME ]]; then
 fi
 
 ensure_program pyp2rpm
-ensure_program spec2scl
 
 if [[ $VERSION == "auto" ]] ; then
   ensure_program curl
